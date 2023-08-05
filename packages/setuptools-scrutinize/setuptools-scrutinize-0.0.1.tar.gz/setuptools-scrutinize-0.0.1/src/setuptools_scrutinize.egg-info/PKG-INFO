@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: setuptools-scrutinize
+Version: 0.0.1
+Summary: A Setuptools plugin
+Home-page: https://github.com/mikkoi/setuptools-scrutinize
+Author: Mikko Koivunalho
+Author-email: mikko.koivunalho@iki.fi
+License: BSD
+Description: Setuptools 'scrutinize' Command
+        ===============================
+        
+        
+        This package creates **scrutinize** as a command in setup.py.
+        
+        It will execute different code analysis tools, e.g. `pylint`.
+        
+        
+        Installation
+        ------------
+        
+        This package is published on pypi. You can use pip to install it.
+        
+        ::
+        
+            pip install setuptools-scrutinize
+        
+        
+        Usage
+        -----
+        
+        ::
+        
+            python setup.py scrutinize
+        
+        
+        For a full list of options, do
+        
+        ::
+        
+          python setup.py scrutinize --help
+        
+        .. _`pylint` : http://pypi.python.org/pypi/pylint
+        
+Keywords: scrutinize,setuptools,command
+Platform: UNKNOWN
+Classifier: Framework :: Setuptools Plugin
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: BSD License
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst

@@ -1,0 +1,14 @@
+LICENSE
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+src/setuptools_scrutinize/__init__.py
+src/setuptools_scrutinize/cmd.py
+src/setuptools_scrutinize/pylint.py
+src/setuptools_scrutinize/setuptools_command.py
+src/setuptools_scrutinize.egg-info/PKG-INFO
+src/setuptools_scrutinize.egg-info/SOURCES.txt
+src/setuptools_scrutinize.egg-info/dependency_links.txt
+src/setuptools_scrutinize.egg-info/entry_points.txt
+src/setuptools_scrutinize.egg-info/top_level.txt
