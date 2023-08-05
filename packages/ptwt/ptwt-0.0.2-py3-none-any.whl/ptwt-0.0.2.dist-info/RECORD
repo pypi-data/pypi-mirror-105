@@ -1,0 +1,11 @@
+ptwt/__init__.py,sha256=PpYv916cvoxaeXWQJkYbJUi-nEB5esJ-V3iO8bVRD2A,178
+ptwt/conv_transform.py,sha256=6uwZzuzC10BILuILle8CFCZ2gCxsW-aN08pl3P04_0I,10909
+ptwt/learnable_wavelets.py,sha256=PDGWxiGyC_66j23em-XLcAltRXi1vp3Pl7XcV7EUgCA,10155
+ptwt/matmul_transform.py,sha256=tZg1pa-ue6nD4W9WW_Paw6ehgYvkkw3kNvONJZD2RaE,7932
+ptwt/packets.py,sha256=dXXm36rZhRoSP3PuBWBBmtFaAFu_71KELkVWSzf0qr0,6030
+ptwt/version.py,sha256=zndoDo4BnFquaPmAW9p5WZgcoohu46dWduratKMWSiA,983
+ptwt-0.0.2.dist-info/LICENSE,sha256=_r6RyEBTETLRm0MUbDDID2Y3zxNUuD7aiogiQ6FTymI,14013
+ptwt-0.0.2.dist-info/METADATA,sha256=2qIJU2FAHOwmaN9-y58GKEq2YW4-1IwHFPCTeV0_tvM,2438
+ptwt-0.0.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+ptwt-0.0.2.dist-info/top_level.txt,sha256=1Gx7dKWfK4eFyO01RW5KV0STVukPuzswVrqD1AEgm3Q,5
+ptwt-0.0.2.dist-info/RECORD,,
