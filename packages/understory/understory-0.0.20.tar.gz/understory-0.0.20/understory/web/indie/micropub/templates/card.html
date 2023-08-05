@@ -1,0 +1,22 @@
+$def with (card)
+$ title = card.get("name", card["nickname"])
+$var title: $title[0]
+$var subtitle: $card["nickname"][0]
+
+<div id=urls>
+<ul>
+$for url in card.get("url", []):
+    <li>$url</li>
+</ul>
+</div>
+
+<p><strong>$card["visibility"][0]</strong></p>
+
+<script>
+_.load(() => {
+  _('#urls').append('<button id=add_url>Add</button>')
+  _('#add_url').click(() => {
+    console.log("Adding", prompt("URL"))
+  })
+})
+</script>
