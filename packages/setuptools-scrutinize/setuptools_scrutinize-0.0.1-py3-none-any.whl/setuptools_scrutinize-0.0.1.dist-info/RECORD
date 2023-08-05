@@ -1,0 +1,10 @@
+setuptools_scrutinize/__init__.py,sha256=iOzFQdeJwPULeziQH-uqVUKXT3Dd4m0KaUh7Gr_cBwI,4867
+setuptools_scrutinize/cmd.py,sha256=LJk74Jcc02LZCXXH9jFeWD_YmGKMvKY9vJojcAhR0p8,1216
+setuptools_scrutinize/pylint.py,sha256=1UePFRGHSAcj_etP0Htpt-D_bxMQbvFkfoh1apjYFnA,6851
+setuptools_scrutinize/setuptools_command.py,sha256=2EfzlFLZsrGO4UtoRoc8RuQaEEA0OHWVoVpJdAYbx3s,6790
+setuptools_scrutinize-0.0.1.dist-info/LICENSE,sha256=m9lYlvCmP14D-PeVFZLs-WUQHMO1392QC-jKaCvo2Ao,669
+setuptools_scrutinize-0.0.1.dist-info/METADATA,sha256=MnMR5rZlLthhzr9BX5GKTqOx4Z0igcV219t1wsBOuh8,1132
+setuptools_scrutinize-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+setuptools_scrutinize-0.0.1.dist-info/entry_points.txt,sha256=yz5vVB77zo6Wmq5LYhHL8T_KiMwptAgn4GCsxy944Yw,204
+setuptools_scrutinize-0.0.1.dist-info/top_level.txt,sha256=7Hm37BSh-hbnosbpC21Qw0dOKvHO6U-3L2pmJ8jz_os,22
+setuptools_scrutinize-0.0.1.dist-info/RECORD,,
