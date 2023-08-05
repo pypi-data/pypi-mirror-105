@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/archer/projects/pyxirr/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210110.0/
+InvalidPaymentsError	src/xirr.rs	/^impl Display for InvalidPaymentsError {$/;"	c
+InvalidPaymentsError	src/xirr.rs	/^impl Error for InvalidPaymentsError {}$/;"	c
+InvalidPaymentsError	src/xirr.rs	/^pub struct InvalidPaymentsError;$/;"	s
+Payment	src/xirr.rs	/^pub struct Payment {$/;"	s
+amount	src/xirr.rs	/^    pub amount: f64,$/;"	m	struct:Payment
+benchmark	benches/main.rs	/^pub fn benchmark(c: &mut Criterion) {$/;"	f
+compute_with_guess	src/xirr.rs	/^fn compute_with_guess(payments: &Vec<Payment>, deltas: &Vec<f64>, guess: f64) -> f64 {$/;"	f
+date	src/xirr.rs	/^    pub date: NaiveDate,$/;"	m	struct:Payment
+extract_date	src/lib.rs	/^fn extract_date(date: &PyDate) -> NaiveDate {$/;"	f
+extract_iterable	src/lib.rs	/^fn extract_iterable<'a, T>(py: Python<'a>, values: &PyAny) -> PyResult<Vec<T>>$/;"	f
+extract_payments_from_iterables	src/lib.rs	/^fn extract_payments_from_iterables($/;"	f
+extract_payments_from_list_of_tuples	src/lib.rs	/^fn extract_payments_from_list_of_tuples(py: Python, data: &PyAny) -> PyResult<Vec<Payment>> {$/;"	f
+fmt	src/xirr.rs	/^    fn fmt(&self, f: &mut Formatter) -> fmt::Result {$/;"	P	implementation:InvalidPaymentsError
+main	src/main.rs	/^fn main() {$/;"	f
+precalculate_deltas	src/xirr.rs	/^fn precalculate_deltas(payments: &Vec<Payment>) -> Vec<f64> {$/;"	f
+pyxirr	src/lib.rs	/^fn pyxirr(py: Python, m: &PyModule) -> PyResult<()> {$/;"	f
+test_xirr	tests/test_xirr.rs	/^fn test_xirr() {$/;"	f
+test_xirr_unordered	src/xirr.rs	/^    fn test_xirr_unordered() {$/;"	f	module:tests
+test_xnpv	src/xirr.rs	/^    fn test_xnpv() {$/;"	f	module:tests
+tests	src/xirr.rs	/^mod tests {$/;"	n
+validate	src/xirr.rs	/^fn validate(payments: &Vec<Payment>) -> Result<(), InvalidPaymentsError> {$/;"	f
+xirr	src/lib.rs	/^mod xirr;$/;"	n
+xirr	src/lib.rs	/^pub fn xirr($/;"	f
+xirr	src/xirr.rs	/^pub fn xirr(payments: &Vec<Payment>, guess: Option<f64>) -> Result<f64, InvalidPaymentsError> {$/;"	f
+xirr_result	src/xirr.rs	/^fn xirr_result(payments: &Vec<Payment>, deltas: &Vec<f64>, rate: f64) -> f64 {$/;"	f
+xirr_result_deriv	src/xirr.rs	/^fn xirr_result_deriv(payments: &Vec<Payment>, deltas: &Vec<f64>, rate: f64) -> f64 {$/;"	f
+xnpv	src/lib.rs	/^pub fn xnpv(py: Python, rate: f64, dates: &PyAny, amounts: Option<&PyAny>) -> PyResult<f64> {$/;"	f
+xnpv	src/xirr.rs	/^pub fn xnpv(rate: f64, payments: &Vec<Payment>) -> Result<f64, InvalidPaymentsError> {$/;"	f
