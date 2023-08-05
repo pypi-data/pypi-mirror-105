@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: konfuzio-sdk
+Version: 0.1.0
+Summary: Konfuzio Software Development Kit
+Home-page: https://github.com/konfuzio-ai/document-ai-python-sdk
+Author: Helm & Nagel GmbH
+Author-email: info@helm-nagel.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: Pillow
+Requires-Dist: filetype
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: python-dateutil
+Requires-Dist: python-decouple
+Requires-Dist: requests
+Requires-Dist: tabulate
+Requires-Dist: tqdm
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: m2r2 ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pydocstyle ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-reload ; extra == 'dev'
+
+UNKNOWN
+
+
