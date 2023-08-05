@@ -1,0 +1,9 @@
+VipStock/VERSION.txt,sha256=axN4nkPlSFY0Uz3hamXYup00xMl1hYi2ZYBUNfgOsRU,5
+VipStock/__init__.py,sha256=xFn7hAgM9WLpNgZOzXUmdUIJ4147RT7QDsxibqEHPNM,169
+VipStock/crawl.py,sha256=Ed_JZyRndNMDzXq-lDjaqJSVmk8po08-LDMPaHqEfAk,33204
+VipStock/info.py,sha256=cvFgkyeK2jocTDVqqrWHZ9bcQ8SzKhi2_wivZVuEXGc,43121
+VipStock/spider.py,sha256=9huLmsWk8kExeWfH6OyfDndvsLCoE9-JqRK0BG1YZ_A,19173
+vipstock-0.0.1.dist-info/METADATA,sha256=NfUFn3_Bywy1jOYvF28eARRgVwEt32KqxkM9aypR5QI,2445
+vipstock-0.0.1.dist-info/WHEEL,sha256=D1Wh14kWDxPnrM-5t_6UCB-UuQNrEODtRa3vF4OsvQY,97
+vipstock-0.0.1.dist-info/top_level.txt,sha256=DLPPo4bylU5fyP-drA36ZA1E8YBQKz_x-wvegy0J4J4,9
+vipstock-0.0.1.dist-info/RECORD,,
