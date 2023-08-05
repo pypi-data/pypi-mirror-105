@@ -1,0 +1,7 @@
+requests
+tqdm
+ipdb
+fastprogress
+fastscript
+opencv-python
+nbdev==1.1.5
