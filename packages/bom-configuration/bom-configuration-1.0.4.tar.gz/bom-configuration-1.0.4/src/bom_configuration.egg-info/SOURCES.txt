@@ -1,0 +1,14 @@
+CHANGELOG.md
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/bom/configuration/__init__.py
+src/bom/configuration/py.typed
+src/bom_configuration.egg-info/PKG-INFO
+src/bom_configuration.egg-info/SOURCES.txt
+src/bom_configuration.egg-info/dependency_links.txt
+src/bom_configuration.egg-info/namespace_packages.txt
+src/bom_configuration.egg-info/not-zip-safe
+src/bom_configuration.egg-info/top_level.txt
