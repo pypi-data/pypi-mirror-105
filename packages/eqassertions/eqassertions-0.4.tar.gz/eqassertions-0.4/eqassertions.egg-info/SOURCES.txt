@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.rst
+noxfile.py
+pyproject.toml
+setup.cfg
+setup.py
+.github/workflows/package.yml
+.github/workflows/python.yml
+eqassertions/__init__.py
+eqassertions.egg-info/PKG-INFO
+eqassertions.egg-info/SOURCES.txt
+eqassertions.egg-info/dependency_links.txt
+eqassertions.egg-info/requires.txt
+eqassertions.egg-info/top_level.txt
+tests/test_it.py

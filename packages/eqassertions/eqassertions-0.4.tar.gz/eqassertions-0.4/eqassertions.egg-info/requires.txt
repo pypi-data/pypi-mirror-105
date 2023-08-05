@@ -1,0 +1,10 @@
+
+[dev]
+build
+nox
+flake8
+
+[testing]
+pytest
+pytest-cov
+pytest-randomly
