@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+quickai/quickai.egg-info/PKG-INFO
+quickai/quickai.egg-info/SOURCES.txt
+quickai/quickai.egg-info/dependency_links.txt
+quickai/quickai.egg-info/requires.txt
+quickai/quickai.egg-info/top_level.txt
