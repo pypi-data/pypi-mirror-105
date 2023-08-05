@@ -1,0 +1,12 @@
+trueface_utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+trueface_utils/memsql.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+trueface_utils/server.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+trueface_utils/streaming.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+trueface_utils/tracking.py,sha256=s31OanrW3P8EFVOnPby6YEnKGqzAf59n914SHvpYfio,18236
+trueface_utils/utils.py,sha256=5QHLhN2wVZL0TPk6FMzkKOxD6RApv_gTzoSSR2Gsfao,6746
+trueface_utils-0.0.4.dist-info/DESCRIPTION.rst,sha256=n6UBIIyDRcXEs7kPAZf_A4TEPOMSZGfUcEmcO-WHw44,15
+trueface_utils-0.0.4.dist-info/METADATA,sha256=uGV9wMvF-0rIWOGfDexJH6_uk1ZfrjSs0zMvDqC41xY,370
+trueface_utils-0.0.4.dist-info/RECORD,,
+trueface_utils-0.0.4.dist-info/WHEEL,sha256=8Lm45v9gcYRm70DrgFGVe4WsUtUMi1_0Tso1hqPGMjA,92
+trueface_utils-0.0.4.dist-info/metadata.json,sha256=SklmzHaAe9hLdzywBxZXm2H7iYE2-ucDJS61FyE2Yjo,537
+trueface_utils-0.0.4.dist-info/top_level.txt,sha256=PRtep3BVpqlRG-LP2fUNzZUmweP_Pnc_QTr5W6rjt4I,15
