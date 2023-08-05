@@ -1,0 +1,13 @@
+cdxj_indexer/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cdxj_indexer/amf.py,sha256=g49dDEyTN_IFdZ7BCf2uFVRW9CTGO9WKUPH5fdDHNEM,2802
+cdxj_indexer/cdxj_indexer.py,sha256=91a6DRw7f38CMrPWy85Grr6emAs8XbivKwwB1W8Bj1M,9931
+cdxj_indexer/digestreader.py,sha256=fVHqnlSOivx7GghhNjS4yIihiTW6-CYHukWANgClAOU,616
+cdxj_indexer/main.py,sha256=M_7TKMQXgcfqYbFnSbVzBpj-KTt3pnQOcmRGBPiXutw,18063
+cdxj_indexer/postquery.py,sha256=L85eh5zqFrJ6rvub4Wv1d-90_w7br7LXJu7yDnvbfyc,4132
+cdxj_indexer-1.4.0.dist-info/LICENSE,sha256=tAkwu8-AdEyGxGoSvJ2gVmQdcicWw3j1ZZueVV74M-E,11357
+cdxj_indexer-1.4.0.dist-info/METADATA,sha256=WlQBmzr-tSZjlnMGXrd4G0QfqrFLH7h7ZjEDr4SIQDk,3431
+cdxj_indexer-1.4.0.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+cdxj_indexer-1.4.0.dist-info/entry_points.txt,sha256=i3BP7au8UJcsZUPELizlS8QmnAEfbpet0YcjZYLNtI4,75
+cdxj_indexer-1.4.0.dist-info/top_level.txt,sha256=Jbwv4iLtr1mfJ0t5ItLHliRVTmh8P-F_y2C1BhvTLCg,13
+cdxj_indexer-1.4.0.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+cdxj_indexer-1.4.0.dist-info/RECORD,,
