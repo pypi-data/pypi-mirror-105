@@ -1,0 +1,20 @@
+CHANGES
+=======
+
+
+1.1.1 (2021-05-07)
+------------------
+
+- Throttle paginated requests to avoid hitting the rate limit.
+
+
+1.1.0 (2019-10-02)
+------------------
+
+- Use default prometheus histograms with "le" buckets
+
+
+1.0.0 (2019-09-09)
+------------------
+
+- First release.
