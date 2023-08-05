@@ -1,0 +1,6 @@
+README.md
+xsstrike.egg-info/PKG-INFO
+xsstrike.egg-info/SOURCES.txt
+xsstrike.egg-info/dependency_links.txt
+xsstrike.egg-info/top_level.txt
+xsstrike.egg-info/zip-safe
