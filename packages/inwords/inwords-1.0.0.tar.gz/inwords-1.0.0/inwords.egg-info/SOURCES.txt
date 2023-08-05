@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+inwords/__init__.py
+inwords/words.py
+inwords.egg-info/PKG-INFO
+inwords.egg-info/SOURCES.txt
+inwords.egg-info/dependency_links.txt
+inwords.egg-info/not-zip-safe
+inwords.egg-info/requires.txt
+inwords.egg-info/top_level.txt
