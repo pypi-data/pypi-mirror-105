@@ -1,0 +1,4 @@
+torch>=1.7
+biopython>=1.78
+scikit-learn>=0.23
+tqdm
