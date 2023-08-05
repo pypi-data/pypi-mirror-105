@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+tox.ini
+src/__init__.py
+src/facedetectmodule.py
+src/facemeshmodule.py
+src/helloworld.py
+src/mediapipeface.egg-info/PKG-INFO
+src/mediapipeface.egg-info/SOURCES.txt
+src/mediapipeface.egg-info/dependency_links.txt
+src/mediapipeface.egg-info/requires.txt
+src/mediapipeface.egg-info/top_level.txt
