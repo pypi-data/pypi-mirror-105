@@ -1,0 +1,14 @@
+*.pyc
+*.pyo
+*.so
+*.dll
+fastparquet/speedups.c
+.coverage
+.eggs
+cover
+build
+dist
+fastparquet.egg-info
+.idea
+.cached
+/.cache
