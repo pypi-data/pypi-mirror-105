@@ -1,0 +1,5 @@
+GramAddict
+config-examples
+crashes
+logs
+res
