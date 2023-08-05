@@ -1,0 +1,10 @@
+abstract_melody_parser/__init__.py,sha256=coAkqbizvjQ1I0wI9ZuZukiHWDsf5eaMCy5Kwzd4CWM,78
+abstract_melody_parser/chords.py,sha256=5H9bE-MHfqnOi4wkt3ReejTPp8pN3STi8_NI1FTrP4Y,231
+abstract_melody_parser/melody.py,sha256=LQXZ31QGjxK6hflCVfIqiK2RREetkctg8pxYBJv3o6Q,1612
+abstract_melody_parser/midi_note_queue.py,sha256=NqlJVPiyMGMljs7podVg8Vr5gohqU3laoXWMJUSS414,4072
+abstract_melody_parser/rhythm.py,sha256=XI5kd8IbHhCmSy7BQruFystw_BzGNojls9NRxh7MFJg,2820
+abstract_melody_parser-0.0.2.dist-info/LICENSE,sha256=1O50UfexR1qRmsBxAaCHJUHb6QkG0ay6QzWffZa_WFA,1095
+abstract_melody_parser-0.0.2.dist-info/METADATA,sha256=72lBQFIlZcabkikURNVda0NFA8HA0Rpx7DJuVW2VcMA,6487
+abstract_melody_parser-0.0.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+abstract_melody_parser-0.0.2.dist-info/top_level.txt,sha256=hVS_VYJEctX2jC__F8hW5ZPLpydSVFuUEmTAmthU_0I,23
+abstract_melody_parser-0.0.2.dist-info/RECORD,,
