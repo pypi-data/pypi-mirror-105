@@ -1,0 +1,17 @@
+$def with (cards)
+$var title: Cards
+
+<form action=/pub method=post>
+<input type=hidden name=h value=card>
+<div><label>Nickname <input name=nickname[]></label></div>
+<button>Add</button>
+</form>
+
+<ul>
+$for c in cards:
+    $ r = c["resource"]
+    <li>
+    <p><a href=/pub/cards/$r["nickname"][0]>$r["nickname"][0]</a></p>
+    <pre>$pformat(r)</pre>
+    </li>
+</ul>
