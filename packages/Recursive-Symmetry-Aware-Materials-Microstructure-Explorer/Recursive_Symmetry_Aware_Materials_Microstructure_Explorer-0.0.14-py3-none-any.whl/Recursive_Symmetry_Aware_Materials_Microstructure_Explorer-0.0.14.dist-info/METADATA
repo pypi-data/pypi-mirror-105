@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: Recursive-Symmetry-Aware-Materials-Microstructure-Explorer
+Version: 0.0.14
+Summary: Tool for recursive symmetry aware searching of materials microstructure images
+Home-page: UNKNOWN
+Author: Tri N. M. Nguyen, Yichen Guo, Shuyu Qin, Joshua C. Agar
+Author-email: jca318@lehigh.edu
+License: BSD-3-Clause
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: matplotlib (==3.2.2)
+Requires-Dist: numpy (==1.18.5)
+Requires-Dist: pandas (==1.0.5)
+Requires-Dist: pillow (==7.2.0)
+Requires-Dist: bokeh (==2.1.1)
+Requires-Dist: tqdm (==4.47.0)
+Requires-Dist: setuptools (==49.2.0)
+Requires-Dist: torch (==1.8.1)
+Requires-Dist: selenium
+Requires-Dist: umap-learn
+Requires-Dist: torchvision
+
+UNKNOWN
+
+
