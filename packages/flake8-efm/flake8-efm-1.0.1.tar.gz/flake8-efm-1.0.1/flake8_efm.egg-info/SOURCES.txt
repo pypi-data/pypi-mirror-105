@@ -1,0 +1,12 @@
+.gitignore
+LICENCE
+README.rst
+flake8_efm.py
+setup.py
+.builds/build.yml
+flake8_efm.egg-info/PKG-INFO
+flake8_efm.egg-info/SOURCES.txt
+flake8_efm.egg-info/dependency_links.txt
+flake8_efm.egg-info/entry_points.txt
+flake8_efm.egg-info/requires.txt
+flake8_efm.egg-info/top_level.txt
