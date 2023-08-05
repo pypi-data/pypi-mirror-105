@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: pyjitroundnumber
+Version: 0.0.1
+Summary: decimal number round roundup rounddown
+Home-page: https://PichaiLimpanitivat@bitbucket.org/python-package/pyjitroundnumber.git
+Author: PichaiLim
+Author-email: Pichai.Limpanitivat@gmail.com
+License: UNKNOWN
+Keywords: pyJitRoundNumber jitRoundNumber decimal number round roundUp roundDown
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# JitUtils
+
+Power By
+[![N|Solid](https://www.jitinnotech.com/wp-content/uploads/2018/05/cropped-jitinnotech-logo.png)](https://www.jitinnotech.com)
+
+## Description
+
+> Package จัดทำขึ้นมาเพื่อในการปัดเศษทศนิยม
+
+---
+
+## Features
+- Function `round_up()` : ใช้ในการปัดเศษทศนิยม ขึ้น ⬆⬆
+- Function `round_down()` : ใช้ในการปัดเศษทศนิยม ลง ⬇⬇
+
+
+## Example coding [[main.py](src/main.py)]
+```python
+from src.py_jit_round_number.jit_round_up_down import JitRoundNumber
+
+listNumber = [12.34567890, -12.34567890, 0.54321, -0.54321, 1.1, -1.5, 1.23, 1.543, 22.45, 1352]
+
+''' round_up '''
+print('Round Up')
+i = 0
+for j in range(0, 5):
+    for l in listNumber:
+        print(f"ทศนิยม {j} ตำแหน่ง : {JitRoundNumber(number=l, decimals=j).round_up()}")
+
+    i += j
+    if j <= i:
+        print('\r\t\n')
+```
+
+```python
+''' round_down '''
+listNumber = [12.34567890, -12.34567890, 0.54321, -0.54321, 1.1, -1.5, 1.23, 1.543, 22.45, 1352]
+print('Round Down')
+i = 0
+for j in range(0, 5):
+    for l in listNumber:
+        print(f"ทศนิยม {j} ตำแหน่ง : {JitRoundNumber(number=l, decimals=j).round_down()}")
+
+    i += j
+    if j <= i:
+        print('\r\t\n')
+
+```
+
+---
+## Test number digit
+ค่าที่ใช้ในการทดสอบการเขียน [(Unit testing)](tests/test_pyJitRoundNumber.py) ตามตารางด้านล่างนี้ โดนมีการเรียกใช้ในส่วนของ `Class JitRoundNumber()` ออกมาใช้งานตามข้างต้นที่ได้กล่าวมา [File Testing (Unit testing)](tests/test_pyJitRoundNumber.py)
+
+### Round Up (ปัดเศษทศนิยมขึ้น)
+| Value | Round Up TO | Result |
+| --- | --- | --- |
+| 12.3456789 | ทศนิยม 0 ตำแหน่ง | 13 หรือ 13.0 |
+| 12.3456789 | ทศนิยม 1 ตำแหน่ง | 12.4 |
+| 12.3456789 | ทศนิยม 2 ตำแหน่ง | 12.35 |
+| 12.3456789 | ทศนิยม 3 ตำแหน่ง | 12.346 |
+| 12.3456789 | ทศนิยม 4 ตำแหน่ง | 12.3457 |
+
+### Round Down (ปัดเทศทศนิยลง)
+| Value | Round Down TO | Result |
+| --- | --- | --- |
+| 12.3456789 | ทศนิยม 0 ตำแหน่ง | 12 หรือ 12.0 |
+| 12.3456789 | ทศนิยม 1 ตำแหน่ง | 12.3 |
+| 12.3456789 | ทศนิยม 2 ตำแหน่ง | 12.34 |
+| 12.3456789 | ทศนิยม 3 ตำแหน่ง | 12.345 |
+| 12.3456789 | ทศนิยม 4 ตำแหน่ง | 12.3456 |
+
+---
+
+# Referent Knowledge
+- [realpython.com](https://realpython.com/python-rounding/) `python-rounding`
+- [kodify.net](https://kodify.net/python/math/round-integers/#round-up-to-the-next-integer-pythons-mathceil-function) `round-up-to-the-next-integer-pythons-mathceil-function`
+- [kodify.net](https://kodify.net/python/math/round-decimals/) `round-decimals`
+- [knowledgehut.com](https://www.knowledgehut.com/blog/programming/python-rounding-numbers) `python-rounding-numbers`
+- String format operation example with `python 3.6` upper version
+  - `f"{12.3456:.2f}"` -> output `12.35`
+  - `f"{1200.3456:,.2f}"` -> output `1,200.35`
+  - `{:.2f}.format(number)"` -> output `12.35`
+  - `{:,.2f}.format(currency_value)` -> output `1,200.35`
+
