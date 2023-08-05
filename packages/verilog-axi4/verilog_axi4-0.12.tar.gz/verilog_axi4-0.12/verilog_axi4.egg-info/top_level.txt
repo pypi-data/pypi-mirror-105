@@ -1,0 +1,8 @@
+axi_ar_channel
+axi_aw_channel
+axi_b_channel
+axi_connectN
+axi_parameter
+axi_r_channel
+axi_w_channel
+verilog_axi4
