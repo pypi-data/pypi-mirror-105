@@ -1,0 +1,3 @@
+[console_scripts]
+tem = tem.__main__:main
+

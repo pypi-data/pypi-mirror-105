@@ -1,0 +1,15 @@
+tem/__init__.py,sha256=Npq_chDcEQOOJ-90uehTQK6vKV3cLNKehp882p_p118,44
+tem/__main__.py,sha256=8p1vPTaUfkllYiWXXt95Zz109eMYcrbgluzK0YPUfqM,2799
+tem/add.py,sha256=N6dEpjw5xDm6ZLsXzjhAQd4n6HMVSfnDwyG3I5gTvlU,2661
+tem/common.py,sha256=EFoP7j8ldh9jVtox9S4fyvMOMEia6UEuRKQ9rH4hykw,9261
+tem/config.py,sha256=2LbOeMHatjIAt-rFrZWnSt2bNmSIn0IsR-IE9pIAhDE,5735
+tem/ext.py,sha256=16JRGaESr-qsktqub-O0-jMA-zrIZfku_LJYcSAKHkA,1333
+tem/ls.py,sha256=pZKhqXtMyTU27l6xnbjCCp5vKs15uMg5ldsoxiTVFXk,4125
+tem/put.py,sha256=FgDwaoUAf2H8dNrObh4WmERMKTxQXAoHB0AEQ4ueNKo,2521
+tem/repo.py,sha256=9mQejIhgM3C_tlS16VJKppuGJtQodgdWloG7MOji98Y,2404
+tem/rm.py,sha256=-ux3ZZk9G1Qi4oxNAALxsf1lOzH4_icwoLYIILYm3ps,526
+tem-0.0.0.dist-info/METADATA,sha256=amm7teIn1CoxPcpyBFP1otLSKgv2iX4Mcudjm-WOt6c,474
+tem-0.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+tem-0.0.0.dist-info/entry_points.txt,sha256=-nCxgEg-04PavxWwxunhCsKnitm4q2S01_wwU2qT9Xg,43
+tem-0.0.0.dist-info/top_level.txt,sha256=48dbf07dA1oKfOww2X-4B-8i37534D7r9sa3vHNlpPs,4
+tem-0.0.0.dist-info/RECORD,,
