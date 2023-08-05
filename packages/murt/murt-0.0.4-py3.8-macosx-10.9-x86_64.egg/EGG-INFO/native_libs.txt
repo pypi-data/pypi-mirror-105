@@ -1,0 +1,2 @@
+murt/calculator.cpython-38-darwin.so
+murt/core.cpython-38-darwin.so
