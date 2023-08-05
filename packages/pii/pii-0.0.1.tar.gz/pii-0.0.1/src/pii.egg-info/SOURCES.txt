@@ -1,0 +1,10 @@
+LICENSE
+README.rst
+setup.cfg
+setup.py
+src/pii/__init__.py
+src/pii/py.typed
+src/pii.egg-info/PKG-INFO
+src/pii.egg-info/SOURCES.txt
+src/pii.egg-info/dependency_links.txt
+src/pii.egg-info/top_level.txt
