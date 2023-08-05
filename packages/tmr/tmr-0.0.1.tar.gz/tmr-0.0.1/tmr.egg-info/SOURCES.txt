@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+tmr/__init__.py
+tmr.egg-info/PKG-INFO
+tmr.egg-info/SOURCES.txt
+tmr.egg-info/dependency_links.txt
+tmr.egg-info/not-zip-safe
+tmr.egg-info/top_level.txt
