@@ -1,0 +1,23 @@
+Metadata-Version: 1.2
+Name: Jong
+Version: 1.0.4
+Summary: https://github.com/Syniez/Syniez_module.git
+Home-page: https://github.com/Syniez/Syniez_module.git
+Author: Syniez
+Author-email: js990204@naver.com
+License: MIT
+Description: # Syniez_module
+        Python modules for my convenience 
+        
+        ## Usage
+        pip install Jong
+        
+        ### functions
+        You can see source code in functions.py file
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
