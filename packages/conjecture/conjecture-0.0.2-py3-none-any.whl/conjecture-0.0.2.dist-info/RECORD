@@ -1,0 +1,12 @@
+conjecture/__init__.py,sha256=r-LHBXE3LktascgDEp9qC66yNYhLQon9DoqmIoFHTxY,843
+conjecture/base.py,sha256=TEGZkxZ_ThwkN-i9s0g7R83gXpyxN-UIqsA5qAHrHng,3822
+conjecture/general.py,sha256=Ht2wiBPIqAIJVaeF_pi7f70IisC9JgyKLq5Wi9yPqYM,1462
+conjecture/object.py,sha256=KhCf6gdE1Dw7Vrkc_72JZ9GVyYlcegihBymwjcx5b4M,475
+conjecture/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+conjecture/rich.py,sha256=hQ_0XkkY__RO52UWfFqOKb6mQeOcmFNIWDoWETg4Qqk,1717
+conjecture/sized.py,sha256=9jTcgV4uJBe8e0eJ30BzourNKWRu4AJjMaMZS-lmAZY,869
+conjecture/string.py,sha256=6bxNq5ehJDq7cQskOYDljP40p35wOwqqd3nelzoIsd0,1229
+conjecture-0.0.2.dist-info/LICENSE,sha256=khtqt8Pzg1zRqdMJWnHl2lVZ4OgtP3MHGPfCCfA0Cls,1072
+conjecture-0.0.2.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+conjecture-0.0.2.dist-info/METADATA,sha256=KvSs6m4547MkrQiZwsT2khmG-izJmw0lQlNQCt3Ou64,3179
+conjecture-0.0.2.dist-info/RECORD,,
