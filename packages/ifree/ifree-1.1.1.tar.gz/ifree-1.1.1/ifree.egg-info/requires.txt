@@ -1,0 +1,15 @@
+dicom2nifti
+dicompyler-core
+lifelines
+itk
+minepy
+numpy
+numpy>=1.15.4
+pandas>=0.24.2
+pyradiomics
+scikit-image>=0.14
+scipy
+SimpleITK
+sklearn
+tqdm
+vtk
