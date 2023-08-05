@@ -1,0 +1,8 @@
+LICENSE
+README.md
+REPIC.py
+setup.py
+REPIC.egg-info/PKG-INFO
+REPIC.egg-info/SOURCES.txt
+REPIC.egg-info/dependency_links.txt
+REPIC.egg-info/top_level.txt
