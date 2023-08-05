@@ -1,0 +1,12 @@
+dogehouse/__init__.py,sha256=CVxEmJBbHChpTqRKTzVNyQ4c3W7aNdJdnXxvc9kYt0o,11212
+dogehouse/constants.py,sha256=JatLMZIS18RkuN2l2-30-KU0HP_Zv0ysordWH5o_bdQ,933
+dogehouse/entities.py,sha256=2CaprG4kHvhfad9DG0Erjz2XzObBVcA6NRCCmqp7yqQ,957
+dogehouse/events.py,sha256=HiiEzLCKPqEsR5wOFOGfQC8R0oZGfId7jmewHvgoxVs,1445
+dogehouse/parsers.py,sha256=a2OBUBSkA_Iqsll_bJD8th-C5LptBi5nrZ-GcYre4ig,6135
+dogehouse/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dogehouse/util.py,sha256=DwrV6PbYGOeGjWwDL7X72PIpckI9lbuE0cgMXmN5gJQ,1893
+dogehouse-3.0.1.dist-info/LICENSE,sha256=sQd7Jp0qFbfA1W59OmE4tK4LH7go_UtS6n3eHNayJr0,1072
+dogehouse-3.0.1.dist-info/METADATA,sha256=8Ryp7QfQeaAdQuOH76YAXw3h7SK_ggrODz5gKWAGAqI,2054
+dogehouse-3.0.1.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+dogehouse-3.0.1.dist-info/top_level.txt,sha256=bGo5IWNxuUOwvJvtNzWqnygbtt5jFyCFdAdnVcwyO4o,10
+dogehouse-3.0.1.dist-info/RECORD,,
