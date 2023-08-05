@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: zxpy
+Version: 0.1.1
+Summary: UNKNOWN
+Home-page: https://github.com/tusharsadhwani/zxpy
+Author: Tushar Sadhwani
+Author-email: tushar.sadhwani000@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# zxpy
+
+Shell scripts made simple
+
+> Note: Work in progress. Most of the functionality will be added pretty soon
+
+## Installation
+
+`pip install zxpy`
+
+## Example
+
+Make a file `example.zxpy`
+
+```python
+#! /usr/bin/env zxpy
+~'echo Hello world!'
+
+file_count = ~'ls -1 | wc -l'
+
+~"echo 'file count is:'"
+print(file_count)
+```
+
+Output:
+
+```bash
+$ ./example.zxpy
+Hello world!
+File count is:
+9
+```
+
+
