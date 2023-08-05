@@ -1,0 +1,9 @@
+README.md
+setup.py
+pynotices/__init__.py
+pynotices/pynotice.py
+pynotices.egg-info/PKG-INFO
+pynotices.egg-info/SOURCES.txt
+pynotices.egg-info/dependency_links.txt
+pynotices.egg-info/requires.txt
+pynotices.egg-info/top_level.txt

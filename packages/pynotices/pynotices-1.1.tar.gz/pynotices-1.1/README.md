@@ -1,0 +1,80 @@
+## pynotices是什么?
+是一个python3开发的发送信息模块
+## 支持内容？
+
+* 支持非ssl和ssl的EMAIL
+* 钉钉webhook机器人
+* 企业微信自定义应用
+* 企业微信webhook机器人
+* 飞书webhook机器人
+
+####TODO
+* 短信平台(主流)、微信方糖 、telegram
+
+### 安装
+* ##### 一步到胃
+```bash
+pip install pynotices
+```
+* ##### 多步安装
+需要先安装requests模块
+```bash
+pip install requests
+```
+下载alter.py到你的项目，建议alter.py的目录有一个__init__.py的空白文件
+### 使用
+* ##### 钉钉webhook机器人
+``` python
+import pynotice
+dtack = pynotice.DinTalk("e897e8fec**********") #webhook地址，只需要webhook=后面的值
+ret = dtack.sendmessage("13996438187","消息") #发送的用户，以及发送的消息，多用户使用"user1|user2|user3"
+if ret["errcode"]:
+    print("发送成功")
+else:
+    print(ret["errmessage"])
+```
+* ##### EMAIL
+``` python
+import pynotice
+smtp = pynotice.Email("发件人账号","发件人密码",smtp = "smtp地址",smtp_port="smtp端口 int",smtp_ssl=False)#默认ssl是True
+ret = smtp.sendmessage("收件人账号",'标题','内容')
+if ret["errcode"]:
+    print("发送成功")
+else:
+    print(ret["errmessage"])
+```
+* ##### 企业微信自定义应用
+``` python
+import pynotice
+corpid = "企业的ID"
+secret = "自定义应用secret"
+agentid = "自定义应用agentid"
+webcat = pynotice.WeiXin(corpid,secret,agentid)
+ret = webcat.sendmessage("消息接受者（在企业微信后台查看的账号）", "发送内容")
+if ret["errcode"]:
+    print("发送成功")
+else:
+    print(ret["errmessage"])
+```
+
+* ##### 企业微信webhook机器人
+``` python
+import pynotice
+wxbot = pynotice.weixinbot("eb0507ea-264b-***-******") #webhook地址，只需要webhook=后面的值
+ret = wxbot.sendmessage("消息") #发送的消息
+if ret["errcode"]:
+    print("发送成功")
+else:
+    print(ret["errmessage"])
+```
+
+* ##### 飞书webhook机器人
+``` python
+import pynotice
+fsbot = pynotice.FeiShu("eb0507ea-264b-***-******") #webhook地址，只需要webhook=后面的值
+ret = fsbot.sendmessage("消息") #发送的消息
+if ret["errcode"]:
+    print("发送成功")
+else:
+    print(ret["errmessage"])
+```
