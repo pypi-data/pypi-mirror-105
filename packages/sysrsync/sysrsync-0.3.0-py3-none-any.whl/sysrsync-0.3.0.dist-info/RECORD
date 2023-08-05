@@ -1,0 +1,11 @@
+sysrsync/__init__.py,sha256=mxrz4AA739wcMhMQMrQFcB2kD2NtLFjlDeH4ZYauATg,53
+sysrsync/command_maker.py,sha256=kIVA-4HQSaLFAfPThTwe8z20UgStXPfi1ZzBzJQnYwc,1427
+sysrsync/exceptions.py,sha256=keDJga2V9oMVQDr6J-WKGlGwxl4xkE-AIMQbdADEoVw,194
+sysrsync/helpers/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sysrsync/helpers/directories.py,sha256=-Cc0UckkF7EmBuk3NnWGcooJhRBNMH9n8Biudc2KsPQ,839
+sysrsync/helpers/iterators.py,sha256=UPIzWigX7tlKOsVr7KvIaWW2UOSF6So2_UypRlgYnvw,376
+sysrsync/runner.py,sha256=Y6HuTXk8j4TOWZCgKUFLcqdJ9YS9moGD0iX8q7lby14,729
+sysrsync-0.3.0.dist-info/LICENSE,sha256=hAMTyusGIGczeTnFR7CxUgWwLmjGEyTk9vWHR7q1-nA,1078
+sysrsync-0.3.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+sysrsync-0.3.0.dist-info/METADATA,sha256=5DZ1L3gadAqWs9TardLXVG8FLVRgydsRcMOvKypL0O0,486
+sysrsync-0.3.0.dist-info/RECORD,,
