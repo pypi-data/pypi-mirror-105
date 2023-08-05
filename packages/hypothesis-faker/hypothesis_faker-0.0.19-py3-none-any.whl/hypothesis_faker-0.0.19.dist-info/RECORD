@@ -1,0 +1,13 @@
+hypothesis_faker/__init__.py,sha256=emc1rqVg5KOgpbPjLPxwdH7Sckj8q3DkPMlbgNCYodk,3126
+hypothesis_faker/providers/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hypothesis_faker/providers/color.py,sha256=6omD2313t8Ig5jDoQu7qxG9gvXPL8ZUEoLqS2rWceAc,3800
+hypothesis_faker/providers/file.py,sha256=8JIkKzjN-FJ9aLH5KlmiDpEFPWTtsHrdLBdvuGl0lL4,4204
+hypothesis_faker/providers/lorem.py,sha256=v7EK01A8j5pUf31_cpSwNvDz6DN-40JnnVdUIZNaC08,1790
+hypothesis_faker/providers/person.py,sha256=qhF3H6qh4dkgUE_puAXd_9vPqnFR7iRkc_n3TAQb5RE,4090
+hypothesis_faker/providers/phone_number.py,sha256=2o5-Qubr8bi3FJ74HIrSJ5k4jUJhRQ4qcEY-Egierwg,512
+hypothesis_faker/types.py,sha256=NfpI1hYy0UqNaOp1uUffpuvfjRld7Qkrm43pjHaN6uM,95
+hypothesis_faker/utilities.py,sha256=9JfWMJi90Y80n_OGV6UsbRl25KCnYZwNzGiUqRoG21M,2931
+hypothesis_faker-0.0.19.dist-info/LICENSE,sha256=VRKQsVNYJRNxtphGhSq6u9HQJXFm287HvEKJ9r6r7-c,1066
+hypothesis_faker-0.0.19.dist-info/WHEEL,sha256=VN2eEg4PHbTOniXb-cCYQPc6zUTS4dAcATjlgU3q-Lo,83
+hypothesis_faker-0.0.19.dist-info/METADATA,sha256=uyik0t2BCJHq78Z2NVZzdKbq4ycm3QMADaYd5ChZRhg,600
+hypothesis_faker-0.0.19.dist-info/RECORD,,
