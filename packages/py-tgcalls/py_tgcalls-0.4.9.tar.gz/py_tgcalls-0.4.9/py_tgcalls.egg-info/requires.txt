@@ -1,0 +1,8 @@
+Naked
+aiohttp
+asyncio
+psutil
+pyrogram
+python-socketio
+requests
+tgcrypto
