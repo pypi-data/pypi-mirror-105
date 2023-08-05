@@ -1,0 +1,10 @@
+thonny_crosshair-0.0.1.data/data/LICENSE,sha256=Ptgf9awHEpcxjzFxotq2v3RQKO3uaFxLrk9rBRQ7p9w,1090
+thonny_crosshair-0.0.1.data/data/README.rst,sha256=FWLoLQ0B-3HA8Y6Zgr62gtROPCoJuJBavh2DpEwih98,4372
+thonny_crosshair-0.0.1.data/data/requirements.txt,sha256=gxQ4z8OZshngazyBMUgPv4rgZfCJioFvCNWZEfJ3olw,346
+thonnycontrib/thonny_crosshair/__init__.py,sha256=yjNhEZPT0RH7q5Bl7n6A7mSw443cGQx7jS14LK0Ys_8,4006
+thonnycontrib/thonny_crosshair/py.typed,sha256=khpbcpOVE7E_NRCoQIpjYweIJllq-X09OHpKq1CaCjA,64
+thonny_crosshair-0.0.1.dist-info/LICENSE,sha256=Ptgf9awHEpcxjzFxotq2v3RQKO3uaFxLrk9rBRQ7p9w,1090
+thonny_crosshair-0.0.1.dist-info/METADATA,sha256=Rp03Vbp78bS3v6OsdPIEkFDPTwrhumtikqIltXuULGY,6054
+thonny_crosshair-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+thonny_crosshair-0.0.1.dist-info/top_level.txt,sha256=thF9WQtY_lcNKOOR4SQeeWLAVWb4i8XhdGC7pEMAOHY,14
+thonny_crosshair-0.0.1.dist-info/RECORD,,
