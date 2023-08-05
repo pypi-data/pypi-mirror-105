@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+src/andytestutil.egg-info/PKG-INFO
+src/andytestutil.egg-info/SOURCES.txt
+src/andytestutil.egg-info/dependency_links.txt
+src/andytestutil.egg-info/not-zip-safe
+src/andytestutil.egg-info/top_level.txt
+src/andyutil/__init__.py
+src/andyutil/util.py
+src/andyutil/data/domains.txt
+src/andyutil/string/__init__.py
+src/andyutil/string/string_util.py
