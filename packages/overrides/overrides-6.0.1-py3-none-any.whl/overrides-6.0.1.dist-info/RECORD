@@ -1,0 +1,11 @@
+overrides/__init__.py,sha256=XxNfGbBi73_KxaiihG-9Cgt1Yi3saOKmth9yoWOMAN8,224
+overrides/enforce.py,sha256=I2r1BtvXUXmdo94Lq1BoJdZxYMss6jzle5HC5_LyUpo,2174
+overrides/final.py,sha256=8EmXwWFAMqZDYBYrvaxKw4n9D5Ho649QgPLHAja3w5g,1539
+overrides/overrides.py,sha256=CA-SQ4hKOINt83v1SJMFyd0UWz1rD-4vx8ql2N0DRWM,6614
+overrides/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+overrides/signature.py,sha256=MdtRTthuW1_FuDa21-Ppbgrqcg7kU2Nxuf80JIkorXk,10647
+overrides-6.0.1.dist-info/LICENSE,sha256=xllut76FgcGL5zbIRvuRc7aezPbvlMUTWJPsVr2Sugg,11358
+overrides-6.0.1.dist-info/METADATA,sha256=LtTbjXHxwks6KGHGUGX5hronEfgvSDm7KBzZJbHi09U,4954
+overrides-6.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+overrides-6.0.1.dist-info/top_level.txt,sha256=06v3aviU3stRPzoenrJ2K_Jz3Ma3R9FQYE-54eTOXYk,10
+overrides-6.0.1.dist-info/RECORD,,
