@@ -1,0 +1,14 @@
+odoo/addons/purchase_supplier_rank/README.rst,sha256=WvkOt0OPPeYtPkkpv0s_kooGezRP_ZPG1fcb4wsY4zM,2724
+odoo/addons/purchase_supplier_rank/__init__.py,sha256=uMK3e05-G_wcoPs4Q3VMHbfvhu0E3eoFjQv96mY3I0w,382
+odoo/addons/purchase_supplier_rank/__manifest__.py,sha256=IePPLmRrB88Gg0JV2sHAtjFqB0HVGA18l_eUbGHg2Xk,526
+odoo/addons/purchase_supplier_rank/i18n/purchase_supplier_rank.pot,sha256=OhB76smKKyzL8smsW7yvirwmCNi1TYl1S-o--YZStNA,504
+odoo/addons/purchase_supplier_rank/models/__init__.py,sha256=1llXApnCt0sBOOelr3UAclF51WgClsfVDlBixJvAxYE,100
+odoo/addons/purchase_supplier_rank/models/purchase_order.py,sha256=YqbU2yyuunz2uFPmX1cZwUri70Su5YcJuQWj3Olvbdo,446
+odoo/addons/purchase_supplier_rank/readme/CONTRIBUTORS.rst,sha256=vhn-R8TdLFpip2SUOug68d386yc7YuN35wVnhufn5Og,45
+odoo/addons/purchase_supplier_rank/readme/DESCRIPTION.rst,sha256=fSxdrktLhnHgx88zB9-lGHdI78VACDNQL3bkoDTBg2A,78
+odoo/addons/purchase_supplier_rank/static/description/icon.png,sha256=6xBPJauaFOF0KDHfHgQopSc28kKvxMaeoQFQWZtfZDo,9455
+odoo/addons/purchase_supplier_rank/static/description/index.html,sha256=8_WDex10BnqZ_uWEcyMNwbLM5qyCYGm4Bsu3a0fBRNI,11840
+odoo13_addon_purchase_supplier_rank-13.0.1.0.1.dev2.dist-info/METADATA,sha256=ekJavwWoWs7VKF-dydC1d985jeELsRSZvnCzadPmScU,3265
+odoo13_addon_purchase_supplier_rank-13.0.1.0.1.dev2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+odoo13_addon_purchase_supplier_rank-13.0.1.0.1.dev2.dist-info/top_level.txt,sha256=qBj40grFkGOfDZ2WDSw3y1RnDlgG0u8rP8pvGNdbz4w,5
+odoo13_addon_purchase_supplier_rank-13.0.1.0.1.dev2.dist-info/RECORD,,
