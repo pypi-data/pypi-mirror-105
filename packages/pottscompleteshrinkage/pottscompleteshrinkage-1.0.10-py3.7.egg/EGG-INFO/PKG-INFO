@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: pottscompleteshrinkage
+Version: 1.0.10
+Summary: Potts Clustering with Complete Shrinkage
+Home-page: https://github.com/kgalahassa/pottscompleteshrinkage
+Author: Alejandro, Murua and Alahassa, Nonvikan Karl-Augustt
+Author-email: alahassa@dms.umontreal.ca
+License: GNU General Public License v3.0
+Description: # Potts Complete Shrinkage
+        Potts Clustering with Complete Shrinkage
+        
+        ## Installation
+        Install using pip
+        ```pip install pottscompleteshrinkage```
+        
+        ## Requirements
+        * Python 3.6 or greater
+        * numpy
+        * pandas
+        
+        ## Usage
+        Run in python : import pottsshrinkage.completeshrinkage as PCS
+        
+        ## Pypi Project Page
+         https://pypi.org/project/pottscompleteshrinkage/1.0.0/
+Keywords: Potts models,Clustering,Complete Shrinkage
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
