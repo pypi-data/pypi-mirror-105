@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: inwords
+Version: 1.0.3
+Summary: A Python package to spell out a number
+Home-page: https://github.com/s18k/inwords
+Author: Shreyas Kamath
+Author-email: shreyaskamath18@gmail.com
+License: GNU General Public License v3.0
+Download-URL: https://github.com/s18k/inwords//archive/inwords-1.0.3
+Description: 
+        <h1 align="center"> Inwords </h1>
+        
+        
+        <h2 align="center"> A Python package to spell out numbers </h2>
+        
+        
+        <h3 align="center"> How to Run</h3>
+        <h3> Installation </h3>
+        pip install inwords
+        
+        <h3>Open Python console and run the following commands</h3>
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
