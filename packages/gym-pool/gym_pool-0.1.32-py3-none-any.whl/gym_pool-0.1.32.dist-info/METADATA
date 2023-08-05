@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: gym-pool
+Version: 0.1.32
+Summary: UNKNOWN
+Home-page: https://github.com/to314as/gym-pool
+Author: Tobias Oberkofler
+Author-email: tobi20083@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: gym (>=0.2.3)
+Requires-Dist: numpy
+Requires-Dist: pygame
+Requires-Dist: zope.event
+Requires-Dist: torch
+Requires-Dist: torchvision
+
+UNKNOWN
+
+
