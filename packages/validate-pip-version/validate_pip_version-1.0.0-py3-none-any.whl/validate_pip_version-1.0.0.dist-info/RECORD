@@ -1,0 +1,8 @@
+validate_pip_version/__init__.py,sha256=J-j-u0itpEFT6irdmWmixQqYMadNl1X91TxUmoiLHMI,22
+validate_pip_version/__main__.py,sha256=UEg-xrCTNXHzUXLrJ0xBjmmFneFiXrLndaDN1yArIPM,3470
+validate_pip_version-1.0.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+validate_pip_version-1.0.0.dist-info/METADATA,sha256=m-urf0q55bnfyfn9J85ulosc5U_RxOmsJxkk2YluQkU,662
+validate_pip_version-1.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+validate_pip_version-1.0.0.dist-info/entry_points.txt,sha256=IDZ2RFHC7rUuIKRdJ3s2a5U-SnvEuGto9srl6KVQK8M,76
+validate_pip_version-1.0.0.dist-info/top_level.txt,sha256=ufdgwAxQFmiEdAD3TIh_vF5M2qcC3lPyZcInvvFdPxk,21
+validate_pip_version-1.0.0.dist-info/RECORD,,
