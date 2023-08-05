@@ -1,0 +1,3 @@
+[console_scripts]
+confs=confs:entrypoint
+

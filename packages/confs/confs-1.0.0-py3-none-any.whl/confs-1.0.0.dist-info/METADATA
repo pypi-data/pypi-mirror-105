@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: confs
+Version: 1.0.0
+Summary: CLI tool that lists tools for which the given project has configuration files.
+Home-page: https://github.com/orsinium-labs/confs
+License: MIT
+Keywords: cli,tools,configs
+Author: Gram
+Author-email: gram@orsinium.dev
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
+
+# confs
+
+CLI tool that lists tools for which the given project has configuration files.
+
+For example, if the project has `.isort.cfg` file or `[tool.isort]` section in `pyproject.toml`, confs will detect that the project uses [isort](https://pycqa.github.io/isort/). A possible use-case is to implement CI jobs for linters that are run only if the corresponding configuration file is represented in the project.
+
+## Installation
+
+```bash
+python3 -m pip install --user confs
+```
+
+## CLI usage
+
++ `confs list` - list tools configured in the current directory.
++ `confs list --path=/path/to/project/` - list tools configured in the specified directory.
++ `confs has flake8` - check if the project has `flake8` configured. The exit code is 1 if the tool is not configured.
+
+## API usage
+
+```python
+from pathlib import Path
+from confs import get_tools
+
+path = Path('.')
+print(get_tools(path))
+```
+

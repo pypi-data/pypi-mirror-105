@@ -1,0 +1,10 @@
+confs/__init__.py,sha256=bHce9sQZgVuFpNCioyFl643-O-a0kp2Xe_6mVi7pSDQ,208
+confs/__main__.py,sha256=ZPGytkQ2AZkJkbvPNhYmk7XH9lL6WO4K9U96G9-rQwM,43
+confs/_cli.py,sha256=LDGmsW7nZ8wuMR15b8wWlCf5reKiUn4ovNQFhVplw38,992
+confs/_const.py,sha256=DsvDRxzoKsbZkViOXvJhhiM9MmgSfPGCeHZVi9ShifQ,1131
+confs/_core.py,sha256=GgIq8UPRIZkH28XAEjhESLS4zopCNwWb4ypOSVy_7_k,1485
+confs-1.0.0.dist-info/entry_points.txt,sha256=mLpIGqc6U3oeFuTif54hOh0A5dOrqTsSdE7PJRSEFXI,42
+confs-1.0.0.dist-info/LICENSE,sha256=BxTjazc45bB8y7OjiHDFHxzhbTG7IPPE4z1TmHMw-gQ,1046
+confs-1.0.0.dist-info/WHEEL,sha256=CqyTrkghQBNsEzLD3HbCSEIJ_fY58-XpoU29dUzwHSk,81
+confs-1.0.0.dist-info/METADATA,sha256=769afGhfXWtJ4ENMjE3Qj8dCqd_2VRjSaL4LHLgZpus,1602
+confs-1.0.0.dist-info/RECORD,,
