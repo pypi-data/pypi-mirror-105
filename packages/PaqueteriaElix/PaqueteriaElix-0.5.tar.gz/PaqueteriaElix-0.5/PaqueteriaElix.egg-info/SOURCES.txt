@@ -1,0 +1,6 @@
+SumaArea.py
+setup.py
+PaqueteriaElix.egg-info/PKG-INFO
+PaqueteriaElix.egg-info/SOURCES.txt
+PaqueteriaElix.egg-info/dependency_links.txt
+PaqueteriaElix.egg-info/top_level.txt
