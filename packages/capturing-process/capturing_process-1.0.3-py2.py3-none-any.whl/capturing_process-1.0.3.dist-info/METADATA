@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: capturing-process
+Version: 1.0.3
+Summary: Captures stderr/stdout as a stream to allow easy log monitoring of long running shell processes.",
+Home-page: https://github.com/zackees/capturing_process
+Author: Zach Vorhies
+Author-email: dont@email.me
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+
+# Finally, a subprocess type that streams out stdout/stderr easily
+
+Capturing the stderr AND stdout from a process in python is not that easy.
+This class makes this capturing much easier by delegating the line capturing
+to seperate threads. This capture can be totally in memory or can optionally
+be streamed to a output stream such as a file handle.
+
+# Python version: 3.6+
+
+Because of the use of type annotations, this library is not compatible with python 2.7
+However you are free to strip out these type annotations and this project *should* work
+pretty well.
+
+## TODO
+  * Make writing supplied streams something that happens only on the main thread.
+
