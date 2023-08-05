@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+algorithms3x/__init__.py
+algorithms3x/search.py
+algorithms3x/sort.py
+superalgo.egg-info/PKG-INFO
+superalgo.egg-info/SOURCES.txt
+superalgo.egg-info/dependency_links.txt
+superalgo.egg-info/requires.txt
+superalgo.egg-info/top_level.txt
