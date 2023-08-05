@@ -1,0 +1,14 @@
+.github/chart1.png,sha256=kTQC2_oUCUqLdrFlsJf3tF9e3QmxF0W15kmlEpVlOkI,55344
+.github/chart10.png,sha256=c27y5s5oxo6iaeMMDne9xck2ZvPWAAsMDVStkqGKMbw,44667
+.github/chart5.png,sha256=BJHGtN1l_A5pH_CY5phm-vk6cC-EE_V72QWLw7Nlc7E,47938
+quotesaggregator/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+quotesaggregator/__main__.py,sha256=XJYQ_7ECn_2UyJmyZGJTBu6BT_0zkv01J87X0bFet90,234
+quotesaggregator/aggregator.py,sha256=NzsWxd09eCRvmqc2UvbhEN8fThofIqVV-Owl5PeYAsM,6984
+quotesaggregator/settings.py,sha256=jOdR7dajsj_X9yD1RM66_KAQIb6VrDh0VGKuhj3caio,12869
+quotesaggregator/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+quotesaggregator/tests/test_aggregator.py,sha256=SGcznN9ZoPt35FX33qmwuzxqPiQQYhUubLb23JgtJBE,9169
+quotesaggregator/utils.py,sha256=f-LTe6JjJkuMNlEFtaGNwCveLHmpEQ7cnKIG4p9qIec,684
+quotesaggregator-0.1.1.dist-info/entry_points.txt,sha256=0SlqS_VkQc2rnNkDfk9aH8VmI0AhQNktt5MUQufWnh4,142
+quotesaggregator-0.1.1.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+quotesaggregator-0.1.1.dist-info/METADATA,sha256=EA9mst81inFn-niP1T4nZt-Yec-BIAPOLdr0NtbgYVM,6113
+quotesaggregator-0.1.1.dist-info/RECORD,,

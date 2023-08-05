@@ -1,0 +1,4 @@
+[console_scripts]
+aggregator-run=quotesaggregator.__main__:run_forever_async
+aggregator-run-tests=quotesaggregator.tests.test_aggregator:run
+
