@@ -1,0 +1,12 @@
+dynamo2m/__init__.py,sha256=KgRSd0Kop94wugWAb9-3uH7upGgkMpvuS5WWCfiwqRU,165
+dynamo2m/dynamo2warp.py,sha256=g2SEYxzyc_g9Sb4XKSH8tJJdRZD_IvUt0hzg_cVr8No,2090
+dynamo2m/relion_star_downgrade.py,sha256=P4QhCaw3C2IUAncte3IVhNgkb_z0IZ1edkWwWtBL5cw,1866
+dynamo2m/utils.py,sha256=ix6AHDuDvq2eykq0iDc92GRCBN-8iqO8z7KwYRw6qro,1673
+dynamo2m/version.py,sha256=QQ0yjZQnvXM7JeLLZEZWX6NmVUPu1lSROWOXF49_gug,22
+dynamo2m/warp2dynamo.py,sha256=YR3lW4HsdCw3TXT4vBoeoTn65NbhTJCp-aikmsFsFR8,4515
+dynamo2m-0.2.2.dist-info/LICENSE.txt,sha256=P657EV88YiSQLHF4R_L9nAV_QKtuoMI-ZqpEC-FgcQ4,1520
+dynamo2m-0.2.2.dist-info/METADATA,sha256=AfpF6jZwpfPVLdeAPf4QnJ344gE0bWWrCtO8SLu6Fag,757
+dynamo2m-0.2.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+dynamo2m-0.2.2.dist-info/entry_points.txt,sha256=ESvpdDnm3gnnPHYD6iO7TIYZ3o-diNzzb-RtR2RKh0U,186
+dynamo2m-0.2.2.dist-info/top_level.txt,sha256=9iMOcQkvv0NYnd--3f1DqRD4Q8z-N-NfHc2uPmzFBmE,9
+dynamo2m-0.2.2.dist-info/RECORD,,
