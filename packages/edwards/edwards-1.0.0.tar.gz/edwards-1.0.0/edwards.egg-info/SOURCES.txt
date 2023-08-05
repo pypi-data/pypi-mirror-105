@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+decompress/__init__.py
+decompress/edwards.py
+decompress/libcurve25519.dylib
+decompress/libcurve25519.so
+edwards.egg-info/PKG-INFO
+edwards.egg-info/SOURCES.txt
+edwards.egg-info/dependency_links.txt
+edwards.egg-info/top_level.txt
+tests/__init__.py

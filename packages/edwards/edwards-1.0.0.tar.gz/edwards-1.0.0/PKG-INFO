@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: edwards
+Version: 1.0.0
+Summary: rust curve25519 libs
+Home-page: https://cobo.com
+Author: Cobo Tech Engineers
+Author-email: engineers@cobo.com
+License: Cobo Copyright Reserved
+Description: rust curve25519 libs 
+Platform: UNKNOWN
