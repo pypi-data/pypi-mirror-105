@@ -1,0 +1,11 @@
+mozvpn/__init__.py,sha256=ZQrOjyyH-n0vJu6STzf8ICqMjP1Z6I83acBLoRFPzOY,127
+mozvpn/cli.py,sha256=QlFO9upnf0-Y3mksFVJGkOeFbzD3hrEgwu_b_4oMy8s,923
+mozvpn/mozvpn.py,sha256=zCdpnF2CQIQnJ15Os5uj5Ve15Zx4L7VLVJrpr8mCcAQ,1829
+mozvpn/mozvpn_gui.py,sha256=cLwUE7wmGC7Yxewb2_-I0plq8Av8p-iV1eHx_M-DwJM,3610
+mozvpn-0.1.0.dist-info/AUTHORS.rst,sha256=U8WMwKxupg3n7mfizFEeXr6uaD081U4TAw9O5DFncBc,159
+mozvpn-0.1.0.dist-info/LICENSE,sha256=vhAMCYxUHw3Uni61ZXO2Hi5Hxr4rialIbwlB5artlc4,1545
+mozvpn-0.1.0.dist-info/METADATA,sha256=BoCA5KkXF4bJvawwAYUHmUbwJg8VYm5GjIxotRz-n0s,2147
+mozvpn-0.1.0.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+mozvpn-0.1.0.dist-info/entry_points.txt,sha256=gCsdcz3dv9SA5i7iI6pQ-h5-MzeukOWW9pVGVTxQj0I,44
+mozvpn-0.1.0.dist-info/top_level.txt,sha256=Vsd8u6StwAmRpfmLb5Y9TPQ2WYRpTlUmFOp-mJo4T8w,7
+mozvpn-0.1.0.dist-info/RECORD,,
