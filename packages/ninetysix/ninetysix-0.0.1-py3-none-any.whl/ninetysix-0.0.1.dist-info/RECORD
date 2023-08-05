@@ -1,0 +1,12 @@
+ninetysix/__init__.py,sha256=5cLY0pGjbeZptXwhKvwQ1rQV9iHCZJ90SPIk2JY418Q,139
+ninetysix/parsers.py,sha256=0SgPFUkJ8d7OPXbLUE8P58Hya7qeGETiuQIhZ753L2E,6125
+ninetysix/plate.py,sha256=_ysSK-G6E3w8WNhl7x2T8v8-aptxnaKPHXt872kNSxU,35282
+ninetysix/viz.py,sha256=KH8hnRGLN3ja0lRQ3TnD9DKT9P2hCLmq9GAXYjWZv0Y,33737
+ninetysix/util/__init__.py,sha256=G6cHGXE5M50UJlsqmJeR_JGS-kVP_9-Ix0q9UH7lrMc,70
+ninetysix/util/_plate_attrs.py,sha256=LQKgA1yskiNdACv1Bybt60k3gjkKE0cPeJDcqxjCCRE,2945
+ninetysix/util/_validators.py,sha256=mRu_fvQxoiSJrInlnHd5xkMbDbXw_Cef6JTmblSKnsI,4792
+ninetysix-0.0.1.dist-info/LICENSE,sha256=FTmkRIOqkIJOZ8t61-m9oTUl9L1ArFBWZ2eli9Dh8pA,1066
+ninetysix-0.0.1.dist-info/METADATA,sha256=ybVq9DhDUrTmG15zyeAHHcFWUknCwXRCl2eeV-LREA4,4482
+ninetysix-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+ninetysix-0.0.1.dist-info/top_level.txt,sha256=PXXfqcWzNPPq1b9PzCuX0H6WH2ukR2mjkaIO573yp-s,10
+ninetysix-0.0.1.dist-info/RECORD,,
