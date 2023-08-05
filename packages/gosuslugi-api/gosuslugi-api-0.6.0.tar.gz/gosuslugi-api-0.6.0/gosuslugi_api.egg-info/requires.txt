@@ -1,0 +1,6 @@
+requests==2.25.1
+openpyxl==3.0.7
+
+[dev]
+ipdb==0.12.2
+pytest==5.2.1
