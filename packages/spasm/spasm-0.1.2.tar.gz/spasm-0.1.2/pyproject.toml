@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "spasm"
+version = "0.1.2"
+description = "A simple twitch.tv chat viewer."
+readme = "README.md"
+authors = ["Jeremiah Boby <mail@jeremiahboby.me>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydle = "^0.9.4"
+docopt = "^0.6.2"
+colorama = "^0.4.4"
+
+[tool.poetry.dev-dependencies]
+black = "^21.5b0"
+
+[tool.poetry.scripts]
+spasm = "spasm:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
