@@ -1,0 +1,14 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+cmc_api/__init__.py
+cmc_api/coinmarketcap.py
+cmc_api/exceptions.py
+cmc_api.egg-info/PKG-INFO
+cmc_api.egg-info/SOURCES.txt
+cmc_api.egg-info/dependency_links.txt
+cmc_api.egg-info/requires.txt
+cmc_api.egg-info/top_level.txt
+test/test.py
+test/test_sandbox.py
