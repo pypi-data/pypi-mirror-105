@@ -1,0 +1,17 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+setup.py
+torchairflow/__init__.py
+torchairflow/dag.py
+torchairflow.egg-info/PKG-INFO
+torchairflow.egg-info/SOURCES.txt
+torchairflow.egg-info/dependency_links.txt
+torchairflow.egg-info/requires.txt
+torchairflow.egg-info/top_level.txt
+torchairflow/operators/__init__.py
+torchairflow/operators/span_operator.py
+torchairflow/utils/__init__.py
+torchairflow/utils/callback.py
+torchairflow/utils/pipeline.py
