@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: bom-configuration
+Version: 1.0.4
+Summary: config
+Home-page: https://github.com/bomt1me/bomconfiguration
+Author: Calvin Spring
+Author-email: springcalvind@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+
+# bomconfiguration
+config
+
+
