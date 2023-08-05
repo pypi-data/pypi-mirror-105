@@ -1,0 +1,7 @@
+[gui_scripts]
+psych_tests = psychometric_tests.entry:run
+psych_tests_ant = psychometric_tests.entry:ant
+psych_tests_nback = psychometric_tests.entry:nback
+psych_tests_rat = psychometric_tests.entry:rat
+psychometric_tests = psychometric_tests.entry:run
+
