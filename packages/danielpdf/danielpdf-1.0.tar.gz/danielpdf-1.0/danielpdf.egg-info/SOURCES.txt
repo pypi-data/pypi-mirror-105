@@ -1,0 +1,9 @@
+README.md
+setup.py
+danielpdf/__init__.py
+danielpdf/pdf2image.py
+danielpdf/pdf2text.py
+danielpdf.egg-info/PKG-INFO
+danielpdf.egg-info/SOURCES.txt
+danielpdf.egg-info/dependency_links.txt
+danielpdf.egg-info/top_level.txt
