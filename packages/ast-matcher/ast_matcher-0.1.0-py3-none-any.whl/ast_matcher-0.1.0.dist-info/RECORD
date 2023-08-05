@@ -1,0 +1,13 @@
+ast_matcher/__init__.py,sha256=ng4IwN9XZ_1RS7JFmqFeUeqGRrufEUUgQ8G-sIZUNos,386
+ast_matcher/categories/__init__.py,sha256=XMjsLaF5ktftpMvw4BlkDONOSmyTWSOUvyHlocfcZbo,210
+ast_matcher/categories/base.py,sha256=DYmvYXziydQF_PXoT8ZR0flnMkXmB6fcRu5lYqSVzAo,2776
+ast_matcher/categories/narrowing.py,sha256=3dmwON-sGADOt-h8w_MaC3Dsm4U6-jAr6kfH68nl-qo,755
+ast_matcher/categories/node.py,sha256=JzwpJjLUi9-PNYtj6Q1PfNbvuy4SgPosQoEfrgiyfzw,389
+ast_matcher/categories/node.pyi,sha256=fhjqd4P-6KbN1yOJnKowTYF35Xc5gmR9WnqTzP4y130,1280
+ast_matcher/categories/traversal.py,sha256=fQ9nsSjW6l_k7tPRjsZ4HRI-bGY9pRk6tTECPQTwxEM,187
+ast_matcher/matcher.py,sha256=uuTvPL6GPhGhJofCj1b1Qp1bvB3C65Pch12sSI85tNM,265
+ast_matcher/tree.py,sha256=MpAeP1NUDDhYtFdtTT9POsH3Puas5fDGe8ZaU6ZREwk,2831
+ast_matcher-0.1.0.dist-info/LICENSE,sha256=wJ7cX4ZAcZqRmc_W0lJG5FjwTQCacUb0AXT-hODSLMY,1099
+ast_matcher-0.1.0.dist-info/WHEEL,sha256=Q99itqWYDhV793oHzqzi24q7L7Kdiz6cb55YDfTXphE,84
+ast_matcher-0.1.0.dist-info/METADATA,sha256=awqALjmexPD8stxsdQSG-JU6yCaqaH-fYzYa1DDgnyc,314
+ast_matcher-0.1.0.dist-info/RECORD,,
