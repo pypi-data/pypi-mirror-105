@@ -1,0 +1,6 @@
+packaging
+future
+numpy
+loky
+tqdm
+psutil
