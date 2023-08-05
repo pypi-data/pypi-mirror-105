@@ -1,0 +1,10 @@
+aiocsv/__init__.py,sha256=RzSYQtrVyVFXOF5HBw_LMOF-JR4qWqNsXzxN4k6ntDI,540
+aiocsv/_parser.cpython-39-darwin.so,sha256=zUmPI8dyttHJ74adrIAb0gWb-GyCuOMfXaD78OkGVYs,85136
+aiocsv/parser.py,sha256=evzN3VoxHJQEQ2yJL5hFHKWbHgTqIL-IkWLn-V41qYw,6193
+aiocsv/protocols.py,sha256=3JpQp9KxCD-sCu82vaJO7IEf57HlCYMIWCL1P3uHQ2k,332
+aiocsv/readers.py,sha256=Ka9qypGL3C-LMKPqmr5en7Z19ozeJWDV2UkcwuFah8I,3044
+aiocsv/writers.py,sha256=VAFwwydTtM793uMv-tWXyApXkVru33whcSTQuVtiwkw,3376
+aiocsv-1.2.1.dist-info/METADATA,sha256=Bl0w8-HX0ccNpeH1CTnBeP_GEwsJwh8UgtDzyfqAJbQ,7237
+aiocsv-1.2.1.dist-info/WHEEL,sha256=bRe_g_g-vZInZP5wOdewl-4AeWx8E2_UC3Ffr2csPyk,109
+aiocsv-1.2.1.dist-info/top_level.txt,sha256=OdDe092gj_o74s619Yjp23cCp_nTyoAWvFgC5K4ZlXQ,7
+aiocsv-1.2.1.dist-info/RECORD,,
