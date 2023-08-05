@@ -1,0 +1,7 @@
+setup.py
+wydtest/__init__.py
+wydtest/test.py
+wydtest.egg-info/PKG-INFO
+wydtest.egg-info/SOURCES.txt
+wydtest.egg-info/dependency_links.txt
+wydtest.egg-info/top_level.txt

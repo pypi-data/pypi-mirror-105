@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: wydtest
+Version: 2.1.5
+Summary: Is your pytorch cuda available?
+Home-page: https://github.com/bro3/wydtest
+Author: bro3
+Author-email: yudwang@outlook.com
+License: MIT Licence
+Description: s your pytorch cuda available?
+Keywords: pip,wyd,featureextraction
+Platform: any
