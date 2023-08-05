@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: holiday-checkup
+Version: 0.1
+Summary: A python library for checking and detecting the holiday status of the Gregorian date in solar Hijri and lunar Hijri calendar 
+Home-page: https://github.com/khalooei/holiday-checkup
+Author: Mohammad Khalooei
+License: MIT
+Project-URL: Changelog, https://github.com/khalooei/holiday-checkup/README.md
+Project-URL: Docs, https://github.com/khalooei/holiday-checkup/README.md
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
