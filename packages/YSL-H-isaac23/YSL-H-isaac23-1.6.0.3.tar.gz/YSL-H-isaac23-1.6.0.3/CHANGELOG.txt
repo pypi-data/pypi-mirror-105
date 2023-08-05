@@ -1,0 +1,11 @@
+Change Log
+==========
+
+1.6(04/22/21)
+--------------
+- Use threading for faster execution.
+
+1.6.0.3(05/07/21)
+--------------
+- Fix XPATH error.
+- Fix unliking already liked videos.
