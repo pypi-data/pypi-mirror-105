@@ -1,0 +1,4 @@
+include decompress/libcurve25519.dylib
+include decompress/libcurve25519.so
+include README.md
+include LICENSE
