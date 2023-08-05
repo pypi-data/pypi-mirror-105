@@ -1,0 +1,3 @@
+[console_scripts]
+fast-files = fast_files.fast_files:main
+

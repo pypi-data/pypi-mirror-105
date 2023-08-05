@@ -1,0 +1,13 @@
+---
+directory:
+  help: "Specify the directory to serve files from. Default: ./"
+  default: './'
+  type: str
+host:
+  help: "ip address for the server. Deafult: 0.0.0.0"
+  default: '0.0.0.0'
+  type: str
+port:
+  help: "Port to serve files from. Default: 8000"
+  default: 8000
+  type: int
