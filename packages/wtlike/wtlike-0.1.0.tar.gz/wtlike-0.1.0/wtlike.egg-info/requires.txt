@@ -1,0 +1,6 @@
+matplotlib
+pandas
+scipy
+astropy
+healpy
+pyarrow
