@@ -1,0 +1,23 @@
+import slack
+from dagster import DagsterLogManager as DagsterLogManager, HookContext, HookDefinition as HookDefinition
+from dagster.core.execution.context.init import InitResourceContext as InitResourceContext
+from dagster_utils.typing import DagsterHookFunction as DagsterHookFunction
+from typing import Any, Callable, Literal
+
+SlackMessageGenerator = Callable[[HookContext], str]
+
+class ConsoleSlackClient:
+    logger: DagsterLogManager
+    def send_message(self, text: str) -> None: ...
+    def __init__(self, logger: Any) -> None: ...
+
+def console_slack_client(init_context: InitResourceContext) -> ConsoleSlackClient: ...
+
+class LiveSlackClient:
+    client: slack.WebClient
+    channel: str
+    def send_message(self, text: str) -> None: ...
+    def __init__(self, client: Any, channel: Any) -> None: ...
+
+def live_slack_client(init_context: InitResourceContext) -> LiveSlackClient: ...
+def slack_hook(on: Literal[success, failure], additional_resource_keys: set[str]=...) -> Callable[[SlackMessageGenerator], DagsterHookFunction]: ...
