@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: stanag4586edav1
+Version: 0.0.2
+Summary: Python Stanag 4586 Edition A v1
+Home-page: https://github.com/faisalthaheem/python-stanag-4586-EDA-v1
+Author: Faisal Thaheem
+License: GPLV3
+Description: # Python package for STANAG 4586 Edition A Version 1
+        ## Tested with python 3.8+
+        
+        This repository conotains code that will enable encoding/decoding of STANAG messages.
+        So far the following messages have been implemented which should enable basic communication with a platform, messages are being continually added, please check back soon for updates.
+        - Message wrapper
+        - 01
+        - 20
+        - 21
+        - 300
+        - 301
+        - 302
+        - 1200
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
