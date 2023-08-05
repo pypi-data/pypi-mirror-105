@@ -1,0 +1,8 @@
+.DS_store
+__pycache__
+*~
+test_env/
+build/
+dist/
+setup.py
+castep2fs.egg-info
