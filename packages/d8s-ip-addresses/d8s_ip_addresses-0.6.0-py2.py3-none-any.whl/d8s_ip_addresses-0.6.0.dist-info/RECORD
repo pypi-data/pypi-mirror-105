@@ -1,0 +1,12 @@
+d8s_ip_addresses/__init__.py,sha256=DWQgU-itixGbQpy16mCaizAvDuSpzF8mVgUFk4jC4X0,128
+d8s_ip_addresses/ip_addresses.py,sha256=7Mc1b-AFnY1RelxRaFR-nJQaA_R7H1ySAtrqmfsOUUQ,7212
+d8s_ip_addresses/ip_addresses_temp_utils.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_ip_addresses.py,sha256=VDe_Mxx-YUkwTeHBWTJn7QqlsB44QnmpZwF0dJUZBZE,23630
+d8s_ip_addresses-0.6.0.dist-info/COPYING,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+d8s_ip_addresses-0.6.0.dist-info/COPYING.LESSER,sha256=z72U6pv-bQgJ_Svr4uCXnMjemsp38aSerhHEdEAOMJ4,7632
+d8s_ip_addresses-0.6.0.dist-info/METADATA,sha256=N4tISW7ORNwTgn-f6pKiLHsscsQk-HG8X69YVhNgENg,7537
+d8s_ip_addresses-0.6.0.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+d8s_ip_addresses-0.6.0.dist-info/top_level.txt,sha256=ga3k3GRkQjfZ18Tg2D0Js-Yhu77mHs_NzQMFIIirtT0,23
+d8s_ip_addresses-0.6.0.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+d8s_ip_addresses-0.6.0.dist-info/RECORD,,
