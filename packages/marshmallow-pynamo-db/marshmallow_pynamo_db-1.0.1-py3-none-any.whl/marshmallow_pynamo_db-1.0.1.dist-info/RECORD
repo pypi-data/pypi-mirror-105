@@ -1,0 +1,7 @@
+marshmallow_pynamodb/__init__.py,sha256=5vxpledOlTFy82tnw0FWGbCKVUks4yE3It9vTgapZic,63
+marshmallow_pynamodb/convert.py,sha256=9toFJbWT8yDd0lHfl8zTTWLY_jFE0QScZQbvxhYKZ3g,1637
+marshmallow_pynamodb/fields.py,sha256=WO6Va-pIFkpROTzHppNGtXXRDE2evQoT1Ijg23L6jxk,4081
+marshmallow_pynamodb/schema.py,sha256=61UqhWklpUE9A5UbNHxMhuit-3-9ta47qJlU1whuVxA,6536
+marshmallow_pynamo_db-1.0.1.dist-info/WHEEL,sha256=f_L0I4hqSDuunYLcjib7afhVEQa4uCwremk0_wPx54s,85
+marshmallow_pynamo_db-1.0.1.dist-info/METADATA,sha256=Ckk3268N0PtzrXXLA0SuxhOQo6Sv9auXXAL9D9-_0-E,7559
+marshmallow_pynamo_db-1.0.1.dist-info/RECORD,,
