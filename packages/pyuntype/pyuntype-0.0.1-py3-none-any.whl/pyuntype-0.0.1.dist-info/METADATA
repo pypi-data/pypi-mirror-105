@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: pyuntype
+Version: 0.0.1
+Summary: Programatically untype your Python code
+Home-page: https://escape.tech/
+License: Apache-2.0
+Author: Escape Technologies SAS
+Author-email: ping@escape.tech
+Maintainer: Antoine Carossio
+Maintainer-email: antoine.carossio@me.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: astor (>=0.8.1,<0.9.0)
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: loguru (>=0.5.3,<0.6.0)
+Requires-Dist: pydash (>=5.0.0,<6.0.0)
+Project-URL: Bug Tracker, https://gitlab.com/escape.tech/misc/pyuntype/issue
+Project-URL: Repository, https://gitlab.com/escape.tech/misc/pyuntype/
+Description-Content-Type: text/markdown
+
+# Python untype
+
+Programatically untype your Python Projects.
+
+## Install
+
+```bash
+pip install untype
+```
+
+## Usage
+
+Use the following command to completely untype your Python Project located in the `src/` folder.
+
+```bash
+py-untype src/ dest/
+```
+
+### Option `gitmode` (bool)
+
+When `--gitmode=True`, the `src` directory should be a inside a Git repository. The goal to create a `dest` folder only with the files listed by `git ls-files` (and thus taking into account `.gitignore`)
+
+### Option `custom_typing_module` (str)
+
+If you defined in your code a file with custom types, all imports from this file will be ignored, and this file won't be copied in your `dest` directory
+
+### Example:
+
+For the Python CLI, we can use:
+
+```
+pyuntype python python_untype --gitmode=True --custom_typing_module=custom_types
+```
+

@@ -1,0 +1,10 @@
+pyuntype_cli/__init__.py,sha256=HOSqmGzWu-DHpsO6PMgEqf1LlwoVCrjXgg68bFjxt5g,65
+pyuntype_cli/main.py,sha256=sv7nxEcBo4jtyYGIRVcdhGwXTWWKQDvYogxRwbgMWOE,2238
+pyuntype_cli/utils/__init__.py,sha256=PK6qd_ejpUhdyAmQ68Bw4w6FLQ5tp2A3LdFcYpK2FCo,19
+pyuntype_cli/utils/remover.py,sha256=lqu0g-dgutAIHOz1JFfdmAUsxZ-Ea1C8M57kKTX6924,1276
+pyuntype_cli/utils/title.py,sha256=Xcz8mTPOpVoDWJeV7-O8IRKnGnA1h0dIFYnddT75KpM,439
+pyuntype-0.0.1.dist-info/entry_points.txt,sha256=dw8A7tfIeLk9PcZ1PIbTSU0EczXiJ3GqBCY0mW7_kAM,46
+pyuntype-0.0.1.dist-info/LICENSE,sha256=jzqE7G6l4bKH_-UocQA9taFlS8u-vDIdHce0y4CxWvk,11355
+pyuntype-0.0.1.dist-info/WHEEL,sha256=VN2eEg4PHbTOniXb-cCYQPc6zUTS4dAcATjlgU3q-Lo,83
+pyuntype-0.0.1.dist-info/METADATA,sha256=wOrcevcx8QP2e3kogwtReHQFcNFsogVfYDFN37vGijg,1732
+pyuntype-0.0.1.dist-info/RECORD,,

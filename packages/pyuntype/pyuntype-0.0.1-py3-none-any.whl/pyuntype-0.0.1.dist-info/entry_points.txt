@@ -1,0 +1,3 @@
+[console_scripts]
+pyuntype=pyuntype_cli:main
+
