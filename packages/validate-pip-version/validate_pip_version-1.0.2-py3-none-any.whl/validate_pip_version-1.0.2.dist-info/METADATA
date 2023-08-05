@@ -1,0 +1,112 @@
+Metadata-Version: 2.1
+Name: validate-pip-version
+Version: 1.0.2
+Summary: CLI tool to validate the version of a local PIP package against its currently published version. Intended to be used as part of a CI build.
+Home-page: https://github.com/werzl/validate-pip-version
+Author: werzl
+Author-email: werzl.mail@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Click (>=7.0)
+
+<div align="center">
+
+# validate-pip-version
+CLI tool to validate the version of a local PIP package against its currently published version. Intended to be used as part of a CI build.
+
+[![CI](https://github.com/werzl/validate-pip-version/actions/workflows/CI.yml/badge.svg)](https://github.com/werzl/validate-pip-version/actions/workflows/CI.yml)
+[![CD](https://github.com/werzl/validate-pip-version/actions/workflows/CD.yml/badge.svg)](https://github.com/werzl/validate-pip-version/actions/workflows/CD.yml)
+
+</div>
+
+# Installation
+First Install:
+
+```
+pip install validate-pip-version
+```
+
+Upgrading
+```
+pip install validate-pip-version --upgrade
+```
+
+# Usage
+```
+validate_pip_version [OPTIONS] COMMAND [ARGS]
+```
+
+## check-init-file
+Retrieves the local package version from an __init__.py, by matching the string '`__version__`'.
+```
+validate_pip_version check-init-file -n <package_name> --init_file_path <path_to__init__.py>
+```
+
+### Options
+<table>
+	<thead>
+		<tr>
+			<th>Option</th>
+			<th>Required</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>-n, --package_name</td>
+			<td>Required</td>
+			<td>Name of the package on PyPi</td>
+		</tr>
+		<tr>
+			<td>--init_file_path</td>
+			<td>Required</td>
+			<td>Relative file path for the __init__.py file<br/>(uses current working dir)</td>
+		</tr>
+		<tr>
+			<td>--help</td>
+			<td>Optional</td>
+			<td>Show help message and exit</td>
+		</tr>
+	</tbody>
+</table>
+
+<br/><hr/><br/>
+
+## check-setup-file
+Retrieves the local package version from an setup.py file, by matching the string '`version=`' and stripping away spaces/newlines.
+```
+validate_pip_version check-setup-file -n <package_name> --init_file_path <path_to_setup.py>
+```
+
+### Options
+<table>
+	<thead>
+		<tr>
+			<th>Option</th>
+			<th>Required</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>-n, --package_name</td>
+			<td>Required</td>
+			<td>Name of the package on PyPi</td>
+		</tr>
+		<tr>
+			<td>--setup_file_path</td>
+			<td>Required</td>
+			<td>Relative file path for the setup.py file<br/>(uses current working dir)</td>
+		</tr>
+		<tr>
+			<td>--help</td>
+			<td>Optional</td>
+			<td>Show help message and exit</td>
+		</tr>
+	</tbody>
+</table>
+
+
