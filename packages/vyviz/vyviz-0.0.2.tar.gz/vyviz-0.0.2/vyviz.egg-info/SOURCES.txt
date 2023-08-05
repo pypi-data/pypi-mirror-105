@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+vyviz/__init__.py
+vyviz/server.py
+vyviz.egg-info/PKG-INFO
+vyviz.egg-info/SOURCES.txt
+vyviz.egg-info/dependency_links.txt
+vyviz.egg-info/entry_points.txt
+vyviz.egg-info/requires.txt
+vyviz.egg-info/top_level.txt
