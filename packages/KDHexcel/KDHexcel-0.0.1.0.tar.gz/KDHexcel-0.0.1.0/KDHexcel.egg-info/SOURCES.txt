@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+KDHexcel/KDHexcel.py
+KDHexcel/__init__.py
+KDHexcel.egg-info/PKG-INFO
+KDHexcel.egg-info/SOURCES.txt
+KDHexcel.egg-info/dependency_links.txt
+KDHexcel.egg-info/top_level.txt
+tests/__init__.py
+tests/test.py
