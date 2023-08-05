@@ -1,0 +1,3 @@
+[console_scripts]
+indeed_mongodb_scrapper = indeed_mongodb_scrapper.__main__:main
+
