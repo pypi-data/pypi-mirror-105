@@ -1,0 +1,12 @@
+startrek/__init__.py,sha256=e8_wQoXY5jvF7Y5pE5hAetOIBP0Uj3EH8cQNvzbf-JU,1872
+startrek/dock.py,sha256=tX9t_rg8hruxnQC7TlPVIhXyrZRZ3QEhS_E-2HAGAeI,5015
+startrek/docker.py,sha256=0ZYjM-JS2rqSBki3TkSci-e_eAnXJ8c-LmZZstnWwpU,2557
+startrek/gate.py,sha256=c-Mi6vfk33yQld6ayNkd2mZa0n6shfq6AelkxEPr6SU,5598
+startrek/ship.py,sha256=cXcdC0l4PI6rqJ1IWO0PCEZXYGhTio2GYL8PcbP6pio,2291
+startrek/stardocker.py,sha256=_wUd7laaeVMA8xu0L4np6ZUiriZOfWSm1imjIZXykxs,5864
+startrek/stargate.py,sha256=T0AC1LonWPF-H8o4U5oqgLlTt8Ncz7k5LcM2q7xgwxk,6414
+startrek/starship.py,sha256=NNGfIp9MsmwJ8ePyUCdrb-v3appVKb9sNJHvCT73sLQ,3075
+startrek-0.1.2.dist-info/METADATA,sha256=6yNHADsIzjUXKuWKDMsyE_Zusb5sm9K-iwvGmdndfCo,460
+startrek-0.1.2.dist-info/WHEEL,sha256=pqI-DBMA-Z6OTNov1nVxs7mwm6Yj2kHZGNp_6krVn1E,92
+startrek-0.1.2.dist-info/top_level.txt,sha256=IsuALUiJLq8yCpW9t0yLu_jVQBcruaeDTIp4Ul2e9XI,9
+startrek-0.1.2.dist-info/RECORD,,
