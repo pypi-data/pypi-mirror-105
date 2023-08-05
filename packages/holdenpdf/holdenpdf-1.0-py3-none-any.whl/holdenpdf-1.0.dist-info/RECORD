@@ -1,0 +1,9 @@
+holdenpdf/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+holdenpdf/main.py,sha256=vsawfI3E9cyppEtNHqAB60vcFBqPJYkpqBUZtgCQXqA,519
+holdenpdf/pdf2image.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+holdenpdf/pdf2text.py,sha256=jeA4Bp9ZaG39BMo4kBRCt6TLk3p-HtGrhKu0T8dl42U,41
+holdenpdf-1.0.dist-info/LICENSE,sha256=gyd57AL5bT5tBOWpMr3QDfr0vH4H9-18IBybGTSM7mQ,35186
+holdenpdf-1.0.dist-info/METADATA,sha256=0bC5r44x3CyAwqV_iN9-9yKbz-MZ7eoRoHY1d6SuIso,200
+holdenpdf-1.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+holdenpdf-1.0.dist-info/top_level.txt,sha256=o8AwVW3BIMkrj8X5mhJQtGVp2dMft5iVEdCQr5d6ZXk,10
+holdenpdf-1.0.dist-info/RECORD,,
