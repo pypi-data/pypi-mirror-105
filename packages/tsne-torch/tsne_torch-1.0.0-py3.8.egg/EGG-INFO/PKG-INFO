@@ -1,0 +1,10 @@
+Metadata-Version: 1.2
+Name: tsne-torch
+Version: 1.0.0
+Summary: t-SNE accelerated with PyTorch
+Home-page: UNKNOWN
+Author: Xiao Li, Palle Klewitz
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7.0
