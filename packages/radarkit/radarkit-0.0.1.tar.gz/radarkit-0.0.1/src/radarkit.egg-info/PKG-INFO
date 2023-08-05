@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: radarkit
+Version: 0.0.1
+Summary: A small placeholder package
+Home-page: https://github.com/ouradar/radarkit
+Author: Boonleng Cheong
+Author-email: boonleng@ou.edu
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/ouradar/radarkit/issues
+Description: Radar
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8.4
+Description-Content-Type: text/markdown

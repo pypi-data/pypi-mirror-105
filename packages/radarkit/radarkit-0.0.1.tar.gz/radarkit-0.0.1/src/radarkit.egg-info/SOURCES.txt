@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/radarkit.egg-info/PKG-INFO
+src/radarkit.egg-info/SOURCES.txt
+src/radarkit.egg-info/dependency_links.txt
+src/radarkit.egg-info/top_level.txt
