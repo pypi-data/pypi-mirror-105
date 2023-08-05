@@ -1,0 +1,10 @@
+setup.py
+dave_package_1/Binomialdistribution.py
+dave_package_1/Gaussiandistribution.py
+dave_package_1/Generaldistribution.py
+dave_package_1/__init__.py
+dave_package_1.egg-info/PKG-INFO
+dave_package_1.egg-info/SOURCES.txt
+dave_package_1.egg-info/dependency_links.txt
+dave_package_1.egg-info/not-zip-safe
+dave_package_1.egg-info/top_level.txt
