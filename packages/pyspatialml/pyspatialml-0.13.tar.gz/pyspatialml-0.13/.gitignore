@@ -1,0 +1,11 @@
+.DS_Store
+.eggs/
+.idea/
+.vscode/
+.pytest_cache/
+*__pycache__/
+build/
+*egg*
+*whl
+*.tar.gz
+**/*.ipynb_checkpoints/
