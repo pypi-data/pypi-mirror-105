@@ -1,0 +1,11 @@
+pi_display_webthing/__init__.py,sha256=OsYjjG_KIj0_ADRx0kpJoim95TkIgyIgtpEKGN0c7no,3226
+pi_display_webthing/app.py,sha256=9HPLkCkWCknqAMjjhCKLUbuwBSzGgtfCGd30w5WeycU,5426
+pi_display_webthing/detect_devices.py,sha256=tT-VDS35QKo7eHysFTLXLgPXaoCmuq8k8xwcxLeRSGE,438
+pi_display_webthing/display.py,sha256=wFZQ0ZImkXoX3VwsHnrqt7Lk59KR-iBifzwKapn5Tak,2363
+pi_display_webthing/display_webthing.py,sha256=pPeefl1iHCW5OyZvWADnu4wJ0O1clgi8cKJ-OI7zRfM,5965
+pi_display_webthing-0.1.4.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+pi_display_webthing-0.1.4.dist-info/METADATA,sha256=jgUhgsZB3HPJEfSTNoMSJdMJY4c7S7yp9w6rBxf6REA,3591
+pi_display_webthing-0.1.4.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+pi_display_webthing-0.1.4.dist-info/entry_points.txt,sha256=-vrcICzSSCGuFp2X_0VZOszMGGvphQUuFPVM4LCQCb0,54
+pi_display_webthing-0.1.4.dist-info/top_level.txt,sha256=OZnlab0x9lS94zl87Z33LNhYpBrEoo5wA0rbxVNl7wo,20
+pi_display_webthing-0.1.4.dist-info/RECORD,,
