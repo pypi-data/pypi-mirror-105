@@ -1,0 +1,11 @@
+pymd4c.libs/libmd4c-html-a031c0d0.so.0.4.7,sha256=irF3QjW81ZKOpiq9YQoUA52hvlflMypUpN19NgzPDGo,135504
+pymd4c.libs/libmd4c-a890e64d.so.0.4.7,sha256=yn5N1j56y_m3I9ZC1tpDWl1h7vIN68joe7f9gBB3E7s,78592
+md4c/_enum_consts.cpython-37m-x86_64-linux-gnu.so,sha256=-tPS6Q-brKLmHB2_BwDv-wof7s8d87FXN14CZnk3dxg,49984
+md4c/_enums.py,sha256=ElHk4gVGV-tzbP3HJ-z7yiIbutupUd6rzhOp77Fqbso,2819
+md4c/_md4c.cpython-37m-x86_64-linux-gnu.so,sha256=TtYxmOhlQLV5A8w5gGGLsfzZ2TgJ9TYWzf1lFqA2_Es,103816
+md4c/__init__.py,sha256=2xEhyCjWhuXWiq1F9dcH7Qkgc3MbnXNS_x0f84adeks,1495
+pymd4c-0.4.7.0b1.dist-info/RECORD,,
+pymd4c-0.4.7.0b1.dist-info/WHEEL,sha256=Tc71-kipv70x3UUdKAWR5WF4VgRrQ_XEu6SkY16H6gk,150
+pymd4c-0.4.7.0b1.dist-info/LICENSE.md,sha256=RENpiSxd9Db09bEN1Yee6U8EFKHrhjAL9AhB-Gr_Awk,2377
+pymd4c-0.4.7.0b1.dist-info/METADATA,sha256=WuLv2UFR3I1xxPYRayiXo9nCx3mRQzLbHQaVWYze-jM,17829
+pymd4c-0.4.7.0b1.dist-info/top_level.txt,sha256=i917ncluOenqTtdWkS0U4qnAWXHGvwXxRs3p-3TEKdo,5
