@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+studenttmixture/__init__.py
+studenttmixture.egg-info/PKG-INFO
+studenttmixture.egg-info/SOURCES.txt
+studenttmixture.egg-info/dependency_links.txt
+studenttmixture.egg-info/requires.txt
+studenttmixture.egg-info/top_level.txt
+studenttmixture/finite_mixture/__init__.py
+studenttmixture/finite_mixture/finite_model_core.py
+studenttmixture/finite_mixture/finite_student_mixture.py
