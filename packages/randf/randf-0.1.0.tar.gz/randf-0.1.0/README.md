@@ -1,0 +1,92 @@
+# randf
+
+Quickly generate random pandas DataFrames with basic customisation.
+
+---
+## How to Use
+
+randf provides two functions:
+- `randec`, which generates a random output of `decimal.Decimal` objects in a
+  similar manner as `numpy.random` functions;
+- `randf`, which generates a random pandas DataFrame given its shape.
+
+```python
+>>> from randf import randf
+>>> randf(5, 3)
+          a         b         c
+0  0.719766  0.866084  0.813291
+1  0.884956  0.632848  0.423941
+2  0.987847  0.977158  0.062507
+3  0.457499  0.324980  0.661645
+4  0.029068  0.276254  0.638651
+```
+
+`randf` provides additional parameters to spice up these random DataFrames,
+such as choosing a different type for the numerical data:
+
+```python
+>>> df = randf(5, 2, ntype='decimal')
+>>> df
+           a          b
+0  874.27800  369.91194
+1  120.66222  411.98784
+2  117.29952  846.79798
+>>> df.iloc[0, 0]
+Decimal('874.27800')
+```
+
+You can also provide one or more discrete columns randomly populated to go
+along with the data:
+
+```python
+>>> randf(3, 3, dcols=['alpha', 'beta', 'gaga'])
+  class         a         b         c
+0  gaga  0.242080  0.107986  0.572961
+1  beta  0.775823  0.510886  0.932045
+2  beta  0.433214  0.504053  0.911336
+>>> randf(5, 1, dcols={'team':['corinthians', 'palmares', 'XVzão'],
+                       'cup':['paulista', 'brasileiro', 'copa do brasil']})
+          team             cup         a
+0     palmares  copa do brasil  0.796930
+1     palmares        paulista  0.075891
+2        XVzão        paulista  0.829730
+3     palmares      brasileiro  0.641658
+4  corinthians        paulista  0.245822
+```
+
+Changing the order of magnitude of the data is also simple:
+
+```python
+>>> randf(5, 6, ntype='int', order=100000)
+       a      b      c      d      e      f
+0  77844   1653  79738  61744  55072   4577
+1  83103  29741  99808  56647  49798  56809
+2  61099  35802  95146  71042   8746  36158
+3  76772    923  82212  26887  25484  14859
+4  90736  85788  17882  46231   2223   1129
+```
+
+And if you want to change the default names of the numerical columns, it is
+possible to be customised through the `names` parameter:
+
+```python
+>>> randf(6, 3, names=['alpha', 'beta', 'gaga'])
+      alpha      beta      gaga
+0  0.398819  0.149586  0.661323
+1  0.951287  0.029537  0.493456
+2  0.287754  0.959519  0.276244
+3  0.995609  0.925386  0.309970
+4  0.491463  0.252990  0.090506
+5  0.748072  0.111197  0.011898
+```
+
+---
+## Licence
+
+[MIT](LICENCE)
+
+Copyright (c) 2021 Manoel Elpidio Pereira de Queiroz Filho.
+
+---
+In case you haven't noticed by now, use of British English is the norm for this
+project.<br>[*RULE BRITANNIA*](https://youtu.be/kSjFVH2Zc5E)

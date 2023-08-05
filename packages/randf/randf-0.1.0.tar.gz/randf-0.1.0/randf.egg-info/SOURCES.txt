@@ -1,0 +1,9 @@
+README.md
+setup.py
+randf/__init__.py
+randf/funcs.py
+randf.egg-info/PKG-INFO
+randf.egg-info/SOURCES.txt
+randf.egg-info/dependency_links.txt
+randf.egg-info/requires.txt
+randf.egg-info/top_level.txt
