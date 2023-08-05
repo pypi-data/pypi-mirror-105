@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: pydena
+Version: 1.0.1
+Summary: Unofficial idena-go RPC API Python Wrapper
+Home-page: https://github.com/M4cs/BabySploit
+Author: Max Bridgland
+Author-email: me@maxbridgland.com
+License: GNU General Public License v3 (GPLv3) (GPL)
+Project-URL: Wiki, https://github.com/M4cs/pydena
+Project-URL: Discord Server, https://discord.gg/hRxhMGtMed
+Description: # pydena
+        
+        Unofficial Python API for [idena-go RPC](https://github.com/idena-network/idena-go)
+        
+        # Requirements
+        
+        - Python 3.6+
+        
+        # Installation
+        
+        ```
+        # From pypi
+        pip install pydena
+        
+        # From source
+        git clone github.com/M4cs/pydena
+        cd pydena
+        python3 setup.py install
+        ```
+        
+        # Roadmap
+        
+        - [X] IPFS API ✔
+        - [X] Accounts API ✔
+        - [X] DNA API ✔
+        - [ ] Blockchain API (Partially Complete) 💻
+        - [ ] Contracts API ❌
+        
+        # Usage
+        
+        **Initialize your API:**
+        
+        ```py
+        from pydena import API
+        
+        api = API('http://localhost:9999', 'YOUR-API-KEY')
+        ```
+        
+        **Use the provided API calls:**
+        
+        ```py
+        # Get Coinbase Address:
+        api.getCoinbaseAddress()
+        
+        # Get Last Block:
+        api.getLastBlock()
+        ```
+        
+        ### View the official documentation [here](https://m4cs.github.io/pydena/)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: Implementation :: IronPython
+Classifier: Programming Language :: Python :: Implementation :: Jython
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
