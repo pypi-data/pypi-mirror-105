@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/intel_jtag_uart/__init__.py
+src/intel_jtag_uart/intel_jtag_uart.py
+src/intel_jtag_uart.egg-info/PKG-INFO
+src/intel_jtag_uart.egg-info/SOURCES.txt
+src/intel_jtag_uart.egg-info/dependency_links.txt
+src/intel_jtag_uart.egg-info/top_level.txt
