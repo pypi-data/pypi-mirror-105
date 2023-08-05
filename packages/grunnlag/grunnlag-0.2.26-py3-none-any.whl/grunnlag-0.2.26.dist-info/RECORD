@@ -1,0 +1,12 @@
+grunnlag/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+grunnlag/extenders.py,sha256=j8cBGkMURX3y6labO3owziPrNQI_GjTpiXRobZyTj44,1558
+grunnlag/graphql/mutations/representation.py,sha256=z994-TaQz1jyOCoAzItF69CQN9u8vuE8kTOHhUh0rIA,522
+grunnlag/graphql/mutations/sample.py,sha256=cFy4dJ9-hIBc0zqa2o-Y2BsqR77WQYS73NCgSfdDDUU,204
+grunnlag/graphql/queries/representation.py,sha256=lC0TcLjnG4hMCDqlfyiiZPnxLMi_9D9-dgmgV1ybMJo,442
+grunnlag/graphql/queries/sample.py,sha256=NxFdHCGvzWguYhCpbo8ZMYEsosCINrXAVyBoba_ohBo,297
+grunnlag/managers.py,sha256=BFm83O-hiS2W1kw7KzLEVE1jT5Ml7EHKtVgRu_ukmKs,940
+grunnlag/schema.py,sha256=OuNHlHxc4mX82VLLH2ldlgV8dTVgYqaalRVp5M6l58I,2360
+grunnlag/sssssssss.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+grunnlag-0.2.26.dist-info/WHEEL,sha256=SrtnPGVTMeYWttls9xnWA01eUhCZ3ufFdJUYb1J3r-U,83
+grunnlag-0.2.26.dist-info/METADATA,sha256=B-hLgLIN0gDo62rLrHIMrXH5KLbTzQwo8mMzPWrZ8Nk,4333
+grunnlag-0.2.26.dist-info/RECORD,,
