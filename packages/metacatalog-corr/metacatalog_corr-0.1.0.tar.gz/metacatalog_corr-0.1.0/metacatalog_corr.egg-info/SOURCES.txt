@@ -1,0 +1,12 @@
+.gitignore
+LICENSE
+README.md
+VERSION
+requirements.txt
+setup.py
+metacatalog_corr/__init__.py
+metacatalog_corr.egg-info/PKG-INFO
+metacatalog_corr.egg-info/SOURCES.txt
+metacatalog_corr.egg-info/dependency_links.txt
+metacatalog_corr.egg-info/requires.txt
+metacatalog_corr.egg-info/top_level.txt
