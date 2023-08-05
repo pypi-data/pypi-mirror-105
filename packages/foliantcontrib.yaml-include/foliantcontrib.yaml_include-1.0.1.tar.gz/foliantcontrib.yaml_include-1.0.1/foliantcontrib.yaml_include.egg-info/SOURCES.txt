@@ -1,0 +1,8 @@
+README.md
+setup.py
+foliant/config/include.py
+foliantcontrib.yaml_include.egg-info/PKG-INFO
+foliantcontrib.yaml_include.egg-info/SOURCES.txt
+foliantcontrib.yaml_include.egg-info/dependency_links.txt
+foliantcontrib.yaml_include.egg-info/requires.txt
+foliantcontrib.yaml_include.egg-info/top_level.txt
