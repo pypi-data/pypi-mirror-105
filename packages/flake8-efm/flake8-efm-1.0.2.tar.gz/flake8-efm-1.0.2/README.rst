@@ -1,0 +1,41 @@
+flake8-efm
+==========
+
+A plugin for flake8 to print output in a format compatible with Vim's
+errorformat (efm).
+
+This lets other tools pick up flake8 errors and identify them as
+error/warning/etc.
+
+Designed for efm-langserver_, but should work on any tool that expects a
+similar format.
+
+.. _efm-langserver: https://github.com/mattn/efm-langserver/
+
+Usage
+-----
+
+For usage via `nvim-lspconfig` + `efm-langserver` use:
+
+.. code-block:: lua
+
+    local flake8 =  {
+      -- Requires flake8-efm
+      lintCommand = "flake8 --format efm --stdin-display-name ${INPUT} -",
+      lintStdin = true,
+      lintIgnoreExitCode = true,
+      lintFormats = {
+        "%f:%l:%c:%t:%m",
+      }
+    }
+
+Details
+-------
+
+The default error format of flake8 shows an error code and a message, but
+there's no obvious way to determine if something is an error or a warning. This
+is especially true for third-party codes.
+
+For now, the leading code of each letter is mapped to an error level
+(error/warning/etc). There's support for _some_ third-party plugins, and
+patches for others are most welcome.

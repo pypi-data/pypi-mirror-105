@@ -1,0 +1,17 @@
+image: archlinux
+packages:
+  - python-wheel
+  - python-pip
+  - twine
+sources:
+  - https://git.sr.ht/~whynothugo/flake8-efm
+secrets:
+  -  f2ab3193-05b4-43a6-a06e-0e7b21e3544e
+tasks:
+  - build: |
+      cd flake8-efm
+      python setup.py sdist bdist_wheel
+  - publish: |
+      cd flake8-efm
+      git describe --exact-match --tags || exit 0
+      twine upload dist/*
