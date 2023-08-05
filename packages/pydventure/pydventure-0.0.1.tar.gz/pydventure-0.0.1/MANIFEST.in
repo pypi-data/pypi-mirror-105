@@ -1,0 +1,5 @@
+include pydventure/*
+exclude pydventure/test.py
+exclude pydventure/plot.py
+exclude pydventure/plot_room.py
+exclude pydventure/TODO

@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: pydventure
+Version: 0.0.1
+Summary: Write your Text-Adventure game.
+Home-page: http://pypi.python.org/pypi/pydventure/
+Author: Sashito Mizuki
+Author-email: sashitomizuki@gmail.com
+License: LICENSE.txt
+Description: # PYDVENTURE
+        ## TEXT-ADVENTURE PYTHON ENGINE
+Platform: UNKNOWN
+Description-Content-Type: text/markdown

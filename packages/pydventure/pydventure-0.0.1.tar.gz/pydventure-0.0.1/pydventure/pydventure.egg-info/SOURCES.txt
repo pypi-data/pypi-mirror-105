@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+pydventure/__init__.py
+pydventure/actions.py
+pydventure/entities.py
+pydventure/game_engine.py
+pydventure/parser.py
+pydventure/player.py
+pydventure/utils.py
+pydventure/variables.py
+pydventure/pydventure.egg-info/PKG-INFO
+pydventure/pydventure.egg-info/SOURCES.txt
+pydventure/pydventure.egg-info/dependency_links.txt
+pydventure/pydventure.egg-info/top_level.txt
