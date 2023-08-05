@@ -1,0 +1,11 @@
+yuyo/__init__.py,sha256=yNG49iY6-3p-dPP35NHU787nFn5moVz_WQ-f37lFytg,2164
+yuyo/about.py,sha256=s90TTJYKJ5gOkrnXFjqUZAkFiOPPBI8Ju-alwVwgLvs,2094
+yuyo/backoff.py,sha256=qvV_BLMzZNgnwqmm7NBmNpvAFSKreJ7LMRNa_9zoP_0,14141
+yuyo/paginaton.py,sha256=4N0Oub85XWwjoEnywmEJRosw-EYuay3tsSqhm3kKjbc,33727
+yuyo/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+yuyo/restful_cache.py,sha256=4M_DcfpjmklUAo3im6pWRCoidDQOxidJW9Qt64avtiA,5403
+hikari_yuyo-0.0.3a6.dist-info/LICENSE,sha256=gq8tFp6_B31NOvjnGOod-UknqUz09ApfNKLiln5ZlKY,1514
+hikari_yuyo-0.0.3a6.dist-info/METADATA,sha256=yRYdRODEaTKUKQSUWcMLgzUNR8xJlZk1wiKI-UoW2p4,1339
+hikari_yuyo-0.0.3a6.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+hikari_yuyo-0.0.3a6.dist-info/top_level.txt,sha256=Hgu8K-L2jyHJ1k1mwDdDL-VCygxvJu_yuYGigPJ67lQ,5
+hikari_yuyo-0.0.3a6.dist-info/RECORD,,
