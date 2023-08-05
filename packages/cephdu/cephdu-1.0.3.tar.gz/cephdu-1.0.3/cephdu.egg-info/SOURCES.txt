@@ -1,0 +1,12 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+setup.py
+cephdu/__init__.py
+cephdu/__main__.py
+cephdu.egg-info/PKG-INFO
+cephdu.egg-info/SOURCES.txt
+cephdu.egg-info/dependency_links.txt
+cephdu.egg-info/entry_points.txt
+cephdu.egg-info/top_level.txt
