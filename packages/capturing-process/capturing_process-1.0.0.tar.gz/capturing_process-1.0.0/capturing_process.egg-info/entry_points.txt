@@ -1,0 +1,3 @@
+[console_scripts]
+capturing_process = capturing_process.__main__:main
+
