@@ -1,0 +1,12 @@
+README.md
+setup.py
+doc_search/__init__.py
+doc_search/async_docs.py
+doc_search/sync_docs.py
+doc_search/utils.py
+doc_search.egg-info/PKG-INFO
+doc_search.egg-info/SOURCES.txt
+doc_search.egg-info/dependency_links.txt
+doc_search.egg-info/requires.txt
+doc_search.egg-info/top_level.txt
+doc_search.egg-info/zip-safe
