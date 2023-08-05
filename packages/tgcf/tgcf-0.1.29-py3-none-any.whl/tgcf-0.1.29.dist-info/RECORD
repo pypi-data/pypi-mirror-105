@@ -1,0 +1,16 @@
+tgcf_filter/__init__.py,sha256=cx4uO2AgVMGEyQRu0G1WrTMxlIL5oOdZ1xg0MGjD8C4,3197
+tgcf_ocr/__init__.py,sha256=KOI9y6pzArFT8x7IMxFlz9l3aiFpWhpAQxGmZB9PUpw,127
+tgcf_replace/__init__.py,sha256=3Pvmn7l25YfVheD2RPX4qNtAL6NPvTlHU80KySjix5A,581
+tgcf_watermark/__init__.py,sha256=OaiQX9-rryWo2nESKFHVh0VxCAQQkm0_pI50GNLRm_M,139
+tgcf/__init__.py,sha256=WHizC8UzElmTH3641zjnMTLUHmP2rliWLTalgHU6vMA,75
+tgcf/cli.py,sha256=VcowN77rzm2SaiQz58Fo5mnU25CYNrqfcObPILPMlk0,1796
+tgcf/config.py,sha256=5gHE1g1D1MskKmlMq8iSoengjQadZAKFi8jVe9-z86Y,3252
+tgcf/live.py,sha256=rhIlNq9ePCzlrNNcEbhrK_-K7ELyxDnApZRM14PEFsc,3278
+tgcf/past.py,sha256=0T68dtvG1oTTzHdRZSyc1erN8oKwRUeNlhYOGDLeNVU,1804
+tgcf/plugins.py,sha256=3X5HmwZ57L3LNYZp9G7Vk093391ApWT8hq5dP8XrXOI,1147
+tgcf/utils.py,sha256=kvfam0p6ZHevNaSh_DZvBmTxwGgul0aSpOiWtECpVGc,229
+tgcf-0.1.29.dist-info/entry_points.txt,sha256=QYNmwGuBtfjSj2cCMpZg1RmtLes6DHOrb8EqKMyQiO0,37
+tgcf-0.1.29.dist-info/LICENSE,sha256=GpsSQnpgiF-NkahDuT5nd228eZKU_kC6gyk9QXbY6KQ,1067
+tgcf-0.1.29.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+tgcf-0.1.29.dist-info/METADATA,sha256=9oC230WtKmzr6OdUYbWYYON0B1YKCeW42Z-cgAG63lM,7583
+tgcf-0.1.29.dist-info/RECORD,,
