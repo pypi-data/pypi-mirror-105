@@ -1,0 +1,11 @@
+aiida_spirit/__init__.py,sha256=Bw1RJF0UEgPIT4oUXxADmIqnAP2HYyYdAQPUBf9WFkE,104
+aiida_spirit/calculations.py,sha256=0BU2SIg_0V-y9VwM9_-OEklEiAL9Ch_1n2cXT40_XS4,2048
+aiida_spirit/cli.py,sha256=_oVHGacQoh1FwXqL25XhygmXeVir5LpUFyhGJPbXRFI,1647
+aiida_spirit/helpers.py,sha256=cboyhJHZsFXrh9Fi_QOZ1l63ST11BNs6-Chy26QGNjQ,3798
+aiida_spirit/parsers.py,sha256=RznzxH-B9j_GKs5q2Qv606sJl3-_zU8l2z8JfOr3JHk,1961
+aiida_spirit-0.1.0a0.dist-info/LICENSE,sha256=cAX_lOYysj-cYJY_8HSJCJM4jtnZL6UzbPuLbG9Q8UY,1072
+aiida_spirit-0.1.0a0.dist-info/METADATA,sha256=AI_0Tc46mOmuMhd3cPrQFzCvB3ozXGp0J2UEzYcwp8A,3221
+aiida_spirit-0.1.0a0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+aiida_spirit-0.1.0a0.dist-info/entry_points.txt,sha256=enFoewmrSz-mu0u_05fjYnd9GfVGGAScdG0wpvfF0qU,135
+aiida_spirit-0.1.0a0.dist-info/top_level.txt,sha256=1gNNIO2Iyu2m4oZJ3ZKXWYmjjSKOcC1w8z9nBfpUqx8,13
+aiida_spirit-0.1.0a0.dist-info/RECORD,,
