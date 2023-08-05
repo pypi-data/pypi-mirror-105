@@ -1,0 +1,8 @@
+setup.py
+munchie/__init__.py
+munchie/testing.py
+munchie.egg-info/PKG-INFO
+munchie.egg-info/SOURCES.txt
+munchie.egg-info/dependency_links.txt
+munchie.egg-info/requires.txt
+munchie.egg-info/top_level.txt
