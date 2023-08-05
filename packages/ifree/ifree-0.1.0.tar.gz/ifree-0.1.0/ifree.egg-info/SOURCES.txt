@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+ifree/__init__.py
+ifree/dicom.py
+ifree/main.py
+ifree/processing.py
+ifree/show.py
+ifree/survival.py
+ifree.egg-info/PKG-INFO
+ifree.egg-info/SOURCES.txt
+ifree.egg-info/dependency_links.txt
+ifree.egg-info/not-zip-safe
+ifree.egg-info/requires.txt
+ifree.egg-info/top_level.txt
