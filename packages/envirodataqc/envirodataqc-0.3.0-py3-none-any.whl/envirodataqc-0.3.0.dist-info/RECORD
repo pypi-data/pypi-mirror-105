@@ -1,0 +1,10 @@
+envirodataqc/QCconfig.py,sha256=YLnXu5JEGN1CDjZPxcXDU4ibeEfskXnLv3tCAurH_hs,3530
+envirodataqc/__init__.py,sha256=_JRywfrSDWaoNhZWHKpMKa0fpOqVOWYhP5q16J10C4o,4135
+envirodataqc/checkdata.py,sha256=2wc-Xwg6nLnnL06Sre01hbi_2OK0Oe0O2SYrjqK09xw,9333
+envirodataqc/dataqc.py,sha256=VPBGsclTKdl7a8CD48ZiXfYEZHEXVt8LO-DaTo3wO8Q,7531
+envirodataqc/wind.py,sha256=fkmWiTTI-_Ffkc6p6R9sRBvLP-N2_g6iFAZD4waaQgI,3148
+envirodataqc-0.3.0.dist-info/LICENSE,sha256=7X8d95XtEwAWS_DGQtIpefl04sWVOGE235M6O9ZEqfA,1084
+envirodataqc-0.3.0.dist-info/METADATA,sha256=Epb3j8Pc7ob8UAdvC7j0-lm2piI08xspoBNUcbrTHo0,1449
+envirodataqc-0.3.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+envirodataqc-0.3.0.dist-info/top_level.txt,sha256=0rR4RYJwYs0U1vb6a_QfzURB7quP6Lht8JXFK4PbNuc,13
+envirodataqc-0.3.0.dist-info/RECORD,,
