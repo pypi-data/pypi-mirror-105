@@ -1,0 +1,12 @@
+svante/__init__.py,sha256=dRVYldYDoxK4TaRJzP_md2K9abDQg-81psWe8GEXqzI,247
+svante/__main__.py,sha256=A0rALwYRty362rABnnijZ73jqmB-CNKXZOIjYzATA94,1314
+svante/combine.py,sha256=2jlItxpr4zEHoG4Tg5dtFpPnuGEe2bdXVvpAIrOUhMI,2915
+svante/common.py,sha256=u61qGhCYY0aGoll6vbmNT7piucXjriiJe2gelfmnBVw,4164
+svante/plot.py,sha256=D9GKYkg0DLiGUn_jF1rruU6irikIWUISO7AnH5dKxfU,5598
+svante/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+svante/stat_dict.py,sha256=KS-QzF1vyT-m1bFS0NaYG9FsVSN6UHx9w2wGKcjgdfc,15337
+svante-0.2.5.dist-info/entry_points.txt,sha256=0ePHDQ40FlJFJ-K1XAXLIf8GX68KgdrWJ4A8v0eP5hM,47
+svante-0.2.5.dist-info/LICENSE.rst,sha256=fra3RM64f33zhNFsiCJu7u0mjbl5O2-Ozrfs50yVyPk,1979
+svante-0.2.5.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+svante-0.2.5.dist-info/METADATA,sha256=cOuBdcQ0CH_GW_7noIy135BUx7Z_SKiw3Iaq7JksScw,5880
+svante-0.2.5.dist-info/RECORD,,
