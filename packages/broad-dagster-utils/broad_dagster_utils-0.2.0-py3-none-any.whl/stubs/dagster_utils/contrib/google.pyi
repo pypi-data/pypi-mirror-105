@@ -1,0 +1,9 @@
+from google.auth.transport.requests import AuthorizedSession
+from google.oauth2.credentials import Credentials as Credentials
+from typing import Any
+
+DEFAULT_SCOPES: Any
+
+def get_credentials() -> Credentials: ...
+def default_google_access_token() -> str: ...
+def authorized_session() -> AuthorizedSession: ...

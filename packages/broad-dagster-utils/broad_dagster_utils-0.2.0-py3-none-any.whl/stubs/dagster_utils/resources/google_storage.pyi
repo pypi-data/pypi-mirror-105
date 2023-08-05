@@ -1,0 +1,13 @@
+from dagster.core.execution.context.init import InitResourceContext as InitResourceContext
+from google.cloud import storage
+from typing import Iterator
+
+def google_storage_client(_: InitResourceContext) -> storage.Client: ...
+
+class MockBlob:
+    def delete(self) -> None: ...
+
+class MockStorageClient:
+    def list_blobs(self, bucket_name: str, prefix: str) -> Iterator[MockBlob]: ...
+
+def mock_storage_client(_: InitResourceContext) -> MockStorageClient: ...

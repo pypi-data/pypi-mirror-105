@@ -1,0 +1,16 @@
+from dagster.core.execution.context.init import InitResourceContext as InitResourceContext
+from dagster_utils.contrib.google import authorized_session as authorized_session
+from google.auth.transport.requests import AuthorizedSession as AuthorizedSession
+from typing import Any
+
+class Sam:
+    base_url: str
+    def make_snapshot_public(self, snapshot_id: str) -> None: ...
+    def __init__(self, base_url: Any) -> None: ...
+
+def sam_client(init_context: InitResourceContext) -> Sam: ...
+
+class NoopSamClient:
+    def make_snapshot_public(self, snapshot_id: str) -> None: ...
+
+def noop_sam_client(init_context: InitResourceContext) -> NoopSamClient: ...
