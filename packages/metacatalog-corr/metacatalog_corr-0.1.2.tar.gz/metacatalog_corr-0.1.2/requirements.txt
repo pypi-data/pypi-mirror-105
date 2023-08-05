@@ -1,0 +1,6 @@
+metacatalog
+sqlalchemy
+fire
+numpy
+scipy
+tqdm
