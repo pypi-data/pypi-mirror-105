@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.json
+setup.py
+aiida_spirit/__init__.py
+aiida_spirit/calculations.py
+aiida_spirit/cli.py
+aiida_spirit/helpers.py
+aiida_spirit/parsers.py
+aiida_spirit.egg-info/PKG-INFO
+aiida_spirit.egg-info/SOURCES.txt
+aiida_spirit.egg-info/dependency_links.txt
+aiida_spirit.egg-info/entry_points.txt
+aiida_spirit.egg-info/requires.txt
+aiida_spirit.egg-info/top_level.txt
