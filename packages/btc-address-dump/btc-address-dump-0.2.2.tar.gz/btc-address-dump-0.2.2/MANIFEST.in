@@ -1,0 +1,5 @@
+include *.txt
+include *.py
+include *.cfg
+
+recursive-include btc_address_dump *.py *.yaml
