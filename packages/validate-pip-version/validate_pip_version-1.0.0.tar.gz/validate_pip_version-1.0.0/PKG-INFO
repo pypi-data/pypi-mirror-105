@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: validate_pip_version
+Version: 1.0.0
+Summary: CLI tool to validate the version of a local PIP package against its currently published version. Intended to be used as part of a CI build.
+Home-page: https://github.com/werzl/validate-pip-version
+Author: werzl
+Author-email: werzl.mail@gmail.com
+License: UNKNOWN
+Description: # validate-pip-version
+        CLI tool to validate the version of a local PIP package against its currently published version. Intended to be used as part of a CI build.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
