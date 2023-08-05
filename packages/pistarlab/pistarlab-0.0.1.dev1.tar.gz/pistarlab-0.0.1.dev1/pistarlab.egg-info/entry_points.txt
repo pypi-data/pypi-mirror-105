@@ -1,0 +1,4 @@
+[console_scripts]
+pistarlab_launcher = pistarlab.launcher:main
+pistarlab_plugin_tools = pistarlab.plugin_tools:main
+

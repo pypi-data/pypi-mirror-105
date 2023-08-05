@@ -1,0 +1,4 @@
+pytest
+ipykernel
+nbformat # Notebook test requirements
+nbconvert
