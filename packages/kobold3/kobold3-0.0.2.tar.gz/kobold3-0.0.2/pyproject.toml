@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "kobold3"
+version = "0.0.2"
+description = "a bold key-value store for knowledge and config management"
+authors = ["rcox771 <russ771@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.scripts]
+kobold = "kobold.core:main"
+kb = "kobold.core:main"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+rich = "^10.1.0"
+fire = "^0.4.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
