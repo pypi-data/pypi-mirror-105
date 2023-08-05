@@ -1,0 +1,12 @@
+telewater/__init__.py,sha256=v9qkUwwPndUDVuKO60l5kGP6mJn_T1E71Nk4tR0rCPc,203
+telewater/bot.py,sha256=kcHtTiipDsBTrCVO0Bu9Vfwag6tAuGRru3J2otD2D3I,2835
+telewater/cli.py,sha256=DYaMZnJaRhuTjrUyjuZflpv8fWKK3pleXZ6e3rNYNIM,2528
+telewater/const.py,sha256=k1BBF6W646jJDkw9jKo_tcaAR5elCrIAeyubGIbTKXY,926
+telewater/main.py,sha256=zy8qshlqxsV6DpayyueoSwMRVYy4JtcUGT79mJyKAvs,963
+telewater/utils.py,sha256=CXbhCuvlpYiuCdQs5v_FOqfxVaBkz72jSrZ020N9QzU,896
+telewater/watermark.py,sha256=2kFtQipSpz-k2tZmX6L35tPwxtTFR3boXNCYggPp3Cw,818
+telewater-0.0.13.dist-info/entry_points.txt,sha256=erxyMjBtor93lzgfGFCROG4d7uQSz9ZhJ3h_ixTzcCE,47
+telewater-0.0.13.dist-info/LICENSE,sha256=URm_vYF0YHZixIzDqOIIjhbes8gzBO9vzd9TkBxS3F0,1067
+telewater-0.0.13.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+telewater-0.0.13.dist-info/METADATA,sha256=wPEtw3O8e6GyHW1it-Mr5h5zHVa7KXd3Yl9d1WM5C1o,3401
+telewater-0.0.13.dist-info/RECORD,,
