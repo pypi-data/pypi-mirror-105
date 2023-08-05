@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: lminapi
+Version: 0.0.2
+Summary: 基于django 和django rest framework整合简化drf APIView视图类常用方法, 简化传入参数已验证方法
+Home-page: https://github.com/lxb0323/lminapi
+Author: bing0323
+Author-email: ltjlxb@163.com
+License: MIT Licence
+Description: 整合简化drf APIView视图类常用方法, 简化传入参数已验证方法
+Keywords: APIView,Validator,api
+Platform: any
