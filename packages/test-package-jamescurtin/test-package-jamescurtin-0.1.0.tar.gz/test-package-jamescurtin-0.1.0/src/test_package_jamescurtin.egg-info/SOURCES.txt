@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/test_package/__init__.py
+src/test_package_jamescurtin.egg-info/PKG-INFO
+src/test_package_jamescurtin.egg-info/SOURCES.txt
+src/test_package_jamescurtin.egg-info/dependency_links.txt
+src/test_package_jamescurtin.egg-info/top_level.txt
