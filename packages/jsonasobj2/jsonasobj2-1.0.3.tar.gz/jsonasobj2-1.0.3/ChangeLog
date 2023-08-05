@@ -1,0 +1,7 @@
+CHANGES
+=======
+
+v1.0.3
+------
+
+* Fix bad package name in setup.cfg
