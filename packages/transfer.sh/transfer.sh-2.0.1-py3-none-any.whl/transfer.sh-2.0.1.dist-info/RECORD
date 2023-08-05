@@ -1,0 +1,13 @@
+transfer/__init__.py,sha256=PAUtsgeY1GoU6oYLSQlQaYMV_GXyRAGJ-2oMbWLgUQ0,313
+transfer/__main__.py,sha256=wtPBnfGRrdWboE_nTIhdmHyddXwfmNhyGEHLtPrgLy4,3294
+transfer/cli.py,sha256=pFYBuGeNJ3zDIVZEf8Zi4aRQ14wpdQWHkLdNopQ72EI,5997
+transfer/exceptions.py,sha256=xzVMdrnr1kRcC8AfBFmkGIowbmveV9SikbFjpuks1II,1156
+transfer/request.py,sha256=V-dasn6V1As7xSPc5yqA_GQZcaLP7I2CepkJxLgVWmA,3657
+transfer/table.py,sha256=6sYJvrCbMHTcw7TL6gFsJ_n5RcGS9IgB0p7v28nD6rw,1194
+transfer/version.py,sha256=ieSNDTyUwZyqPLAQVwKp15Ks_JqUYwSvjbFgbXTSOdM,71
+transfer.sh-2.0.1.dist-info/LICENSE,sha256=nR4eHS69ANfhHxmRbsKs8iskgKPQiytfgh9mMIhsLJk,1069
+transfer.sh-2.0.1.dist-info/METADATA,sha256=HZwaN0CDGsCEVrJa0A6dnACP4GvMoto9j7Pn0b1yRWY,3417
+transfer.sh-2.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+transfer.sh-2.0.1.dist-info/entry_points.txt,sha256=FRHnQHcNyL2PEl2hkTn027HISJCayUN_hNvGNkpD-94,48
+transfer.sh-2.0.1.dist-info/top_level.txt,sha256=cEy_ai6LXWAkD6XCnJIYZxFTxXZtx3nhtA52OhlAWqI,9
+transfer.sh-2.0.1.dist-info/RECORD,,
