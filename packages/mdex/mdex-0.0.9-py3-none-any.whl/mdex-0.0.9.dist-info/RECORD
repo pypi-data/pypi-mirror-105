@@ -1,0 +1,15 @@
+mdapi/__init__.py,sha256=DeTJ81xnyKP3wtVp71J5zoTUPeTq17Nww9sa10jDTF4,49
+mdapi/__main__.py,sha256=jqsMIo3TrEswz9SOe77_J2pJciEzzbwhMh13CXfjmks,34
+mdapi/endpoints.py,sha256=y4Qg34imzNyri2cTya4Csr6SIa9RghGnYaEaLujFmBg,2806
+mdapi/exceptions.py,sha256=XiOyQM99TuQQ1iXQ8457jovJZ8yZmshoeiFiYFZn20M,41
+mdapi/main.py,sha256=VDs29TV75qy39ZVgFvoD9hVXVKmd9qvvXwRtTAI-sEY,3998
+mdapi/mdapi.py,sha256=vFEI5uGNPRBn4k2e1GKOSbTjp4BoFEj4x-2uaf_mlkU,3141
+mdapi/schema.py,sha256=VFVKeaHk1ynMT9iYImR0u3ktObGUZfM_tbsGGOCrw9E,4446
+mdapi/schema_new.py,sha256=hNWnOleN6K_lcT3n1u8JbG6yIRK_maOI4y1ycO7HlAs,678
+mdapi/testing_please_ignore.py,sha256=3BfAAXkTXHGU3Df8_xpAoU2qIQ2KcZCpqKxJWXlBVF0,4345
+mdapi/util.py,sha256=Ydv_1B5BV1D0Jh6ZE1yTnYWnrrSHg2qVRoD0shws-VM,1863
+mdex-0.0.9.data/scripts/mdex.py,sha256=KGb4RMO_NgRnQXztnrK0o0h4-Iyk1I8CFkPW001JmhM,58
+mdex-0.0.9.dist-info/METADATA,sha256=HqrMyjFncgqOMWnSsNNfOwhZfF3_pFefsqTBcxMkGsw,749
+mdex-0.0.9.dist-info/WHEEL,sha256=D1Wh14kWDxPnrM-5t_6UCB-UuQNrEODtRa3vF4OsvQY,97
+mdex-0.0.9.dist-info/top_level.txt,sha256=tZoRxD3QcWxw3m0w1yWLsMDPaV7SH60bxyHWneypCwM,6
+mdex-0.0.9.dist-info/RECORD,,
