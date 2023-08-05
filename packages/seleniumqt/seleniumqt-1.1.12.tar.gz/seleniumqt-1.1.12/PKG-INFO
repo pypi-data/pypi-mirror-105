@@ -1,0 +1,14 @@
+Metadata-Version: 1.2
+Name: seleniumqt
+Version: 1.1.12
+Summary: test@qtp
+Home-page: http://github.com/lll/seleniumqt
+Author: john dv
+Author-email: seleniumqt@gmail.com
+License: UNKNOWN
+Description: selenium develop for persional...
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
