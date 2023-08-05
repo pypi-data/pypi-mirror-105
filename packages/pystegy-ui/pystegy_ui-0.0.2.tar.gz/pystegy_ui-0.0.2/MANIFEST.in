@@ -1,0 +1,6 @@
+include stegy_ui/datas/stegy.cnf
+include stegy_ui/datas/TitleBar.lck
+include stegy_ui/datas/src.png
+include stegy_ui/datas/stegy.ico
+include stegy_ui/datas/stegy.bmp
+include stegy_ui/datas/share32.png

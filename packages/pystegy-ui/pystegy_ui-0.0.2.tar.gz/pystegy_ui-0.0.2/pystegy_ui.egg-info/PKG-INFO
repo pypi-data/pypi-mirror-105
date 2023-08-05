@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pystegy-ui
+Version: 0.0.2
+Summary: small steganography utility tkinter interface
+Home-page: UNKNOWN
+Author: d.char
+Author-email: d.charentus@gmail.com
+License: UNKNOWN
+Description: # pystegy_ui             -           Release 0.0.2
+        
+        tkinter user interface for 'pystegy' package
+        
+        >## usage
+        >  python -m stegy_ui
+        
+        > see 'pystegy' package
+        
+          
+        
+        
+        
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
