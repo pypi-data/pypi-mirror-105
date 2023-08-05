@@ -1,0 +1,4 @@
+[console_scripts]
+kb=kobold.core:main
+kobold=kobold.core:main
+
