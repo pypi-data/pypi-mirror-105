@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: traju
+Version: 0.1.0
+Summary: traju makes manipulation with MD trajectories using AmberTools a little bit easier
+Home-page: https://github.com/vsheg/traju
+License: MIT
+Keywords: trajectory-analysis,molecular-dynamics
+Author: Vsevolod O. Shegolev
+Author-email: v.sheg@icloud.com
+Requires-Python: >=3.9
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Project-URL: Documentation, https://github.com/vsheg/traju
+Project-URL: Repository, https://github.com/vsheg/traju
+Description-Content-Type: text/markdown
+
+# traju
+
+`traju` makes manipulation with MD trajectories using AmberTools a little bit easier.
+
+
+* Free software: MIT license
+
+
+## Features
+
+* TODO

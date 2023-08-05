@@ -1,0 +1,3 @@
+[console_scripts]
+traju=traju.cli:main
+
