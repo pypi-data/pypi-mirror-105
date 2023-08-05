@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: luq89-pyspark-app-luq89
+Version: 0.0.8
+Summary: Sample app in PyPI
+Home-page: https://github.com/lukaszziobro89
+Author: Lukasz Ziobro
+Author-email: luki670@wp.pl
+License: UNKNOWN
+Description: Sample app in PyPI - Lukasz Ziobro
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
