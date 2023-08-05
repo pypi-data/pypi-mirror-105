@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: evolocity
+Version: 0.0.1
+Summary: Evolutionary velocity with protein language models
+Home-page: https://github.com/brianhie/evolocity
+Author: Brian Hie
+Author-email: brianhie@stanford.edu
+License: MIT
+Download-URL: https://github.com/brianhie/evolocity
+Keywords: evolution,velocity,evolocity,protein,language model
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: biopython (>=1.76)
+Requires-Dist: louvain (>=0.6.1)
+Requires-Dist: matplotlib (>=3.1.1)
+Requires-Dist: numpy (>=1.17.2)
+Requires-Dist: pandas (>=0.25.1)
+Requires-Dist: python-igraph (>=0.8.3)
+Requires-Dist: scanpy (>=1.4.5.1)
+Requires-Dist: scipy (>=1.3.1)
+Requires-Dist: scikit-learn (>=0.21.3)
+Requires-Dist: seaborn (>=0.9.0)
+Requires-Dist: torch (>=1.7.1)
+
+UNKNOWN
+
+
