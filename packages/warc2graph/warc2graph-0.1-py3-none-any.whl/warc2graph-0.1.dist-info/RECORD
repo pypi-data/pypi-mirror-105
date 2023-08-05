@@ -1,0 +1,12 @@
+warc2graph/__init__.py,sha256=Ok8O77qH6CVdkCZYjyMfj6WjxRW8iNqOj2MdLvgIQNI,1883
+warc2graph/cli.py,sha256=w0sa-QCZU3Z0a9FQ41a8W2d4VbD-g5unJjpSMA2gO8A,8093
+warc2graph/linkextraction.py,sha256=niwmYIGVeUDhT__d1enZgSb4bWiy_3HvMbuGdOSMSMo,21975
+warc2graph/networks.py,sha256=9Zy3pZy2HH3LdXeY0IU_PrDCMG1kXg6WkzwfGeFliUU,2064
+warc2graph/warc2graph.py,sha256=u4l98eUrfrUTW7kfGzytxvdCZj3JNMdEqGLApYf-dIA,3704
+warc2graph-0.1.dist-info/COPYING,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+warc2graph-0.1.dist-info/COPYING.LGPL,sha256=HCJREn2-erg3aENCdyPGpjMxwnpJK7YUvebDo9HbtH4,7439
+warc2graph-0.1.dist-info/METADATA,sha256=i3inpbp1eBmNSGdHojxOWgHvgWlLjdQXTSiZ79ICTVM,10916
+warc2graph-0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+warc2graph-0.1.dist-info/entry_points.txt,sha256=KR01ZNP4IBxrLdqCAv7ERepCy7cMOukGaIaSd03tOkA,52
+warc2graph-0.1.dist-info/top_level.txt,sha256=udZlYorc1ziRhchBcg3b7VXhV6WATAMw73XLB_1FfyM,11
+warc2graph-0.1.dist-info/RECORD,,
