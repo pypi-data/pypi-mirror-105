@@ -1,0 +1,10 @@
+nltk
+scikit-learn>=0.20.0
+wget
+requests
+flask
+appdirs
+
+[test]
+pytest
+pytest-cov
