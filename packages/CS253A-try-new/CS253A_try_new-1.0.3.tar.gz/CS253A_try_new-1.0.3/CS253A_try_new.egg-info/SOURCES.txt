@@ -1,0 +1,7 @@
+README.md
+setup.py
+CS253A_try_new.egg-info/PKG-INFO
+CS253A_try_new.egg-info/SOURCES.txt
+CS253A_try_new.egg-info/dependency_links.txt
+CS253A_try_new.egg-info/requires.txt
+CS253A_try_new.egg-info/top_level.txt
