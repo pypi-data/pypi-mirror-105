@@ -1,0 +1,8 @@
+LICENSE.txt
+README.md
+setup.py
+src/modify_range.py
+src/modify_range.egg-info/PKG-INFO
+src/modify_range.egg-info/SOURCES.txt
+src/modify_range.egg-info/dependency_links.txt
+src/modify_range.egg-info/top_level.txt
