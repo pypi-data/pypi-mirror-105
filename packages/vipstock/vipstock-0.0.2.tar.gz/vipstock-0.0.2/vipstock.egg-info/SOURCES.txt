@@ -1,0 +1,10 @@
+README.md
+setup.py
+VipStock/__init__.py
+VipStock/crawl.py
+VipStock/info.py
+VipStock/spider.py
+vipstock.egg-info/PKG-INFO
+vipstock.egg-info/SOURCES.txt
+vipstock.egg-info/dependency_links.txt
+vipstock.egg-info/top_level.txt
