@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: everest-nlp
+Version: 0.3
+Summary: Python package for NLP solution in devanagari dataset
+Home-page: https://gitlab.com/shusrulz/everest_nlp/-/archive/0.3/everest_nlp-0.3.tar.gz
+Author: Shushant Pudasaini
+Author-email: shusrulz@gmai.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: gensim (==3.7.3)
+Requires-Dist: sklearn
+Requires-Dist: jellyfish (==0.8.2)
+Requires-Dist: pandas
+
+UNKNOWN
+
+

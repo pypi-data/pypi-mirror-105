@@ -1,0 +1,17 @@
+everest_nlp/__init__.py,sha256=TUoWNqsb8D5az_Da8RhxAtj9LsropSm_SLF4iS0V_OQ,20
+everest_nlp/config.py,sha256=_x9ILQ5bHtWT-3YdFi56a_Zyupfp7jQar0r1STU0Bb4,933
+everest_nlp/test.py,sha256=q5poNYfEdWGtivc9dYmqKKkWodu4QA78yX6imxIu1FM,300
+everest_nlp/ner_devanagari/__init__.py,sha256=m33RGAda4YL2zPvOzJLLxC0L9l0QPnVuMiPb7qYob2w,29
+everest_nlp/ner_devanagari/ner.py,sha256=wCxpppaFQMMqtIQcf61sw0p0U9iesLKGWk1qkBTd0bM,992
+everest_nlp/ner_devanagari/test_ner.py,sha256=FuH8Yub5jtl6A8vQecHWoq17aG6GcxEJnKFTE1--n24,603
+everest_nlp/sabda2vec/__init__.py,sha256=YcFA9njHB4vC3NGDLEQb55W3cGxXMMl1kKoYot1rJv4,32
+everest_nlp/sabda2vec/inference.py,sha256=cC9Xiw_ycNizbiqtCJQFtyrkp967zJek6ypFkHtcANE,3765
+everest_nlp/sabda2vec/nepali_tokenizer.py,sha256=atnByiqOeVTW3w8Gu-xCJoq5axhOZGDfnyl6-vk_Wtk,2062
+everest_nlp/sabda2vec/spell_checker.py,sha256=EbXO1cyIdGgymtoI6EtYhvEPjzV82nymNF_E0hkp6VU,3066
+everest_nlp/sabda2vec/test_nepali_nlp.py,sha256=u0-fkM26au03IfMo8Fdx1kT0JYcrosNtVmUIQQ1gwGc,611
+everest_nlp/sabda2vec/train_sabda2vec.py,sha256=HANW-nX7_lVyw0fsIO7W8A4xgDfziopu29QCaQmDJPo,3044
+everest_nlp-0.3.dist-info/LICENSE,sha256=K5EGDIYbK4liOZPOzaysFgH1fsJoNeEJwLt8SHTNNKg,1087
+everest_nlp-0.3.dist-info/METADATA,sha256=A73h0GuNiRAQyclPG5iKsSvvU_eBotlnBrcbLEv-8qA,590
+everest_nlp-0.3.dist-info/WHEEL,sha256=gm79cMopkncyn0iSnI0vQNiDJ8t9on0H4_iz-CrpXMk,92
+everest_nlp-0.3.dist-info/top_level.txt,sha256=NXNQdpWK-GGNtwWbmPnqiES0dEOJyfGBHExnm_iNP6s,12
+everest_nlp-0.3.dist-info/RECORD,,
