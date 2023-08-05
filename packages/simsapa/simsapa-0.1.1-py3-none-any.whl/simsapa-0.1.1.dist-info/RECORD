@@ -1,0 +1,12 @@
+simsapa/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+simsapa/__main__.py,sha256=sixjcLLcNeFgvhREGVFORSz5CEsnz1Yrw8wNg_JeSIw,97
+simsapa/app/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+simsapa/app/db_models.py,sha256=nctu8VRM4Eg0vTi94dyBVHTWSIJ0jFZcu1GiM4tpG0E,2064
+simsapa/app/types.py,sha256=Qm5xM_90XIBsyjfbyE4ckm_irCJqJzEVEhtNFS91Bfc,1134
+simsapa/layouts/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+simsapa/layouts/sutta_search.py,sha256=o9CroZQc2h19-JR6zbYMdys1GM5mce5n_o46NaW_Ge0,4230
+simsapa/runner.py,sha256=sEQkoFmJ_wF0RcNHhRgytoXtk5_J9rj2lNM2v3chE9Y,1226
+simsapa-0.1.1.dist-info/LICENSE.txt,sha256=zNNnZdvILtRz94DgSqeP3KO3_fFg6hbqqg_4mmEDvXM,1105
+simsapa-0.1.1.dist-info/WHEEL,sha256=VN2eEg4PHbTOniXb-cCYQPc6zUTS4dAcATjlgU3q-Lo,83
+simsapa-0.1.1.dist-info/METADATA,sha256=cie1V1F7TZWGM609t7yJzM_6SBfvgZ2a_btSyPId2RM,587
+simsapa-0.1.1.dist-info/RECORD,,
