@@ -1,0 +1,4 @@
+[console_scripts]
+cite2Tex = word2Tex.cite2Tex:main
+fixBibTex = word2Tex.fixBibTex:main
+
