@@ -1,0 +1,7 @@
+jkq.qfr-1.4.1.dist-info/RECORD,,
+jkq.qfr-1.4.1.dist-info/WHEEL,sha256=8mIGyWWDQye9YoLHY0HK4kOAUuaJRnDvaLJVSXp-uIE,111
+jkq.qfr-1.4.1.dist-info/LICENSE.md,sha256=LQYaeMckyPqxM9eeIsQfAWlPGHTYoYJMByF13BoPGd8,1133
+jkq.qfr-1.4.1.dist-info/METADATA,sha256=iRk3qJAHPDn0LHI388UhhcjkGZ7_d6sooNEf375GV1s,10366
+jkq.qfr-1.4.1.dist-info/top_level.txt,sha256=yb3i7eFqFwjOifuIVfF_IYs7QI9W8rtwQf1QdDxdB7g,10
+jkq/qfr/__init__.py,sha256=IILe355D2qFlkXmOHfKgA9p4EFjftZMSC4bpCBC9Pj0,288
+jkq/qfr/pyqfr.cpython-39-x86_64-linux-gnu.so,sha256=8bkyCFEaAi6-80Ulp54zyNkIRnxdnc58L3ANZI3dYKI,1051728
