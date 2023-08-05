@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: AsyncDex
+Version: 0.2
+Summary: Async MangaDex library
+Home-page: https://github.com/PythonCoderAS/AsyncDex
+Author: PythonCoderAS
+Author-email: pokestarfan@yahoo.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Requires-Dist: aiohttp
+Provides-Extra: dev
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-book-theme ; extra == 'dev'
+
+AsyncDex: Async MangaDex API Wrapper
+====================================
+
+A wrapper over the Mangadex API that supports authentication and ratelimits.
+
+View full documentation here: https://asyncdex.readthedocs.io/
+
+
