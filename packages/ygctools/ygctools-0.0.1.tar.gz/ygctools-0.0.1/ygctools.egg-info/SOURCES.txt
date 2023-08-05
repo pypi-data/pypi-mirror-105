@@ -1,0 +1,13 @@
+MANIFEST.in
+setup.py
+ygctools.egg-info/PKG-INFO
+ygctools.egg-info/SOURCES.txt
+ygctools.egg-info/dependency_links.txt
+ygctools.egg-info/entry_points.txt
+ygctools.egg-info/top_level.txt
+ygctools/alitools/docscope
+ygctools/alitools/duk
+ygctools/alitools/kvdump
+ygctools/alitools/lfs_extrator
+ygctools/alitools/mini_adpcm_ffmpeg
+ygctools/alitools/mklfs
