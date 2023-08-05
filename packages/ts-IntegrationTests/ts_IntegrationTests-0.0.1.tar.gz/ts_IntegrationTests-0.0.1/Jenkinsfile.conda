@@ -1,0 +1,2 @@
+@Library('JenkinsShared@tickets/DM-29917') _
+IntTestsPipeline()

@@ -1,0 +1,18 @@
+*.swp
+*.o
+*.os
+*.so
+*.cfgc
+*.pyc
+*_wrap.cc
+*Lib.py
+
+# Python
+tests/.tests
+pytest_session.txt
+.cache/
+.pytest_cache
+.coverage
+__pycache__
+*.egg-info
+
