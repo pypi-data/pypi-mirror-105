@@ -1,0 +1,8 @@
+confseq/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+confseq/boundaries.cpython-39-darwin.so,sha256=Oc5DfLUx9RDxj8WiaYIyd9TiOVVRczwk5MkGuTrnK6w,304632
+confseq/quantiles.cpython-39-darwin.so,sha256=01lP-88ui1wjBc9YLbwmSPVNIGUb9JaFOxif0SWOvCE,288584
+confseq-0.0.6.dist-info/LICENSE,sha256=DDvAu8Joe1Sk8GzOaC63aCOv03SM82NKgV3_oNp8U0E,1070
+confseq-0.0.6.dist-info/METADATA,sha256=1Ztqia2qVvfj9DWNoB2a2sZ7EHv9hOPmwXIugvvoN4Y,7559
+confseq-0.0.6.dist-info/WHEEL,sha256=kgjZmMZ4TrJPieaGskOv7Eipm5GDObgWy9w0C0esbOY,104
+confseq-0.0.6.dist-info/top_level.txt,sha256=99cHkVM0v3CHlZPj4Zat2uEoV18pUhmtrFj-OO5P9Wc,8
+confseq-0.0.6.dist-info/RECORD,,
