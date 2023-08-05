@@ -1,0 +1,13 @@
+template_config_model/config_model.py,sha256=uFYJ8aoApS9ESgLF7FWUljTrAbbenbCiU4LsGMj-454,6833
+template_config_model/jsonld/config_model.context.jsonld,sha256=pn5aCJhKLUBUOGFnEsdS54wVrcmvYP_rtkUVrqFfiD4,764
+template_config_model/jsonld/config_model.model.context.jsonld,sha256=pn5aCJhKLUBUOGFnEsdS54wVrcmvYP_rtkUVrqFfiD4,764
+template_config_model/jsonschema/config_model.schema.json,sha256=QlrxD82FO9tIGTlB5CZTTqh7bKfBncqIzldyjgzJts8,2657
+template_config_model/model/schema/config_model.yaml,sha256=klmn1AausywcjmmSfWZyyxbYO8-LievAetRhHsAFXfg,2895
+template_config_model/schema/config_model.yaml,sha256=klmn1AausywcjmmSfWZyyxbYO8-LievAetRhHsAFXfg,2895
+template_config_model-0.0.1.data/data/template_config_model/model/schema/config_model.yaml,sha256=klmn1AausywcjmmSfWZyyxbYO8-LievAetRhHsAFXfg,2895
+template_config_model-0.0.1.dist-info/AUTHORS,sha256=rmcnps4khfHTSag1NH_a3IYAZQnIlrYQWn5d6e7rDXU,94
+template_config_model-0.0.1.dist-info/METADATA,sha256=GmJGD_W8rI6VoNjNUNpe_vFKCWAFC7HKEKf2pP9NN84,1053
+template_config_model-0.0.1.dist-info/WHEEL,sha256=gm79cMopkncyn0iSnI0vQNiDJ8t9on0H4_iz-CrpXMk,92
+template_config_model-0.0.1.dist-info/pbr.json,sha256=yUbL9n9vchTYFFxq1ofiLe6FY4mpGqIRZ-b5Ov45ZTE,47
+template_config_model-0.0.1.dist-info/top_level.txt,sha256=MUB4aWlGHGEOr3Uk3HN-a8mzMoA_miKyDm7OUwFWy6c,22
+template_config_model-0.0.1.dist-info/RECORD,,
