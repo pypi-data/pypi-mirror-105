@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: gl-snippet
+Version: 0.1.2.0
+Summary: "Fetch snippet to local file"
+Home-page: http://www.grayshift.com
+Author: Curtis Forrester
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Framework :: Flake8
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=2.7
+Requires-Dist: python-gitlab
+Requires-Dist: click
+
+TBD
+
+
