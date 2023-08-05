@@ -1,0 +1,75 @@
+Metadata-Version: 1.2
+Name: mozvpn
+Version: 0.1.0
+Summary: Tools and GUI for MozillaVPN.
+Home-page: https://github.com/ralhei/mozvpn
+Author: Ralph Heinkel
+Author-email: rh@ralph-heinkel.com
+License: GNU General Public License v3
+Description: ======
+        mozvpn
+        ======
+        
+        
+        .. image:: https://img.shields.io/pypi/v/mozvpn.svg
+                :target: https://pypi.python.org/pypi/mozvpn
+        
+        .. image:: https://img.shields.io/travis/ralhei/mozvpn.svg
+                :target: https://travis-ci.com/ralhei/mozvpn
+        
+        .. image:: https://readthedocs.org/projects/mozvpn/badge/?version=latest
+                :target: https://mozvpn.readthedocs.io/en/latest/?version=latest
+                :alt: Documentation Status
+        
+        Tools and GUI for MozillaVPN.
+        
+        
+        * Free software: GNU General Public License v3
+        * Documentation: https://mozvpn.readthedocs.io. (to be done).
+        
+        
+        Features
+        --------
+        
+        * Provide alternative GUI frontend for Mozilla VPN.
+        
+        Short Usage
+        -----------
+        Once everything is installed (incl. ``wireguard`` and ``wireguard-tools``)
+        and you have a subscription for MozillaVPN, then just run::
+        
+            $ mozvpn gui
+        
+        A window should open and allow you to select the desired VPN server endpoint
+        from a choice of cities in various countries. Then just click the ``connect``
+        button, and you should have a running VPN.
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2021-05-06)
+        ------------------
+        
+        * First commit on github.
+        
+Keywords: mozvpn
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
