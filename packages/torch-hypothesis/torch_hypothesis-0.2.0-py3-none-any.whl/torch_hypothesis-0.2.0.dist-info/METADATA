@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: torch-hypothesis
+Version: 0.2.0
+Summary: Generate pytorch data structures for the hypothesis testing library.
+Home-page: https://github.com/janfreyberg/torch-hypothesis
+Author: Jan Fryeberg
+Author-email: jan.freyberg@elementai.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: hypothesis (>=4.24,<5.0)
+Requires-Dist: torch (>1.7)
+Requires-Dist: torchvision (>0.8)
