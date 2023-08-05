@@ -1,0 +1,7 @@
+joblib
+colorama
+tqdm
+Click>=7.1
+
+[:python_version < "3.7"]
+dataclasses>=0.6
