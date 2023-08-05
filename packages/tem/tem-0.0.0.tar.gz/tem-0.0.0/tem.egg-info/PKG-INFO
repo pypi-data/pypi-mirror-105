@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: tem
+Version: 0.0.0
+Summary: Don't Repeat Yourself. Seriously.
+Home-page: https://github.com/harisgusic/tem
+Author: Haris Gušić
+Author-email: harisgusic.dev@gmail.com
+License: UNKNOWN
+Description: # Template and Environment Manager
+        ## DRY Ever Again!
+        
+        A command line utility that helps you to achieve that goal.
+        
+        **NOTE: Still under development**
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
