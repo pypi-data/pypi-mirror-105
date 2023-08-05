@@ -1,0 +1,7 @@
+numpy
+pandas
+tqdm>=4.45.0
+multiprocess
+entropy_estimators
+scipy
+scikit-learn>=0.22.2.post1
