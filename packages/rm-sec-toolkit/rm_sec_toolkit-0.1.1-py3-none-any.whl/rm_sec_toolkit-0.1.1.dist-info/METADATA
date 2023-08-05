@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: rm-sec-toolkit
+Version: 0.1.1
+Summary: module based security toolkit framework for python
+Home-page: https://github.com/MartinR2295/rm-sec-toolkit
+Author: Martin Rader
+Author-email: m1rader@edu.aau.at
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: rm-options (==1.2.0)
+Requires-Dist: scapy (==2.4.5)
+
+# rm-sec-toolkit
+
+
