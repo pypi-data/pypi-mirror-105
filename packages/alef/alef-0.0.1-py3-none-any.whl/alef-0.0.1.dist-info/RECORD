@@ -1,0 +1,11 @@
+alef/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+alef/__main__.py,sha256=GqcqZSQoExqFHD0fa9on666Mypijo35ZCybY_xMr42o,65
+alef/bash.py,sha256=5FfkDjLyjfugZ2rA0iFJ8TNugmMNKelA8QVh8VXZWzw,5838
+alef/cli.py,sha256=-namq6xUulfMCI4zNtEPkzbwV3p79XMUZq6hOutP338,155
+alef/logging.py,sha256=M0a-w1PH-veBhavHXcsXmwUSqk0fehtWyylrWVQqFw0,11138
+alef/util.py,sha256=1KLnPT8XPl_SVyOMOsEe6t8nQ9I9d35IoQk4fTPaAUs,708
+alef-0.0.1.dist-info/LICENSE,sha256=fSXpEMXLGGmZ8qJl6GFg5bG97fsZ3samR2GfsVOe3Sk,1071
+alef-0.0.1.dist-info/METADATA,sha256=QuQzGbtuk2guZkOkh7d59ZLYFzEWhYSRHTqx-rqYv8U,252
+alef-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+alef-0.0.1.dist-info/top_level.txt,sha256=nRw3QzgrpYizkOy8Dl2W2FyN8a7VIBeSCzTMA4JbaGU,5
+alef-0.0.1.dist-info/RECORD,,
