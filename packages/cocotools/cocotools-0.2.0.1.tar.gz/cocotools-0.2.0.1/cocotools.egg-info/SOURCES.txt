@@ -1,0 +1,17 @@
+README.md
+setup.py
+coco/__init__.py
+coco/__main__.py
+coco/coco.py
+coco/consts.py
+coco/eval.py
+coco/log_utils.py
+coco/main.py
+coco/test_coco.py
+coco/utils.py
+cocotools.egg-info/PKG-INFO
+cocotools.egg-info/SOURCES.txt
+cocotools.egg-info/dependency_links.txt
+cocotools.egg-info/entry_points.txt
+cocotools.egg-info/requires.txt
+cocotools.egg-info/top_level.txt
