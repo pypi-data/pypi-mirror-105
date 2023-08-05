@@ -1,0 +1,15 @@
+password_prompt:
+  filter_background: "#000000"
+  filter_foreground: "#000000"
+  prompt: "Password: "
+
+
+emergency_prompt:
+  normal_background: "#af1f00"
+  filter_background: "#af1f00"
+  selected_background: "#50e0ff"
+  normal_foreground: "#50e0ff"
+  filter_foreground: "#50e0ff"
+  selected_foreground: "#af1f00"
+  title_background: "#000000"
+  title_foreground: "#ffffff"
