@@ -1,0 +1,5 @@
+numpy
+scipy
+PIL
+cv2
+networkx
