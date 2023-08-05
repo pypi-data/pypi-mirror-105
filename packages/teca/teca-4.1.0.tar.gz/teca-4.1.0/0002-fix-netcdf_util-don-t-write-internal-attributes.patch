@@ -1,0 +1,27 @@
+From f8e146e05560ebe64c7680e5df4d23bf947420e6 Mon Sep 17 00:00:00 2001
+From: Burlen Loring <bloring@lbl.gov>
+Date: Tue, 27 Apr 2021 14:01:35 -0700
+Subject: [PATCH 2/2] fix netcdf_util don't write internal attributes
+
+---
+ io/teca_netcdf_util.cxx | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/io/teca_netcdf_util.cxx b/io/teca_netcdf_util.cxx
+index 884a97d..3bef9d5 100644
+--- a/io/teca_netcdf_util.cxx
++++ b/io/teca_netcdf_util.cxx
+@@ -841,7 +841,9 @@ int write_variable_attributes(netcdf_handle &fh, int var_id,
+         if ((att_name == "cf_id") || (att_name == "cf_dims") ||
+             (att_name == "cf_dim_names") || (att_name == "type_code") ||
+             (att_name == "cf_type_code") || (att_name == "centering") ||
+-            (att_name == "size"))
++            (att_name == "size") || (att_name == "have_mesh_dim") ||
++            (att_name == "mesh_dim_active") || (att_name == "n_mesh_dims") ||
++            (att_name == "n_active_dims"))
+             continue;
+ 
+         // get the attribute value
+-- 
+2.28.0
+

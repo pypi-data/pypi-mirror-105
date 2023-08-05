@@ -1,0 +1,149 @@
+From 61657b8f32f4f3d3a4c682beb2444989e2440ecd Mon Sep 17 00:00:00 2001
+From: Burlen Loring <bloring@lbl.gov>
+Date: Tue, 23 Mar 2021 15:31:42 -0700
+Subject: [PATCH] squash -- add mcf reader to elev mask test
+
+---
+ .travis.yml                  |  2 +-
+ test/CMakeLists.txt          |  2 +-
+ test/test_elevation_mask.cpp | 55 +++++++++++++++++++++++++++++---------------
+ 3 files changed, 38 insertions(+), 21 deletions(-)
+
+diff --git a/.travis.yml b/.travis.yml
+index 1a686bd..ccf370d 100644
+--- a/.travis.yml
++++ b/.travis.yml
+@@ -17,7 +17,7 @@ env:
+     - BUILD_TYPE=Debug
+     - TECA_DIR=/travis_teca_dir
+     - TECA_PYTHON_VERSION=3
+-    - TECA_DATA_REVISION=112
++    - TECA_DATA_REVISION=114
+   jobs:
+     - DOCKER_IMAGE=ubuntu IMAGE_VERSION=20.04 IMAGE_NAME=ubuntu_20_04 REQUIRE_NETCDF_MPI=TRUE
+     - DOCKER_IMAGE=ubuntu IMAGE_VERSION=20.04 IMAGE_NAME=ubuntu_20_04 REQUIRE_NETCDF_MPI=FALSE
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index 553c370..cb16911 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -693,7 +693,7 @@ teca_add_test(test_bounds_to_extent
+ teca_add_test(test_elevation_mask
+     SOURCES test_elevation_mask.cpp
+     LIBS teca_core teca_data teca_io teca_alg ${teca_test_link}
+-    COMMAND test_elevation_mask
++    COMMAND test_elevation_mask cf
+     "${TECA_DATA_ROOT}/ECMWF-IFS-HR-SST-present_himalaya\\.nc"
+     "${TECA_DATA_ROOT}/GTOPO_DEM_025deg\\.nc"
+     "${TECA_DATA_ROOT}/test_elevation_mask"
+diff --git a/test/test_elevation_mask.cpp b/test/test_elevation_mask.cpp
+index d5a4409..a92ceda 100644
+--- a/test/test_elevation_mask.cpp
++++ b/test/test_elevation_mask.cpp
+@@ -7,6 +7,7 @@
+ #include "teca_indexed_dataset_cache.h"
+ #include "teca_cf_writer.h"
+ #include "teca_cf_reader.h"
++#include "teca_multi_cf_reader.h"
+ #include "teca_dataset_diff.h"
+ #include "teca_file_util.h"
+ #include "teca_system_util.h"
+@@ -29,37 +30,53 @@ int main(int argc, char **argv)
+     teca_system_interface::set_stack_trace_on_error();
+     teca_system_interface::set_stack_trace_on_mpi_error();
+ 
+-    if (argc < 4)
++    if (argc < 5)
+     {
+         if (rank == 0)
+         {
+             std::cerr << std::endl << "Usage error:" << std::endl
+-                << "test_elevation_mask [mesh files] [surface elev file] [out file]"
++                << "test_elevation_mask [reader type (cf,mcf)] [mesh files]"
++                   " [surface elev file] [out file] [first step] [last step]"
+                 << std::endl << std::endl;
+         }
+         return -1;
+     }
+-    std::string mesh_regex = argv[1];
+-    std::string elev_regex = argv[2];
+-    std::string baseline = argv[3];
++    std::string reader_type = argv[1];
++    std::string mesh_regex = argv[2];
++    std::string elev_regex = argv[3];
++    std::string baseline = argv[4];
++    int first_step = (argc > 5 ? atoi(argv[5]) : 0);
++    int last_step = (argc > 6 ? atoi(argv[6]) : -1);
+ 
+     // mesh
+-    p_teca_cf_reader mesh_cmr = teca_cf_reader::New();
+-    mesh_cmr->set_z_axis_variable("plev");
+-    mesh_cmr->set_files_regex(mesh_regex);
++    p_teca_algorithm mesh_reader;
++    if (reader_type == "cf")
++    {
++        p_teca_cf_reader cfr = teca_cf_reader::New();
++        cfr->set_z_axis_variable("plev");
++        cfr->set_files_regex(mesh_regex);
++        mesh_reader = cfr;
++    }
++    else if (reader_type == "mcf")
++    {
++        p_teca_multi_cf_reader cfr = teca_multi_cf_reader::New();
++        cfr->set_z_axis_variable("plev");
++        cfr->set_input_file(mesh_regex);
++        mesh_reader = cfr;
++    }
+ 
+     p_teca_normalize_coordinates mesh_coords = teca_normalize_coordinates::New();
+-    mesh_coords->set_input_connection(mesh_cmr->get_output_port());
++    mesh_coords->set_input_connection(mesh_reader->get_output_port());
+ 
+     teca_metadata md = mesh_coords->update_metadata();
+ 
+     // surface elevations
+-    p_teca_cf_reader elev_cmr = teca_cf_reader::New();
+-    elev_cmr->set_files_regex(elev_regex);
+-    elev_cmr->set_t_axis_variable("");
++    p_teca_cf_reader elev_cfr = teca_cf_reader::New();
++    elev_cfr->set_files_regex(elev_regex);
++    elev_cfr->set_t_axis_variable("");
+ 
+     p_teca_normalize_coordinates elev_coords = teca_normalize_coordinates::New();
+-    elev_coords->set_input_connection(elev_cmr->get_output_port());
++    elev_coords->set_input_connection(elev_cfr->get_output_port());
+     elev_coords->set_enable_periodic_shift_x(1);
+ 
+     p_teca_indexed_dataset_cache elev_cache = teca_indexed_dataset_cache::New();
+@@ -116,14 +133,14 @@ int main(int argc, char **argv)
+     {
+         std::cerr << "running the test ..." << std::endl;
+ 
+-        p_teca_cf_reader cmr = teca_cf_reader::New();
+-        cmr->set_files_regex(baseline);
+-        cmr->set_z_axis_variable("plev");
++        p_teca_cf_reader cfr = teca_cf_reader::New();
++        cfr->set_files_regex(baseline);
++        cfr->set_z_axis_variable("plev");
+ 
+         rex->set_arrays(arrays);
+ 
+         p_teca_dataset_diff diff = teca_dataset_diff::New();
+-        diff->set_input_connection(0, cmr->get_output_port());
++        diff->set_input_connection(0, cfr->get_output_port());
+         diff->set_input_connection(1, mask->get_output_port());
+         diff->set_executive(rex);
+         diff->set_verbose(1);
+@@ -142,8 +159,8 @@ int main(int argc, char **argv)
+         cmw->set_steps_per_file(10000);
+         cmw->set_point_arrays(arrays);
+ 
+-        cmw->set_first_step(0);
+-        cmw->set_last_step(-1);
++        cmw->set_first_step(first_step);
++        cmw->set_last_step(last_step);
+         cmw->set_verbose(1);
+ 
+         cmw->set_executive(rex);
+-- 
+2.16.4
+

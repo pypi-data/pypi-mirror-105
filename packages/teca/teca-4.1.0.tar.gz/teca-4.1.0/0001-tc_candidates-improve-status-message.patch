@@ -1,0 +1,28 @@
+From 61f0420f93d6f57f16475cffaa70c6f52a4e9f81 Mon Sep 17 00:00:00 2001
+From: Burlen Loring <bloring@lbl.gov>
+Date: Tue, 27 Apr 2021 14:00:43 -0700
+Subject: [PATCH 1/2] tc_candidates improve status message
+
+---
+ alg/teca_tc_candidates.cxx | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/alg/teca_tc_candidates.cxx b/alg/teca_tc_candidates.cxx
+index 0aed81a..19d785c 100644
+--- a/alg/teca_tc_candidates.cxx
++++ b/alg/teca_tc_candidates.cxx
+@@ -456,8 +456,9 @@ const_p_teca_dataset teca_tc_candidates::execute(unsigned int port,
+     cerr << std::endl;
+ #endif
+     seconds_t dt(t1 - t0);
+-    TECA_STATUS("teca_tc_candidates step=" << time_step
+-        << " t=" << time_offset << ", dt=" << dt.count() << " sec")
++
++    TECA_STATUS("At step " << time_step << " time " << time_offset << " "
++        << n_candidates << " candidates detected in " dt.count() << " seconds")
+ 
+     return out_table;
+ }
+-- 
+2.28.0
+
