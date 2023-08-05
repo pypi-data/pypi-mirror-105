@@ -1,0 +1,23 @@
+Metadata-Version: 1.2
+Name: keridht
+Version: 0.0.1
+Summary: KERI DHT Discovery
+Home-page: https://github.com/decentralized-identity/keri-dht-py
+Author: 
+Author-email: 
+License: Apache Software License 2.0
+Project-URL: Documentation, https://keridht.readthedocs.io/
+Project-URL: Changelog, https://keridht.readthedocs.io/en/latest/changelog.html
+Project-URL: Issue Tracker, https://github.com/decentralized-identity/keri-dht-py/issues
+Description: KERI DHT Discovery Mechanism using Kademlia
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Utilities
+Requires-Python: >=3.9.4

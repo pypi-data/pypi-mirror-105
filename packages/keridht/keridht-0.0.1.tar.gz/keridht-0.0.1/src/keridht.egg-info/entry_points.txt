@@ -1,0 +1,4 @@
+[console_scripts]
+keridht = keridht.cli:main
+keridhtd = keridht.daemon:main
+
