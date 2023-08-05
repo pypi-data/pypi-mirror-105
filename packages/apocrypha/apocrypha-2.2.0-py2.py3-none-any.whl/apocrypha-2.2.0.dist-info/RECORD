@@ -1,0 +1,13 @@
+apocrypha/__init__.py,sha256=ukFzvOCM94gfh7h52lSFomq3d0yobC7MIDQs059g4cQ,68
+apocrypha/client.py,sha256=JnhN9pax1Du8ofBk6AbkAM2jHAcrbompYoWgWqQ9u4Q,10599
+apocrypha/database.py,sha256=kZVSKC5ViasFfxlvNJvw8fsdZmEcMiEEP4AtjgvQIFo,16530
+apocrypha/datum.py,sha256=6zq4Q-wWLGCjFMmUjay95_idqjDTXvqiECOMzFYrvwQ,2927
+apocrypha/exceptions.py,sha256=haJCFbV5lpHxpqk3hIMCoNbHQ5Kl6tc0jN7O7kp0Kbw,509
+apocrypha/network.py,sha256=yGQW64H0MceiWxR7d6H9Juq7tTygJjUA2EPsleaBZm0,1474
+apocrypha/node.py,sha256=QSBqK3E-ZBRhubpi0OrEaPbtIE-ZRJj4e6qs_PekUPc,14966
+apocrypha/server.py,sha256=JNpeOnX4btFLZSaIoEQEQDNT_qIKJD9w5PGKZ8B-oxQ,6795
+apocrypha-2.2.0.dist-info/LICENSE,sha256=IO9hQmWVGIzH6DU7zQuqfek3W6WcE5QEcKSIaxGnnOY,1063
+apocrypha-2.2.0.dist-info/METADATA,sha256=8FEDvIL__hlJ7EdoELcyS3o0hWDyLcslmlVPsajkc0U,5542
+apocrypha-2.2.0.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+apocrypha-2.2.0.dist-info/top_level.txt,sha256=_-97fMRaLOqB7D6RKupOMwZcNt81kqMB1Gjh_T9dneE,10
+apocrypha-2.2.0.dist-info/RECORD,,
