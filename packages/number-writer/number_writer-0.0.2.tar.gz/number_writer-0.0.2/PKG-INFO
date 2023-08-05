@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: number_writer
+Version: 0.0.2
+Summary: A small package to transform number into text
+Home-page: https://github.com/BrenoOsvaldoFunicheli/number_writer
+Author: Breno Osvaldo
+Author-email: bfunicheli@estudante.ufscar.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
