@@ -1,0 +1,14 @@
+coco/__init__.py,sha256=BY0wLro0SG68_wmw6LP2BREcaTNEkDUECrqvETDmz8g,23
+coco/__main__.py,sha256=AoaOb3y2tJ1NsJNFmsioGSh6EPyu8qnde3G2ihTmcRw,17
+coco/coco.py,sha256=H4tDl7Ez0vGK5VBfGgJ91QR7pAHGAhnvpTyFvX3BuoQ,30630
+coco/consts.py,sha256=Ji8lpI7FCePwitEK15vStV2qBQO7AUBlZ7mhNbxa_l8,212
+coco/eval.py,sha256=vyciSbC-OF-atXWF1SZfFiiqoRYQ-2pXcLhvvNpdXqw,3427
+coco/log_utils.py,sha256=_y3jXZFMlT0sN0RrXB-FhYyxdz0AVpuiBAo8ir4GZ84,136
+coco/main.py,sha256=1eZkUndgB6c0Kl7ZR8GpEP0qTk1cdlClrFCxNm4X-CU,5702
+coco/test_coco.py,sha256=s3MNRc9E40Q13r2Oagu966YhhFi9Ra7_3Ry_ZgDAT34,537
+coco/utils.py,sha256=BdDwDNgT3YDS1kPV7plQaAiPp8nMj9KhrU-QA5rQi-E,3011
+cocotools-0.2.0.1.dist-info/METADATA,sha256=LUBN-CH7V4gv6qpzHlqrL7FNFNV0dlYsm7MCB3tCbUk,479
+cocotools-0.2.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+cocotools-0.2.0.1.dist-info/entry_points.txt,sha256=1WbwbAHfDq5ywLgy_xelhHwde1RfO1Ngo00jjchHP88,45
+cocotools-0.2.0.1.dist-info/top_level.txt,sha256=fHaiV9LWpBZR8AHpvrYZwWYvP1xQVt6_WWnU8RqEMog,5
+cocotools-0.2.0.1.dist-info/RECORD,,

@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: cocotools
+Version: 0.2.0.1
+Summary: a tool to operate coco dataset file
+Home-page: UNKNOWN
+Author: qzhu
+Author-email: qzhu.working@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: loguru
+Requires-Dist: opencv-python
+Requires-Dist: tqdm
+Requires-Dist: pycocotools
+Requires-Dist: typer[all]
+Requires-Dist: setuptools
+Requires-Dist: imagesize
+Requires-Dist: easydict
+
+UNKNOWN
+
+

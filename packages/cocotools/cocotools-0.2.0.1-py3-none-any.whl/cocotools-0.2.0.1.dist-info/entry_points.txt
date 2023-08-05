@@ -1,0 +1,3 @@
+[console_scripts]
+coco = coco.__main__:main
+
