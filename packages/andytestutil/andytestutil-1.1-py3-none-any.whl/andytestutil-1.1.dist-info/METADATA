@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: andytestutil
+Version: 1.1
+Summary: For testing python app deploy
+Home-page: https://gitlab.com/latteonterrace/python_start.git
+Author: behappytwice
+Author-email: 4youwith@gmail.com
+License: UNKNOWN
+Download-URL: https://gitlab.com/latteonterrace/python_start.git
+Keywords: test,lesson
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3
+
+UNKNOWN
+
+
