@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: rebsmearv2
+Version: 0.0.1
+Summary: Implementation of rebalance & smear
+Home-page: https://github.com/bu-cms/bucoffea
+Author: Alp Akpinar
+Author-email: aakpinar@cern.ch
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: htcondor
+Requires-Dist: gitpython
+Requires-Dist: tabulate
+Requires-Dist: pycairo (==1.19.1)
+Requires-Dist: numba (==0.50.1)
+Requires-Dist: uproot-methods (<0.9.0)
+Requires-Dist: awkward (<1.0.0)
+Requires-Dist: uproot (<4.0.0)
+
+UNKNOWN
+
+
