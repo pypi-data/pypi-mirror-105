@@ -1,0 +1,12 @@
+polidoro_argument/__init__.py,sha256=AYqtT9FCK0DOlySzzgCxA7k40WycZqVNpTNJXEt5iUM,330
+polidoro_argument/action.py,sha256=gK5wiCkrSXjohuWzQIXsPo_loANFm_F1GNU5Wg6DfqE,1573
+polidoro_argument/argument.py,sha256=fN2ofJHWW8-Zmg-xyllz-xCaNTWegxBb5g8PWY1xef4,856
+polidoro_argument/argument_help_formatter.py,sha256=r3jIYTR1da3-8JuGyWBB82oLGYleHCmWHm1C335YtCA,1513
+polidoro_argument/command.py,sha256=2UTsiUSZCzsnLRtgOhM-QXK6KRBLFb8WGqghO61hpIM,843
+polidoro_argument/params.py,sha256=vsYHU0qrj5Wduqu1o19AtLFgvWKSkmwyRM3kFSp84Jk,5611
+polidoro_argument/polidoro_argument_parser.py,sha256=uHWA-fvFpOnB-w4M5r6Tc9WxwBMUBqtOfRlQ1Nk2JqM,16972
+polidoro_argument-3.1.3.dist-info/LICENSE,sha256=7EI8xVBu6h_7_JlVw-yPhhOZlpY9hP8wal7kHtqKT_E,1074
+polidoro_argument-3.1.3.dist-info/METADATA,sha256=DURw9RcgJX3zMewS4K6knzLpWz5qyHFML2PfB8VwOoc,2588
+polidoro_argument-3.1.3.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+polidoro_argument-3.1.3.dist-info/top_level.txt,sha256=nT30KHZIeQ5_OBHh56b3vrrLUo3NbX9HrID5qGEZUl8,18
+polidoro_argument-3.1.3.dist-info/RECORD,,
