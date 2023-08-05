@@ -1,0 +1,15 @@
+mypy_boto3_auditmanager/__init__.py,sha256=UwpFEs57881recmq_uAV6b7LfrkdbtDKO46Y2DcD95w,492
+mypy_boto3_auditmanager/__init__.pyi,sha256=cLiXYlKiwqUPkaeuCsasBwgQGSTw3vbhRLcZgNYpdRI,491
+mypy_boto3_auditmanager/__main__.py,sha256=Mf4DXAZ9FtlOckCDxGUpqKIyEvDeX9vykJGah2CNi1s,749
+mypy_boto3_auditmanager/client.py,sha256=EC6jydZD03lQ0uiRjDRnWDcduJ3wfnSNfvyegKPSfUo,30593
+mypy_boto3_auditmanager/client.pyi,sha256=aG-tTtntVohrIm_Z5mw93s97QsEO6ICn3yiVwM_cxXM,30536
+mypy_boto3_auditmanager/literals.py,sha256=p2K8CrH2nwK7p-N3bCGO1_d7cSZa1V1rnk3lpH9sO_I,2217
+mypy_boto3_auditmanager/literals.pyi,sha256=X13uWHrPi80BeoNW8hNCJWQQ0bWL32gScDyBtJtMWY4,2215
+mypy_boto3_auditmanager/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mypy_boto3_auditmanager/type_defs.py,sha256=2pBVYELqK2IUuJa_8xfynt2eXfMIjzivTQ3JSO5rz2g,20559
+mypy_boto3_auditmanager/type_defs.pyi,sha256=dfgt-SxzdUFD3iF80TpB728F-uxJvKfWm_XDASiSrBY,20483
+mypy_boto3_auditmanager/version.py,sha256=XNHadkuhfjM68YduAFSHzuVlbyVE93s2gMlwd4FslyU,57
+mypy_boto3_auditmanager-1.17.68.0.dist-info/METADATA,sha256=a4ODrwAdMljxf_u0BZt22xj9qtF4mSeFj_rhvPGGiRI,9891
+mypy_boto3_auditmanager-1.17.68.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+mypy_boto3_auditmanager-1.17.68.0.dist-info/top_level.txt,sha256=YZcgJ8PmYhbv6ZtRZE8skZpd9H_YmiQUjspNPfegmKM,24
+mypy_boto3_auditmanager-1.17.68.0.dist-info/RECORD,,
