@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: subtractor
+Version: 0.0.1
+Summary: Pixels, pixels, pixels.
+Home-page: https://github.com/sthagen/jubilant-inventions
+Author: Stefan Hagen
+Author-email: stefan@hagen.link
+License: MIT
+Description: # jubilant-invention
+        Pixels, pixels, pixels.
+        
+        ## Status
+        Experimental
+        
+        **Note**: The default branch is `default`.
+        
+        Later we use mkdocs for documentation - bootstrapping...
+        
+        # Installation
+        
+        ```
+        $ pipx install subtractor
+        ```
+        
+        # Example Usage
+        
+        ```
+        $ python -m subtractor tests/fixtures
+        2021-05-06T20:54:51.250 INFO [subtractor]: Starting comparisons visiting a forest with 1 tree
+        2021-05-06T20:54:51.251 INFO [subtractor]: Found tests/fixtures/empty.png
+        OK
+        ```
+        
+        # Change History
+        
+        ## 0.0.1 (2021-05-06)
+        
+        * Initial release on PyPI
+        
+        
+Keywords: csv development diff ini json compare
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
