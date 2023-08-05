@@ -1,0 +1,9 @@
+README.md
+setup.py
+webcookie.py
+samlwebcookie.egg-info/PKG-INFO
+samlwebcookie.egg-info/SOURCES.txt
+samlwebcookie.egg-info/dependency_links.txt
+samlwebcookie.egg-info/entry_points.txt
+samlwebcookie.egg-info/requires.txt
+samlwebcookie.egg-info/top_level.txt
