@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+HashFunction.egg-info/PKG-INFO
+HashFunction.egg-info/SOURCES.txt
+HashFunction.egg-info/dependency_links.txt
+HashFunction.egg-info/top_level.txt
+hashfunctions/__init__.py
+hashfunctions/hashfunctions.py
+hashfunctions/hashtables.py
