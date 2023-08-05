@@ -1,0 +1,16 @@
+COPYING
+COPYING.LGPL
+README.md
+setup.cfg
+setup.py
+warc2graph/__init__.py
+warc2graph/cli.py
+warc2graph/linkextraction.py
+warc2graph/networks.py
+warc2graph/warc2graph.py
+warc2graph.egg-info/PKG-INFO
+warc2graph.egg-info/SOURCES.txt
+warc2graph.egg-info/dependency_links.txt
+warc2graph.egg-info/entry_points.txt
+warc2graph.egg-info/requires.txt
+warc2graph.egg-info/top_level.txt
