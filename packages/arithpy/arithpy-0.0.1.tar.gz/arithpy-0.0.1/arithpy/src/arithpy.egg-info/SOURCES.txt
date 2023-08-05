@@ -1,0 +1,9 @@
+LICENSE.txt
+README.md
+setup.py
+arithpy/src/arithpy.egg-info/PKG-INFO
+arithpy/src/arithpy.egg-info/SOURCES.txt
+arithpy/src/arithpy.egg-info/dependency_links.txt
+arithpy/src/arithpy.egg-info/top_level.txt
+arithpy/src/arithpy.py
+arithpy/src/arithpy.egg-info/SOURCES.txt

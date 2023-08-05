@@ -1,0 +1,104 @@
+Metadata-Version: 2.1
+Name: arithpy
+Version: 0.0.1
+Summary: ArithPy is a simple and easy to use python moduloe made for basic arithmetic operations. The main purpose of creating such python module is to help developers to do calculations quickly in their programs made made by two school going students Suresh Mishra and Sai Binayak Biswal.
+Home-page: UNKNOWN
+Author: Suresh Mishra
+License: UNKNOWN
+Description: # ArithPy
+        ## A python module made for basic calculations
+        
+        **ArithPy** is a simple and easy to use python moduloe made for basic arithmetic operations. The main purpose of creating such python module is to help developers to do calculations quickly in their programs.
+        
+         This python module consists of many basic and intermediate mathematical functions. 
+         > #### All the ArithPy functions are categorised into 7 categories, that are:
+          >- BASIC ARITHMETIC FUNCTIONS
+          >- TEMERATURE CONVERSION FUNCTIONS
+          >- MISCELLENOUS FUNCTIONS
+          >- AREA FUNCTIONS
+          >- PERIMETER FUNCTIONS
+        
+        Here is the list of all the basic arithmetic functions:
+           - arithpy.sumnum(x,y) -
+             A function that is used for addisng two numbers and geting their sum.
+           - arithpy.diffnum(x,y) -
+             A function that is used for substracting two numbers and getting their difference.
+           - arithpy.prodnum(x,y) -
+             A function that is used for getting the product of two numbers.
+           - arithpy.dividenum(x,y) -
+             A function that is used for dividing the left hand operand by  right hand operand. This function prints the error _ERROR: Division by Zero_ if any number get divided by 0.
+           - arithpy.fdividenum(x,y) - A function that is used for     dividing left hand operand by right hand operand by ignoring the franctional part of result.
+           - arithpy.modulo(x,y) - A function that is used for dividing left hand operand by right hand operator which returns the remainder.
+           - arithpy.expo(x,y) - A function which is used for finding the exponential value or power of a number.
+           - arithpy.square(x) - A function which is used to find square of a number.
+           - arithpy.squarert(x) - A function which is used to find square root of a number.
+           - arithpy.cube(x) - A function which is used to find cube of a number.
+           - arithpy.cubert(x) - A function which is used to find the cube root of a number.
+        
+        Here is the list of all the time conversion functions:
+          - arithpy.hrtomin(x) - A function which is used to convert hour to minute.
+          - arithpy.mintohr(x) - A function which is used to convert minute to hour.
+          - arithpy.hrtosec(x) - A function which is used to convert hour to second.
+          - arithpy.sectohr(x) - A function which is used to convert second to hour.
+          - arithpy.mintosec(x) - A function which is used to convert minute to sec.
+          - arithpy.sectomin(x) - A function which is used to convert second to minute.
+          - arithpy.mintomsec(x) - A function which is used to convert minute to milisecond.
+          - arithpy.msectomin(x) - A function which is used to convert milisecond to minute.
+          - arithpy.sectomsec(x) - A function which is used to convert second to milisecond.
+          -  arithpy.msectosec(x) - A function which is used to convert milisecond to second.
+        
+        Here is the list of all the temperature conversion functions:
+          - arithpy.ctof(x) - A function which is used to convert celsius to farhenhiet.
+          - arithpy.ctok(x) - A function which is used to convert celsius to kelvin.
+          - arithpy.ftoc(x) - A function which is uised to convert farhenheit to celsius.
+          - arithpy.ftok(x) - A function which is used to convert farhenheit to kelvin.
+          - arithpy.ktoc(x) - A function which is used to convert kelvin to celsius.
+          - arithpy.ktof(x) - A function which is used to convert kelvin to farhenheit.
+        
+        Here is the list of all the miscellenous functions:
+          - arithpy.pi() - This function represents the pi constant.
+          - arithpy.sintrst(x,y,z) - A function which is used to calculate simple interest.
+        
+        Here is the list of area functions:
+          - arithpy.arrect(x,y) - A function which is used for calculating the area of rectangle.
+          - arithpy.arsqr(x) - A function which is used for calculating the area of square.
+          - arithpy.artrngl(x,y) - A function which is used for calculating the area of triangle.
+          - arithpy.cyl(x,y) - A function which is used for calculating the area of cylinder.
+          - arithpy.arcon(x,y) - A function which is used for calculating the area of cone.
+          - arithpy.arcrcl(x,y) - A function which is used for calculating the area of circle.
+        
+        Here is the list of perimeter functions:
+          - arithpy.perrect(x,y) - A function which is used for calculating the perimeter of rectangle.
+          - arithpy.pertrngl(x,y,z) - A function which is used for calculating the perimeter of triangle.
+          - arithpy.persqr(x) - A function which is used for calculating the perimeter of square.
+        
+        This python module is made by two school going students Suresh Mishra and Sai Binayak Biswal. They had put all huge efforts on creating this module.
+        
+        Some example programs written using ArithPy:
+           - 
+          1) Simple Interest Program:
+              ```
+              import arithpy
+        
+              p = int(input("Principal:"))
+              t = int(input("Time:"))
+              r = int(input("Rate of interest:"))
+        
+              si = arithpy.sintrst(p,t,r)
+              print("The SI is:",si)
+              ```
+          2)  Area of a square:
+               ```
+               import arithpy
+        
+               s = int(input("Enter the side of square:"))
+               s_area = arithpy.arsqr(s)
+              print(s_area)
+              ```
+        In this way you can write your code.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
