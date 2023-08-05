@@ -1,0 +1,10 @@
+decompress/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+decompress/edwards.py,sha256=n-JnyTeLIsod0tni1FLsB8kc0ikA1ML3RdoFLcFSzHA,779
+decompress/libcurve25519.dylib,sha256=hFRhAjYi61Ei3QVqyb4nmvGkg3V4GtOadX92JCBgycY,69848
+decompress/libcurve25519.so,sha256=awZRdzV40Erdd6HdgXhOhfQ9SG_OATDjjY306PXljCI,3017968
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+edwards-1.0.1.dist-info/LICENSE,sha256=HDbMJ7oItmxTn3jVtZFi6jUFAHovset5jzAPUderjOc,1073
+edwards-1.0.1.dist-info/METADATA,sha256=4jI2Xnh-F3BjxyvfqUkxh9WuNfnwz4at4lFQwnNoSxU,237
+edwards-1.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+edwards-1.0.1.dist-info/top_level.txt,sha256=8ZXHAyORoxoV99cNE8BfbMjCeA9raTwC2AXlmBWVPi8,17
+edwards-1.0.1.dist-info/RECORD,,
