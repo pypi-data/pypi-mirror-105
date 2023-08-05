@@ -1,0 +1,11 @@
+CHANGELOG.txt
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+guilded/__init__.py
+guilded/client.py
+guilded.egg-info/PKG-INFO
+guilded.egg-info/SOURCES.txt
+guilded.egg-info/dependency_links.txt
+guilded.egg-info/top_level.txt
