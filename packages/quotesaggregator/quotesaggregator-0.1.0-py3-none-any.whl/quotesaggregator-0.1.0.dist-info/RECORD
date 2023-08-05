@@ -1,0 +1,11 @@
+quotesaggregator/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+quotesaggregator/__main__.py,sha256=XJYQ_7ECn_2UyJmyZGJTBu6BT_0zkv01J87X0bFet90,234
+quotesaggregator/aggregator.py,sha256=NzsWxd09eCRvmqc2UvbhEN8fThofIqVV-Owl5PeYAsM,6984
+quotesaggregator/settings.py,sha256=VtXzx_apXpqHKichyc7kURsOwlWgAu_nee7uzP39k2c,12461
+quotesaggregator/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+quotesaggregator/tests/test_aggregator.py,sha256=SGcznN9ZoPt35FX33qmwuzxqPiQQYhUubLb23JgtJBE,9169
+quotesaggregator/utils.py,sha256=f-LTe6JjJkuMNlEFtaGNwCveLHmpEQ7cnKIG4p9qIec,684
+quotesaggregator-0.1.0.dist-info/entry_points.txt,sha256=0SlqS_VkQc2rnNkDfk9aH8VmI0AhQNktt5MUQufWnh4,142
+quotesaggregator-0.1.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+quotesaggregator-0.1.0.dist-info/METADATA,sha256=--UCSG2M0MpUPz_eBmEClyNksmuFaLiigCSGS2kg51M,5191
+quotesaggregator-0.1.0.dist-info/RECORD,,
