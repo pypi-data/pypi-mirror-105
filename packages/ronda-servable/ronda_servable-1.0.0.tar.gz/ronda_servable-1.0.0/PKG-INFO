@@ -1,0 +1,13 @@
+Metadata-Version: 1.2
+Name: ronda_servable
+Version: 1.0.0
+Summary: Ronda Python Servable
+Home-page: https://git.woa.com/RondaServing/RondaServable/RondaPythonServable
+Maintainer: Ronda Serving Group
+License: UNKNOWN
+Project-URL: Documentation, https://git.woa.com/RondaServing/RondaServable/RondaPythonServable/wikis/home
+Project-URL: Code, https://git.woa.com/RondaServing/RondaServable/RondaPythonServable
+Project-URL: Issue tracker, https://git.woa.com/RondaServing/RondaServable/RondaPythonServable/issues
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
