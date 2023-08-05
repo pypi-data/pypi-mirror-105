@@ -1,0 +1,14 @@
+CHANGES
+=======
+
+v0.0.1
+------
+
+* Include the setup boilerplate
+* Update documentation
+* Updating generated outputs
+* Automatically generated requirements.txt and requirements-dev.txt
+* Issue in main.yaml -- no dev requirements
+* Tweaks to follow model-template updates
+* Inital drop
+* Initial commit
