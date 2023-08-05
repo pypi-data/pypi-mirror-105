@@ -1,0 +1,6 @@
+PaqueteriaSumaArea.py
+setup.py
+PaqueteriaEli.egg-info/PKG-INFO
+PaqueteriaEli.egg-info/SOURCES.txt
+PaqueteriaEli.egg-info/dependency_links.txt
+PaqueteriaEli.egg-info/top_level.txt
