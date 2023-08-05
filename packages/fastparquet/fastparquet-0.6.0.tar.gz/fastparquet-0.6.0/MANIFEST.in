@@ -1,0 +1,12 @@
+recursive-include fastparquet *.py
+exclude fastparquet/*.c
+
+include setup.py
+include README.rst
+include LICENSE
+include MANIFEST.in
+include requirements.txt
+
+prune fastparquet/test/
+prune test-data/
+prune docs/
