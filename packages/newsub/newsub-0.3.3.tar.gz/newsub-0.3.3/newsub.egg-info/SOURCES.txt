@@ -1,0 +1,9 @@
+README.md
+setup.py
+newsub/__init__.py
+newsub/main.py
+newsub.egg-info/PKG-INFO
+newsub.egg-info/SOURCES.txt
+newsub.egg-info/dependency_links.txt
+newsub.egg-info/entry_points.txt
+newsub.egg-info/top_level.txt
