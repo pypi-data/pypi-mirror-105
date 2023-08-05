@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+everest_nlp/__init__.py
+everest_nlp/config.py
+everest_nlp/test.py
+everest_nlp.egg-info/PKG-INFO
+everest_nlp/ner_devanagari/__init__.py
+everest_nlp/ner_devanagari/ner.py
+everest_nlp/ner_devanagari/test_ner.py
+everest_nlp/sabda2vec/__init__.py
+everest_nlp/sabda2vec/inference.py
+everest_nlp/sabda2vec/nepali_tokenizer.py
+everest_nlp/sabda2vec/spell_checker.py
+everest_nlp/sabda2vec/test_nepali_nlp.py
+everest_nlp/sabda2vec/train_sabda2vec.py
