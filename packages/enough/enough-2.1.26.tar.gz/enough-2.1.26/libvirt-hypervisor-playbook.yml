@@ -1,0 +1,33 @@
+---
+- import_playbook: "{{ '$SHARE_DIR/playbooks/misc/sexy-debian-playbook.yml' | expandvars }}"
+
+- name: install libvirt
+  hosts: libvirt-hypervisor
+  become: true
+
+  pre_tasks:
+
+    - name: apt-get install libvirt
+      apt:
+        name:
+          - libvirt-clients
+          - libguestfs-tools
+          - virtinst
+          - python3-libvirt
+          - python3-lxml
+          - libvirt-dev
+          - pkg-config
+      when: ansible_distribution_release == 'bullseye'
+
+
+    - name: apt-get install libvirt
+      apt:
+        name:
+          - libvirt-clients
+          - libguestfs-tools
+          - virtinst
+          - python-libvirt
+          - python-lxml
+          - libvirt-dev
+          - pkg-config
+      when: ansible_distribution_release == 'buster'
