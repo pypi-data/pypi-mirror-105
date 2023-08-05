@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "quotesaggregator"
+version = "0.1.0"
+description = "QuotesAggregator is a quote aggregator program that stores the instant values of various currencies to create and save 1, 5 and 10 minute candles in a database through the Poloniex API."
+authors = ["Lucas <lmr2199@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/mrlucasrib/QuotesAggregator"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+aiologger = "^0.6.1"
+aiomysql = "^0.0.21"
+pytz = "^2021.1"
+websockets = "^9.0.1"
+asyncio = "^3.4.3"
+prodict = "^0.8.16"
+cryptography = "^3.4.7"
+
+[tool.poetry.dev-dependencies]
+mock = "^4.0.3"
+pytest = "^6.2.4"
+pytest-asyncio = "^0.15.1"
+pytest-mock = "^3.6.1"
+
+[tool.poetry.scripts]
+aggregator-run = "quotesaggregator.__main__:run_forever_async"
+aggregator-run-tests = "quotesaggregator.tests.test_aggregator:run"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
