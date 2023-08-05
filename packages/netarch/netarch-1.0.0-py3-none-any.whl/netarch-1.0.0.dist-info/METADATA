@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: netarch
+Version: 1.0.0
+Summary: Network Archaeology toolkit
+Home-page: https://github.com/dirtbags/netarch
+Author: Neale Pickett
+Author-email: neale@woozle.org
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/dirtbags/netarch/issues
+Project-URL: Source, https://github.com/dirtbags/netarch/
+Keywords: network,packet,tcp,protocol,development
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: Public Domain
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+
+Dirtbags Netarch Library
+========================
+
+This is a library for advanced
+[network archaeology](https://sites.google.com/view/cyberfire/foundry/classes/network-archaeology).
+
+It provides a heavily field-tested framework for
+exploring unknown TCP-based protocols,
+and room to grow these explorations into full-blown decoders.
+
+Get going
+=========
+
+Documentation sucks, sorry.
+The way we go about things is to copy `dumbdecode.py` to a new file,
+and start hacking onto it.
+
+
