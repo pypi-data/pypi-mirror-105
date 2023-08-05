@@ -1,0 +1,12 @@
+holour/__init__.py,sha256=KX5SwIW54eD6a4AQP-P0CFKbsxnw8R_h7dHwCSchcpQ,57
+holour/json_handler.py,sha256=NNP2eJAXYvAg9Lve831ADWKDUlQVslehhIq_exEYhc8,1291
+holour/msg/__init__.py,sha256=U1KRekLH3525jvGZec_H9MPD208GueuXQlAKZqiZgIU,90
+holour/msg/geometry.py,sha256=TUNSrNNuE9Tn7KLfG-TEfQvLlxtkEh7MjKTA47PIaZU,1545
+holour/msg/status.py,sha256=SytZGBVz_A3pLjU3kOV0i3LNq1tOo-TSpRXGNCGAX-E,580
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_msg_geometry.py,sha256=o44RP9gNnOW2bQAXoJgyJQYz68qjrKgAXcc_QMyoR7A,2360
+tests/test_msg_status.py,sha256=F-Mm1hAw7EynXvtDxdW11au3TYlVMBd7RaOZd9Z7_BI,765
+holour-0.1.2.dist-info/METADATA,sha256=Ko43NY_dz2Fv2L8A078YVwX5uJvqyXgdKc6pYo3E1KE,798
+holour-0.1.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+holour-0.1.2.dist-info/top_level.txt,sha256=9V8rV86ECMEnX7qrosMPN_UVWJg1QFFjK0W7Q67CkQI,13
+holour-0.1.2.dist-info/RECORD,,
