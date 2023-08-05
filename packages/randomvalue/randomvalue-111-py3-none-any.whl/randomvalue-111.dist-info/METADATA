@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: randomvalue
+Version: 111
+Summary: This package returns random values.
+Home-page: https://github.com/jjun4341/random_value
+Author: jjun4341
+Author-email: rhwldns@naver.com
+License: UNKNOWN
+Download-URL: https://github.com/jjun4341/random_value/src/random_value/random_value.py
+Keywords: pypi deploy
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+
+# randomvalue
+
+
+
+## How to use
+
+first. install this package.
+```
+pip install randomvalue
+```
+
+second. use this package.
+```python
+from randomvalue import *
+
+random_string(length=10, string=3) 
+# if string == 1: Create a random string using only lowercase letters.
+# if string == 2: Create a random string using only uppercase letters.
+# if string == 3: Create a random string using both upper and lower case letters.
+random_number(length=5)
+random_strnum(length=6)
+```
+
