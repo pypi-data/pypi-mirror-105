@@ -1,0 +1,13 @@
+epigraphdbpy/__init__.py,sha256=E9gHgvd_4FJ6fB-wdBaZHN7ybOKipPSBnpGqOTtFENk,208
+epigraphdbpy/api.py,sha256=SWl2boR75zqctepBHSC88ABtWxPfPGasnUpK8KuQyMo,529
+epigraphdbpy/constants.py,sha256=2UU4yV2prfY9Esz-W_0kauwraqXtnP1A4ehZ9_5KzHQ,35
+epigraphdbpy/queries.py,sha256=ePNyFHwwAHWqqLtlnRHYcPN_V5NG79oPdj11toqTtnw,1943
+epigraphdbpy/to_networkx.py,sha256=P2zwd_PEzQ_MqD-U2THmfIyFXQ68HmNlE3d710gOyfg,1846
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_api.py,sha256=nuN_TGJeL4f_TkerR3o2PAWUE2-k7lL2RKONV3DBgHU,106
+tests/test_queries.py,sha256=-qbRm2KCnlrf6Stmt4qzyGxMFUy-fBdEmk3gaKbGho4,324
+epigraphdbpy-0.0.1.dist-info/LICENSE,sha256=0w1THqEGF5Ul-iiWicNDHO-sQbyBYt1sAcF8ctsDak8,1090
+epigraphdbpy-0.0.1.dist-info/METADATA,sha256=kF1MZn9Ef5St0sZ1aexxuO0sQMEVe2DXZuAUh28K60I,1474
+epigraphdbpy-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+epigraphdbpy-0.0.1.dist-info/top_level.txt,sha256=Lf2jVG9Py6K21BCFVqrBSlwmY6btZhdJj_pAWoDDcH4,19
+epigraphdbpy-0.0.1.dist-info/RECORD,,
