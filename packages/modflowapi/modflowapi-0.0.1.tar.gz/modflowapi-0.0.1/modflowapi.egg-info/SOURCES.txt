@@ -1,0 +1,9 @@
+README.md
+setup.py
+modflowapi/__init__.py
+modflowapi/modflowapi.py
+modflowapi.egg-info/PKG-INFO
+modflowapi.egg-info/SOURCES.txt
+modflowapi.egg-info/dependency_links.txt
+modflowapi.egg-info/requires.txt
+modflowapi.egg-info/top_level.txt
