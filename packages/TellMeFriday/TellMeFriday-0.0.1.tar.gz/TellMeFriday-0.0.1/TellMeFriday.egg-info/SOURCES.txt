@@ -1,0 +1,9 @@
+MANIFEST.in
+README.txt
+setup.py
+TellMeFriday.egg-info/PKG-INFO
+TellMeFriday.egg-info/SOURCES.txt
+TellMeFriday.egg-info/dependency_links.txt
+TellMeFriday.egg-info/requires.txt
+TellMeFriday.egg-info/top_level.txt
+TextToSpeech/__init__.py
