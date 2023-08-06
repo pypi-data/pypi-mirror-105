@@ -1,0 +1,10 @@
+README.txt
+setup.py
+Boris/NetSocks.py
+Boris/Shaper.py
+Boris/__init__.py
+Boris_Ext.egg-info/PKG-INFO
+Boris_Ext.egg-info/SOURCES.txt
+Boris_Ext.egg-info/dependency_links.txt
+Boris_Ext.egg-info/requires.txt
+Boris_Ext.egg-info/top_level.txt
