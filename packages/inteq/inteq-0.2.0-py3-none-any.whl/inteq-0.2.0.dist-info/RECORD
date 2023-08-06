@@ -1,0 +1,10 @@
+inteq/__init__.py,sha256=CVNZHD6YcUiRUhei5HXkehcsRKj1JYZBW_pSkFF0_0U,90
+inteq/fredholm.py,sha256=pZ4DtEUL5B2ZLx-ThFGa31E9bB0H3pjqXyK31peE6Gk,2710
+inteq/helpers.py,sha256=yxPDgpwRN6PIISu0kB82WdNTg0U6O5L428AwLow1uM8,1757
+inteq/ignore.py,sha256=6DRAgTy3a6I09EvAMpd7c0ofx62B4EsSrc0ee6MYv7o,585
+inteq/volterra.py,sha256=xLH75vF9WmpGuGoQ5qrUBqOMkBDdGKAY0AeQYCuVezE,2188
+inteq-0.2.0.dist-info/LICENSE,sha256=fDQjxhb3fa_EaneQWZYgvXucjwo-zZDWKXyp48UbuJY,1101
+inteq-0.2.0.dist-info/METADATA,sha256=Si-GM1W-bjLLZnyeIOrDdrovMJvKNZi2s3z6nUjSONQ,3953
+inteq-0.2.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+inteq-0.2.0.dist-info/top_level.txt,sha256=Fprhtr7a-cydOOXxDAStotkYvZKbFofpKq5OZPSt5-c,6
+inteq-0.2.0.dist-info/RECORD,,
