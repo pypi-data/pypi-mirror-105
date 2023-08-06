@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: ainlp
+Version: 0.1.5
+Summary: nlp library which support text processing methods, text match methods, etc.
+Home-page: UNKNOWN
+Author: ymai
+Author-email: zhangjinjie@yimian.com.cn
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pymysql
+Requires-Dist: emoji
+Requires-Dist: jieba
+Requires-Dist: pyrefo
+Requires-Dist: attrdict
+Requires-Dist: tqdm
+
+# ainlp
+
+nlp library which support text processing methods, text match methods, etc
+
+
+## publish ainlp package method
+
+configure `~/.pypirc` file, add the following lines:
+
+```ini
+[ainlp]
+repository=https://upload.pypi.org/legacy/
+username=__token__
+password=pypi-AgEIcHlwaS5vcmcCJDQyNzU0YzYwLTBhNWYtNGI1Zi05OTI5LTBhMjQwMzc1YjEwYwACNnsicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJhaW5scCJdfSwgInZlcnNpb24iOiAxfQAABiDDY42I73y7epx_fP7Q1MjRES8FJA3dI2b-0tF5-gO0tg
+```
+
+then modify version in `setup.py`, run the following commands to publish the new version to pypi:
+
+```shell
+python setup.py sdist bdist_wheel
+twine upload dist/ainlp-<new version>*
+```
+
+
