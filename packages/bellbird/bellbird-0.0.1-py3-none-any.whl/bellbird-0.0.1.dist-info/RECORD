@@ -1,0 +1,11 @@
+bellbird/__init__.py,sha256=cFdGeHt7X13ZiEg-CfnrLmHm2WkBjkttuV_N6RLdzNU,834
+bellbird/equation.py,sha256=uURDcn7ENCXS6eaWWR_TS8rH2OxJkr3mrZWfJKrwh50,16442
+bellbird/model.py,sha256=UV49cG19a7auj5yRSw1tIaQb9Fz08jrJDwsDXtaVeEM,6730
+bellbird/operators.py,sha256=eVFge34YEv0rFM99nfeDcQuUzFlBJXmTmPWa4Et2E6c,2750
+bellbird/variables.py,sha256=HQGYmTwpigxyCYgdVx24AZkHhX54L1461woeGS9uON0,1520
+bellbird/writer.py,sha256=wRWMlMjU91f5ddUeHFhjAegeKjfuUzgj6oIhRNnCZ7k,31113
+bellbird-0.0.1.dist-info/LICENSE,sha256=dTdyjIFJCj_pWu9BVLshMi7CZ1HCcysqdnFM1MpdOb0,1095
+bellbird-0.0.1.dist-info/METADATA,sha256=SWNo1tyLdPyymxzHyTyYafKsvTdBHb9t2kd1fCjykGE,2106
+bellbird-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+bellbird-0.0.1.dist-info/top_level.txt,sha256=-8oh7AlGZz8iucozNuLcwVrAPac7ozZgpcHaAHk_X4Y,105
+bellbird-0.0.1.dist-info/RECORD,,
