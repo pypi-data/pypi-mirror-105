@@ -1,0 +1,4 @@
+[console_scripts]
+locate = locate_file:main
+ls = ls:find_files
+
