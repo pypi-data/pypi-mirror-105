@@ -1,0 +1,25 @@
+library,time
+pathlib cwd() ,0.14738701799979026
+thatlib cwd() ,0.010312164000424673
+pathlib home(),0.14674831799857202
+thatlib home(),0.004271408999557025
+pathlib is_file(),0.17433332699874882
+thatlib is_file(),0.01793228899987298
+pathlib exists(),0.1753914969995094
+thatlib exists(),0.01825826899948879
+pathlib is_absolute(),0.08451596600025368
+thatlib is_absolute(),0.0020935869997629197
+pathlib joinpath(),0.13595113300107187
+thatlib joinpath(),0.0085823529989284
+pathlib with_suffix(),0.13835864099928585
+thatlib with_suffix(),0.005020018999857712
+pathlib with_stem(),0.16084167900044122
+thatlib with_stem(),0.008714928000699729
+pathlib with_name(),0.13647796100121923
+thatlib with_name(),0.008515836998412851
+pathlib expanduser(),0.17764246800106775
+thatlib expanduser(),0.008278773000711226
+pathlib joinpath(),0.09455747900028655
+thatlib joinpath(),0.006312486999377143
+pathlib chmod(),0.14654146199973184
+thatlib chmod(),0.017338096999083064
