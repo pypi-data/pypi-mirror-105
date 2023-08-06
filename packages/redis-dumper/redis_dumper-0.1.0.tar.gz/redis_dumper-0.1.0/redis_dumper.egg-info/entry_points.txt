@@ -1,0 +1,3 @@
+[console_scripts]
+redis_dumper = redis_dumper:cli
+
