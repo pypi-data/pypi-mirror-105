@@ -1,0 +1,11 @@
+hardin/SGDTrainer.py,sha256=EXhxRah54xrqxGUt5_hEqpI5VqLwVsNtYz26oSi0tzY,1095
+hardin/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hardin/layers.py,sha256=DBbRIa4ZsZVXlA0Ljgah8S2s3HW6i-1pLyMXjP-2-XE,3475
+hardin/loss.py,sha256=99j9qZDa7Iwh5JQXeFACyB0rUSvEomGSkjSoyrMXkuE,930
+hardin/network.py,sha256=TiRQ5jrPhufXNRgmZZryP_LMg3xyyY0_NYBzmWfJRw4,1448
+hardin/plots.py,sha256=D8H9Vc_gVPnYlsD-SeAXxgGGqZYTuWQ16_R2BzCvtVI,229
+hardin/tensor.py,sha256=iithQ3StztaT3TjYCOQMxM9Qx_LzjE3q7iegd1LTOAw,410
+hardin-0.1.dist-info/METADATA,sha256=Ak2oOvO380zh47n9tvhA0ulEHE9_wIs8QL3YBjV4w34,300
+hardin-0.1.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+hardin-0.1.dist-info/top_level.txt,sha256=iCWrC7u7sSijc9duzRH6zRLC0C7Iv1gQADhHXSK5bJE,7
+hardin-0.1.dist-info/RECORD,,
