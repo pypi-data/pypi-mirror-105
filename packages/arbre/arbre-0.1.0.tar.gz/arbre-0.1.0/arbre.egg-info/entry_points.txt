@@ -1,0 +1,3 @@
+[console_scripts]
+arbre = arbre.__main__:main
+
