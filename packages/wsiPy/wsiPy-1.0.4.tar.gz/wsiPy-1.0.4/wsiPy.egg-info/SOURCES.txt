@@ -1,0 +1,15 @@
+LICENSE
+setup.py
+wsiPY/Classes.py
+wsiPY/Demo.py
+wsiPY/__init__.py
+wsiPY/clusters.py
+wsiPY/filters.py
+wsiPY/folders.py
+wsiPY/functions.py
+wsiPY/test_folders.py
+wsiPy.egg-info/PKG-INFO
+wsiPy.egg-info/SOURCES.txt
+wsiPy.egg-info/dependency_links.txt
+wsiPy.egg-info/requires.txt
+wsiPy.egg-info/top_level.txt

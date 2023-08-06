@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: wsiPy
+Version: 1.0.4
+Summary: Python Toolkit to extract tiles from a Whole Slide Image
+Home-page: UNKNOWN
+Author: Ronan White
+Author-email: <ronan.white@hotmail.com>
+License: UNKNOWN
+Description: Python package to extrac tiles from a Whole Slide Image 
+Keywords: python,Whole Slide Images
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
