@@ -1,0 +1,8 @@
+README.md
+setup.py
+gentilpdf/__init__.py
+gentilpdf/pdf2text.py
+gentilpdf.egg-info/PKG-INFO
+gentilpdf.egg-info/SOURCES.txt
+gentilpdf.egg-info/dependency_links.txt
+gentilpdf.egg-info/top_level.txt
