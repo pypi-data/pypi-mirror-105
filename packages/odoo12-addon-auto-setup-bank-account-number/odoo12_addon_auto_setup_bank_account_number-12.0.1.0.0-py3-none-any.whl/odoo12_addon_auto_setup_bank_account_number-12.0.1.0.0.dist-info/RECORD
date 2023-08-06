@@ -1,0 +1,8 @@
+odoo/addons/auto_setup_bank_account_number/__init__.py,sha256=X9EJGOE2GtZbS0G82PtSXmWSZ_R8jEM0rlJTDliQjp4,21
+odoo/addons/auto_setup_bank_account_number/__manifest__.py,sha256=eY7BUJ5OJ1WRK5bLEKHikeFFnTOlKZjVgyqPSR6L67Q,622
+odoo/addons/auto_setup_bank_account_number/models/__init__.py,sha256=tITUNzi63Xfz2-BBjOZeWy7fCj2MzvmgLgzHUwbqHMs,31
+odoo/addons/auto_setup_bank_account_number/models/res_partner_bank.py,sha256=8YgIy6OC8o7gfFNh-pDEA-6zGH4sAD2UQ5TKI0UZgKM,376
+odoo12_addon_auto_setup_bank_account_number-12.0.1.0.0.dist-info/METADATA,sha256=LYqygcLadq9YJOMVUUSbaNZ2i2QV4G21Y6mG99V2C8w,538
+odoo12_addon_auto_setup_bank_account_number-12.0.1.0.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+odoo12_addon_auto_setup_bank_account_number-12.0.1.0.0.dist-info/top_level.txt,sha256=qBj40grFkGOfDZ2WDSw3y1RnDlgG0u8rP8pvGNdbz4w,5
+odoo12_addon_auto_setup_bank_account_number-12.0.1.0.0.dist-info/RECORD,,
