@@ -1,0 +1,12 @@
+LICENSE.md
+MANIFEST.in
+README.md
+endpoints.py
+setup.py
+src/__init__.py
+src/minutemail.py
+src/python_10minutemail.egg-info/PKG-INFO
+src/python_10minutemail.egg-info/SOURCES.txt
+src/python_10minutemail.egg-info/dependency_links.txt
+src/python_10minutemail.egg-info/top_level.txt
+test/main.py
