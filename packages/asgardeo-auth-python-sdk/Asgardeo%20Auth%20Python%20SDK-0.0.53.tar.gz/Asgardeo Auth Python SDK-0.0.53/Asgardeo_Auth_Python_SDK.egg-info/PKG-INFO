@@ -1,0 +1,29 @@
+Metadata-Version: 1.2
+Name: Asgardeo-Auth-Python-SDK
+Version: 0.0.53
+Summary: Asgardeo Auth Python SDK.
+Home-page: https://github.com/asgardeo/asgardeo-auth-python-sdk#readme
+Author: ('Asgardeo',)
+Author-email: beta@asgardeo.io
+License: Apache Software License
+Download-URL: https://github.com/asgardeo/asgardeo-auth-python-sdk/releases
+Project-URL: Documentation, https://github.com/asgardeo/asgardeo-auth-python-sdk#readme
+Project-URL: Bug Tracker, https://github.com/asgardeo/asgardeo-auth-python-sdk/issues
+Project-URL: Source Code, https://github.com/asgardeo/asgardeo-auth-python-sdk#readme
+Description: UNKNOWN
+Keywords: Asgardeo,OIDC,OAuth2,Authentication,Authorization
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
