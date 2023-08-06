@@ -1,0 +1,11 @@
+wxc/__init__.py,sha256=PD5agZ0_DXqsFLMBR0hacZV3LbzGbH8qn-j7MIAm3Xs,22
+wxc/__main__.py,sha256=1_gu-YprfjuLHTPUnXjGmd6ZWDFrbnVMbCta-ebILJQ,55
+wxc/api.py,sha256=T7RL3Nka5IoYRlRy3EB_zCf4xBOBLAHNJvsLbvD_R5s,3116
+wxc/cli.py,sha256=0M8PNIlu9WwqJftZ2y2HMQRl023vrnBWKd00_AwBHdE,1559
+wxc/levnesthein.py,sha256=jDBkLIGDkI9dqZPy6FZyb_Vf3L99BSg-vMdsArkheRg,1856
+wxc-6.1.0.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+wxc-6.1.0.dist-info/METADATA,sha256=uCvV4TercswWD2ZE7WaeOKFUMhzXYbAXzTQQNH5koY8,3344
+wxc-6.1.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+wxc-6.1.0.dist-info/entry_points.txt,sha256=yXbth0SA5S923e7QUkfgUqD5KNCX0zrxrNzZvWX5rqo,38
+wxc-6.1.0.dist-info/top_level.txt,sha256=jyuPudYHVn5XNI16ybcg7ASvtBkQIK6y9OXE-FDKLGg,4
+wxc-6.1.0.dist-info/RECORD,,
