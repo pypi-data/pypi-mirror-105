@@ -1,0 +1,4 @@
+networkx>=2.4
+numpy>=1.18.5
+tqdm>=4.49.0
+scipy>=1.4.1
