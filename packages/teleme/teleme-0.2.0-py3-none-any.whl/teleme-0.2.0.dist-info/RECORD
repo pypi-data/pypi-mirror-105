@@ -1,0 +1,10 @@
+teleme/__init__.py,sha256=8tbh0cyuKb6tYk2dsVj3xmMM479DwEg_HHdkueuv190,3935
+teleme/_collections.py,sha256=T-YUCZCVEgoYNMvKvkNFD1kVFlsTFGkNA3j4uSnmZw0,1888
+teleme/_exceptions.py,sha256=YIJYhDdEBR7OktsxKt44no9NmGHqHgwV-2yvcMYubz8,1391
+teleme/_methods.py,sha256=Vw56FpgNFzUgoTTpM9Y1Y1If25EOFmlemv15X_52Zlw,1361
+teleme/_version.py,sha256=OnTqnLWvQp7MW098krCuAAJmhU6vj22Q_wbhPlyFX2Y,988
+teleme/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+teleme-0.2.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+teleme-0.2.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+teleme-0.2.0.dist-info/METADATA,sha256=_V2hhZ3VesejSr8Nb2NWpFPW8bk8GO17m3RcqmQv2YI,2070
+teleme-0.2.0.dist-info/RECORD,,
