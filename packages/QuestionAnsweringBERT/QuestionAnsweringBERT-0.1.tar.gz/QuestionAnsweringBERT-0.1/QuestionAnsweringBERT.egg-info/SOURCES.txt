@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+QuestionAnsweringBERT/QuestionAnsweringBERT.py
+QuestionAnsweringBERT/__init__.py
+QuestionAnsweringBERT/test.py
+QuestionAnsweringBERT.egg-info/PKG-INFO
+QuestionAnsweringBERT.egg-info/SOURCES.txt
+QuestionAnsweringBERT.egg-info/dependency_links.txt
+QuestionAnsweringBERT.egg-info/requires.txt
+QuestionAnsweringBERT.egg-info/top_level.txt
