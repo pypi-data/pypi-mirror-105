@@ -1,0 +1,59 @@
+Metadata-Version: 1.2
+Name: spectramanipulator
+Version: 0.1.6
+Summary: Spectra Manipulator based on pyqtgraph
+Home-page: https://github.com/dmadea/Spectra-Manipulator
+Author: Dominik Madea
+Author-email: dominik.madea@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/dmadea/Spectra-Manipulator/archive/refs/tags/v0.1.6.tar.gz
+Description: # Spectra Manipulator
+        
+        TODO
+        
+        Installation Methods
+        --------------------
+        
+        * From PyPI:
+           * `pip install spectramanipulator`
+            
+        
+        ### Used packages
+        
+        * pyqtgraph
+        * lmfit
+        * matplotlib
+        * PyQt5
+        * qtconsole
+        * numba
+        * requests
+        * winshell
+        
+        First Launch
+        --------------------
+        
+        * Run with `python -m spectramanipulator`
+          
+        For Windows users (*optional*)
+          * Associate project files (in Windows registry) `python -m spectramanipulator --associate_files`
+          * Remove association (in Windows registry) `python -m spectramanipulator --remove_association`
+          * Create desktop shortcut `python -m spectramanipulator --create_desktop_shortcut`
+        
+        Updates
+        -----------
+        * From terminal:
+          * `pip install spectramanipulator --upgrade`
+        * In running program: 
+          * In the MenuBar, Help â†’ Check for updates...
+Keywords: python,spectra manipulator
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Requires-Python: >3.7.1
