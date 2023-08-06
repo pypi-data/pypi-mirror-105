@@ -1,0 +1,16 @@
+odoo10_addon_base_ir_filters_company-10.0.1.0.0.99.dev2-py3.6-nspkg.pth,sha256=3hYKiD3YF7y9FeWjACJq1b9R_GVRzuQo9SAZlvZgumg,1672
+odoo/addons/base_ir_filters_company/README.rst,sha256=Fo2Z0okWs_JwB_P1kBWlNzcX1eQUy1it8apAz6NP1Tg,1826
+odoo/addons/base_ir_filters_company/__init__.py,sha256=iSdix-lH4TYQUoFs6I3CFBpUlOdR3NfSPoG7b5b_RcE,92
+odoo/addons/base_ir_filters_company/__manifest__.py,sha256=Tnp8qhIYmLoq6uyu5FPI6BvIRLHND_2AVOjjjUeE2Qw,638
+odoo/addons/base_ir_filters_company/post_install.py,sha256=Octj1bV2s3rkUIs-D3CPf9bQxAwG1gAkI1gMjhQ6ADc,262
+odoo/addons/base_ir_filters_company/i18n/base_ir_filters_company.pot,sha256=zHGOEQfko2xO4c5wbsj7fi2l2oBzV664QWUOyGKqUWQ,655
+odoo/addons/base_ir_filters_company/models/__init__.py,sha256=Qf1p0e3IekVhlLy8d9bqgGY5G07QhKbfZtwu9Xk3bAQ,50
+odoo/addons/base_ir_filters_company/models/ir_filters.py,sha256=ODl1wT-m796sQoy9HjH_i0VD9SuzIGhFAr6sDLuYNM4,573
+odoo/addons/base_ir_filters_company/security/base_ir_filters_company_security.xml,sha256=FpkdfHcHEqTLGRulgaAi0HfjGigpKAOtPfsIvPko1Kc,407
+odoo/addons/base_ir_filters_company/static/description/icon.png,sha256=6xBPJauaFOF0KDHfHgQopSc28kKvxMaeoQFQWZtfZDo,9455
+odoo/addons/base_ir_filters_company/views/ir_filters.xml,sha256=idtYX-ZW2z_1OrEsaxg2Setv3Lt3ZncFwxLE6_8rIGc,451
+odoo10_addon_base_ir_filters_company-10.0.1.0.0.99.dev2.dist-info/METADATA,sha256=zntBplbLAKzBlhQEJo8uNFxX2T6LGBtsFm3SaoNBEnM,2322
+odoo10_addon_base_ir_filters_company-10.0.1.0.0.99.dev2.dist-info/WHEEL,sha256=bK8TJl-oUKFDa18qkB68zwTZhIBCifqi4qjS_NS4aFQ,92
+odoo10_addon_base_ir_filters_company-10.0.1.0.0.99.dev2.dist-info/namespace_packages.txt,sha256=igDP6S4ywc6jzcMqzrKZpRtAUXrS-iYaA_Hu1EtlI48,17
+odoo10_addon_base_ir_filters_company-10.0.1.0.0.99.dev2.dist-info/top_level.txt,sha256=qBj40grFkGOfDZ2WDSw3y1RnDlgG0u8rP8pvGNdbz4w,5
+odoo10_addon_base_ir_filters_company-10.0.1.0.0.99.dev2.dist-info/RECORD,,
