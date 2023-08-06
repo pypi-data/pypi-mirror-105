@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: SonyCP
+Version: 2.0
+Summary: SDCP library to control Sony Projectors
+Home-page: https://github.com/MikeKade/SonyCP
+Author: Michael Kade
+Author-email: mike@mikda.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3

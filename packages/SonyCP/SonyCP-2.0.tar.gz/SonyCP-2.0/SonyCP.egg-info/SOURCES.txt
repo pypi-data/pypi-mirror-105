@@ -1,0 +1,8 @@
+README.md
+setup.py
+SonyCP/__init__.py
+SonyCP/protocol.py
+SonyCP.egg-info/PKG-INFO
+SonyCP.egg-info/SOURCES.txt
+SonyCP.egg-info/dependency_links.txt
+SonyCP.egg-info/top_level.txt
