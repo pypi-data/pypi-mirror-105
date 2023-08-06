@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: SnowFox
+Version: 0.0.5
+Summary: 由SnowFox工作室发出的SnowFox系列，打包了一些常见的代码
+Home-page: https://github.com/
+Author: haowen zhang
+Author-email: 806670753@qq.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
