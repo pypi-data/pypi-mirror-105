@@ -1,0 +1,14 @@
+flamechess/MCTS.py,sha256=z45OAB5veEGPJyh-kcnYZVzPqfLbvn3y_ZnSvg99gUg,6326
+flamechess/__init__.py,sha256=Iw3sODEJePJJv4Z_yr6yNRxfwlfy4bj3aa-xVUflpjA,41
+flamechess/jiuqi.py,sha256=1FnE-T2VWtcK6dkLfSJl1-ajG2u0bPC8UkL_sO2RiwU,1713
+flamechess/luqi.py,sha256=9_JWD8PqpFd-L1BcXd38q_Q-pth2Vo7WkeUgDS_d_oQ,1227
+flamechess/luqi_player.py,sha256=ImYNHH5TQQo3K_2E54Jk0we84JP4JQ7kx1EUKGTFSBs,8264
+flamechess/play.py,sha256=QALXF-BZGgWQBl9yHl6OSdMTFC46UHj7OLgF5f0sEys,2843
+flamechess/socketIO.py,sha256=Wn9aDCN0NohNvBSr0GqwO75vZNOpC1K2NiOnRxxraok,1558
+flamechess/zhuobie.py,sha256=Xey7lTXa_6luXAb0nooteTdl5GJt1cd26yDR5Kvo4Po,2140
+flamechess/zhuobie_player.py,sha256=IVnG5It7ZwdIRRO_BwR_J6Jq1UTTZTqqvGqV93ESfAs,1758
+flamechess-0.3.1.dist-info/LICENSE,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+flamechess-0.3.1.dist-info/METADATA,sha256=kdRRpqt9ATe1i6Jxh_dlkH8LO3n_eC-98Rcp2wcYMGs,3317
+flamechess-0.3.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+flamechess-0.3.1.dist-info/top_level.txt,sha256=8sgfZpRCIfF-aSMAyUUOwc8SPc6tGb8SYIrU1p6ZTLE,11
+flamechess-0.3.1.dist-info/RECORD,,
