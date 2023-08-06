@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+JwtRedirect/jwt_redirect.egg-info/PKG-INFO
+JwtRedirect/jwt_redirect.egg-info/SOURCES.txt
+JwtRedirect/jwt_redirect.egg-info/dependency_links.txt
+JwtRedirect/jwt_redirect.egg-info/top_level.txt
