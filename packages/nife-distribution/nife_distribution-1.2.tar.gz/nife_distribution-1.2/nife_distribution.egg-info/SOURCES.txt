@@ -1,0 +1,10 @@
+setup.py
+nife_distribution/Binomialdistribution.py
+nife_distribution/Gaussiandistribution.py
+nife_distribution/Generaldistribution.py
+nife_distribution/__init__.py
+nife_distribution.egg-info/PKG-INFO
+nife_distribution.egg-info/SOURCES.txt
+nife_distribution.egg-info/dependency_links.txt
+nife_distribution.egg-info/not-zip-safe
+nife_distribution.egg-info/top_level.txt
