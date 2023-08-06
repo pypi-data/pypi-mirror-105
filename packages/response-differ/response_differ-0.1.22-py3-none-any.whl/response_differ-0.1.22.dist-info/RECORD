@@ -1,0 +1,10 @@
+response_differ/cassettes.py,sha256=6mM7ZEKOfBZp3D8imTi-GSxG2-4OS1WYVSmoBu8VemA,3268
+response_differ/cheks.py,sha256=SB70IBRwLMFQJEQal2PE8R0tgOGow_j46G2zgHItoR4,1646
+response_differ/exceptions.py,sha256=fJhzGcWWNqDdipKEHpDXonzLHI70a3LmB-xMk2s78Vo,1530
+response_differ/play.py,sha256=5hzvP8jJcd0COb4STOB78D7ip1G_jikPLzu69AP8llQ,2309
+response_differ/response_diff/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+response_differ/response_diff/cli.py,sha256=gl-TYkjcd4dzyRPp3P3rgnvtRd5UqwQVvVEu_PI3l_M,2185
+response_differ-0.1.22.dist-info/entry_points.txt,sha256=WlcoAXjXzap__yMr-mMmNgUau3i5WRrQrjgqnZ6ZoLg,67
+response_differ-0.1.22.dist-info/WHEEL,sha256=SrtnPGVTMeYWttls9xnWA01eUhCZ3ufFdJUYb1J3r-U,83
+response_differ-0.1.22.dist-info/METADATA,sha256=eC8wsJwoELe6YSq07vpD_MuvZNUCcc-NzvZEHSMC78U,493
+response_differ-0.1.22.dist-info/RECORD,,
