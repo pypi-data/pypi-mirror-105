@@ -1,0 +1,5 @@
+google-cloud-trace
+opentelemetry-api
+opentelemetry-sdk
+
+[test]
