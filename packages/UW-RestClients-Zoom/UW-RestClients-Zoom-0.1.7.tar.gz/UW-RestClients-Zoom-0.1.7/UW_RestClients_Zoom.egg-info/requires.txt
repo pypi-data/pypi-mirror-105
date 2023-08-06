@@ -1,0 +1,5 @@
+UW-RestClients-Core
+PyJWT
+python-dateutil
+pytz
+mock
