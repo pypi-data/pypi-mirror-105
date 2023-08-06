@@ -1,0 +1,4 @@
+[console_scripts]
+eat = jojo:eat
+jump = jojo:jump
+

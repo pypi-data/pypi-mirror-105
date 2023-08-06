@@ -1,0 +1,7 @@
+setup.py
+jojo/__init__.py
+jojo_tmp.egg-info/PKG-INFO
+jojo_tmp.egg-info/SOURCES.txt
+jojo_tmp.egg-info/dependency_links.txt
+jojo_tmp.egg-info/entry_points.txt
+jojo_tmp.egg-info/top_level.txt
