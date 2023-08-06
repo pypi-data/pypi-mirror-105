@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+package_parser/__init__.py
+package_parser/__meta__.py
+package_parser/utils.py
+package_parser.egg-info/PKG-INFO
+package_parser.egg-info/SOURCES.txt
+package_parser.egg-info/dependency_links.txt
+package_parser.egg-info/requires.txt
+package_parser.egg-info/top_level.txt
