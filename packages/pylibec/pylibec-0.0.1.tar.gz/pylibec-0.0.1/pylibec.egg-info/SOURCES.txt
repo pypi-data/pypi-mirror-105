@@ -1,0 +1,7 @@
+setup.py
+pylibec/__init__.py
+pylibec/ec.py
+pylibec.egg-info/PKG-INFO
+pylibec.egg-info/SOURCES.txt
+pylibec.egg-info/dependency_links.txt
+pylibec.egg-info/top_level.txt
