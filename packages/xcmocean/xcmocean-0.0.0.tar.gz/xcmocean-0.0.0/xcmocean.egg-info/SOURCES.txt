@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+xcmocean/__init__.py
+xcmocean/_version.py
+xcmocean/accessor.py
+xcmocean/options.py
+xcmocean.egg-info/PKG-INFO
+xcmocean.egg-info/SOURCES.txt
+xcmocean.egg-info/dependency_links.txt
+xcmocean.egg-info/not-zip-safe
+xcmocean.egg-info/requires.txt
+xcmocean.egg-info/top_level.txt
