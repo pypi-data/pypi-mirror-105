@@ -1,0 +1,10 @@
+aiodav/__init__.py,sha256=7QM80zgixKgzjgGYD99LssfcArUb_iKQYNzsqByZwmk,99
+aiodav/client.py,sha256=2o8Tf_2tgEzhpdYlN9FNVpqeXOi7jlNKSSLmCdSxZ0o,44719
+aiodav/exceptions.py,sha256=S-OJHgNnY85kgl2Tegu-qgmQnSUY3EhbITZzzMS_M4E,2659
+aiodav/urn.py,sha256=IWe0-Frds78prQgV7fgUNmPuIrOS5QMd5QFg90UrPdE,1975
+aiodav/utils.py,sha256=v1iuJTLijwwDvFN1iy_1NIbiHxeAcVfcTpImJHOfJBQ,10506
+aiodav-0.1.4.dist-info/LICENSE,sha256=m6FQVED-O2rDQzzTx89dp7PYYlfEd-aUGzfO7xqS9To,1084
+aiodav-0.1.4.dist-info/METADATA,sha256=3EE8bSmeMcSDyBU7kKAOa6dRRZVuZ5RF3-UIjiw0dgw,2510
+aiodav-0.1.4.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+aiodav-0.1.4.dist-info/top_level.txt,sha256=izb6vrcNoTNHhg5DB4BLgTD7d_m6lXBZo9dmeD4zjDQ,7
+aiodav-0.1.4.dist-info/RECORD,,
