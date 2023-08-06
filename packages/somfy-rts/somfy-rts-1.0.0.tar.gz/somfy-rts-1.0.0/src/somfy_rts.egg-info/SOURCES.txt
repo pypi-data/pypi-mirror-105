@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+src/somfy_rts/__init__.py
+src/somfy_rts/rts.py
+src/somfy_rts.egg-info/PKG-INFO
+src/somfy_rts.egg-info/SOURCES.txt
+src/somfy_rts.egg-info/dependency_links.txt
+src/somfy_rts.egg-info/top_level.txt
