@@ -1,0 +1,8 @@
+mlservicewrapper/host/http/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mlservicewrapper/host/http/__main__.py,sha256=uX69-Nqd6KArGfWZWByLzhCkvJFQfm_2fcLs4KpwF7E,663
+mlservicewrapper/host/http/server.py,sha256=jDKMaj5sWFiGGpxvyp-2jc2XrpZW0u0BgqocRyhMbQo,11087
+mlservicewrapper_host_http-0.5.1.dist-info/LICENSE,sha256=TiD-tpczmtgPOyYiLe3RFceCELV9ROLu5PXhHNowN6c,1071
+mlservicewrapper_host_http-0.5.1.dist-info/METADATA,sha256=UqrIrlrnXBNXH6NV6FRYlxkOUz_rgK2MhIB9bQ_b2U0,1758
+mlservicewrapper_host_http-0.5.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+mlservicewrapper_host_http-0.5.1.dist-info/top_level.txt,sha256=mGUZp7X_K302c6MEwbvdPOHmsncI0QUW7feRvVCEw90,17
+mlservicewrapper_host_http-0.5.1.dist-info/RECORD,,
