@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: thaitextaug
+Version: 0.0.4
+Summary: Thai Text Augmentation
+Home-page: https://github.com/wannaphong/thaitextaug
+Author: Wannaphong Phatthiyaphaibun
+Author-email: wannaphong@yahoo.com
+License: Apache Software License 2.0
+Project-URL: Documentation, https://github.com/wannaphong/thaitextaug
+Project-URL: Tutorials, https://github.com/wannaphong/thaitextaug/tree/main/notebooks
+Project-URL: Source Code, https://github.com/wannaphong/thaitextaug
+Project-URL: Bug Tracker, https://github.com/wannaphong/thaitextaug/issues
+Keywords: thaitextaug,NLP,natural language processing,text analytics,text processing,localization,computational linguistics,ThaiNLP,Thai NLP,Thai language
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: Thai
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pythainlp (>=2.0)
+Requires-Dist: bpemb
+Requires-Dist: gensim (>=4.0.0)
+Requires-Dist: nltk
+Provides-Extra: fasttext
+Requires-Dist: gensim (>=4.0.0) ; extra == 'fasttext'
+Requires-Dist: PyICU ; extra == 'fasttext'
+Provides-Extra: full
+Requires-Dist: thai2transformers ; extra == 'full'
+Requires-Dist: torch (==1.4.0) ; extra == 'full'
+Requires-Dist: gensim (>=4.0.0) ; extra == 'full'
+Requires-Dist: PyICU ; extra == 'full'
+Provides-Extra: wangchanberta
+Requires-Dist: thai2transformers ; extra == 'wangchanberta'
+Requires-Dist: torch (==1.4.0) ; extra == 'wangchanberta'
+
+# ThaiTextAug
+
+Thai Text Augmentation: Thai Text Augmentation Tool
+
+## Install
+
+```sh
+pip install thaitextaug
+```
+
+for fasttext
+
+```sh
+pip install thaitextaug[fasttext]
+```
+
+for all
+
+```sh
+pip install thaitextaug[all]
+```
+
+## Docs
+
+You can read The API docs at [github.wannaphong.com/thaitextaug](https://github.wannaphong.com/thaitextaug/index.html)
+
+Tutorials Notebook: [notebooks](https://github.com/wannaphong/thaitextaug/tree/main/notebooks)
+
+

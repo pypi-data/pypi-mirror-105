@@ -1,0 +1,14 @@
+thaitextaug/__init__.py,sha256=pCLD8ObOHOtmiVtrz937n9dQz_yGy5pQEgOfmnzkous,46
+thaitextaug/wordnet.py,sha256=EY8AuGgrw7jXbMHOQX8_08iwpkk_J6PQtbhnKl97Hjc,5120
+thaitextaug/lm/__init__.py,sha256=fmQlnGATefDxCfMCf2mAQA1tk-JhJQzXMAWo-cV-0mw,218
+thaitextaug/lm/fasttext.py,sha256=LZ-rOUaHOGJnzZY3kbgTjs4iSP-2qmD2SxvPrcVoO8o,2406
+thaitextaug/lm/wangchanberta.py,sha256=618t603MAcVDMduMy_HSC4sSvkc642_NlHG01yO2n3I,2697
+thaitextaug/word2vec/BPEmb_core.py,sha256=0MCHc3QnDlwo3_OGhejXcjxwrXtNSNan2wjw38Z5M2c,1570
+thaitextaug/word2vec/__init__.py,sha256=V9_YzB8bfsuS3HhQWOzNdE8J3INuW5l63KIMH8nXaE0,283
+thaitextaug/word2vec/thai2fit.py,sha256=7opqyCO51Yuoj2K_fgfrVbXcC8c7vNDU-DKzrHbMuOY,1303
+thaitextaug/word2vec/word2vec.py,sha256=15jfep0Cj1mI38vznji_cvin2-s-UMine0lA_GOsDRA,1966
+thaitextaug-0.0.4.dist-info/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+thaitextaug-0.0.4.dist-info/METADATA,sha256=B0CcFwOf2ykFIU2tZrLf4h79Ls25EAlcWpdNtn5siVY,2218
+thaitextaug-0.0.4.dist-info/WHEEL,sha256=D1Wh14kWDxPnrM-5t_6UCB-UuQNrEODtRa3vF4OsvQY,97
+thaitextaug-0.0.4.dist-info/top_level.txt,sha256=vAtybx5_jb4HQZmeXomO4NzKL2kiGtnMJog9Ll5DFFM,12
+thaitextaug-0.0.4.dist-info/RECORD,,
