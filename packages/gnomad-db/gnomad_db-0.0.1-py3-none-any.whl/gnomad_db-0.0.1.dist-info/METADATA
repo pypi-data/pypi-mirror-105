@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: gnomad-db
+Version: 0.0.1
+Summary: Query gnomAD MAF
+Home-page: UNKNOWN
+Author: KalinNonchev
+Author-email: boo@foo.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: numpy
+
+UNKNOWN
+
+
