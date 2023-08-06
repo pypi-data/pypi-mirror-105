@@ -1,0 +1,7 @@
+setup.py
+SnowFox/__init__.py
+SnowFox/fox.py
+SnowFox.egg-info/PKG-INFO
+SnowFox.egg-info/SOURCES.txt
+SnowFox.egg-info/dependency_links.txt
+SnowFox.egg-info/top_level.txt
