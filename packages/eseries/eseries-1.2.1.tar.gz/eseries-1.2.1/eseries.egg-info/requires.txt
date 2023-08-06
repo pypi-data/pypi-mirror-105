@@ -1,0 +1,17 @@
+docopt_subcommands>=4.0
+future
+
+[dev]
+check-manifest
+wheel
+bumpversion
+twine
+
+[doc]
+sphinx
+cartouche
+
+[test]
+coverage
+hypothesis
+pytest
