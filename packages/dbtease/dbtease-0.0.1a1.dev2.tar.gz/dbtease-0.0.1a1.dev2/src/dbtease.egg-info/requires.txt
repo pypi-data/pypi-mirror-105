@@ -1,0 +1,11 @@
+click>=7.1
+pyyaml
+crontab
+networkx
+gitpython
+snowflake-connector-python
+slack_sdk
+boto3
+
+[:platform_system == "Windows"]
+colorama
