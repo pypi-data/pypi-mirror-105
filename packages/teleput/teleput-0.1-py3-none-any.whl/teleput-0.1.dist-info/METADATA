@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: teleput
+Version: 0.1
+Summary: Send text and files to the Teleput Telegram Bot
+Home-page: https://github.com/Zverik/teleput-cli
+Author: Ilya Zverev
+Author-email: ilya@zverev.info
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Customer Service
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Communications :: Chat
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: appdirs
+Requires-Dist: python-magic
+
+# Teleput CLI Tool
+
+This is a command-line script to send messages and files
+to yourself with the [Teleput Bot](https://t.me/teleput_bot).
+Install it like this:
+
+    pip3 install --user teleput
+
+Then get a key from the bot (click the link above) and pass it to the tool:
+
+    teleput -k YOUR_KEY
+
+Now sending messages to yourself is simple:
+
+    teleput "Message"
+    pbpaste | teleput -
+
+And even files:
+
+    teleput review.docx
+    teleput image.jpg
+
+Note that it tries to detect the file format, so images and sounds will
+be compressed. To send files without compression, use `--raw` switch:
+
+    teleput -r image.jpg
+
+Only one file can be sent. But you also can add a comment with a second argument:
+
+    teleput image.jpg "Look at this image!"
+
+## Author and License
+
+Written by Ilya Zverev, published under the ISC license.
+
+
