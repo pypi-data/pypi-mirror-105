@@ -1,0 +1,10 @@
+youdaoai/__init__.py,sha256=AR919PkORv1DEs_qTlZqXGhZicCFVE-PvlrQRhzXbag,274
+youdaoai/base.py,sha256=MEUgJrB5qEP0tJkYmaKyuwtjet29o03RWVuVs_TLyp8,1440
+youdaoai/ocr_translation.py,sha256=E0liXMSlLewkFFMGjx6bJe5Gbipiri_b2URBhQ3sg2w,1642
+youdaoai/speech_translation.py,sha256=rYHDOQBLU4xVjdcDloyiwAMYAyq4uwEB6lZxo8PB0-8,1824
+youdaoai/translation.py,sha256=m6R4j7CqiDBSW4s420-5I60GKh0TqptZx-I0RN4McWU,1370
+youdaoai-0.0.1.dist-info/LICENSE,sha256=1xnbQK8QKakmaTJInQxWff-3JuOiVtm0d64E26emFag,1085
+youdaoai-0.0.1.dist-info/METADATA,sha256=d7vOciOKr7BRgftajBDkqjYzi_OiodewN5VyXlQVT2I,461
+youdaoai-0.0.1.dist-info/WHEEL,sha256=v8slff5hmCpvciQ3G55d2d1CnOBupjDFJHDE2dUb1Ao,97
+youdaoai-0.0.1.dist-info/top_level.txt,sha256=ZJR425rhlgz5PKz4iZNoD6AVWmQKxhYVnWpvWdASKHM,9
+youdaoai-0.0.1.dist-info/RECORD,,
