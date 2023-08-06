@@ -1,0 +1,7 @@
+README.md
+setup.py
+python/galaxy_py.egg-info/PKG-INFO
+python/galaxy_py.egg-info/SOURCES.txt
+python/galaxy_py.egg-info/dependency_links.txt
+python/galaxy_py.egg-info/not-zip-safe
+python/galaxy_py.egg-info/top_level.txt
