@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: sammen
+Version: 0.0.1
+Summary: Dansk for together - multiple watch to ensure special events come together or go away.
+Home-page: https://github.com/sthagen/sammen
+Author: Stefan Hagen
+Author-email: stefan@hagen.link
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6.13
+Description-Content-Type: text/markdown
+Requires-Dist: watchgod (>=0.7)
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-flake8 ; extra == 'dev'
+
+# sammen
+
+[![license](https://img.shields.io/github/license/sthagen/sammen.svg?style=flat)](https://github.com/sthagen/sammen/blob/default/LICENSE)
+[![version](https://img.shields.io/pypi/v/sammen.svg?style=flat)](https://pypi.python.org/pypi/sammen/)
+[![downloads](https://img.shields.io/pypi/dm/sammen.svg?style=flat)](https://pypi.python.org/pypi/sammen/)
+[![wheel](https://img.shields.io/pypi/wheel/sammen.svg?style=flat)](https://pypi.python.org/pypi/sammen/)
+[![supported-versions](https://img.shields.io/pypi/pyversions/sammen.svg?style=flat)](https://pypi.python.org/pypi/sammen/)
+[![supported-implementations](https://img.shields.io/pypi/implementation/sammen.svg?style=flat)](https://pypi.python.org/pypi/sammen/)
+
+Dansk for together - multiple watch to ensure special events come together or go away. 
+
+## Usage
+
+TODO
+
+## Install
+
+Preferred way to install is as usual (for testing or in isolation):
+
+```bash
+$ pipx install sammen
+```
+
+For production use (well, ahem, ...) or within a virtual python env:
+
+```bash
+$ pip install sammen
+```
+
+## License
+
+MIT
+
+
