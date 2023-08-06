@@ -1,0 +1,9 @@
+aiohttp>=3.0
+aiohttp_socks>=0.2
+ccxt>=1.44.45
+ccxt-unmerged>=1.1
+python_dateutil>=2.1
+pandas>=0.21
+PyYAML>=3.10
+fons>=0.3.0
+wsclient>=0.3.0
