@@ -1,0 +1,88 @@
+{% extends 'visko2/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<h1 class="page-header">Integrated Semantic Framework</h1>
+
+<form method="POST" action="{% url 'visko2:isf' %}">
+  {% csrf_token %}
+  <div class="input-group input-group-lg">
+    <input class="form-control input-small" name="input_sentence" id="input_sentence" placeholder="Some dogs bark." value="{{ input_sentence|default:'' }}" type="text">
+    <span class="input-group-addon">WSD</span>
+    <select id="input_tagger" name="input_tagger" class="form-control input-sm" title="Tagger">
+      {% for t, txt in TAGGERS.items %}
+      <option {% if t == input_tagger %}selected="selected"{% endif %} value="{{t}}">{{txt}}</option>
+      {% endfor %}
+    </select>    
+    <span class="input-group-addon">Grammar</span>
+    <select id="input_parser" name="input_parser" class="form-control input-sm" title="Processor">
+      {% for p, txt in PROCESSORS.items %}
+      <option {% if p == input_parser %}selected="selected"{% endif %} value="{{p}}">{{txt}}</option>
+      {% endfor %}
+    </select>
+    <span class="input-group-addon">Parse Count</span>
+    <select id="input_results" name="input_results" class="form-control input-sm" title="Maximum parses">
+      {% for r in RESULTS %}
+      <option {% if r == input_results %}selected="selected"{% endif %} value="{{r}}">{{r}}</option>
+      {% endfor %}
+        </select>
+    <span class="input-group-btn">
+      <button class="btn btn-default btn-lg" name="action" type="submit" value="cached">Parse</button>
+    </span>
+  </div>
+</form>
+
+<h1 class="sub-header">Available Collections</h1>
+
+<form method="POST" action="{% url 'visko2:search' %}" style="padding-bottom: 20px;">
+  {% csrf_token %}
+  <div class="input-group input-group-lg">
+    <span class="input-group-addon">Collection</span>
+    <select name="col" id="col" class="form-control">
+      {% for bib in collections %}
+      <option value="{{ bib.name}}" {% if bib.name == col %}selected="selected"{% endif %}>{{bib.name}}</option>
+      {% endfor %}
+      <option value="" {% if not col %}selected="selected"{% endif %}>.:: ALL ::.</option>
+    </select>
+    <span class="input-group-addon">Query</span>
+    <input class="form-control input-lg" name="query" id="query" placeholder="C:Linus or L:happy or G:named_rel or S:00636921-n or ^:lemma or #10001" value="{{ query|default:'' }}" type="text" title="search box&#013;C:<pred_carg>&#013;L:<pred_lemma>&#013;G:<gpred>&#013;S:<synsetID>&#013;^:<surface's lemma>&#013;#<sentence's ident>">
+    <span class="input-group-btn">
+      <button class="btn btn-default btn-lg" name="action" type="submit" value="cached">Search</button>
+    </span>
+  </div>
+</form>
+
+{% if collections %}
+{% for collection in collections %}
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><a href="{% url 'visko2:list_corpus' collection_name=collection.name %}">{{ collection.name }}</a></h3>
+  </div>
+  <div class="panel-body">
+    {% for corpus in collection.corpuses %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><a href="{% url 'visko2:list_doc' collection_name=collection.name corpus_name=corpus.name %}">{{ corpus.name }}</a></h3>
+      </div>
+      <div class="panel-body">
+        <div class="list-group">
+          {% for doc in corpus.documents %}
+          <a href="{% url 'visko2:list_sent' collection_name=collection.name corpus_name=corpus.name doc_id=doc.ID %}" class="list-group-item">
+            {% if doc.title %}{{ doc.title }}{%else%}{{doc.name}}{%endif %}
+            {% if doc.sent_count %}({{doc.sent_count}}){% endif %}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<div style="padding: 20px 0px;">
+  There is no available collection.
+</div>
+{% endif %}
+
+{% endblock %}

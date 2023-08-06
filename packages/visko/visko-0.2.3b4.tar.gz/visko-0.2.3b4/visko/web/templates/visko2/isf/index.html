@@ -1,0 +1,291 @@
+{% extends 'visko2/base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+<div style="padding: 10px;">  
+  <!-- Parsing Form -->
+  <form>
+    <div class="input-group input-group-lg">
+      <input class="form-control input-lg" name="input_sentence" id="input_sentence" placeholder="Some dogs bark." value="{{ input_sentence | default:'Some dogs barked.'}}" type="text">
+      <span class="input-group-addon">WSD</span>
+      <select id="input_tagger" name="input_tagger" class="form-control input-sm" title="Tagger">
+        {% for t, txt in TAGGERS.items %}
+        <option {% if t == input_tagger %}selected="selected"{% endif %} value="{{t}}">{{txt}}</option>
+        {% endfor %}
+      </select>    
+      <span class="input-group-addon">Grammar</span>
+      <select id="input_parser" name="input_parser" class="form-control input-small" title="Processor">
+        {% for p, txt in PROCESSORS.items %}
+        <option {% if p == input_parser %}selected="selected"{% endif %} value="{{p}}">{{txt}}</option>
+        {% endfor %}
+      </select>
+      <span class="input-group-addon">Parse Count</span>
+      <select id="input_results" name="input_results" class="form-control input-small" title="Maximum parses">
+        {% for pc in RESULTS %}
+        <option value="{{pc}}" {% if pc == input_results %}selected="selected"{% endif %}>{{pc}}</option>
+        {% endfor %}
+      </select>
+      <span class="input-group-btn">
+        <button class="btn btn-default btn-lg" name="btnParse" type="button" id="btnParse" value="cached" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Processing">Parse</button>
+      </span>
+    </div>
+  </form>
+
+  <div class="dmrs_sentence_text">Parse count: <span id="parse_count">0</span></div>
+  <div class="dmrs_sentence_text">&nbsp;<span id="sentence_text"></span></div>
+
+  <div id="message_box"></div>
+  <!-- Synset Information -->
+  <div id="synsets"></div>
+  <div id="ttl_sentences"></div>
+  <div class="concept_list" id="concept_list" style="overflow-y: auto; margin: 10px; padding: 10px;"></div>
+
+  <ul id="alltabs" class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#visko">DMRS</a></li>
+    <li><a data-toggle="tab" href="#delviz">delphin-viz</a></li>
+    <li><a data-toggle="tab" href="#raw">pyDelphin</a></li>
+    <li><a data-toggle="tab" href="#xml">XML</a></li>
+    <li><a data-toggle="tab" href="#json">JSON</a></li>
+    <li><a data-toggle="tab" href="#latex">LaTeX</a></li>
+    <li><a data-toggle="tab" href="#debug">Debug</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="visko" class="tab-pane active">
+      <div style="overflow-y: auto; height: 600px;">
+        <!-- DMRSes container -->
+	<div id="dmrses"></div>
+      </div>
+    </div>
+    <div id="delviz" class="tab-pane">
+      <!-- Delphin-viz container -->
+      <div id="dvizes"></div>
+    </div>
+    <div id="raw" class="tab-pane">
+      <div id="raws"></div>
+    </div>
+    <div id="xml" class="tab-pane">
+      <pre><code id="xmlcontent"></code></pre>
+    </div>
+    <div id="json" class="tab-pane">
+      <div id="jsons"></div>
+    </div>
+    <div id="latex" class="tab-pane">
+      <pre><code id="latexes"></code></pre>
+    </div>
+    <div id="debug" class="tab-pane">
+      <!-- Control Panel and Console -->
+      <div id="toolbar" class="input-group" style="padding: 10px 0px;">
+	<div class="input-group-btn">
+          <input type="button" class="btn btn-primary" id="btnClearCanvas" name="btnClearCanvas" value="Reset"/>
+          <input type="button" class="btn btn-default" id="btnDebug" name="btnDebug" value="Debug"/>
+          <button type="button" id="btnClear" name="btnClear" class="btn btn-default">Clear Console</button>
+	</div>
+      </div>
+      <div id="console" style="overflow: auto; max-height: 80vh;"></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <footer>
+    <p>&copy; 2012-2017 Le Tuan Anh &lt;tuananh.ke@gmail.com&gt;</p>
+  </footer>
+</div> <!-- /container -->
+{% endblock %}
+
+
+{% block css %}
+<style>
+ .tab-pane {
+   overflow-y: auto;
+ }
+</style>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/visko2.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/texttaglib.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'viz/demo.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'viz/delphin-viz.css' %}"/>
+<link rel="stylesheet" href="{% static 'highlight.js/styles/github.css' %}">
+{% endblock %}
+
+
+{% block script %}
+<!-- Others -->
+<script src="{% static 'highlight.js/highlight-9.9.0.js' %}"></script>
+<!-- Delviz support -->
+<script type="text/javascript" src="{% static 'viz/svg-2.3.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/d3.v3.min.js' %}" charset="utf-8"></script>
+<script type="text/javascript" src="{% static 'viz/demo.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/tree.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/mrs.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/dmrs.js' %}"></script>
+<!-- ShinchanJS -->
+<script src="{% static 'js/raphael-2.2.1.min.js' %}"></script>
+<script src="{% static 'js/kajika.js' %}"></script>
+<script src="{% static 'js/console.js' %}"></script>
+<script src="{% static 'js/shinchan.js' %}"></script>
+<script src="{% static 'js/visko-2.0.js' %}"></script>
+<script src="{% static 'js/restisf.js' %}"></script>
+<!-- IMI support -->
+<script src="{% static 'js/texttaglib.js' %}"></script>
+
+{% include 'visko2/delviz.html' %}
+
+<!-- Coolisf REST support -->
+<script>
+ var restisf_root = '{% url "restisf:index" %}';
+ function get_isf() {
+   return new Restisf(restisf_root);
+ }
+ var response = undefined;
+ 
+ function clear_parses() {
+   $('#dmrses').empty();
+   $('#dvizes').empty();
+   $('#raws').empty();
+   $('#xmlcontent').empty();
+   $('#dmrs_sentence_text').text = '';
+   $('#jsons').empty();
+   $('#latexes').empty();
+   $('#ttl_sentences').empty();
+   $('#concept_list').empty();
+   $('#message_box').empty();
+   response = undefined;
+ }
+ 
+ function highlight(a_div) {
+   $(a_div).find('pre code').each(function(i, block) {
+     hljs.highlightBlock(block);
+   });
+ }
+
+ var sent_url = '#';
+
+ function custom_visko_header(parse, parseidx, container, id_prefix) {
+   if (parseidx == undefined) { parseidx = 1; }
+   if (id_prefix == undefined) { id_prefix = 'parse_'; }
+   var pid = (parse.pid != undefined) ? parse.pid : parseidx;
+   if (typeof container == 'string') { container = $("#" + container); }
+   var toolbar =  $('<div class="input-group input-group-sm col-sm-6" style="padding: 2px;"></div>');
+   toolbar.attr('id', id_prefix + pid);
+   // Attach toolbar to container
+   container.append(toolbar);
+
+   // Parse label
+   var lblParse = $('<span class="input-group-addon"></span>');
+   lblParse.attr('id', id_prefix + pid + '_lbl');
+   var lnk = $('<a></a>');
+   lnk.attr('href', '#').text('Parse #' + parseidx);
+   lblParse.append(lnk);
+   toolbar.append(lblParse);
+   
+   var btn_group = $('<div class="btn-group" role="group" aria-label="..."></div>');
+   toolbar.append(btn_group);
+   // Generate button
+   var btnGenerate = $('<button class="btn btn-default" title="Generate">Generate <span class="glyphicon glyphicon-info-sign" aria-hidden="True"></span></button>');
+   btnGenerate.data('pid', pid);
+   btnGenerate.attr('id', id_prefix + pid + '_gen');
+   btnGenerate.click(function(){
+     var pid = $(this).data('pid');
+     var idx = pid - 1;
+     var mrs = response.parses[idx].mrs_raw;
+     var grm = $('#input_parser').val();
+     var gurl = restisf_root + "/generate/";
+     console.writeline("Generate url: " + gurl);
+     console.writeline("Parse#" + pid + "'s MRS: " + mrs);
+     $.ajaxSetup({
+       headers: { 'X-CSRFToken': "{{ csrf_token }}" }
+     });
+     get_isf().generate(mrs, grm, function(json){
+       if(json && json.length){
+         console.writeline("Generating from parse #" + pid);
+         console.writeline(json);
+         show_alert(_.join(json, '<br/>'), undefined, "success");
+       }
+       else {
+         console.writeline("Error");
+         show_alert("Parse #" + pid + " cannot be generated.");
+       }
+     });
+     // end generating
+   });
+   btn_group.append(btnGenerate);
+
+   return toolbar;
+ }
+ 
+ /** Parse a sentence using REST API **/
+ function do_parse() {
+   $("#btnParse").button('loading');
+   var sent = $('#input_sentence').val();
+   var parse_count = $('#input_results').val();
+   var tagger = $("#input_tagger").val();
+   var grm = $('#input_parser').val();
+   console.header("Sentence: " + sent);
+   // call parse async
+   get_isf().parse(sent, parse_count, tagger, grm, success, fail);
+   console.writeline("Server is processing. Please wait ...");
+ }
+
+ function fail() {
+   $("#btnParse").button('reset');
+   alert("Error");
+ }
+ 
+ /**
+  * When received parses from server
+  **/
+ function success(json) {
+   $("#btnParse").button('reset');
+   clear_parses();
+   response = json; // store parses for rendering  
+   // console.writeline("Raw response: " + JSON.stringify(response));
+   console.writeline(json.parses.length + " parse(s) has been received.");
+   $('#parse_count').text(json.parses.length);
+   // update sentence text
+   $('#sentence_text').text(json.sent);
+   visualise(response, custom_visko_header);
+ }
+ 
+ function active_tab() {
+   // return $("#alltabs .active").attr('href');
+   return $("#alltabs .active > a").attr("href");
+ }
+ 
+ /** Show debug info **/
+ function debug() {
+ }
+</script>
+<!-- Document ready -->
+<script>
+ var console;
+ function initialise(){
+   // Console support
+   console = new Console("console", 300, ".:: Debug ::.");
+   $("#btnClear").click(function() { console.clear(); });
+   $(window).on('resize', function() { console.resize(); });
+   $('#consoletoggle').change(function(){ console.toggle(); });
+   console.clear().resize();
+
+   $("#btnDebug").click(debug);
+   $("#btnParse").click(do_parse);
+   // Press enter to search
+   $('#input_sentence').keydown(function(e) {
+     if (e.keyCode == 13) {
+       do_parse();
+       return false;
+     }
+   });
+   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+     visualise(response, custom_visko_header);
+   });
+ }
+
+ $(document).ready(function(){       
+   initialise();
+   {% if input_sentence %}
+   do_parse();
+   {% endif %}
+ });
+</script>
+{% endblock %}

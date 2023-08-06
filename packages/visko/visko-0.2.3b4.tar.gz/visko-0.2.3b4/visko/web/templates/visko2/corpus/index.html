@@ -1,0 +1,59 @@
+{% extends 'visko2/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h2 class="sub-header">Available Collections</h2>
+
+{% if collections %}
+<!-- Quick navigator -->
+<ul>
+{% for collection in collections %}
+  <li><a href="#{{collection.name}}">{{collection.name}}</a></li>
+{% endfor %}
+</ul>
+
+{% for collection in collections %}
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <a id="{{collection.name}}"></a>
+    <h3 class="panel-title"><a href="{% url 'visko2:list_corpus' collection_name=collection.name %}">{{ collection.name }}</a></h3>
+  </div>
+  <div class="panel-body">
+    {% for corpus in collection.corpuses %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><a href="{% url 'visko2:list_doc' collection_name=collection.name corpus_name=corpus.name %}">{{ corpus.name }}</a></h3>
+      </div>
+      <div class="panel-body">
+        <div class="list-group">
+          {% for doc in corpus.documents %}
+          <a href="{% url 'visko2:list_sent' collection_name=collection.name corpus_name=corpus.name doc_id=doc.ID %}" class="list-group-item">
+            {% if doc.title%}{{ doc.title }}{%else%}{{doc.name}}{%endif %}
+            {% if doc.sent_count %}({{doc.sent_count}}){% endif %}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<div style="padding: 20px;">
+  There is no collection available.
+</div>
+{% endif %}
+
+<form method="POST" action="{% url 'visko2:create_collection' %}" style="padding-bottom: 20px;">
+  {% csrf_token %}
+  <div class="input-group input-group-lg">
+    <input class="form-control input-lg" name="collection_name" id="collection_name" placeholder="New Collection (only alphanumeric or underscore characters are allowed)" value="{{ collection_name|default:'' }}" type="text">
+    <span class="input-group-btn">
+      <button class="btn btn-default btn-lg" name="action" type="submit" value="cached">Create</button>
+    </span>
+  </div>
+</form>
+
+{% endblock %}

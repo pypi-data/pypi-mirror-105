@@ -1,0 +1,243 @@
+{% extends 'visko2/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-6">
+    <!-- DMRS column -->
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#main">Main Tab</a></li>
+      <li><a data-toggle="tab" href="#config">Config</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="main" class="tab-pane fade in active">
+        <!-- Parsing Form -->
+        <form style="padding: 20px 3px;">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon">Input</span>
+            <input class="form-control input-lg" name="input_data" id="input_data" placeholder="Some dogs bark." value="Some dogs barked." type="text">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-lg" name="btnProcess" id="btnProcess" value="parse">Process</button>
+            </span>
+          </div>
+        </form>
+
+        <div>Lorem ipsum</div>
+      </div>
+      <div id="config" class="tab-pane fade">
+        <pre><code id="dmrs1_json"></code></pre>
+      </div>
+    </div>
+    <!-- Synset Information -->
+    <div id="synsets"></div>
+    <!-- End DMRS column -->
+  </div>
+  <div class="col-md-6">
+    <!-- Control Panel and Console -->
+    <div id="toolbar" class="input-group" style="padding: 10px 0px;">
+      <input type="button" class="btn btn-primary" id="btnDebug" name="btnDebug" value="Debug"/>
+      <button type="button" id="btnClear" name="btnClear" class="btn btn-default">Clear Console</button>
+      <button type="button" id="btnHide" name="btnHide" class="btn btn-default">Hide Console</button>
+    </div>
+    <div id="console" style="overflow: auto; max-height: 80vh;"></div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block css %}
+<style>
+ .tab-pane {
+   overflow: auto;
+ }
+</style>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/visko2.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'viz/demo.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'viz/delphin-viz.css' %}"/>
+<link rel="stylesheet" href="{% static 'highlight.js/styles/github.css' %}">
+{% endblock %}
+
+{% block script %}
+<!-- Others -->
+<script src="{% static 'highlight.js/highlight-9.9.0.js' %}"></script>
+<!-- Delviz support -->
+<script type="text/javascript" src="{% static 'viz/svg-2.3.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/d3.v3.min.js' %}" charset="utf-8"></script>
+<script type="text/javascript" src="{% static 'viz/demo.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/tree.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/mrs.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/dmrs.js' %}"></script>
+<!-- ShinchanJS -->
+<script src="{% static 'js/raphael-2.2.1.min.js' %}"></script>
+<script src="{% static 'js/kajika.js' %}"></script>
+<script src="{% static 'js/console.js' %}"></script>
+<script src="{% static 'js/testutil.js' %}"></script>
+<script src="{% static 'js/shinchan.js' %}"></script>
+<script src="{% static 'js/visko-2.0.js' %}"></script>
+<script src="{% static 'js/restisf.js' %}"></script>
+
+<!-- Yawol client -->
+<script src="{% static 'js/yawol.js' %}"></script>
+<!-- Yawol support -->
+<script type="text/template" id="synsetbox_template">
+     <div class="synsetbox container-fluid well">
+     <div class="row">
+     <div class="col-xs-12">
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+     </div>
+     </div>
+     <div class="row">
+     <div class="col-xs-12 col-sm-2 col-md-2">
+      <label>SynsetID</label>
+     </div>
+     <div class="col-xs-12 col-sm-2 col-md-2">
+      <span class="synsetid"><%= synset.synsetid %></span>                
+     </div>
+     <div class="col-xs-12 col-sm-2 col-md-2">
+      <label>Lemmas</label> <span class="lemma"></span>
+     </div>
+     <div class="col-xs-12 col-sm-6 col-md-6">
+      <span class="lemmas"><%= _.join(synset.lemmas, ', ') %></span>
+     </div>
+     </div>
+     <div class="row">
+     <div class="col-xs-12 col-md-2">
+      <label>Definition</label>
+     </div>
+     <div class="col-xs-12 col-md-10">
+      <span class="definition"><%= synset.definition %></span>
+     </div>
+     </div>
+     <div class="row">
+     <div class="col-xs-12 col-md-2">
+      <label>Examples</label>
+     </div>
+     <div class="col-xs-12 col-md-10">
+       <span class="examples">
+         <% if(synset.examples.length > 0) {  %>
+         <ul>
+           <% _.each(synset.examples, function(ex){ %>
+           <li><%= ex %></li>
+           <% }); %>
+         </ul>
+         <% } %>    
+       </span>
+     </div>
+     </div>
+     </div>
+</script>
+<script>
+ var yawol;
+ var yawol_root = '{% url "yawol:index" %}';
+ 
+ function get_yawol() {
+   var yawol = undefined;
+   if (yawol == undefined) {
+     yawol = new Yawol("synsets", yawol_root, $("#synsetbox_template").html());
+   }
+   return yawol;
+ }
+ 
+ /** Sample synset link builder **/
+ function find_synset(synsetid) {
+   return function(){ 
+     get_yawol().search_synset(synsetid);
+   };
+ }
+</script>
+
+<!-- Console support -->
+<script>
+ var console;
+ 
+ $(window).on('resize', function(){
+   update_console();
+ });
+ 
+ function toggleConsole(){
+   $("#console").toggle();
+   if($("#console").is(":visible")){
+     $("#btnHide").text("Hide Console");                
+   } 
+   else{
+     $("#btnHide").text("Show Console");
+   }
+ }
+ 
+ function update_console(){
+   var ch = $(window).height() - 360;
+   if (ch < 300){
+     ch = 300;
+   }
+   $("#console").height(ch);
+   $("#console").css('max-height', ch);
+ }
+ 
+ function clear_console() {
+   console.clear("Visko REST Client - Version 0.1");
+   console.writeline();
+ }
+</script>
+
+<script>
+ function debug() {
+   console.writeline("Debug");
+ }
+
+ function process() {
+   var input = $("#input_data").val();
+   var req_url = "{% url 'visko2:dev_rest' %}";
+   console.writeline("User input: " + input);
+   console.writeline("Requesting URL: " + req_url);
+   $.ajaxSetup({
+     headers: { 'X-CSRFToken': "{{ csrf_token }}" }
+   });
+   $.ajax({url: req_url,
+           dataType: 'jsonp',
+           method: 'post',
+           data: {'input': input },
+           success: function(json) {
+             console.writeline(JSON.stringify(json));
+           },
+           fail: function(jqxhr){
+             if (console != undefined && console.writeline != undefined) {
+               console.writeline("Request Failed: " + jqxhr.statusText + " | code = " + jqxhr.status);
+             }
+           },
+           error: function(jqxhr){
+             if (console != undefined && console.writeline != undefined) {
+               console.writeline("An error occurred. Message = " + jqxhr.statusText + " | code = " + jqxhr.status);
+             }
+           }
+   });
+ }
+</script>
+
+<!-- Document ready -->
+<script> 
+ function initialise(){
+   // Console support
+   console = new Console("console");
+   clear_console();
+   update_console();
+   $("#btnClear").click(clear_console);
+   $("#btnHide").click(toggleConsole);
+   $('#synset_info').hide();
+   $('#btnReset').click(function(){
+     clear_parses();
+     fetch_visko();
+   });   
+   $("#btnDebug").click(debug);
+   $("#btnProcess").click(process);
+ }
+ 
+ $(document).ready(function(){       
+   initialise();
+ });
+</script>
+
+
+{% endblock %}

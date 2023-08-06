@@ -1,0 +1,533 @@
+{% extends 'visko2/base.html' %}
+{% load staticfiles %}
+{% load visko2_tags %}
+
+{% block content %}
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_collection' %}">Collections</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_corpus' collection_name=col %}">{{ col }}</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_doc' collection_name=col corpus_name=corpus.name %}">{{ corpus.name }}</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_sent' collection_name=col corpus_name=corpus.name doc_id=doc.ID %}">{{ doc.name }}</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_parse' collection_name=col corpus_name=corpus.name doc_id=doc.ID sent_id=sid %}">Sent #{{ sid }} - (Ident: #{{sent_ident}})</a></li>
+  <li class="breadcrumb-item"><span class="{% if parse.reading.mode == '1' %}parse_active{% elif parse.reading.mode == '0' %}parse_inactive{% endif %}">Parse #{{parse.ident}}</span></li>
+</ol>
+
+{% if sent %}
+<!-- <h3>Sentence #{{sid}} | Parse #{{parse.ident}}</h3> -->
+<div class="dmrs_sentence_text">&nbsp;<span id="sentence_text"></span></div>
+<div id="ttl_sentences"></div>
+<div class="concept_list" id="concept_list" style="overflow-y: auto; margin: 10px; padding: 10px;">
+</div>
+<div id="message_box"></div>
+<!-- Synset Information -->
+<div id="synsets"></div>
+
+<ul id="alltabs" class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#visko">DMRS</a></li>
+  <li><a data-toggle="tab" href="#delviz">delphin-viz</a></li>
+  <li><a data-toggle="tab" href="#raw">pyDelphin</a></li>
+  <li><a data-toggle="tab" href="#xml">XML</a></li>
+  <li><a data-toggle="tab" href="#json">JSON</a></li>
+  <li><a data-toggle="tab" href="#latex">LaTeX</a></li>
+  <li><a data-toggle="tab" href="#debug">Debug</a></li>
+</ul>
+<div class="tab-content">
+  <div id="visko" class="tab-pane active" style="padding: 10px;">
+    <!-- DMRSes container -->
+    <div style="overflow-y: auto; min-height: 100px;">
+      <div id="dmrses"></div>
+    </div>
+    <!-- Edit DMRS -->
+    <!-- <h3>Edit DMRS</h3> -->
+    <form>
+      {% csrf_token %}
+      <div class="form-group">
+        <textarea class="form-control" rows="10" name="dmrs_raw" id="dmrs_raw">{{parse.tostring}}</textarea>
+      </div>
+      <div class="alert alert-success" role="alert" id="panelMessage"></div>
+      <button type="button" id="btnReset" name="btnReset" class="btn btn-lg btn-warning">Reset</button>
+      <button type="button" id="btnParse" name="btnParse" class="btn btn-lg btn-primary">Parse</button>
+      <button type="button" id="btnTransform" name="btnTransform" class="btn btn-lg btn-primary">Transform</button>
+      <button type="button" id="btnGen" name="btnGen" class="btn btn-lg btn-primary">Generate</button>
+      <button type="button" id="btnSave" name="btnSave" value="insert" class="btn btn-lg btn-default">Save As New DMRS</button>
+      <button type="button" id="btnOverwrite" name="btnOverwrite" value="save" class="btn btn-lg btn-danger">Overwrite</button>
+      <button type="button" id="btnDelete" name="btnDelete" class="btn btn-lg btn-danger">Delete</button>
+    </form>
+    <!-- End Edit DMRS -->
+  </div>
+  <div id="delviz" class="tab-pane" style="padding: 10px;">
+    <div style="overflow-y: auto; height: 700px;">
+      <div id='dvizes'></div>
+    </div>
+  </div>
+  <div id="raw" class="tab-pane">
+    <div id="raws"></div>
+  </div>
+  <div id="xml" class="tab-pane">
+    <pre><code id="xmlcontent"></code></pre>
+  </div>
+  <div id="json" class="tab-pane">
+    <div id="jsons"></div>
+  </div>
+  <div id="latex" class="tab-pane">
+    <pre><code id="latexes"></code></pre>
+  </div>
+  <div id="debug" class="tab-pane">
+    <!-- Control Panel and Console -->
+    <div id="toolbar" class="input-group" style="padding: 10px 0px;">
+      <div class="input-group-btn">
+        <input type="button" class="btn btn-primary" id="btnDebug" name="btnDebug" value="Debug"/>
+        <button type="button" id="btnClear" name="btnClear" class="btn btn-default">Clear Console</button>
+        <input type="checkbox" id="consoletoggle" checked data-toggle="toggle" data-on="Console" data-off="Console" data-width="100">Console</input>
+      </div>
+    </div>
+    <div id="console" style="overflow: auto; max-height: 80vh;"></div>
+    <!-- End console UI -->
+  </div>
+</div>
+{% endif %}
+
+<!-- Error dialog -->
+<div class="modal fade bs-example-modal-sm" id="errorDialog" tabindex="-1" role="dialog" aria-labelledby="errorDialogModal">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button btn-error" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="errorDialogModal">Error</h4>
+      </div>
+      <div class="modal-body">
+        <span id="errorMessage"></span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Deletion confirmation dialog -->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+      </div>
+      
+      <div class="modal-body">
+        <p>You are about to delete this parse, this procedure is irreversible.</p>
+        <p>Do you want to proceed?</p>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-danger btn-ok" id="btnActualDelete">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- overwrite confirmation dialog -->
+<div class="modal fade" id="confirm-overwrite" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Confirm Overwrite</h4>
+      </div>
+      
+      <div class="modal-body">
+        <p>You are about to overwrite this parse, this procedure is irreversible.</p>
+        <p>Do you want to proceed?</p>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-danger btn-ok" id="btnActualOverwrite">Overwrite</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block css %}
+<style>
+ .tab-pane {
+   overflow: auto;
+ }
+ textarea {
+   font-family: "Courier New", Courier, monospace;
+ }
+</style>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/visko2.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/texttaglib.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'viz/demo.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'viz/delphin-viz.css' %}"/>
+<link rel="stylesheet" href="{% static 'highlight.js/styles/github.css' %}">
+{% endblock %}
+
+
+{% block script %}
+<!-- Others -->
+<script src="{% static 'highlight.js/highlight-9.9.0.js' %}"></script>
+<!-- Delviz support -->
+<script type="text/javascript" src="{% static 'viz/svg-2.3.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/d3.v3.min.js' %}" charset="utf-8"></script>
+<script type="text/javascript" src="{% static 'viz/demo.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/tree.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/mrs.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/dmrs.js' %}"></script>
+<!-- ShinchanJS -->
+<script src="{% static 'js/raphael-2.2.1.min.js' %}"></script>
+<script src="{% static 'js/kajika.js' %}"></script>
+<script src="{% static 'js/console.js' %}"></script>
+<script src="{% static 'js/shinchan.js' %}"></script>
+<script src="{% static 'js/visko-2.0.js' %}"></script>
+<script src="{% static 'js/restisf.js' %}"></script>
+<!-- IMI support -->
+<script src="{% static 'js/texttaglib.js' %}"></script>
+<script>
+ Visko.find_tag = function(tag) {
+   find_synset(tag)();
+ }
+</script>
+
+{% include 'visko2/delviz.html' %}
+
+<!-- Visko REST -->
+<script>
+ var parse_data_url = "{% url 'visko2:rest_fetch_dmrs' col=col cor=corpus.name did=doc.ID sid=sid pid=pid %}";
+ function fetch_visko() {
+   console.writeline("Fetching from: " + parse_data_url);
+   $.ajax({ url: parse_data_url,
+            dataType: 'jsonp',
+            data: { 'raw': true, 'xml': true, 'json': true },
+            success: function(json){
+              clear_parses();
+              response = json;
+              visualise();
+            },
+            fail: function(jqxhr){
+              if (console != undefined && console.writeline != undefined) {
+                console.writeline("Request Failed: " + jqxhr.statusText + " | code = " + jqxhr.status);
+              }
+            },
+            error: function(jqxhr){
+              if (console != undefined && console.writeline != undefined) {
+                console.writeline("An error occurred. Message = " + jqxhr.statusText + " | code = " + jqxhr.status);
+              }
+            }
+   }); // end .ajax()
+ }
+
+ function store_dmrs(mode) {
+   var dmrs_str = $("#dmrs_raw").val();
+   var req_url;
+   if (mode == 'insert') {
+     req_url = "{% url 'visko2:rest_dmrs_save' action='insert' col=col cor=corpus.name did=doc.ID sid=sid pid=pid %}";
+   }
+   else {
+     req_url = "{% url 'visko2:rest_dmrs_save' action='replace' col=col cor=corpus.name did=doc.ID sid=sid pid=pid %}";
+   }
+   console.writeline("Requesting URL: " + req_url);
+   $.ajaxSetup({
+     headers: { 'X-CSRFToken': "{{ csrf_token }}" }
+   });
+   $.ajax({url: req_url,
+           dataType: 'jsonp',
+           method: 'post',
+           data: {
+             'dmrs': dmrs_str },
+           success: function(json) {
+             if (json.success && json.url.length > 0) {
+               // show_error("I'm going to " + json.url);
+               window.location.href = json.url;
+             }
+             else {
+               show_error("Cannot store DMRS");
+             }
+           },
+           fail: function(jqxhr){
+             if (console != undefined && console.writeline != undefined) {
+               console.writeline("Request Failed: " + jqxhr.statusText + " | code = " + jqxhr.status);
+               show_error("Cannot parse given DMRS");
+             }
+           },
+           error: function(jqxhr){
+             if (console != undefined && console.writeline != undefined) {
+               console.writeline("An error occurred. Message = " + jqxhr.statusText + " | code = " + jqxhr.status);
+               show_error("Cannot parse given DMRS");
+             }
+           }
+   });
+ }
+
+ function delete_dmrs() {
+   var req_url = "{% url 'visko2:rest_dmrs_delete' col=col cor=corpus.name did=doc.ID sid=sid pid=pid %}";
+
+   console.writeline("Requesting URL: " + req_url);
+   $.ajaxSetup({
+     headers: { 'X-CSRFToken': "{{ csrf_token }}" }
+   });
+   $.ajax({url: req_url,
+           dataType: 'jsonp',
+           method: 'post',
+           success: function(json) {
+             if (json.success && json.url.length > 0) {
+               window.location.href = json.url;
+             }
+             else {
+               show_error("Cannot delete the selected DMRS");
+             }
+           },
+           fail: function(jqxhr){
+             if (console != undefined && console.writeline != undefined) {
+               console.writeline("Request Failed: " + jqxhr.statusText + " | code = " + jqxhr.status);
+               show_error("Cannot parse given DMRS");
+             }
+           },
+           error: function(jqxhr){
+             if (console != undefined && console.writeline != undefined) {
+               console.writeline("An error occurred. Message = " + jqxhr.statusText + " | code = " + jqxhr.status);
+               show_error("Cannot parse given DMRS");
+             }
+           }
+   });
+ }
+ 
+ function parse_dmrs() {
+   var dmrs_str = $("#dmrs_raw").val();
+   var req_url = "{% url 'visko2:rest_dmrs_parse' col=col cor=corpus.name did=doc.ID sid=sid pid=pid %}";
+   console.writeline("Requesting URL: " + req_url);
+   $.ajaxSetup({
+     headers: { 'X-CSRFToken': "{{ csrf_token }}" }
+   });
+   $.ajax({url: req_url,
+           dataType: 'jsonp',
+           method: 'post',
+           data: {
+             'dmrs': dmrs_str },
+           success: function(json) {
+             clear_parses();
+             response = json;
+             visualise();
+           },
+           fail: function(jqxhr){
+             if (console != undefined && console.writeline != undefined) {
+               console.writeline("Request Failed: " + jqxhr.statusText + " | code = " + jqxhr.status);
+               show_error("Cannot parse given DMRS");
+             }
+           },
+           error: function(jqxhr){
+             if (console != undefined && console.writeline != undefined) {
+               console.writeline("An error occurred. Message = " + jqxhr.statusText + " | code = " + jqxhr.status);
+               show_error("Cannot parse given DMRS");
+             }
+           }
+   });
+ }
+
+ function transform_dmrs() {
+   var dmrs_str = $("#dmrs_raw").val();
+   var req_url = "{% url 'visko2:rest_dmrs_parse' col=col cor=corpus.name did=doc.ID sid=sid pid=pid %}";
+   console.writeline("Requesting URL: " + req_url);
+   $.ajaxSetup({
+     headers: { 'X-CSRFToken': "{{ csrf_token }}" }
+   });
+   $.ajax({url: req_url,
+           dataType: 'jsonp',
+           method: 'post',
+           data: {
+             'dmrs': dmrs_str, 'transform': 'True' },
+           success: function(json) {
+             clear_parses();
+             response = json;
+             visualise();
+             $("#panelMessage").text("Transformation was performed successfully");
+             $("#panelMessage").fadeIn(800).show().delay(4000).fadeOut(600);
+             // $("#panelMessage").hide();
+           },
+           fail: function(jqxhr){
+             if (console != undefined && console.writeline != undefined) {
+               console.writeline("Request Failed: " + jqxhr.statusText + " | code = " + jqxhr.status);
+               show_error("Cannot transform given DMRS");
+             }
+           },
+           error: function(jqxhr){
+             if (console != undefined && console.writeline != undefined) {
+               console.writeline("An error occurred. Message = " + jqxhr.statusText + " | code = " + jqxhr.status);
+               show_error("Cannot transform given DMRS");
+             }
+           }
+   });
+ }
+
+ var restisf_root = '{% url "restisf:index" %}';
+ function get_isf() {
+   return new Restisf(restisf_root);
+ }
+ var response = undefined;
+
+ function generate_text(){
+   if (!response || !response.parses) {
+     console.writeline("There is nothing to generate");
+     return false;
+   }
+   var mrs = response.parses[0].mrs_raw;
+   var grm = 'ERG';
+   var gurl = restisf_root + "/generate/";
+   $.ajaxSetup({
+     headers: { 'X-CSRFToken': "{{ csrf_token }}" }
+   });
+   get_isf().generate(mrs, grm, function(json){
+     if(json && json.length){
+       console.writeline("Respone: " + json);
+       show_alert(_.join(json, '<br/>'), undefined, "success");
+     }
+     else{
+       show_alert("Cannot generate");
+     }
+   });
+   // end generating
+ }
+</script>
+
+<!-- Visualise stuff -->
+<script>
+ function clear_parses() {
+   $('#dmrses').empty();
+   $('#dvizes').empty();
+   $('#raws').empty();
+   $('#jsons').empty();
+   $('#latexes').empty();
+   $('#ttl_sentences').empty();
+   response = undefined;
+ }
+ 
+ function highlight(a_div) {
+   $(a_div).find('pre code').each(function(i, block) {
+     hljs.highlightBlock(block);
+   });
+ }
+
+ function active_tab() {
+   return $("#alltabs .active > a").attr("href");
+ }
+
+ function header_toolbar(parse, parseidx, container) {
+ }
+ 
+ // Render active visualizer
+ function visualise(){       
+   if (response == undefined) {
+     return;
+   }
+   
+   var parses = $(response['parses']);
+   // if using delviz
+   if ($('#dvizes').is(':empty') && active_tab() == '#delviz'){
+     parses.each(function(idx, parse){
+       pid = idx + 1;
+       render_delviz(parse, pid, header_toolbar);
+     });
+   }
+   // if using visko
+   else if ($('#dmrses').is(':empty') && active_tab() == '#visko'){
+     parses.each(function(idx, parse){
+       pid = idx + 1;
+       render_visko(parse, pid, header_toolbar);
+     });
+   }
+   // XML
+   else if ($('#xmlcontent').is(':empty') && active_tab() == '#xml') {
+     display_xml(response.xml);
+   }
+   // Raws
+   else if ($('#raws').is(':empty') && active_tab() == '#raw') {
+     parses.each(function(idx, parse){
+       pid = idx + 1;
+       display_raw(parse, pid);
+     });
+     highlight('#raws');
+   }       
+   // JSONs
+   else if ($('#jsons').is(':empty') && active_tab() == '#json') {
+     parses.each(function(idx, parse){
+       pid = idx + 1;
+       display_json(parse, pid);
+     });
+     highlight('#jsons');
+   }
+   // LaTeX
+   else if ($('#latexes').is(':empty') && active_tab() == '#latex') {
+     display_latex(response.latex);
+     highlight('#latex');
+   }
+   // Visualize IMI
+   if ($("#ttl_sentences").is(':empty') && response.shallow && response.shallow.tokens && response.shallow.concepts) {
+     Visko.Tagged.show(response.shallow).show_concepts($("#concept_list"));
+   }
+   // end if
+ }
+ 
+ /** Show debug info **/
+ function debug() {
+   console.writeline("Lorem ipsum");
+   show_error("Something happened");
+ }
+
+ function show_error(msg) {
+   $("#errorMessage").text(msg);
+   $("#errorDialog").modal('show');
+ }
+</script>
+<!-- Document ready -->
+<script>
+ var console;
+ 
+ function initialise(){
+   // Console support
+   console = new Console("console", 300, ".:: Debug ::.");
+   $("#btnClear").click(function() { console.clear(); });
+   $(window).on('resize', function() { console.resize(); });
+   $('#consoletoggle').change(function(){ console.toggle(); });
+   console.clear().resize();
+   $("#panelMessage").hide();
+   
+   // DMRS editing features
+   // Reset DMRS textarea
+   $('#btnReset').click(function(){     
+     clear_parses();
+     fetch_visko();
+     $('#dmrs_raw').val($('#dmrs_raw').prop('defaultValue'));
+   });
+   $('#btnParse').click(parse_dmrs);
+   $('#btnTransform').click(transform_dmrs);
+   $('#btnGen').click(generate_text);
+   $('#btnSave').click(function(){ store_dmrs('insert'); });
+   $('#btnOverwrite').click(function(){
+     $('#confirm-overwrite').modal('show');
+   });
+   $('#btnActualOverwrite').click(function(){ store_dmrs('replace'); });
+   $('#btnDelete').click(function(){
+     $('#confirm-delete').modal('show');
+   });
+   $('#btnActualDelete').click(delete_dmrs);
+
+   // Visualise DMRS
+   $("#btnDebug").click(debug);
+   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+     visualise();
+   });
+ }
+ 
+ $(document).ready(function(){       
+   initialise();
+   fetch_visko();
+ });
+</script>
+{% endblock %}

@@ -1,0 +1,180 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>{{ title }}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap/3.3.7/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'bootstrap/3.3.7/css/bootstrap-theme.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'bootstrap-toggle/css/bootstrap-toggle.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'bootstrap-editable/css/bootstrap-editable.css' %}" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static 'css/visko2.css' %}" />
+    {% block css %}
+    {% endblock %}
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'visko2:home' %}">{{ header }}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'visko2:isf' %}">Parse</a></li>
+            <li><a href="{% url 'visko2:search' %}">Search</a></li>
+            <li><a href="{% url 'visko2:list_collection' %}">Corpus</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#yawolModal">Wordnet</a></li>
+            <li><a href="https://github.com/letuananh/visualkopasu/wiki" target="_blank">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" action="{% url 'visko2:search' %}" method="POST">
+            <input type="text" class="form-control" name="query" id="query" placeholder="Search..." title="C:<carg> or L:<lemma> or G:<pred_name> or #<sent_ident>">
+            {% csrf_token %}
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        {% comment %}
+        <div class="col-sm-2 col-md-1 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="{% url 'visko2:home' %}">Home</a></li>
+            <li><a href="{% url 'visko2:list_collection' %}">Corpus</a></li>
+            <li><a href="{% url 'visko2:search' %}">Search</a></li>
+            <li><a href="{% url 'visko2:isf' %}">ISF</a></li>
+            <li><a href="{% url 'visko2:isf_editor' %}">DMRS Editor</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="{% url 'visko2:yawol' %}">Yawol</a></li>
+          <li><a href="{% url 'visko2:delviz' %}">Delphin-viz</a></li>
+          </ul>
+        </div>
+        {% endcomment %}
+        <!-- col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1 -->
+        <div class="col main">
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+          </div>
+          {% endfor %}
+          {% endif %}
+          {% block content %}
+          {% endblock %}
+        </div><!-- main content -->
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Copyright &copy; 2017 <a href="https://github.com/letuananh/" target="_blank">Le Tuan Anh</a>
+          | <a href="{% url 'visko2:isf_editor' %}">DMRS Editor</a> | <a href="{% url 'visko2:yawol' %}">Yawol</a></p>
+      </div>
+    </footer>
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'bootstrap/3.3.7/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap-toggle/js/bootstrap-toggle.min.js' %}"></script>
+    <script src="{% static 'bootstrap-editable/js/bootstrap-editable.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/lodash-4.17.4.min.js' %}"></script>
+    {% include 'visko2/yawol.html' %}
+
+    <!-- Yawol modal script -->
+    <script>
+     function ym_search() {
+       $("#yawol_modal_msgbox").empty();
+       var query = $('#ym_query').val();
+       get_yawol().search_synset(query, $('#ym_synsets'), undefined, find_synset_error_modal);
+     }
+
+     function find_synset_error_modal(jqxhr, query) {
+       ym_clear();
+       $("#yawol_modal_msgbox").empty();
+       show_alert("Could not query " + query, "#yawol_modal_msgbox");
+     }
+
+     function ym_clear() {
+       get_yawol().clear($('#ym_synsets'));
+     }
+
+     function ym_init() {
+       $('#btnYMSearch').click(function(){ ym_search(); });
+       $('#btnYMReset').click(function(){ ym_clear(); });
+       $('#ym_query').keydown(function(e) {
+         if (e.keyCode == 13) {
+           ym_search();
+           return false;
+         }
+       });
+     }
+    </script>
+
+
+    <script>
+     $(function(){
+       ym_init();
+     });
+    </script>
+    {% block script %}
+    {% endblock %}
+
+    
+    <!-- Yawol modal -->
+    <div class="modal fade" id="yawolModal" tabindex="-1" role="dialog" aria-labelledby="yawolModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="yawolModalLabel">Search Wordnet</h4>
+          </div>
+          <div class="modal-body">
+            <!-- Search box -->
+            <div class="input-group input-group-lg" style="padding-bottom: 5px;">
+              <input class="form-control input-lg" name="ym_query" id="ym_query" placeholder="01775164-v or love or love%2:37:00::" value="" type="text">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-lg" name="btnYMReset" id="btnYMReset" value="parse">Reset</button>
+                <button type="button" class="btn btn-primary btn-lg" name="btnYMSearch" id="btnYMSearch" value="parse">Search</button>
+              </span>
+            </div>
+            <div id="yawol_modal_msgbox"></div>
+            <!-- Display synsets -->
+            <div id="ym_synsets"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Yawol modal -->
+  </body>
+</html>

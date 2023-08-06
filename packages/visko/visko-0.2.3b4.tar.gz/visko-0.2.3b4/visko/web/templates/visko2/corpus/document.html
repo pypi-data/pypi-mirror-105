@@ -1,0 +1,204 @@
+{% extends 'visko2/base.html' %}
+{% load staticfiles %}
+{% load visko2_tags %}
+{% block content %}
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_collection' %}">Collections</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_corpus' collection_name=col %}">{{ col }}</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_doc' collection_name=col corpus_name=corpus.name %}">{{ corpus.name }}</a></li>
+  <li class="breadcrumb-item active">{{ doc.name }}</li>
+</ol>
+
+<h1 class="page-header"><a id="doc_title" data-url="{% url 'visko2:rest_doc_title' col=col cor=corpus.name did=doc.ID %}" data-pk="{{doc.name}}" data-type="text" data-placeholder="Document's title" data-title="Edit title" class="editable editable-pre-wrapped editable-click" data-emptytext="{{doc.name}}" href="#">{% if doc.title%}{{ doc.title }}{%else%}{{doc.name}}{%endif %}</a></h1>
+
+<div>
+  {% if flag %}
+  <a href="{% url 'visko2:list_sent' collection_name=col corpus_name=corpus.name doc_id=doc.ID %}">All</a>
+  {% else %}
+  All
+  {% endif %}
+  |
+  {% if flag != "2" %}
+  <a href="{% url 'visko2:list_sent' collection_name=col corpus_name=corpus.name doc_id=doc.ID flag="2" %}">
+    Error Only
+  </a>
+  {% else %}
+  Error Only
+  {% endif %}
+  |
+  {% if flag != "3" %}
+  <a href="{% url 'visko2:list_sent' collection_name=col corpus_name=corpus.name doc_id=doc.ID flag="3" %}">
+    Warning Only
+  </a>
+  {% else %}
+  Warning Only
+  {% endif %}
+</div>
+
+{% if pagination %}
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    {% if pagination.previous is not None %}
+    <li class="page-item">
+      <a class="page-link" href="{% url 'visko2:list_sent' collection_name=col corpus_name=corpus.name doc_id=doc.ID %}?page={{pagination.previous}}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    {% else %}
+    <li class="page-item disabled">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    {% endif %}
+    {% for page in pagination.left_pages %}
+    <li class="page-item"><a class="page-link" href="{% url 'visko2:list_sent' collection_name=col corpus_name=corpus.name doc_id=doc.ID %}?page={{page}}">{{page}}</a></li>
+    {% endfor %}
+    <li class="page-item active"><a class="page-link" href="#">{{pagination.index}}</a></li>
+    {% for page in pagination.right_pages %}
+    <li class="page-item"><a class="page-link" href="{% url 'visko2:list_sent' collection_name=col corpus_name=corpus.name doc_id=doc.ID %}?page={{page}}">{{page}}</a></li>
+    {% endfor %}
+    {% if pagination.next is not None %}
+    <li class="page-item">
+      <a class="page-link" href="{% url 'visko2:list_sent' collection_name=col corpus_name=corpus.name doc_id=doc.ID %}?page={{pagination.next}}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+    {% else %}
+    <li class="page-item disabled">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+
+
+<form method="POST" action="{% url 'visko2:create_sent' collection_name=col corpus_name=corpus.name doc_id=doc.ID %}" style="padding-bottom: 20px;">
+  {% csrf_token %}
+  <div class="input-group input-group-lg">
+    <input class="form-control input-lg" name="input_sentence" id="input_sentence" placeholder="Some dogs bark." value="{{ input_sentence|default:'' }}" type="text">
+    <span class="input-group-addon">WSD</span>
+    <select id="input_tagger" name="input_tagger" class="form-control input-sm" title="Tagger">
+      {% for t, txt in TAGGERS.items %}
+      <option {% if t == input_tagger %}selected="selected"{% endif %} value="{{t}}">{{txt}}</option>
+      {% endfor %}
+    </select>
+    <span class="input-group-addon">Grammar</span>
+    <select id="input_parser" name="input_parser" class="form-control input-small" title="Processor">
+      {% for p, txt in PROCESSORS.items %}
+      <option {% if p == input_parser %}selected="selected"{% endif %} value="{{p}}">{{txt}}</option>
+      {% endfor %}
+    </select>
+    <span class="input-group-addon">Parse Count</span>
+    <select id="input_results" name="input_results" class="form-control input-small" title="Maximum parses">
+      {% for r in RESULTS %}
+      <option {% if r == input_results %}selected="selected"{% endif %} value="{{r}}">{{r}}</option>
+      {% endfor %}
+    </select>
+    <span class="input-group-btn">
+      <button class="btn btn-default btn-lg" name="action" type="submit" value="cached">Add sentence</button>
+    </span>
+  </div>
+</form>
+
+<div class="list-group">
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>ident</td>
+        <td>Sentence</td>
+        <td>Parse count</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+
+    {% for sentence in sentences %}
+    <tr {% if sentence.is_error %}class="danger"{% elif sentence.is_warning %}class="warning"{% elif sentence.is_gold %}class="success"{% endif %}>
+      <td>{{ sentence.ID }}</td>
+      <td>{{ sentence.ident }}</td>
+      <td>
+        {% if flag %}
+        <a href="{% url 'visko2:list_parse' collection_name=col corpus_name=corpus.name doc_id=doc.ID sent_id=sentence.ID flag=flag %}">{{sentence.text}}</a>
+        {% else %}
+        <a href="{% url 'visko2:list_parse' collection_name=col corpus_name=corpus.name doc_id=doc.ID sent_id=sentence.ID %}">{{sentence.text}}</a>
+        {% endif %}
+        <br/>
+        {% if sentence.comment %}
+        <span class="label label-default">Note</span> <span class="sent_comment" style="font-style: italic; color: darkgray;">{{ sentence.comment|multilines }}</span>
+        {% endif %}
+      </td>
+      <td>{{ sentence|length}}</td>
+      <td>
+        <button class="btn btn-danger" data-txt="{{sentence.text}}" data-idx="{{sentence.ID}}" data-href="{% url 'visko2:delete_sent' collection_name=col corpus_name=corpus.name doc_id=doc.ID sent_id=sentence.ID %}" data-toggle="modal" data-target="#confirm-delete">Delete</button>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+</div>
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+      </div>
+      
+      <div class="modal-body">
+        <p>You are about to delete the following sentence, this procedure is irreversible.</p>
+        <p>Do you want to proceed?</p>
+        <p class="debug-url"></p>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-danger btn-ok">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+ function initialise() {
+   // Make doc_title editable
+   $.fn.editable.defaults.mode = 'inline';
+   // Show comment
+   $("#doc_title").editable({
+     ajaxOptions: {
+       headers: { 'X-CSRFToken': "{{ csrf_token }}" }
+     },
+     error: function(){
+       return "Failed to save document's title";
+     }
+   });
+   
+   $('#confirm-delete').on('show.bs.modal', function(e) {
+     var lnk = $(e.relatedTarget).data('href');
+     var idx = $(e.relatedTarget).data('idx');
+     var txt = $(e.relatedTarget).data('txt');
+     $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+     
+     $('.debug-url').html('Delete URL: <strong>' + lnk + '</strong><br/>' + ' (Sentence #' + idx + ': ' + txt + ')');
+   });
+ } 
+ 
+ $(document).ready(function(){       
+   initialise();
+ });
+</script>
+{% endblock %}

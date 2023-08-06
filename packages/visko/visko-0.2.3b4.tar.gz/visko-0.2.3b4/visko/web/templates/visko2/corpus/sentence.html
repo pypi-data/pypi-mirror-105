@@ -1,0 +1,297 @@
+{% extends 'visko2/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_collection' %}">Collections</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_corpus' collection_name=col %}">{{ col }}</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_doc' collection_name=col corpus_name=corpus.name %}">{{ corpus.name }}</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'visko2:list_sent' collection_name=col corpus_name=corpus.name doc_id=doc.ID %}">{{ doc.name }}</a></li>
+  <li class="breadcrumb-item">Sent #{{ sid }} - (Ident: #{{sent_ident}}) - No. of readings: <span id="parse_count">0</span>
+    {% if prev_sid %}
+    {% if flag %}
+    <a href="{% url 'visko2:list_parse' collection_name=col corpus_name=corpus.name doc_id=doc.ID sent_id=prev_sid flag=flag %}" class="btn btn-default btn-sm">
+      {% else %}
+      <a href="{% url 'visko2:list_parse' collection_name=col corpus_name=corpus.name doc_id=doc.ID sent_id=prev_sid %}" class="btn btn-default btn-sm">
+        {% endif %}
+      <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+    </a>
+    {% else %}
+    <a href="#" class="btn btn-default btn-sm disabled">
+      <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+    </a>
+    {% endif %}
+    {% if next_sid is not None %}
+    {% if flag %}
+    <a href="{% url 'visko2:list_parse' collection_name=col corpus_name=corpus.name doc_id=doc.ID sent_id=next_sid flag=flag %}" class="btn btn-default btn-sm">
+      {% else %}
+      <a href="{% url 'visko2:list_parse' collection_name=col corpus_name=corpus.name doc_id=doc.ID sent_id=next_sid %}" class="btn btn-default btn-sm">
+        {% endif %}
+      <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+    </a>
+    {% else %}
+    <a href="#" class="btn btn-default btn-sm disabled">
+      <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+    </a>
+    {% endif %}
+
+  </li>
+</ol>
+
+{% if sent != None %}
+<div class="dmrs_sentence_text">&nbsp;<span id="sentence_text"></span>
+  <a class="btn btn-default" href="{% url 'visko2:isf' col=col sid=sid %}">
+    <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+    To ISF
+  </a>
+</div>
+<div id="ttl_sentences"></div>
+<div class="concept_list" id="concept_list" style="overflow-y: auto; margin: 10px; padding: 10px;">
+</div>
+<!-- Synset Information -->
+<div id="message_box"></div>
+<div id="synsets"></div>
+
+<ul id="alltabs" class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#visko">DMRS</a></li>
+  <li><a data-toggle="tab" href="#delviz">delphin-viz</a></li>
+  <li><a data-toggle="tab" href="#raw">pyDelphin</a></li>
+  <li><a data-toggle="tab" href="#xml">XML</a></li>
+  <li><a data-toggle="tab" href="#json">JSON</a></li>
+  <li><a data-toggle="tab" href="#latex">LaTeX</a></li>
+</ul>
+<div class="tab-content">
+  <div id="visko" class="tab-pane active">
+    <div style="overflow-y: auto; height: 600px;">
+      <!-- DMRSes container -->
+      <div id="dmrses"></div>
+      <!-- Notes -->
+      <div style="margin-top: 5px;">
+        <span class="label label-default">Sentence's note</span>
+        <a id="sent_comment" data-url="{% url 'visko2:rest_note_sentence' col=col cor=corpus.name did=doc.ID sid=sid %}" data-pk="{{sid}}" data-type="textarea" data-rows="5" data-placeholder="Please share your thoughts..." data-title="Enter comments" class="editable editable-pre-wrapped editable-click" data-emptytext=":: Click to comment ::" href="#">{% if sent.comment %}{{sent.comment}}{% endif %}</a>
+            </div>
+      <!-- Flag -->
+      <div style="margin-top: 5px;">
+        <span class="label label-default">Flag</span>
+        <a id="sent_flag" data-url="{% url 'visko2:rest_flag_sentence' col=col cor=corpus.name did=doc.ID sid=sid %}" data-source="{% url 'visko2:rest_data_flag_all' %}" data-sourceCache="true" data-pk="{{sid}}" data-type="select" data-emptytext=":: No flag ::" href="#" {% if sent.flag %}data-value="{{sent.flag}}"{% endif %}></a>
+            </div>
+      
+    </div>
+  </div>
+  <div id="delviz" class="tab-pane">
+    <!-- Delphin-viz container -->
+    <div id="dvizes"></div>
+  </div>
+  <div id="raw" class="tab-pane">
+    <div id="raws"></div>
+  </div>
+  <div id="xml" class="tab-pane">
+    <pre><code id="xmlcontent"></code></pre>
+  </div>
+  <div id="json" class="tab-pane">
+    <div id="jsons"></div>
+  </div>
+  <div id="latex" class="tab-pane">
+    <pre><code id="latexes"></code></pre>
+  </div>
+</div>
+
+{% else %}
+There is no parse for this sentence.
+{% endif %}
+{% endblock %}
+
+
+{% block css %}
+<style>
+ .tab-pane {
+   overflow: auto;
+ }
+</style>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/visko2.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/texttaglib.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'viz/demo.css' %}"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'viz/delphin-viz.css' %}"/>
+<link rel="stylesheet" href="{% static 'highlight.js/styles/github.css' %}">
+{% endblock %}
+
+
+{% block script %}
+<!-- Others -->
+<script src="{% static 'highlight.js/highlight-9.9.0.js' %}"></script>
+<!-- Delviz support -->
+<script type="text/javascript" src="{% static 'viz/svg-2.3.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/d3.v3.min.js' %}" charset="utf-8"></script>
+<script type="text/javascript" src="{% static 'viz/demo.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/tree.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/mrs.js' %}"></script>
+<script type="text/javascript" src="{% static 'viz/dmrs.js' %}"></script>
+<!-- ShinchanJS -->
+<script src="{% static 'js/raphael-2.2.1.min.js' %}"></script>
+<script src="{% static 'js/kajika.js' %}"></script>
+<script src="{% static 'js/console.js' %}"></script>
+<script src="{% static 'js/shinchan.js' %}"></script>
+<script src="{% static 'js/visko-2.0.js' %}"></script>
+<script src="{% static 'js/restisf.js' %}"></script>
+<!-- IMI support -->
+<script src="{% static 'js/texttaglib.js' %}"></script>
+<script>
+ Visko.find_tag = function(tag) {
+   find_synset(tag)();
+ }
+</script>
+
+{% include 'visko2/delviz.html' %}
+
+<!-- Visko REST -->
+<script>
+ var sent_url = "{% url 'visko2:list_parse' collection_name=col corpus_name=corpus.name doc_id=doc.ID sent_id=sid %}";
+ var sent_data_url = "{% url 'visko2:rest_fetch_sent' col=col cor=corpus.name did=doc.name sid=sid %}";
+ function fetch_visko() {   
+   $.ajax({ url: sent_data_url,
+            dataType: 'jsonp',
+            data: { 'raw': true, 'xml': true, 'json': true },
+            success: function(json){
+              clear_parses();
+              response = json;
+              $('#parse_count').text(json.parses.length);
+              visualise();
+            },
+            fail: function(jqxhr){
+              if (console != undefined && console.writeline != undefined) {
+                console.writeline("Request Failed: " + jqxhr.statusText + " | code = " + jqxhr.status);
+              }
+            },
+           error: function(jqxhr){
+              if (console != undefined && console.writeline != undefined) {
+                console.writeline("An error occurred. Message = " + jqxhr.statusText + " | code = " + jqxhr.status);
+              }
+            }
+   }); // end .ajax()
+ }
+</script>
+
+<!-- Coolisf REST support -->
+<script>
+ var response = undefined;
+ 
+ function clear_parses() {
+   $('#dmrses').empty();
+   $('#jsons').empty();
+   $('#dvizes').empty();
+   $('#latexes').empty();
+   $('#ttl_sentences').empty();
+   response = undefined;
+ }
+ 
+ function highlight(a_div) {
+   $(a_div).find('pre code').each(function(i, block) {
+     hljs.highlightBlock(block);
+   });
+ }
+
+ function active_tab() {
+   return $("#alltabs .active > a").attr("href");
+ }
+
+ /**
+  * Make parse header clickable
+  **/
+ function header_toolbar(parse, parseidx, container) {
+   var h3 = add_parse_header(parse, parseidx, container);
+   var lnk = $('<a href="#"></a>');
+   lnk.attr('href', sent_url + '/' + parse.pid);
+   lnk.text(h3.text());
+   h3.text('').append(lnk);
+ }
+ 
+ // Render active visualizer
+ function visualise(){       
+   if (response == undefined) {
+     return;
+   }
+   // Display text
+   $("#sentence_text").text(response['sent']);
+   var parses = $(response['parses']);
+   // if using delviz
+   if ($('#dvizes').is(':empty') && active_tab() == '#delviz'){
+     parses.each(function(idx, parse){
+       pid = idx + 1;
+       render_delviz(parse, pid);
+     });
+   }
+   // if using visko
+   else if ($('#dmrses').is(':empty') && active_tab() == '#visko'){
+     parses.each(function(idx, parse){
+       pid = idx + 1;
+       render_visko(parse, pid, header_toolbar);
+     });
+   }
+   // XML
+   else if ($('#xmlcontent').is(':empty') && active_tab() == '#xml') {
+     display_xml(response.xml);
+   }
+   // Raws
+   else if ($('#raws').is(':empty') && active_tab() == '#raw') {
+     parses.each(function(idx, parse){
+       pid = idx + 1;
+       display_raw(parse, pid);
+     });
+     highlight('#raws');
+   }       
+   // JSONs
+   else if ($('#jsons').is(':empty') && active_tab() == '#json') {
+     parses.each(function(idx, parse){
+       pid = idx + 1;
+       display_json(parse, pid);
+     });
+     highlight('#jsons');
+   }
+   // LaTeX
+   else if ($('#latexes').is(':empty') && active_tab() == '#latex') {
+     display_latex(response.latex);
+     highlight('#latex');
+   }
+   // Visualize TTL
+   if ($("#ttl_sentences").is(':empty') && response.shallow && response.shallow.tokens && response.shallow.concepts) {
+     Visko.Tagged.show(response.shallow).show_concepts($("#concept_list"));
+   }
+   // end if
+ }
+</script>
+
+<!-- Document ready -->
+<script> 
+ function initialise(){
+   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+     visualise();
+   });
+
+   $.fn.editable.defaults.mode = 'inline';
+   // Show comment
+   $("#sent_comment").editable({
+     ajaxOptions: {
+       headers: { 'X-CSRFToken': "{{ csrf_token }}" }
+     },
+     error: function(){
+       return "Failed to save comment for this sentence";
+     }
+   });
+   // Show flag
+   $("#sent_flag").editable({
+     ajaxOptions: {
+       headers: { 'X-CSRFToken': "{{ csrf_token }}" }
+     },
+     error: function(){
+       return "Failed to save flag for this sentence";
+     }
+   });
+   // end
+ }
+ 
+ $(document).ready(function(){       
+   initialise();
+   fetch_visko();
+ });
+</script>
+{% endblock %}
