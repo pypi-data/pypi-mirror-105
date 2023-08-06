@@ -1,0 +1,15 @@
+attrs
+six
+
+[dev]
+invoke
+ipython
+pycodestyle
+twine
+virtualenv
+virtualenvwrapper
+
+[test]
+pytest
+pytest-cov
+tox
