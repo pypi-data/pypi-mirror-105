@@ -1,0 +1,12 @@
+Metadata-Version: 1.2
+Name: cddd
+Version: 1.0
+Summary: continous and data-driven molecular descriptors (CDDD)
+Home-page: https://github.com/jrwnter/cddd
+Author: Robin Winter
+Author-email: robin.winter@bayer.com
+License: MIT
+Download-URL: https://github.com/jrwnter/cddd/archive/refs/tags/1.0.tar.gz
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6.1, <3.7

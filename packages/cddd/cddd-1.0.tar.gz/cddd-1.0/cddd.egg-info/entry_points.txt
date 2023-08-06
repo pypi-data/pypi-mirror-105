@@ -1,0 +1,3 @@
+[console_scripts]
+cddd = cddd.run_cddd:main_wrapper
+
