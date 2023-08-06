@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: XDMFWrite_h5py
+Version: 0.1.0
+Summary: Write XDMF files using h5py to open HDF5 file
+Home-page: https://github.com/tdegeus/XDMFWrite_h5py
+Author: Tom de Geus
+Author-email: tom@geus.me
+License: MIT
+Description: Write XDMF files using h5py to open HDF5 file
+Keywords: HDF5,h5py,XDMF,Paraview
+Platform: UNKNOWN
