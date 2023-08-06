@@ -1,0 +1,12 @@
+otfftw/libfftw3-3.dll,sha256=iRQ9XjpZFIJ7-jYXKAo7zPKKXAlcot4n5ZlY1SKbOr8=,1093114
+otfftw/libfftw3f-3.dll,sha256=YVkYWzVOcAdKybWQnljw88K_063pdg3k_GwGHqRcbmQ=,1051130
+otfftw/libfftw3l-3.dll,sha256=VEjwYPMHLYyCg7uy4YAjQLVKBBjAucvqHQdzmlo22ZY=,902650
+otfftw/libotfftw.dll,sha256=nGEY-Jgl8mFUHqLGbgMgS_vUy_a0Y1MCFhLyRiKMqAk=,38053
+otfftw/otfftw.py,sha256=XrqMm1QQMlA1NdoW_3gpxztXTKzBDbY5IjsT88n4ntI=,6282
+otfftw/README.txt,sha256=wZmvBqajaE-1kf_mKBLqDbsAuCrk7WGqM0_Yg_Umuwg=,567
+otfftw/uninst-otfftw.exe,sha256=5Gp1Rc0tfSFUOfkBu8t4mrJHsjQR10Vcv3ubVetPHAA=,108753
+otfftw/_otfftw.pyd,sha256=1Do_Wh08gXlI6kJAo1Pfi0D-fY_F3f7ojUW3wAZpAZA=,368622
+otfftw/__init__.py,sha256=ebAX4VXt494LFb-v_5eDXtTqwUovEvfn3hDl3WK4BW8=,322
+otfftw-0.11.dist-info/METADATA,sha256=UHmVDJTlJ-g_3eUTWoGRfuV0PMM9pAPJTzcLakMj-f4=,1645
+otfftw-0.11.dist-info/RECORD,,
+otfftw-0.11.dist-info/WHEEL,sha256=AZhNL47hR_4Dc3F35inmFwmd8WvMxgxS_8qQcNYgCEE=,66
