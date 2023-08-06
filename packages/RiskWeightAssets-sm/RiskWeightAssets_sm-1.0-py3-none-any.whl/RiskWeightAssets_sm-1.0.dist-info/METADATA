@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: RiskWeightAssets-sm
+Version: 1.0
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+
+This program calculates:
+
+- Expected loss (EL)
+- Asset Correlation (Rho)
+- Capital requirement (k)
+- Risk Weighted Assets (RWA)
+
+According to the Basel IRB approach
+
