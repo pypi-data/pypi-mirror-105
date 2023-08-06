@@ -1,0 +1,14 @@
+vtc/__init__.py,sha256=wzusZ1RpZfBRd4Pe3zVq64dVoeqDUSxHobN6MxxdSpY,341
+vtc/_consts.py,sha256=JwRLbLaCcUwjTICLe2crbeLAVSJsOMTQqdWtdIirapQ,1198
+vtc/_framerate.py,sha256=s0XnHMSqjBDiH9x0BmgqN0xTNUDxgAmQFw--oddiIj8,9795
+vtc/_premiere_ticks.py,sha256=wdgeZz9MtOPeGRKzOIhwPMFYzKeuChYjX0iD4IsbONg,4157
+vtc/_timecode.py,sha256=v-iVBpw3QpM5TywbKCrahUVG9NAjm3kxxNzBQiQfrlk,12766
+vtc/_timecode_dropframe.py,sha256=G_6d0B0eozHGNggTSQEFYTKm6bFLZW8hasJb6W2EQZg,3531
+vtc/_timecode_parsers.py,sha256=jmIWSy8r-asqmtRfY2DMys8BgFU-WUuep0jW0LHHovE,7175
+vtc/_timecode_sections.py,sha256=fFYu2BK6FFvZx157gxSQXVY2ZdZt_Tww22H9V5mNvFA,229
+vtc/_version.py,sha256=pmlhl2gfI7p4JVCbDCuHD6pCnRzlMFodEaTgzCKlSX4,17
+vtc-0.0.4.dist-info/LICENSE,sha256=xMk-1RnGbw8jGABldMuK7pxrc6xKDC3XKZo0u4hKV5E,1079
+vtc-0.0.4.dist-info/METADATA,sha256=HpkIFeuEVZGqLIIOU2ksXNjKttu1Z2kJrQaMK3YpXFE,1352
+vtc-0.0.4.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+vtc-0.0.4.dist-info/top_level.txt,sha256=_1qAUE007ejmiVkfBj0Ni9ve7Kiame7OqlMSf08C8_g,4
+vtc-0.0.4.dist-info/RECORD,,
