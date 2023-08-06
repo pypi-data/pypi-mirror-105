@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+sinegy_python/__init__.py
+sinegy_python/base.py
+sinegy_python/marketplace.py
+sinegy_python.egg-info/PKG-INFO
+sinegy_python.egg-info/SOURCES.txt
+sinegy_python.egg-info/dependency_links.txt
+sinegy_python.egg-info/top_level.txt

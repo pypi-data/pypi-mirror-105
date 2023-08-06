@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: sinegy-python
+Version: 0.2
+Summary: Python library for connecting to the Sinegy API.
+Home-page: https://github.com/Ipad90/sinegy-python
+Author: James Ong Rui Ming
+Author-email: jamesong054@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/Ipad90/sinegy-python/issues
+Description: # sinegy-python
+        Python library for connecting to the [Sinegy API](https://docs.sinegy.com).
+        
+        ## How to install
+        ````
+        pip install sinegy-python
+        ````
+        
+        ## Generating API credentials
+        Go to [https://marketplace.sinegy.com/user/profile](https://marketplace.sinegy.com/user/profile) to generate API credentials.
+        
+        ## Official Sinegy API Documentation
+        Link to Sinegy's API documentation page is [https://docs.sinegy.com](https://docs.sinegy.com)
+        
+        ## Example
+        ````
+        from sinegy_python.marketplace import Marketplace
+        
+        sinegy = Marketplace(api_key = 'API_KEY', secret_key = 'SECRET_KEY')
+        sinegy_btc_ticker = sinegy.ticker('btcmyr')
+        print(sinegy_btc_ticker)
+        ````
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
