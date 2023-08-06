@@ -1,0 +1,189 @@
+Metadata-Version: 2.1
+Name: Cryptostats-Python
+Version: 1.0.0
+Summary: Stream cryptocurrency data and analytics for 15,000+ instruments with a single websocket.
+Home-page: https://github.com/Cryptostats/Cryptostats-Python
+Author: Cryptostats
+Author-email: hello@cryptostats.dev
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/Cryptostats/Cryptostats-Python/issues
+Project-URL: Cryptostats, https://www.cryptostats.dev
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: ujson
+Requires-Dist: websocket-client
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/Cryptostats/Cryptostats-Python">
+    <img src="https://www.cryptostats.dev/assets/img/brand/logo.png" alt="CryptoStats">
+  </a>
+
+  <h3 align="center">Cryptostats-Python</h3>
+
+  <p align="center">
+    Cryptostats is a streaming cryptocurrency data and analytics service. You can <a href="https://docs.cryptostats.dev">read the documentation</a> or <a href="http://www.cryptostats.dev">visit the homepage</a>.
+    <br />
+    This is a simple Python implementation of a Websocket to stream data, subscribe to and unsubscribe from channels.
+    <br/>
+    <a href="https://docs.cryptostats.dev"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://www.cryptostats.dev">View Example Web Platform</a>
+    ·
+    <a href="https://github.com/Cryptostats/Cryptostats-Python/issues">Cryptostats-Pythonrt Bug</a>
+    ·
+    <a href="https://github.com/Cryptostats/Cryptostats-Python/issues">Request Feature</a>
+  </p>
+</p>
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+Cryptostats is a streaming analytics platform for cryptocurrencies. You can access analytics and normalized, multi-exchange data via API or web platform.
+<br/><br/>
+There are 25+ exchanges and over 15,000 instruments currently covered.
+<br/><br/>
+Check out the <a href="https://docs.cryptostats.dev">documentation</a> or the <a href="https://www.cryptostats.dev">homepage</a>.
+
+
+
+### Built With
+
+* [Node](https://github.com/nodejs/node)
+* [Tardis](https://github.com/tardis-dev/tardis-node)
+* [Kubernetes](https://github.com/kubernetes/kubernetes)
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+You will need Python 3.6+.
+
+### Installation
+
+1. ```pip install Cryptostats-Python```
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+Subscribe to new channels using the additional subscribe and unsubscribe methods:
+
+```Python
+
+from CryptostatsPython.Cryptostats import Cryptostats
+import time
+
+# Configuration
+API_KEY = "YOUR_API_KEY"
+channels = ["deribit.BTC-PERPETUAL.trade", "BTCUSD perpetual.combined_orderbook"]
+
+# Callbacks
+def on_open(_):
+    print("Opened")
+    cryptostats.unsubscribe("deribit.BTC-PERPETUAL.trade")
+    cryptostats.subscribe("deribit.ETH-PERPETUAL.trade")
+
+
+def on_message(message):
+    print(message)
+
+
+def on_error(_, message):
+    print(message)
+
+
+# Usage of reconnect code is recommended for long-running connections
+def on_close(_):
+    print("Closed - reconnecting")
+    cryptostats.connect()
+
+
+cryptostats = Cryptostats(API_KEY, channels, on_open, on_message, on_error, on_close)
+
+# Event loop
+while True:
+    time.sleep(1)
+
+```
+
+_For more examples, please refer to the [Documentation](https://docs.cryptostats.dev)_
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Feel free to contribute more examples or cool use cases.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+
+<!-- CONTACT -->
+## Contact
+
+Cryptostats - hello@cryptostats.dev
+
+Project Link: [https://github.com/Cryptostats/Cryptostats-Python](https://github.com/Cryptostats/Cryptostats-Python)
+
+
+## Dependencies
+
+Full dependencies are provided below:
+
+* ### Dependencies
+If installing from source you will need:
+
+      pip install websocket-client
+      pip install ujson
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/Cryptostats/Cryptostats-Python.svg?style=for-the-badge
+[contributors-url]: https://github.com/Cryptostats/Cryptostats-Python/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Cryptostats/Cryptostats-Python.svg?style=for-the-badge
+[forks-url]: https://github.com/Cryptostats/Cryptostats-Python/network/members
+[stars-shield]: https://img.shields.io/github/stars/Cryptostats/Cryptostats-Python.svg?style=for-the-badge
+[stars-url]: https://github.com/Cryptostats/Cryptostats-Python/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Cryptostats/Cryptostats-Python.svg?style=for-the-badge
+[issues-url]: https://github.com/Cryptostats/Cryptostats-Python/issues
+[license-shield]: https://img.shields.io/github/license/Cryptostats/Cryptostats-Python.svg?style=for-the-badge
+[license-url]: https://github.com/Cryptostats/Cryptostats-Python/blob/master/LICENSE
+
+
