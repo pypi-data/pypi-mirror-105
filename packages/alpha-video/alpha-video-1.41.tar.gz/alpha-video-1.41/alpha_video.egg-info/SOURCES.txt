@@ -1,0 +1,9 @@
+README.md
+setup.py
+alpha_video.egg-info/PKG-INFO
+alpha_video.egg-info/SOURCES.txt
+alpha_video.egg-info/dependency_links.txt
+alpha_video.egg-info/entry_points.txt
+alpha_video.egg-info/not-zip-safe
+alpha_video.egg-info/requires.txt
+alpha_video.egg-info/top_level.txt
