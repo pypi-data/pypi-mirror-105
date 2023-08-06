@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+numa/__init__.py
+numa/info.py
+numa/memory.py
+numa/schedule.py
+numa/utils.py
+py_libnuma.egg-info/PKG-INFO
+py_libnuma.egg-info/SOURCES.txt
+py_libnuma.egg-info/dependency_links.txt
+py_libnuma.egg-info/top_level.txt
+tests/__init__.py
+tests/test.py
