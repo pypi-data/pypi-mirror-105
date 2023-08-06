@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: soxr
+Version: 0.0.2
+Summary: Python Wrapper for libsoxr
+Home-page: https://github.com/dofuuz/python-soxr
+Author: dofuuz
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Python-soxr
+
+Python wrapper for [libsoxr](https://sourceforge.net/projects/soxr/) resampler
+
+
