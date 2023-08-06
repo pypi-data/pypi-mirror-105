@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "ws-rebalancer"
+version = "1.0.1"
+description = "A CLI tool that helps you rebalance your WealthSimple portfolios."
+license = "MIT"
+readme = "README.md"
+maintainers = ["Emil Maric <emil.maric@hotmail.com>"]
+authors = ["Emil Maric <emil.maric@hotmail.com>"]
+homepage = "https://github.com/EmilMaric/ws-rebalancer"
+repository = "https://github.com/EmilMaric/ws-rebalancer"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Topic :: Office/Business :: Financial :: Accounting",
+]
+keywords = [
+    'wealthsimple',
+    'portfolio',
+    'rebalancer',
+    'stocks'
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+click = "^7.1.2"
+wealthsimple-trade-python = "^1.1.0"
+
+[tool.poetry.scripts]
+ws-rebalancer = "ws_rebalancer.cli:ws_rebalancer"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.9.0"
+pytest = "^6.2.3"
+tox = "^3.23.0"
+pytest-cov = "^2.11.1"
+pytest-mock = "^3.5.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0a5"]
+build-backend = "poetry.core.masonry.api"
