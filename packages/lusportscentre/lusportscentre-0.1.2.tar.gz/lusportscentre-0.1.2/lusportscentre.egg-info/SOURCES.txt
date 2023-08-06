@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+Pipfile
+README.md
+setup.cfg
+setup.py
+lusportscentre/__init__.py
+lusportscentre/errors.py
+lusportscentre/lusportscentre.py
+lusportscentre/user.py
+lusportscentre.egg-info/PKG-INFO
+lusportscentre.egg-info/SOURCES.txt
+lusportscentre.egg-info/dependency_links.txt
+lusportscentre.egg-info/requires.txt
+lusportscentre.egg-info/top_level.txt
