@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: Axtrack
+Version: 0.0.1
+Summary: Axtrack extract urls and endpoints in relation to the given domain.
+Home-page: UNKNOWN
+Author: Deepanjal kumar (Operation Falcon)
+Author-email: operationfalcon6@gmail.com
+License: UNKNOWN
+Description: 
+        aXTRACK gets all possible urls related to that particular domain.
+        
+        Installation:
+        
+                 pip install Axtrack
+        
+        
+        Usage :
+        
+                 from Axtrack import grab
+        
+                 grab.enum(<domain name> <output filename>)
+        
+        
+Keywords: python,Axtrack,grab,wayback machine
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Description-Content-Type: text/markdown
