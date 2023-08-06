@@ -1,0 +1,9 @@
+autojoiner/__init__.py,sha256=MwCMD4GXOuYO3RpqSSAdAhtvIECCuNkUemjG-qcErtA,546
+autojoiner/__main__.py,sha256=8H-wsc3-Zh9TooAZ86x_2m62IGRbGsWaN9i-Y3EXPeM,4506
+autojoiner/autojoin.py,sha256=BAeRViXsxjwoiiTkltovLM8TaW-ipKMnroJva-xpUbg,7351
+autojoiner-0.2.2.dist-info/LICENSE,sha256=Iega2n8cmwwnn9L54dP3PIZMYH_mdPxH80SLDo77TRU,1063
+autojoiner-0.2.2.dist-info/METADATA,sha256=6171uwDtGQ5VIWLxgS9IwDBLqQxBkWNjmVLmULnLG7w,1639
+autojoiner-0.2.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+autojoiner-0.2.2.dist-info/entry_points.txt,sha256=khT4XJrF0-DOcLvP54yp9f2xe-4QTP72F03J0-2Ddew,75
+autojoiner-0.2.2.dist-info/top_level.txt,sha256=RPNlue8c11tM1LRseYpegoja602YjzvwPtERbzkYOz8,11
+autojoiner-0.2.2.dist-info/RECORD,,

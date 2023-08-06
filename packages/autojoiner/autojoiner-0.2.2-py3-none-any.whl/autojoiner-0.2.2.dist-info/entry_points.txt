@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        autojoiner=autojoiner.__main__:main
+    
