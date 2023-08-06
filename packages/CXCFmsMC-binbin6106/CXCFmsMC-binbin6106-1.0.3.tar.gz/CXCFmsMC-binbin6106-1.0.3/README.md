@@ -1,0 +1,51 @@
+#### 诚信昌FMS项目三菱PLC通信工具
+
+#### 支持三菱Q系列和Fx系列，采用MC协议
+
+#### 示例：
+```
+from CXCFmsMC import CXCFmsMC
+
+mc = CXCFmsMC.CXCFmsMC('10.0.1.236')
+
+print(mc.readBitFromPLC(0, 'M', 16))
+print(mc.readWordFromPLC(0, 'D', 6))
+print(mc.writeBiToPLC(210, 'M', 8, '00000000'))
+print(mc.writeWordToPLC(200, 'D', 3, [0, 0, 0]))
+```
+
+#### 方法解析
+
+1. readBitFromPLC(self, startAddr, varType, length)  
+从PLC中批量读取位数据，目前只支持M线圈的读取。  
+参数：  
+startAddr(起始地址，类型：int)  
+varType(线圈类型，类型：str)  
+length(传输数据位数，类型：int)  
+返回值: dict
+
+2. readWordFromPLC(self, startAddr, varType, length)  
+从PLC中批量读取字数据，目前只支持D寄存器的读取。  
+参数：  
+startAddr(起始地址，类型：int)  
+varType(线圈类型，类型：str)  
+length(传输数据位数，类型：int)  
+返回值: dict
+
+3. writeBiToPLC(self, startAddr, varType, length, data)  
+向PLC中批量写入位数据，目前只支持M线圈的写入。  
+参数：  
+startAddr(起始地址，类型：int)  
+varType(线圈类型，类型：str)  
+length(传输数据位数，类型：int)  
+data(写入的数据，类型：str)  
+返回值: str
+
+4. writeWordToPLC(self, startAddr, varType, length, data)  
+向PLC中批量写入字数据，目前只支持D寄存器的单字(16 Bit)写入。  
+参数：  
+startAddr(起始地址，类型：int)  
+varType(线圈类型，类型：str)  
+length(传输数据位数，类型：int)  
+data(写入的数据，类型：list)  
+返回值: str
