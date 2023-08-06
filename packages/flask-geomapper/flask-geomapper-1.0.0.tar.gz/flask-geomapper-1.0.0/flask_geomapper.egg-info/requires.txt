@@ -1,0 +1,5 @@
+flask
+pandas
+geopandas
+matplotlib
+requests
