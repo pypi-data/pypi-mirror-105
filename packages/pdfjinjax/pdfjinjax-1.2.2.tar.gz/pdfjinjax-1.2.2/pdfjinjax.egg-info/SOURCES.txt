@@ -1,0 +1,21 @@
+LICENSE
+MANIFEST.in
+README.md
+pdfjinjax.py
+setup.py
+tests.py
+examples/attachment.png
+examples/example.py
+examples/output.pdf
+examples/sample.json
+examples/sample.pdf
+examples/sig.png
+examples/simple.json
+examples/open-sans/Apache License.txt
+examples/open-sans/regular.ttf
+pdfjinjax.egg-info/PKG-INFO
+pdfjinjax.egg-info/SOURCES.txt
+pdfjinjax.egg-info/dependency_links.txt
+pdfjinjax.egg-info/entry_points.txt
+pdfjinjax.egg-info/requires.txt
+pdfjinjax.egg-info/top_level.txt
