@@ -1,0 +1,11 @@
+opstools/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+opstools/main.py,sha256=vECRVVNE0p6FosdXFuQ0HEdjspbbbbXjqkhsvW04Im0,896
+opstools/aws/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+opstools/aws/allow_me.py,sha256=UgzzcvmlLkjU8UGGt4M8kBxTzatq6QIC_roSE5gH9Uo,5916
+opstools/aws/ec2_list.py,sha256=cxNKcATnnXZQ5N8Au7b5dniyisSx1Xvm1kTXfG_skZ4,1686
+opstools-0.0.3.dist-info/LICENSE,sha256=nSCGUoRJf793jolDVa9pOsRlRZfiq7H2UVIkf_QAYgE,35160
+opstools-0.0.3.dist-info/METADATA,sha256=-V9EllsVyXiprKonHQ2_AbfLfu4qVq8MpZQeW5lDZmc,664
+opstools-0.0.3.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+opstools-0.0.3.dist-info/entry_points.txt,sha256=d1wm_bDcp8DDnD8q0eKHmtmD-W7saik4B8lbuGWsIcU,49
+opstools-0.0.3.dist-info/top_level.txt,sha256=RfZsdMq7uVx86fAtP6PtoIv9vqvubyECLQQG7jg3_nY,9
+opstools-0.0.3.dist-info/RECORD,,
