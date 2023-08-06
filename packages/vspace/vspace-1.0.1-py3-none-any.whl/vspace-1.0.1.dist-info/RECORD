@@ -1,0 +1,10 @@
+vspace/__init__.py,sha256=O7Ci3ZPc1WZA7Z7LPjU9w12nh_ByzX5KdBsLf_yDJPE,312
+vspace/hyak.py,sha256=i4fSb3fDSZkLdUg5e-BKioMfrTxHektfX3To71xTF8U,788
+vspace/vspace.py,sha256=H0hliATp01crWnGvF_67FHWUTUTBBJnlU796H2wJCG8,30337
+vspace/vspace_hyak.py,sha256=g13zWjpJbbBUAgCezwKxsu75W7WLeL07iMdZt4Vmjgw,11687
+vspace-1.0.1.dist-info/LICENSE,sha256=oZpn4X86vBC9ox5YCXpzRuNcbJQSkrz7hU40juDKa0g,1085
+vspace-1.0.1.dist-info/METADATA,sha256=kM09rxngsFQw27RwFb8HWAsqe3Y6lrWjK6V2vBbMBkM,1731
+vspace-1.0.1.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+vspace-1.0.1.dist-info/entry_points.txt,sha256=TRt-qwEqCR16TwjjPlJ0yjH_TSPlVEU7kKA43C9C3Iw,47
+vspace-1.0.1.dist-info/top_level.txt,sha256=pK_O-_p11uQ7jAoDs4ofCO0yPqB1OcwnIb4x1iPEzOU,7
+vspace-1.0.1.dist-info/RECORD,,
