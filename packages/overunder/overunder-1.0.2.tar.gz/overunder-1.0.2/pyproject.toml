@@ -1,0 +1,23 @@
+[build-system]
+requires = ["poetry>=1.0.9,<2.0"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "overunder"
+version = "1.0.2"
+description = "An interpreted programming language in Python that could receive as rules basic weaving instructions 'over' and 'under' and apply a pattern onto text."
+authors = ["anxiouspeanut <alice.strt@gmail.com>"]
+maintainers = ["anxiouspeanut <alice.strt@gmail.com>"]
+license = "GPLv3"
+readme = "README.md"
+repository = "https://git.vvvvvvaria.org/alicestrt/overunder.git"
+keywords = ["plaintext", "weaving"]
+include = ["input.txt"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+overunder = "overunder:repl"
