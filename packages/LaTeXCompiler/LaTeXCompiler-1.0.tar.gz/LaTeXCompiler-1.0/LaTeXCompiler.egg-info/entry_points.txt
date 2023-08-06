@@ -1,0 +1,3 @@
+[console_scripts]
+LaTeXCompiler = latexcompiler.LC:main
+
