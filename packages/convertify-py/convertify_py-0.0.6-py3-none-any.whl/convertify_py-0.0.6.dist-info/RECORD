@@ -1,0 +1,13 @@
+convertify/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+convertify/__main__.py,sha256=R_jnUuR1WcRxMLtcgBYAe9XwnSn7aXMgZzy4c08wNQk,85
+convertify/cli.py,sha256=F854kifqRtpj-_j-PBR_KMsHr8zx9cW665vZ6PyJkTM,1667
+convertify/data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+convertify/data/convert.py,sha256=ykNrwAkVr35oRsPDfUv6clsyfX7z2PZNe9tUH4ESeX8,351
+convertify/data/get_unit_list.py,sha256=LtdHO7hfb3EVNp0gAco89Q87WijGzFMDri2hRTDKNe0,908
+convertify/resources/data.csv,sha256=hnQq1Kd-0K7lRTR9yMN4S-l5oiTslaK26ZsWFsS9fRI,47218
+convertify_py-0.0.6.dist-info/LICENSE.txt,sha256=-BeIbua7Ze0wmKeYex6XgWU9FccfhVic4NKvZjxm03M,34888
+convertify_py-0.0.6.dist-info/METADATA,sha256=oB948iL0ETImzvAbOy4NMzFK_QkHFTIXBHHvV1NwxRo,608
+convertify_py-0.0.6.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+convertify_py-0.0.6.dist-info/entry_points.txt,sha256=zen778IbOoW4Ik33my_w1_dDYzXHyPVCA1FtdpW8f-g,60
+convertify_py-0.0.6.dist-info/top_level.txt,sha256=-0Z9825qJ5GGcYxazuHmcStMLD5tAglGxDJuHDMvOhs,11
+convertify_py-0.0.6.dist-info/RECORD,,
