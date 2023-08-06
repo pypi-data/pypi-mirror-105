@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: huobi-sdk
+Version: 2.3.0
+Summary: forked from https://github.com/HuobiRDCenter/huobi_Python
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: Apache
+Platform: UNKNOWN
+Requires-Dist: requests (==2.20.1)
+Requires-Dist: apscheduler (==3.6.3)
+Requires-Dist: websocket-client (==0.57.0)
+Requires-Dist: aiohttp (==3.6.2)
+Requires-Dist: urllib3
+
+UNKNOWN
+
+
