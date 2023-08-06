@@ -1,0 +1,10 @@
+coin2086/__init__.py,sha256=8UwE-7tfzyO_C4vVCcTPZOWIXv5ShChOv4rQxNkWoQQ,133
+coin2086/bitstamp.py,sha256=eZtri_9nODYNigD51IRSk6xZe4e-G0z6RivSQBETIsc,2384
+coin2086/pnl.py,sha256=piUZEjEJVmq0IRlTHAnunNPzx-oTaX1XQSDhOfKTGlw,14745
+coin2086/pricedownload.py,sha256=zhqg9SKDDSY9xGgGRQsD-Q4A9AJL-3AuqRg9JwmWjFc,8153
+coin2086/validation.py,sha256=Boo2mLiYSm46qd_qSaKzyiE8yVgogquFdLLzmESv5zg,2780
+coin2086/valuation.py,sha256=34del2qilzjEoMW4S9r2hAWseiDdyQICSu0AvbDk7xo,6189
+coin2086-0.1.3.dist-info/LICENSE,sha256=Aa0ZdNi_P2Eak2phY-5Lrb0FVxwM8CzCMdBqg5_T_lU,1070
+coin2086-0.1.3.dist-info/WHEEL,sha256=VN2eEg4PHbTOniXb-cCYQPc6zUTS4dAcATjlgU3q-Lo,83
+coin2086-0.1.3.dist-info/METADATA,sha256=Ll6XjJRHSBGIJn7H4eZ0bPl5HOOt-OPXn6LOovk-PLU,4816
+coin2086-0.1.3.dist-info/RECORD,,
