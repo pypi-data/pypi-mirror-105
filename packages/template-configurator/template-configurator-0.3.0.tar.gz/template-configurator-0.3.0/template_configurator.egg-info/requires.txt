@@ -1,0 +1,3 @@
+hbreader
+jsonasobj2
+template-config-model==0.0.3

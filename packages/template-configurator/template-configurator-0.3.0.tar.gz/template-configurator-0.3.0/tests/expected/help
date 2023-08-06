@@ -1,0 +1,17 @@
+usage: configure [-h] [--templatedir TEMPLATEDIR] [-t TARGETDIR] [--reset]
+                 configfile
+
+Configure a LinkML model repository
+
+positional arguments:
+  configfile            Model configuration file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --templatedir TEMPLATEDIR
+                        Template source directory (Default:
+                        template_configurator/templates)
+  -t TARGETDIR, --targetdir TARGETDIR
+                        Output target directory (Default: current working
+                        directory
+  --reset               Hard reset -- regenerate all files from scratch
