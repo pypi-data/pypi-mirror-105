@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.cfg
+src/uFire_Mod_ORP/__init__.py
+src/uFire_Mod_ORP/shell.py
+src/uFire_Mod_ORP/uFire_Mod_ORP.py
+src/uFire_Mod_ORP.egg-info/PKG-INFO
+src/uFire_Mod_ORP.egg-info/SOURCES.txt
+src/uFire_Mod_ORP.egg-info/dependency_links.txt
+src/uFire_Mod_ORP.egg-info/top_level.txt
