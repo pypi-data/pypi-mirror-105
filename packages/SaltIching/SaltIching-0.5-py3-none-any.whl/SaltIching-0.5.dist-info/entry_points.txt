@@ -1,0 +1,3 @@
+[console_scripts]
+random = iching.command_line:random
+
