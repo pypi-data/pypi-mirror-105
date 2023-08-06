@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: convertify-py
+Version: 0.0.6
+Summary: A small CLI tool to convert units.
+Home-page: https://github.com/ulises-codes/convertify
+Author: Ulises Himely
+License: GNU
+Project-URL: Bug Tracker, https://github.com/ulises-codes/convertify/issues
+Description: # Convertify by Ulises Himely
+        
+        ## A simple unit conversion CLI tool written in Python
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
