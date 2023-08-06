@@ -1,0 +1,8 @@
+dataset
+flask
+hashids
+loguru
+privy
+pyug
+qrcode[pil]
+simplejson
