@@ -1,0 +1,14 @@
+pylext/__init__.py,sha256=xcBf73CVl9H00RQ0tjcqpGEk2ZY_utOOtAzOguGfDlk,237
+pylext/base.py,sha256=lRD1xh0c1RoA4_NeMtiO4QZVKkj8D7ti2NJ2kVAeG6s,7929
+pylext/importer.py,sha256=fJDzLsyUfFzXMvFEbcYOAVxWCJS1R4ny_PVRxPxTLJM,1317
+pylext/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pylext/core/parse.cp38-win_amd64.pyd,sha256=gwpN_xU_lNw1uQOwZTmFuvdBi0xiwEaO6R9bFuIQLx4,512000
+pylext/core/grammar/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pylext/core/grammar/python_3_8.py,sha256=NPOuBBCOzgPUZijAhZq_009WVLW5ol0Ymlsi8Rvug44,11569
+pylext/macros/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pylext/macros/operator.pyg,sha256=9nOCzkkatWjxTH9bpsSVaO9iyqFXPYBqYfN8irGg7lw,6360
+pylext-0.1.0.dist-info/LICENSE,sha256=1rH7a0FtgKLTOU_eZlK0HCPdtuTXl0sVkCqBVB6QvZY,1095
+pylext-0.1.0.dist-info/METADATA,sha256=D6GaJ1E0z764DVS2OoaYG09F9KINesaQR2_Sn3ASb1s,3797
+pylext-0.1.0.dist-info/WHEEL,sha256=pKDdDtWxqECKZ5id8xQESqlZ78kY0zCCwKt9WTell-k,94
+pylext-0.1.0.dist-info/top_level.txt,sha256=PL7enTxx2hLENSJnCOk-FjRTp3lOnqoiEQWtA48e3AU,7
+pylext-0.1.0.dist-info/RECORD,,
