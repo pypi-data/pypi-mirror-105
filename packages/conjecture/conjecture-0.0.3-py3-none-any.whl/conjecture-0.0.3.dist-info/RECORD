@@ -1,0 +1,12 @@
+conjecture/__init__.py,sha256=hveRDmIFNAwztL0k4DTeatPD5WAUlcG-LSMjxibrcVs,858
+conjecture/base.py,sha256=PsL979Cnp1fhO531cT4SvdS0NxWu_zt6YgEzCLbRt1g,4675
+conjecture/general.py,sha256=b5xzuwtkzeNPuiRXBUnfKrata5UipMaARh9AO2pLDHQ,1500
+conjecture/object.py,sha256=LVvcqJl0sU8c6vK-d1XIg6HQVOnj_rDCXXpHPKdiDaU,798
+conjecture/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+conjecture/rich.py,sha256=dVqPBqG57ERHvEz56jDYrRgEDveA2JRorX6PQxjbh58,2086
+conjecture/sized.py,sha256=v-odmJC0zOBIh9o4ll1L2YvTc5MVGY1va6uqR07Y82k,907
+conjecture/string.py,sha256=MTEpgHdEfOH_URNuKhvPKj6jQSOV9U6BkpZj5tTi_NA,1276
+conjecture-0.0.3.dist-info/LICENSE,sha256=khtqt8Pzg1zRqdMJWnHl2lVZ4OgtP3MHGPfCCfA0Cls,1072
+conjecture-0.0.3.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+conjecture-0.0.3.dist-info/METADATA,sha256=UZ9BH3eT5_Cl55MR6S3wpK4LKzmIoTjzMbaWYCz5-dE,3179
+conjecture-0.0.3.dist-info/RECORD,,
