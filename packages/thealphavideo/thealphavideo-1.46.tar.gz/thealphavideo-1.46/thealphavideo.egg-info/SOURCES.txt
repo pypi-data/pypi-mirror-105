@@ -1,0 +1,10 @@
+README.md
+setup.py
+thealphavideo/__init__.py
+thealphavideo.egg-info/PKG-INFO
+thealphavideo.egg-info/SOURCES.txt
+thealphavideo.egg-info/dependency_links.txt
+thealphavideo.egg-info/entry_points.txt
+thealphavideo.egg-info/not-zip-safe
+thealphavideo.egg-info/requires.txt
+thealphavideo.egg-info/top_level.txt
