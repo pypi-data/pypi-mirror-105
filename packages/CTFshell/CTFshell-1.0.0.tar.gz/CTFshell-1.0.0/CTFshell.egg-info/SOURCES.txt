@@ -1,0 +1,8 @@
+README.rst
+ctfshell
+setup.py
+CTFshell.egg-info/PKG-INFO
+CTFshell.egg-info/SOURCES.txt
+CTFshell.egg-info/dependency_links.txt
+CTFshell.egg-info/requires.txt
+CTFshell.egg-info/top_level.txt

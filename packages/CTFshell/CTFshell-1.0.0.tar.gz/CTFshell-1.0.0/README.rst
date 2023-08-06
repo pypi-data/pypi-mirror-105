@@ -1,0 +1,95 @@
+========
+CTFshell
+========
+---------------------------------------------------
+A client CLI for using the Cryptotronix CTF server.
+---------------------------------------------------
+
+Summary
+=======
+If you don't want to have to deal with the REST API of our
+CTF server, this executable will wrap all of the requests
+in a simple and easy-to-use CLI.
+
+If you want to check out the CTF server, you can `here`_.
+
+.. _here: https://github.com/cryptotronix/python-ctf-server
+
+
+Usage
+-----
+To register on the server use the 'register' command, providing a
+maximum 32 character username.
+
+.. code-block::
+
+        > register example_user
+        success!
+        user uuid: dae72401-b760-43e0-a188-d45556f0a7ff
+        saved.
+        >
+
+To view the flags use the 'flags' command.
+
+.. code-block::
+
+        > flags
+        +------+-----------------------------+--------+
+        | name |         description         | points |
+        +======+=============================+========+
+        | 1.1  | This is a description.      | 5      |
+        +------+-----------------------------+--------+
+        | 1.2  | This is also a description. | 1      |
+        +------+-----------------------------+--------+
+
+To submit answers to the server use the 'submit' command, providing
+the flag you are attempting to solve and your answer.
+
+.. code-block::
+
+        > submit 1.1 hello
+        world! good job!
+
+To view the leaderboard use the 'leaderboard' command. Note, you
+will not appear on the leaderboard until you have at least one
+point.
+
+.. code-block::
+
+        > leaderboard
+        +----------------+--------+
+        |      user      | points |
+        +================+========+
+        | master         | 42     |
+        | rival          | 6      |
+        | example_user   | 5      |
+        +----------------+--------+
+
+To ask for hints use the 'hintbot' command. He's pretty lazy so he
+might not be awake at the start of the game. Send him the name of
+a flag to ask for a hint, or just chat with him.
+
+.. code-block::
+
+       > hintbot Can I have some help with 2.2?
+       Have you tried giving the correct answer?
+
+If you want to use an already created user use the 'set_user'
+command and provide a user's uuid.
+
+.. code-block::
+
+       > set_user 0786c22d-4ad1-4430-8505-ecd3d00194b2
+
+If you need to change the server hostname from what you are about to
+provide, use the 'set_hostname' command.
+
+.. code-block::
+
+       > set_hostname ctf.challenge.com
+
+State
+-----
+This shell uses a sqlite database to save state and settings.
+This database will be created at ``./.CTFshell.db`` by default,
+but can be given a custom path using ``CTFshell -d [path]``.
