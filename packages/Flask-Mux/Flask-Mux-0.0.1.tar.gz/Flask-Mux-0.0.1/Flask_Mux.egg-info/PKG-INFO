@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: Flask-Mux
+Version: 0.0.1
+Summary: Minimal routing extension for Flask
+Home-page: https://github.com/ElMehdi19/flask-mux
+Author: El Mehdi Rami
+Author-email: elmehdirami5@gmail.com
+License: UNKNOWN
+Project-URL: Documentation, https://flask-mux.readthedocs.com
+Project-URL: Source Code, https://github.com/ElMehdi19
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.6
