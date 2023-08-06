@@ -1,0 +1,8 @@
+vaccinegov/__init__.py,sha256=9Y6Zzz-xXqT3_3D_7wMjetbza1zb10qtrEGpGGrgjd0,30
+vaccinegov/main.py,sha256=8WsLH____w5SsaxG4XyKcIrDnAmhqtZ4Mj94KijAXq8,4628
+vaccinegov/schemas/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+vaccinegov/schemas/manufacturers.py,sha256=cWSi96R9AW26zZpNYGHIBZ9u50aWM-g3yK_Hchg63Cc,722
+vaccinegov/schemas/providers.py,sha256=DZtFjAEIxcbYRFoG7tTdyH94r77hMaoEaS04fYO34C0,6166
+vaccinegov-0.0.1.dist-info/WHEEL,sha256=VN2eEg4PHbTOniXb-cCYQPc6zUTS4dAcATjlgU3q-Lo,83
+vaccinegov-0.0.1.dist-info/METADATA,sha256=-mm6P6QDi5niaTpjm_H0FpYnD4AOJzdsLsBiet4uXaw,593
+vaccinegov-0.0.1.dist-info/RECORD,,
