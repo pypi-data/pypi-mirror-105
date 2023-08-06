@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: pymule
+Version: 0.0.1
+Summary: The McMule analysis framework
+Home-page: https://gitlab.com/mule-tools/pymule
+Author: Yannick Ulrich for the MMCT
+Author-email: yannick.ulrich@psi.ch
+License: GPLv3
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Framework :: IPython
+Classifier: Framework :: Jupyter
+Classifier: Framework :: Matplotlib
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=2.7
