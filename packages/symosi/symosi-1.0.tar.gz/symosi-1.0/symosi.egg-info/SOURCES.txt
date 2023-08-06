@@ -1,0 +1,11 @@
+README.md
+setup.py
+symosi/__init__.py
+symosi/components.py
+symosi/core.py
+symosi/sources.py
+symosi.egg-info/PKG-INFO
+symosi.egg-info/SOURCES.txt
+symosi.egg-info/dependency_links.txt
+symosi.egg-info/requires.txt
+symosi.egg-info/top_level.txt
