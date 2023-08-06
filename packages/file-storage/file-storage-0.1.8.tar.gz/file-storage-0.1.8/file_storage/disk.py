@@ -1,0 +1,57 @@
+"""Пакет для работы с диском"""
+import os, shutil
+import logging
+
+from ftplib import FTP, Error
+from datetime import datetime
+from os.path import basename, join, isdir, islink, getsize, getmtime
+
+from .storage import Storage, FileData, EntryType
+
+
+class Disk(Storage):
+    """Disk класс взаимодействия с диском"""
+    def _copy(self, source: str, destination: str):
+        logging.info("AAA1", source, destination)
+        if isdir(source):
+            shutil.copytree(source, destination)
+        else:
+            if isdir(destination):
+                destination = join(destination, basename(source))
+            logging.info("AAA2", source, destination)
+            shutil.copy2(source, destination)
+
+    def files(self, path: str) -> []:
+        """files получает информацию о файлах в директории path"""
+        files = []
+        if not isdir(path):
+            return files 
+        try:
+            for filename in listdir(path):
+                file_path = join(path, filename)
+                if isdir(file_path):
+                    file_type = EntryType.FOLDER
+                if islink(file_path):
+                    file_type = EntryType.LINK
+                else:
+                    file_type = EntryType.FILE
+                files.append(FileData(filename, getsize(file_path), file_type, getmtime(file_path)))
+            return files
+        except (FileNotFoundError, Error):
+            return files
+
+    def upload(self, source: str, destination: str) -> bool:
+        """upload копирует source в destination"""
+        try:
+            self._copy(source, destination)
+            return True
+        except FileNotFoundError:
+            return False
+
+    def download(self, source: str, destination: str) -> bool:
+        """download копирует из source в destination"""
+        try:
+            self._copy(source, destination)
+            return True
+        except FileNotFoundError:
+            return False
