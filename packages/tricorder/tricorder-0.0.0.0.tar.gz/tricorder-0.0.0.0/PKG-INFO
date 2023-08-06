@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: tricorder
+Version: 0.0.0.0
+Summary: Collection of small but useful tools for MRI PyTorch
+Home-page: https://github.com/soumickmj/Tricorder
+Author: Soumick Chatterjee
+Author-email: soumick.chatterjee@ovgu.de
+License: MIT license
+Description: # Tricorder
+        A collection of small frequently used tools updated regularly, focusing on MRI and PyTorch
+        
+        
+        History
+        =======
+        
+        0.0.0 (2021-05-13)
+        ------------------
+        
+        * First release (basic structure, not the actual package code) on PyPI.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

@@ -1,0 +1,8 @@
+README.md
+setup.py
+tricorder/__init__.py
+tricorder.egg-info/PKG-INFO
+tricorder.egg-info/SOURCES.txt
+tricorder.egg-info/dependency_links.txt
+tricorder.egg-info/requires.txt
+tricorder.egg-info/top_level.txt
