@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "cg-simulator"
+version = "0.1.0"
+description = "A simulator for card games."
+authors = ["Raymond DeVries"]
+license = "MIT"
+
+[tool.poetry.scripts]
+accordion = "accordion_simulator.cli:simulate"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.10"
+numpy = "^1.20.2"
+dask = {extras = ["distributed"], version = "^2021.4.1"}
+rich = "^10.1.0"
+typer = "^0.3.2"
+numba = "^0.53.1"
+
+[tool.poetry.dev-dependencies]
+black = "^21.5b0"
+isort = "^5.8.0"
+pre-commit = "^2.12.1"
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
