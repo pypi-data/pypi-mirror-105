@@ -1,0 +1,90 @@
+Metadata-Version: 2.1
+Name: csaf
+Version: 0.0.1
+Summary: Easing the CSAF way.
+Home-page: https://github.com/sthagen/ideal-computing-machine
+Author: Stefan Hagen
+Author-email: stefan@hagen.link
+License: MIT
+Keywords: development lint json xml validation
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+Requires-Dist: jsonschema
+Requires-Dist: lxml
+Requires-Dist: pyyaml
+Requires-Dist: toml
+Requires-Dist: xmlschema
+
+# ideal-computing-machine
+
+[![license](https://img.shields.io/github/license/sthagen/ideal-computing-machine.svg?style=flat)](https://github.com/sthagen/ideal-computing-machine/blob/default/LICENSE)
+[![version](https://img.shields.io/pypi/v/csaf.svg?style=flat)](https://pypi.python.org/pypi/csaf/)
+[![downloads](https://img.shields.io/pypi/dm/csaf.svg?style=flat)](https://pypi.python.org/pypi/csaf/)
+[![wheel](https://img.shields.io/pypi/wheel/csaf.svg?style=flat)](https://pypi.python.org/pypi/csaf/)
+[![supported-versions](https://img.shields.io/pypi/pyversions/csaf.svg?style=flat)](https://pypi.python.org/pypi/csaf/)
+[![supported-implementations](https://img.shields.io/pypi/implementation/csaf.svg?style=flat)](https://pypi.python.org/pypi/csaf/)
+
+Yes, another such thing.
+
+In this project the attempt is made, to provide API and tools to support the CSAF communities from a single repository in the easy to prototype python language.
+
+If anwhen this endeavor succeeds, other langugaes can easily derive form the approach (as long as these offer similar capabilties to keep the effort in check).
+
+## Status
+Experimental
+
+**Note**: The default branch is default.
+
+Later we use mkdocs
+
+
+# Installation
+
+```
+$ pipx install csaf
+```
+
+
+# Example Use
+
+No args execution yields usage information:
+```
+$ python -m csaf
+Usage: gelee paths-to-files
+```
+
+Initial test wmpty file is not valid:
+```
+$ python -m csaf tests/fixtures/empty.json
+2021-05-01T23:19:44.409 INFO [csaf]: Starting validation visiting a forest with 1 tree
+2021-05-01T23:19:44.412 ERROR [csaf]: Failed validation for path tests/fixtures/empty.json with error: Expecting value: line 2 column 1 (char 1)
+2021-05-01T23:19:44.412 INFO [csaf]: Finished validation of 0 configuration files with 1 failure visiting 1 path (ignored 0 non-config files in 0 folders)
+FAIL
+```
+
+Empty object valid for now (no schema validation yet):
+```
+$ python -m csaf tests/fixtures/empty_object.json
+2021-05-01T23:19:53.250 INFO [csaf]: Starting validation visiting a forest with 1 tree
+2021-05-01T23:19:53.252 INFO [csaf]: - Successfully validated 1 total JSON file.
+2021-05-01T23:19:53.253 INFO [csaf]: Finished validation of 1 configuration file with 0 failures visiting 1 path (ignored 0 non-config files in 0 folders)
+OK
+```
+
+# Change History
+
+## 0.0.1 (2021-05-01)
+
+* Initial release on PyPI
+
+
+
+
