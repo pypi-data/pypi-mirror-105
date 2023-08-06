@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+wipeit/__init__.py
+wipeit/__main__.py
+wipeit/client.py
+wipeit/history.py
+wipeit.egg-info/PKG-INFO
+wipeit.egg-info/SOURCES.txt
+wipeit.egg-info/dependency_links.txt
+wipeit.egg-info/entry_points.txt
+wipeit.egg-info/requires.txt
+wipeit.egg-info/top_level.txt
