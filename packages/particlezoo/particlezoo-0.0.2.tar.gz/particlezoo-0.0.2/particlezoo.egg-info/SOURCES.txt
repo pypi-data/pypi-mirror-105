@@ -1,0 +1,8 @@
+README.md
+setup.py
+particlezoo/__init__.py
+particlezoo.egg-info/PKG-INFO
+particlezoo.egg-info/SOURCES.txt
+particlezoo.egg-info/dependency_links.txt
+particlezoo.egg-info/not-zip-safe
+particlezoo.egg-info/top_level.txt
