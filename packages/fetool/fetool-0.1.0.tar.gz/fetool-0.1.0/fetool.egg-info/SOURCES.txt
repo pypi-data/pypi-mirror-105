@@ -1,0 +1,8 @@
+README.md
+setup.py
+fetool.egg-info/PKG-INFO
+fetool.egg-info/SOURCES.txt
+fetool.egg-info/dependency_links.txt
+fetool.egg-info/entry_points.txt
+fetool.egg-info/not-zip-safe
+fetool.egg-info/top_level.txt
