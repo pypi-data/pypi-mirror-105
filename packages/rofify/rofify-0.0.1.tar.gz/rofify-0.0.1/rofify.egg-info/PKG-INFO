@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: rofify
+Version: 0.0.1
+Summary: Rofi menu script that controls spotify playback.
+Home-page: https://github.com/dbkosky/rofify.git
+Author: Daniel Kosky
+Author-email: dbkosky@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
