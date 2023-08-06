@@ -1,0 +1,10 @@
+setup.py
+distributions_Jsailer/Binomialdistribution.py
+distributions_Jsailer/Gaussiandistribution.py
+distributions_Jsailer/Generaldistribution.py
+distributions_Jsailer/__init__.py
+distributions_Jsailer.egg-info/PKG-INFO
+distributions_Jsailer.egg-info/SOURCES.txt
+distributions_Jsailer.egg-info/dependency_links.txt
+distributions_Jsailer.egg-info/not-zip-safe
+distributions_Jsailer.egg-info/top_level.txt
