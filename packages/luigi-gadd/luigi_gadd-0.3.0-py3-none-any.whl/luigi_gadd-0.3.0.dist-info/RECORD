@@ -1,0 +1,8 @@
+luigi_gadd/__init__.py,sha256=Y91i9CmUPD8IKQxNOv5FeQ1rzgHgKbAb7QcwGnpXBJQ,414
+luigi_gadd/auto_rerun_task.py,sha256=3JqG_5Y2K5Llos_w5QKbOz7mg4pc4w3XiuyUzs0isI8,3421
+luigi_gadd/dynamic.py,sha256=ITEV88n6OKeBY311SFb76RhLlN5xfmsUxNqNx9B1rGk,2128
+luigi_gadd/multi_target_manager.py,sha256=TrVZvYdbi4Icat-AnYTTooiCaxCZR6G1dJjJsFlVeAg,3257
+luigi_gadd-0.3.0.dist-info/LICENSE,sha256=8BdvQDp22fnNi45-PwGdvTIXYtwPELsMxDLD_7c3Xqw,1067
+luigi_gadd-0.3.0.dist-info/WHEEL,sha256=VN2eEg4PHbTOniXb-cCYQPc6zUTS4dAcATjlgU3q-Lo,83
+luigi_gadd-0.3.0.dist-info/METADATA,sha256=0HJsYCoVuYGADDIfDeynndhxDjL16hxDCpDADejHpPY,658
+luigi_gadd-0.3.0.dist-info/RECORD,,
