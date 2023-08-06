@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: jaxed
+Version: 0.0.1
+Summary: JIT Compiler Attacker
+Home-page: UNKNOWN
+Author: Kaustubh Shivdikar
+Author-email: kaustubhcs07@gmail.com
+License: UNKNOWN
+Keywords: jaxed,libxsmm,cache attack,timing attack,flush reload,security,vulnerability
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+
+Reverse engineering ML models to steal hidden model parameters using software cache timing attacks
+
+
