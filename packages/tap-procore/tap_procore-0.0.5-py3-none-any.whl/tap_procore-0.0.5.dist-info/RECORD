@@ -1,0 +1,9 @@
+tap_procore/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tap_procore/streams.py,sha256=vb7zBQdE3cSR-PhTccSqmThurbvoLh3BNa-i9AMMv5s,12535
+tap_procore/tap.py,sha256=6pZwEZxJfeC9PscgXjckSe6TYtJfbxGUKBeC6Wd8JtY,1348
+tap_procore/tests/__init__.py,sha256=68otmqvLN1ci61kD-WtMbPgSnS7A7blouiC6zG3QfGA,34
+tap_procore/tests/test_core.py,sha256=emcZMMfq2oUBBiEKq92SZ7Zu04WkdyRf4fQxnSXkOoY,954
+tap_procore-0.0.5.dist-info/entry_points.txt,sha256=78U5IRnVgMhL1TpC0WLsyhofBT8DqGR2gfdRG1okots,51
+tap_procore-0.0.5.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+tap_procore-0.0.5.dist-info/METADATA,sha256=fob5Ce4g63m3ByUajNlZQLwJCioyRZ0uHmWQt8_fqEI,528
+tap_procore-0.0.5.dist-info/RECORD,,

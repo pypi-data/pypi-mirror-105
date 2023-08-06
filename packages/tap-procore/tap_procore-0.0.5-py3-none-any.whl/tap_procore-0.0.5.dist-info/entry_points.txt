@@ -1,0 +1,3 @@
+[console_scripts]
+tap-procore=tap_procore.tap:cli
+
