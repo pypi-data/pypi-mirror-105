@@ -1,0 +1,9 @@
+LICENCE.txt
+MANIFEST.in
+README.txt
+setup.py
+Firstlibrary/__init__.py
+Firstlibrary.egg-info/PKG-INFO
+Firstlibrary.egg-info/SOURCES.txt
+Firstlibrary.egg-info/dependency_links.txt
+Firstlibrary.egg-info/top_level.txt
