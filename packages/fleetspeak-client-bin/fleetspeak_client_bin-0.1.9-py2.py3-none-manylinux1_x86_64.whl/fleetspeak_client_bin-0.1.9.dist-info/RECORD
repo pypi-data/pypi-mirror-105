@@ -1,0 +1,9 @@
+fleetspeak_client_bin-0.1.9.data/data/fleetspeak-client-bin/etc/fleetspeak-client/communicator.txt,sha256=qjPIQMHBILJBUSnU1IiOB22nOg90wnyldwpp1-N1vf0,274
+fleetspeak_client_bin-0.1.9.data/data/fleetspeak-client-bin/lib/systemd/system/fleetspeak-client.service,sha256=JI6Wvq-VuLNviOQCtxtgHX5F5mwM03xMl-UfRtRy6yo,305
+fleetspeak_client_bin-0.1.9.data/data/fleetspeak-client-bin/usr/bin/fleetspeak-client,sha256=BZBxGkamC3BoT9KDwCQe86RxIcimNhNtg5Fa2LA3aXo,8630776
+fleetspeak_client_bin-0.1.9.data/data/fleetspeak-client-bin/usr/share/doc/fleetspeak-client/changelog.gz,sha256=T9JGiKwhog5lubAnQ1Zvw9tyr4cLgJpj9fhCCqExgOw,182
+fleetspeak_client_bin-0.1.9.data/data/fleetspeak-client-bin/usr/share/doc/fleetspeak-client/copyright,sha256=9f4DTrapa6xiVqlZS5WL491emgcYZ3vnJOKHxSC9nWI,257
+fleetspeak_client_bin-0.1.9.dist-info/METADATA,sha256=t2c-H35nwhi_Bsmz2D7sLoN5jhr0J-mRfV-Kh_-COX4,185
+fleetspeak_client_bin-0.1.9.dist-info/WHEEL,sha256=VMoSlSroxoo4dSbUY18gwi9a2KbQjUMv-f1Pn4D4k-g,139
+fleetspeak_client_bin-0.1.9.dist-info/top_level.txt,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+fleetspeak_client_bin-0.1.9.dist-info/RECORD,,
