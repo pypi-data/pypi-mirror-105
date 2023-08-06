@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+fructose/__init__.py
+fructose/core.py
+fructose/main.py
+fructose.egg-info/PKG-INFO
+fructose.egg-info/SOURCES.txt
+fructose.egg-info/dependency_links.txt
+fructose.egg-info/entry_points.txt
+fructose.egg-info/not-zip-safe
+fructose.egg-info/requires.txt
+fructose.egg-info/top_level.txt

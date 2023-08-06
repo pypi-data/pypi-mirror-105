@@ -1,0 +1,3 @@
+[console_scripts]
+fructose = fructose.main:main
+
