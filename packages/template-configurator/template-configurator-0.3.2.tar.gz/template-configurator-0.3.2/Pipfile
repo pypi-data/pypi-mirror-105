@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+hbreader = "*"
+template-config-model = "==0.0.3"
+jsonasobj2 = "*"
+
+[dev-packages]
+
+[pipenv]
+allow_prereleases = true
