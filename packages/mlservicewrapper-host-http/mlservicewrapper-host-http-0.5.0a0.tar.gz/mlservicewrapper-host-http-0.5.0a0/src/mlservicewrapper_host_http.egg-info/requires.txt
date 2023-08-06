@@ -1,0 +1,6 @@
+mlservicewrapper-core<0.8,>=0.7.0a0
+starlette==0.13.7
+uvicorn
+gunicorn
+httptools
+uvloop
