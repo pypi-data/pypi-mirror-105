@@ -1,0 +1,7 @@
+README.md
+setup.py
+monitoringDash.egg-info/PKG-INFO
+monitoringDash.egg-info/SOURCES.txt
+monitoringDash.egg-info/dependency_links.txt
+monitoringDash.egg-info/requires.txt
+monitoringDash.egg-info/top_level.txt
