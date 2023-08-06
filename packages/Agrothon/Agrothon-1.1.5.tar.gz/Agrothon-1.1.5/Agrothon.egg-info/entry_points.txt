@@ -1,0 +1,4 @@
+[console_scripts]
+agroserver = agrothon.API:Agrothon
+agrothon = agrothon.__main__:main
+
