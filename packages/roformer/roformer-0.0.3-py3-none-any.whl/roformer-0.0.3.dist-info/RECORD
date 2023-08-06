@@ -1,0 +1,9 @@
+roformer/__init__.py,sha256=tDpXidKI5cuG-LrGb11-KZ_c7T7O9ZxnfCcRWRxme7I,2769
+roformer/configuration_roformer.py,sha256=Jy0ENbxIYh5OjnqhJlU4UV8i85Y7CiyHBLBGisMm3a0,5790
+roformer/modeling_roformer.py,sha256=XqKheQ7P899EDUfymnrVb3teDeH5SfEawcbUx_LpOs8,82391
+roformer/modeling_tf_roformer.py,sha256=s2EQp4-b_6IZ2n4VlWh0YXHTKuhGtD6Xy4kvh8WDw14,88499
+roformer/tokenization_roformer.py,sha256=FtznIKrNZz72rPfHMJh75pDrSkAUMEWl7c0nKNq6W6w,3051
+roformer-0.0.3.dist-info/METADATA,sha256=Pj534QTkk3WNh1fjQHfL42zyJvzBslI5Wayweu-kKew,319
+roformer-0.0.3.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+roformer-0.0.3.dist-info/top_level.txt,sha256=bBdyU-iR8LnKFZeBcjcyGdbvySiNondlNtCxPtff0Cc,9
+roformer-0.0.3.dist-info/RECORD,,
