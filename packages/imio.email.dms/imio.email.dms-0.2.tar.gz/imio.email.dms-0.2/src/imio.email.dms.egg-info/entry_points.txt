@@ -1,0 +1,4 @@
+
+    [console_scripts]
+    process_mails = imio.email.dms.main:process_mails
+    
