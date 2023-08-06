@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: labgrid
+Version: 0.3.2
+Summary: labgrid: lab hardware and software control layer
+Home-page: https://github.com/labgrid-project
+Author: Rouven Czerwinski and Jan Luebbe
+Author-email: entwicklung@pengutronix.de
+License: LGPL-2.1
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Topic :: Software Development :: Testing
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.5
+Provides-Extra: onewire
+Provides-Extra: snmp
+Provides-Extra: modbus
+Provides-Extra: graph
+Provides-Extra: docker
+Provides-Extra: crossbar
+Provides-Extra: xena
