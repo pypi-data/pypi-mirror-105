@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: ethermine-cli
+Version: 1.1.0
+Summary: A command-line tool for monitoring the status on ethermin.
+Home-page: https://github.com/KohakuBlueleaf/ethermine_cli
+Author: BlueLeaf
+Author-email: apolloyeh0123@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: requests
+
+UNKNOWN
+
+
