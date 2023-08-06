@@ -1,0 +1,10 @@
+apread/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+apread/__main__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+apread/apreader.py,sha256=FcQYVDDSUI40nzpWvsEVezZHXZysRod2-oNilejQJag,4896
+apread/binaryReader.py,sha256=2lAdJzBck5btYqxp9vZDAi_BF5bx_ORBHmtl4-KsU7c,1811
+apread/channel.py,sha256=W2ADWj_CY1SJ3g3MknabCniZmebOC-kcQ7jyJbwdYb0,3594
+apread-0.0.2.dist-info/LICENSE.txt,sha256=2X1X9dQDa0iS0pepc_Qb1xZXtXRRvsGQACf0sXeaa8w,1057
+apread-0.0.2.dist-info/METADATA,sha256=3v9_GMCXFbz4MvVMKQL0fvpRpOGh5MOyyA8u7GDdfx0,1652
+apread-0.0.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+apread-0.0.2.dist-info/top_level.txt,sha256=-FfQeOp_rxYOf7l-zgt818nbxLgYaeTyNH0mW-IDx9Y,7
+apread-0.0.2.dist-info/RECORD,,
