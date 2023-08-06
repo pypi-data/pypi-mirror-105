@@ -1,0 +1,17 @@
+mopidy_advanced_scrobbler/__init__.py,sha256=WnS1SKCqyq8uolOgjsuiPb4FeS_ywqfR-F4H9QuBg3w,3426
+mopidy_advanced_scrobbler/_config.py,sha256=8-bNbQPrI-wXNlZskvieq9ZSEqkOnd9J4d7zPewxF-g,758
+mopidy_advanced_scrobbler/_service.py,sha256=l3bKFYoEbLbL9xvbiq1tOaOxOwWlAIt4iZk_MPgx9pc,2955
+mopidy_advanced_scrobbler/db.py,sha256=Slk3KHzotI_U36RqaA3u3yzEuLx61hLpOXJRAHObsPE,16165
+mopidy_advanced_scrobbler/ext.conf,sha256=yf8dw0HA2wmMLGCt7xXM5PeWVHZVgD8jt9B0BdYmtCk,151
+mopidy_advanced_scrobbler/frontend.py,sha256=U8IUZT8YmdIGhMdmP0sRmKFAJqHoDibTd_ZNVTYu9f8,7011
+mopidy_advanced_scrobbler/models.py,sha256=zlJN82g_3K0QijCjkN1u3JBrQflYYjJqkd-o_8uEnRs,4716
+mopidy_advanced_scrobbler/network.py,sha256=vqRqlyPxPFnmQNq5thtq2r7naU2mKouuIRz_0q_GeOE,3501
+mopidy_advanced_scrobbler/schema.py,sha256=XwxfHxmT47_YqTmjL43FPDiFN-GEAb3-m0ORocBl1t4,2044
+mopidy_advanced_scrobbler/web.py,sha256=oWvi7iW9TtG_wtsh2pKx53_mKeqxoWCxBGmHEq4P6k0,24342
+mopidy_advanced_scrobbler/sql/schema.sql,sha256=euz1eF2K_D8ftCZF77W3EW8cCmzoFvYd3zL90uTHd2U,660
+Mopidy_Advanced_Scrobbler-1.0.0.dist-info/LICENSE,sha256=z8d0m5b2O9McPEK1xHG_dWgUBT6EfBDz6wA0F7xSPTA,11358
+Mopidy_Advanced_Scrobbler-1.0.0.dist-info/METADATA,sha256=SBRKo-1qRW4z6mZamVqML3blFa_SrvvTVKjuv3KjkSw,6715
+Mopidy_Advanced_Scrobbler-1.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+Mopidy_Advanced_Scrobbler-1.0.0.dist-info/entry_points.txt,sha256=8w0DIZkEzZRJbJDRq3v6mXmvVd9HO4G7GypocbS26EM,71
+Mopidy_Advanced_Scrobbler-1.0.0.dist-info/top_level.txt,sha256=KbitEkP3dA_jLgJraXEMnEXhZwA6TW4QPtSJN_11FOk,26
+Mopidy_Advanced_Scrobbler-1.0.0.dist-info/RECORD,,
