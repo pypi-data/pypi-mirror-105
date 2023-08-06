@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: k-mxt-w3
+Version: 1.0.1
+Summary: k-mxt and k-mxt-w clustering algorithms
+Home-page: https://github.com/anstepanova/k_mxt_w
+Author: Anastasia Stepanova
+Author-email: stacey.stepanova@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
