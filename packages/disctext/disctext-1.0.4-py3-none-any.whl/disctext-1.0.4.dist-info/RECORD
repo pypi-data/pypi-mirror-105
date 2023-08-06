@@ -1,0 +1,12 @@
+disctext/__init__.py,sha256=NIdtXvsF1XZhhfXI7vGcaTsTuvLBsJTIMtZuGqW50q4,81
+disctext/client.py,sha256=PdUH70gk3hwkGfFp3ljfUXKnYhME7ldEvUtUSQ3qCIE,4440
+disctext/const.py,sha256=n83GzvX8hVSw9C1vAEV3VB5BEZ0sAfKlpKuglJh_HDs,214
+disctext/fonts.py,sha256=NNLIZfueyRmZwit4r_RVZiZW5MT1cKENUdXLrcPLGLc,2487
+disctext/syntax.py,sha256=NvQzB0vK5sAewOZM6jTKXMPto27aEq1y-10eo-s3Eng,711
+disctext/version.py,sha256=0NKy2-oPZLpUUldI6zgYej7s7mtdnro2gD0fUkwrwV8,86
+disctext/video.py,sha256=8-mbfHTWODvAu0tyVPh949pE_pebripw8PnjcjdSelY,6447
+disctext-1.0.4.dist-info/LICENSE.txt,sha256=hBddMEw0NSo58kGBdbfYnDcJBkIBeQerxXmaUYT9fug,1086
+disctext-1.0.4.dist-info/METADATA,sha256=rpI-WiAg4Y6rZoIGI-ktSMFBq9W89RtZNezxyzrcUsM,379
+disctext-1.0.4.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+disctext-1.0.4.dist-info/top_level.txt,sha256=WRJZuv4UIRPAymiWeUcsOf3cTRvTFvwINHlaQ_vleJc,9
+disctext-1.0.4.dist-info/RECORD,,
