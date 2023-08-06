@@ -1,0 +1,156 @@
+Metadata-Version: 2.1
+Name: DiscordSigning
+Version: 1.1
+Summary: # DiscordSignAPI
+
+## Made by RebornCryptic\#2004
+#### For the new and stressed coders who are seeking an easy Sign Bot Coding Experience
+###### This project is to reduce the unecessary lines required to iterate the emojis and roles and to keep your code nice, neat and organized all at once!
+###### To get started, run the pip command: `pip install -U DiscordSignAPI` and Follow the Documentation Below!
+#### Emojis
+`emojis.{team-name-here}`: This is how you will iterate the emojis throughout your code, you do not have to use `discord.utils.get(iterable)` to get the emojis your defining, which is the main concept of this package!
+### Team Names for Emojis:
+`emojis.ARI`
+
+`emojis.ARI`
+
+`emojis.ATL`
+
+`emojis.BAL`
+
+`emojis.BUF`
+
+`emojis.CAR`
+
+`emojis.CHI`
+
+`emojis.CIN`
+
+`emojis.CLE`
+
+`emojis.DAL`
+
+`emojis.DEN`
+
+`emojis.DET`
+
+`emojis.GB`
+
+`emojis.HOU`
+
+`emojis.IND`
+
+`emojis.JAX`
+
+`emojis.KC`
+
+`emojis.LAC`
+
+`emojis.LAR`
+
+`emojis.LV`
+
+`emojis.MIA`
+
+`emojis.MIN`
+
+`emojis.NE`
+
+`emojis.NO`
+
+`emojis.NYG`
+
+`emojis.NYJ`
+
+`emojis.PHI`
+
+`emojis.PIT`
+
+`emojis.SEA`
+
+`emojis.SF`
+
+`emojis.TB`
+
+`emojis.TEN`
+
+`emojis.WAS`
+
+#### Roles
+`roles.{team-name-here}`: This is how you will iterate the roles throughout your code, you do not have to use `discord.utils.get(iterable)` to get the roles your defining, again. The main concept of this package!
+### Team Names for Roles:
+`roles.ARI`
+
+`roles.ARI`
+
+`roles.ATL`
+
+`roles.BAL`
+
+`roles.BUF`
+
+`roles.CAR`
+
+`roles.CHI`
+
+`roles.CIN`
+
+`roles.CLE`
+
+`roles.DAL`
+
+`roles.DEN`
+
+`roles.DET`
+
+`roles.GB`
+
+`roles.HOU`
+
+`roles.IND`
+
+`roles.JAX`
+
+`roles.KC`
+
+`roles.LAC`
+
+`roles.LAR`
+
+`roles.LV`
+
+`roles.MIA`
+
+`roles.MIN`
+
+`roles.NE`
+
+`roles.NO`
+
+`roles.NYG`
+
+`roles.NYJ`
+
+`roles.PHI`
+
+`roles.PIT`
+
+`roles.SEA`
+
+`roles.SF`
+
+`roles.TB`
+
+`roles.TEN`
+
+`roles.WAS`
+Home-page: UNKNOWN
+Author: auguspy
+Author-email: augustincampagna@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
