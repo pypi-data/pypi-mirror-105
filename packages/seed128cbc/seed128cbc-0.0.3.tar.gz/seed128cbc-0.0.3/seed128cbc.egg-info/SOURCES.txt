@@ -1,0 +1,5 @@
+setup.py
+seed128cbc.egg-info/PKG-INFO
+seed128cbc.egg-info/SOURCES.txt
+seed128cbc.egg-info/dependency_links.txt
+seed128cbc.egg-info/top_level.txt
