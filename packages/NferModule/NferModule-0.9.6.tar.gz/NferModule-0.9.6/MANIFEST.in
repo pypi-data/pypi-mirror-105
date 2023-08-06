@@ -1,0 +1,9 @@
+recursive-include python/nfer/www *
+recursive-include python/nfer/static *
+prune .idea
+prune .settings
+prune examples
+prune doc
+prune R
+prune test
+exclude .cproject .project Makefile .gitignore README.md
