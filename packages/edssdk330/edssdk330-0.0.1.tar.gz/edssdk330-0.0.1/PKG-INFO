@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: edssdk330
+Version: 0.0.1
+Summary: eds sdk
+Home-page: http://hj.me
+Author: hj
+Author-email: 1599712264@qq.com
+License: UNKNOWN
+Description: eds sdk for python
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
