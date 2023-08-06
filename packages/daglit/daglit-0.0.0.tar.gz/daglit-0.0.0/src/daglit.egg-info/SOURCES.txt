@@ -1,0 +1,7 @@
+README.md
+setup.py
+src/daglit.egg-info/PKG-INFO
+src/daglit.egg-info/SOURCES.txt
+src/daglit.egg-info/dependency_links.txt
+src/daglit.egg-info/requires.txt
+src/daglit.egg-info/top_level.txt
