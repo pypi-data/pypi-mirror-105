@@ -1,0 +1,8 @@
+[console_scripts]
+skepticoin-balance = skepticoin.scripts.balance:main
+skepticoin-mine = skepticoin.scripts.mine:main
+skepticoin-receive = skepticoin.scripts.receive:main
+skepticoin-repl = skepticoin.scripts.repl:main
+skepticoin-send = skepticoin.scripts.send:main
+skepticoin-version = skepticoin.scripts.version:main
+
