@@ -1,0 +1,17 @@
+README.md
+setup.cfg
+setup.py
+src/SciFiPi/FilterBuilder.py
+src/SciFiPi/PreFilterBuilder.py
+src/SciFiPi/SciFiPi.py
+src/SciFiPi/__init__.py
+src/SciFiPi.egg-info/PKG-INFO
+src/SciFiPi.egg-info/SOURCES.txt
+src/SciFiPi.egg-info/dependency_links.txt
+src/SciFiPi.egg-info/requires.txt
+src/SciFiPi.egg-info/top_level.txt
+src/SciFiPi/filters/DecimalShiftFilter.py
+src/SciFiPi/filters/Filter.py
+src/SciFiPi/filters/LagFilter.py
+src/SciFiPi/filters/NoiseFilter.py
+src/SciFiPi/filters/__init__.py
