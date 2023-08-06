@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+pyltx/__init__.py
+pyltx/figure.py
+pyltx/math.py
+pyltx/table.py
+pyltx/text.py
+pyltx/utils.py
+pyltx.egg-info/PKG-INFO
+pyltx.egg-info/SOURCES.txt
+pyltx.egg-info/dependency_links.txt
+pyltx.egg-info/top_level.txt
