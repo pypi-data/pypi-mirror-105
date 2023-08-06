@@ -1,0 +1,8 @@
+zeebe_grpc/__init__.py,sha256=PPOoUPCBNFJcvGAimtcgrT_QG8KRxozcU9MVLJ2a7IU,45
+zeebe_grpc/gateway_pb2.py,sha256=JU2kX3U570zybjH4HJsXKZTF817xu2fN0k5xfIdmCwk,76973
+zeebe_grpc/gateway_pb2_grpc.py,sha256=My2gTaJOOvPfxBtRl5vQuukgIJV1l9Dj5iI5UF-p5Sw,27360
+zeebe_grpc-1.0.0.dist-info/LICENSE,sha256=2bm9uFabQZ3Ykb_SaSU_uUbAj2-htc6WJQmS_65qD00,1073
+zeebe_grpc-1.0.0.dist-info/METADATA,sha256=PFsgtNN464lrLS9GiJuBcZEjLrbwZZkWt41LOb4x45M,2919
+zeebe_grpc-1.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+zeebe_grpc-1.0.0.dist-info/top_level.txt,sha256=YvS-MYlf_0d7jM-Eef_-U5hne_z5KxZGfTiDY2RqhIQ,11
+zeebe_grpc-1.0.0.dist-info/RECORD,,
