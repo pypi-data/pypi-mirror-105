@@ -1,0 +1,83 @@
+from typing import Any
+
+import factory
+from factory.declarations import LazyAttribute
+from factory.django import DjangoModelFactory
+from factory.fuzzy import BaseFuzzyAttribute
+from wagtail.core import blocks
+from wagtail.core.models import Page
+from wagtail.images import get_image_model
+from wagtail_factories.blocks import ChooserBlockFactory
+
+from coop.utils.testdata import get_random_image
+
+Image = get_image_model()
+
+
+class FuzzyImage(BaseFuzzyAttribute):
+    def fuzz(self) -> Image:
+        return get_random_image()
+
+
+# Might be redundant, above works for images, why not pages?
+class FuzzyPageChooserFactory(ChooserBlockFactory):
+    page = LazyAttribute(lambda _: Page.objects.order_by('?').first())
+
+    @classmethod
+    def _build(cls, model_class, page):
+        return page
+
+    @classmethod
+    def _create(cls, model_class, page):
+        return page
+
+    class Meta:
+        model = blocks.PageChooserBlock
+
+
+class ListLengthBlockFactory(factory.SubFactory):
+    """
+    Returns an n list of generated blocks
+    Usage: ListLengthBlockFactory(SubblockFactory, length=10)
+    """
+
+    def __init__(self, factory, length=1, **kwargs):
+        self.length = length
+        super().__init__(factory, **kwargs)
+
+    def __call__(self, *args: Any, **kwds: Any) -> Any:
+        # TODO could be used with provided values then + (length - provided) generated appended
+        return self.evaluate(None, None, kwds)
+
+    def evaluate(self, instance, step, extra):
+        subfactory = self.get_factory()
+        ret_val = []
+        for _ in range(self.length):
+            # Very naive, assumes all default values
+            ret_val.append(subfactory())
+        return ret_val
+
+    class Meta:
+        model = blocks.ListBlock
+
+
+class OrderableFactory(DjangoModelFactory):
+    sort_order = factory.Sequence(lambda n: n)
+
+
+# https://github.com/wagtail/wagtail-factories/pull/25
+class RichTextBlockFactory(factory.Factory):
+    """
+    Usage: rich_text = RichTextBlockFactory(value=lpar(n(1, 3)))
+    """
+    @classmethod
+    def _build(cls, model_class, value=""):
+        block = model_class()
+        return block.to_python(value)
+
+    @classmethod
+    def _create(cls, model_class, *args, **kwargs):
+        return cls._build(model_class, *args, **kwargs)
+
+    class Meta:
+        model = blocks.RichTextBlock
