@@ -1,0 +1,9 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+algebraML.egg-info/PKG-INFO
+algebraML.egg-info/SOURCES.txt
+algebraML.egg-info/dependency_links.txt
+algebraML.egg-info/not-zip-safe
+algebraML.egg-info/top_level.txt
