@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/mybot/__init__.py
+src/mybot.egg-info/PKG-INFO
+src/mybot.egg-info/SOURCES.txt
+src/mybot.egg-info/dependency_links.txt
+src/mybot.egg-info/top_level.txt
+src/mybot/bots/__init__.py
+src/mybot/plugins/__init__.py
