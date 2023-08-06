@@ -1,0 +1,5 @@
+gql
+pandas
+PyYAML
+requests
+aiohttp
