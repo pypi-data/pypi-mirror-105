@@ -1,0 +1,12 @@
+sphinxcontrib/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sphinxcontrib/autodoc_pydantic/__init__.py,sha256=xOxmvkro0YBNjynxAnyOlsXz0qW1lw2Ns4icJO30lCo,5000
+sphinxcontrib/autodoc_pydantic/autodoc.py,sha256=BrDzqY7p_tsSD9YubNeMkRvgt4ZWK3JS-gNnp47s2Oc,19083
+sphinxcontrib/autodoc_pydantic/composites.py,sha256=luISEyrFStROyLdgjzz7sbXuSieSMxyOBa0oBdjkxDI,10178
+sphinxcontrib/autodoc_pydantic/css/autodoc_pydantic.css,sha256=fsWmLo-2WhD6Ai6kHFTCVxVwwwqEuSE89byNPN7WOSM,121
+sphinxcontrib/autodoc_pydantic/directives.py,sha256=M0LDUhapnEtcijvT0iwwGiwTQov8sS75Sp0DXlOrQ68,5212
+sphinxcontrib/autodoc_pydantic/inspection.py,sha256=iiJCF8Nbi3NHtcIecnbBAEHdAVOVbOdpkdVeUOs4CRc,8933
+sphinxcontrib/autodoc_pydantic/utility.py,sha256=BonJ1PuxGjmUazFtTjEodt9zwxeymHSDWuQflWy9_8g,1172
+autodoc_pydantic-1.3.0.dist-info/LICENSE,sha256=5oyWiDGL7fHGfIM9F26NoqUgVsP3VEDEH73_f-oim_g,1071
+autodoc_pydantic-1.3.0.dist-info/WHEEL,sha256=SrtnPGVTMeYWttls9xnWA01eUhCZ3ufFdJUYb1J3r-U,83
+autodoc_pydantic-1.3.0.dist-info/METADATA,sha256=7uZPaWsvPTBRestqtnY_LRLLSOIU8YCXvX8Bgt4wrTk,4584
+autodoc_pydantic-1.3.0.dist-info/RECORD,,
