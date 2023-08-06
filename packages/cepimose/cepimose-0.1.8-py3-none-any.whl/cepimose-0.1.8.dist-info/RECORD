@@ -1,0 +1,9 @@
+cepimose/__init__.py,sha256=ZU2ATIROsYQ3NA4Nn1MWAKDhI3afo1q-x1M-Q_LlB9M,6323
+cepimose/data.py,sha256=W7UomiYrXdkBPt8kcFLVEDdAHCtlPn0Cg7etj8-B9g0,60225
+cepimose/enums.py,sha256=LQQ7X6m20MGniLB675wugVrWf4xe-Y1yDbjspvFCzWQ,1095
+cepimose/parser.py,sha256=v2Ev4wSuAwwwYPCUBofAMlT2T7P1pYy3gKTyQMIx82Q,12602
+cepimose/types.py,sha256=L23m64ciAuHUUqI0tWhw3lbChI95BnCq0sd56D8skrY,1388
+cepimose-0.1.8.dist-info/METADATA,sha256=8GMo56HTVkaamey5VF0KWfrty98JeBMn1m3JNPvhPuU,1937
+cepimose-0.1.8.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+cepimose-0.1.8.dist-info/top_level.txt,sha256=mvLpROsYuD_XP55VHhGMpjkgYLGZNKjFmZ17uNaRxLA,9
+cepimose-0.1.8.dist-info/RECORD,,
