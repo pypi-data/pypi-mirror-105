@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: imgproc
+Version: 0.0.2.1
+Summary: Small python image processing package compatible with Tensorflow/Pytorch.
+Home-page: https://github.com/hieupth/imgproc
+Author: Hieu Tr. Pham
+Author-email: hieupt.ai@gmail.com
+License: MIT
+Download-URL: https://github.com/hieupth/imgproc/archive/v_01.tar.gz
+Description: # Image Processing Package
+        Small python image processing package.
+        ## Install
+        This library can be installed via pip command:
+        ```
+        $ pip install imgproc
+        ```
+        Or install from source:
+        ```
+        $ git clone https://github.com/hieupth/imgproc
+        $ cd imgproc
+        $ python setup.py install
+        ```
+        ## License
+        [MIT License](https://github.com/hieupth/imgproc/blob/main/LICENSE). <br>
+        Copyright (c) 2021, [Hieu Pham](https://github.com/hieupth). All rights reserved.
+        
+Keywords: image processing
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
