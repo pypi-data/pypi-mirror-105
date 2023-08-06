@@ -1,0 +1,9 @@
+gqlcli/__init__.py,sha256=3wVEs2QD_7OcTlD97cZdCeizd2hUbJJ0GeIO8wQIjrk,22
+gqlcli/generator.py,sha256=DSK28ejqagQeoDTGhZV3BVZwlN3IWDiVrWP89Vu9fzk,7724
+gqlcli/main.py,sha256=4I6daqBJbx-LeweAhOyMkARqgf7IqDr6GK5btuR2nkQ,11397
+gqlcli/utils.py,sha256=w_0nDCOcCFRmLud3uFkzSk57_bXt8DQIupiH08i_eZY,981
+gqlcli-0.3.0.dist-info/entry_points.txt,sha256=-2J5eEtot3CN_zTx23lOwjq6C6EkvO4-nil6wDlOvOs,43
+gqlcli-0.3.0.dist-info/LICENSE,sha256=-2kU7AiBZZWHQREWNJjjZTQDMa-3yOv8t5ffhekSX-k,1061
+gqlcli-0.3.0.dist-info/WHEEL,sha256=SrtnPGVTMeYWttls9xnWA01eUhCZ3ufFdJUYb1J3r-U,83
+gqlcli-0.3.0.dist-info/METADATA,sha256=yRiJeBxdYUIEyGkMC2_SsaytDamykAip90UpWYysuYU,553
+gqlcli-0.3.0.dist-info/RECORD,,
