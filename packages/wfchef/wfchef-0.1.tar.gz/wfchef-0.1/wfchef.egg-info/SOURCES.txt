@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+wfchef/__init__.py
+wfchef/chef.py
+wfchef/duplicate.py
+wfchef/find_microstructures.py
+wfchef/utils.py
+wfchef.egg-info/PKG-INFO
+wfchef.egg-info/SOURCES.txt
+wfchef.egg-info/dependency_links.txt
+wfchef.egg-info/entry_points.txt
+wfchef.egg-info/requires.txt
+wfchef.egg-info/top_level.txt
