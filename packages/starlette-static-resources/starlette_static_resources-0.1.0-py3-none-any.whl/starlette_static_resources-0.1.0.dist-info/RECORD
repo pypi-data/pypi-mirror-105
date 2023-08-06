@@ -1,0 +1,5 @@
+starlette_static_resources/__init__.py,sha256=AXxoxkQqG3L3X7POiIS9f4heR-mgbOBZ6PW4RrBNSdk,123
+starlette_static_resources/staticresources.py,sha256=cWb8V_A670t9kbiiE3kLfJ-4c04u7OrcTHPZ5RkfyJc,4123
+starlette_static_resources-0.1.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+starlette_static_resources-0.1.0.dist-info/METADATA,sha256=TGB6SY23HjX3jm8IgQ_ke-n7ZAchyHAUmT58bTXK0M4,565
+starlette_static_resources-0.1.0.dist-info/RECORD,,
