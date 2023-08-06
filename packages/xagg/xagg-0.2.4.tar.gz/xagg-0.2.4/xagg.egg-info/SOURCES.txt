@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+xagg/__init__.py
+xagg/_version.py
+xagg/aux.py
+xagg/classes.py
+xagg/core.py
+xagg/export.py
+xagg/wrappers.py
+xagg.egg-info/PKG-INFO
+xagg.egg-info/SOURCES.txt
+xagg.egg-info/dependency_links.txt
+xagg.egg-info/not-zip-safe
+xagg.egg-info/requires.txt
+xagg.egg-info/top_level.txt
