@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: pyudmi
+Version: 0.0.5
+Summary: Helper classes for working with udmi
+Home-page: https://github.com/faucetsdn/udmi/contrib/pyudmi
+Author: Paul Harter
+Author-email: paul@glowinthedark.co.uk
+License: LICENSE
+Description: UNKNOWN
+Platform: UNKNOWN
