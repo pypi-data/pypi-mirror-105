@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    .item {
+        display: flex;
+        height: 26px;    
+    }
+    .prefix-right {
+        margin-top: 13px;
+        width: 15px;
+        border-top: 1px solid;
+    }
+    .text-item {
+        margin-left: 5px;
+        display: flex;
+        align-items: center;
+    }
+    .container-main {
+        position: relative;
+    }
+    .container-folder-innder {
+        margin-left: 30px;
+    }
+    .prefix-line {
+        position: absolute;
+        border-left: 1px solid;
+        height: 50%;
+    }
+
+    .container-folder-collap {
+        display: none;
+        overflow: hidden;
+    }
+    .collapsible {
+        cursor: pointer;
+    }
+    .container-collap {
+        position: relative;
+        border-left: 1px solid;
+    }
+    .container-collap-last {
+        position: relative;
+    }
+    .container-item {
+        position: relative;
+        border-left: 1px solid;
+    }
+    .container-item-last {
+        position: relative;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div id="main-id"></div>
+{% endblock %}
+{% block script %}
+<script>
+    const container_collap = (sub_folder) => {
+        return `
+            <div class="container-collap container-folder-collap">
+                <div class="container-folder-innder">
+                    ${sub_folder}
+                </div>
+            </div>
+        `
+    }
+    const container_collap_last = (sub_folder) => {
+        return `
+            <div class="container-collap-last container-folder-collap">
+                <div class="container-folder-innder">
+                    ${sub_folder}
+                </div>
+            </div>
+        `
+    }
+    const container_item = (item, isCollap=false) => {
+        return `
+            <div class="container-item ${isCollap && "collapsible"}">
+                <div class="item">
+                    <div class="prefix-right"></div>
+                    <div class="text-item">
+                        <span class="container-text">${item} ${isCollap ? "/" : ""}</span>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+    const container_item_last = (file, isCollap=false) => {
+        return `
+            <div class="container-item-last ${isCollap && "collapsible"}">
+                <div class="prefix-line"></div>
+                <div class="item">
+                    <div class="prefix-right"></div>
+                    <div class="text-item">
+                        <span class="container-text">${file} ${isCollap ? "/" : ""}</span>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+
+    const recusive_gen_html = (folder) => {
+        let html = ''
+        let last_key = Object.keys(folder)[Object.keys(folder).length-1];
+        for (const [key, value] of Object.entries(folder)) {
+            if (typeof(value) == "string"){
+                let html_item_temp = ''
+                if (last_key == key){
+                    html_item_temp = container_item_last(key)
+                }else{
+                    html_item_temp = container_item(key)
+                }
+                html = html + html_item_temp
+            }else if (typeof(value) == "object"){
+                let result = recusive_gen_html(value)
+                let wrapper_collap_tmp = ''
+                let html_item_temp = ''
+                if (last_key == key){
+                    html_item_temp = container_item_last(key, true)
+                    wrapper_collap_tmp = container_collap_last(result)
+                }else{
+                    html_item_temp = container_item(key, true)
+                    wrapper_collap_tmp = container_collap(result)
+                }
+                html = html + html_item_temp + wrapper_collap_tmp
+            }
+        }
+        return html
+    }
+
+    $(function() {
+        init()
+        after()
+    });
+    function init(){
+        let folder = {{ folder_tree|safe }};
+        $( "#main-id" ).html(function() {
+            let result = recusive_gen_html(folder)
+            let html = `<div class="container-main"><div style="margin-bottom: 10px;">Media /</div>${result}</div>`
+            console.log(html)
+            return html
+        });
+    }
+
+    function after(){
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    }
+</script>
+{% endblock script %}
