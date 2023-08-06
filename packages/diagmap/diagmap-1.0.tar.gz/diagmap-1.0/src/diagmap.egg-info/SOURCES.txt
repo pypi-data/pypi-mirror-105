@@ -1,0 +1,8 @@
+LICENSE.txt
+setup.py
+src/diagmap.py
+src/diagmap.egg-info/PKG-INFO
+src/diagmap.egg-info/SOURCES.txt
+src/diagmap.egg-info/dependency_links.txt
+src/diagmap.egg-info/requires.txt
+src/diagmap.egg-info/top_level.txt
