@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: somfy-rts
+Version: 1.1.0
+Summary: Python API bindings for the Somfy RS485 RTS Transmitter
+Home-page: https://github.com/bradkeifer/somfy-rts
+Author: Brad Keifer
+Author-email: bradkeifer@icloud.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/bradkeifer/somfy-rts/issues
+Description: # somfy_rts
+        
+        TCP API bindings for the Somfy RTS protocol
+        
+        ## Installation
+        
+        Run the following to install:
+        
+        ```python
+        pip install somfy-rts
+        ```
+        
+        Installation in a virtual environment is recommended.
+        
+        ## Documentation
+        
+        Further documentation can be found on readthedocs [here](https://somfy-rts.readthedocs.io).
+        
+        ## Todo
+        
+        * Support for serial connections is not yet implemented.
+        * Support for dimming and tilting is not yet implemented.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
