@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: GooglePatents
+Version: 0.0.3
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: requests
+Requires-Dist: pandas
+Requires-Dist: beautifulsoup4
+Requires-Dist: lxml
+
+This is the Google Patents API.
+
+
