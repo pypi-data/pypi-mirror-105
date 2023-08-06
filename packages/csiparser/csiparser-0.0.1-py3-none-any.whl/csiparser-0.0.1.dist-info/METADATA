@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: csiparser
+Version: 0.0.1
+Summary: A Python Package to Parse ESP32 Wi-Fi CSI Data
+Home-page: https://github.com/RikeshMMM/ESP32-CSI-Python-Parser
+Author: Rikesh Makwana
+Author-email: rikesh.makwana@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (~=1.19.5)
+Requires-Dist: pandas (~=1.2.3)
+Provides-Extra: dev
+Requires-Dist: pytest (>=3.7) ; extra == 'dev'
+
+# ESP32 Wi-Fi CSI Python Parser
+
+This is a Python parser for ESP32 Wi-Fi Channel State Information (CSI).
+
+**NOTE** This project uses [ESP CSI Toolkit](https://stevenmhernandez.github.io/ESP32-CSI-Tool/) created by Hernandez and Bulut.
+
+## Installation
+
+Run the following to install:
+
+```python
+pip install csiparser
+```
+
+## Usage
+
+```python
+import csiparser
+```
+
+
