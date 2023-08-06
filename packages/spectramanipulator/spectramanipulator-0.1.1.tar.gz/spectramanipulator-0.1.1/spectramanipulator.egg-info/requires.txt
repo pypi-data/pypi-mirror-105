@@ -1,0 +1,8 @@
+lmfit
+numpy
+scipy
+pyqtgraph>=0.12.1
+matplotlib
+pyqt5
+qtconsole>=5.1.0
+numba
