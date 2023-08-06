@@ -1,0 +1,5 @@
+pandoc_run_python/filter.py,sha256=XJ2egkehLP-OTEFXQJvHEvOmeSUcpFX6D4RPwbeKvXo,1345
+pandoc_run_python-0.1.9.dist-info/entry_points.txt,sha256=Hu7iB34WHBZXfZ7ZQd9VkIYLJyFv0mukjldsbZnsbaU,67
+pandoc_run_python-0.1.9.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+pandoc_run_python-0.1.9.dist-info/METADATA,sha256=iGwSLJj81orzfZTyNUtAPiHS36q81K5yCZIC1qGNn00,2378
+pandoc_run_python-0.1.9.dist-info/RECORD,,
