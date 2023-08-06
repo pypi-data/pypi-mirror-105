@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: TimeSeriesSimulator
+Version: 0.0.2
+Summary: TimeSeriesSimulation
+Home-page: UNKNOWN
+Author: Thomas Meli
+Author-email: <tpmeli@gmail.com>
+License: UNKNOWN
+Description: A Package for Agent Based Time Series Modeling
+Keywords: python,time series,simulator,agent
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
