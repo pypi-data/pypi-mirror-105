@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: xdem
+Version: 0.0.2
+Summary: Set of tools to manipulate Digital Elevation Models (DEMs) 
+Home-page: https://github.com/GlacioHack/xdem
+Author: The GlacioHack Team
+Author-email: john@doe.com
+License: BSD-3
+Description: UNKNOWN
+Platform: UNKNOWN
+Provides-Extra: rioxarray
+Provides-Extra: richdem
+Provides-Extra: pdal
+Provides-Extra: opencv
+Provides-Extra: pytransform3d
