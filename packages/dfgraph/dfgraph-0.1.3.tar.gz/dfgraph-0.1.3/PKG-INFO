@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: dfgraph
+Version: 0.1.3
+Summary: A simple directed graph based, non-typed, but flaggable database system.
+Home-page: https://github.com/willi-z/dfgraph
+Author: Willi Zschiebsch
+Author-email: willi.w.zschiebsch@web.de
+Maintainer: DigiFors Gmbh
+Maintainer-email: contact@palletsprojects.com
+License: BSD-3-Clause
+Project-URL: Source Code, https://github.com/willi-z/dfgraph/
+Project-URL: Issue Tracker, https://github.com/willi-z/dfgraph/issues/
+Description: # DFGraph
+        [![pip](https://img.shields.io/pypi/v/dfgraph.svg?maxAge=3600)](https://pypi.org/project/dfgraph/)
+        ![workflow](https://github.com/willi-z/dfgraph/actions/workflows/ci.yml/badge.svg?branch=master)
+        [![codecov](https://codecov.io/gh/willi-z/dfgraph/branch/master/graph/badge.svg?token=JVKPGLBT3J)](https://codecov.io/gh/willi-z/dfgraph)
+        
+        The `directed and flexible graph` is part of [DigiFors](https://digifors.de/) effort
+        to contribute to the analysing and detection of content and context dependent information.
+        'DFGraph' is a simple, but powerful graph based database library based on the `sqlalchemy` library.
+        Its main purpose is to store data from large datasets and allows manipulate, connect and detect content.
+        This allows for more flexible conversion and detection processes.  
+        
+        ## Installation
+        
+        `pip install dfgraph`
+        
+        ## Usage
+        
+        See the `examples/` files for some simple use-cases and implementations.
+        
+        ## Testing
+        till `pip 21.3`:
+        ```
+        pip install --use-feature=in-tree-build -e .
+        ```
+        `pip 21.3+`:
+        ```
+        pip install -e .
+        ```
+        
+        ```
+        coverage run --source=src -m pytest && coverage report -m
+        ```
+        
+        ## Usage
+        
+        `dfgraph` comes with two main classes: `Node` and `Relationship`.
+        It was designed to represent Data from Databases 
+        
+        ## Capabilities
+        
+        Legend:
+        
+        | Symbol | Meaning                              |
+        | ------ | ------------------------------------ |
+        | ✅     | finished                             |
+        | 🔜     | working on implementation            |
+        | 🟦     | planned                              |
+        
+        
+        | Capability                           | Status |
+        | ------------------------------------ | ------ |
+        | Nodes and Relations                  | ✅     |
+        | Graph                                | ✅     |
+        | Database Storage and Loading         | ✅     |
+        | Asynchronous Database Interaction    | 🔜     |
+        | Visualisation                        | 🔜     |
+        | Support for Context Detection        | 🔜     |
+        | Highperformance Queries              | 🟦    |
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
