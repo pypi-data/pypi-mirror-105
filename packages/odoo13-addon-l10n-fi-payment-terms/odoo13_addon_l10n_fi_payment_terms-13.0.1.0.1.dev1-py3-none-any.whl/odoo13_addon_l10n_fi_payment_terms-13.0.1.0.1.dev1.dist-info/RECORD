@@ -1,0 +1,13 @@
+odoo/addons/l10n_fi_payment_terms/README.rst,sha256=m-N1koMLWCO0_Tw2QZ79hMTtzYottPmVUrHIE-Lv6NQ,1256
+odoo/addons/l10n_fi_payment_terms/__init__.py,sha256=X9EJGOE2GtZbS0G82PtSXmWSZ_R8jEM0rlJTDliQjp4,21
+odoo/addons/l10n_fi_payment_terms/__manifest__.py,sha256=2DATqruR2bZBooqEkyqCTLcZyjYy47_dbZECggJqMIc,1410
+odoo/addons/l10n_fi_payment_terms/data/payment_terms_finnish.xml,sha256=yXnxqFZJdwE4SWvoEsff1LZiqqZPkLBmp04zgUNxe1I,4392
+odoo/addons/l10n_fi_payment_terms/i18n/fi.po,sha256=ZWy-cn12GHcKT1DX1zbKKEzJIopt0hwhCM8D6Ux58FU,3286
+odoo/addons/l10n_fi_payment_terms/i18n/l10n_fi_payment_terms.pot,sha256=rw7EqrL3nPfHz7FpWKhQ_ZVXr0eipOXY3SxIck_xqbo,2930
+odoo/addons/l10n_fi_payment_terms/models/__init__.py,sha256=IPQP6xtDuc1DgijlAtId3RxiePYosWYWArvRzdCpZfg,27
+odoo/addons/l10n_fi_payment_terms/models/payment_term.py,sha256=ANXBo_MmrYrWoXZ5Sek4aFHXtqiBq-NftOk77d-4krk,217
+odoo/addons/l10n_fi_payment_terms/static/description/icon.png,sha256=6xBPJauaFOF0KDHfHgQopSc28kKvxMaeoQFQWZtfZDo,9455
+odoo13_addon_l10n_fi_payment_terms-13.0.1.0.1.dev1.dist-info/METADATA,sha256=ecCuxsvdapTreHpWN3NK80rKR8gQ3DYeulvHH6L-XQ0,1789
+odoo13_addon_l10n_fi_payment_terms-13.0.1.0.1.dev1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+odoo13_addon_l10n_fi_payment_terms-13.0.1.0.1.dev1.dist-info/top_level.txt,sha256=qBj40grFkGOfDZ2WDSw3y1RnDlgG0u8rP8pvGNdbz4w,5
+odoo13_addon_l10n_fi_payment_terms-13.0.1.0.1.dev1.dist-info/RECORD,,
