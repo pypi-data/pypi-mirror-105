@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+aiogram_autodoc/__init__.py
+aiogram_autodoc/autodoc.py
+aiogram_autodoc/filters.py
+aiogram_autodoc/types.py
+aiogram_autodoc.egg-info/PKG-INFO
+aiogram_autodoc.egg-info/SOURCES.txt
+aiogram_autodoc.egg-info/dependency_links.txt
+aiogram_autodoc.egg-info/top_level.txt
