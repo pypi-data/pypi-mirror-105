@@ -1,0 +1,7 @@
+README.rst
+setup.py
+lucidmode.egg-info/PKG-INFO
+lucidmode.egg-info/SOURCES.txt
+lucidmode.egg-info/dependency_links.txt
+lucidmode.egg-info/requires.txt
+lucidmode.egg-info/top_level.txt
