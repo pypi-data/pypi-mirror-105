@@ -1,0 +1,16 @@
+analytics/__init__.py,sha256=xdwjWX5KrK8cRDWiwdql5MsRcLghWCyVS3Nz_cqQEts,1965
+analytics/client.py,sha256=WgxJTGApTlMLX2rq43o2kVn0umCNhqbJhn2BgwJIDp8,11029
+analytics/consumer.py,sha256=eHm7fLC3HKDTjnYFnah5qNteOCbiHK8MG3JsThfn7EA,4399
+analytics/request.py,sha256=1ciZj-Ztyk8fP4lMnbbhmhhQSQlOlTQD6kVc4a0FjEY,2351
+analytics/utils.py,sha256=VEGk4QbP9PRDStHOXySbuyB7Cf4BlVKHX53wjYuy8-s,2412
+analytics/version.py,sha256=0j2xhAWVVzQxRxbrIqu0lJFm2GYcKbr_1gjpY0ZCnw8,18
+analytics/test/__init__.py,sha256=vRM5PKR4RiTRWc1cCsCWVgQ0T_S3767WTx4qxbBgEu8,2607
+analytics/test/client.py,sha256=AlP6GIjomySdg5JHpn9S1YalPxlTfpe8VTCNtYupolg,13138
+analytics/test/consumer.py,sha256=fl9yVvy-uPaogFdO4sHlWKWd445ih5Sgqi36PUGeyGg,7140
+analytics/test/module.py,sha256=5O6cN_qYT8tIlFHl-ZSSokG4d3yuW1c9DALYkFnaKC0,1155
+analytics/test/request.py,sha256=hmUjFrxELiCJLFkIHIK8axyuupaCa0QqsspfKSCJy2Y,2022
+analytics/test/utils.py,sha256=4uQzvSYqKc-SCbXHOiLDmSTPY8CXX1Natxutsgx1NTc,2231
+analytics_python-1.3.1.dist-info/METADATA,sha256=tP01f5A2Hvqh8x-Zpmg7fKIvgc-LUmX9YzuGcaW4Otg,1800
+analytics_python-1.3.1.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+analytics_python-1.3.1.dist-info/top_level.txt,sha256=J824ymoATaEuiZbJyuuatP31I4h-RG58Zr-uf2_UjVo,10
+analytics_python-1.3.1.dist-info/RECORD,,
