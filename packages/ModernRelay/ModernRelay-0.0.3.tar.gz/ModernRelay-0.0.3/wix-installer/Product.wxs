@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+    <!-- Give product a unique ID per platform -->
+    <?define ProductCode = "{DE3B1CBB-BF7B-46BA-BCBB-4B1542C9B3BB}" ?>
+
+    <!-- Fixed upgrade Id -->
+    <?define UpgradeCode = "{8C197FE6-57DF-41FD-A0CD-84B5D3B97BDC}" ?>
+
+    <?define ProjectDir = "C:\Users\Brett\PycharmProjects\ModernRelay" ?>
+
+    <!-- Define main product -->
+    <Product Id="$(var.ProductCode)"
+             Name="!(loc.ProductName)"
+             Language="!(loc.Language)"
+             Version="0.0.3"
+             Manufacturer="!(loc.Company)"
+             UpgradeCode="$(var.UpgradeCode)">
+
+        <!-- Provide package details -->
+        <Package InstallerVersion="200"
+                 Compressed="yes"
+                 InstallScope="perMachine"
+                 Platform="x64"
+                 Manufacturer="!(loc.Company)"
+                 Description="!(loc.Description)"
+                 Keywords="!(loc.Keywords)"
+                 Comments="!(loc.Comments)"
+                 Languages="!(loc.Language)"
+        />
+
+        <!-- Downgrade error message -->
+        <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeErrorMessage)"/>
+
+        <!-- Include .cab file into .msi file -->
+        <MediaTemplate
+                EmbedCab="yes"
+        />
+
+        <!-- Define main app icon -->
+        <!--<Icon Id="icon.ico" SourceFile="$(var.ConsoleApp1.ProjectDir)\app.ico"/> -->
+
+        <!-- Use the icon.ico icon for this installer (shows up in Add/Remove programs) -->
+        <!-- <Property Id="ARPPRODUCTICON">icon.ico</Property> -->
+        <!-- Help/Support website (shows in the Add/Remove programs) -->
+        <Property Id="ARPURLINFOABOUT">https://github.com/blbuford</Property>
+        <Property Id="MS365APPID" Secure="yes"/>
+        <Property Id="MS365APPSECRET" Secure="yes"/>
+        <Property Id="MS365TENANTID" Secure="yes"/>
+        <!-- Create a basic UI for the installer -->
+        <UI Id="MyWixUI_Mondo">
+            <UIRef Id="WixUI_Mondo"/>
+            <UIRef Id="WixUI_ErrorProgressText"/>
+
+            <DialogRef Id="MS365Dlg"/>
+
+            <Publish Dialog="LicenseAgreementDlg" Control="Next" Event="NewDialog" Value="MS365Dlg"
+                     Order="3">LicenseAccepted = "1"
+            </Publish>
+            <Publish Dialog="SetupTypeDlg" Control="Back" Event="NewDialog" Value="MS365Dlg">1</Publish>
+        </UI>
+
+        <!-- Change the installer UI background images -->
+        <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\wix-installer\assets\License.rtf"/>
+        <!--<WixVariable Id="WixUIDialogBmp" Value="$(var.ProjectDir)\Assets\Background.bmp"/>
+        <WixVariable Id="WixUIBannerBmp" Value="$(var.ProjectDir)\Assets\Banner.bmp"/> -->
+
+        <!-- Define components, shortcuts, files etc... for installer -->
+        <Feature Id="ProductFeature" Title="!(loc.ProductName)" Level="1">
+
+            <ComponentGroupRef Id="ProductComponents"/>
+            <ComponentGroupRef Id="PublishedComponents"/>
+
+        </Feature>
+
+    </Product>
+
+</Wix>
