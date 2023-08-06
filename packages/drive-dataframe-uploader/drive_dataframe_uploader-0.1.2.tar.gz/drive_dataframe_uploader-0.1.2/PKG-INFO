@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: drive_dataframe_uploader
+Version: 0.1.2
+Summary: Package uses a dictionary to download, append or replace Google Sheets with a pandas dataframe.
+Home-page: https://github.com/luyandadhlamini
+Author: Luyanda Dhlamini
+Author-email: luyanda.dhlamini@gmail.com
+License: MIT
+Download-URL: https://github.com/luyandadhlamini/drive_dataframe_uploader/archive/refs/tags/v0.1.2.tar.gz
+Description: Package uses a dictionary to download, append or replace Google Sheets with a pandas dataframe.
+Keywords: Python,Google Drive,drive,API,wrapper,spreadsheet,sheets
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
