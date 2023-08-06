@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: zcc-utils
+Version: 1.0.8
+Summary: A uitls package
+Home-page: https://gitee.com/week233/zcc_utils
+Author: zcc
+Author-email: ccz411@outlook.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# zcc_utils
+
+#### 介绍
+
+自己积累的工具模块
+目前有:
+1. json字符串转自定义类型
+
+#### 安装说明
+
+1.  `pip install -i https://pypi.Python.org/simple/ zcc-utils --trusted-host pypi.Python.org`
+
