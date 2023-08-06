@@ -1,0 +1,7 @@
+sempler.LGANM
+=============
+
+blablabla
+
+.. autoclass:: causalicp.Result
+   :members:
