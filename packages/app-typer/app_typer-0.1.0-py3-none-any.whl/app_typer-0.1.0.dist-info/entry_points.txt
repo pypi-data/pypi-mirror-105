@@ -1,0 +1,3 @@
+[console_scripts]
+app-typer=app_typer.main:app
+
