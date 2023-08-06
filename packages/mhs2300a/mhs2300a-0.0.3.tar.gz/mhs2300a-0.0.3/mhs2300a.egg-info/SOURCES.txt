@@ -1,0 +1,7 @@
+setup.py
+mhs2300a.egg-info/PKG-INFO
+mhs2300a.egg-info/SOURCES.txt
+mhs2300a.egg-info/dependency_links.txt
+mhs2300a.egg-info/not-zip-safe
+mhs2300a.egg-info/requires.txt
+mhs2300a.egg-info/top_level.txt
