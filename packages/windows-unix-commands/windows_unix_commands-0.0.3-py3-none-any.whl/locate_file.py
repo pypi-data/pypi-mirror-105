@@ -1,0 +1,29 @@
+import sys
+import os
+from pathlib import Path
+import time
+
+def main(args=None):
+    """The main routine."""
+    if args is None:
+        file_name = sys.argv[1]
+    import time
+
+    t_end = time.monotonic() + 100
+    files_found = False
+    for root, dirs, files in os.walk("C:\\"):
+        if(files_found and time.monotonic() > t_end):
+            return 
+        for curr_file in files:
+            if curr_file ==  file_name:
+                print(str(Path(root) / curr_file))
+                files_found= True
+                break
+
+
+    # Do argument parsing here (eg. with argparse) and anything else
+    # you want your project to do. Return values are exit codes.
+
+
+if __name__ == "__main__":
+    sys.exit(main())
