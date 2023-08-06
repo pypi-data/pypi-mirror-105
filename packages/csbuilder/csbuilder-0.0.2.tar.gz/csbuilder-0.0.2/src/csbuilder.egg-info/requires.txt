@@ -1,0 +1,3 @@
+hks_pynetwork>=0.0.4
+hks_pylib>=0.0.7
+hkserror>=0.0.2
