@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: bciavm
+Version: 1.21.1
+Summary: bciAVM is a machine learning pipeline used to predict property prices.
+Home-page: https://github.com/gcode-ai/bciavm
+Author: Mike Casale | Blockchain Climate Institute
+Author-email: mike.casale@blockchainclimate.org
+License: UNKNOWN
+Download-URL: https://github.com/user/reponame/archive/v_01.tar.gz
+Description: #bciavm
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
