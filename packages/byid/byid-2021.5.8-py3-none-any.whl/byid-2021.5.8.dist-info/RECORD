@@ -1,0 +1,11 @@
+byid/__init__.py,sha256=YJQFvVwTEKA3irIVJlEC4S7cNmg8WSJJezU4rC6QNO8,38
+byid/utils.py,sha256=ZYqmT4VtgK1a51GdzKm6TGnZQ_dKoawsM63THVGZDD0,2364
+byid/doi/__init__.py,sha256=uiRlnmaOQXtmAGGQJyKvowbVbDMMr0Fw-iA-uDkDjvg,22
+byid/doi/__main__.py,sha256=GDRRAMAFIWbW9yset2351OA8X5B28sp2FAK6hi01LYk,752
+byid/doi/service.py,sha256=U9ksip0VY-OOo_uexS5qx5-3TtBostmQvjfRaBagU8k,8269
+byid-2021.5.8.dist-info/LICENSE,sha256=Lf_uvsUr42urIjZiwRhphSQDjG5sXJ6rxFCI3aj8PgQ,1080
+byid-2021.5.8.dist-info/METADATA,sha256=hEwf21aBOW_bt0KCLxv65PKSrKFPXkwuC73x3gH0F2Y,732
+byid-2021.5.8.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+byid-2021.5.8.dist-info/entry_points.txt,sha256=0eNNBipM8lXgaiTOWWVI768fpNdbS4Ic3AeHLHM72y4,83
+byid-2021.5.8.dist-info/top_level.txt,sha256=hz5hmmNcDZcuUSFCaqs_ISKA-MmpYNAgiHZMObYeleA,5
+byid-2021.5.8.dist-info/RECORD,,
