@@ -1,0 +1,13 @@
+biodatasets/__init__.py,sha256=4tp6fft8nMaHeIf76Hev7cQgjGvxbBKgXEQtytci23k,548
+biodatasets/dataset.py,sha256=sK1e7Lu4yTGbP4tZoYLqb-QlyDQiiEIrpmRYbgyVewU,5640
+biodatasets/version.py,sha256=vu_LccLlmoyQR0cVgtNnwxsHCW5OZPM8ynpF_MLqapI,18
+biodatasets/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+biodatasets/utils/google_bucket.py,sha256=KcZjrxNseCT-6yde2ycrxsrhdSaGgzxU49_mRF2k8io,4484
+biodatasets/utils/logger.py,sha256=arcbihCF2PUV656-q2zH3qy50iwrzPGn2_I4nhKDKI8,1157
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_dataset.py,sha256=gk1wF6fcpoc45Q3nSHIMZlOBm9qioYw2BCoYHRcWh4U,2028
+bio_datasets-0.0.4.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+bio_datasets-0.0.4.dist-info/METADATA,sha256=7fyzHiA2Mn-iNSGc4dHByyTuvs2pyI1AweQfO8C8hQk,2379
+bio_datasets-0.0.4.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+bio_datasets-0.0.4.dist-info/top_level.txt,sha256=l3bPSiKIubvFJCXUhsTB_kZGaEqJ_LljKhi8nABvqHg,18
+bio_datasets-0.0.4.dist-info/RECORD,,
