@@ -1,0 +1,11 @@
+mapfmclient/__init__.py,sha256=L_HwTL29rG3nbwyEMJrngh56VWpGd4xnx_x1zj3CQWM,187
+mapfmclient/functime.py,sha256=Enwj5BuhVTSRPq_p1u4Gs9nCqu2OmK-GSbLwC3T_ZGA,165
+mapfmclient/mapfbenchmarker.py,sha256=HBCNctvgfRzkHa7PQ_YwJ6RtWcJbaXjT9dhNjkF2VMI,9678
+mapfmclient/problem.py,sha256=2nCkF1NhERXOkMVa-3EYPQ2jKZWIGPW_zMajX_n4h68,2409
+mapfmclient/solution.py,sha256=fQGqQ0TC-eFWcUOOvzUnsYx3ZXMZJNhQl_fOQYu4a0E,994
+mapfmclient/status.py,sha256=zMz3MlbVCQZ0B10MLXdv2oHPvkB8mRSHkauNEzj6G64,162
+mapfmclient-0.1.0.dist-info/LICENSE,sha256=3CRGbqSG22UMlMnvqkOW6bKHOoU2KXksFFSfobEE-zo,1078
+mapfmclient-0.1.0.dist-info/METADATA,sha256=xTSRUo_CZ1ZmwZ7MZ5vzDDMNlOstk1dtx2eWxLTHxgU,5583
+mapfmclient-0.1.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+mapfmclient-0.1.0.dist-info/top_level.txt,sha256=MHVtqiV1tHLyKfDuS8QkHiLF_iCa2ObG02hALPuQvCM,12
+mapfmclient-0.1.0.dist-info/RECORD,,
