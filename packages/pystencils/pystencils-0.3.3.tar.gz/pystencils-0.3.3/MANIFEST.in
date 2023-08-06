@@ -1,0 +1,7 @@
+include README.md
+include COPYING.txt
+include RELEASE-VERSION
+global-include *.pyx
+global-exclude boundaries/createindexlistcython.c
+include versioneer.py
+include pystencils/_version.py
