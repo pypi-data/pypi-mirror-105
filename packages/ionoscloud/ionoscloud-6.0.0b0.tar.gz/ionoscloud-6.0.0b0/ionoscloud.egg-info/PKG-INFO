@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ionoscloud
+Version: 6.0.0b0
+Summary: Python SDK for the Ionos Cloud API
+Home-page: https://github.com/ionos-cloud/ionos-cloud-sdk-python
+Author: Ionos Cloud
+Author-email: sdk@cloud.ionos.com
+License: UNKNOWN
+Description: Ionos Cloud API Client Library for Python
+Keywords: OpenAPI,OpenAPI-Generator,CLOUD API
+Platform: UNKNOWN
+Classifier: Natural Language :: English
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Internet :: WWW/HTTP
+Description-Content-Type: text/markdown
