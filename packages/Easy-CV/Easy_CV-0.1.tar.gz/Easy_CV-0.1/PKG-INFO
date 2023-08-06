@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: Easy_CV
+Version: 0.1
+Summary: This is a simple library that will make your development of project in Computer Vision easy and fast
+Home-page: https://github.com/Shaswatadatta7/Easy_CV
+Author: SHASWATA DATTA
+Author-email: shaswatadatta2000@gmail.com
+License: MIT
+Download-URL: https://github.com/Shaswatadatta7/Easy_CV/archive/v_01.tar.gz
+Description: UNKNOWN
+Keywords: COMPUTER VISION,HAND DETECTION,HAND TRACKING
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
