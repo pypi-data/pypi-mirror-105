@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: elara
+Version: 0.1.2
+Summary: Elara DB is an easy to use key-value storage for your python projects!
+Home-page: https://github.com/saurabh0719/elara
+Author: Saurabh Pujari
+Author-email: saurabhpuj99@gmail.com
+License: three-clause BSD
+Description: UNKNOWN
+Keywords: database,key-value,storage,file storage,json storage,json databasekey-value database
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Database
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
