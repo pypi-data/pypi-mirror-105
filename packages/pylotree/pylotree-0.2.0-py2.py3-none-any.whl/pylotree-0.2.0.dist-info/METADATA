@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: pylotree
+Version: 0.2.0
+Summary: Distance-based cluster methods for linguistic phylogenies
+Home-page: https://github.com/pylogeny/pylotree
+Author: Johann-Mattis List
+Author-email: mattis_list@eva.mpg.de
+License: Apache 2.0
+Keywords: data
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: newick
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: pytest (>=4.3) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: coverage (>=4.2) ; extra == 'test'
+
+# tree
+Basic functionalities for handling phylogenetic trees, expanding the newick package
+
+
