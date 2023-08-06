@@ -1,0 +1,12 @@
+napari_tracks_reader/__init__.py,sha256=DFUHBcst9XX_N69EIHGRYTxOA2AFRdaDsSTWwRd2zIc,145
+napari_tracks_reader/_reader.py,sha256=yhJQ9bmmYrEG4ZS9C8aKEdQ81x0485IwtfJQPEWShOo,2795
+napari_tracks_reader/_version.py,sha256=Ok7XR8wZrOp38SaOYinpYmIxf_sT0PLyMemjrG3VZsI,142
+napari_tracks_reader/trackmate_reader.py,sha256=3XdVLevNY-Hrf01JsCy_7HXw0YS5XF8Gjja2_r0m6g8,5228
+napari_tracks_reader/_tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+napari_tracks_reader/_tests/test_reader.py,sha256=Cat9HLYPIqLzOFOJ2uwRE-EOH1o71nwQqpczw8XjWyg,514
+napari_tracks_reader-0.1.1.dist-info/LICENSE,sha256=yjcqfZJWCx-p9tgytEDovNYtmt-ohwyYKH3qtm2YMQ4,35148
+napari_tracks_reader-0.1.1.dist-info/METADATA,sha256=K9KXHXC_qePKfoyDZyOUObtbG1F0GGYHpePAoez4XzI,3456
+napari_tracks_reader-0.1.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+napari_tracks_reader-0.1.1.dist-info/entry_points.txt,sha256=hNQLlcKNMx23c-jDEnLbN8V-57QyQOwYUHd4ipa2mPY,61
+napari_tracks_reader-0.1.1.dist-info/top_level.txt,sha256=cQ1GrSjdeXnFrh2NhUYb_NeBkcqa6At2w0qEEYAAL-4,21
+napari_tracks_reader-0.1.1.dist-info/RECORD,,
