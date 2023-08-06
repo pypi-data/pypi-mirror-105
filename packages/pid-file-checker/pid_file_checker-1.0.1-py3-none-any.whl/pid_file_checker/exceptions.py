@@ -1,0 +1,2 @@
+class InvalidPidError(Exception):
+    pass

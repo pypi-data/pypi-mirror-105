@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: pid-file-checker
+Version: 1.0.1
+Summary: Monitor a pid file
+Home-page: https://github.com/itsolutionsfactory/pid-file-checker
+License: MIT
+Keywords: pid,daemon,monitoring
+Author: Gabriel Augendre
+Author-email: gabriel.augendre@itsfactory.fr
+Maintainer: Gabriel Augendre
+Maintainer-email: gabriel.augendre@itsfactory.fr
+Requires-Python: >=3.7
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Requires-Dist: psutil (>=5.8.0)
+Project-URL: Repository, https://github.com/itsolutionsfactory/pid-file-checker
+Description-Content-Type: text/markdown
+
+# pid-file-checker
+
+```
+$ pfc --help
+usage: pfc [-h] pid_file
+
+Check for the presence of a pid file. The file must contain one and only one
+integer which must be the pid of a running process. Otherwise, return a code
+!= 0. Meant to be used in a healthcheck context like with Docker or
+Kubernetes.
+
+positional arguments:
+  pid_file    The pid file you want to monitor
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+Brought to you by IT4NW@ITSF.
+```
+

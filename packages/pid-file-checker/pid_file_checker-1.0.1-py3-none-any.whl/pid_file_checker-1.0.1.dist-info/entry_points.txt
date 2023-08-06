@@ -1,0 +1,3 @@
+[console_scripts]
+pfc=pid_file_checker.checker:main
+
