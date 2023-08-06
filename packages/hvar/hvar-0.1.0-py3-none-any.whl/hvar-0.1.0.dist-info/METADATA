@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: hvar
+Version: 0.1.0
+Summary: HvarConsulting
+Home-page: UNKNOWN
+Author: HenriquePeixoto
+Author-email: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: xtarfile
+Requires-Dist: pytest-shutil
+Requires-Dist: google-cloud
+Requires-Dist: datetime
+Requires-Dist: google-api-client
+Requires-Dist: google-oauth
+Requires-Dist: google-oauth2-tool
+Requires-Dist: requests
+Requires-Dist: pybase64
+Requires-Dist: pandas
+
+UNKNOWN
+
+

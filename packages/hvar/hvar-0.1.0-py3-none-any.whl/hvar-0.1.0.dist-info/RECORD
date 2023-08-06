@@ -1,0 +1,8 @@
+hvar/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hvar/myfunctions.py,sha256=ohswFY8C0WC7Tk_U50rmL9XvkLd13Mf-ZK0187FhIXQ,3406
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_myfunctions.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hvar-0.1.0.dist-info/METADATA,sha256=gMCtjTJSKzf8QpCUZ0bTRCCI7Z_0eERZ5ewCoReq1BQ,449
+hvar-0.1.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+hvar-0.1.0.dist-info/top_level.txt,sha256=Zqz9dilGHrOMPy8LOUNKSQAIFUBq-ne18x0fywYynLw,11
+hvar-0.1.0.dist-info/RECORD,,
