@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+robodesk.egg-info/PKG-INFO
+robodesk.egg-info/SOURCES.txt
+robodesk.egg-info/dependency_links.txt
+robodesk.egg-info/requires.txt
+robodesk.egg-info/top_level.txt
