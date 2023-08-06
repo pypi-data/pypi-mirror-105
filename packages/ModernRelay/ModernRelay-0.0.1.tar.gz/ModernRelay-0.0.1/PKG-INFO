@@ -1,0 +1,7 @@
+Metadata-Version: 1.1
+Name: ModernRelay
+Version: 0.0.1
+Summary: An asynchronous, highly configurable SMTP relay
+Home-page: https://github.com/blbuford/ModernRelay
+Author: Brett Buford
+Author-email: blbuford@gmail.com
