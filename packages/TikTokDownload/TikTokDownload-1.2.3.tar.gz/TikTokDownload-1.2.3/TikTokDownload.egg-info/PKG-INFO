@@ -1,0 +1,28 @@
+Metadata-Version: 1.2
+Name: TikTokDownload
+Version: 1.2.3
+Summary: 一个很方便的下载中国版抖音无水印视频以及用户主页视频的包。Tiktok China is a very convenient download of Chinese version of the video without watermark and video.
+Home-page: https://github.com/Johnserf-Seed/TikTokDownload
+Author: JohnserfSeed
+Author-email: 2080979987@qq.com
+Maintainer: JohnserfSeed
+Maintainer-email: 2080979987@qq.com
+License: BSD License
+Description: UNKNOWN
+Platform: all
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries
