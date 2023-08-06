@@ -1,0 +1,3 @@
+[console_scripts]
+pyraco = pyraco.cli:main
+
