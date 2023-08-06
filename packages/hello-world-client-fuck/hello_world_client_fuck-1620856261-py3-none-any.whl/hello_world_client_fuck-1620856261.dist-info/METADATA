@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: hello-world-client-fuck
+Version: 1620856261
+Summary: UNKNOWN
+Home-page: https://pypi.org/
+Author: hello world
+Author-email: 
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.3
+Requires-Dist: requests
+Requires-Dist: psutil
+Requires-Dist: aiohttp
+Requires-Dist: ntplib
+
+UNKNOWN
+
+
