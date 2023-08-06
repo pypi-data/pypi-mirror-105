@@ -1,0 +1,11 @@
+newick
+
+[dev]
+black
+wheel
+twine
+
+[test]
+pytest>=4.3
+pytest-cov
+coverage>=4.2

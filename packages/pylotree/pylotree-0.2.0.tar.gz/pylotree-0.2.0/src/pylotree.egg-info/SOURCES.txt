@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+src/pylotree.py
+src/pylotree.egg-info/PKG-INFO
+src/pylotree.egg-info/SOURCES.txt
+src/pylotree.egg-info/dependency_links.txt
+src/pylotree.egg-info/not-zip-safe
+src/pylotree.egg-info/requires.txt
+src/pylotree.egg-info/top_level.txt
