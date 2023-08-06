@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: kenall
+Version: 0.0.1
+Summary: 日本郵政が提供している郵便番号ファイル(通称:KEN_ALL.csv)をパースするPython用パッケージ
+Home-page: https://github.com/s-yoshiki
+License: MIT
+Author: Yoshiki Shinagawa
+Author-email: s.yoshiki1123@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: mojimoji (>=0.0.11,<0.0.12)
+Project-URL: Documentation, https://github.com/s-yoshiki/kenall
+Project-URL: Repository, https://github.com/s-yoshiki/kenall
