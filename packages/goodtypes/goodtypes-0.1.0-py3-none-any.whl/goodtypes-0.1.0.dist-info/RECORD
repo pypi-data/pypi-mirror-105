@@ -1,0 +1,13 @@
+goodtypes/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+goodtypes/__pkginfo__.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+goodtypes/bytes.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+goodtypes/daterange.py,sha256=qjZ7zuTldOVlE64O1ZUNZTyaPkuhIpSVpRVIjXQBsHs,5541
+goodtypes/util.py,sha256=HOjEG3EGrbsepfXwaHfwk65JDY6berjnRiuNqW1gTiU,1738
+tests/__init__.py,sha256=iTw_teUZxYB_s7S7Pm3oHt6-VBZ3S3gn3bnOxxMnATY,64
+tests/test_daterange.py,sha256=dFUQ32Ht6RPwMV_lVMm8FWhIHMSHu6PVfxHChsolaak,6238
+tests/test_util.py,sha256=oIdO2Jmzu26EY9-BGzV8StTKT23-aF2N4mUMbIecgxs,1387
+goodtypes-0.1.0.dist-info/LICENSE,sha256=ZeK0oK-ap2QtMPGLN6nSsBr3xAK5XjCF17som2VaCZM,1073
+goodtypes-0.1.0.dist-info/METADATA,sha256=fKqfkn8dcd7DBly7YSPz28HTSBnCXUbk9f4-TRPkDU0,488
+goodtypes-0.1.0.dist-info/WHEEL,sha256=EVRjI69F5qVjm_YgqcTXPnTAv3BfSUr0WVAHuSP3Xoo,92
+goodtypes-0.1.0.dist-info/top_level.txt,sha256=ms2cjsmCQCKOsX6L9-oMT3chj_IZ2UlY4WxmKX-7pAU,16
+goodtypes-0.1.0.dist-info/RECORD,,
