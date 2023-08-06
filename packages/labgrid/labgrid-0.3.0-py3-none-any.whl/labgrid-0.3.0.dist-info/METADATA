@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: labgrid
+Version: 0.3.0
+Summary: labgrid: lab hardware and software control layer
+Home-page: https://github.com/labgrid-project
+Author: Rouven Czerwinski and Jan Luebbe
+Author-email: entwicklung@pengutronix.de
+License: LGPL-2.1
+Platform: UNKNOWN
+Classifier: Topic :: Software Development :: Testing
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.5
+Requires-Dist: attrs (>=19.2.0)
+Requires-Dist: ansicolors (>=1.1.8)
+Requires-Dist: jinja2 (>=2.10.3)
+Requires-Dist: packaging (>=14.0)
+Requires-Dist: pexpect (>=4.7)
+Requires-Dist: pyserial (>=3.3)
+Requires-Dist: pytest (>=4.5)
+Requires-Dist: pyyaml (>=5.1)
+Requires-Dist: pyudev (>=0.22.0)
+Requires-Dist: requests (>=2.22.0)
+Requires-Dist: xmodem (>=0.4.5)
+Requires-Dist: autobahn (>=19.11.0)
+Provides-Extra: crossbar
+Requires-Dist: crossbar (>=19.11.1) ; extra == 'crossbar'
+Provides-Extra: docker
+Requires-Dist: docker (>=4.1.0) ; extra == 'docker'
+Provides-Extra: graph
+Requires-Dist: graphviz (>0.13.2) ; extra == 'graph'
+Provides-Extra: modbus
+Requires-Dist: pyModbusTCP (>=0.1.8) ; extra == 'modbus'
+Provides-Extra: onewire
+Requires-Dist: onewire (>=0.2) ; extra == 'onewire'
+Provides-Extra: snmp
+Requires-Dist: pysnmp (>=4.4.12) ; extra == 'snmp'
+Requires-Dist: pysnmp-mibs (>=0.1.6) ; extra == 'snmp'
+Provides-Extra: xena
+Requires-Dist: xenavalkyrie (>=1.4) ; extra == 'xena'
+
+UNKNOWN
+
+
