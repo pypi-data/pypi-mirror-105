@@ -1,0 +1,12 @@
+include requirements.txt rotateplot.gif LICENSE.md
+recursive-include ipas/collection_no_db *.ipynb
+recursive-include ipas/collection_no_db *.py
+recursive-include ipas/collection_from_db *.ipynb
+recursive-include ipas/collection_from_db *.py
+recursive-include ipas/executables/collection_no_db *
+recursive-include ipas/executables/collection_from_db *
+
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude *-checkpoint.ipynb
+global-exclude *.ipynb_checkpoints
