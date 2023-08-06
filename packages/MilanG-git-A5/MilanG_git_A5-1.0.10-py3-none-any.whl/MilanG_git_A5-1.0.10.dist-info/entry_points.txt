@@ -1,0 +1,3 @@
+[console_scripts]
+MilanG-git_A5 = MilanG_A5.__main__:main
+
