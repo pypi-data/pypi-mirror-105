@@ -1,0 +1,7 @@
+starlette_exporter/__init__.py,sha256=UD20PfHHNFZWabxYgoezJUd6YuOnj7Q8ZnSRFIb8bcE,764
+starlette_exporter/middleware.py,sha256=_3YF0nrRqJi1LikhOLRICldIPbIUGZRtUFKodh28mWc,5125
+starlette_exporter-0.8.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+starlette_exporter-0.8.1.dist-info/METADATA,sha256=sT1pvzB0hzSuVCUymLTh6FEqvXw3IsuntTje5qCSN_8,3985
+starlette_exporter-0.8.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+starlette_exporter-0.8.1.dist-info/top_level.txt,sha256=iQn63SVHm68htrVBZZmNEqbc2ZfVkPXqPo2RqS8rsco,19
+starlette_exporter-0.8.1.dist-info/RECORD,,
