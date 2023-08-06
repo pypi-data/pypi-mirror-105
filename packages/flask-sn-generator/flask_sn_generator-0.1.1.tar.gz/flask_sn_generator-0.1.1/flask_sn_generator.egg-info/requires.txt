@@ -1,0 +1,2 @@
+flask
+flask-redis>=0.4.0
