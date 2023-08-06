@@ -1,0 +1,6 @@
+README.md
+lightspeed.egg-info/PKG-INFO
+lightspeed.egg-info/SOURCES.txt
+lightspeed.egg-info/dependency_links.txt
+lightspeed.egg-info/top_level.txt
+lightspeed.egg-info/zip-safe
