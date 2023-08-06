@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "firrtl"
+version = "0.1.2"
+description = "Python Bindings for FIRRTL"
+authors = ["Dan Fritchman <dan@fritch.mn>"]
+license = "BSD-3-Clause"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+protobuf = "^3.17.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+# Include the proto-compiler-generated content when packaging 
+## FIXME: this doesnt actually seem to work, if *_pb2.py is in `.gitignore` as we'd like
+## Just leaving it out of gitignore for now (please don't commit it!) 
+include = ["firrtl/proto/firrtl_pb2.py"] 
+

@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: firrtl
+Version: 0.1.2
+Summary: Python Bindings for FIRRTL
+License: BSD-3-Clause
+Author: Dan Fritchman
+Author-email: dan@fritch.mn
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: protobuf (>=3.17.0,<4.0.0)
