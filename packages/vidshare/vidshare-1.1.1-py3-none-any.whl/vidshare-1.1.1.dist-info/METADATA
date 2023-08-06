@@ -1,0 +1,137 @@
+Metadata-Version: 2.1
+Name: vidshare
+Version: 1.1.1
+Summary: Streaming video and audio and screenshare data via networks
+Home-page: UNKNOWN
+Author: A.Jagan karthick
+Author-email: <jagankarthick2@gmail.com>
+License: UNKNOWN
+Keywords: python,video,stream,video stream,camera stream,sockets
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python
+Requires-Dist: Pillow
+Requires-Dist: pyaudio
+Requires-Dist: numpy
+
+this is a package that is used to stream camera, audio, screenshare data via network
+
+examples:-
+
+    server.py
+        from vidshare import StreamingServer
+        import threading
+
+        server = StreamingServer("localhost", 5000) #set your ip and port on server
+
+        thread = threading.Thread(target = server.start_server) #thread to start server
+        thread.start() #start the thread
+
+        while True:
+            input_ = input('Enter Quit To Exit : ')
+            if input_ == 'quit' or input_ == 'exit':
+                server.stop_server() #to stop the server
+                break
+
+    audio client example:-
+    client1.py
+        from vidshare import AudiostreamClient
+        import threading
+
+        server = AudiostreamClient("localhost", 8000) #ip and port to connect to the server
+
+        thread = threading.Thread(target = server.connect_client) #thread to connect to the server
+        thread.start() #start the thread
+
+        while True:
+            input_ = input('Enter Quit To Exit : ')
+            if input_ == 'quit' or input_ == 'exit':
+                server.close_connection() #to close the connection to the server
+                break
+
+    client2.py
+        from vidshare import AudiostreamClient
+        import threading
+
+        server = AudiostreamClient("localhost", 8000) #ip and port to connect to the server
+
+        thread = threading.Thread(target = server.connect_client) #thread to connect to the server
+        thread.start() #start the thread
+
+        while True:
+            input_ = input('Enter Quit To Exit : ')
+            if input_ == 'quit' or input_ == 'exit':
+                server.close_connection() #to close the connection with the server
+                break
+
+    screenshare streaming example:-
+
+    client1.py
+        from vidshare import Screenshareclient
+        import threading
+
+        server = Screenshareclient("localhost", 8000, quit_key = "q") #ip and port to connect to the server and quit_key which is used to quit the cv2 window
+
+        thread = threading.Thread(target = server.connect_client) #thread to connect to the server
+        thread.start() #start the thread
+
+        while True:
+            input_ = input('Enter Quit To Exit : ')
+            if input_ == 'quit' or input_ == 'exit':
+                server.close_connection() #to close the connection to the server
+                break
+
+    client2.py
+        from vidshare import Screenshareclient
+        import threading
+
+        server = Screenshareclient("localhost", 8000, quit_key = "q") #ip and port to connect to the server and quit_key which is used to quit the cv2 window
+
+        thread = threading.Thread(target = server.connect_client) #thread to connect to the server
+        thread.start() #start the thread
+
+        while True:
+            input_ = input('Enter Quit To Exit : ')
+            if input_ == 'quit' or input_ == 'exit':
+                server.close_connection() #to close the connection to the server
+                break
+
+    camera client example:-
+
+    client1.py
+        from vidshare import CamerastreamClient
+        import threading
+
+        server = CamerastreamClient("localhost", 8000, camera = 0) #ip and port to connect to the server and camera to define camera number default is 0
+
+        thread = threading.Thread(target = server.connect_client) #thread to connect to the server
+        thread.start() #start the thread
+
+        while True:
+            input_ = input('Enter Quit To Exit : ')
+            if input_ == 'quit' or input_ == 'exit':
+                server.close_connection() #to close the connection to the server
+                break
+
+    client2.py
+        from vidshare import CamerastreamClient
+        import threading
+
+        server = CamerastreamClient("localhost", 8000, camera = 0) #ip and port to connect to the server and camera to define camera number default is 0
+
+        thread = threading.Thread(target = server.connect_client) #thread to connect to the server
+        thread.start() #start the thread
+
+        while True:
+            input_ = input('Enter Quit To Exit : ')
+            if input_ == 'quit' or input_ == 'exit':
+                server.close_connection() #to close the connection to the server
+                break
+
+
