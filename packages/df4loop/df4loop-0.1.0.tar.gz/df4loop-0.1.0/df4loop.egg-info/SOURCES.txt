@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+df4loop/__init__.py
+df4loop/df4loop.py
+df4loop.egg-info/PKG-INFO
+df4loop.egg-info/SOURCES.txt
+df4loop.egg-info/dependency_links.txt
+df4loop.egg-info/requires.txt
+df4loop.egg-info/top_level.txt
+tests/__init__.py
+tests/test_df4loop.py
