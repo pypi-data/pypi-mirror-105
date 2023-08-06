@@ -1,0 +1,9 @@
+herdpy/__init__.py,sha256=iXry4620cTCPQJHaZ1hke2sOWEiTQ7NXoWBK6Di9kYo,37
+herdpy/client.py,sha256=OFGIKTWJtTJQxgpBBed5s0ocMxyH9H0bhXgWD0qnW1M,1394
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_client.py,sha256=F_G0HeWi2sXILl5kubMBT323jO56lM_Po1kFcUSUnLM,643
+herdpy-0.0.6.dist-info/LICENSE,sha256=HyVuytGSiAUQ6ErWBHTqt1iSGHhLmlC8fO7jTCuR8dU,16725
+herdpy-0.0.6.dist-info/METADATA,sha256=UokHNTpfFU10jwBvkzAD9QpddVTtU9wSwTcTBV__ECk,1183
+herdpy-0.0.6.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+herdpy-0.0.6.dist-info/top_level.txt,sha256=Cv0XIt9a_SmXHs5sQBLwLJK3O2UkDTB_SnInBEpRhE8,13
+herdpy-0.0.6.dist-info/RECORD,,
