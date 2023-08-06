@@ -1,0 +1,11 @@
+huscy/data_protection/__init__.py,sha256=zjWg1mzpiY0ywh8w8WC0q2NH1I9hEu7-v4lMSDUyR3g,166
+huscy/data_protection/models.py,sha256=pEXeZ5W1Lj0eHoVlneD1IddPA3iLyvWHcS9udjP_meA,1182
+huscy/data_protection/serializer.py,sha256=bwO5wiZX77ePFHJfYg5LCEHs5R0s0IzXA1Ljp3jj068,1445
+huscy/data_protection/urls.py,sha256=z3XvGBC3rMYOH75xJfvoIlc25piUAJczMEKaWKHQtCs,293
+huscy/data_protection/views.py,sha256=gPGPSML_GdzRSa_G44OkJR14Gv8mA8iUTlrex-R5XQw,2053
+huscy/data_protection/migrations/0001_initial.py,sha256=sVIYPeliCeG3dEzzVJSPSEbd0fagGLsv6IMF8z1udA0,2063
+huscy/data_protection/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+huscy.data_protection-0.2.1a3.dist-info/METADATA,sha256=yaQeL_Nz3GYXtdyOp2in5TD0VbBYksJdtrcZ7jooUQM,1085
+huscy.data_protection-0.2.1a3.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+huscy.data_protection-0.2.1a3.dist-info/top_level.txt,sha256=yP1xCBOAxbmweO3NrSrdrgzzsSyrcuj2pA4XvOekNAM,6
+huscy.data_protection-0.2.1a3.dist-info/RECORD,,
