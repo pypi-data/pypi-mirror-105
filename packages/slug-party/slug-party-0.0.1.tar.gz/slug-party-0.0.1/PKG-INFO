@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: slug-party
+Version: 0.0.1
+Summary: A library for interacting with the Slug Party system.
+Home-page: https://github.com/fletcheaston/Slug-Party
+Author: Fletcher Easton
+Author-email: fletcheaston@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/fletcheaston/Slug-Party/issues
+Description: # Slug Party
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
