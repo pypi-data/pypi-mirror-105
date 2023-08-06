@@ -1,0 +1,43 @@
+Metadata-Version: 1.1
+Name: PyMultition
+Version: 0.1.2
+Summary: A Multiton Class for preventing duplicate instances based on serializing init values.
+Home-page: https://github.com/Gzyjl/PyMultition
+Author: GongZiyao
+Author-email: gong.ziyao@outlook.com
+License: MIT
+Description: PyMultition
+        ================
+        
+        A Multiton Class for preventing duplicate instances based on serializing init values.
+        
+        -  Free software: MIT license
+        
+        Features
+        --------
+        
+        -  Return the same instance if instanciate class with same init value 
+        
+        Quickstart
+        ----------
+        .. code-block:: python
+        
+            import PyMultition
+            
+            
+            class Test:
+                def __init__(self, attr):
+                    self.attr = attr
+            
+            
+            a = PyMultition.MultitionInstanceFactory.get_instance(Test, '1')
+            b = PyMultition.MultitionInstanceFactory.get_instance(Test, '2')
+            c = PyMultition.MultitionInstanceFactory.get_instance(Test, '2')
+            assert(a is not b)
+            assert(b is c)
+        
+Keywords: python multition Instanciate
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
+Classifier: Programming Language :: Python :: 3.7
