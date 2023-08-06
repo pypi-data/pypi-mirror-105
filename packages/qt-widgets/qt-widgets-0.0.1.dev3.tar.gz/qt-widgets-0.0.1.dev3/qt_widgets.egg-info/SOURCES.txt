@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+qt_widgets.egg-info/PKG-INFO
+qt_widgets.egg-info/SOURCES.txt
+qt_widgets.egg-info/dependency_links.txt
+qt_widgets.egg-info/requires.txt
+qt_widgets.egg-info/top_level.txt
+qtwidgets/__init__.py
+qtwidgets/utils.py
+qtwidgets/flow/__init__.py
+qtwidgets/flow/flow_config.py
+qtwidgets/flow/flow_widget.py
+resources/ui/flow.ui
