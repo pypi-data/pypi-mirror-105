@@ -1,0 +1,8 @@
+README.md
+setup.py
+pyUltroid/__init__.py
+pyUltroid.egg-info/PKG-INFO
+pyUltroid.egg-info/SOURCES.txt
+pyUltroid.egg-info/dependency_links.txt
+pyUltroid.egg-info/requires.txt
+pyUltroid.egg-info/top_level.txt
