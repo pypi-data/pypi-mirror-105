@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: DecAn-karjakak
+Version: 0.0.1
+Summary: DecAn is a tool for Analyze and Deconstruct chars in text for its position.
+Home-page: UNKNOWN
+Author: karjakak
+Author-email: kakkarja.github@gmail.com
+License: BSD3 License
+Description: # Clien [cli-environment]
+        ## Tool to Analyze and Deconstruct chars in a text
+        ### [Under-Development]
+        
+        ## Installation
+        ```
+        pip install DecAn-karjakak
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
