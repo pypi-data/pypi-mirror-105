@@ -1,0 +1,33 @@
+Metadata-Version: 2.0
+Name: GPViz
+Version: 0.0.4
+Summary: A Python package for Gaussian process visualisation.
+Home-page: UNKNOWN
+Author: Thomas Pinder
+Author-email: t.pinder2@lancaster.ac.uk
+License: LICENSE
+Keywords: gaussian-processes jax machine-learning bayesian
+Platform: UNKNOWN
+Provides-Extra: dev
+Provides-Extra: docs
+Provides-Extra: tests
+Requires-Dist: gpjax (>=0.3.7)
+Requires-Dist: matplotlib
+Requires-Dist: mplcyberpunk (==0.1.11)
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: isort; extra == 'dev'
+Requires-Dist: pylint; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: furo (==2020.12.30b24); extra == 'docs'
+Requires-Dist: matplotlib (==3.3.3); extra == 'docs'
+Requires-Dist: nb-black (==1.0.7); extra == 'docs'
+Requires-Dist: nbsphinx (==0.8.1); extra == 'docs'
+Requires-Dist: sphinx-copybutton (==0.3.5); extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest; extra == 'tests'
+
+GPViz provides a convenient interface to GPJax that facilitates flexible plotting of Gaussian process priors, posterios, kernels and datasets.
+
+
