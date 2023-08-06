@@ -1,0 +1,10 @@
+netschoolapi/__init__.py,sha256=cXk_VwyjnIR2O1Hc-wc3vH5K0oK_jsIwuQ_UbobsGrY,90
+netschoolapi/data.py,sha256=MxSA2pxv8agMD9lrHW-Bm-S0kXv6om2wL18IVV10vgY,1896
+netschoolapi/errors.py,sha256=E93-Nm5C7s2dCawnMJIeD1-DpJtb3yMD8FubiYsh58E,149
+netschoolapi/netschoolapi.py,sha256=HTC4TjGwflT8Rc-pzHTYe3IViKpRtXFH4xmnABanY7Q,5724
+netschoolapi/schemas.py,sha256=7sbHgoF5H-6oeEiLr24KhVpNriVGt54uP-ha8TNT-To,2854
+netschoolapi-5.0.0.dist-info/LICENSE,sha256=F53Oy0RvCl8xR1YtD2PNrDvMDs5TqmibOzsiEQa0GIE,1149
+netschoolapi-5.0.0.dist-info/METADATA,sha256=4hJuLCtHhwhcWcpH5o8B_1lkEk83WTUj8Msy36VZCis,2104
+netschoolapi-5.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+netschoolapi-5.0.0.dist-info/top_level.txt,sha256=qoshjVov8xImNnowUpjH2i-6s-ynfaeFybtG2CUA7lM,13
+netschoolapi-5.0.0.dist-info/RECORD,,
