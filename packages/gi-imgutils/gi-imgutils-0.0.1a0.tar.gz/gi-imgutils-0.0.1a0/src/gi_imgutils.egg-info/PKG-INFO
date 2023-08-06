@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: gi-imgutils
+Version: 0.0.1a0
+Summary: Batch image processing utilities
+Home-page: https://github.com/pypa/sampleproject
+Author: GingerIndustries
+Author-email: gingerindustries@github.com
+License: UNKNOWN
+Project-URL: Homepage, https://github.com/GingerIndustries/imgutils
+Description: ## imgutils
+        
+        allen please add details
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

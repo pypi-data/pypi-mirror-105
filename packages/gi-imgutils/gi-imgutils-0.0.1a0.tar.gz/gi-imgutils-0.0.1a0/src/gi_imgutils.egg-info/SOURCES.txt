@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/gi_imgutils.egg-info/PKG-INFO
+src/gi_imgutils.egg-info/SOURCES.txt
+src/gi_imgutils.egg-info/dependency_links.txt
+src/gi_imgutils.egg-info/entry_points.txt
+src/gi_imgutils.egg-info/requires.txt
+src/gi_imgutils.egg-info/top_level.txt
+src/imgutils/__init__.py
+src/imgutils/__main__.py
