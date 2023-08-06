@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+django_underconstruction/__init__.py
+django_underconstruction/apps.py
+django_underconstruction/middleware.py
+django_underconstruction/settings.py
+django_underconstruction/version.py
+django_underconstruction.egg-info/PKG-INFO
+django_underconstruction.egg-info/SOURCES.txt
+django_underconstruction.egg-info/dependency_links.txt
+django_underconstruction.egg-info/requires.txt
+django_underconstruction.egg-info/top_level.txt
+django_underconstruction/templates/django_underconstruction/construction.html
