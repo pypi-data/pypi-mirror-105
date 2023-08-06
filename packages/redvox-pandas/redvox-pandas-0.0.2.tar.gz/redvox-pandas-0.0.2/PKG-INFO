@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: redvox-pandas
+Version: 0.0.2
+Summary: change me
+Home-page: https://github.com/RedVoxInc/redpandas
+Author: RedVox
+Author-email: dev@redvoxsound.com
+License: Apache
+Description: # redpandas
+        
+        Fill me in
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6, <3.9
+Description-Content-Type: text/markdown
