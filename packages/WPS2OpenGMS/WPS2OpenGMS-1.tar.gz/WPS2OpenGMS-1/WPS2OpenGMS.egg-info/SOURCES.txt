@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+WPS2OpenGMS/__init__.py
+WPS2OpenGMS/wps2opengms.py
+WPS2OpenGMS.egg-info/PKG-INFO
+WPS2OpenGMS.egg-info/SOURCES.txt
+WPS2OpenGMS.egg-info/dependency_links.txt
+WPS2OpenGMS.egg-info/requires.txt
+WPS2OpenGMS.egg-info/top_level.txt
+WPS2OpenGMS.egg-info/zip-safe
+WPS2OpenGMS/resource/createwpsxml_template.py
+WPS2OpenGMS/resource/encapsulation_template.py
+WPS2OpenGMS/resource/mdl_template.mdl
+WPS2OpenGMS/resource/modeldatahandler.py
+WPS2OpenGMS/resource/modelservicecontext.py
