@@ -1,0 +1,4 @@
+minos-microservice-common
+aiokafka
+aiomisc
+aiopg
