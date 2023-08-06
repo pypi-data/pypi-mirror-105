@@ -1,0 +1,3 @@
+[console_scripts]
+cocorepr = cocorepr.main:main
+
