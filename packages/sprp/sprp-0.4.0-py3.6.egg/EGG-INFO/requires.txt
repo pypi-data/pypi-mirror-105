@@ -1,0 +1,7 @@
+cython
+flask
+gdal
+geojson
+numpy
+pyproj
+shapely
