@@ -1,0 +1,9 @@
+[console_scripts]
+p2cif = p2cif:main
+pdcompare = pdcompare:main
+pickled_reader = pickled_reader:main
+preader = preader:main
+
+[gui_scripts]
+pdgui = pdgui:main
+
