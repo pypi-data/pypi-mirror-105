@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: django-graphql-google-accounts
+Version: 0.1.1
+Summary: UNKNOWN
+Home-page: https://github.com/YankeeTube/django-graphql-google-accounts
+Author: GM Yankee
+Author-email: subyankee@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: django
+Requires-Dist: jwt
+Requires-Dist: requests
+Requires-Dist: graphene
+Requires-Dist: graphene-django
+
+# django-graphql-google-accounts  
+
+
+fk django.contrib.auth is create 3 tables. and django allauth is create 7 tables.  
+but we need only google accounts and we will only use graphql token authentication.
+
+### Installation
+```bash
+pip install django-graphql-google-accounts
+```  
+
+### Setup
+
+##### configure base settings  
+without `django.contrib.auth` and add this app
+
+```python3
+# settings.py
+INSTALLED_APPS = [
+    # django.contrib.auth
+    ...
+    'accounts',
+]
+```
+
+#### configure urls
+```python3
+# urls.py
+from accounts.views import GoogleLoginView, GoogleCallbackView
+urlpatterns = [
+    # ...
+    path('login', GoogleLoginView.as_view()),
+    path('auth/google/callback', GoogleCallbackView.as_view()),
+]
+```
+
