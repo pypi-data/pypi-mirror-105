@@ -1,0 +1,4 @@
+UW-RestClients-Core
+commonconf~=1.1
+lxml~=4.6.3
+icalendar~=4.0.7
