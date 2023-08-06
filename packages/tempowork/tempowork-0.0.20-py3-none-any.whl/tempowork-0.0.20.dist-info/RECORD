@@ -1,0 +1,14 @@
+tempowork.py,sha256=H6s2YRr0VE132PYfl5xDS2aC7JkyYp6_4ExWqAY9fxY,44275
+src/CIG.py,sha256=RD0ERhyTYHxLgJ_C2pYMhacgy14JEaWnwz5yGeqgogc,2121
+src/CIG_edge.py,sha256=pB_fWnu4IjsRu6hS13dgGcOKw-IFeTryzY01qq_2msY,225
+src/CIG_node.py,sha256=kLTUtcXugyy6kwarPADcGO5qlgLLjptCZs4zaupuENY,418
+src/IT.py,sha256=IAtJJkxbMH5eE579grd04rFi9iLY5OGto20tbWHJzu8,5838
+src/IT_nil.py,sha256=Z0F5USZKBN6qtncp8OtOMS5JWjXdK5emxrIVaoU839M,256
+src/IT_node.py,sha256=ciTl04CuyIfkt7S1inh1CULiOGutsbUsyHwExpa8UgY,696
+src/__init__.py,sha256=YLpY7EtmO-Fz4ahDF_5yxfSwN88znzbCZSJl2bitkIM,127
+src/tempowork.py,sha256=H6s2YRr0VE132PYfl5xDS2aC7JkyYp6_4ExWqAY9fxY,44275
+tempowork-0.0.20.dist-info/LICENSE,sha256=nlVftJRiVQPgHQCa7wTzPhHfolUXlWqRY8G1aVfhvW4,1061
+tempowork-0.0.20.dist-info/METADATA,sha256=T531Den_4zgZ7WZPmmkFlDmlhwXUVLziEB2qgyeqSIA,6686
+tempowork-0.0.20.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+tempowork-0.0.20.dist-info/top_level.txt,sha256=nF6uEQF2gzk4RG24_UN0fkNIM7YNTzTMbK4FXsdQiJ0,14
+tempowork-0.0.20.dist-info/RECORD,,
