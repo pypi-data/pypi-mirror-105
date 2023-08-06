@@ -1,0 +1,3 @@
+[console_scripts]
+accordion=accordion_simulator.cli:simulate
+
