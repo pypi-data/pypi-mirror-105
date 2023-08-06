@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: simplecalculate
+Version: 0.0.2
+Summary: basic calculation
+Home-page: UNKNOWN
+Author: GiantCoder
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+It is Only Contain Functions,Not Any Class
+__________________________________________________
+##### Basic Calculation 2 digits to 6 digits Only
+__________________________________________________
+
+
+===>>>Examples: 1) Input section:
+
+		import simplecalculate as se
+		a = se.add(6,8) #add two values
+		print(a)
+
+		b = se.subtract4(4,5,6,5) #subtract Four values
+		print(b)
+
+		c = se.add6(4,10,5,9,8,2) #add six values
+		print(c)
+
+		d = se.add6(4,10,5,9,8,2,2) #add seven values
+		print(d)
+
+		Output section:
+		14
+		-12
+		38
+		error
+
+
+_______________________________________________________________________________
+_______________________________________________________________________________
+
+******************************** Addition function types ********************************
+add() ===>>>add()
+            add3()
+            add4()
+            add5()
+            add6(), 
+
+******************************** Subtraction function types ********************************           
+subtract() ===>>>subtract()
+                 subtract3()
+                 subtract4()
+                 subtract5()
+                 subtract6(),
+
+******************************** Multiplication function types ********************************                 
+multiplication() ===>>>multiplication()
+                       multiplication3() 
+                       multiplication4()
+                       multiplication5()
+                       multiplication6(), 
+
+******************************** Division function types ********************************
+division() ===>>>division()
+                division3()
+                division4()
+                division5()
+                division6(),
+
+******************************** Modulas function types ********************************                
+modulas() ===>>>modulas()
+                modulas3()
+                modulas4()
+                modulas5()
+                modulas6(),
+
+******************************** Exponent function types ********************************                
+exponent() ===>>>exponent()
+                exponent3()
+                exponent4()
+                exponent5()
+                exponent6(),
+
+******************************** Floor Division function types ********************************                
+floordivision() ===>>>floordivision()
+                      floordivision3()
+                      floordivision4()
+                      floordivision5()
+                      floordivision6()
+
+'''
+
