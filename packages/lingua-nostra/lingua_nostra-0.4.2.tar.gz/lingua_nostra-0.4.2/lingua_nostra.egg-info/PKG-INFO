@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: lingua-nostra
+Version: 0.4.2
+Summary: fork of Mycroftai lingua_franca 0.4.1
+Home-page: https://github.com/HelloChatterbox/lingua-nostra
+License: Apache2.0
+Description: # Lingua Nostra
+        
+        This is simply chatterbox's packaged version of https://github.com/MycroftAI/lingua-franca
+        
+        Latest version: 0.4.1
+        
+        currently these repos are nearly identical, but will diverge over time
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
