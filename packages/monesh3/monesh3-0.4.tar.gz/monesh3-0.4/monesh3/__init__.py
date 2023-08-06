@@ -1,0 +1,2 @@
+from monesh3.FaceDetectorModule import FaceDetector
+from monesh3.FaceMeshModule import FaceMeshDetector
