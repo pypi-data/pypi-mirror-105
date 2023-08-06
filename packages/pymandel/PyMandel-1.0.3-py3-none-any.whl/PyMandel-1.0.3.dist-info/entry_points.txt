@@ -1,0 +1,3 @@
+[console_scripts]
+pymandel = pymandel.__main__:main
+
