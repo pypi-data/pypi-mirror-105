@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: aiopyupbit
+Version: 0.1.1
+Summary: python wrapper for upbit API for asyncio and Python
+Home-page: https://github.com/codejune/aiopyupbit
+Author: Codejune
+Author-email: kbj9704@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pandas (>=1.2.4aiohttp>=3.7.3)
+Requires-Dist: certifi (>=2020.12.5)
+Requires-Dist: cffi (>=1.14.4)
+Requires-Dist: chardet (>=3.0.4)
+Requires-Dist: cryptography (>=3.4.4)
+Requires-Dist: datetime (>=4.3)
+Requires-Dist: idna (>=2.10)
+Requires-Dist: pyjwt (>=2.1.0)
+Requires-Dist: pycparser (>=2.20)
+Requires-Dist: python-dateutil (>=2.8.1)
+Requires-Dist: pytz (>=2020.5)
+Requires-Dist: requests (>=2.25.1)
+Requires-Dist: six (>=1.15.0)
+Requires-Dist: urllib3 (>=1.26.3)
+Requires-Dist: websockets (>=8.1)
+Requires-Dist: zope.interface (>=5.2.0)
+
+aiopyupbit
+==========
+
+aiopyupbit is python wrapper for upbit API for asyncio and Python 
+which is base on [pyupbit](https://github.com/sharebook-kr/pyupbit)
+
+
+Installation
+------------
+
+Installing: `pip install aiopyupbit`
+
+Usage
+-----
+
+aiopyupbit syntax strives to be similar to [pyupbit](https://github.com/sharebook-kr/pyupbit).
+
+``` python
+import asyncio
+import aiopyupbit
+
+async def main():
+    print(await aiopyupbit.get_tickers())
+    print(await aiopyupbit.get_current_price("KRW-BTC"))
+    print(await aiopyupbit.get_current_price(["KRW-BTC", "KRW-XRP"]))
+    print(await aiopyupbit.get_ohlcv("KRW-BTC"))
+    ...
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+About
+-----
+
+Some features are not currently implemented: 
+* raise pyupbit defined error
+
+Issues
+------
+Please report any issues via [github issues](https://github.com/codejune/aiopyupbit/issues)
+
