@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: transcribe-anything
+Version: 1.0.3
+Summary: Input a local file or url and this service will transcribe it using Mozilla Deepspeech
+Home-page: https://github.com/zackees/transcribe-anything
+Author: Zach Vorhies
+Author-email: dont@email.me
+License: MIT
+Description: # transcribe-anything
+        Input a local file or url and this service will transcribe it using Mozilla Deepspeech
+        
+        # Quick start
+          * `pip install transcribe-anything`
+            * The the command `transcribe_anything` will magically become available.
+          * `transcribe_anything <YOUTUBE_URL> mysubtitles.txt`
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Environment :: Console
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
