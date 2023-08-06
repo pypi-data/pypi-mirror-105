@@ -1,0 +1,11 @@
+HISTORY.rst,sha256=2e4IWzsG06qRQU2FLSuuy8G6TS9IC7Fhm5Ci-bCeYKY,2536
+README.rst,sha256=sQK_MwyOPuA2bFGkvVDpCgOQtKcjc8pOymq6YGQa-fA,9458
+snug/__init__.py,sha256=bNnOJxgI7a82KZz_w2A9760-6o7iBrIOPuboDtnnw0c,639
+snug/clients.py,sha256=knzcnR95QdiH4khSavIaj3dZh4EDEEn4WRwRygXv6nI,6181
+snug/http.py,sha256=9ATQf3QkzXF8Wj8NURcNbdCBn09fwCIs4xNN7mPm3bU,5541
+snug/pagination.py,sha256=1Wg49a6ylPYLANLI75-eeP7lPmCoxZfRWghyAtB2W68,4726
+snug/query.py,sha256=IMA2io20Q-IYc2HpBpEJh0gQyLUFWEVxaeSTKm2_fA4,9151
+snug-2.2.0.dist-info/LICENSE,sha256=su9dq_VfjCi85VJwAw6UXWrC6UmRKwmdt5oyLVkYg6g,1071
+snug-2.2.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+snug-2.2.0.dist-info/METADATA,sha256=mgMFlvHmlZBFQ5Fn47j7_Dhnxvy7aKrJxLg8Q3mQep0,10504
+snug-2.2.0.dist-info/RECORD,,
