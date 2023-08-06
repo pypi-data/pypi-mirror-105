@@ -1,0 +1,3 @@
+[console_scripts]
+saygeek = saygeek.__main__:main
+

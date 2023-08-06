@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: saygeek
+Version: 1.1.1
+Summary: ALMA historical phrase generator
+Home-page: https://github.com/bandaangosta/saygeek
+Author: Jose L. Ortiz
+Author-email: jlortiz@uc.cl
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: click (==7.1.2)
+Requires-Dist: typer (==0.3.2)
+
+# saygeek
+
+This repository implements a Python port of classic ALMA saygeek application, originally written in bash.
+It provides a very simple command-line application to run it.
+
+Original version was written by several ALMA geeks.
+Python version by JLO.
+
+During porting, chance was taken to remove hard-coded "phrases", saving them in the database
+instead. Other very minor creative liberties were also taken, like aligning language in prefix
+and phrases, where applicable.
+
+### Installation:
+
+    pip install saygeek
+
+### Usage:
+
+    $ saygeek phrase AOG
+    [Se dijo en el Control Room alguna vez]:
+    Déjate de pegarme en las patas Emiliano
+
+    $ saygeek phrase ALMA
+    [Se dijo en ALMA alguna vez]:
+    Mi problema son las tentaciones como Avarias y Guagüito...
+
+    $ saygeek phrase GOLDEN-JIRA
+    [Notable tickets]:
+    ICT-5433 "... like the TPP is hemorrhaging memory ..."
+
+    $ saygeek keys
+    ALMA
+    AOG
+    BAD-CONCEPTS
+    BAD-SPANISH
+    BAD-TRANSLATION
+    BYE
+    CONFIRM
+    GOLDEN-JIRA
+    GOLDEN-SVN
+    HELLO
+    HUMOUR
+    MOVIE
+    QUOTE
+
+
