@@ -1,0 +1,3 @@
+[console_scripts]
+cgs=cg_simulator.cli:app
+
