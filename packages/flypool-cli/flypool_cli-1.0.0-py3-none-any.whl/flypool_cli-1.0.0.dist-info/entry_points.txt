@@ -1,0 +1,4 @@
+[console_scripts]
+ethermine = flypool.__main__:ethermine
+raven = flypool.__main__:ravencoin
+
