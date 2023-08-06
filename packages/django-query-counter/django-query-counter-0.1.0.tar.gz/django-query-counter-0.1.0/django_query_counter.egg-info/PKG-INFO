@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: django-query-counter
+Version: 0.1.0
+Summary: Debug tool to print sql queries count to the console
+Home-page: https://github.com/conformist-mw/django-query-counter/tarball/0.1.0
+Author: Oleg Smedyuk
+Author-email: conformist.mw@gmail.com
+License: MIT
+Description: main feature of this project is to provide a decorator to give ability to check sql queries even inside management commands.
+Keywords: django sql query count management commands
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Framework :: Django
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
