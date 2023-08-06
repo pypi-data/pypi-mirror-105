@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: MultiProcessDivision
+Version: 1.0
+Summary: This library splits large dataframes into smaller chunks, which are then passed to multiprocessing
+Home-page: UNKNOWN
+Author: Thomas Rahimi
+Author-email: thomas.rahimi@agrar.uni-kassel.de
+License: BSD
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Development Status :: 5 - Production/Stable
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas (>=0.24)
+Requires-Dist: numpy (>=1.14)
+
+#MultiProcessDivision()
+
+This package is an optimized approach to split large pd.DataFrame() or pd.Series() objects for optimized multiprocessing processing. The core aim is to provide a stable interface, which allows splitting vectorized objects along specified axes.  
+The class only consists of a single function, divide_df(), which requires the following parameters to work seamlessly:  
+
+- The data provided for splitting. Data must be provided as pd.DataFrame() or pd.Series() objects.  
+- The axis along which a split is to be conducted. While this parameter can either be set 0 (index) or 1 (columns) for pd.DataFrame() objects, it has to be set to 0 for pd.Series() objects.
+- In case a pd.Series() object is passed to the function, the "series" parameter has to be set to True.  
+- The following "range_setter" parameter is optional. If it is not set, it defaults to None, which is the amount of logical cores, the executing system provides. Otherwise, if the amount of cores to execute the processing on is limited, the parameter must be set with a value smaller than the amount of logical cores.  
+
+##Questions and Feedback
+Please don't hesitate to provide me feedback, if you use the function in your stack. Improvements are warmly welcome.
+
