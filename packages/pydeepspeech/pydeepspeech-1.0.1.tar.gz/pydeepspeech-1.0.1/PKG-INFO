@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: pydeepspeech
+Version: 1.0.1
+Summary: Mozilla's DeepSpeech transcriber in a pip installable package.
+Home-page: https://github.com/zackees/pydeepspeech
+Author: Zach Vorhies
+Author-email: dont@email.me
+License: MIT
+Description: # pydeepspeech
+          The simpliest way to use AI to generate transcriptions from a wav file.
+          This project uses the Mozilla DeepSpeech engine built from one of the included demos.
+          
+        ## Install
+          * `pip install .'
+          * Then after the install has finished use the command `pydeepspeech --wav_file <MY_WAVE>`
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
