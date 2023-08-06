@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: enviopack
+Version: 0.1.0
+Summary: Integration Helper with enviopack
+Home-page: https://github.com/kiwidamien/roman
+Author: Federico Gobea
+Author-email: fgobeagit@gmail.com
+License: UNKNOWN
+Description: # enviopack
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
