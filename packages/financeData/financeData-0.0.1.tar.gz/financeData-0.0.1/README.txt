@@ -1,0 +1,1 @@
+Bu kutuphane FX, borsa ve bitcoin verilerini alabileceginiz bir uygulamadır.

@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: financeData
+Version: 0.0.1
+Summary: Basic Data Source For Stock,FX,Coin
+Home-page: UNKNOWN
+Author: Berkay Coşkun
+Author-email: berkayreb@gmail.com
+License: MIT
+Description: Bu kutuphane FX, borsa ve bitcoin verilerini alabileceginiz bir uygulamadÄ±r.
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
