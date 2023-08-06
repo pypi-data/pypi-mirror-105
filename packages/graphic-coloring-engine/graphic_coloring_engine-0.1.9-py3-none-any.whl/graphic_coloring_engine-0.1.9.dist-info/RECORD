@@ -1,0 +1,10 @@
+graphic_coloring_engine/__init__.py,sha256=CZ0vHCBgZNkqtjgPci9bWNzO_SW0Fp5PRd6pS_pNvto,657
+graphic_coloring_engine/core.py,sha256=PLiNnTH3h0n3LSceSHDtOfMgIUSFktasvojLCzhSv74,16539
+graphic_coloring_engine/errors.py,sha256=MSYXnjxEtJreyDi7VgWlAlW1_AM3CUO0vToFvEeUmqw,51
+graphic_coloring_engine/monkey_patching/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+graphic_coloring_engine/monkey_patching/colormath_contrast.py,sha256=hpBXN8Oh63dQ9ZJy8exoalGoU-XYaZktMRjzz4Ixsmk,1156
+graphic_coloring_engine/polygon.py,sha256=PSjSNe_CQ402dp8LL6UDkoC-Lgekzdir9oeeyB4riIo,679
+graphic_coloring_engine-0.1.9.dist-info/LICENSE,sha256=DGbDMTgg411B8-80n3v9Ua1M7hHY4MiEOF7yQnPpokg,1066
+graphic_coloring_engine-0.1.9.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+graphic_coloring_engine-0.1.9.dist-info/METADATA,sha256=YihP04hj48yslBBkE2ftYmmw8rQeC0euQYUxge-Kk9A,985
+graphic_coloring_engine-0.1.9.dist-info/RECORD,,
