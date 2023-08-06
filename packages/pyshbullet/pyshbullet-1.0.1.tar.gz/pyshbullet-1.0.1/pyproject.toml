@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pyshbullet"
+version = "0.0.0.1"
+description = "Python API wrapper for the pushbullet API"
+authors = ["98129182 <the98129182@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+aiohttp = "^3.7.4"
+tzlocal = "^2.1"
+websocket-client = "^0.59.0"
+websocket = "^0.2.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
