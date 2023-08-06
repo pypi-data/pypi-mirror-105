@@ -1,0 +1,21 @@
+numpy
+dask
+zarr>=2.8.1
+fsspec>=0.9.0
+s3fs
+aiohttp
+requests
+scikit-image
+toolz
+vispy
+opencv-contrib-python-headless
+
+[:python_version < "3.7"]
+dataclasses
+tifffile<2020.09.22
+
+[napari:python_version<'3.7']
+napari<0.4.0
+
+[napari:python_version>='3.7']
+napari
