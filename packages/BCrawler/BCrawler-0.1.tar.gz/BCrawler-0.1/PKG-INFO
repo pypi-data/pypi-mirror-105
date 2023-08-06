@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: BCrawler
+Version: 0.1
+Summary: A folder crawler which crwls a folder and returns every file name available inside folder
+Home-page: https://github.com/back-2-hack
+Author: B2h
+Author-email: back2hacck@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: crawler
+Platform: UNKNOWN

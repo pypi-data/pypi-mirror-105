@@ -1,0 +1,7 @@
+README.txt
+setup.py
+BCrawler.egg-info/PKG-INFO
+BCrawler.egg-info/SOURCES.txt
+BCrawler.egg-info/dependency_links.txt
+BCrawler.egg-info/top_level.txt
+bcrawler/__init__.py
