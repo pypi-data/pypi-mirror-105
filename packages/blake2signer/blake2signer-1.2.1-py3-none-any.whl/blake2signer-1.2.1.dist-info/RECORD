@@ -1,0 +1,14 @@
+blake2signer/__init__.py,sha256=K02cgLwMroUVanYq62rHzL7_kRPVbyovidAkllb51zk,1631
+blake2signer/errors.py,sha256=jXIFvxKg8WalZtRcpsAZVCPqGx5gDiju2myAS9110no,2658
+blake2signer/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+blake2signer/serializers.py,sha256=CnlNwh54oCTA9HI5bHpsZeb3ecYQaYMNP_0wZi4As6Y,22932
+blake2signer/signers.py,sha256=JKI3LErPddKnz3znuDLeEz0iVqrotxaH73UtNplvU5w,19362
+blake2signer/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+blake2signer/tests/test_serializers.py,sha256=G3QjCe4iFrjOjg6M8kfkHRf3uL7NAGb7Eb4jzlU-tbI,10857
+blake2signer/tests/test_signers.py,sha256=2q29Pi01jXxzUKRMDT7Xi0Nngw0Y1xx_tC4i2PhUqB8,12558
+blake2signer/tests/test_utils.py,sha256=qupk4sh9dePQ8uE_wdAFe-N7k8xCvBxMH0F2b4ankGA,1281
+blake2signer/utils.py,sha256=ljFEKMeIv6wlKjgjpJS6pTHqbCOGTcsSNYEG78gLFHU,658
+blake2signer-1.2.1.dist-info/LICENSE,sha256=HyVuytGSiAUQ6ErWBHTqt1iSGHhLmlC8fO7jTCuR8dU,16725
+blake2signer-1.2.1.dist-info/WHEEL,sha256=SrtnPGVTMeYWttls9xnWA01eUhCZ3ufFdJUYb1J3r-U,83
+blake2signer-1.2.1.dist-info/METADATA,sha256=Rx9OkqDOgiL6zaKD5Fk3wspqpFyqstCK1k6mP4WmDSQ,31154
+blake2signer-1.2.1.dist-info/RECORD,,
