@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: BDSpace
+Version: 0.3.14
+Summary: 3D space positioning and motion
+Home-page: https://github.com/bond-anton/BDSpace
+Author: Anton Bondarenko
+Author-email: bond.anton@gmail.com
+License: Apache Software License
+Description: # BDSpace
+        
+        ![Build](https://github.com/bond-anton/BDSpace/workflows/Build/badge.svg)
+        [![codecov](https://codecov.io/gh/bond-anton/BDSpace/branch/master/graph/badge.svg)](https://codecov.io/gh/bond-anton/BDSpace)
+        
+        **BDSpace** is a python package to simplify positioning, movement, and trajectory calculation for many
+        different technical problems. It is mainly for multiple interacting bodies systems like coordinate stages
+        and machining tools, robotic arms, manipulators, etc.
+        
+        **BDSpace** provides following basic features:
+        
+        |Feature                               |Staus             |
+        |--------------------------------------|------------------|
+        |Cartesian coordinate systems          |done              |
+        |Spherical coordinates                 |done              |
+        |Cylindrical coordinates               |done              |
+        |Conversion between coordinate systems |done              |
+        |Multiple nested coordinate systems    |done              |
+        |Parametric curves                     |done              |
+        |Trajectory builder (Pathfinder module)|endless work      |
+        |Planes and plane geometry             |work in progress  |
+        |...                                   |discussion is open|
+        
+        ## Installation
+        
+        BDSpace depends on numpy and [BDQuaternions](https://github.com/bond-anton/BDQuaternions) packages only.
+        It is compatible with Python 2 and Python 3.
+        
+        To install BDSpace type in a shell
+        ```shell
+        pip install BDSpace
+        ```
+        or in the root directory of BDQuaternions distribution run
+        ```shell
+        python setup.py install
+        ```
+        ## Usage
+        
+        Please see the demo directory for the usage examples.
+        
+        ## License
+        
+        BDSpace is free open source software licensed under Apache license version 2.0
+        
+Keywords: 3D coordinate Space paths trajectory
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown

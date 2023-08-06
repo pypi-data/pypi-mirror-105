@@ -1,0 +1,4 @@
+numpy
+scipy
+BDQuaternions>=0.2.11
+BDMesh>=0.2.11
