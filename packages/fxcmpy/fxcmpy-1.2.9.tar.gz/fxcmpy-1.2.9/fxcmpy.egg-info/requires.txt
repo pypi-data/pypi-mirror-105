@@ -1,0 +1,5 @@
+pandas
+python-socketio
+configparser
+requests[socks]
+python-engineio
