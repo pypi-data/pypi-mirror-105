@@ -1,0 +1,15 @@
+toxicity/__init__.py,sha256=tNWrGQmkR1_QLVNJP-ld89ngRPLOCK-pymBwqDB9-p8,47
+toxicity/final_model.py,sha256=FRpiP7rOnap0yHg10LZe33666pE7_pDF5aECAAFCUc4,993
+toxicity/navec_vectorizer_layer.py,sha256=ZQ3nNXmLs7PM_QUSHSL9onoIrMzR_3Z-jGNHQSICfSo,1114
+toxicity/dev/__init__.py,sha256=6h0Oz_f3FHPDMTSYQ_SqD89mZrtc_JNQj_fhTzqODWk,619
+toxicity/textPreprocessing/__init__.py,sha256=wy7sAcs1YvfwGRRMBgNmc7iZPIos97A_edLt6xjsA-I,46
+toxicity/textPreprocessing/preprocess_text.py,sha256=YCxLnFmI8yPuo-HBeCLLD50DopKLyFTiDjIrhicvFac,1351
+toxicity/textPreprocessing/text_utils/__init__.py,sha256=kEC1D8dCcHs2wDwOQSClMC6sXImWx2OkX-D9XC8dWlA,213
+toxicity/textPreprocessing/text_utils/lemmatize.py,sha256=BYuFVJlljoLGOgb4UHjMB3TVW55Tm0D9yZPPS8VxJ2Q,422
+toxicity/textPreprocessing/text_utils/remove_numbers.py,sha256=WfMg58E_Xjim8SB3WSeXFS24IJrOiBpMQf8V_cLdpX0,112
+toxicity/textPreprocessing/text_utils/remove_punctuation.py,sha256=ig10s5IU1LajZAyGhP98ysANUS0H_eSU6h9avtSmcAA,225
+toxicity/textPreprocessing/text_utils/remove_redundant_whitespace_chars.py,sha256=HD-W89CWBYGNEbxqrR1qhk-jb0u8qascTrv8UTQH2qI,625
+toxicity-0.7.dist-info/METADATA,sha256=JczBxsJLQo1KYOTgewqDhoUjaZpIir3Za_kexKTlfNc,738
+toxicity-0.7.dist-info/WHEEL,sha256=pqI-DBMA-Z6OTNov1nVxs7mwm6Yj2kHZGNp_6krVn1E,92
+toxicity-0.7.dist-info/top_level.txt,sha256=zyMMTYQmki4HilJfFEDAkGAdZQ61DaxsWGFg8wS6MnI,9
+toxicity-0.7.dist-info/RECORD,,
