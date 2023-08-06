@@ -1,0 +1,11 @@
+bledom/__init__.py,sha256=Xj4lLGp-iGq01bSCFzsSp5IhTZ0uJTAjWPqirrDoiBI,107
+bledom/__main__.py,sha256=N2rhvnSknFxq3wpTakPMctQVyP0Mar6EDdysJQiYz7Q,94
+bledom/device.py,sha256=z-5BkQ3zTPpwVdNMdCVaWg9KaCcWlhOxIL935UrmvYo,6417
+bledom/main.py,sha256=IW_T8SnUbt8ijTqrAZEaJbtJFS0vYTSug78CAq8MfsI,2278
+bledom/test_days.py,sha256=4C58RmfO5boyCJb0UQI-fGIS-SvnWjRbl_NbW8JjdjI,653
+bledom/util.py,sha256=ctFNnhFrCaXkFAvhYHNV51CjS8Akk3SRdrWwO650B4o,616
+bledom-0.0.9.dist-info/LICENSE,sha256=rnc4n3VxIcc8m7S2nfgT_MQLGdzDc7V4Pms9RqO4ngw,1070
+bledom-0.0.9.dist-info/METADATA,sha256=uSgCjn4TRxnQdQutjJY4TyUJh_J2bxi1wHHNepjCOSw,3986
+bledom-0.0.9.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+bledom-0.0.9.dist-info/top_level.txt,sha256=g6dSg8Z7rUz96dCHT3cztcsxs1ambfVRcuFmsdTrCPQ,7
+bledom-0.0.9.dist-info/RECORD,,
