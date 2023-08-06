@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: involution-pytorch
+Version: 0.0.1
+Summary: Involution Operation - Pytorch
+Home-page: https://github.com/rish-16/involution_pytorch
+Author: Rishabh Anand
+Author-email: mail.rishabh.anand@gmail.com
+License: MIT
+Keywords: artificial intelligence,deep learning,involution,convolution
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: torch (>=1.6)
+
+Unofficial wrapper around Involution wrapper by HKUST, ByteDance AI, and Peking University
+
+
