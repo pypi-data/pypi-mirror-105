@@ -1,0 +1,3 @@
+Pillow
+pixelmatcher
+pypng
