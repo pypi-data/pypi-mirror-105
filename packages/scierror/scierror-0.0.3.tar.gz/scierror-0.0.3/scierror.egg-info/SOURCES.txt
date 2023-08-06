@@ -1,0 +1,9 @@
+README.md
+setup.py
+scierror/__init__.py
+scierror/main.py
+scierror.egg-info/PKG-INFO
+scierror.egg-info/SOURCES.txt
+scierror.egg-info/dependency_links.txt
+scierror.egg-info/requires.txt
+scierror.egg-info/top_level.txt
