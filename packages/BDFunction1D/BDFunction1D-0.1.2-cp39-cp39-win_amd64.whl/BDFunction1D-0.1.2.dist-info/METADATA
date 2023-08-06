@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: BDFunction1D
+Version: 0.1.2
+Summary: BD one dimensional real argument real value functions
+Home-page: https://github.com/bond-anton/BDFunction1D
+Author: Anton Bondarenko
+Author-email: bond.anton@gmail.com
+License: Apache Software License
+Requires-Dist: BDMesh (>=0.2.11)
+
+# BDFunction1D
+
+
