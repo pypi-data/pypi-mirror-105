@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/efficient_det/__init__.py
+src/efficient_det/train.py
+src/efficient_det/utils/__init__.py
+src/efficient_det/utils/logs.py
+src/my_test_pkg_tnfru.egg-info/PKG-INFO
+src/my_test_pkg_tnfru.egg-info/SOURCES.txt
+src/my_test_pkg_tnfru.egg-info/dependency_links.txt
+src/my_test_pkg_tnfru.egg-info/requires.txt
+src/my_test_pkg_tnfru.egg-info/top_level.txt
