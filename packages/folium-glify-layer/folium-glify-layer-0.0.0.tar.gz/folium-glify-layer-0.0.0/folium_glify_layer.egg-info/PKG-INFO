@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: folium-glify-layer
+Version: 0.0.0
+Summary: Folium plugin to provide fast webgl rendering for GeoJSON FeatureCollections.
+Home-page: https://github.com/danwild/folium-glify-layer
+Author: Dan Wild
+Author-email: Daniel.Wild@csiro.au
+License: UNKNOWN
+Description: # folium-glify-layer
+        
+        Folium plugin to provide fast webgl rendering for large GeoJSON FeatureCollections (currently limited to polygons, lines and points).
+        
+        ## install
+        ```
+        pip install folium-glify-layer
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown

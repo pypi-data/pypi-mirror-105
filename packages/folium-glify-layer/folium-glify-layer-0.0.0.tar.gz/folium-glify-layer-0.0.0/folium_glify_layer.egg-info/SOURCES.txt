@@ -1,0 +1,8 @@
+README.md
+setup.py
+folium_glify_layer/__init__.py
+folium_glify_layer/glify_layer.py
+folium_glify_layer.egg-info/PKG-INFO
+folium_glify_layer.egg-info/SOURCES.txt
+folium_glify_layer.egg-info/dependency_links.txt
+folium_glify_layer.egg-info/top_level.txt
