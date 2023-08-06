@@ -1,0 +1,4 @@
+django~=2.2
+djangorestframework~=3.11
+django-filter~=2.3
+celery~=5.0

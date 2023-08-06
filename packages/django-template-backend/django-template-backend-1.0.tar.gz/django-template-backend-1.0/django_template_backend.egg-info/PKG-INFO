@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: django-template-backend
+Version: 1.0
+Summary: Django Template Backend
+Home-page: https://github.com/personal-server/django-template-backend
+Author: Sheldon Woodward
+Author-email: me@sheldonw.com
+License: MIT
+Description: # Django Template Backend
+        A template for Django apps with support for Django REST Framework, filters, Celery tasks, Beat schedules tasks, pytest,
+        and other things.
+        
+        ## Setup
+        1. Install the project dependencies
+        ````
+        $ pipenv install --dev
+        ````
+        
+        2. Refactor "template" names throughout project to desired name
+        
+        3. Create models
+        
+        4. Make migrations and migrate the database
+        ```
+        $ pipenv run python manage.py makemigrations
+        $ pipenv run python manage.py migrate
+        ```
+        
+        5. Start the Django server
+        ```
+        $ pipenv run python manage.py runserver
+        ```
+        
+        6. Optionally start the Celery related processes
+        ```
+        $ redis-server
+        $ pipenv run celery -A template_project worker -l info
+        $ pipenv run celery -A template_project beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+        ```
+        
+        ## Tests
+        Tests are setup to run through Pytest. They can be invoked with:
+        
+        ```
+        $ pipenv run python manage.py test
+        ```
+        or
+        ```
+        $ pipenv run python -m pytest
+        ```
+        
+Keywords: django backend
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Django :: 2.2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP :: Session
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: ~=3.8
+Description-Content-Type: text/markdown
