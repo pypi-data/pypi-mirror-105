@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: dnacentercli
+Version: 2.1.1
+Summary: 
+License: MIT
+Author: Jose Bogarin Solano
+Author-email: jbogarin@altus.cr
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: dnacentersdk (>=2.2.2,<3.0.0)
