@@ -1,0 +1,2 @@
+pyserial>=3.5
+cached-property>=1.5.2
