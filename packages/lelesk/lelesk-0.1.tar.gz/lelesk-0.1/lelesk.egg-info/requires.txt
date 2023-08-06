@@ -1,0 +1,3 @@
+texttaglib<0.2,>=0.1.1
+yawlib<0.2,>=0.1
+nltk>=3.6.2
