@@ -1,0 +1,3 @@
+[console_scripts]
+acme-rofl = acme_rofl:run
+
