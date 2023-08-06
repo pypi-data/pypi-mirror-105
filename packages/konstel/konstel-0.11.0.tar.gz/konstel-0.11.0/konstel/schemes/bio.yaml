@@ -1,0 +1,41 @@
+bio:
+  description: Phonemic and cbase32 identifiers for arbitrary biological sequences
+  version: 1.0.0
+  directives:
+    nuc:
+      formats:
+        - fasta  # Single fasta record or naked sequence
+      prepare:
+        remove_whitespace: True
+        remove_characters:
+          - '-'
+      validate:
+        alphabet: nucleotide
+    nuc-ambiguous:
+      formats:
+        - fasta
+      prepare:
+        remove_whitespace: True
+        remove_characters:
+          - '-'
+      validate:
+        alphabet: nucleotide-ambiguous
+    pro:
+      formats:
+        - fasta
+      prepare:
+        remove_whitespace: True
+        remove_characters:
+          - '-'
+      validate:
+        alphabet: protein
+  algorithm: sha256
+  encodings:
+    hash:
+      type: cbase32
+    id:
+      type: phonemes_16_4
+      length: 42  # Full SHA256 is 84
+      separator:
+        character: '-'
+        interval: 6
