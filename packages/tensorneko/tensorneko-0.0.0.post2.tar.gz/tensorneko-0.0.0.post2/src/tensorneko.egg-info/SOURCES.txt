@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+src/tensorneko/__init__.py
+src/tensorneko/hello.py
+src/tensorneko.egg-info/PKG-INFO
+src/tensorneko.egg-info/SOURCES.txt
+src/tensorneko.egg-info/dependency_links.txt
+src/tensorneko.egg-info/top_level.txt
