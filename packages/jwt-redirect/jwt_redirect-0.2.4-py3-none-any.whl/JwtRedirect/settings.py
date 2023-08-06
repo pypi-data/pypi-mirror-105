@@ -1,0 +1,18 @@
+from django.conf import settings
+
+
+REDIRECT_URL = getattr(settings, 'JWT_REDIRECT_URL', '/')
+
+JWT_PUB_KEY = getattr(settings, 'JWT_REDIRECT_PUB_KEY', '''
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuOKit73RksMWlM19D0x2
+CO3Zk4qtiMukFyD2EW7TkHfcQTPmVlbF8x50BExnRVvFBtxZe2xcMh6Ngl9IZIMs
+c4hxQ1MTOiWNMtyDlXmsmwjCBYOhOUVz/QMdu7G1VBeA9YcWJYhrkDq3hXkzFoTO
+R6CC0RohlS23erIQq6JHhoYthFUT3mg54O68CZrrsPy6UzvIJoyJB7FCBf4NpakB
+LVZdxHkWGZf3EV0duWeZs+FSG8a5nHE4c7D7hD44BdQ5YxTGsy60Phnwhdv8pFsn
+erUDpfibH/8Oi637QwxbtjicGEz1cnUEC15q/9ecTiLemBq4Z71nwWv8rs0qaa2R
+QwIDAQAB
+-----END PUBLIC KEY-----
+''')
+
+REQUIRED_ROLES = getattr(settings, 'JWT_REDIRECT_REQUIRED_ROLES', [])
