@@ -1,0 +1,9 @@
+README.md
+setup.py
+bin/easy-i3-neovim-nav
+easy_i3_neovim_nav/__init__.py
+easy_i3_neovim_nav.egg-info/PKG-INFO
+easy_i3_neovim_nav.egg-info/SOURCES.txt
+easy_i3_neovim_nav.egg-info/dependency_links.txt
+easy_i3_neovim_nav.egg-info/not-zip-safe
+easy_i3_neovim_nav.egg-info/top_level.txt
