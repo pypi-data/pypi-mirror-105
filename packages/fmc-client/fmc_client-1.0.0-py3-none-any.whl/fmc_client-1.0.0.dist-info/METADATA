@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: fmc-client
+Version: 1.0.0
+Summary: Cisco Firepower Management Center Open API Specification
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: tac@cisco.com
+License: UNKNOWN
+Keywords: Swagger,Cisco Firepower Management Center Open API Specification
+Platform: UNKNOWN
+Requires-Dist: certifi (>=2017.4.17)
+Requires-Dist: python-dateutil (>=2.1)
+Requires-Dist: six (>=1.10)
+Requires-Dist: urllib3 (>=1.23)
+
+**Specifies the REST URLs and methods supported in the Cisco Firepower Management Center API. Refer to the version specific [REST API Quick Start Guide](https://www.cisco.com/c/en/us/support/security/defense-center/products-programming-reference-guides-list.html) for additional information.**  # noqa: E501
+
+
