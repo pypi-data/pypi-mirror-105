@@ -1,0 +1,6 @@
+MiLibreria.py
+setup.py
+mgvpy.egg-info/PKG-INFO
+mgvpy.egg-info/SOURCES.txt
+mgvpy.egg-info/dependency_links.txt
+mgvpy.egg-info/top_level.txt
