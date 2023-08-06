@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: django-underconstruction
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Koen Woortman
+Author-email: koensw@outlook.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Django (>=2.2)
+
+# 🛠️ Django Under Construction
+
+
