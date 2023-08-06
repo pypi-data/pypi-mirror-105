@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: tanujbinarysearchtree
+Version: 0.0.1
+Summary: A very basic binary search tree
+Home-page: UNKNOWN
+Author: Tanuj Sharma
+Author-email: imtanujsharma.369@gmail.com
+License: MIT
+Description: A very basic Binary search tree 
+        
+        change log 
+        ===========
+        0.0.1 (09/05/2021)
+        ------------------
+        - First release
+Keywords: binarysearchtree
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
