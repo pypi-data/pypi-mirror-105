@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: chia-plot-manager
+Version: 1.0.1
+Summary: Chia plot manager
+Home-page: https://gitlab.com/kimvais/chia-plot-manager
+Author: Kimmo Parviainen-Jalanko
+Author-email: kimvais@kimva.is
+License: GPLv3
+Platform: UNKNOWN
+Requires-Dist: dateparser (==1.0.0)
+Requires-Dist: discord-notify (==1.0.0)
+Requires-Dist: playsound (==1.2.2)
+Requires-Dist: psutil (==5.8.0)
+Requires-Dist: python-pushover (==0.4)
+Requires-Dist: PyYAML (==5.4.1)
+
+UNKNOWN
+
+

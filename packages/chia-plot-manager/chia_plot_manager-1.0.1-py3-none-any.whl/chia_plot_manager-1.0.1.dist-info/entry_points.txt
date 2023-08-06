@@ -1,0 +1,3 @@
+[console_scripts]
+chia-plot-manager = plotmanager.__main__:main
+
