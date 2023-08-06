@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+pymailgen/__init__.py
+pymailgen/pymailgen.py
+pymailgen/version.py
+pymailgen.egg-info/PKG-INFO
+pymailgen.egg-info/SOURCES.txt
+pymailgen.egg-info/dependency_links.txt
+pymailgen.egg-info/entry_points.txt
+pymailgen.egg-info/top_level.txt
