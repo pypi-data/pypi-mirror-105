@@ -1,0 +1,275 @@
+Metadata-Version: 2.1
+Name: atila
+Version: 0.11.0.2
+Summary: Atila Framework
+Home-page: https://gitlab.com/sitai/atila
+Author: Hans Roh
+Author-email: hansroh@gmail.com
+License: MIT
+Download-URL: https://pypi.python.org/pypi/atila
+Platform: posix
+Platform: nt
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Environment :: Console
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
+Requires-Dist: skitai
+
+# Atila
+
+*Atila* is simple and minimal framework integrated with [Skitai App Engine](https://pypi.org/project/skitai/).
+It is the easiest way to make backend services.
+
+```python
+# serve.py
+from atila import Atila
+
+app = Atila (__name__)
+
+@app.route ("/")
+def index (was):
+    return "Hello, World"
+
+if __mame__ == "__main__":
+    import skitai
+    skitai.mount ("/", app)
+    skitai.run (port = 5000)
+```
+
+And run,
+```python
+python3 serve.py
+```
+
+
+
+
+# Important Notice
+
+*CAUTION*: Atila is base on WSGI but can be run only
+with [Skitai App Engine](https://pypi.org/project/skitai/).
+
+This means if you make your Atila app, you have no choice
+but Skitai as WSGI app server. And Atila's unique and unconventional
+style may become very hard work to port to other framework.
+
+
+# Table of Content
+- [Atila](https://gitlab.com/skitai/atila/-/blob/master/docs/000.preface.md#atila)
+- [Important Notice](https://gitlab.com/skitai/atila/-/blob/master/docs/000.preface.md#important-notice)
+- [Unconventional?](https://gitlab.com/skitai/atila/-/blob/master/docs/000.preface.md#unconventional)
+- [Installation](https://gitlab.com/skitai/atila/-/blob/master/docs/000.preface.md#installation)
+- [First App](https://gitlab.com/skitai/atila/-/blob/master/docs/010.first-app.md#first-app)
+  - [Project Structure](https://gitlab.com/skitai/atila/-/blob/master/docs/010.first-app.md#project-structure)
+  - [Launch Script](https://gitlab.com/skitai/atila/-/blob/master/docs/010.first-app.md#launch-script)
+  - [Create App](https://gitlab.com/skitai/atila/-/blob/master/docs/010.first-app.md#create-app)
+  - [Templates](https://gitlab.com/skitai/atila/-/blob/master/docs/010.first-app.md#templates)
+  - [Cascaded Service Mount](https://gitlab.com/skitai/atila/-/blob/master/docs/010.first-app.md#cascaded-service-mount)
+  - [Seperate '/sub' as sub module.](https://gitlab.com/skitai/atila/-/blob/master/docs/010.first-app.md#seperate-sub-as-sub-module)
+  - [Add new '/sub2' as sub package](https://gitlab.com/skitai/atila/-/blob/master/docs/010.first-app.md#add-new-sub2-as-sub-package)
+  - [Other Hooks](https://gitlab.com/skitai/atila/-/blob/master/docs/010.first-app.md#other-hooks)
+  - [More About Preference](https://gitlab.com/skitai/atila/-/blob/master/docs/010.first-app.md#more-about-preference)
+  - [Conclusion](https://gitlab.com/skitai/atila/-/blob/master/docs/010.first-app.md#conclusion)
+- [App Overview](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#app-overview)
+  - [Event Bus](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#event-bus)
+    - [App Life Cycle Events](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#app-life-cycle-events)
+  - [Extending and Overriding](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#extending-and-overriding)
+    - [Extending](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#extending)
+    - [Overriding](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#overriding)
+    - [Conclusion](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#conclusion-1)
+  - [Interval Base App Maintenancing](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#interval-base-app-maintenancing)
+  - [Working With Multiple Apps](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#working-with-multiple-apps)
+    - [Event Subscription](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#event-subscription)
+    - [Data Exchanging](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#data-exchanging)
+    - [Accesing Other App Directly](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#accesing-other-app-directly)
+  - [Very First Argument 'was'](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#very-first-argument-was)
+    - [Request](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#request)
+    - [Responses](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#responses)
+    - [Coroutines](https://gitlab.com/skitai/atila/-/blob/master/docs/020.app-oerview.md#coroutines)
+- [Processing Request](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#processing-request)
+  - [Request Life Cycle Hooks](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#request-life-cycle-hooks)
+  - [Request Life Cycle Events](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#request-life-cycle-events)
+  - [App & Request Gloabal](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#app-request-gloabal)
+  - [Request Object](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#request-object)
+    - [Basic Members](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#basic-members)
+    - [Basic Methods](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#basic-methods)
+    - [Route Options](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#route-options)
+  - [Environment Variables](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#environment-variables)
+  - [Routing](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#routing)
+  - [Request Parameters](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#request-parameters)
+  - [Parameter and Validation](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#parameter-and-validation)
+  - [File Upload](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#file-upload)
+  - [Streaming Request Data](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#streaming-request-data)
+  - [Cookie](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#cookie)
+  - [Session](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#session)
+    - [Namespaced Session](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#namespaced-session)
+  - [Message Box](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#message-box)
+  - [Piping](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#piping)
+  - [Making URL](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#making-url)
+  - [Helpers](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#helpers)
+    - [Testing](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#testing)
+    - [Authorization & Authentification](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#authorization-authentification)
+    - [Conditional Prework](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#conditional-prework)
+    - [Run Pre/Postworks Chain](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#run-prepostworks-chain)
+  - [CORS (Cross Origin Resource Sharing) and Preflight](https://gitlab.com/skitai/atila/-/blob/master/docs/030.request.md#cors-cross-origin-resource-sharing-and-preflight)
+- [Using Task](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#using-task)
+  - [Resource Aliasing](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#resource-aliasing)
+  - [Task](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#task)
+    - [HTTP Based Protocols](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#http-based-protocols)
+    - [PostgreSQL / SQLite3](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#postgresql-sqlite3)
+    - [MongDB](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#mongdb)
+    - [Redis](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#redis)
+    - [Thread / Process / Subrocess](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#thread-process-subrocess)
+    - [Mask](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#mask)
+  - [Tasks](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#tasks)
+  - [Generator Based Coroutine](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#generator-based-coroutine)
+  - [Map / Load-Balancing](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#map-load-balancing)
+  - [Cache Control](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#cache-control)
+  - [Adding Custom Database Interface For Atila Coroutine](https://gitlab.com/skitai/atila/-/blob/master/docs/040.task.md#adding-custom-database-interface-for-atila-coroutine)
+- [Making Response](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#making-response)
+  - [Cache Control](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#cache-control-1)
+  - [HTTP Error](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#http-error)
+    - [Custom Error Handlers](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#custom-error-handlers)
+  - [Primitive](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#primitive)
+    - [String](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#string)
+    - [API Response](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#api-response)
+    - [Rendered Template](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#rendered-template)
+    - [render_or_API](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#render_or_api)
+    - [File](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#file)
+    - [Static](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#static)
+    - [Generator](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#generator)
+    - [Redirecting](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#redirecting)
+    - [RPC Response](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#rpc-response)
+    - [ProxyPass](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#proxypass)
+    - [ThreadPass](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#threadpass)
+    - [Threaded Data Streaming](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#threaded-data-streaming)
+  - [Coroutine](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#coroutine)
+    - [Task / Tasks](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#task-tasks)
+    - [Map](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#map)
+    - [Mapped](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#mapped)
+    - [Couroutine Streaming](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#couroutine-streaming)
+    - [Bidirectional Streaming](https://gitlab.com/skitai/atila/-/blob/master/docs/050.response.md#bidirectional-streaming)
+- [Helpers of 'was'](https://gitlab.com/skitai/atila/-/blob/master/docs/060.was-helpers.md#helpers-of-was)
+  - [Logging and Traceback](https://gitlab.com/skitai/atila/-/blob/master/docs/060.was-helpers.md#logging-and-traceback)
+  - [Cross Site Request Forgery Token (CSRF Token)](https://gitlab.com/skitai/atila/-/blob/master/docs/060.was-helpers.md#cross-site-request-forgery-token-csrf-token)
+  - [JWT Token](https://gitlab.com/skitai/atila/-/blob/master/docs/060.was-helpers.md#jwt-token)
+  - [One-Time Password](https://gitlab.com/skitai/atila/-/blob/master/docs/060.was-helpers.md#one-time-password)
+  - [One-Time Token](https://gitlab.com/skitai/atila/-/blob/master/docs/060.was-helpers.md#one-time-token)
+- [Websocket](https://gitlab.com/skitai/atila/-/blob/master/docs/070.websocket.md#websocket)
+  - [WS_COROUTINE](https://gitlab.com/skitai/atila/-/blob/master/docs/070.websocket.md#ws_coroutine)
+  - [WS_CHANNEL](https://gitlab.com/skitai/atila/-/blob/master/docs/070.websocket.md#ws_channel)
+    - [WS_THREAD](https://gitlab.com/skitai/atila/-/blob/master/docs/070.websocket.md#ws_thread)
+    - [WS_THREADSAFE](https://gitlab.com/skitai/atila/-/blob/master/docs/070.websocket.md#ws_threadsafe)
+    - [WS_NOTHREAD](https://gitlab.com/skitai/atila/-/blob/master/docs/070.websocket.md#ws_nothread)
+- [Test Client](https://gitlab.com/skitai/atila/-/blob/master/docs/080.test-client.md#test-client)
+- [Your Life Is So Precious](https://gitlab.com/skitai/atila/-/blob/master/docs/100.precious-life.md#your-life-is-so-precious)
+  - [Integrating Django Models and Administrative Views](https://gitlab.com/skitai/atila/-/blob/master/docs/100.precious-life.md#integrating-django-models-and-administrative-views)
+  - [Integrating pytest and API Documentation](https://gitlab.com/skitai/atila/-/blob/master/docs/100.precious-life.md#integrating-pytest-and-api-documentation)
+- [Change Log](https://gitlab.com/skitai/atila/-/blob/master/docs/900.change-log.md#change-log)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Unconventional?
+
+Atila is based on WSGI specification but take some advantage of
+asynchronous features which are provided from Skitai.
+
+Atila is mostly same as other WSGI containers for functional
+and API aspect.
+
+Otherwise Atila has asynchronous features but it does not use
+`async/await` conventions. it sometime use generator base coroutine
+with `yeild`.
+
+Atila treats async jobs like these as a `Task`.
+
+- HTTP Request
+- Database Query
+- Thread
+- Process
+- Subprocess
+
+Task has 3 major common methods: fetch(), one(), commit(). Multiple tasks are
+bind into `Tasks`. Tasks also have the same 3 methods.
+
+Tasks are passed over to main event loop of main thread from current request
+thread. If all tasks finished, Tasks will be returned to request thread. Also
+by yielding, Tasks can be completely transitted into non blocking manner.
+
+I'm not telling Atila is more better design. I'm just telling Atila is obviously
+NOT main-stream and I enjoy this project.
+
+
+
+
+
+
+# Installation
+
+**Requirements**
+
+Python 3.6+
+
+
+**Installation**
+
+Atila and other core base dependent libraries is developing on
+single milestone, install/upgrade all at once. Otherwise it is
+highly possible to meet some errors.
+
+With pip
+```bash
+pip3 install -U atila skitai rs4 aquests
+```
+
+With git
+
+```bash
+pip3 install -U skitai rs4 aquests sqlphile
+git clone https://gitlab.com/hansroh/atila.git
+cd atila
+pip3 install -e .
+```
+
+Optional required as you need,
+```bash
+pip3 install redis
+pip3 install pymongo
+pip3 install psycopg2-binary
+pip3 install protobuf # for GRPC
+pip3 install jsonrpclib-pelix
+pip3 install jinja2
+```
+
+
+
+**[<< Back To README](https://gitlab.com/skitai/atila/-/blob/master/README.md)**
+
+
+
+
+
+
+
+
+
+
+
