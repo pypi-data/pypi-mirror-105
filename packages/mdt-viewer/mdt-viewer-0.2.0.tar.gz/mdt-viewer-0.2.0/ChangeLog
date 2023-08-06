@@ -1,0 +1,91 @@
+CHANGES
+=======
+
+0.1.2
+-----
+
+* Fixed format, removed single quotes
+* Added requirements file
+* Add metadata about the project
+* Install theme files and sample markdown inside the package
+* Refactor packaging
+* Minor changes to help strings
+* Fixed wrong reference to main function in setup
+* Restored the English version of the sample theme file
+* Introduced commands a-la-click
+* chosen\_link -> selected\_link in JSONs
+* Clear screen removed
+* Integrated the README
+* Changed name of the license file to uppercase
+* col and rmargin works on gallery
+* "i accidentally cancelled the file"
+* requirement for GPLv3
+* updated mdt\_parser with GPLv3
+* updated render with syntax correction and GPLv3
+* Factorized some copied&pasted code
+* Clarified comment
+* Reorganized the comments
+* Fixed typo in README
+* Added rmargin check using callback
+* Fixed wrong exits in case of correct codepath
+* Updated .gitignore
+* github changes
+* pagedown fix
+* link bug fix
+* Used callback to check col parameter
+* Introduced callback for checking the theme ID
+* Reworked the handling of command line parameters
+* Added .md extension to the sample text file
+* Translated and improved the sample text file used in the gallery
+* Added missing points in help strings
+* Changed the ordering of command line arguments
+* Renamed argument parameter
+* Improved the name of an argument and help messages
+* Improved the default theme
+* Fixed typo in README
+* Fixed typo in README
+* Revised the content of the README
+* Improved the default style
+* Revised some code to check the correctness of command line parameters
+* Some changes to the README
+* history style
+* update
+* bug fix + change on how i can get themes
+* Changed example links in the demo md file
+* Minor change to the themes
+* update
+* bug fixing
+* Added missing dependencies in setup.py
+* Missing ansiwrap in the setup
+* updated gitignore
+* code cleaning
+* code cleaning
+* code cleaning
+* code cleaning
+* now can get prefix and suffix document
+* text correction
+* now have history file manager
+* new theme, now have control over all section
+* updated sample text
+* updated parser
+* new renderer
+* sample text
+* updated render
+* new  colors
+* sample text
+* updated setup.py
+* new features
+* pulizia del codice
+* entry point per il comando mdt
+* render per avere il riferimento nel testo formattato
+* custom theme
+* Render html modificato per essere utilizzato da prompt\_toolkit
+* file markdown di prova
+* mdt\_parser, main file
+* json per rich
+* primo viewer
+* markdown di prova
+* markdown renderer
+* add gitignore file
+* Update README.md
+* Initial commit
