@@ -1,0 +1,15 @@
+hypixelpy/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hypixelpy/api.py,sha256=UUFO5fnuH7pJHTtZ9zUmocGTZOEZvWF8hhO7DQUqLRY,580
+hypixelpy/exceptions.py,sha256=ry3rZMGQzKPqWmAjBzwRpVvZO50rmcpmSiK7F5xXdCE,281
+hypixelpy/gametypes.json,sha256=GX6NRe8O0h2BFxZJSSzASFn90_VQeUO_aoB8Gh0pQ8k,4518
+hypixelpy/gametypes.py,sha256=OjPLL_QTxaaiIEmsZdR4uECJV98Zaw3ho7dy8NCOW8k,3654
+hypixelpy/hypixel.py,sha256=QxVWkXHd3YoStM0hxPS7sb--a9fkBAIH7Rr0ZXQMm9M,660
+hypixelpy/other.py,sha256=Ms9Th92gCFrm9wmhPFCDlAvsYUs4cXGZsijgpbZJfF8,1347
+hypixelpy/player.py,sha256=1lwhmvACHMzth4ZQ7TDzKrhyGLf2QOkVdXcrXDcj3T8,2139
+hypixelpy/resources.py,sha256=v1NdM1UuQ6sTeG8hbu2IcOje3ldNcPwB1gCqPk9l9q0,1337
+hypixelpy/skyblock.py,sha256=OABhqyjpf681cdvSmMXWvK7ffKLyqYYrEqeYSfRg-hM,4435
+hypixelpy-0.1.0.dist-info/LICENSE,sha256=5Dte9TUnLZzPRs4NQzl-Jc2-Ljd-t_v0ZR5Ng5r0UsY,35131
+hypixelpy-0.1.0.dist-info/METADATA,sha256=y6vB6wcjYV0DPs8S_CXJ5MqJMcn7M1KoA95-IsPbBo0,1839
+hypixelpy-0.1.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+hypixelpy-0.1.0.dist-info/top_level.txt,sha256=LBbDpBM4ecyQKjtaoi05MHDKOKV_PM3BpGmKS_4Uauo,10
+hypixelpy-0.1.0.dist-info/RECORD,,
