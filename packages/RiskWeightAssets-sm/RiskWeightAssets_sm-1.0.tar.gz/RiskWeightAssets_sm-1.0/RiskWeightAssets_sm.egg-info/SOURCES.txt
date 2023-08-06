@@ -1,0 +1,8 @@
+README.md
+setup.py
+RWA_sm/RWA_sm.py
+RWA_sm/__init__.py
+RiskWeightAssets_sm.egg-info/PKG-INFO
+RiskWeightAssets_sm.egg-info/SOURCES.txt
+RiskWeightAssets_sm.egg-info/dependency_links.txt
+RiskWeightAssets_sm.egg-info/top_level.txt
