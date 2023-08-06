@@ -1,0 +1,12 @@
+Metadata-Version: 1.2
+Name: galaxy_py
+Version: 0.0.2
+Summary: Simple distributed file system based on gRPC.
+Home-page: https://github.com/kfrancischen/galaxy
+License: Apache 2.0
+Description: UNKNOWN
+Keywords: distributed system,gRPC
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
