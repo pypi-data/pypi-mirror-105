@@ -1,0 +1,15 @@
+README.md
+setup.cfg
+setup.py
+future_typing/__init__.py
+future_typing/cli.py
+future_typing/codec.py
+future_typing/py.typed
+future_typing/utils.py
+future_typing.egg-info/PKG-INFO
+future_typing.egg-info/SOURCES.txt
+future_typing.egg-info/dependency_links.txt
+future_typing.egg-info/entry_points.txt
+future_typing.egg-info/requires.txt
+future_typing.egg-info/top_level.txt
+future_typing.egg-info/zip-safe
