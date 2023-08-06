@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+robodesk/__init__.py
+robodesk/robodesk.py
+robodesk/robodesk_example.py
+robodesk.egg-info/PKG-INFO
+robodesk.egg-info/SOURCES.txt
+robodesk.egg-info/dependency_links.txt
+robodesk.egg-info/requires.txt
+robodesk.egg-info/top_level.txt
+robodesk/assets/desk.xml
+robodesk/assets/franka_panda.xml
+robodesk/assets/franka_panda_headers.xml
