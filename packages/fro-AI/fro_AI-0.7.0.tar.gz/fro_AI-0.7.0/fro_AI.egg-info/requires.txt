@@ -1,0 +1,6 @@
+tqdm
+
+[all]
+torch
+torchvision
+opencv-python
