@@ -1,0 +1,31 @@
+#!/usr/bin/python
+from npytools import *
+print("""
+ _   _  ____    ___   _____ 
+| \ | || __ )  / _ \ |_   _|
+|  \| ||  _ \ | | | |  | |  
+| |\  || |_) || |_| |  | |  
+|_| \_||____/  \___/   |_|  
+                            
+       BY NASIR ALI
+    FB : fb.com/nasir.xo
+  GITHUB : github.com/nasirxo
+    
+""")
+f = FB()
+
+print("
+ ---- [LOGIN - OPTONS] ---- 
+ 1) Login With FB Cookie In Json File
+ 2) Login By Entering Cookie Parameters
+ 
+ ")
+opt = str(input("OPTION : "))
+if opt == '1':
+ f.setcookie(input("Enter Full Path To Cookie File : "))
+if opt == '2':
+ f.cookieinput()
+ 
+print("Logged In as : {}".format(f.getname()))
+b = BOT(f)
+b.InboxMathBOT()
