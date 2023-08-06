@@ -1,0 +1,8 @@
+LICENCE
+README.md
+setup.py
+Xtreme_Beautify.egg-info/PKG-INFO
+Xtreme_Beautify.egg-info/SOURCES.txt
+Xtreme_Beautify.egg-info/dependency_links.txt
+Xtreme_Beautify.egg-info/requires.txt
+Xtreme_Beautify.egg-info/top_level.txt
