@@ -1,0 +1,4 @@
+include LICENCE
+include README.md
+include test/*.csv
+include src/*.h
