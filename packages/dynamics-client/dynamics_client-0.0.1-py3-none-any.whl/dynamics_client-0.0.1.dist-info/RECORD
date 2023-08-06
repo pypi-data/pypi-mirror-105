@@ -1,0 +1,13 @@
+dynamics/__init__.py,sha256=ZspZoum-WDZRwgpig70XTTvqE-bymzzAFDvbjqq2-FM,119
+dynamics/api_functions.py,sha256=n-4S_Q8RX5FHqKibeGy26eAOs15Fb5oA4er-eN0qN-I,5222
+dynamics/client.py,sha256=FT9v7JpqaL_dAm-q94MtyX5rlp1JWMOSl4zZEs8ABRg,23970
+dynamics/exceptions.py,sha256=9Gk-CXBH_uopluwAZlrEyYcsCCiP-cMwYPTCtinMyPg,3326
+dynamics/normalizers.py,sha256=an2wXex4mMt1NW8yEhO_c_DWXQph2y9NXCdnwyEPx5Y,798
+dynamics/query_functions.py,sha256=oe3t75qXJ3gY75UzcJq_Oo7VmQ3Up1KyOfg_EgOb23M,24971
+dynamics/status.py,sha256=JnXFTN9fRofI0z-D3HY2eNVii117ZDmH1ljtTXielCE,1972
+dynamics/utils.py,sha256=y5DcvilOa03LkWiVai3CslsP934XFsenoIY5XOjammA,2591
+dynamics_client-0.0.1.dist-info/LICENSE,sha256=aVX99MHe0Uow-2bjeqfTl5aEIdLgYWhrvYioTrZI_js,1090
+dynamics_client-0.0.1.dist-info/METADATA,sha256=kWmFCprrnpaqhehUh3R5SkuMqvjBGM6nOIQayV40s14,1765
+dynamics_client-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+dynamics_client-0.0.1.dist-info/top_level.txt,sha256=kJGRV9Z3IFH0JgCcbwdyo9OSJ54S24_IN7mVuI3aUOU,9
+dynamics_client-0.0.1.dist-info/RECORD,,
