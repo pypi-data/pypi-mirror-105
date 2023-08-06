@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/cloud_mappings.egg-info/PKG-INFO
+src/cloud_mappings.egg-info/SOURCES.txt
+src/cloud_mappings.egg-info/dependency_links.txt
+src/cloud_mappings.egg-info/top_level.txt
+src/cloudmappings/__init__.py
+src/cloudmappings/azureblobmapping.py
+src/cloudmappings/cloudstoragemapping.py
+src/cloudmappings/cloudstorage/__init__.py
+src/cloudmappings/cloudstorage/awss3.py
+src/cloudmappings/cloudstorage/azureblobstorage.py
+src/cloudmappings/cloudstorage/cloudstorage.py
+src/cloudmappings/cloudstorage/googlecloudstorage.py
