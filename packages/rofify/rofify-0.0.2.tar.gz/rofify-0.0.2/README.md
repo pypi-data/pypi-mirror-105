@@ -1,0 +1,23 @@
+# Rofify
+## Spotify Menu in Rofi
+This app is intended to provide an alternative method for controlling spotify playback. 
+It's inspired by the terminal application [SpoTUI](https://github.com/ceuk/SpoTUI), and makes heavy use of 
+[spotipy](https://github.com/plamere/spotipy) and [python-rofi-menu](https://github.com/miphreal/python-rofi-menu).
+
+Before you attempt to install this, it's worth noting that, at present, you need spotify premium in order to use this. 
+
+To install the package run: 
+``` sh
+pip install rofify
+```
+
+## Configuration
+You will need to add a few items to the configuration to get started.
+
+
+
+Try and see if the package is working by typing running Rofi:
+``` sh
+rofi -modi spotify:"python -m rofify" -show spotify
+```
+
