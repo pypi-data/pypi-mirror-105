@@ -1,0 +1,12 @@
+formsite_util/__init__.py,sha256=TgVTd5WfXdFl8Xu68oaPS_jVo7n5O9NQ7iJcEieklJM,85
+formsite_util/api.py,sha256=GzZD9mkrMcaWi2l9JzN8o49eRwoacVcMf_2BLIyq2Y4,5860
+formsite_util/cli.py,sha256=2scV_VWXZBB7Y6z7IfVHdqw7Avw7X7d3NV3vX9ynPY0,18808
+formsite_util/core.py,sha256=EISbQh9kZdzU1CjC8ispzoM9gFay7MpbroCFBT-u_gI,24170
+formsite_util/downloader.py,sha256=ZFaDzVfr-O6li7oBaMBmHgCCQ7NmR-ASYhS8QJJMbLo,14223
+formsite_util/processing.py,sha256=2XL3qr2gjlx77bLTg0avx3u9UK5jcnhANSGIdoRkY04,6792
+formsite_util-1.2.8.post1.dist-info/LICENSE.md,sha256=0SAgqCl8RI6Vm7Rv5YC6CPyLA2MXedQM9tq17WMXl-o,33041
+formsite_util-1.2.8.post1.dist-info/METADATA,sha256=Lef3VL4guL_aUy_HyuunZUkCTNNXlN5HYpnzPmCWGbI,15330
+formsite_util-1.2.8.post1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+formsite_util-1.2.8.post1.dist-info/entry_points.txt,sha256=flYiDqQp8CeW1IOLxcJdnL3HUzG9OTZYNMq-BrAra98,52
+formsite_util-1.2.8.post1.dist-info/top_level.txt,sha256=zbdBAJ6HzI-VezQAzOT2pMc2zEy5WYfg-wJlfWfemE4,14
+formsite_util-1.2.8.post1.dist-info/RECORD,,
