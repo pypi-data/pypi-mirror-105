@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: torchmetagen
+Version: 0.1.8
+Summary: Torchmetagen is a python package for metagenomic sequence data processing and inference.
+Home-page: http://github.com/lucas-coutinho/ViralClassificationAWS
+Author: lucas-coutinho
+Author-email: UNKNOWN
+License: MIT
+Keywords: metagenomic,deep learning,viral classification
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: numpy
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: pandas
+Requires-Dist: biopython
+
+UNKNOWN
+
+

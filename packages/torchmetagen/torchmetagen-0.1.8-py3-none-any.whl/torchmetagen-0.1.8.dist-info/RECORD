@@ -1,0 +1,15 @@
+torchmetagen/__init__.py,sha256=VyX7qaWWGNKDEt4yXuPdPpNX4RjdugnGCKxwzvbndG0,102
+torchmetagen/datasets/__init__.py,sha256=0He4xY_M3yyqbI2x7r5LgydJH9RMjKwX7J4tEmi390A,33
+torchmetagen/datasets/metagenomicdataset.py,sha256=hqjttz0WwrPDwKWV6-1AWD2vKuX6tugd4sC8niPLO-Q,1528
+torchmetagen/datasets/utils.py,sha256=HY0G56A2VX3in93P1EVr9L0UM85NVihiQwcnqUmDYqk,5470
+torchmetagen/models/__init__.py,sha256=6GVnxgNknZXlJCOxhe_M9_6yN3fk-1ub299_TkF11jw,53
+torchmetagen/models/deepvirfinder.py,sha256=nLCNfkLbwA-nXeIyBmONzT0JqwZiGCTCOABrk3Oa2A4,2354
+torchmetagen/models/utils.py,sha256=Xaqyx15wkUfaOLcgrQlSBzqgTD4JaKz6cnaBRC8wa3g,1192
+torchmetagen/models/viraminer.py,sha256=VlyGiGvXzrpmfo4IvdT9aHnqasfwn7AKMYVMECCDI2w,2943
+torchmetagen/transforms/__init__.py,sha256=UjvFG5fMR5Grr0VRHqnk_iJ1QGfaMaCILCPvA0d_rvs,25
+torchmetagen/transforms/transforms.py,sha256=M9votLCDxh3qF0qPWi2l_0LSF47tnqbF8vEnw6U5U1w,6146
+torchmetagen-0.1.8.dist-info/LICENSE.txt,sha256=xkDqF6tQd1Sfv79nkbMd5RPhfiKSLp_IN83jxhm97FI,1068
+torchmetagen-0.1.8.dist-info/METADATA,sha256=F-z9Wwxq9jcyi9kVfSxZOKGTkIKlCo2hv5JpunyPnxI,616
+torchmetagen-0.1.8.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+torchmetagen-0.1.8.dist-info/top_level.txt,sha256=K5XdY0ktLmXfCSrpRsaBsmXHtP7PZqX15ymld06qwaU,13
+torchmetagen-0.1.8.dist-info/RECORD,,
