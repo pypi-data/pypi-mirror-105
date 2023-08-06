@@ -1,0 +1,8 @@
+README.md
+setup.py
+tquota/__init__.py
+tquota/quota.py
+tquota.egg-info/PKG-INFO
+tquota.egg-info/SOURCES.txt
+tquota.egg-info/dependency_links.txt
+tquota.egg-info/top_level.txt
