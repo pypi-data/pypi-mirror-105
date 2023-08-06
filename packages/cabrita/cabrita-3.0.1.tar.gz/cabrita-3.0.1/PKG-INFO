@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: cabrita
+Version: 3.0.1
+Summary: Create dashboard from docker-compose.yml
+Author: Chris Maillefaud
+Author-email: chris@megalus.com.br
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: User Interfaces
+Requires-Dist: GitPython
+Requires-Dist: PyYAML
+Requires-Dist: buzio
+Requires-Dist: click
+Requires-Dist: psutil
+Requires-Dist: pydashing
+Requires-Dist: requests
+Requires-Dist: sentry-sdk
+Requires-Dist: sphinx
+Requires-Dist: sphinx-rtd-theme
+Requires-Dist: tabulate
+Requires-Dist: tzlocal
