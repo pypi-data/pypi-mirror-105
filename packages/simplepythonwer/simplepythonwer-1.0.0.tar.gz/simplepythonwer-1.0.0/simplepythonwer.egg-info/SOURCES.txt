@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+simplepythonwer.egg-info/PKG-INFO
+simplepythonwer.egg-info/SOURCES.txt
+simplepythonwer.egg-info/dependency_links.txt
+simplepythonwer.egg-info/top_level.txt
+test/__init__.py
+test/test_wer.py
