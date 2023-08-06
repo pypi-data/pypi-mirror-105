@@ -1,0 +1,9 @@
+rff/__init__.py,sha256=K_iclD3jsEboSeM_Lk61rXDPw0LeyctdI941IxzfP2Y,82
+rff/dataloader.py,sha256=01Qp-Ran4VIqdKQtCKqyEE1jjp1utcaxjjf1S4w5Uio,933
+rff/functional.py,sha256=Xbcvi9FMa8mGy1ZyAnuN__uG2NSYX-fwUQSMMi5r8tA,2425
+rff/layers.py,sha256=P3hvVP3EzUFXtbwmKRu6MO0LhovC0wgHCxV0Gpfe40E,3558
+random_fourier_features_pytorch-0.1.dist-info/LICENSE,sha256=r6eLcZRWyCWzxOkh5nEoaILrNK_4IVb88P1CLyKqOHg,1079
+random_fourier_features_pytorch-0.1.dist-info/METADATA,sha256=rDG97mXTh6cC-f9-K4n37dRs3HSSs6tH7amMrIdVpPs,378
+random_fourier_features_pytorch-0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+random_fourier_features_pytorch-0.1.dist-info/top_level.txt,sha256=cf3dGPSA0u38u7fKkXV-B6DSC_t1vGfJUFDN_c-5_kk,4
+random_fourier_features_pytorch-0.1.dist-info/RECORD,,
