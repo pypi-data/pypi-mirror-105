@@ -1,0 +1,7 @@
+README.md
+setup.py
+example_pkg_Prac2909.egg-info/PKG-INFO
+example_pkg_Prac2909.egg-info/SOURCES.txt
+example_pkg_Prac2909.egg-info/dependency_links.txt
+example_pkg_Prac2909.egg-info/requires.txt
+example_pkg_Prac2909.egg-info/top_level.txt

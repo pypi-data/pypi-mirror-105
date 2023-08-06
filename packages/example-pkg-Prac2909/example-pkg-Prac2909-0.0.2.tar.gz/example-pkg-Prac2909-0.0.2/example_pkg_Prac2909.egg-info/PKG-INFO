@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: example-pkg-Prac2909
+Version: 0.0.2
+Summary: example-pkg-Prac2909 is now example_pkg_try2
+Home-page: UNKNOWN
+License: UNKNOWN
+Description: # example-pkg-Prac2909 is now example_pkg_try2
+        
+        This package has been renamed. Use `pip install example_pkg_try2` instead.
+        
+        New package: https://pypi.org/project/example_pkg_try2/
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 7 - Inactive
+Description-Content-Type: text/markdown
