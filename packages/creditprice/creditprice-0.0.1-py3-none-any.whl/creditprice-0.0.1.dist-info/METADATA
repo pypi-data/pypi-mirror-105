@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: creditprice
+Version: 0.0.1
+Summary: Credit price tool
+Home-page: https://github.com/pypa/sampleproject
+Author: Fei Wu
+Author-email: wufei.pku@163.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+
+This package is used to create a suitable plan of credit price.Based on credit score and a series of interests, you can train a credit price model through this package, Then you can use this model to give anyone a loan interest based on his or her credit score.
+
+
+Example:
+
+
