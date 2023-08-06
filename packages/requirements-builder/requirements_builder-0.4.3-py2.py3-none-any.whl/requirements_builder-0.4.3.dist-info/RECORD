@@ -1,0 +1,10 @@
+requirements_builder/__init__.py,sha256=KGbhRvOzfH51Fdd6f8NuvahCi5pIRl21bquzZc30qhA,3226
+requirements_builder/cli.py,sha256=ADNQv9rn6M_VE_8gYOmlXcFV04QjqGt3wBKBKRXEz3A,2280
+requirements_builder/requirements_builder.py,sha256=i_9ofEIYr6tKkrrTfhXu6evtxWVnDlo-P0iXV3B-UH8,6845
+requirements_builder/version.py,sha256=GLnbawy4Iz-FzW5o7kw0p07v_XdfMGyUEiV1f2gpBVg,752
+requirements_builder-0.4.3.dist-info/LICENSE,sha256=5wfEqJLf5ANizw20WUURuTgoZOzMRK_4iGA39BApyRk,1643
+requirements_builder-0.4.3.dist-info/METADATA,sha256=x3mptfCt7YbC_OVca93o6aIPvdDla8tkH4oCvzRPyw4,2793
+requirements_builder-0.4.3.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+requirements_builder-0.4.3.dist-info/entry_points.txt,sha256=UMpS5-XPTEMI-IyKExHB7FJjnnho2d635WR29EnHNPw,71
+requirements_builder-0.4.3.dist-info/top_level.txt,sha256=6oyuqYDqwVtlcMpDxEiTwJ74TPbtdUYAS_ZOmjcpXps,21
+requirements_builder-0.4.3.dist-info/RECORD,,
