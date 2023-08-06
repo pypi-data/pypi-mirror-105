@@ -1,0 +1,11 @@
+cursor
+pyautogui
+numpy
+math
+sys
+os
+re
+dataclasses
+
+[dev]
+pytest>=3.7
