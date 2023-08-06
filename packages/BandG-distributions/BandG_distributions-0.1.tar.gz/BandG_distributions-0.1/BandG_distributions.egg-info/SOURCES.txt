@@ -1,0 +1,10 @@
+setup.py
+BandG_distributions/Binomialdistribution.py
+BandG_distributions/Gaussiandistribution.py
+BandG_distributions/Generaldistribution.py
+BandG_distributions/__init__.py
+BandG_distributions.egg-info/PKG-INFO
+BandG_distributions.egg-info/SOURCES.txt
+BandG_distributions.egg-info/dependency_links.txt
+BandG_distributions.egg-info/not-zip-safe
+BandG_distributions.egg-info/top_level.txt
