@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+dimsum/__init__.py
+dimsum/alignment.py
+dimsum/calendar.py
+dimsum/container.py
+dimsum/methods.py
+dimsum/oputils.py
+dimsum/schema.py
+dimsum.egg-info/PKG-INFO
+dimsum.egg-info/SOURCES.txt
+dimsum.egg-info/dependency_links.txt
+dimsum.egg-info/requires.txt
+dimsum.egg-info/top_level.txt
