@@ -1,0 +1,96 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+"""Test per Mis
+ura Language."""
+import os
+import unittest
+import numpy
+from mdf_canon import milang, indexer
+
+from mdf_canon.tests import testdir, DummyInstrument, verify_point
+np = numpy
+
+
+def setUpModule():
+    print('Starting', __name__)
+
+
+data_scr = """
+print('data_scr')
+i0,t0,v0=mi.Raises('cohe',80)
+print('raises',i0,t0,v0)
+mi.t(t0)
+T=mi.At('T',t0)
+print('Set T',T)
+mi.T(T)
+mi.t(t0)
+# Functions should work also directly on array objects
+w=mi.Curve('w')
+mi.Value(mi.At(w,t0))
+mi.Log("Ciao")
+# Multiple assign
+x,y=mi.xy('w')
+"""
+
+
+cooling0_scr = """
+print('Getting Max')
+imaxT, t, maxT=mi.Max('T')
+i,t,T=mi.Drops('T',78, imaxT)
+mi.t(t)
+mi.T(T)
+"""
+
+reverse_search= """
+print('Reverse search')
+i,t,T = mi.Drops('T', 21, step=-1)
+print('Found',i,T,t)
+mi.t(t)
+mi.T(T)
+"""
+
+# FIXME: for this to work, we need real data here!
+path = os.path.join(testdir,'storage','hsm_test.h5')
+
+
+class DataEnvironment(unittest.TestCase):
+    
+    def setUp(self):
+        self.env = milang.DataEnvironment()
+        self.tab = indexer.SharedFile(path)
+        self.env.hdf = self.tab
+        self.env.prefix = '/hsm/sample0/'
+        
+    def tearDown(self):
+        self.tab.close(all_handlers=True)
+
+    def test_Value(self):
+        self.env.Value(10)
+        self.assertEqual(self.env.value, 10)
+
+    def test_simple(self):
+        mi = milang.MiLang(data_scr, env=self.env)
+        self.assertTrue(mi.code)
+        mi.ins_env.obj = DummyInstrument()
+        mi.do()
+        print('verify point', mi.env.time, mi.env.temp, mi.env.value)
+        verify_point(self, mi.env, 1402241667.782006,
+                        20.01248106656483,  215.33565530223945, 'Ciao')
+
+    def test_Select(self):
+        mi = milang.MiLang(cooling0_scr, env=self.env)
+        self.assertTrue(mi.code)
+        mi.ins_env.obj = DummyInstrument()
+        self.assertTrue(mi.do())
+
+    def test_DropsReverse(self):
+        mi = milang.MiLang(reverse_search, env=self.env)
+        self.assertTrue(mi.code)
+        mi.ins_env.obj = DummyInstrument()
+        self.assertTrue(mi.do())
+        self.assertAlmostEqual(self.env.time, 1402241680)
+        self.assertAlmostEqual(self.env.temp, 20.300295344065677)
+        
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

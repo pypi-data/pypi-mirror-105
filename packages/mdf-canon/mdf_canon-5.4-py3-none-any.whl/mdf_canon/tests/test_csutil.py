@@ -1,0 +1,109 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import unittest
+import tempfile
+import numpy as np
+
+from mdf_canon.csutil import xmlrpcSanitize
+from mdf_canon.csutil import next_point
+from mdf_canon.csutil import filter_calibration_filenames
+from mdf_canon.csutil import only_hdf_files
+from mdf_canon.csutil import incremental_filename, _update_filter
+
+
+class TestCsUtil(unittest.TestCase):
+    def test_xmlrpcSanitize(self):
+        self.assertEqual(xmlrpcSanitize(b'abc'), 'abc')
+        self.assertEqual(xmlrpcSanitize([b'abc']), ['abc'])
+        self.assertEqual(type(xmlrpcSanitize(np.float64(1.1))), float)
+        
+
+    def test_next_point_only_strings(self):
+        curve = [[1, "curve", 2, 3], [3, "with", 4, 5],
+                 [5, "only", 6, 7], [7, "strings", 8, 9]]
+
+        actual_row_index, next_row = next_point(curve, 2)
+
+        self.assertEqual(actual_row_index, len(curve))
+        self.assertFalse(next_row)
+
+    def test_next_point_negative_row_index(self):
+        curve = ["any", "curve", 3, 4]
+
+        actual_row_index, next_row = next_point(curve, -10)
+
+        self.assertEqual(actual_row_index, -1)
+        self.assertFalse(next_row)
+
+    def test_next_point(self):
+        curve = [['any value', 2, 'any value', 'any value'],
+                 ['any value', 'a string', 'any value', 'any value'],
+                 ['any value', 456, 'any value', 'any value']]
+
+        actual_row_index, next_row = next_point(curve, 1)
+
+        self.assertEqual(actual_row_index, 2)
+        self.assertEqual(
+            ['any value', 456, 'any value', 'any value'], next_row)
+
+    def test_filter_calibration_filenames(self):
+        filenames = ['a file name',
+                      'another filename',
+                      'a /calibRation/ filename',
+                      'yet another filename']
+
+        expected_filenames = ['a file name',
+                              'another filename',
+                              'yet another filename']
+
+        self.assertEqual(expected_filenames, filter_calibration_filenames(filenames))
+
+    def test_only_hdf_files(self):
+        filenames = ['a not hdf file',
+                     'an hdf file.h5',
+                     'another file',
+                     'another hdf file.h5',
+                     'yet another file']
+
+        filtered_filenames = ['an hdf file.h5',
+                              'another hdf file.h5']
+
+        self.assertEqual(filtered_filenames, only_hdf_files(filenames))
+        
+    def test_incremental_filename(self):
+        self.assertEqual(incremental_filename(''), '')
+        self.assertEqual(incremental_filename('asdgs'), 'asdgs')
+        self.assertEqual(incremental_filename('asdgs.exe'), 'asdgs.exe')
+        self.assertEqual(incremental_filename('a_b_1.g'), 'a_b_1.g')
+        self.assertEqual(incremental_filename('a_b_01072020.g'), 'a_b_01072020.g')
+        self.assertEqual(incremental_filename('a_b_01072020_1.g'), 'a_b_01072020_1.g')
+        with tempfile.NamedTemporaryFile() as f:
+            self.assertEqual(incremental_filename(f.name), f.name+'_1')
+        with tempfile.NamedTemporaryFile(suffix='_12') as f:
+            self.assertEqual(incremental_filename(f.name), f.name[:-3]+'_13')
+        with tempfile.NamedTemporaryFile(suffix='.exe') as f:
+            self.assertEqual(incremental_filename(f.name), f.name[:-4]+'_1.exe')
+        with tempfile.NamedTemporaryFile(suffix='_15.f') as f:
+            self.assertEqual(incremental_filename(f.name), f.name[:-5]+'_16.f')          
+        with tempfile.NamedTemporaryFile(suffix='_1_2_dsf_1_56_d.f') as f:
+            self.assertEqual(incremental_filename(f.name), f.name[:-2]+'_1.f')
+        with tempfile.NamedTemporaryFile(suffix='_1_2_dsf_1_56_d_01072020.f') as f:
+            self.assertEqual(incremental_filename(f.name), f.name[:-2]+'_1.f')
+        with tempfile.NamedTemporaryFile(suffix='_1_2_dsf_1_56_d_01072020_1.f') as f:
+            self.assertEqual(incremental_filename(f.name), f.name[:-4]+'_2.f')
+        with tempfile.NamedTemporaryFile(suffix='_1_2_dsf_1_56_d_11072020.f') as f:
+            self.assertEqual(incremental_filename(f.name), f.name[:-2]+'_1.f')
+            
+    def test__update_filter(self):
+        old = np.array([0,1,4,8,10,11])
+        new = np.array([0,2,8,9,10])
+        res = _update_filter(new, old)
+        self.assertEqual(list(res), list(np.sort([0,1,4, 8, 10,11, 
+                                                  2, 5, 14, 15, 16])))
+        res1 = _update_filter(np.array([1,3,5]), res)
+        self.assertEqual(list(res1), list(np.sort([0,1,4, 8, 10,11, 
+                                                  2, 5, 14, 15, 16,
+                                                  6, 9,13])))
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
