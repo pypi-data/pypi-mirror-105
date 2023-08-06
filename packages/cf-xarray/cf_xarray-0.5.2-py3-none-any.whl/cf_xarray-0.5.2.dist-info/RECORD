@@ -1,0 +1,16 @@
+cf_xarray/__init__.py,sha256=1LR6W9jjAyt96pJ_b-If9d79ytu2qUQvnmBoOyqbuPA,325
+cf_xarray/accessor.py,sha256=J4wpWoGRSX7akTDZNpuWDPhLojb6rF7eBsmJpOtx8iM,62801
+cf_xarray/criteria.py,sha256=YxXmpjq2UEZJqaQ401ti3Spj_thoFpiQ0axeQqBp1r8,3078
+cf_xarray/datasets.py,sha256=cGG_sT7RUOZW5j4Q32Cq_5tPuLVMVR446pq7yEwoBf8,9323
+cf_xarray/helpers.py,sha256=TeW_NrpgLcYAGEkrKm-fg8h0AiU6Db-2OCmt5dXKblw,5022
+cf_xarray/utils.py,sha256=AtQ6KgdK47BEIOMBG7ItDCy4MNNAb0hXvp-uRJQqNOo,1393
+cf_xarray/scripts/make_doc.py,sha256=wXo7Ib705QGSPTROkqodNv75UIxeWHWePglrPa301pA,1490
+cf_xarray/tests/__init__.py,sha256=Db0fQj5VbKn_jO9v6Aok426muuN2I2dhyQg4ay4T1gM,1151
+cf_xarray/tests/test_accessor.py,sha256=kMvFNJc045ocNBK8dKWpK4N1XLFrJi1vp882kbGGrO8,37091
+cf_xarray/tests/test_helpers.py,sha256=aZ6OWVwRddTWOcfWz273LNC5S7_1DqIePY_EWxyP9w4,1967
+cf_xarray/tests/test_scripts.py,sha256=7L8SG0hcNBQEhjju7oWwZts9R-LJE0iYAnCfjhQObQQ,789
+cf_xarray-0.5.2.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+cf_xarray-0.5.2.dist-info/METADATA,sha256=5bZpbEI0ZS43ihGxrsHzyx2wWsGIpIAXOJ8P-nxoAfY,348
+cf_xarray-0.5.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+cf_xarray-0.5.2.dist-info/top_level.txt,sha256=LwmJZZlwaPyZL0ttCk4RY8H7pFj0FIoX2LZOJKXoRrw,10
+cf_xarray-0.5.2.dist-info/RECORD,,
