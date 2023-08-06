@@ -1,0 +1,9 @@
+README.md
+setup.py
+SMALL_GODPDF/__init__.py
+SMALL_GODPDF/pdf2image.py
+SMALL_GODPDF/pdf2text.py
+small_Godpdf.egg-info/PKG-INFO
+small_Godpdf.egg-info/SOURCES.txt
+small_Godpdf.egg-info/dependency_links.txt
+small_Godpdf.egg-info/top_level.txt
