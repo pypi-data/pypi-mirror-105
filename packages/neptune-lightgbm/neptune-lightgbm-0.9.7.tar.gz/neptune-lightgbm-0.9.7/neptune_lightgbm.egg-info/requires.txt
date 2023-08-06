@@ -1,0 +1,7 @@
+neptune-client>=0.9.0
+lightgbm
+matplotlib
+scikit-plot
+graphviz
+
+[all]
