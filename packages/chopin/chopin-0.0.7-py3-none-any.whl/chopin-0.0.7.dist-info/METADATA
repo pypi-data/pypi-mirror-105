@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: chopin
+Version: 0.0.7
+Summary: chopin is a chopin package
+Home-page: https://github.com/ster-phys/chopin
+Author: ster
+Author-email: ster.physics@gmail.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: youtube-dl
+
+# chopin
+This repository is intended to make it easier to use the Chopin's compositions.
+It does not follow any coding conventions :)
+
+## Requires
+```sh
+$ pip install requests youtube_dl
+```
+
+## How to Use
+- Example
+```python
+import chopin
+
+ch = chopin.chopin()
+
+print(ch.compositionList)
+print(ch.genreList)
+ch.get() # -> Composition
+ch.gets() # -> Composition
+ch.genre() # -> [Composition]
+```
+
+- Composition & Link
+```python
+>>> print(type(foo))
+<class 'chopin.chopin.Composition'>
+
+>>> print(dir(foo))
+['No', 'Opus', 'links', 'title', 'wikiLink']
+
+>>> print(type(foo.links))
+<class 'list'>
+
+>>> print(type(foo.links[0]))
+<class 'chopin.chopin.Link'>
+
+>>> print(dir(foo.links[0]))
+['ID', 'artists', 'delete', 'download', 'url']
+```
+
+
