@@ -1,0 +1,13 @@
+Metadata-Version: 1.2
+Name: sg1
+Version: 0.1.1
+Summary: A stupid, simple, static site generator
+Home-page: https://github.com/mjlabe/sg1
+Author: Marc LaBelle
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6, <4
