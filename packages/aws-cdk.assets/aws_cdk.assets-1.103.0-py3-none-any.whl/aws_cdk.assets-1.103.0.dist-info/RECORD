@@ -1,0 +1,10 @@
+aws_cdk/assets/__init__.py,sha256=UYXOziWJ0DZYcP5NEmulmD-1Pde9CROOZB8JgXsDRVU,15889
+aws_cdk/assets/py.typed,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+aws_cdk/assets/_jsii/__init__.py,sha256=_kTrJF3WzenMJJiRaBdWoX-q9QL0O9UnliN9j3bv0Z0,391
+aws_cdk/assets/_jsii/assets@1.103.0.jsii.tgz,sha256=N2HBkDp6aTh3raF1y629Ooh-ETvxoOU3vujGMTMlnAs,12941
+aws_cdk.assets-1.103.0.dist-info/LICENSE,sha256=PPdRlpoLCV1CRrCV1eKpp3m0lNjchFAP4a9zfc8tRLo,11391
+aws_cdk.assets-1.103.0.dist-info/METADATA,sha256=d_sGiuTlGy7xpMKjXelc8IyejdRfQU_yi2Bn3fpImA8,1435
+aws_cdk.assets-1.103.0.dist-info/NOTICE,sha256=xo56krus2e5ShfXqz_B7vuvGcMn_D0F7TjjpfTz8YMw,113
+aws_cdk.assets-1.103.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+aws_cdk.assets-1.103.0.dist-info/top_level.txt,sha256=1TALAKbuUGsMSrfKWEf268lySCmcqSEO6cDYe_XlLHM,8
+aws_cdk.assets-1.103.0.dist-info/RECORD,,
