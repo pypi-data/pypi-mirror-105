@@ -1,0 +1,9 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+as_doraemon/__init__.py
+as_doraemon.egg-info/PKG-INFO
+as_doraemon.egg-info/SOURCES.txt
+as_doraemon.egg-info/dependency_links.txt
+as_doraemon.egg-info/top_level.txt

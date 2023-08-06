@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: as-doraemon
+Version: 1.0.0
+Summary: A Python package to draw doraemon using turtle
+Home-page: https://github.com/shivasai-391/as_doraemon
+Author: Alle Shiva Sai
+Author-email: lovelynikki391@gmail.com
+License: MIT
+Description: # Usage of this Module
+        
+        Create a new file with any name you want!!
+        
+        then,
+        
+        **Ensure that turtle module is installed in your machine**
+        
+        first import this as_doraemon module
+        
+        then,
+        
+        use below functions to draw doraemon
+        
+        head() <br/>
+        belt()	<br/>
+        face()	<br/>
+        nose()	<br/>
+        mouth()	<br/>
+        whisker()	<br/>
+        body()	<br/>
+        arms()	<br/>
+        pocket()	<br/>
+        bell()	<br/>
+        black_eyes()	<br/>
+        
+        ### Sample Program
+        ```
+        import as_doraemon as s
+        
+        s.head()
+        s.belt()
+        s.face()
+        s.nose()
+        s.mouth()
+        s.whisker()
+        s.body()
+        s.arms()
+        s.pocket()
+        s.bell()
+        s.black_eyes()
+        s.ht()
+        s.done()
+        
+        ```
+        
+        
+        ## For more info:
+        https://www.youtube.com/channel/UCfthEj3oCLiFakXtSzhZ7Dw
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
