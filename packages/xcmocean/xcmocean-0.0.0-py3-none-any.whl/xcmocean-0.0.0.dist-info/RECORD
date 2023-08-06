@@ -1,0 +1,9 @@
+xcmocean/__init__.py,sha256=XlMKj3z937BUN9GSeq_kPDPyaWDVOfQWKmnzYDvylI0,155
+xcmocean/_version.py,sha256=Cnxuajn4OfRZPVcms_6tXfgG5qf-6ElhC4W9_vIwHrg,33
+xcmocean/accessor.py,sha256=BtW2x4vna8CYcgLcF9kR0l24vzveetqav8C29ikWloQ,5412
+xcmocean/options.py,sha256=MGXFk8K5cie5EwZFWnX4Bxj_L41vpEOki5BFEuEXPZ0,3755
+xcmocean-0.0.0.dist-info/LICENSE,sha256=nEr7ZqrczOeirvCyG1qY2tssl5RPObJh0JYM8Ga9T8U,1070
+xcmocean-0.0.0.dist-info/METADATA,sha256=i05hWVVuUCXnpkdMyE50uKWBgY80kG6J92tZo-hseAk,900
+xcmocean-0.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+xcmocean-0.0.0.dist-info/top_level.txt,sha256=XxO_J8y9bAaubFsU2JWcBUFLHAUF2GTYHYjMXTYY7wo,9
+xcmocean-0.0.0.dist-info/RECORD,,
