@@ -1,0 +1,9 @@
+quta/__init__.py,sha256=hoMuoe7Qu0Mlhw_LSlkC2XiIohbuJYrSeingesexUiM,318
+quta/allocator.py,sha256=BavJI29kui0WYroIXazSZRwNXXNqzXq8_Z2ziBhyrVA,4753
+quta/constraints.py,sha256=RGBfagI-qfRSy7GfFpsrQhwh_7NHfIqHiZTBcTk2lLI,6927
+quta/thruster.py,sha256=kSIsakRwoMtQsO60ItXpO6Lj8Zygcibf1C1YDqxWo3E,2911
+quta-0.1.0.dist-info/LICENSE,sha256=ygVNmns4JCkMLVPDCPE9IWxCIALi7mDBhKxEfdnBOaI,1067
+quta-0.1.0.dist-info/METADATA,sha256=WLL2LFfZIfifhmvIjXfyPtgCzuwxpBDoIYP4zIfDZP4,1624
+quta-0.1.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+quta-0.1.0.dist-info/top_level.txt,sha256=PWZ-WNR-bl4UXjXTr86b5HAs6oFMchNZndwKzrv4aGg,5
+quta-0.1.0.dist-info/RECORD,,
