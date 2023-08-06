@@ -1,0 +1,6 @@
+tensorflow
+numpy
+pandas
+h5py
+lxml
+pyfaidx

@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: protein-bert
+Version: 1.0.0
+Summary: A BERT-like deep language model for protein sequences.
+Home-page: https://github.com/nadavbra/protein_bert
+Author: Nadav Brandes
+Author-email: nadav.brandes@mail.huji.ac.il
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
