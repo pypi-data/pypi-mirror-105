@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: cocoyoyo-librairie-api
+Version: 1.0.0
+Summary: Official CocoyoyoLibrairie API packages
+Home-page: UNKNOWN
+Author: CAMARM-DEV
+Author-email: armand@camponovo.xyz
+License: MIT
+Description: A package to search books and users on the cocoyoyolibrairie !
+Keywords: conversion
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
