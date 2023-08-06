@@ -1,0 +1,16 @@
+README.md
+setup.cfg
+setup.py
+hardin/SGDTrainer.py
+hardin/__init__.py
+hardin/layers.py
+hardin/loss.py
+hardin/network.py
+hardin/plots.py
+hardin/tensor.py
+hardin.egg-info/PKG-INFO
+hardin.egg-info/SOURCES.txt
+hardin.egg-info/dependency_links.txt
+hardin.egg-info/not-zip-safe
+hardin.egg-info/requires.txt
+hardin.egg-info/top_level.txt
