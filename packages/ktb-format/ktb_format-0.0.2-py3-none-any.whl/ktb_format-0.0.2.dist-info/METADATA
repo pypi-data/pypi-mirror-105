@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: ktb-format
+Version: 0.0.2
+Summary: Python and C++ ASCII to Binary Packer and Unpacker
+Home-page: UNKNOWN
+Author: Kaustubh Shivdikar
+Author-email: kaustubhcs07@gmail.com
+License: UNKNOWN
+Keywords: ktb_format,binary,pack,unpack,ktb
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+
+Packages ASCII data to Binary using KTB (Keep That Bit) format.
+
+
