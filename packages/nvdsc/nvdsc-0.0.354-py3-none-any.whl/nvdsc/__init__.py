@@ -1,0 +1,1 @@
+from nvdsc._version import __version__

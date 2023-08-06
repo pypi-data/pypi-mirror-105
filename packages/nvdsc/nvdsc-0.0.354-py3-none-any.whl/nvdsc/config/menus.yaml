@@ -1,0 +1,200 @@
+---
+jupyter:
+
+  - name: PyTorch
+    description: GPU Accelerated PyTorch 1.8.0 (21.03)
+    image: nvcr.io/nvidia/pytorch:21.03-py3
+    url: https://ngc.nvidia.com/catalog/containers/nvidia:pytorch
+    license_url: https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+    container_name: nvdsc_pytorch
+    entrypoint: /bin/bash
+    command: -c "jupyter lab --allow-root --ip=0.0.0.0 --no-browser --NotebookApp.token=''"
+    browser: y
+    pull_on_setup: y
+    browser_port: 8888/tcp
+    ports: 
+      8888/tcp:
+    environment:  
+    volumes:
+      data:
+        bind: /workspace/data
+        mode: rw      
+    ipc_mode: host    
+
+
+#  - name: PyTorch Lightning
+#    image: nvcr.io/nvidia/pytorch:21.02-py3
+#    container_name: nv_pytorch_lightning
+#    entrypoint: /bin/bash
+#    command: -c "jupyter lab --allow-root --ip=0.0.0.0 --no-browser --NotebookApp.token=''"
+#    ports: 
+#      8888: 8891
+#    environment:  
+#    volumes:
+#    ipc_mode: host 
+
+  - name: Tensorflow 1.x
+    description: GPU Accelerated Tensorflow 1.15.0 (21.03)
+    image: nvcr.io/nvidia/tensorflow:21.03-tf1-py3
+    url: https://ngc.nvidia.com/catalog/containers/nvidia:tensorflow
+    license_url: https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+    container_name: nvdsc_tf1
+    entrypoint: /bin/bash
+    command: -c "jupyter lab --allow-root --ip=0.0.0.0 --no-browser --NotebookApp.token=''"
+    browser: y
+    pull_on_setup: y
+    browser_port: 8888/tcp
+    ports: 
+      8888/tcp:
+    environment:  
+    volumes:
+      data:
+        bind: /workspace/data
+        mode: rw       
+    ipc_mode: host 
+
+  - name: Tensorflow 2.x
+    description: GPU Accelerated Tensorflow 2.4.1 (21.03)
+    image: nvcr.io/nvidia/tensorflow:21.03-tf2-py3
+    url: https://ngc.nvidia.com/catalog/containers/nvidia:tensorflow
+    license_url: https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+    container_name: nvdsc_tf2
+    entrypoint: /bin/bash
+    command: -c "jupyter lab --allow-root --ip=0.0.0.0 --no-browser --NotebookApp.token=''"
+    browser: y
+    pull_on_setup: y
+    browser_port: 8888/tcp
+    ports: 
+      8888/tcp:
+    environment:  
+    volumes:
+      data:
+        bind: /workspace/data
+        mode: rw       
+    ipc_mode: host 
+
+
+  - name: Kaggle
+    description: Kaggle Python GPU container v99
+    image: gcr.io/kaggle-gpu-images/python:v99
+    url: https://github.com/Kaggle/docker-python
+    license_url: https://github.com/Kaggle/docker-python/blob/master/LICENSE
+    container_name: nvdsc_kaggle
+    entrypoint:
+    command:
+    browser: y
+    pull_on_setup: y
+    browser_port: 8080/tcp
+    ports: 
+      8080/tcp:
+    environment:  
+    volumes:
+      data:
+        bind: /home/jupyter/data
+        mode: rw       
+    ipc_mode: host 
+
+
+  - name: Rapids
+    description: Open GPU Data Science Rapids container 0.18
+    image: nvcr.io/nvidia/rapidsai/rapidsai:cuda11.0-runtime-ubuntu18.04
+    url: https://ngc.nvidia.com/catalog/containers/nvidia:rapidsai:rapidsai
+    license_url: https://github.com/rapidsai/cuml/blob/branch-0.19/LICENSE
+    container_name: nvdsc_rapids
+    entrypoint:
+    command:    
+    browser: y
+    pull_on_setup: y
+    browser_port: 8888/tcp
+    ports: 
+      8888/tcp:
+    environment: 
+    - "JUPYTER_FG=true"
+    volumes:
+      data:
+        bind: /rapids/notebooks/data
+        mode: rw      
+    ipc_mode: host 
+
+  - name: NVTabular
+    description: NVTabular Container 0.3
+    image: nvcr.io/nvidia/nvtabular:0.3
+    url: https://ngc.nvidia.com/catalog/containers/nvidia:nvtabular
+    license_url: https://ngc.nvidia.com/catalog/containers/nvidia:nvtabular
+    container_name: nvdsc_nvtabular
+    entrypoint: /bin/bash
+    command: -c "/opt/conda/envs/rapids/bin/jupyter lab --allow-root --ip=0.0.0.0 --no-browser --NotebookApp.token=''"
+    browser: y
+    pull_on_setup: n
+    browser_port: 8888/tcp
+    ports: 
+      8888/tcp: 
+    environment:   
+    volumes:
+      data:
+        bind: /rapids/notebooks/data
+        mode: rw        
+    ipc_mode: host 
+
+  - name: DS Stack
+    description: Nvidia Data Science Stack Container 2.8.0
+    image: w251/dss:2.8.0
+    url: https://github.com/NVIDIA/data-science-stack
+    license_url: https://github.com/NVIDIA/data-science-stack/blob/master/LICENSE
+    container_name: nvdsc_dss
+    entrypoint:
+    command:   
+    browser: y  
+    browser_port: 8888/tcp
+    pull_on_setup: n
+    ports: 
+      8888/tcp:
+    environment: 
+    volumes: 
+      data:
+        bind: /notebooks/data
+        mode: rw  
+    ipc_mode: host 
+
+  - name: Spark Rapids
+    description: Rapids Spark Single Node 3.0.2
+    image: mattf/spark-jupyter:alpha
+    url: https://nvidia.github.io/spark-rapids/
+    license_url: https://github.com/NVIDIA/spark-rapids/blob/main/LICENSE
+    container_name: nvdsc_spark
+    entrypoint:
+    command:   
+    browser: y  
+    browser_port: 8888/tcp
+    pull_on_setup: n
+    ports: 
+      8888/tcp:
+      8080/tcp:
+    environment: 
+    volumes: 
+      data:
+        bind: /data
+        mode: rw  
+    ipc_mode: host     
+
+demos:
+  - name: DeepStream
+    description: DeepStream SDK 5.1 Demo
+    image: nvcr.io/nvidia/deepstream:5.1-21.02-triton
+    url: https://ngc.nvidia.com/catalog/containers/nvidia:deepstream
+    license_url: https://ngc.nvidia.com/catalog/containers/nvidia:deepstream
+    container_name: nvdsc_deepstream
+    entrypoint: /bin/bash
+    command: -c "/usr/bin/deepstream-app -c /opt/nvidia/deepstream/deepstream-5.1/samples/configs/deepstream-app/source30_1080p_dec_infer-resnet_tiled_display_int8.txt"
+    browser: n
+    browser_port:
+    pull_on_setup: n
+    ports:
+    environment:
+      DISPLAY:
+    volumes:
+      /tmp/.X11-unix:
+        bind: /tmp/.X11-unix
+        mode: rw
+
+    ipc_mode: host 

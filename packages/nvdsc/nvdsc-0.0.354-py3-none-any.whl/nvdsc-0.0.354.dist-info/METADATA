@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: nvdsc
+Version: 0.0.354
+Summary: Nvidia Data Science Client Beta
+Home-page: https://forums.developer.nvidia.com/t/data-science-client/174110
+Author: Dima Rekesh
+Author-email: drekesh@nvidia.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/NVIDIA/data-science-stack/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6.9
+Description-Content-Type: text/markdown
+Requires-Dist: PyYAML
+Requires-Dist: feedparser
+Requires-Dist: semver
+Requires-Dist: pynvml
+Requires-Dist: kaggle
+Requires-Dist: jupyter-repo2docker
+
+# Data Science Client
+
+
+
