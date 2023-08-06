@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: alvonCV
+Version: 0.1
+Summary: Computer Vision Helper Package
+Home-page: https://github.com/alvon-X/alvonCV
+Author: Deepak Singh
+Author-email: deepaksinghgs30@gmail.com
+License: MIT
+Download-URL: https://github.com/alvon-X/alvonCV/archive/refs/tags/v_01.tar.gz
+Description: UNKNOWN
+Keywords: Computer Vision,Face Mesh,Face Detection,alvon
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
