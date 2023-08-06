@@ -1,0 +1,11 @@
+Metadata-Version: 1.1
+Name: decile-distil
+Version: 0.2.0
+Summary: DISTIL is a package for Deep dIverSified inTeractIve Learning.
+Home-page: https://github.com/decile-team/distil
+Author: Apurva Dani, Durga Sivasubramanian, Nathan Beck, Rishabh Iyer
+Author-email: apurvadani98@gmail.com
+License: LICENSE
+Download-URL: https://github.com/decile-team/distil/archive/refs/tags/0.2.0.tar.gz
+Description: UNKNOWN
+Platform: UNKNOWN
