@@ -1,0 +1,3 @@
+oidcmsg==1.3.2
+pyyaml>=5.1.2
+responses
