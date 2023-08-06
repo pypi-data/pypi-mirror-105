@@ -1,0 +1,17 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/env_setup/__init__.py
+src/env_setup/env-setup.py
+src/env_setup.egg-info/PKG-INFO
+src/env_setup.egg-info/SOURCES.txt
+src/env_setup.egg-info/dependency_links.txt
+src/env_setup.egg-info/entry_points.txt
+src/env_setup.egg-info/requires.txt
+src/env_setup.egg-info/top_level.txt
+src/env_setup/rc_files/inputrc
+src/env_setup/rc_files/tmux.conf
+src/env_setup/rc_files/vimrc
