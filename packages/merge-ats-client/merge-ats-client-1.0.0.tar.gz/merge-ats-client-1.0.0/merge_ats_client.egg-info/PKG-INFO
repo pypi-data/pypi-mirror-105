@@ -1,0 +1,13 @@
+Metadata-Version: 1.2
+Name: merge-ats-client
+Version: 1.0.0
+Summary: Merge ATS API
+Home-page: https://github.com/merge-api/merge-ats-python
+Author: Merge Team
+Author-email: hello@merge.dev
+License: MIT
+Description:     The unified API for building rich integrations with multiple Applicant Tracking System platforms.
+            
+Keywords: OpenAPI,Merge ATS API
+Platform: UNKNOWN
+Requires-Python: >=3.6
