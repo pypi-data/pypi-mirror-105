@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: rwanda
+Version: 0.2.0
+Summary: Python Package to extract everything you can need in rwanda.
+Home-page: https://github.com/fidele000rwanda/
+Author: Fidele Kirezi Cyisa
+Author-email: itfidele@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/fidele000/rwanda/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+Python Package to extract everything you can need in rwanda. You can use
+
+
