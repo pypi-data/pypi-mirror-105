@@ -1,0 +1,9 @@
+dict2sql/__init__.py,sha256=wQApBpeJgZKntYLcjXw_a3JEu4tzd4B6sDNUY3mY9sk,292
+dict2sql/compiler.py,sha256=ZfjBL6AsIc6aFJmTLzxacsjfh4AG3_GfqQTLKFM_pa8,7321
+dict2sql/production_rules_test.py,sha256=1bR6yPJ9tofoiwkeIuh18ck7WKATXUV6zhhHH0d1i88,1980
+dict2sql/types.py,sha256=p7QAP-sHBi3xMzdvUxqLg8dPvmHWP9GYJApiD6UjGFw,3090
+dict2sql/utils.py,sha256=8I9cFFP8AjFeFV0A-0xvoAkkhy3_W771UjmVh2MCkLo,3269
+dict2sql-1.0.0.dist-info/LICENSE,sha256=_YCib7s_ZErx-plBNERnApMpaFGXlyJ-B6E2jeqA8Lw,1023
+dict2sql-1.0.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+dict2sql-1.0.0.dist-info/METADATA,sha256=lUMevLP3FU1BCtIoAdgqfJiQo0BN_V_DGG13HIxIjig,4954
+dict2sql-1.0.0.dist-info/RECORD,,
