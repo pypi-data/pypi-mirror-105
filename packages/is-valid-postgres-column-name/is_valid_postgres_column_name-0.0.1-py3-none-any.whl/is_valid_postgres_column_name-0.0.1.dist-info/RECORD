@@ -1,0 +1,9 @@
+is_valid_postgres_column_name/__init__.py,sha256=xwvYpy2_OFG9ZddIsBG4Ny9NteDNfG4UAavVV3Vfg5o,90
+is_valid_postgres_column_name/constants.py,sha256=2SKJe5zf0cODVAaRxkyoj3DrKYPoqms928nWIvZMvrQ,282
+is_valid_postgres_column_name/main.py,sha256=RO1VG7C7mlEk5i2GfLatSwYIOCTDBsC3nVB8gXzsvPI,1437
+is_valid_postgres_column_name/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+is_valid_postgres_column_name-0.0.1.dist-info/LICENSE,sha256=Ru07KhDoFEmlr9Cba1hMAB7HtCqZoCJ9ARVwvHlUc1k,1071
+is_valid_postgres_column_name-0.0.1.dist-info/METADATA,sha256=PuXvpm2MgBQrzqWLmeUfDLYpa8xGVQrXyaQnEMXH7D8,1717
+is_valid_postgres_column_name-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+is_valid_postgres_column_name-0.0.1.dist-info/top_level.txt,sha256=kbioBZZ0joE5pEXdMiCliDIL8QDF62MnW1FX1BMeEWQ,30
+is_valid_postgres_column_name-0.0.1.dist-info/RECORD,,
