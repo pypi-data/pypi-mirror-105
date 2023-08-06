@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pyinterboleto
+Version: 0.0.1
+Summary: Biblioteca para facilitar o manuseio de boletos de contas PJ no Banco Inter.
+Home-page: https://github.com/feslima/pyinterboleto
+Author: Felipe Souza Lima
+Author-email: feslima93@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/feslima/pyinterboleto/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# PyInterBoleto
+Biblioteca para facilitar o manuseio de boletos de contas PJ no Banco Inter.
+
