@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="container content">
+        <h6>Username</h6>
+        <div class="field has-addons full-width">
+            <div class="control">
+                <input class="input" type="text" placeholder="Username" id="username" disabled>
+            </div>
+            <div class="control">
+                <a class="button" onclick="onNewUsername()">&#x21bb;</a>
+            </div>
+        </div>
+        <br>
+        <div class="field">
+            <h6>E-Mail (optional)</h6>
+            <div class="control">
+                <input type="email" class="input" placeholder="E-Mail-Address" id="email" oninput="onInput(this)">
+            </div>
+        </div>
+        <br>
+        <div class="field">
+            <h6>Password</h6>
+            <div class="control">
+                <input type="password" class="input" placeholder="Password" id="password" oninput="onInput(this)">
+            </div>
+            <br>
+            <h6>Repeat password</h6>
+            <div class="control">
+                <input type="password" class="input" placeholder="Repeat password" id="password-repeated" oninput="onInput(this)">
+            </div>
+        </div>
+        <br>
+        <p id="error" class="is-danger"></p>
+        <br>
+        <div class="field">
+            <div class="control">
+                <button id="createUserButton" class="button is-primary" disabled onclick="createNewUser()">Create account</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha512/0.8.0/sha512.min.js"></script>
+    <script>
+    let IS_DANGER = "is-danger";
+
+    let email = "";
+    let username = "";
+    let password = "";
+    let password_repeated = "";
+
+    let successNotification = document.getElementById("success-notification");
+    let createUserButton = document.getElementById("createUserButton");
+    let errorLabel = document.getElementById("error");
+    let usernameInput = document.getElementById("username");
+    let passwordInput = document.getElementById("password");
+    let passwordRepeatInput = document.getElementById("password-repeated");
+
+    function getNewUsername() {
+        fetch("/api/user/generate_username").then(r => r.json()).then(n => {
+            if(n["error"]) errorLabel.innerText = "Username is already taken (this should be really rare)";
+            else {
+                usernameInput.value = n["username"];
+                username = n["username"];
+            }
+        });
+    }
+
+    function createNewUser() {
+        fetch("/api/user/create", {
+            method: "POST",
+            body: JSON.stringify({
+                username: username,
+                password: password,
+                email: email
+            })})
+            .then(resp => resp.json())
+            .then(data => {
+                if(data["error"]) errorLabel.innerText = "Username is already taken"
+                else window.location.href = `/u/${data["hashed_username"]}`;
+        });
+    }
+
+    window.onload = function () {
+        getNewUsername();
+    }
+
+    function onNewUsername() {
+        getNewUsername();
+    }
+
+    function setPasswordsDanger(danger) {
+        if(danger) {
+            passwordInput.classList.add(IS_DANGER);
+            passwordRepeatInput.classList.add(IS_DANGER);
+        } else {
+            passwordInput.classList.remove(IS_DANGER);
+            passwordRepeatInput.classList.remove(IS_DANGER);
+        }
+    }
+
+    function passwordsOk() {
+        let passwords_not_equal = password !== password_repeated;
+        let password_long_enough = passwordInput.value.length >= 8;
+
+        if(passwords_not_equal) {
+            setPasswordsDanger(true);
+            errorLabel.innerText = "Passwords are not equal"
+            return false;
+        } else {
+            setPasswordsDanger(false);
+            errorLabel.innerText = "";
+        }
+
+        if(password_long_enough) {
+            setPasswordsDanger(false);
+            errorLabel.innerText = ""
+        } else {
+            setPasswordsDanger(true);
+            errorLabel.innerText = "Password not long enough"
+            return false;
+        }
+
+        return true;
+    }
+
+    function onInput(ctx) {
+        switch (ctx.id) {
+            case "password":
+                password = sha512(ctx.value);
+                break;
+            case "password-repeated":
+                password_repeated = sha512(ctx.value);
+                break;
+        }
+
+        createUserButton.disabled = !passwordsOk();
+    }
+    </script>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% set BASE = "/u/{}".format(hashed_username) %}
+{% set KEYS = [] %}
+
+{% block body %}
+<div class="container content">
+    <h4>Shortened URLs: {{ i_shrunk }}</h4>
+    {% if i_shrunk > 0 %}
+    <table class="table">
+        <thead>
+        {% for key in shrunk[0].keys() %}
+            {% if key not in ["id", "qr", "key"] %}
+            {% if KEYS.append(key) %}{% endif %}
+            <th>{{ key }}</th>
+            {% endif %}
+        {% endfor %}
+        </thead>
+        <tbody>
+        {% for e in shrunk %}
+            <tr>
+                {% for key in KEYS %}
+                <td>{{ e[key] }}</td>
+                {% endfor%}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+</div>
+{% endblock %}
