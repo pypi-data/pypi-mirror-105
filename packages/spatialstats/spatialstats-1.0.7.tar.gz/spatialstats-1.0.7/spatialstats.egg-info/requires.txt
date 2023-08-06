@@ -1,0 +1,17 @@
+numpy
+
+[cpu]
+scipy
+numba>=0.50
+
+[full]
+scipy
+numba>=0.50
+cupy>=8.0
+pyfftw
+
+[gpu]
+cupy>=8.0
+
+[pyfftw]
+pyfftw
