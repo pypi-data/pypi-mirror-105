@@ -1,0 +1,8 @@
+atheris.cpython-36m-darwin.so,sha256=GPQCXMVjNlP6vdC1TbTMLqYyeN1nGiykuMW_63Antr0,827100
+atheris_no_libfuzzer.cpython-36m-darwin.so,sha256=Lfh-TfOTQ-SmmiHVgQb9M76Yk2O7tBqaRdx4ww-ZpJ0,384292
+libclang_rt.fuzzer_no_main_osx.a,sha256=nvrr1CuvxBh3Z5uGdGHvdI1NZYAcayY0aV4-QTY61as,4583760
+atheris-1.0.10.dist-info/LICENSE,sha256=WNHhf_5RCaeuKWyq_K39vmp9F28LxKsB4SpomwSZ2L0,11357
+atheris-1.0.10.dist-info/METADATA,sha256=TtzKsu0M1qVSCFWMwRldOLkI-ZHTCPwanI6NMPhDeaQ,10495
+atheris-1.0.10.dist-info/WHEEL,sha256=qDU9vkT0HYrDFbbK1y5h1LOv2WPLB5v9Y7007MOuefg,110
+atheris-1.0.10.dist-info/top_level.txt,sha256=heiRz7I-31oTBkGkhVAIBm1l986pr0w0kGFT9SB_2MM,29
+atheris-1.0.10.dist-info/RECORD,,
