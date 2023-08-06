@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+Hadopy.egg-info/PKG-INFO
+Hadopy.egg-info/SOURCES.txt
+Hadopy.egg-info/dependency_links.txt
+Hadopy.egg-info/entry_points.txt
+Hadopy.egg-info/requires.txt
+Hadopy.egg-info/top_level.txt
