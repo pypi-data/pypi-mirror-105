@@ -1,0 +1,7 @@
+django-crispy-forms>=1.9.2
+django-tag-parser>=3.2
+django-contrib-comments>=2.0.0
+python-akismet>=0.4.1
+
+[threadedcomments]
+django-threadedcomments>=1.2
