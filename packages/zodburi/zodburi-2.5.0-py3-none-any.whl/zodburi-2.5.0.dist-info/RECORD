@@ -1,0 +1,13 @@
+zodburi/__init__.py,sha256=vo7Q0U4ytgocOdTSRtrPKerWYip-Z8xkXWR7mwsCJp0,2139
+zodburi/_compat.py,sha256=c1cb8dj12K7_MsdWtjMTS-V095cPpYnNnoerXr4xTus,338
+zodburi/datatypes.py,sha256=L1SPpUn0W1qU7u-Y6TFIBenYnUOuOeaUUGnGubf5kDw,1387
+zodburi/resolvers.py,sha256=c5aPtFQLKYi3N-sgXp8m8pHJyZLtO9Y49wEWZEBVnjc,8615
+zodburi/tests/__init__.py,sha256=1ESwmtCv1fEQMDxg1RitOPt43ELOrXBIggv8gLFVtao,1636
+zodburi/tests/test_datatypes.py,sha256=0ZeUb8QdamlawmcjpLOL0kEolOOUHAxRnA-vAhz6eUE,3061
+zodburi/tests/test_resolvers.py,sha256=6COHPuQiHaTj1vANqjTxiY49D6QlknHabzhRuB06LZk,26186
+zodburi-2.5.0.dist-info/LICENSE.txt,sha256=IBp9YkQVlUu4i1dgsbFKyAKQJ7dQ51QCGtX5A8SKde0,1719
+zodburi-2.5.0.dist-info/METADATA,sha256=Mg4uIW8H_emUMPXcIH8Yy7JTYD7l9-BM3r99_RbK2tk,4459
+zodburi-2.5.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+zodburi-2.5.0.dist-info/entry_points.txt,sha256=sGiKUIh8OIL046sm1hY4p53AvorTo5tJY6F1M7olY4U,301
+zodburi-2.5.0.dist-info/top_level.txt,sha256=D9MRVau_73zZGsBHkWbay2Woz72D_dQoqmypnF_d7w4,8
+zodburi-2.5.0.dist-info/RECORD,,
