@@ -1,0 +1,4 @@
+[console_scripts]
+my-greet = mypackage.mymodule:greet_main
+pycat = pycat.pycat:cat_files_main
+
