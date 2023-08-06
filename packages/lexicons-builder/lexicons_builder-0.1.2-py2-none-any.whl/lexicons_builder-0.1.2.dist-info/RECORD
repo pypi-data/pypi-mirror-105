@@ -1,0 +1,17 @@
+lexicons_builder/__init__.py,sha256=XaSa9_uFTTuEHRiSOh3-16pt4UyCLFWrR-G0hVSVY3Y,4288
+lexicons_builder/__main__.py,sha256=FFMRzAmIP1_K79kaqWpE5LaNVqOkS-Q3A1iAgsPZmUw,3307
+lexicons_builder/graphs/__init__.py,sha256=5nzVyaxESvrzBNzcxeo_0PE37GEabZkWvg43CGOLplE,347
+lexicons_builder/graphs/graphs.py,sha256=KRhFzUoiea9l6V5UNs2QVXR3LreXywXSoBO_1yVoOkw,21985
+lexicons_builder/nlp_model_explorer/__init__.py,sha256=FixW2xMF0Ievh-TXMpki-pGCWza7qAMpmo81tYw6VI8,339
+lexicons_builder/nlp_model_explorer/explorer.py,sha256=OF_kYIU61usED7kC9YtcbGgrG5_ea_AIOvXJLxl-zCo,4976
+lexicons_builder/scrappers/__init__.py,sha256=MK0e4rOC7pXBF3S3PZHg2d4EAX5t2BOa4w15kX7G1zk,373
+lexicons_builder/scrappers/scrappers.py,sha256=0kNjgqgpPd5xxT3ySClrTGAGg5K1dJiKvmryERFB5p8,17401
+lexicons_builder/wordnet_explorer/__init__.py,sha256=FixW2xMF0Ievh-TXMpki-pGCWza7qAMpmo81tYw6VI8,339
+lexicons_builder/wordnet_explorer/_frenetic.py,sha256=y6J25RUMP6U4DZQk8_GbJQljZxKSgkBV-GVSwZbREWw,7256
+lexicons_builder/wordnet_explorer/explorer.py,sha256=m3JN5CnhqmdH_oC-lHD_eJ7InSzdTxmQ4xpj_T9HdFI,11649
+lexicons_builder-0.1.2.dist-info/DESCRIPTION.rst,sha256=GZfExvyU2eNGGyMiQfDEKXHmrkEmr8WS3dl6DJqubTY,7853
+lexicons_builder-0.1.2.dist-info/METADATA,sha256=TvwDhamZLW9lXgf24IgwJm48cq9EqHAzBjXMJYCwvPc,8343
+lexicons_builder-0.1.2.dist-info/RECORD,,
+lexicons_builder-0.1.2.dist-info/WHEEL,sha256=hZvi-8L6mc2COqhOUWREM_h2lvnJbaHycZt8eohtmso,92
+lexicons_builder-0.1.2.dist-info/metadata.json,sha256=o3PoTy7w7ZS1LBVJlqqTip5Cx6eVkvgiin2FpDp7s20,601
+lexicons_builder-0.1.2.dist-info/top_level.txt,sha256=7LFR4QJj96N5Y6BIOjGSR-LolpA5WSLKyOodkiYR3Yg,17
