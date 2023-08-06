@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: tx_sendsms
+Version: 1.0
+Summary: 简单的封装腾讯发送短信接口SDK2.0,相关配置在setting中设置
+Home-page: https://gitee.com/wx_3d25ad0b9a/send_sms.git
+Author: shawn
+Author-email: 15979391664@163.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
