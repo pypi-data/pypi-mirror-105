@@ -1,0 +1,8 @@
+LICENSE
+pyproject.toml
+setup.cfg
+src/ebx_progressbar/__init__.py
+src/ebx_progressbar.egg-info/PKG-INFO
+src/ebx_progressbar.egg-info/SOURCES.txt
+src/ebx_progressbar.egg-info/dependency_links.txt
+src/ebx_progressbar.egg-info/top_level.txt
