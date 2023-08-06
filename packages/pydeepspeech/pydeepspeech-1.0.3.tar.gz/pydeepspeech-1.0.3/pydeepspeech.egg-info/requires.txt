@@ -1,0 +1,6 @@
+deepspeech==0.9.3
+webrtcvad
+pyqt5
+pathlib
+capturing_process
+requests
