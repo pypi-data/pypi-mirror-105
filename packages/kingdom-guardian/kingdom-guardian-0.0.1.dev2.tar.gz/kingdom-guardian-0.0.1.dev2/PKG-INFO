@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: kingdom-guardian
+Version: 0.0.1.dev2
+Summary: Simple but safe authorization and authentication facilities
+Home-page: https://github.com/t10d/guardian
+License: MIT
+Author: Rui Conti
+Author-email: rui@t10.digital
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Dist: jwt (>=1.2.0,<2.0.0)
+Project-URL: Issue Tracker, https://github.com/t10d/guardian/issues
+Project-URL: Repository, https://github.com/t10d/guardian
+Project-URL: Source Versioning, https://github.com/t10d/guardian
+Description-Content-Type: text/markdown
+
+# guardian 
+Simple but safe authorization and authentication facilities.
+
+## Features
+
+1. JWT for authentication
+2. AERBAC for authorization
+  - Attributes enhanced role-based access control model, i.e. RBAC w/ steroids
+
+## Usage
+
+```shell
+pip install kingdom-guardian
+```
+
+```python
+from guardian import flow
+```
+
