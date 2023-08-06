@@ -1,0 +1,14 @@
+atlas_mpl_style/__init__.py,sha256=A0RGy7QjdDCkGglcKzOGN8dS4WvGveSdAd4kIQBHjZY,7624
+atlas_mpl_style/plot.py,sha256=ppCqGwYGwnKmf2Y6binXfkbH7riDyfgT-DnEeD412D0,30930
+atlas_mpl_style/uhi.py,sha256=RxWFlWovt0Dvq85lyuvn5m0-s705kZ2ysJWCtt36ROg,9639
+atlas_mpl_style/utils.py,sha256=sygUY7bfQsAQPhzuL6A7W5eNNOoRbsISzB8yhHdCsIg,1067
+atlas_mpl_style/stylesheets/atlas.mplstyle,sha256=iY3mLs9I-O85cP8Be0fwxI_K1cbibh6hZFfSIEqhRWQ,1168
+atlas_mpl_style/stylesheets/paper.mplstyle,sha256=89K0YMYfv10mdHteiVg02AFBEFXL9lDWuLMQXTsG2jA,1248
+atlas_mpl_style/stylesheets/print.mplstyle,sha256=OpGSY0t9OB7usFTK7qNrncgzAspj9BO5zKyVGVkwmUU,1230
+atlas_mpl_style/stylesheets/slides.mplstyle,sha256=89K0YMYfv10mdHteiVg02AFBEFXL9lDWuLMQXTsG2jA,1248
+atlas_mpl_style/testing/ampl-test.tex,sha256=X_91iIuNKz5TDK9ilTSbPXipC-TBCobAmptX6mRqjgw,469
+atlas_mpl_style-0.17.4.dist-info/LICENSE.md,sha256=zFRw_u1mGSOH8GrpOu0L1P765aX9fB5UpKz06mTxAos,34893
+atlas_mpl_style-0.17.4.dist-info/METADATA,sha256=e_evRRsEF2sFYeS0EiIrFWY8T1IjYrZJvcuhtNuRbf8,5487
+atlas_mpl_style-0.17.4.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+atlas_mpl_style-0.17.4.dist-info/top_level.txt,sha256=ght2ntUKZQbemLhSmZHbszjGeDECrPHOCM6rSKcRC6M,16
+atlas_mpl_style-0.17.4.dist-info/RECORD,,
