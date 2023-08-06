@@ -1,0 +1,4 @@
+[console_scripts]
+cab=cabrita.run:run
+cabrita=cabrita.run:run
+
