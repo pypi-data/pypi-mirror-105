@@ -1,0 +1,16 @@
+youtube_series_downloader/__init__.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+youtube_series_downloader/__main__.py,sha256=oU6_ERkLe-wvPjkJ7A0PqXeAHIEfSrt4HUnkfzMspmY,2200
+youtube_series_downloader/channel.py,sha256=T7xlxepQMm9UTFYJKf5Byl3IQuhvbVXCgVtn_2x7HFU,4266
+youtube_series_downloader/config.py,sha256=FyHJTuOrrfowUKntiV3Ygry5Kwcb8k-NSwKCmpun3go,8360
+youtube_series_downloader/db.py,sha256=jgE7oROt9anxvJZhuX9QBu1rJ7dhVlyexi0TpAQ0WY8,2641
+youtube_series_downloader/downloader.py,sha256=6i9C-JbMi1u9nrT70gfv0Ww8R8gLcPLtNMQECTjg3LM,4791
+youtube_series_downloader/logger.py,sha256=meHqobEmI6KRrcTRtFnaeTsG7Nxl-XcgJ4i8npbw3qU,2380
+youtube_series_downloader/program_checker.py,sha256=Vnb7bT5XNQ0Mpkay6jXZMrxXxnd5_7PkMbsq0EVJaNA,918
+youtube_series_downloader/video.py,sha256=yJAoKa9wQRreiS80vxQCFWVrGtkvKnvC3Bf4dsTwDc0,142
+youtube_series_downloader-1.2.0.data/data/config/youtube-series-downloader/config.example.py,sha256=P5tvFb3VTYgldw0YrDYqa_2EGBwiex5xLhxQ1O0LIaw,2153
+youtube_series_downloader-1.2.0.dist-info/LICENSE,sha256=j9fKTgFT0WxBLip6EHA_9VIsfBL6bjpPfO7tYFFAIGE,1083
+youtube_series_downloader-1.2.0.dist-info/METADATA,sha256=aIgrNNnNswnFMQsMQNiD-UXrkP8Ypchx-XUbq-noLwo,2292
+youtube_series_downloader-1.2.0.dist-info/WHEEL,sha256=EVRjI69F5qVjm_YgqcTXPnTAv3BfSUr0WVAHuSP3Xoo,92
+youtube_series_downloader-1.2.0.dist-info/entry_points.txt,sha256=3TTLQdHkzQM-_45mVHSkTp9u5hK0gc-Mx1tUDnekL_M,91
+youtube_series_downloader-1.2.0.dist-info/top_level.txt,sha256=NO2OkIRFHG2NX7KtIyMiErko-r8ezUtVlZxKmRUGvK8,26
+youtube_series_downloader-1.2.0.dist-info/RECORD,,
