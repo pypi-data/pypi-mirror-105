@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: grefornoobs
+Version: 1.0.0
+Summary: Your python GRE preparation tool
+Home-page: https://github.com/abdussamiakanda/grefornoobs
+Author: Md. Abdus Sami Akanda
+Author-email: abdussamiakanda@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+
+# GRE for Noobs
+This module helps you with your GRE preparation.
+
+## Installation
+```pip install grefornoobs```
+
+## How to use it?
+
+## License
+Â© 2021 Md. Abdus Sami Akanda
+
+This repository is licensed under the MIT license. See LICENSE for details.
+
