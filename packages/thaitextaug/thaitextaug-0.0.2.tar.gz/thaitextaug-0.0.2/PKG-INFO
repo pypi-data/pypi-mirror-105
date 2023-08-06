@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: thaitextaug
+Version: 0.0.2
+Summary: Thai Text Augmentation
+Home-page: https://github.com/wannaphong/thaitextaug
+Author: Wannaphong Phatthiyaphaibun
+Author-email: wannaphong@yahoo.com
+License: Apache Software License 2.0
+Project-URL: Documentation, https://github.com/wannaphong/thaitextaug
+Project-URL: Tutorials, https://github.com/wannaphong/thaitextaug/tree/main/notebooks
+Project-URL: Source Code, https://github.com/wannaphong/thaitextaug
+Project-URL: Bug Tracker, https://github.com/wannaphong/thaitextaug/issues
+Description: # ThaiTextAug
+        
+        Thai Text Augmentation: Thai Text Augmentation Tool
+        
+        ## Install
+        
+        ```sh
+        pip install thaitextaug
+        ```
+        
+        for fasttext
+        
+        ```sh
+        pip install thaitextaug[fasttext]
+        ```
+        
+        for all
+        
+        ```sh
+        pip install thaitextaug[all]
+        ```
+        
+        ## Docs
+        
+        You can read The API docs at [github.wannaphong.com/thaitextaug](https://github.wannaphong.com/thaitextaug/index.html)
+        
+        Tutorials Notebook: [notebooks](https://github.com/wannaphong/thaitextaug/tree/main/notebooks)
+        
+Keywords: thaitextaug,NLP,natural language processing,text analytics,text processing,localization,computational linguistics,ThaiNLP,Thai NLP,Thai language
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: Thai
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: fasttext
+Provides-Extra: wangchanberta
+Provides-Extra: full

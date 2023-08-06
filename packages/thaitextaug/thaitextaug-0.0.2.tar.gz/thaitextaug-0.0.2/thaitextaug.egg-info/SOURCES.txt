@@ -1,0 +1,17 @@
+README.md
+setup.py
+thaitextaug/__init__.py
+thaitextaug/wordnet.py
+thaitextaug.egg-info/PKG-INFO
+thaitextaug.egg-info/SOURCES.txt
+thaitextaug.egg-info/dependency_links.txt
+thaitextaug.egg-info/not-zip-safe
+thaitextaug.egg-info/requires.txt
+thaitextaug.egg-info/top_level.txt
+thaitextaug/lm/__init__.py
+thaitextaug/lm/fasttext.py
+thaitextaug/lm/wangchanberta.py
+thaitextaug/word2vec/BPEmb_core.py
+thaitextaug/word2vec/__init__.py
+thaitextaug/word2vec/thai2fit.py
+thaitextaug/word2vec/word2vec.py
