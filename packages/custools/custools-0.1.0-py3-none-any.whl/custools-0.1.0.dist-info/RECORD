@@ -1,0 +1,11 @@
+tools/ImgTools.py,sha256=4Zk_PMgTJs3NTYAsEvTgIs_b-Bz1pCSD-xvuZHGuL6k,4049
+tools/PdfTools.py,sha256=1mJUoPJYQ-KDOrpQg_MZytDDiDPxb4lxw40mJeEIvDg,392
+tools/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tools/entrypoints/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tools/entrypoints/main.py,sha256=GxjW16kX6LZBVbvpGuUzkSaeYqCG5fqGn2poOz8sWhA,1892
+custools-0.1.0.dist-info/LICENSE,sha256=JLrz6mlmBQSOBlPi9aYZu9sqtaSfEmr-bsJPqodxsmU,1069
+custools-0.1.0.dist-info/METADATA,sha256=KQ-wk2Aqr162CP4QaBdoT0EezXAnEkDfmb3QTgm_PVE,1658
+custools-0.1.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+custools-0.1.0.dist-info/entry_points.txt,sha256=JQwyzCkGahHTUydbdwk84hTXUW5xSl5AVOAaX5_q_ok,58
+custools-0.1.0.dist-info/top_level.txt,sha256=Ib4ZA2MPBpiT0tC-0qt5RcP9g42gLddRbx9PiYGa-Fc,6
+custools-0.1.0.dist-info/RECORD,,

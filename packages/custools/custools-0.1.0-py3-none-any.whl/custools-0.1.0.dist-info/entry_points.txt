@@ -1,0 +1,3 @@
+[console_scripts]
+custools = tools.entrypoints.main:main
+
