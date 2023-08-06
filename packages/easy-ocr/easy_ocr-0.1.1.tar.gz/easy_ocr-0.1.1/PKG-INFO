@@ -1,0 +1,25 @@
+Metadata-Version: 1.0
+Name: easy_ocr
+Version: 0.1.1
+Summary: a tool for ocr api service
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: ==============================
+        OCR API Service
+        ==============================
+        
+        You can write code in your application::  
+        
+            from easy_ocr import ocr_image
+            ocr_image(image_name,service='qq')
+        
+        only support for:
+        
+        - qq(Depecated)
+        - youdao
+        - xueersi
+        - baidu
+Keywords: ocr
+Platform: any

@@ -1,0 +1,12 @@
+README.rst
+setup.py
+easy_ocr/__init__.py
+easy_ocr/baidu.py
+easy_ocr/base.py
+easy_ocr/xueersi.py
+easy_ocr/youdao.py
+easy_ocr.egg-info/PKG-INFO
+easy_ocr.egg-info/SOURCES.txt
+easy_ocr.egg-info/dependency_links.txt
+easy_ocr.egg-info/requires.txt
+easy_ocr.egg-info/top_level.txt
