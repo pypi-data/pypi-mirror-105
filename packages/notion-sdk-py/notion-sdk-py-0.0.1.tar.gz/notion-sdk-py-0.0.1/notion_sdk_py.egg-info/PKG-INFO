@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: notion-sdk-py
+Version: 0.0.1
+Summary: A simple and easy to use client for the Notion API for python
+Home-page: https://github.com/blue-hope/notion-sdk-py
+Author: blue-hope
+Author-email: ms7045436@gmail.com
+License: MIT
+Description: <div align="center">
+        	<h1>Notion SDK for Python</h1>
+        	<p>
+        		<b>A simple and easy to use client for the <a href="https://developers.notion.com">Notion API</a></b>
+            <b>Inspired by <a href="https://github.com/makenotion/notion-sdk-js">notion-sdk-js</a></b>
+        	</p>
+        	<br>
+        	<br>
+        	<br>
+        </div>
+        
+        
+Keywords: notion,notion-client,notion-api,notion-lib
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown

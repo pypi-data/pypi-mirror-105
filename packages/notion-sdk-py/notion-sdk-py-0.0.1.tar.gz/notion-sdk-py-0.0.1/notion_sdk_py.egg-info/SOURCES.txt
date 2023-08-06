@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+notion/__init__.py
+notion/api.py
+notion_sdk_py.egg-info/PKG-INFO
+notion_sdk_py.egg-info/SOURCES.txt
+notion_sdk_py.egg-info/dependency_links.txt
+notion_sdk_py.egg-info/requires.txt
+notion_sdk_py.egg-info/top_level.txt
