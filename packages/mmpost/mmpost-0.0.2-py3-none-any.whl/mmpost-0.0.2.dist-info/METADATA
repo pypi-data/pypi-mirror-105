@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: mmpost
+Version: 0.0.2
+Summary: Mattermost post message
+Home-page: https://github.com/frbor/mmpost
+License: ISC
+Keywords: mattermost,cli
+Author: Fredrik Borg
+Author-email: fredrik.borg@gmail.com
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: caep
+Requires-Dist: mattermostdriver
+Project-URL: Repository, https://github.com/frbor/mmpost
+Description-Content-Type: text/markdown
+
+# mmpost
+
+Post message to mattermost from command line.
+
+# Installation
+
+```bash
+sudo pip3 install mmpost
+```
+
+# Configuration
+
+`mmpost` can be configured using both command line arguments and a configuration file, or a combination of both.
+
+This configuration file can be put in $XDG_CONFIG_HOME/mmpost/config (normally ~/.config/mmpost/config):
+
+```
+[DEFAULT]
+
+# Mattermost server
+server = <SERVER>
+
+# Mattermost server
+port = 443
+
+# Mattermost token
+token = <TOKEN>
+
+# Mattermost team name
+team = <TEAM>
+
+# Mattermost channel
+channel = <MATTERMOST CHANNEL>
+
+# Mattermost message
+message = <MESSAGE TO POST>
+
+# Skip SSL-verify (set to True to skip SSL verification)
+no-verify=
+
+```
+
+Normally you would configure server, token, team (and channel) and only specify --message on command line.
+
+If `message` is not configured, it will read from stdin. If empty value is passed to stdin, nothing will be posted.
+
