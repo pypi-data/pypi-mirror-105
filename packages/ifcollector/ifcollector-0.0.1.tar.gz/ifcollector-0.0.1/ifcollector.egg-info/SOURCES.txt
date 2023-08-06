@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+ifcollector/__init__.py
+ifcollector/if_functions.py
+ifcollector.egg-info/PKG-INFO
+ifcollector.egg-info/SOURCES.txt
+ifcollector.egg-info/dependency_links.txt
+ifcollector.egg-info/top_level.txt
