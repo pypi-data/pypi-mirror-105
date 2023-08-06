@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+likeshell/__init__.py
+likeshell/__version__.py
+likeshell/console.py
+likeshell/options.py
+likeshell/shell.py
+likeshell.egg-info/PKG-INFO
+likeshell.egg-info/SOURCES.txt
+likeshell.egg-info/dependency_links.txt
+likeshell.egg-info/top_level.txt
