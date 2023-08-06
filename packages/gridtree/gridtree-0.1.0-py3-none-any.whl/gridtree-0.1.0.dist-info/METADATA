@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: gridtree
+Version: 0.1.0
+Summary: Generalized quadtree.
+Author: uigctaw
+Author-email: uigctaw@protonmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+
+# gridtree
+Generalized quadtree.
+
+
+# Installation
+```
+pip install gridtree
+```
+
+# Usage
+
+TODO: expand
+
+```python
+points : Collection[tuple[NormalizedFloat, ...]] # between 0 and 1 inclusive
+
+tree = GTree(max_leaf_size=2)(points)
+tree_as_list = GTreeList(max_leaf_size=2)(points)
+tree_as_list = GTreeList.gtree_to_list(tree)
+```
+
+# Examples
+
+TODO
+
+
