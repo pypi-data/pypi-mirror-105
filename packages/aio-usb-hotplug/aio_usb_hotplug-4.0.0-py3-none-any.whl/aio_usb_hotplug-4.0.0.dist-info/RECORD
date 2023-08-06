@@ -1,0 +1,16 @@
+aio_usb_hotplug/__init__.py,sha256=oeXZ0-n37GBTCOPgTQ7g16fY9LgNDX-CSEWFkY2dKt8,228
+aio_usb_hotplug/__main__.py,sha256=mkCc4JmQlq33iKXxanSDKxTDiyPxWBzFPxAsiMwiRRs,285
+aio_usb_hotplug/backends/__init__.py,sha256=TJbaqIKKsXnrWUw1Cqfu5JIM9RvyIbVshArq9Xw6OtE,52
+aio_usb_hotplug/backends/autodetect.py,sha256=Aovo-5inBks-YR3qHJcRXLYrhFaWiuK0qCObQbKRknI,1137
+aio_usb_hotplug/backends/base.py,sha256=IyCReltc9a_7eCQvpKq6y4yc-2TS0F62-aGceCeYRqE,2258
+aio_usb_hotplug/backends/dummy.py,sha256=FJ0EZsYIsQMJcuNgf1kXHW9I09HidpOdENRMfzN1IjQ,702
+aio_usb_hotplug/backends/pyusb.py,sha256=nj7zvBnI8t5bjNBlgIhpzdOLPVsN-mayDSHPsTOgidg,3406
+aio_usb_hotplug/errors.py,sha256=DUu6TwJNqPo-KCmtFxTA9DGeMr-izSVYL62UD71ul2U,194
+aio_usb_hotplug/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aio_usb_hotplug/task.py,sha256=RdTEdJqznwLonbtDlmaoNEk-mY4kwZKuLAAd6tMwYCY,9237
+aio_usb_hotplug/version.py,sha256=-LvNDcRfy8YIU5LUixUcYHrPZZ6lOII90xZnbPB1Kgo,95
+aio_usb_hotplug-4.0.0.dist-info/entry_points.txt,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aio_usb_hotplug-4.0.0.dist-info/LICENSE,sha256=ZNDwjqBxqt7bm_cjV8F2NwOQItRX9DC4LznQJAqATTM,1070
+aio_usb_hotplug-4.0.0.dist-info/WHEEL,sha256=VN2eEg4PHbTOniXb-cCYQPc6zUTS4dAcATjlgU3q-Lo,83
+aio_usb_hotplug-4.0.0.dist-info/METADATA,sha256=s-AKFOjHavZiz9217SGJp_70t9_A2I5cmbPg48GrDSA,2604
+aio_usb_hotplug-4.0.0.dist-info/RECORD,,
