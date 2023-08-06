@@ -1,0 +1,6 @@
+toml
+tox>=3.10
+virtualenv>20
+
+[recutter]
+jinja2
