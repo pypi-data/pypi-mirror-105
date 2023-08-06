@@ -1,0 +1,13 @@
+pytesimal/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pytesimal/analysis.py,sha256=ri_YWW_nnDjQDUDhnobHqlShaJgwSwg8PWIWblxxrJ8,9804
+pytesimal/core_function.py,sha256=v_R1khFCXAXm4b1tvTF9XfNOXKVJscmAA327MAnpyR0,5383
+pytesimal/load_plot_save.py,sha256=f7iD8qwh4PSCbxgVLR1OkXzR_3R2X2uIWygjfPUqctA,19312
+pytesimal/mantle_properties.py,sha256=K-2JobcA1_CGy2aBwHJJutGbIszUVTNa5LzZzj1VGC4,7130
+pytesimal/numerical_methods.py,sha256=xlxz12iOdMWU3kq9Huo-C4bamMoVUbcBjTX17WthnOM,12577
+pytesimal/quick_workflow.py,sha256=X-8US_PshIr0kGsN_qZ2Q6rUZqDDyaVJLiXB_1u4M6E,5761
+pytesimal/setup_functions.py,sha256=ErA8Py-onjJruTZmj8WwWocc7mmEWspZNeTrOD1igSg,2936
+pytesimal-2.0.0.dist-info/LICENSE,sha256=SjV58XKPB4UObumjh7aeV-i9OnMFUhsnbHYaJD3bsGc,1082
+pytesimal-2.0.0.dist-info/METADATA,sha256=mV8s4tOsVeTR8IFTC9iqTF-1JBTvvd2AiDGi4fxToL4,4180
+pytesimal-2.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+pytesimal-2.0.0.dist-info/top_level.txt,sha256=FpOMGlj3T8yW_Mb76i-0f29bO_wx4IU8CMfIJhz8-hc,10
+pytesimal-2.0.0.dist-info/RECORD,,
