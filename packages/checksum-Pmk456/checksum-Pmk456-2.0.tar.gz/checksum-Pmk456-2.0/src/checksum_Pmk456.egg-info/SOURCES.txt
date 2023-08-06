@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/checksum/__init__.py
+src/checksum/__main__.py
+src/checksum_Pmk456.egg-info/PKG-INFO
+src/checksum_Pmk456.egg-info/SOURCES.txt
+src/checksum_Pmk456.egg-info/dependency_links.txt
+src/checksum_Pmk456.egg-info/top_level.txt
