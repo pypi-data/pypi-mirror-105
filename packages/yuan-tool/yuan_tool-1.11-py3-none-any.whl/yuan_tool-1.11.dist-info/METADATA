@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: yuan-tool
+Version: 1.11
+Summary: some common components for personal use
+Home-page: UNKNOWN
+Author: narukami_yume
+Author-email: 100961220@qq.com
+License: UNKNOWN
+Keywords: pip
+Platform: any
+Requires-Python: >=3.6
+Requires-Dist: requests (>=2.25)
+Requires-Dist: lxml (>=4.5.2)
+Requires-Dist: geoip2 (>=3.0.0)
+Requires-Dist: IPy (>=1.01)
+Requires-Dist: PyYAML (>=5.4.1)
+
+some common components for personal use
+
+
