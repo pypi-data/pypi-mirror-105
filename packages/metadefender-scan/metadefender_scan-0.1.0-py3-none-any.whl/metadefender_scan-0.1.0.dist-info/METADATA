@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: metadefender-scan
+Version: 0.1.0
+Summary: Command line tool which allows to send files to MetaDefender server and fetch scannig results.
+Home-page: https://github.com/mkot02/metadefender_scan
+Author: mkot02
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: System :: Software Distribution
+Requires-Python: >=3.6
+Requires-Dist: PyYAML
+Requires-Dist: requests
+
+UNKNOWN
+
+
