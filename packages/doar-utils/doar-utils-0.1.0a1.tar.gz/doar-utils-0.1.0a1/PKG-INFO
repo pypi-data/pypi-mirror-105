@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: doar-utils
+Version: 0.1.0a1
+Summary: 
+Author: Yehuda Deutsch
+Author-email: yeh@uda.co.il
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
