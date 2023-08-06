@@ -1,0 +1,11 @@
+Metadata-Version: 1.1
+Name: pytransliterate
+Version: 0.1.0
+Summary: A example Python package
+Home-page: https://github.com/shuds13/pyexample
+Author: Stephen Hudson
+Author-email: shudson@anl.gov
+License: BSD 2-clause
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning

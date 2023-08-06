@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+pytransliterate.egg-info/PKG-INFO
+pytransliterate.egg-info/SOURCES.txt
+pytransliterate.egg-info/dependency_links.txt
+pytransliterate.egg-info/top_level.txt
+transliterate/__init__.py
