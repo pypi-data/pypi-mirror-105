@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: Pythoreum
+Version: 0.2.1
+Summary: A simpple Pythogoreus theorum calculator!
+Home-page: UNKNOWN
+Author: Snehashish Laskar
+Author-email: snehashish.laskar@gmail.com
+License: UNKNOWN
+Description: # Pythoreum 
+        
+        ### This module can be used to calculate the sides of a right angled triangle using the famous Pythogoreas Theorum. This is a fairly simple and useful module for maths.
+        #
+        # Installation: 
+        ### Windows:
+        ```sh
+        $ pip install Pythoreum
+        ```
+        Mac OS or Linux:
+        ```sh
+        $ pip3 install Pythoreum
+        ```
+        # Importing the Module 
+        ### Its pretty simple to import the module. You Can import the calculate function in two ways. 
+        #
+        ## First Way:
+        ```python
+        from Pythoreum import calculate
+        ```
+        #
+        ## Second Way:
+        
+        ```python
+        import Pythoreum
+        ```
+        #  
+        
+        # Use Case or How to use it:
+        ### The Pythoreum module is desined to recieve any two sides of the right angled triangle we can mention sides a, b or sides b,c or sides c,a and it will calculate the missing side.
+        #
+        ## Lets take an example where side a = 3 and side b = 4:
+        ### We can use the module like this:
+        #
+        ```python
+        from Pythoreum import calculate
+        
+        # Using the calculate function to calculate the missing side(c)
+        calculate(a = 3, b = 4)
+        ```
+        #
+        ## Output:
+        ```python
+        a = 3
+        b = 4
+        c = 5.0
+        ```
+        ### This is how to use Pythoreum to calculate the missing side of a right angled triangle
+        #
+        ### NOTE: 
+        This just prints the values and does not return them in the next updates there will be a second function 
+        #
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
