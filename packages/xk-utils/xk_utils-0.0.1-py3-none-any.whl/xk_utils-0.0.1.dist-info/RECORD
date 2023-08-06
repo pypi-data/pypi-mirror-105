@@ -1,0 +1,12 @@
+xk_utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+xk_utils/logger/__init__.py,sha256=zqMEsVXvZVey0Nom6rYMp1JbIwM058-nSTGUJK8sSok,3146
+xk_utils/logger/handler.py,sha256=aiupzjP1-fbd_Rn_7_MYIzBaLd_AMTALE5K5YywaoEE,2219
+xk_utils/mail/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+xk_utils/mail/config.py,sha256=C1oqmpcqc1g8yToCMCGk6yXIE1yYQvKoHuypZ9Wm1qo,68
+xk_utils/mail/mail_consumer.py,sha256=M4RmeY1QYfJO2e0voG1b0mxqvtEEC5TITUtDZHc4LLc,1714
+xk_utils/mail/mail_producer.py,sha256=qlQNFuKIV1WF9y4VK-E-tsf2LqYpgpXzF7s9Wmh-ZcY,1286
+xk_utils/mail/send.py,sha256=jTpvMSucgyAG5H46WUGePOJDfGwW512X6cXkA3FE0SE,1577
+xk_utils-0.0.1.dist-info/METADATA,sha256=rqYimOZQA2cEXU2DQhZh_IqLS9DGaWL3GyEl2mcqYvo,484
+xk_utils-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+xk_utils-0.0.1.dist-info/top_level.txt,sha256=DtakaLnRSK_13mzcSBzAMFP-7kQFpZp8BQVWm5sjECk,9
+xk_utils-0.0.1.dist-info/RECORD,,
