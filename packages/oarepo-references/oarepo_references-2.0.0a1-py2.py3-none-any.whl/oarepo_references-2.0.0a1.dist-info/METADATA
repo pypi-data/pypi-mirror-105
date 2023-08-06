@@ -1,0 +1,468 @@
+Metadata-Version: 2.1
+Name: oarepo-references
+Version: 2.0.0a1
+Summary: OArepo module for tracking and updating references in Invenio records
+Home-page: https://github.com/oarepo/oarepo-references
+Author: Miroslav Bauer, CESNET
+Author-email: bauer@cesnet.cz
+License: MIT
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Development Status :: 4 - Beta
+Description-Content-Type: text/markdown
+Provides-Extra: tests
+Requires-Dist: oarepo[tests] (~=3.3.0) ; extra == 'tests'
+Requires-Dist: uuid ; extra == 'tests'
+Requires-Dist: pydocstyle ; extra == 'tests'
+Requires-Dist: isort ; extra == 'tests'
+Requires-Dist: check-manifest ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+
+# OArepo references
+
+[![](https://img.shields.io/github/license/oarepo/oarepo-references.svg)](https://github.com/oarepo/oarepo-references/blob/master/LICENSE)
+[![](https://img.shields.io/travis/oarepo/oarepo-references.svg)](https://travis-ci.com/oarepo/oarepo-references)
+[![](https://img.shields.io/coveralls/oarepo/oarepo-references.svg)](https://coveralls.io/r/oarepo/oarepo-references)
+[![](https://img.shields.io/pypi/v/oarepo-references.svg)](https://pypi.org/pypi/oarepo-references)
+
+OArepo module for tracking and updating references in Invenio records and other entities
+
+## Installation
+
+To use this module in your Invenio application, run the following in your virtual environment:
+
+```console
+    pip install oarepo-references
+```
+
+## How this module works
+
+This module provides a concept of referencing and referenced entities. The kind of each of those is given by a pair of (
+type, subtype). In case of invenio, the type might be "record" and the subtype name of the class implementing the
+record (for example "ThesisRecord").
+
+A handler is than mapped to a pair of (referencing entity_kind, referenced_entity_kind). If referenced entity is
+modified, the handler is called to propagate the modification to the referencing entities. How to select the referencing
+entities affected is not handled by the library - it is handler's task. In case of invenio record, the handler might for
+example query elasticsearch to get all the affected records.
+
+The handler must be able to handle multiple requests at a time to enable efficient bulk processing (for example, bulk
+update in elasticsearch).
+
+### Types of reference
+
+This module considers the following two types of reference that can occur the referencing objects:
+
+#### Reference by link
+
+Reference to another object is represented in the referencing object's metadata as a `canonical_url` of the referenced
+object, e.g:
+
+```json5
+{
+    // ... other metadata
+    "documents": [
+        "https://example.org/files/M249/fulltext.pdf"
+    ]
+}
+```
+
+#### Inlined reference
+
+The actual metadata content of the referenced object are inlined into the referencing object's metadata, e.g:
+
+```json5
+{
+    // ... other metadata
+    "stylePeriod": {
+        "url": "https://taxonomies.org/historical-period/paleolith",
+        "title": "Paleolith"
+    }
+}
+```
+
+In the example above, the complete metadata of a certain Taxonomic record are inlined into the `stylePeriod` field of
+the referencing object.
+
+## Usage
+
+### Configuration of handlers
+
+```python
+OAREPO_REFERENCES_DEPENDENCY_HANDLERS = [
+    {
+        "type": "reference | inline",
+        "referencing": {
+            "type": "record",
+        },
+        "handler": "package.handler_class"
+    }
+]
+```
+
+The snapshot above defines a configuration of a handler that will be used for modification of any invenio record when
+referenced entity is changed. If the type is "reference", the handler will be invoked when the identification of the
+referenced object (for example, its url) is changed or the object is deleted. For "inline", the handler will be invoked
+when the identification or content is changed or the object is deleted.
+
+What the referenced object is is defined by the ``OAREPO_REFERENCES_DEPENDENCIES`` configuration option. The
+
+### Configuration of referencing-referenced pairs
+
+```python
+
+OAREPO_REFERENCES_DEPENDENCIES = [
+    {
+        'type': 'reference',
+        'referencing': {
+            'type': 'record',
+            'subtype': 'TestRecord',
+            'record_class': 'tests.utils.TestRecord',
+            'record_indexer': None,
+            'index_name': TEST_INDEX,
+            'paths': [
+                'tax:keyword'
+            ],
+        },
+        'referenced': {
+            'type': 'record',
+            'subtype': 'TaxonomyRecord',
+            'record_class': 'tests.utils.TaxonomyRecord',
+        },
+    }
+]
+```
+
+This snippet defines a dependency between TaxonomyRecord (implemented as Invenio record) and TestRecord. It is by
+default handled by ``oarepo_references.record.RecordReferenceHandler`` and the extra properties in ``referencing``
+and ``referenced`` are understood by this handler. See below for the explanation.
+
+### Invenio Records
+
+To use the default implementation it must know what is the url of Record instance. Invenio itself is unable to tell that
+as the information is available only on the REST level, not on the model level.
+
+As the handler might be invoked without REST, the library mandates that the implementation of the referenced record must
+have a `canonical_url` property.
+
+```python
+class TaxonomyRecord(Record):
+    @property
+    def canonical_url(self):
+        return url_for('invenio_records_rest.taxonomy_item',
+                       pid_value=self['pid'], _external=True)
+```
+
+#### Reference by url
+
+The ``RecordReferenceHandler`` is responsible for keeping track of url links between records. It can handle:
+
+* Referencing and Referenced are both invenio records
+* Referencing is an invenio record and referenced might be anything (provided that the API below is called when
+  referenced is changed)
+
+##### Configuration
+
+```python
+OAREPO_REFERENCES_DEPENDENCIES = [
+    {
+        'type': 'reference',
+        'referencing': {
+            'type': 'record',
+            'subtype': 'TestRecord',
+            'record_class': 'tests.utils.TestRecord',
+            'record_indexer': None,
+            'index_name': TEST_INDEX,
+            'paths': [
+                'tax:keyword'
+            ],
+        },
+        'referenced': {
+            'type': 'record',
+            'subtype': 'TaxonomyRecord',
+            'record_class': 'tests.utils.TaxonomyRecord',
+        },
+    }
+]
+```
+
+###### `referencing.record_class`
+
+The class implementing referencing record. If not set, invenio `Record` is used.
+
+###### `record_indexer`
+
+Indexer that handles record -> index conversion and transforms record to json posted to invenio. If not set, invenio
+RecordIndexer is used.
+
+###### `index_name`
+
+Name of the index to search for referenced object. Must be primary index, not an alias.
+
+###### `paths`
+
+Paths in records & ES index where the url to the referenced record is stored. See below for details
+
+###### `referenced.record_class`
+
+The class implementing referenced record. If the referenced entity is invenio record and automatic change propagation is
+required, `record_class` must be present and provide `canonical_url` property.
+
+#### Inline reference
+
+The ``RecordReferenceHandler`` is responsible for propagating content of referenced record into referencing and update
+the content of the referencing record automatically.
+
+* Referencing and Referenced are both invenio records
+* Referencing is an invenio record and referenced might be anything (provided that the API below is called when
+  referenced is changed)
+
+##### Configuration
+
+```python
+OAREPO_REFERENCES_DEPENDENCIES = [
+    {
+        'type': 'inline',
+        'referencing': {
+            'type': 'record',
+            'subtype': 'TestRecord',
+            'record_class': 'tests.utils.TestRecord',
+            'record_indexer': None,
+            'index_name': TEST_INDEX,
+            'paths': [
+                'tax#url:keyword'
+            ],
+        },
+        'referenced': {
+            'type': 'record',
+            'subtype': 'TaxonomyRecord',
+            'record_class': 'tests.utils.TaxonomyRecord',
+            'reference_transformer': lambda x: {
+                'title': x['object_json']['metadata']['title'],
+                'url': x['object_json']['links']['self']
+            }
+        },
+    }
+]
+```
+
+See above for the options.
+
+###### Transforming inlined content
+
+If "referenced" is a record the change of its contents is automatically propagated to the referencing record. The record
+is transformed into
+
+```json5
+{
+    'links': {
+        'self': '...'
+    },
+    'metadata': {
+        // content of the record
+    }
+}
+```
+
+and this json is inserted into the referencing record at the given path. If you want a different serialization, provide
+your own reference transformer:
+
+```python
+{  # ...
+    'referenced': {
+        'type': 'record',
+        'subtype': 'TaxonomyRecord',
+        'record_class': 'tests.utils.TaxonomyRecord',
+        'reference_transformer': lambda x: {
+            'title': x['object_json']['metadata']['title'],
+            'url': x['object_json']['links']['self']
+        }
+    },
+}
+```
+
+#### How the handler works
+
+When a referenced object is moved/changed/deleted, the handler:
+
+1. creates a "terms" query to elasticsearch using the paths provided and using scan api gets all the records matching
+   the query. If referencing records are in multiple indices, for each index a different query will be created. If
+   referencing object references multiple changed objects, one query is created for all the referenced. Before the
+   search, the index is refreshed to make sure that all the changes made are searchable.
+2. using the paths in python, the exact locations in referencing record together with the change needed are found.
+   Referencing records are updated and committed to the database
+3. a bulk indexing operation is called on the referencing objects to speed up indexing
+4. index is refreshed to make sure the changes are searchable
+5. if referencing entity is referenced from elsewhere, the change is recorded and propagated later
+
+#### Paths
+
+A path is a sequence of property names concatenated with '.', for example "institutions.links.self". The path expresses
+both the search path in elasticsearch and in invenio record.
+
+Sometimes the paths might be different:
+
+* path in elasticsearch might include extra "ending", for example ".keyword" or ".raw"
+* path in elasticsearch might represent a nested mapping that should be treated differently
+
+To express this, the path might contain special symbols:
+
+* "institutions[links.self]" - institutions is a nested mapping so a nested query will be generated. In python code, the
+  query is transformed into "institutions.links.self"
+* "fulltext.url:keyword" - if fulltext.url is mapped as "text" and has field "keyword" mapped as keyword, this syntax
+  calls ES with path "fulltext.url.keyword" but in python everything after ":" is omitted
+
+##### Inlined references
+
+For inlined references, the replaced content sits on one path but the identification (url, etc) is on a subpath of this
+path. For example:
+
+```json5
+{
+    "$schema": "...thesis-1.0.0.json",
+    studyField: {
+        url: "https://study-fields.com/bioinformatics",
+        title: "Bioinformatics"
+    }
+}
+```
+
+The path to be replaced when the title changes is "studyField", the path to the url is "studyField.url". In the paths
+it is expressed this with ``studyField#url``. An ES query will be 'studyField.url', in Python the whole "studyField"
+will be replaced.
+
+#### Signals
+
+Records handler uses the following signals that handle managing of reference records whenever a Record changes:
+
+| Invenio Records signal | Registered [signal handler](https://github.com/oarepo/oarepo-references/blob/master/oarepo_references/signals.py) | Description |
+|------------------------|--------------------------|----------------------------------------------------------------------------------------------------------|
+| after_record_update    | update_references_record | Updates all RecordReferences that refer to the updated object and reindexes all referring Records |
+| after_record_delete    | delete_references_record | Deletes all RecordReferences referring to the deleted Record |
+
+## Module API
+
+You can access all the API functions this module exposes through the `current_references` proxy.
+*For more info, see [api.py](https://github.com/oarepo/oarepo-references/blob/master/oarepo_references/api.py)*.
+
+### ``current_references.moved``
+
+Should be called when a url of the referenced object changes
+
+```python
+current_references.moved(referenced_type, referenced_subtype, object_url, new_url, **kwargs)
+# object_url - the old url of the referenced object
+# new_url - the new url of the referenced object_url
+# kwargs - passed to the handlers
+```
+
+### ``current_references.updated``
+
+Should be called when the content of the referenced object changes (not the url)
+
+```python
+current_references.updated(referenced_type, referenced_subtype, object_url, object_json, **kwargs)
+# object_url - url (or other identification) of the referenced object
+# object_json - serialized value of the changed referenced object
+# kwargs - passed to the handlers
+```
+
+### ``current_references.removed``
+
+```python
+current_references.removed(referenced_type, referenced_subtype, object_url, **kwargs)
+# object_url - url of the deleted object
+```
+
+### ``current_references.bulk``
+
+When one of the methods above is called, the changes are made immediately. However, when modifying multiple objects it
+is better if the changes are performed in bulk to lower the number of requests to elasticsearch. This context manager
+does that - it stores the changes and performs them just before the context manager is exited.
+
+```python
+with current_references.bulk():
+    current_references.moved(...)
+
+    rec = MyRecord.get_record(...)
+    rec.commit()
+```
+
+## Handlers
+
+Your handler should extend from "ReferenceHandler" and implement the following methods:
+
+```python
+class ReferenceHandler:
+    def moved(self, args):
+        # args: array of moved objects
+        raise NotImplemented()
+
+    def removed(self, args):
+        # args: array of removed objects
+        raise NotImplemented()
+
+    def updated(self, args):
+        # args: array of updated objects
+        raise NotImplemented()
+```
+
+The args is an array of merged configuration object with "object_url", "new_url", "object_json" and "kwargs". For
+example, for "moved" call it might be:
+
+```python
+[
+    {
+        'type': 'reference',
+        'referencing': {
+            'type': 'record',
+            'subtype': 'TestRecord',
+            'record_class': 'tests.utils.TestRecord',
+            'record_indexer': None,
+            'index_name': TEST_INDEX,
+            'paths': [
+                'tax:keyword'
+            ],
+        },
+        'referenced': {
+            'type': 'record',
+            'subtype': 'TaxonomyRecord',
+            'record_class': 'tests.utils.TaxonomyRecord',
+        },
+        "handler": "...",
+        "object_url": "http://.../old",
+        "new_url": "http://.../new",
+        # any kwargs passed to current_references.moved call
+    },
+    # ...
+]
+```
+
+See oarepo_referneces/record.py for a sample implementation of a handler.
+
+
+..
+    Copyright (C) 2019 Miroslav Bauer, CESNET.
+
+    oarepo-references is free software; you can redistribute it and/or
+    modify it under the terms of the MIT License; see LICENSE file for more
+    details.
+
+Changes
+=======
+
+Version 0.1.0 (released TBD)
+
+- Initial public release.
+
+
