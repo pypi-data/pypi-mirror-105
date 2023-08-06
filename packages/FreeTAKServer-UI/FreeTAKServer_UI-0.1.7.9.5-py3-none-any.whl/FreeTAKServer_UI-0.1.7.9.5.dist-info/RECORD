@@ -1,0 +1,11 @@
+FreeTAKServer-UI/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+FreeTAKServer-UI/tests/__init__.py,sha256=gIAuUR2CwBwM7rTE-DWhhQOm2I3TNuJFAf2JnYoKUCQ,87
+FreeTAKServer-UI/tests/conftest.py,sha256=SNxK-XRjgOCS1T43-1ZDdqTI8ZUi2KnDT1fJ3wDzAfM,1910
+FreeTAKServer-UI/tests/test_base.py,sha256=pMiGSRY4IA2dzX8F0zyzIyNRQUOHEP9lF_FNcTmWS7w,2770
+FreeTAKServer-UI/tests/test_example.py,sha256=TSwCF98i_xGO-KtS89LY0ZEOgqxB8f7oE9t4SHvH9hA,584
+FreeTAKServer-UI/tests/test_selenium.py,sha256=CpSmBxUQ4-RleoBN99s3tqpAAc-gVEsc-LoQOLuuvhc,531
+FreeTAKServer_UI-0.1.7.9.5.dist-info/LICENSE.md,sha256=WlwIwC-wgEHwloH7_eOX84qZPFEnA3GOzNWZ8UgBRzc,1100
+FreeTAKServer_UI-0.1.7.9.5.dist-info/METADATA,sha256=qHrXNuyZgkLOVGeRg4joIjVMulMTwLgBu5-Ay9-_92o,525
+FreeTAKServer_UI-0.1.7.9.5.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+FreeTAKServer_UI-0.1.7.9.5.dist-info/top_level.txt,sha256=oT-50MKMwsuurKkpC6gjm3rVtjOZTSCvBZYVucT8qj4,17
+FreeTAKServer_UI-0.1.7.9.5.dist-info/RECORD,,
