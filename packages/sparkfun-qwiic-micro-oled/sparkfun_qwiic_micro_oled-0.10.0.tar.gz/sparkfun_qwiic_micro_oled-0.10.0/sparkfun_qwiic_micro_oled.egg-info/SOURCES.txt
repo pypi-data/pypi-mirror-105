@@ -1,0 +1,8 @@
+qwiic_micro_oled.py
+setup.cfg
+setup.py
+sparkfun_qwiic_micro_oled.egg-info/PKG-INFO
+sparkfun_qwiic_micro_oled.egg-info/SOURCES.txt
+sparkfun_qwiic_micro_oled.egg-info/dependency_links.txt
+sparkfun_qwiic_micro_oled.egg-info/requires.txt
+sparkfun_qwiic_micro_oled.egg-info/top_level.txt
