@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: verify-valid
+Version: 0.0.1
+Summary: 校验时间的有效性
+Home-page: https://www.baidu.com
+Author: gao
+Author-email: 513370497@qq.com
+License: UNKNOWN
+Description: 校验时间的有效性
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
