@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: delphai-search-utils
+Version: 0.1.1
+Summary: delphai search utilities
+Home-page: https://github.com/delphai/delphai-search-utils
+Author: Christopher Schiefer
+Author-email: christopher.schiefer@delphai.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: delphai-utils[config,grpc,database] (>=0.2.20,<0.3.0)
+Requires-Dist: nltk
+Requires-Dist: sacremoses
