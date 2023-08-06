@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: checksum-Pmk456
+Version: 2.1
+Summary: Checksum Is Used For checking File Integrity And Matching With Given Hashes
+Home-page: https://github.com/pmk456/checksum
+Author: Patan Musthakheem
+Author-email: patanmusthakheem786@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/pmk456/checksumissues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Checksum
+## Installation
+```
+sudo apt install python3
+sudo apt install python3-pip
+pip3 install checksum-Pmk456
+```
+## Using DEB Package
+```
+wget https://github.com/pmk456/checksum/releases/download/checksum_amd64/checksum_amd64.deb
+sudo dpkg -i checksum_amd64.deb
+```
+## Usage
+```
+usage: checksum [-h] [--hash HASH] [-a A] path
+
+* Copyright of Patan Musthakheem, 2021 * Supports Checksum For SHA256, SHA1, MD5
+
+positional arguments:
+  path         Path of The File
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --hash HASH  Hash To Compare With
+  -a A         Algorithm Of Hashing
+```
+
+
