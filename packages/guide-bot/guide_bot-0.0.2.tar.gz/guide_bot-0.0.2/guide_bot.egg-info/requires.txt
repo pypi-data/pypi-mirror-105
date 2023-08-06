@@ -1,0 +1,7 @@
+pyswarm
+dill
+numpy
+matplotlib
+PyYAML
+mcstasscript
+ipywidgets

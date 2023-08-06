@@ -1,0 +1,240 @@
+# Early version of guide_bot in python
+
+This project is a rewrite of the guide_bot software that was originally coded in MATLAB, https://github.com/mads-bertelsen/guide_bot.
+
+The purpose of guide_bot is to automate optimization of neutron guide systems given a simple job description and a description of the desired guide geometry. The guide geometry can be provided with as much or as little detail as desired, and everything not specified will be optimized. This has been used for many ESS instruments in early phases, as this allows investigating a broad range of different guide systems without much effort. guide_bot was also used at PSI for their guide upgrades for existing instruments. The guide simulations are performed by McStas and optimization was performed with iFit, usually on a cluster running SLURM.
+
+The rewrite in python is underway and is thus far from fully functional. The rewrite will provide several important benefits:
+
+* Open source software, no MATLAB license required
+* Can depend on McStasScript which will handle McStas jobs, simplifying the guide_bot code
+* The original guide_bot could only scan two dimensions, and only certain were allowed, this limitation was removed
+* Much easier for the user to add a new figure of merit or source
+* Avoided complex parameter space transformations by using constraints during optimization instead
+* Can have python code executed before each optimization step, moves complexity away from instrument file
+* User defined parameters are possible, which can depend on one another using arbitrary functions
+* User defiend constraints can be added to the user defined parameters
+* Computing tasks written as pickled python code, easy to perform the task on other hardware
+* Now have unit tests (in progress)
+
+This is the earliest public version of the software, and is not yet ready for production. There are many systems which are yet to be added, such as allowing guides that break line of sight, specification of the guide coating, only the bare minimum of plots are shown.
+
+Currently these guide elements are implemented:
+
+* Straight guide (or tapered, start and end dimensions can differ, but the mirrors are straight)
+* Elliptic guide
+* Gap
+
+Currently it is recommended to install the software in a virtual python environment, follow the steps below.
+
+1) clone the repository
+2) navigate to the folder in a terminal
+3) create the virtual environement with: python -m venv venv
+4) activate the virtual environemnt: source ./venv/bin/activate
+5) install required packages with pip: pip install -r requirements.txt
+6) install guide_bot with: pip install -e .
+
+Before using guide_bot, that virtual environment need to be activated by repeating step 4.
+
+For any suggestions on development or questions, please write Mads.Bertelsen@ess.eu
+The project is funded by the EU project HighNESS and is done under work package 7.
+
+# Breif user manual
+The software is still in a very early stage, but can be used by someone curious.
+
+## Setting up a guide_bot run
+The first step is to make a guide_bot run from python. In this early phase of development each part is loaded seperately as below.
+```
+from guide_bot.logic import guide_bot_main as gb
+from guide_bot.logic import runner as runner
+
+from guide_bot.elements.Element_gap import Gap
+from guide_bot.elements.Element_straight import Straight
+from guide_bot.elements.Element_elliptic import Elliptic
+
+from guide_bot.parameters import instrument_parameters as ipars
+
+from guide_bot.requirements.Sample import Sample
+from guide_bot.requirements.Source import Moderator
+
+from guide_bot.cluster import SLURM
+```
+
+### Setting up figure of merit
+The figure of merit in guide_bot is reffered to as the sample. Create a sample object to describe the figure of merit, which is a description of the desired beam after the guide. In the example below a list is given for height, that ensures a scan is performed, meaning guide_bot will perform an optimization for both a 1 cm and 3 cm tall sample.
+```
+sample = Sample(width=0.02, height=[0.01, 0.03],
+                div_horizontal=0.75, div_vertical=1.0,
+                min_wavelength=1.5, max_wavelength=3.0,
+                instrument_length=60, sample_guide_distance=0.5)
+```
+### Setting up sources
+One can set up a source for several reasons, the primary one is the source for the optimization, but its also possible to add sources for analysis. Here we add two sources, one with a scan of moderator heights and one for analysis which can not have scans.
+
+```
+moderator = Moderator(name="fom_moderator", width=0.1,
+                      height=[0.02, 0.04, 0.06, 0.08, 0.1], guide_start=2.0)
+
+large_moderator = Moderator(name="large_moderator", width=0.2, height=0.2, guide_start=2.0)
+```
+
+### Setting up a run
+Now a run can be setup, this uses the sample and source objects defined above. It also includes settings, this can adjust the optimizer and ncount used for optimization and analysis. The analysis moderator is used for analysis in addition to the figure of merit moderator.
+```
+settings = {"maxiter": 400, "swarmsize": 25, "minstep": 5E-4,
+            "ncount": 5E6, "ncount_analysis": 1E8}
+
+first_run = gb.guide_bot_run(name="first_run_fixed", sample=sample, moderator=moderator,
+                             settings=settings, analysis_moderators=large_moderator)
+```
+
+### Adding a guide
+With a guide_bot run defined, one can add guide geometries to be optimized. Below is an example with a feeder and elliptic guide. The '+=' operator is used to add an additional guide modeule to an existing guide object.
+```
+guide = first_run.new_guide(name="Elliptic_with_feeder")
+guide += Elliptic(name="Feeder", m=4)
+guide += Gap(name="Chopper_gap", start_point=6.5, length=0.1,
+             start_width=0.03, start_height=0.04)
+guide += Elliptic(name="Main_guide", m=3)
+```
+Currently these elements are available:
+- Gap: Gap in the guide
+- Straight: Guide with straight mirrors
+- Elliptic: Elliptic guide
+
+All guide elements have the following common keyword arguments:
+- start_point: Starting point measured in [m] from the source
+- length: Length of the element
+- start_width: Width at the start of the element in [m]
+- start_height: Height at the start of the element in [m]
+- end_width: Width at the end of the element in [m]
+- end_height: Height at the end of the element in [m]
+
+These can be used in several ways.
+- If not set, it will be a free parameter.
+- If set as a float value, that parameter will be locked.
+- If set as a list with length two, that will be min, max for that free parameter.
+
+When setting a range with a list, None is allowed for min or max to avoid setting that end of the range, these will be overwritten with default values.
+
+This input scheme should be used for as many of the keyword arguments as possible to streamline the input method. The vast majority of cases can be be handled with only the above input method, but more complex tools are available.
+
+In addition to the above ways, some keyword arguments can be controlled with user defined parameters. The main advantage with these is that one user defined parameter can be set to controll multiple parameters, locking them together.
+
+The user defined parameters are of these three types:
+- LockedInstrumentParameter(name, value)
+- FreeInstrumentParameter(name, min_value, max_value)
+- DependentInstrumentParameter(name, dependent_list, dependent_function)
+
+The locked parameter sets a specific value for the parameter, similar to setting a float. The free parameter sets a range, similar to setting the min/max values. The dependent parameter depends on one or more other user defined parameters, and have a general function that will be evaluated. An arbitrary number of inputs can be used, but they must match the number of function inputs, a few examples are shown below.
+
+```
+guide_width = ipars.FreeInstrumentParameter("guide_width", 0.01, 0.08)
+double_guide_width = ipars.DependentInstrumentParameter("double_guide_width", [guide_width], lambda x: 2*x)
+
+guide_height = ipars.FreeInstrumentParameter("guide_height", 0.01, 0.1)
+guide_area = ipars.DependentInstrumentParameter("guide_area", [guide_width, guide_height], lambda x, y: x*y)
+```
+
+It is also possible to add user defined constraints to the user defined parameters. This is represented much like a dependent parameter, but where the constraint is considered fulfilled if the returned value of the function is above 0. Such a constraint need to be added to the guide object, as it can not be added to any one guide element.
+
+```
+constraint_area = Constraint([guide_area], lambda x: 0.01 - x)
+guide.add_constraint(constraint_area)
+```
+
+With these parameters defined we can define a completely straight guide with a gap, and a constraint on the guide area.
+```
+guide = first_run.new_guide(name="straight_with_gaps")
+guide += Straight(name="first_section", m=2,
+                  start_width=guide_width, end_width=guide_width,
+                  start_height=guide_height, end_height=guide_height)
+guide += Gap(name="chopper_gap", start_point=6.5)
+guide += Straight(name="second_section", m=2,
+                  start_width=guide_width, end_width=guide_width,
+                  start_height=guide_height, end_height=guide_height)
+guide.add_constraint(constraint_area)
+```
+
+### Running the project
+Before running the job, its good practice to print the job to ensure it has the expected guides and scan. 
+
+```
+print(first_run)
+```
+```
+guide_bot_run named 'first_run'
+Included guides: 
+  Elliptic_with_feeder
+  straight_with_gaps
+Moderator scan configurations: 5
+Sample scan configurations: 2
+Total optimizations to be performed: 20
+```
+Then the run can be performed, which will write the project folder to disk.
+```
+first_run.run()
+```
+If the project is to be executed on a cluster, a cluster configuration need to be added.
+```
+from guide_bot.cluster import SLURM
+DMSC = SLURM.ClusterSLURM(cluster_name="DMSC", config_path=".")
+first_run.run(cluster=DMSC)
+```
+If the project is being executed on a local computer, one has to run each task written to disk with the runner. Navigate to the correct folder in python with for example os.chdir and execute the RunFromFile method with the path to the task file.
+```
+runner.RunFromFile("Ballistic_with_feeder_sam_height_0_mod_height_4.plk")
+```
+
+## Launching a run on a cluster
+In order to launch a project on a cluster, one have to specify the desired cluster when writing the project to disk as detailed above. Then the entire generated project folder is uploaded to the cluster, for example:
+```
+scp -r first_run mbertelsen@login.esss.dk:/users/mbertelsen/py_guide_bot/tests/.
+```
+Then login to the cluster and navigate to the project folder. In the project folder there will be a number of launch_all scripts corresponding to each queue configured for the cluster. For the DMSC cluster, only quark is configured correctly.
+```
+./launch_all_quark.sh
+```
+This will launch all the guide optimizations simultaniously, and after optimization analysis will be performed along with plots describing the simulated beam. When all the jobs have concluded, download the project folder.
+
+## Analyzing the data
+The amount of data produced by a guide_bot run can be quite overwhelming, but there are tools included to get an overview and dive into the data. This is done through widgets in jupyter notebooks.
+
+From a terminal, navigate to the project folder on your computer and open a jupyter notebook.
+```
+jupyter notebook
+```
+
+Load the guide_bot packages for analysis.
+```
+import matplotlib
+%matplotlib widget
+
+import sys
+sys.path.append('/Users/madsbertelsen/HighnESS/gitlab/guide_bot')
+from guide_bot.scan_visualization import overview
+from guide_bot.scan_visualization import jb_interface
+```
+
+Before plotting the data, it has to be loaded. This is done with the ScanOverview class, which just need the path to the downloaded project folder.
+```
+scan_overview = overview.ScanOverview("/cluster_data/first_run")
+scan_overview.run_status()
+scan_overview.load_run_information()
+```
+The run_status method shows the status of all runs, check if any failed.
+
+After the scan_overview have loaded the data, its possible to visualize with 4 different widgets:
+
+- PlotAnyMonitor: Plots any single monitor
+- CompareMonitors: Compare 1D monitors for any number of guides
+- CompareMonitorsScans: Compare 1D monitors over a scan
+- PlotSum: Shows sum of any monitor as function of scan
+
+They are all displayed with the same setup, for example here with PlotAnyMonitor as example
+```
+scan_interface = jb_interface.PlotSum(scan_overview)
+scan_interface.show_interface()
+```
+
+
