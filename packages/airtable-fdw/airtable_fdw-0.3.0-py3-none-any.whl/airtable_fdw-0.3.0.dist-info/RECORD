@@ -1,0 +1,7 @@
+airtable_fdw/__init__.py,sha256=gY-kwZ6NePtbqLelr6aQVpnMnBhw6CBTwcPVyZhWT_8,9538
+airtable_fdw/test_airtablefdw.py,sha256=giN4hAGp7UgYXcBtd9EdBXr2nAiwWCdvnLXU40VKfJg,1690
+airtable_fdw/utils.py,sha256=FQz7YeFQT6sMI8F51Ay_IdDRo1Wm4kd0yHrxTRB7c5E,1550
+airtable_fdw-0.3.0.dist-info/METADATA,sha256=o6la2Bqnkrsjv-DZr3XBHzzFDGCvllW-KdPZ59lTlKY,2988
+airtable_fdw-0.3.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+airtable_fdw-0.3.0.dist-info/top_level.txt,sha256=T7OBc93ONbmZTA8B98SrNg-rQYENdkEzuRQkCUzBpg0,13
+airtable_fdw-0.3.0.dist-info/RECORD,,
