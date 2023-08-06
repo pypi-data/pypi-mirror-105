@@ -1,0 +1,5 @@
+numpy
+h5py>=3.2
+argparse
+pandas
+scipy
