@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: SCanalyzer
+Version: 0.0.1
+Summary: Service Cube Analyzer
+Home-page: https://github.com/wisc-bus/simulator
+Author: Chang Xu
+Author-email: cxu249@wisc.edu
+License: UNKNOWN
+Description: # simulator
+        
+        ## Usage
+        
+        See example usage in ```notebooks/example.ipynb```
+        
+        
+        
+        
+        
+        ### Census Class:
+        
+        * See Census class example notebook for some of the features of the class. 
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
