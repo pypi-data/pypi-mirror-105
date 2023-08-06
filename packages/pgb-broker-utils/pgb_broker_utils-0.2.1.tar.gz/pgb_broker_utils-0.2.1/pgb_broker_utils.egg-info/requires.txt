@@ -1,0 +1,8 @@
+apache-beam[gcp]==2.25.0
+fastavro
+google-cloud-storage>=1.38
+google-cloud-pubsub>=2.2
+numpy
+pandas
+PyYAML>=5.3
+typing
