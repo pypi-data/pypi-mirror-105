@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: testlib2-pndmev
+Version: 0.0.1
+Summary: Test library
+Home-page: UNKNOWN
+Author: Diam Pan
+Author-email: pndmev@gmail.com
+License: MIT
+Description: This is second test library that uses first library
+        
+        Change Log
+        ==========
+        
+        0.0.1 (02.05.2021)
+        ------------------
+        - First Release
+        
+        0.0.2 (08.05.2021)
+        ------------------
+        - New sqr function
+        
+        0.0.3 (08.05.2021)
+        ------------------
+        - New sqrt function
+Keywords: test
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
