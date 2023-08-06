@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: entropylab-qpudb
+Version: 0.0.4
+Summary: A extension of entropy lab for persistent storage of calibration parameters of a quantum processing unit (QPU)
+Home-page: https://github.com/entropy-lab/entropy-qpu
+License: BSD-3-Clause
+Author: Lior Ella
+Author-email: lior@quantum-machines.co
+Requires-Python: >=3.7.1,<4.0.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: ZODB (>=5.6.0,<6.0.0)
+Requires-Dist: pandas (>=1.2.4,<2.0.0)
+Description-Content-Type: text/markdown
+
+# QPU DB Entropy extension
+
+The QPU DB is a specialized interface used to access parameters and calibrations
+that are tracked between quantum experiments and enable detection of staleness
+Entropy
+
+The QPU DB is an extension of entropylab package.
