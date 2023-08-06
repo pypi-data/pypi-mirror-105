@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pkg_test_1_Prac2909
+Version: 0.0.2
+Summary: pkg_test_1_Prac2909 is now pkg_test_2_Prac2909
+Home-page: UNKNOWN
+License: UNKNOWN
+Description: # pkg_test_1_Prac2909 is now pkg_test_2_Prac2909
+        
+        This package has been renamed. Use `pip install pkg_test_2_Prac2909` instead.
+        
+        New package: https://pypi.org/project/pkg_test_2_Prac2909/
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 7 - Inactive
+Description-Content-Type: text/markdown

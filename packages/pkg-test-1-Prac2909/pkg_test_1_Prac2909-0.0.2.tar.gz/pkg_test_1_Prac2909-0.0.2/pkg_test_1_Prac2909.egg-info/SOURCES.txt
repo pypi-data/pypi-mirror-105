@@ -1,0 +1,7 @@
+README.md
+setup.py
+pkg_test_1_Prac2909.egg-info/PKG-INFO
+pkg_test_1_Prac2909.egg-info/SOURCES.txt
+pkg_test_1_Prac2909.egg-info/dependency_links.txt
+pkg_test_1_Prac2909.egg-info/requires.txt
+pkg_test_1_Prac2909.egg-info/top_level.txt
