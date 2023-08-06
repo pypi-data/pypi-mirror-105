@@ -1,0 +1,85 @@
+Metadata-Version: 1.1
+Name: python101
+Version: 0.0.1
+Summary: Basic Python in Lao
+Home-page: https://github.com/lanuxos/python101
+Author: LanuxOS
+Author-email: lanuxos@gmail.com
+License: MIT
+Download-URL: https://github.com/lanuxos/python101/archive/refs/heads/main.zip
+Description: # ໂປຣແກຣມອະທິບາຍພື້ນຖານພາສາ Python
+        
+        ### ວິທີຕິດຕັ້ງ
+        
+        ເປີດ CMD / Terminal
+        
+        ```python
+        pip install python101
+        ```
+        
+        ### ວິທີໃຊ້ງານ
+        
+        ເປີດ IDLE ແລ້ວພິມ...
+        
+        ```python
+        >>> import python101
+        ```
+        
+        from python101.basicpython import BasicPython, Comment, PiPy101
+        var1 = BasicPython()
+        var2 = PyPi101()
+        var3 = Comment()
+        
+        print(var1.GetStart)
+        print('==================')
+        print(var1.Syntax)
+        print('==================')
+        print(var1.Comment)
+        print('==================')
+        print(var1.Variable)
+        print('==================')
+        print(var1.DataType)
+        print('==================')
+        print(var1.Casting)
+        print('==================')
+        print(var1.Condition)
+        print('==================')
+        print(var1.WhileLoop)
+        print('==================')
+        print(var1.ForLoop)
+        print('==================')
+        print(var1.Function)
+        print('==================')
+        print(var1.Lambda)
+        print('==================')
+        print(var1.Class)
+        print('==================')
+        print(var1.Inheritance)
+        print('==================')
+        print(var1.Scope)
+        print('==================')
+        print(var1.Module)
+        print('==================')
+        print(var1.Pip)
+        print('==================')
+        print(var1.TryExcept)
+        print('==================')
+        print(var2.desc)
+        print('==================')
+        print(var3.single)
+        print('==================')
+        print(var3.multiple)
+        
+Keywords: python,101,basic python,lao,la,lanuxos
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
