@@ -1,0 +1,5 @@
+gensim
+languagecodes
+banal
+nltk
+rdflib
