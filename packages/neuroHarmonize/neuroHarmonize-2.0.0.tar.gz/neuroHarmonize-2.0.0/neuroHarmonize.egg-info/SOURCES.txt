@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.py
+neuroHarmonize/__init__.py
+neuroHarmonize/harmonizationApply.py
+neuroHarmonize/harmonizationLearn.py
+neuroHarmonize/harmonizationNIFTI.py
+neuroHarmonize/neuroCombat.py
+neuroHarmonize.egg-info/PKG-INFO
+neuroHarmonize.egg-info/SOURCES.txt
+neuroHarmonize.egg-info/dependency_links.txt
+neuroHarmonize.egg-info/not-zip-safe
+neuroHarmonize.egg-info/requires.txt
+neuroHarmonize.egg-info/top_level.txt
