@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: aiuti
+Version: 0.1a1
+Summary: Personal collection of assorted helpers and utilities
+Home-page: https://github.com/aiudirog/Aiuti
+Author: Roger Aiudi
+Author-email: aiudirog@gmail.com
+License: MIT
+Keywords: utils,helpers,asyncio
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+
+Aiuti
+=====
+
+This Python package is my personal collection of helpers and utilities
+that I have written for various projects but don't have to be maintained
+with those projects.
+
+It has no required dependencies and is MIT licenced in order to make it
+as portable and easy to use as possible.
+
+.. uncomment on first release
+
+    Installation
+    ------------
+
+    This package can be installed through the official PyPI:
+
+    .. code-block:: sh
+
+        $ pip install aiuti
+
+    Documentation
+    -------------
+
+    The documentation can be found on `Read the Docs
+    <https://aiuti.readthedocs.io/en/latest/>`__.
+
+
