@@ -1,0 +1,9 @@
+README.md
+setup.py
+clouder/__init__.py
+clouder.egg-info/PKG-INFO
+clouder.egg-info/SOURCES.txt
+clouder.egg-info/dependency_links.txt
+clouder.egg-info/entry_points.txt
+clouder.egg-info/requires.txt
+clouder.egg-info/top_level.txt

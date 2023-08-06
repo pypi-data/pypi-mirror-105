@@ -1,0 +1,13 @@
+boto3
+configparser
+docker
+kubernetes
+pandas
+pathlib
+requests
+urllib3
+
+[test]
+pytest
+pytest-cov
+pylint
