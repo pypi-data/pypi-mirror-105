@@ -1,0 +1,8 @@
+README.md
+setup.cfg
+setup.py
+src/supa_dict/__init__.py
+src/supa_dict.egg-info/PKG-INFO
+src/supa_dict.egg-info/SOURCES.txt
+src/supa_dict.egg-info/dependency_links.txt
+src/supa_dict.egg-info/top_level.txt
