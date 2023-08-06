@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: xarray-beam
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: https://github.com/google/xarray-beam
+Author: Google LLC
+Author-email: noreply@google.com
+License: Apache 2.0
+Platform: UNKNOWN
+Requires-Python: >=3
+Requires-Dist: apache-beam
+Requires-Dist: dask
+Requires-Dist: rechunker
+Requires-Dist: zarr
+Requires-Dist: xarray
+
+UNKNOWN
+
+

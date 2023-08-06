@@ -1,0 +1,17 @@
+xarray_beam/__init__.py,sha256=X4MsBCrDC9ib0rYbj7tUN9UQ08ZGJzbtPsLf5cAAGnI,911
+xarray_beam/_src/__init__.py,sha256=tMa-ceinhycc5_1w9OmIOHKjVitBOwF0HD6Ia8hYHvw,575
+xarray_beam/_src/core.py,sha256=OWQvaIZ7vxQpk2y7PRawecz-Xv7OTFdueH1rQZBl9Nc,7537
+xarray_beam/_src/core_test.py,sha256=o_gbrZhWElmHwcvPmVGgwRbCC84ZMv8op9J0E_8kvy4,5811
+xarray_beam/_src/integration_test.py,sha256=AAsXaa6JXa0ssrrHF3ZjQ_-2zZAsWFP0qpBTKZHLO64,2651
+xarray_beam/_src/rechunk.py,sha256=We3XncwTNrja9nKvhSihUJfQKNiNq4ieVDJbFF9mmLE,9818
+xarray_beam/_src/rechunk_test.py,sha256=bmWPBniC7eF6sz6uCuGgPC8z1aG65tmJEo0Z27e3aC4,9160
+xarray_beam/_src/test_util.py,sha256=go__VwFPKRBJLgNXsD5I-iOci5WsanLBuRTUc4pzHHM,1760
+xarray_beam/_src/threadmap.py,sha256=QcSZDWfbXJNHCzjubpkQwYgdSOH_TWqgJu3cvva1zLo,3796
+xarray_beam/_src/threadmap_test.py,sha256=MJOpj1ZkbBUzD4nQIo_hNll2Isd7ec3Eewt-kQcE1s0,2761
+xarray_beam/_src/zarr.py,sha256=w_aBbdoak01Ysl5iZcksYLm2992CXP8auiLSCMw9voU,9433
+xarray_beam/_src/zarr_test.py,sha256=eRmHO_8DijH0_LmyEMPZSUnj5_0YRP7wi2VMhE6vhDQ,4031
+xarray_beam-0.0.1.dist-info/LICENSE,sha256=z8d0m5b2O9McPEK1xHG_dWgUBT6EfBDz6wA0F7xSPTA,11358
+xarray_beam-0.0.1.dist-info/METADATA,sha256=-UWLHp1x_G0uXYL3vVOg_PysK7SJ9-_bN7iD-9pnDaU,357
+xarray_beam-0.0.1.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+xarray_beam-0.0.1.dist-info/top_level.txt,sha256=Xr-EBQqKcd6Il-DCvotjB_CclwGvc3LyZfFWI0fmi9g,12
+xarray_beam-0.0.1.dist-info/RECORD,,
