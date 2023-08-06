@@ -1,0 +1,4 @@
+pythainlp>=2.0
+bpemb
+gensim
+nltk
