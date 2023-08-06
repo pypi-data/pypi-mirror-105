@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: dkcalculator
+Version: 1.0.0
+Summary: A very basic calculator functionality implemented with Python 3
+Home-page: UNKNOWN
+Author: Dovile Kuznecova
+Author-email: dovileobo@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: typing
+
+# Calculator
+
+A very basic calculator functionality implemented with Python 3. 
+
+Calculator allows to perform these mathematical operations:
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Taking the n-th root of number
+
+## Getting setup
+
+Run `python setup.py install`
+
+## Running locally
+
+Run `python calculator/calculator.py`
+
+## Testing
+
+Run `python -m pytest`
+
