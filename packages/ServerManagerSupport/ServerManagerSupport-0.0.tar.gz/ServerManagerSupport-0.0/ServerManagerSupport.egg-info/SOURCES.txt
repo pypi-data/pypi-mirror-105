@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+ServerManagerSupport/__init__.py
+ServerManagerSupport/test.py
+ServerManagerSupport.egg-info/PKG-INFO
+ServerManagerSupport.egg-info/SOURCES.txt
+ServerManagerSupport.egg-info/dependency_links.txt
+ServerManagerSupport.egg-info/not-zip-safe
+ServerManagerSupport.egg-info/top_level.txt
