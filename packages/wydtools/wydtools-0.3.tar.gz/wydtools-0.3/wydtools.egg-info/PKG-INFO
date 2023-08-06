@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: wydtools
+Version: 0.3
+Summary: An feature extraction algorithm
+Home-page: UNKNOWN
+Author: LiangjunFeng
+Author-email: zhumavip@163.com
+License: MIT Licence
+Description: An feature extraction algorithm, improve the FastICA
+Keywords: pip,wydtools
+Platform: any
