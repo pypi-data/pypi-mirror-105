@@ -1,0 +1,3 @@
+[console_scripts]
+inter-morse = inter_morse.__main__:main
+
