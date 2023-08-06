@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: ebx-keypress
+Version: 1.1.0
+Summary: Capture Keypress
+Home-page: https://github.com/faustobranco/ebx_keypress
+Author: Fausto Branco
+Author-email: fausto.branco@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/faustobranco/ebx_keypress/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Key Press
+
+Python package for capture and return keypress.
+
+### Prerequisites
+
+Developed and tested in Linux and Python 3
+
+
+### Installing
+
+    pip3 install ebx_keypress
+
+or from source:
+
+    python3 -m pip install [your_path]/ebx_keypress/
+
+
+## Functions
+
+### keypress
+
+keypress():
+Description: Capture pressed keys and combined keys and return as string
+
+Return: String with pressed key
+
+## Examples of use
+
+```
+import ebx_keypress
+
+result_Keypress = ''
+
+obj_keypress = ebx_keypress.Get_Key()
+
+print("Press keys or Ctrl+C to Exit")
+
+while result_Keypress != 'Ctrl+ C':
+    result_Keypress = obj_keypress.keypress()
+    print(result_Keypress)
+
+
+```
+
+## Versioning
+```
+=======================================================================================
+== Log Changes: 
+== Date:            2021-05-12
+== Author:          Fausto Branco
+== Version:         1.1.0
+== Description:     Initial Version
+=======================================================================================
+
+```
+
+
+
+
+
+
