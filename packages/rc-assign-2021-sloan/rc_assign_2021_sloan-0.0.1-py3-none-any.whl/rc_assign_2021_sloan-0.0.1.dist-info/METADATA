@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: rc-assign-2021-sloan
+Version: 0.0.1
+Summary: Sqlite3 and pandas DF connections and useful DF functions.
+Home-page: https://github.com/alexsloan492/rc_sqlite3_DF
+Author: Alex Sloan
+Author-email: sloanalex4@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+
+UNKNOWN
+
+
