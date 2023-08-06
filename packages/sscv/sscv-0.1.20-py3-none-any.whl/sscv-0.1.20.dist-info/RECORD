@@ -1,0 +1,12 @@
+sscv/__init__.py,sha256=_X9LReglzAcATJs3vFjd0P05OPo0EhZEq_VymPWBPTs,92
+sscv/utils.py,sha256=EqtJgO9hAEBeyBTQv7dPMplOHR8j2CqmfW_NQxQF9h8,5685
+sscv/psdAnn/__init__.py,sha256=jRRusYnEOsfPU6yshsSTCa30gNOtFk68LW6K4KpjCfI,98
+sscv/psdAnn/coco_utils.py,sha256=ONFheKVhJlVidu-scd0ah0AYknGDSxgIrACCfW9wx9Y,8294
+sscv/psdAnn/converters.py,sha256=rMZKdyBPJ3Q76gxUGrllBHv1ZKARBMjkJDuyj13NTv4,10286
+sscv/psdAnn/psd-to-coco.py,sha256=LNi4ybzkEbAfPxz-29w3vkXQ_kqhc90u_nwd_9r92jk,6108
+sscv/psdAnn/utils.py,sha256=4GwGFdWs8SP8JcuDaEPXp5FmaZlJkihW76CK41zlW6I,8237
+sscv-0.1.20.dist-info/LICENSE,sha256=DwkTYjTl1vTibTJlIDUxjjvsdE3fmhVPHlpiF8Hje54,1110
+sscv-0.1.20.dist-info/METADATA,sha256=2b9VNwESiB6Ig0cmv4EYv9gWZ7MN6mOMPhEbf6Ghd20,710
+sscv-0.1.20.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+sscv-0.1.20.dist-info/top_level.txt,sha256=Ysfl4PrxJ1aPA7qsmMM3AQXoVtcdTifHUmraT-OsfEU,5
+sscv-0.1.20.dist-info/RECORD,,
