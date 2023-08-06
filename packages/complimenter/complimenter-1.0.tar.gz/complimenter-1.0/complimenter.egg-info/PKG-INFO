@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: complimenter
+Version: 1.0
+Summary: Create random compliments
+Home-page: UNKNOWN
+Author: Mohd Sabahat
+Author-email: mohdsabahat123@gmail.com
+License: UNKNOWN
+Description: 
+        Feeling down today? Generate a Random Compliment usingt his tool.
+        
+        - Thanks to [grantcodes/complimentr](https://github.com/grantcodes/complimenter) for the js library. The code is ported to python.
+        
+        ## INSTALL
+        
+        ```python
+        pip install compliment
+        ```
+        
+        ## EXAMPLES
+        
+        ```python
+        from compliment import Compliment
+        c = Compliment()
+        c.make_compliment()
+        ```
+        or using a one liner.
+        
+        ```python
+        print(Compliment().make_compliment())
+        ```
+        
+Keywords: generator,compliments
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

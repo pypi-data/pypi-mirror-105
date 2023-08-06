@@ -1,0 +1,7 @@
+README.md
+compliment.py
+setup.py
+complimenter.egg-info/PKG-INFO
+complimenter.egg-info/SOURCES.txt
+complimenter.egg-info/dependency_links.txt
+complimenter.egg-info/top_level.txt
