@@ -1,0 +1,3 @@
+Sanic>=21.3
+Babel>=2.3
+Jinja2>=2.5
