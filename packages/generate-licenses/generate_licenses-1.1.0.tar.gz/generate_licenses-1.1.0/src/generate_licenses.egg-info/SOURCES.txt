@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/generate_licenses.egg-info/PKG-INFO
+src/generate_licenses.egg-info/SOURCES.txt
+src/generate_licenses.egg-info/dependency_links.txt
+src/generate_licenses.egg-info/top_level.txt
+src/licenses_generator/__init__.py
+src/licenses_generator/generate_licenses.py
