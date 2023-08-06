@@ -1,0 +1,6 @@
+numpy
+nibabel
+pandas
+scipy
+sphinx
+sphinx-rtd-theme
