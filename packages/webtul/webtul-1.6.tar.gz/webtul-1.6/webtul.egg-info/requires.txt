@@ -1,0 +1,6 @@
+pycrypto
+aiomysql
+aioimaplib
+aiosmtplib
+sanic
+Pillow
