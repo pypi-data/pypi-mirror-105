@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Photo Gallery</title>
+    <link rel="icon" href="{{ url_for('static', filename='ico/favicon.ico') }}" type="image/x-icon">
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/fullpage.min.js"></script>
+    <link rel="stylesheet" href="/css/fullpage.min.css">
+    <style>
+        .section {
+            background-color: black;
+        }
+        .content-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+        .content-box {
+            width: 100%;
+            height: 90%;  /* h1.  make sure h1 + h2 = 100% */
+        }
+        .center-content {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .index-box {
+            width: 100%;
+            height: 10%;  /* h2.  make sure h1 + h2 = 100% */
+
+            position: absolute;
+            bottom: 0;
+        }
+        .OT_image {
+            max-width: 83vmax;
+            max-height: 83vmin;
+        }
+        .OT_image:hover {
+            cursor: pointer;
+        }
+        .index{
+            width: 20%;
+            font-size: 2rem;
+            font-family: Calibri, Sans-Serif, sans-serif;
+            color: white;
+            text-align: center;
+
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #notice-bar {
+            width: 100%;
+            height: 10%;
+            z-index: 20;
+            background-color: gainsboro;
+
+            opacity: 1;
+            transition: opacity 1.5s;
+
+            position: absolute;
+            top: 0;
+        }
+        #notice-content {
+            color: darkolivegreen;
+            font-family: "Lucida Bright", Sans-Serif, sans-serif;
+            font-size: 2.5rem;
+
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            overflow: hidden;
+        }
+        .arrow {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            cursor: pointer;
+            background: none;
+
+            opacity: 1;
+            transition: opacity 0.5s;
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .left-arrow {
+            left: 15px;
+            border-width: 2vmax 3vmax 2vmax 0;
+            border-color: transparent #fff transparent transparent;
+        }
+        .right-arrow {
+            right: 15px;
+            border-width: 2vmax 0 2vmax 3vmax;
+            border-color: transparent transparent transparent #fff;
+        }
+        .notice {
+            height: 80%;
+            width: 40%;
+            border: 2px solid white;
+            color: white;
+            font-size: 4rem;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+<div id="main-page">
+    <div class="section">
+        <!-- notice bar -->
+        <div id="notice-bar"><div id="notice-content">Click on the image to view original</div></div>
+        <!-- control arrows -->
+        <button class="left-arrow arrow"></button>
+        <button class="right-arrow arrow"></button>
+        <!-- index box -->
+        <div class="index-box">
+            <div class="index">{{ data["init_index"] | index_format(data["photos"].__len__()) }} /
+                {{ data["photos"].__len__() | index_format(data["photos"].__len__()) }}</div>
+        </div>
+        <!-- prepare slides if photos -->
+        {% for p in data["photos"] %}
+            <div class="{{ "slide" + (" active" if loop.index == data["init_index"] else "") }}">
+                <div class="content-wrapper">
+                    <div class="img-box content-box">
+                        <img class="OT_image center-content" data-src="{{ p }}" alt="" src="">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <!-- if no photos (init_index = 0) -->
+        {% if data["init_index"] == 0 %}
+            <div class="slide">
+                <div class="content-wrapper">
+                    <div class="img-box content-box">
+                        <div class="notice center-content"><br>Sorry!<br><br>No Photos Available</div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+<script>
+    var nb_photo = {{ data["photos"] | length }};
+    var init_i = {{ data["init_index"] }};
+
+    var left_arrow = $(".left-arrow");
+    var right_arrow = $(".right-arrow");
+
+    $(function(){
+        if (nb_photo === 0) {  // hide notice bar if no photos to display
+            $("#notice-bar").css("display", "none");
+        } else {
+            setInterval(() => {  // display notice bar for 1 sec then dismiss
+                $("#notice-bar").css("opacity", "0");
+            }, 1000)
+        }
+
+        $('#main-page').fullpage({
+            controlArrows: false,
+            onSlideLeave: (section, origin, destination, direction) => {
+                let d_index = destination.index + 1;
+
+                // alter index, pad zeros before (just for visual effect)
+                let p_index = d_index.toString();
+                let p_nb = nb_photo.toString();
+                for (let i=0;i<p_nb.length-p_index.length;i++) {
+                    p_index = "0" + p_index;
+                }
+                if (p_index.length<=1) {p_index = "0" + p_index;}
+                if (p_nb.length<=1) {p_nb = "0" + p_nb;}
+                $(".index").text(p_index + " / " + p_nb);
+
+                // first restore arrow style
+                left_arrow.css("border-color", "transparent #fff transparent transparent").removeAttr("disabled")
+                right_arrow.css("border-color", "transparent transparent transparent #fff").removeAttr("disabled")
+
+                // then change if needed
+                if (d_index === 1) {
+                    left_arrow.css("border-color", "transparent grey transparent transparent")
+                        .attr("disabled", "disabled");
+                }
+                if (d_index === nb_photo) {
+                    right_arrow.css("border-color", "transparent transparent transparent grey")
+                        .attr("disabled", "disabled");
+                }
+            }
+        });
+
+        // bind turn-page to arrows
+        left_arrow.on("click", () => {
+            fullpage_api.moveSlideLeft();
+        })
+        right_arrow.on("click", () => {
+            fullpage_api.moveSlideRight();
+        })
+
+        // initial styling, this is necessary because "onSlideLeave" is not triggered when web page is first loaded
+        if (init_i <= 1) {
+            left_arrow.css("border-color", "transparent grey transparent transparent").attr("disabled", "disabled");
+        }
+        if (init_i === nb_photo) {
+            right_arrow.css("border-color", "transparent transparent transparent grey").attr("disabled", "disabled");
+        }
+
+        // click image will open a new tab
+        $(".OT_image").on("click", function (){
+            window.open(this.src, "_blank");
+        })
+
+        // show/hide arrows on mouse over/out page
+        window.onmouseover = () => {
+            $(".arrow").css("opacity", "1");
+        }
+        window.onmouseout = () => {
+            $(".arrow").css("opacity", "0");
+        }
+    });
+</script>
+</body>
+</html>

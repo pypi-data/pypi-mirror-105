@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: ourtieba
+Version: 0.1.0
+Summary: simple blog implementation
+Home-page: https://github.com/nyush-se-spring2021-forum/OurTieba
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: flask
+Requires-Dist: sqlalchemy
+Requires-Dist: flask-moment
+Requires-Dist: flask-apscheduler
+Requires-Dist: requests-html
+
+UNKNOWN
+
+
