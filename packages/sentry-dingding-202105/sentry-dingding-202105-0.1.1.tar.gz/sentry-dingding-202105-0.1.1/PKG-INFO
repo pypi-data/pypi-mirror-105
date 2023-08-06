@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: sentry-dingding-202105
+Version: 0.1.1
+Summary: A Sentry extension which send errors stats to DingDing
+Home-page: UNKNOWN
+Author: eric
+Author-email: eng.eric.winn@gmail.com
+License: MIT
+Description: # Sentry-DingDing
+        
+        `Sentry`的`钉钉`通知插件
+        
+        ## onpremise中安装
+        reuqirement.txt中加入依赖：
+        ```bash
+        sentry-dingding-202105
+        ```
+        
+        ## 使用
+        
+        在`项目`的所有集成页面找到`DingDing`插件，启用，并设置`Access Token`
+Keywords: sentry dingding
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
