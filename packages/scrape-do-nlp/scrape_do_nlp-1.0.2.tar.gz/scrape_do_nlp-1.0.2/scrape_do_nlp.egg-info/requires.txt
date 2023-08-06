@@ -1,0 +1,14 @@
+requests
+urllib
+time
+spacy
+bs4
+wordcloud
+matplotlib
+nltk
+re
+tweepy
+textblob
+pandas
+numpy
+gensim

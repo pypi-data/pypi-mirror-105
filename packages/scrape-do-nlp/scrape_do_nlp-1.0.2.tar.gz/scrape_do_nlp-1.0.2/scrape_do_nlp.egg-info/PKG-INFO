@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: scrape-do-nlp
+Version: 1.0.2
+Summary: This package will just take twitter keys and topic you want to scrape and give summarya dn sentiment as output
+Home-page: https://github.com/eaglewarrior/scrape_do_nlp
+Author: Rinki Nag
+Author-email: accanymous@gmail.com
+License: UNKNOWN
+Description: This package will scrape google and twitter and if sentiment flag is on it will do sentiment analysis and give summarization as output, the package is modular enough and separate task can be done like only scraping only google text or twitter text etc 
+Keywords: python,first package
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows

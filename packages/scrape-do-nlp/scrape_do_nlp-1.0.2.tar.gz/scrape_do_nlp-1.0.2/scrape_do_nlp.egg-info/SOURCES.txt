@@ -1,0 +1,8 @@
+setup.py
+scrape_do_nlp/__init__.py
+scrape_do_nlp/main.py
+scrape_do_nlp.egg-info/PKG-INFO
+scrape_do_nlp.egg-info/SOURCES.txt
+scrape_do_nlp.egg-info/dependency_links.txt
+scrape_do_nlp.egg-info/requires.txt
+scrape_do_nlp.egg-info/top_level.txt
