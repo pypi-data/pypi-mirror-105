@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+JwtRedirect/__init__.py
+JwtRedirect/settings.py
+JwtRedirect/views.py
+JwtRedirect/templates/jwt-redirect-error.html
+JwtRedirect/templates/redirect.html
+jwt_redirect.egg-info/PKG-INFO
+jwt_redirect.egg-info/SOURCES.txt
+jwt_redirect.egg-info/dependency_links.txt
+jwt_redirect.egg-info/requires.txt
+jwt_redirect.egg-info/top_level.txt
