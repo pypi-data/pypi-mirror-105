@@ -1,0 +1,8 @@
+cython
+flask
+flask_cors
+gdal
+geojson
+numpy
+pyproj
+shapely
