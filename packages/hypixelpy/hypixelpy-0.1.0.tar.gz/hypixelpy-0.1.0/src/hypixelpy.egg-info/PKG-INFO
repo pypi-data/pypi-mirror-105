@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: hypixelpy
+Version: 0.1.0
+Summary: A simple wrapper for Hypixel API
+Home-page: https://github.com/cinget/hypixelpy
+Author: cinget
+Author-email: evertonpassine@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/cinget/hypixelpy/issues
+Project-URL: Wiki, https://github.com/cinget/hypixelpy/wiki
+Description: # Hypixelpy
+        Simple wrapper for Hypixel API
+        
+        ## Features
+        <details>
+            <summary>Click to see all features!</summary>
+        
+            API:
+              ✔️ API Key Information
+            Player:
+              ✔️ Player Data
+              ✔️ Player's Friends
+              ✔️ Recently Played Games
+              ✔️ Player's Status
+              ✔️ Guild
+            Resources:
+              ✔️ Achievements
+              ✔️ Challenges
+              ✔️ Quests
+              ✔️ Guild Achievements
+              ✔️ Guild Permissions
+            Skyblock:
+              ✔️ Collections
+              ✔️ Skills
+              ✔️ News
+              ✔️ Auctions by player, profile or UUID
+              ✔️ Active Auctions
+              ✔️ Recently Ended Auctions
+              ✔️ Bazaar
+              ✔️ Bazaar Item IDs
+              ✔️ Profile by UUID
+              ✔️ Player's Profiles
+            Other:
+              ✔️ Active Network Booster
+              ✔️ Current Player Counts
+              ✔️ Current Leaderboards
+              ✔️ Punishment Statistics
+            Game Types:
+              ✔️ IDs
+              ✔️ Type Names
+              ✔️ Database Names
+              ✔️ Clean Names
+        </details>
+        
+        ---
+        
+        ## Learn More: 
+        [Github Repository](https://github.com/cinget/hypixelpy) \
+        [Wiki](https://github.com/cinget/hypixelpy/wiki) \
+        [Issues](https://github.com/cinget/hypixelpy/issues) 
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
