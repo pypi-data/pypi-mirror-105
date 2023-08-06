@@ -1,0 +1,5 @@
+numpy
+selectolax
+h5py>=3
+pandas
+tensorflow_hub
