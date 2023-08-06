@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pdfjinjax
+Version: 1.2.1
+Summary: Use jinja templates to fill and sign PDF forms, based on rammie/pdfjinja with a few enhancements.
+Home-page: http://github.com/edgaraafelix/pdfjinjax/
+Author: Edgar Felix
+Author-email: eaafelix@gmail.com
+License: UNKNOWN
+Description: pdfjinjax
+        ========
+        
+        Use jinja templates to fill and sign PDF forms, based on [rammie/pdfjinja](https://github.com/rammie/pdfjinja) with a few enhancements
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
