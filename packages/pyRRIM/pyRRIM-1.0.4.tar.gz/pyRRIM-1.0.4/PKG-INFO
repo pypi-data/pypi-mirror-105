@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: pyRRIM
+Version: 1.0.4
+Summary: package that provides tools to build RRIM from a raster map
+Home-page: https://github.com/robertxa/pyRRIM
+Author: Xavier Robert
+Author-email: xavier.robert@ird.fr
+License: GPL-V3.0
+Download-URL: https://github.com/robertxa/pyRRIM/archive/master.zip
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: GIS

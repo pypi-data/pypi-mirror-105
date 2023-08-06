@@ -1,0 +1,14 @@
+History.txt
+LICENSE
+MANIFEST.in
+README.rst
+To_Do.txt
+setup.py
+pyRRIM/__init__.py
+pyRRIM/pyRRIM.py
+pyRRIM.egg-info/PKG-INFO
+pyRRIM.egg-info/SOURCES.txt
+pyRRIM.egg-info/dependency_links.txt
+pyRRIM.egg-info/not-zip-safe
+pyRRIM.egg-info/requires.txt
+pyRRIM.egg-info/top_level.txt

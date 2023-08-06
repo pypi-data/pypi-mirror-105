@@ -1,0 +1,6 @@
+opencv-python
+richdem
+numpy
+alive_progress
+gdal
+rvt_py
