@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSim.architecture.base.node &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>NetworkSim.architecture.base.node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for NetworkSim.architecture.base.node</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Node&quot;</span><span class="p">]</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hongyi Yang&quot;</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.base.network</span> <span class="kn">import</span> <span class="n">Network</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.signal.control</span> <span class="kn">import</span> <span class="n">ControlSignal</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.signal.data</span> <span class="kn">import</span> <span class="n">DataSignal</span>
+
+
+<div class="viewcode-block" id="Node"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.node.Node.html#NetworkSim.architecture.base.node.Node">[docs]</a><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Constructor of the individual node in the ring network</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    node_id : int</span>
+<span class="sd">        The ID number of the Node. Default is ``None``.</span>
+<span class="sd">    control_signal : ControlSignal</span>
+<span class="sd">        The control signal defined in the network.</span>
+<span class="sd">    data_signal : DataSignal</span>
+<span class="sd">        The data signal defined in the network.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    generated_control_packet_df : pandas DataFrame</span>
+<span class="sd">        A DataFrame keeping a record of the generated control packets, containing the columns:</span>
+
+<span class="sd">        - `Timestamp`</span>
+<span class="sd">        - `Raw Packet`</span>
+<span class="sd">        - `Source ID`</span>
+<span class="sd">        - `Destination ID`</span>
+<span class="sd">        - `Control Code`</span>
+<span class="sd">    received_control_packet_df : pandas DataFrame</span>
+<span class="sd">        A DataFrame keeping a record of the received control packets, containing the columns:</span>
+
+<span class="sd">        - `Timestamp`</span>
+<span class="sd">        - `Raw Packet`</span>
+<span class="sd">        - `Source ID`</span>
+<span class="sd">        - `Destination ID`</span>
+<span class="sd">        - `Control Code`</span>
+<span class="sd">    generated_data_packet_df : pandas DataFrame</span>
+<span class="sd">        A DataFrame keeping a record of the generated data packets, containing the columns:</span>
+
+<span class="sd">        - `Timestamp`</span>
+<span class="sd">        - `Raw Packet`</span>
+<span class="sd">        - `Source ID`</span>
+<span class="sd">    received_data_packet_df : pandas DataFrame</span>
+<span class="sd">        A DataFrame keeping a record of the received data packets, containing the columns:</span>
+
+<span class="sd">        - `Timestamp`</span>
+<span class="sd">        - `Raw Packet`</span>
+<span class="sd">        - `Source ID`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">control_signal</span><span class="p">,</span>
+            <span class="n">data_signal</span><span class="p">,</span>
+            <span class="n">network</span><span class="p">,</span>
+            <span class="n">node_id</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="c1"># Check input types</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">control_signal</span><span class="p">,</span> <span class="n">ControlSignal</span><span class="p">)</span> <span class="ow">or</span> \
+                <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_signal</span><span class="p">,</span> <span class="n">DataSignal</span><span class="p">)</span> <span class="ow">or</span> \
+                <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">Network</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;control_signal must be a ControlSignal object, &#39;</span>
+                             <span class="s1">&#39;data_signal must be a DataSignal object, &#39;</span>
+                             <span class="s1">&#39;and network must be a Network object.&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span> <span class="o">=</span> <span class="n">node_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span> <span class="o">=</span> <span class="n">control_signal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_signal</span> <span class="o">=</span> <span class="n">data_signal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">=</span> <span class="n">network</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generated_control_packet</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">received_control_packet</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generated_data_packet</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">received_data_packet</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Node.interpret_control_packet"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.node.Node.html#NetworkSim.architecture.base.node.Node.interpret_control_packet">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_control_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Interpretation of a control packet.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        source_id : int</span>
+<span class="sd">            Source ID of the control packet.</span>
+<span class="sd">        destination_id : int</span>
+<span class="sd">            Destination iD of the control packet.</span>
+<span class="sd">        control_code : int</span>
+<span class="sd">            Control code in decimal.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check type and length of the incoming packet</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">abstract</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">packet</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Abstract signal must be a list.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">packet</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Signal input must be a string.&#39;</span><span class="p">)</span>
+        <span class="c1"># Control packet interpretation</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">abstract</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">packet</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">packet</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">packet</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_total_length</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">id_length</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">control_length</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span> <span class="o">!=</span> <span class="n">_total_length</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Signal bit length is incorrect, expecting </span><span class="si">{</span><span class="n">_total_length</span><span class="si">}</span><span class="s1"> bits.&#39;</span><span class="p">)</span>
+            <span class="c1"># Separate signal into 3 parts</span>
+            <span class="n">_packet_source</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">id_length</span><span class="p">]</span>
+            <span class="n">_packet_destination</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">id_length</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">id_length</span><span class="p">]</span>
+            <span class="n">_packet_code</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">id_length</span><span class="p">:]</span>
+            <span class="n">source_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">_packet_source</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">destination_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">_packet_destination</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">control_code</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">_packet_code</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">source_id</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">control_code</span></div>
+
+<div class="viewcode-block" id="Node.generate_control_packet"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.node.Node.html#NetworkSim.architecture.base.node.Node.generate_control_packet">[docs]</a>    <span class="k">def</span> <span class="nf">generate_control_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">control_code</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Control packet generation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        destination_id : int</span>
+<span class="sd">            The node ID of the destination node.</span>
+<span class="sd">        control_code : int</span>
+<span class="sd">            The control code in decimal.</span>
+<span class="sd">        timestamp : float</span>
+<span class="sd">            The timestamp when the control packet is generated.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        control_packet : str</span>
+<span class="sd">            A string representation of the control packet in binary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check input type</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">destination_id</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Destination node ID must be an integer.&#39;</span><span class="p">)</span>
+        <span class="n">control_packet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">generate_packet</span><span class="p">(</span>
+            <span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">,</span>
+            <span class="n">destination</span><span class="o">=</span><span class="n">destination_id</span><span class="p">,</span>
+            <span class="n">control_code</span><span class="o">=</span><span class="n">control_code</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generated_control_packet</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="n">timestamp</span><span class="p">,</span>
+            <span class="n">control_packet</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">,</span>
+            <span class="n">destination_id</span><span class="p">,</span>
+            <span class="n">control_code</span>
+        <span class="p">])</span>
+        <span class="k">return</span> <span class="n">control_packet</span></div>
+
+<div class="viewcode-block" id="Node.store_received_control_packet"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.node.Node.html#NetworkSim.architecture.base.node.Node.store_received_control_packet">[docs]</a>    <span class="k">def</span> <span class="nf">store_received_control_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Storage of received control packets.</span>
+<span class="sd">        The packets are interpreted and stored in `self.received_control_packet_df`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet : str</span>
+<span class="sd">            Received control packet string in binary.</span>
+<span class="sd">        timestamp : float</span>
+<span class="sd">            The timestamp when the control packet is received.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check type and length of the incoming packet</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">abstract</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">packet</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Abstract control packet must be a list.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">packet</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Signal input must be a string&#39;</span><span class="p">)</span>
+            <span class="n">total_length</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">id_length</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">control_length</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span> <span class="o">!=</span> <span class="n">total_length</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Signal bit length is incorrect, expecting </span><span class="si">{</span><span class="n">total_length</span><span class="si">}</span><span class="s1"> bits.&#39;</span><span class="p">)</span>
+        <span class="n">source_id</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">control_code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpret_control_packet</span><span class="p">(</span><span class="n">packet</span><span class="o">=</span><span class="n">packet</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">received_control_packet</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="n">timestamp</span><span class="p">,</span>
+            <span class="n">packet</span><span class="p">,</span>
+            <span class="n">source_id</span><span class="p">,</span>
+            <span class="n">destination_id</span><span class="p">,</span>
+            <span class="n">control_code</span>
+        <span class="p">])</span></div>
+
+<div class="viewcode-block" id="Node.generate_data_packet"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.node.Node.html#NetworkSim.architecture.base.node.Node.generate_data_packet">[docs]</a>    <span class="k">def</span> <span class="nf">generate_data_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Data packet generation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        destination_id : int</span>
+<span class="sd">            The node ID of the destination node.</span>
+<span class="sd">        timestamp : float</span>
+<span class="sd">            The timestamp when the data packet is generated.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_packet : str</span>
+<span class="sd">            The data packet string in binary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check input type</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">destination_id</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Destination node ID must be an integer.&#39;</span><span class="p">)</span>
+        <span class="n">data_packet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_signal</span><span class="o">.</span><span class="n">generate_packet</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generated_data_packet</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="n">timestamp</span><span class="p">,</span>
+            <span class="n">data_packet</span><span class="p">,</span>
+            <span class="n">destination_id</span>
+        <span class="p">])</span>
+        <span class="k">return</span> <span class="n">data_packet</span></div>
+
+<div class="viewcode-block" id="Node.store_received_data_packet"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.node.Node.html#NetworkSim.architecture.base.node.Node.store_received_data_packet">[docs]</a>    <span class="k">def</span> <span class="nf">store_received_data_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">source_id</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Storage of received data packet.</span>
+<span class="sd">        The data packet is stored in `self.received_data_packet_df`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet : str</span>
+<span class="sd">            The received data packet string in binary.</span>
+<span class="sd">        source_id : int</span>
+<span class="sd">            The node ID of the source node.</span>
+<span class="sd">        timestamp</span>
+<span class="sd">            The timestamp when the data packet is received.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check type and length of the incoming packet</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_signal</span><span class="o">.</span><span class="n">abstract</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">packet</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Signal input must be a string&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">8</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_signal</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Signal bit length is incorrect, expecting </span><span class="si">{</span><span class="mi">8</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_signal</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s1"> bits.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source_id</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Source node ID must be an integer.&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">received_data_packet</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="n">timestamp</span><span class="p">,</span>
+            <span class="n">packet</span><span class="p">,</span>
+            <span class="n">source_id</span>
+        <span class="p">])</span></div>
+
+<div class="viewcode-block" id="Node.get_distance_to"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.node.Node.html#NetworkSim.architecture.base.node.Node.get_distance_to">[docs]</a>    <span class="k">def</span> <span class="nf">get_distance_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">end_node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get distance to a node.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        end_node : Node</span>
+<span class="sd">            The end node.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        distance : float</span>
+<span class="sd">            The distance from current node to the end node in meters.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check input type</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">end_node</span><span class="p">,</span> <span class="n">Node</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;End node must be a Node object.&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_distance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">,</span> <span class="n">end_node</span><span class="o">.</span><span class="n">node_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Node.get_distance_from"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.node.Node.html#NetworkSim.architecture.base.node.Node.get_distance_from">[docs]</a>    <span class="k">def</span> <span class="nf">get_distance_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_node</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get distance from a node.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        start_node : Node</span>
+<span class="sd">            The start node.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        distance : float</span>
+<span class="sd">            The distance from the start node to the current node in meters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check input type</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">start_node</span><span class="p">,</span> <span class="n">Node</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Start node must be a Node object.&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_distance</span><span class="p">(</span><span class="n">start_node</span><span class="o">.</span><span class="n">node_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Node.summary"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.node.Node.html#NetworkSim.architecture.base.node.Node.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain a summary of the node.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        summary : pandas DataFrame</span>
+<span class="sd">            A summary of the Node, containing the columns:</span>
+
+<span class="sd">            - `Node ID`</span>
+<span class="sd">            - `Control Signal ID (bit)`</span>
+<span class="sd">            - `Control Signal Code (bit)`</span>
+<span class="sd">            - `Data Packet Size (byte)`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;Node ID&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">,</span>
+            <span class="s1">&#39;Control Signal ID (bit)&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">id_length</span><span class="p">],</span>
+            <span class="s1">&#39;Control Signal Code (bit)&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">control_length</span><span class="p">],</span>
+            <span class="s1">&#39;Data Packet Size (byte)&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data_signal</span><span class="o">.</span><span class="n">size</span><span class="p">]</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">summary</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

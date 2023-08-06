@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSim.simulation.tools.performance_analysis &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>NetworkSim.simulation.tools.performance_analysis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for NetworkSim.simulation.tools.performance_analysis</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utilities for calculating network performance analysis</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;get_service_delay&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_transfer_delay&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_queueing_delay&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_final_batch_delay&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_extended_run_delay&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_overall_delay&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_final_batch_throughput&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_extended_run_throughput&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_overall_throughput&quot;</span>
+<span class="p">]</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hongyi Yang&quot;</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="get_service_delay"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_service_delay.html#NetworkSim.simulation.tools.performance_analysis.get_service_delay">[docs]</a><span class="k">def</span> <span class="nf">get_service_delay</span><span class="p">(</span><span class="n">simulator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to compute the service delay latency of the defined network.</span>
+
+<span class="sd">    The service delay is defined from the moment a data packet is at the head of the transmittor buffer queue \</span>
+<span class="sd">        to the moment when the packet is fully transmitted.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used to create the network.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    service_delay : float</span>
+<span class="sd">        The estimated average service delay latency of the network.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t_t</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tuning_time&#39;</span><span class="p">)</span>
+    <span class="n">t_s</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">circulation_time</span> <span class="o">/</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">max_data_packet_num_on_ring</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+    <span class="n">lambda_a</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;average_bit_rate&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_signal</span><span class="o">.</span><span class="n">size</span> <span class="o">/</span> <span class="mi">8</span>
+    <span class="k">if</span> <span class="n">simulator</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+        <span class="n">lambda_a</span> <span class="o">/=</span> <span class="mi">2</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+    <span class="n">service_delay</span> <span class="o">=</span> <span class="n">t_s</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">t_t</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span> <span class="o">+</span> <span class="p">(</span><span class="n">t_s</span> <span class="o">*</span> <span class="n">t_s</span> <span class="o">*</span> <span class="n">N</span> <span class="o">*</span> <span class="n">lambda_a</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">W</span> <span class="o">-</span> <span class="n">t_s</span> <span class="o">*</span> <span class="n">N</span> <span class="o">*</span> <span class="n">lambda_a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">service_delay</span></div>
+
+
+<div class="viewcode-block" id="get_queueing_delay"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_queueing_delay.html#NetworkSim.simulation.tools.performance_analysis.get_queueing_delay">[docs]</a><span class="k">def</span> <span class="nf">get_queueing_delay</span><span class="p">(</span><span class="n">simulator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to compute the queueing delay latency of the defined network.</span>
+
+<span class="sd">    The queueing delay is defined from the source traffic generation, when the generated data packets \</span>
+<span class="sd">        arrive at the transmittor buffer queue, to the moment when the data packets reach the head of the queue.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used to create the network.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    queueing_delay : float</span>
+<span class="sd">        The estimated average queueing delay latency of the network.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t_s</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">circulation_time</span> <span class="o">/</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">max_data_packet_num_on_ring</span>
+    <span class="n">lambda_a</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;average_bit_rate&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_signal</span><span class="o">.</span><span class="n">size</span> <span class="o">/</span> <span class="mi">8</span>
+    <span class="k">if</span> <span class="n">simulator</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+        <span class="n">lambda_a</span> <span class="o">/=</span> <span class="mi">2</span>
+    <span class="n">service_delay</span> <span class="o">=</span> <span class="n">get_service_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="n">queueing_delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">5</span> <span class="o">*</span> <span class="n">t_s</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">lambda_a</span> <span class="o">*</span> <span class="n">t_s</span> <span class="o">-</span> <span class="n">lambda_a</span> <span class="o">*</span> <span class="n">service_delay</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">queueing_delay</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">queueing_delay</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="k">return</span> <span class="n">queueing_delay</span></div>
+
+
+<div class="viewcode-block" id="get_transfer_delay"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_transfer_delay.html#NetworkSim.simulation.tools.performance_analysis.get_transfer_delay">[docs]</a><span class="k">def</span> <span class="nf">get_transfer_delay</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">include_pd</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to compute the transfer delay latency of the defined network.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used to create the network.</span>
+<span class="sd">    include_pd : bool</span>
+<span class="sd">        If propagation delay is considered. Default is ``True``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    transfer_delay : float</span>
+<span class="sd">        The estimated average transfer delay latency of the network.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">include_pd</span><span class="p">:</span>
+        <span class="n">t_pd</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">circulation_time</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">t_pd</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">t_tr</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_packet_duration</span>
+    <span class="k">if</span> <span class="n">simulator</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+        <span class="n">transfer_delay</span> <span class="o">=</span> <span class="n">get_queueing_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="n">get_service_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span> <span class="o">+</span> <span class="n">t_tr</span> <span class="o">+</span> <span class="n">t_pd</span> <span class="o">/</span> <span class="mi">4</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">transfer_delay</span> <span class="o">=</span> <span class="n">get_queueing_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="n">get_service_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span> <span class="o">+</span> <span class="n">t_tr</span> <span class="o">+</span> <span class="n">t_pd</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">transfer_delay</span></div>
+
+
+<span class="k">def</span> <span class="nf">get_min_transfer_delay</span><span class="p">(</span><span class="n">simulator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to compute the theoretical average minimum transfer delay latency.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    min_transfer_delay : float</span>
+<span class="sd">        The theoretical minimum transfer delay.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t_tr</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_packet_duration</span>
+    <span class="n">interval_length</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_interval</span><span class="p">()</span>
+    <span class="n">time_of_flight</span> <span class="o">=</span> <span class="n">interval_length</span> <span class="o">/</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e9</span>
+    <span class="n">min_transfer_delay</span> <span class="o">=</span> <span class="n">t_tr</span> <span class="o">+</span> <span class="n">time_of_flight</span>
+    <span class="k">return</span> <span class="n">min_transfer_delay</span>
+
+
+<div class="viewcode-block" id="get_final_batch_delay"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_final_batch_delay.html#NetworkSim.simulation.tools.performance_analysis.get_final_batch_delay">[docs]</a><span class="k">def</span> <span class="nf">get_final_batch_delay</span><span class="p">(</span><span class="n">simulator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to compute mean queueing and transfer delay of the final batch in the simulation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    results : dict</span>
+<span class="sd">        A dictionary containing the following:</span>
+
+<span class="sd">        - `min_queueing_delay` : minimum queueing delay</span>
+<span class="sd">        - `max_queueing_delay` : maximum queueing delay</span>
+<span class="sd">        - `mean_queueing_delay` : mean queueing delay</span>
+<span class="sd">        - `min_transfer_delay` : minimum transfer delay</span>
+<span class="sd">        - `max_transfer_delay` : maximum transfer delay</span>
+<span class="sd">        - `mean_transfer_delay` : mean transfer delay</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    NotImplementedError</span>
+<span class="sd">        Raised when convergence mode is disabled for the simulator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check if convergence mode is enabled</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">simulator</span><span class="o">.</span><span class="n">convergence</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Final batch delay calculation is only applicable for convergence mode.&quot;</span><span class="p">)</span>
+    <span class="c1"># Extract statistics of final batch</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">batch_stats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;start_index&#39;</span><span class="p">]</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;end_index&#39;</span><span class="p">]</span>
+    <span class="n">latency_batch</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">_get_delay_results</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">,</span> <span class="n">latency</span><span class="o">=</span><span class="n">latency_batch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span></div>
+
+
+<div class="viewcode-block" id="get_extended_run_delay"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_extended_run_delay.html#NetworkSim.simulation.tools.performance_analysis.get_extended_run_delay">[docs]</a><span class="k">def</span> <span class="nf">get_extended_run_delay</span><span class="p">(</span><span class="n">simulator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to compute mean queueing and transfer delay of the extended run.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    results : dict</span>
+<span class="sd">        A dictionary containing the following:</span>
+
+<span class="sd">        - `min_queueing_delay` : float</span>
+<span class="sd">            minimum queueing delay</span>
+<span class="sd">        - `max_queueing_delay` : float</span>
+<span class="sd">            maximum queueing delay</span>
+<span class="sd">        - `mean_queueing_delay` : float</span>
+<span class="sd">            mean queueing delay</span>
+<span class="sd">        - `min_transfer_delay` : float</span>
+<span class="sd">            minimum transfer delay</span>
+<span class="sd">        - `max_transfer_delay` : float</span>
+<span class="sd">            maximum transfer delay</span>
+<span class="sd">        - `mean_transfer_delay` : float</span>
+<span class="sd">            mean transfer delay</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    NotImplementedError</span>
+<span class="sd">        Raised when convergence mode is disabled for the simulator.</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Raised when extended run is disabled for the simulator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check if convergence mode is enabled</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">simulator</span><span class="o">.</span><span class="n">convergence</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Extended run delay calculation is only applicable for convergence mode.&quot;</span><span class="p">)</span>
+    <span class="c1"># Check if extended run is enabled</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">simulator</span><span class="o">.</span><span class="n">extended</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Extended run is disabled for the simulator.&quot;</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">batch_stats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;end_index&#39;</span><span class="p">]</span>
+    <span class="n">latency_batch</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span><span class="p">[</span><span class="n">start</span><span class="p">:]</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">_get_delay_results</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">,</span> <span class="n">latency</span><span class="o">=</span><span class="n">latency_batch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span></div>
+
+
+<div class="viewcode-block" id="get_overall_delay"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_overall_delay.html#NetworkSim.simulation.tools.performance_analysis.get_overall_delay">[docs]</a><span class="k">def</span> <span class="nf">get_overall_delay</span><span class="p">(</span><span class="n">simulator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to compute the mean queueing and transfer delay of a simulation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    results : dict</span>
+<span class="sd">        A dictionary containing the following:</span>
+
+<span class="sd">        - `min_queueing_delay` : float</span>
+<span class="sd">            minimum queueing delay</span>
+<span class="sd">        - `max_queueing_delay` : float</span>
+<span class="sd">            maximum queueing delay</span>
+<span class="sd">        - `mean_queueing_delay` : float</span>
+<span class="sd">            mean queueing delay</span>
+<span class="sd">        - `min_transfer_delay` : float</span>
+<span class="sd">            minimum transfer delay</span>
+<span class="sd">        - `max_transfer_delay` : float</span>
+<span class="sd">            maximum transfer delay</span>
+<span class="sd">        - `mean_transfer_delay` : float</span>
+<span class="sd">            mean transfer delay</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">latency</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">_get_delay_results</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">,</span> <span class="n">latency</span><span class="o">=</span><span class="n">latency</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_delay_results</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">latency</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to compute delay statistics of a given latency list.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    latency : list</span>
+<span class="sd">        A list of latency information.</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    results : dict</span>
+<span class="sd">        A dictionary containing the following:</span>
+
+<span class="sd">        - `min_queueing_delay` : float</span>
+<span class="sd">            minimum queueing delay</span>
+<span class="sd">        - `max_queueing_delay` : float</span>
+<span class="sd">            maximum queueing delay</span>
+<span class="sd">        - `mean_queueing_delay` : float</span>
+<span class="sd">            mean queueing delay</span>
+<span class="sd">        - `min_transfer_delay` : float</span>
+<span class="sd">            minimum transfer delay</span>
+<span class="sd">        - `max_transfer_delay` : float</span>
+<span class="sd">            maximum transfer delay</span>
+<span class="sd">        - `mean_transfer_delay` : float</span>
+<span class="sd">            mean transfer delay</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">latency</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;min_queueing_delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;Queueing Delay&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">latency</span><span class="p">))</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;max_queueing_delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;Queueing Delay&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">latency</span><span class="p">))</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;mean_queueing_delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;Queueing Delay&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">latency</span><span class="p">))</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;min_transfer_delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;Transfer Delay&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">latency</span><span class="p">))</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;max_transfer_delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;Transfer Delay&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">latency</span><span class="p">))</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;mean_transfer_delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;Transfer Delay&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">latency</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">results</span>
+
+
+<div class="viewcode-block" id="get_final_batch_throughput"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_final_batch_throughput.html#NetworkSim.simulation.tools.performance_analysis.get_final_batch_throughput">[docs]</a><span class="k">def</span> <span class="nf">get_final_batch_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to compute the mean throughput of a simulation in the final batch.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    mean_throughput : float</span>
+<span class="sd">        The mean throughput.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    NotImplementedError</span>
+<span class="sd">        Raised when convergence mode is disabled for the simulator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check if convergence mode is enabled</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">simulator</span><span class="o">.</span><span class="n">convergence</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Final batch throughput calculation is only applicable for convergence mode.&quot;</span><span class="p">)</span>
+    <span class="c1"># Extract statistics of final batch</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">batch_stats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;start_index&#39;</span><span class="p">]</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;end_index&#39;</span><span class="p">]</span>
+    <span class="n">latency_batch</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+    <span class="n">mean_throughput</span> <span class="o">=</span> <span class="n">_get_mean_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">,</span> <span class="n">latency</span><span class="o">=</span><span class="n">latency_batch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mean_throughput</span></div>
+
+
+<div class="viewcode-block" id="get_extended_run_throughput"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_extended_run_throughput.html#NetworkSim.simulation.tools.performance_analysis.get_extended_run_throughput">[docs]</a><span class="k">def</span> <span class="nf">get_extended_run_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to compute the mean throughput of a simulation during the extended run.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    mean_throughput : float</span>
+<span class="sd">        The mean throughput.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    NotImplementedError</span>
+<span class="sd">        Raised when convergence mode is disabled for the simulator.</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Raised when extended run is disabled for the simulator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check if convergence mode is enabled</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">simulator</span><span class="o">.</span><span class="n">convergence</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Extended run throughput calculation is only applicable for convergence mode.&quot;</span><span class="p">)</span>
+    <span class="c1"># Check if extended run is enabled</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">simulator</span><span class="o">.</span><span class="n">extended</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Extended run is disabled for the simulator.&quot;</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">batch_stats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;end_index&#39;</span><span class="p">]</span>
+    <span class="n">latency_batch</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span><span class="p">[</span><span class="n">start</span><span class="p">:]</span>
+    <span class="n">mean_throughput</span> <span class="o">=</span> <span class="n">_get_mean_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">,</span> <span class="n">latency</span><span class="o">=</span><span class="n">latency_batch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mean_throughput</span></div>
+
+
+<div class="viewcode-block" id="get_overall_throughput"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_overall_throughput.html#NetworkSim.simulation.tools.performance_analysis.get_overall_throughput">[docs]</a><span class="k">def</span> <span class="nf">get_overall_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to compute the overall mean throughput of a simulation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    mean_throughput : float</span>
+<span class="sd">        The mean throughput.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mean_throughput</span> <span class="o">=</span> <span class="n">_get_mean_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">,</span> <span class="n">latency</span><span class="o">=</span><span class="n">simulator</span><span class="o">.</span><span class="n">latency</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mean_throughput</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_mean_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">latency</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to compute the mean throughput of a given latency batch.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used.</span>
+<span class="sd">    latency : list</span>
+<span class="sd">        The list of latency information.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    mean_throughput : float</span>
+<span class="sd">        The mean throughput of the given latency batch.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">interval</span> <span class="o">=</span> <span class="n">latency</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;Latency Timestamp&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">latency</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Latency Timestamp&#39;</span><span class="p">]</span>
+    <span class="n">mean_throughput</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">latency</span><span class="p">)</span> <span class="o">*</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_signal</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">/</span> <span class="n">interval</span>
+    <span class="k">return</span> <span class="n">mean_throughput</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

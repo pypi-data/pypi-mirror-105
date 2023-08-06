@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ParallelSimulator &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="NetworkSim.system_verilog.receiver.generate_testvector" href="NetworkSim.system_verilog.receiver.generate_testvector.html" />
+    <link rel="prev" title="BaseSimulator" href="NetworkSim.simulation.simulator.base.BaseSimulator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#network-signal-configuration">Network Signal Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#network-architecture-base-configuration">Network Architecture Base Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#network-architecture-setup">Network Architecture Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#simulation-tools">Simulation Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#simulation-processes">Simulation Processes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../api_reference.html#simulation-setup">Simulation Setup</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../api_reference.html#basic-simulation-wrapper">Basic Simulation Wrapper</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../api_reference.html#parallel-simulation">Parallel Simulation</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ParallelSimulator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#systemverilog-integration">SystemVerilog Integration</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../api_reference.html">API Reference</a> &raquo;</li>
+        
+      <li>ParallelSimulator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/modules/auto_generated/NetworkSim.simulation.simulator.parallel.ParallelSimulator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parallelsimulator">
+<h1>ParallelSimulator<a class="headerlink" href="#parallelsimulator" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="NetworkSim.simulation.simulator.parallel.ParallelSimulator">
+<em class="property">class </em><code class="sig-prename descclassname">NetworkSim.simulation.simulator.parallel.</code><code class="sig-name descname">ParallelSimulator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">until</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">convergence</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sem_tr</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_nodes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">transmitter_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">receiver_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">traffic_generation_method</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_data_rate</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">average_data_rate</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bidirectional</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/simulator/parallel.html#ParallelSimulator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.simulator.parallel.ParallelSimulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parallel simulator class to enable multiple simulations to be run in parallel with minimum input parameters.</p>
+<p>All parameters of the simulation should be input as a list, and in one of the following fashions:</p>
+<ul class="simple">
+<li><p>If the parameter is not specified, i.e. parameter value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the parameter is set to the default value.</p></li>
+<li><p>If one value of the parameter is specified, i.e. <cite>parameter=[param_value]</cite>, all simulations run on the same         specified value.</p></li>
+<li><p>Parameter values for all simulations are specified. The indices of the values in the list indicate the         numbers of the simulators. Therefore, if two simulations with TT-FR and FT-TR are to be run, the parameters         should be set to: <cite>transmitter_type=[‘T’, ‘F’], receiver_type=[‘F’, ‘T’]</cite>.</p></li>
+</ul>
+<p>The number of simulators correspond to the length of the list in which all parameter values are specified. For     example, if <cite>average_data_rate=[10, 20, 30, 40, 50]</cite>, 5 simulations will be created, and the simulator number     corresponds to the index of the parameter values in the list input. The <cite>summary()</cite> function can be called     after the simulation for an inspection of detailed parameters of each simulator used.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>until</strong> (<em>float, optional</em>) – The end time of the simulations. This should be specified if the simulation does not run on convergence.             Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>convergence</strong> (<em>bool, optional</em>) – Automatic convergence mode of simulation. Default is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>sem_tr</strong> (<em>float, optional</em>) – The threshold standard error of mean (SEM) for convergence. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>bs</strong> (<em>int, optional</em>) – The batch size for SEM calculation during convergence. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>num_nodes</strong> (<em>int, optional</em>) – The total number of nodes in the network. Default value follows that in the <cite>Network</cite> class (<code class="docutils literal notranslate"><span class="pre">100</span></code>).</p></li>
+<li><p><strong>transmitter_type</strong> (<em>str, optional</em>) – The type of transmitter, chosen from the following:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>tunable</cite>, <cite>t</cite> or <cite>T</cite></dt><dd><p>Tunable transmitter (fixed receiver must be chosen).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>fixed</cite>, <cite>f</cite>, or <cite>F</cite></dt><dd><p>Fixed transmitter (tunable receiver must be chosen).</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Default is <code class="docutils literal notranslate"><span class="pre">tunable</span></code>.</p>
+</li>
+<li><p><strong>receiver_type</strong> (<em>str, optional</em>) – The type of receivers, chosen from the following:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>tunable</cite>, <cite>t</cite> or <cite>T</cite></dt><dd><p>Tunable receiver (fixed transmitter must be chosen).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>fixed</cite>, <cite>f</cite>, or <cite>F</cite></dt><dd><p>Fixed receiver (tunable transmitter must be chosen).</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Default is <code class="docutils literal notranslate"><span class="pre">fixed</span></code>.</p>
+</li>
+<li><p><strong>traffic_generation_method</strong> (<em>str, optional</em>) – The source traffic generation method, chosen from the following:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>poisson</cite></dt><dd><p>Poisson (biased negative exponential) distribution.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>pareto</cite></dt><dd><p>Pareto distribution.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Default is <code class="docutils literal notranslate"><span class="pre">poisson</span></code>.</p>
+</li>
+<li><p><strong>max_data_rate</strong> (<em>float, optional</em>) – The maximum data rate at each node, in Gbit/s. Default is <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p></li>
+<li><p><strong>average_data_rate</strong> (<em>float, optional</em>) – The expected average data rate at each node, in Gbit/s. Default is <code class="docutils literal notranslate"><span class="pre">50</span></code>.</p></li>
+<li><p><strong>bidirectional</strong> (<em>bool, optional</em>) – The type of network architecture, either bidirectional or unidirectional.             Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>, which is unidirectional.</p></li>
+<li><p><strong>seed</strong> (<em>int, optional</em>) – The seed used for source traffic generation. Default is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><strong>n_jobs</strong> (<em>int, optional</em>) – The number of processors used for parallel operations. Default is <code class="docutils literal notranslate"><span class="pre">-1</span></code> (all available processors).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="NetworkSim.simulation.simulator.parallel.ParallelSimulator.info">
+<code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">simulation_id</span></em>, <em class="sig-param"><span class="n">info_type</span></em>, <em class="sig-param"><span class="n">component_type</span></em>, <em class="sig-param"><span class="n">component_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/simulator/parallel.html#ParallelSimulator.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.simulator.parallel.ParallelSimulator.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain simulation information from individual simulators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>simulation_id</strong> (<em>int</em>) – The ID of the simulator.</p></li>
+<li><p><strong>info_type</strong> (<em>str</em>) – The type of information requested, chosen from the following:</p>
+<ul>
+<li><dl class="simple">
+<dt><cite>control</cite> or <cite>c</cite></dt><dd><p>Information on control ring. When <cite>device_type == None</cite>, this returns all packet transmission                 information on the control ring, otherwise it refers to control packets transmitted by a transmitter                 or control packets received by a receiver. <cite>component_id</cite> is not required in this case.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>data</cite> or <cite>d</cite></dt><dd><p>Information on data ring. When <cite>device_type == None</cite>, this returns all packet transmission                 information on the data ring, otherwise it refers to data packets transmitted by a transmitter                 or data packets received by a receiver. An <cite>component_id</cite> must be specified in this case.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>component_type</strong> (<em>str</em>) – The type of component in the simulation, chosen from the following:</p>
+<ul>
+<li><dl class="simple">
+<dt><cite>ram</cite> or <cite>RAM</cite></dt><dd><p>Transmitter RAM information, where data packets are generated. An <cite>component_id</cite> must be specified                 in this case, but <cite>info_type</cite> is not required.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>transmitter</cite> or <cite>t</cite></dt><dd><p>Transmitter packet information. Both <cite>component_id</cite> and <cite>info_type</cite> must be specified.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>receiver</cite> or <cite>r</cite></dt><dd><p>Receiver packet information. Both <cite>component_id</cite> and <cite>info_type</cite> must be specified.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>component_id</strong> (<em>int</em>) – The ID of the component of choice.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.simulation.simulator.parallel.ParallelSimulator.initialise">
+<code class="sig-name descname">initialise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/simulator/parallel.html#ParallelSimulator.initialise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.simulator.parallel.ParallelSimulator.initialise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialisation of parallel simulations.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.simulation.simulator.parallel.ParallelSimulator.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/simulator/parallel.html#ParallelSimulator.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.simulator.parallel.ParallelSimulator.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run all simulations in parallel.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.simulation.simulator.parallel.ParallelSimulator.summary">
+<code class="sig-name descname">summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">simulator_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">summary_type</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/simulator/parallel.html#ParallelSimulator.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.simulator.parallel.ParallelSimulator.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain summaries of the simulations.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>simulator_id</strong> (<em>int, optional</em>) – The simulator ID of choice. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>. If no ID is specified, a combined generic summary of             the key parameters used in all simulators is produced.</p></li>
+<li><p><strong>summary_type</strong> (<em>str, optional</em>) – The type of summary, chosen from the following:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>None</cite></dt><dd><p>No <cite>summary_type</cite> input, and a generic summary is returned.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>latency</cite> or <cite>l</cite></dt><dd><p>Latency summary, with latency information for all source-destination combinations.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>ram</cite> or <cite>RAM</cite></dt><dd><p>Transmitter RAM data generation summary.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>transmitter</cite> or <cite>t</cite></dt><dd><p>Transmitter summary.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>receiver</cite> or <cite>r</cite></dt><dd><p>Receiver summary.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>This is an individual summary of the specified simulator, and therefore a <cite>simulator_id</cite> must be             specified.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

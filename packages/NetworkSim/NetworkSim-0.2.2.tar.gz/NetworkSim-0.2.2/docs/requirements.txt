@@ -1,0 +1,12 @@
+sphinx
+cloud_sptheme
+sphinx_rtd_theme
+pygments
+simpy
+numpy
+pandas
+joblib
+tqdm
+scipy
+seaborn
+matplotlib

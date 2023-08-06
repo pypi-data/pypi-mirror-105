@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSim.architecture.base.ring &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>NetworkSim.architecture.base.ring</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for NetworkSim.architecture.base.ring</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ring&quot;</span><span class="p">]</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hongyi Yang&quot;</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="Ring"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.ring.Ring.html#NetworkSim.architecture.base.ring.Ring">[docs]</a><span class="k">class</span> <span class="nc">Ring</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ring class to store packets on both control and data rings.</span>
+<span class="sd">    Packets can be added or removed from the ring.</span>
+<span class="sd">    Time of addition of the packet is recorded to track packet location.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    model : Model</span>
+<span class="sd">        The network model used. Default is ``Model()``.</span>
+<span class="sd">    time_unit : str</span>
+<span class="sd">        The time unit used for the simulation, chosen from the following:</span>
+
+<span class="sd">        - &#39;ns&#39;</span>
+<span class="sd">        - &#39;s&#39;</span>
+
+<span class="sd">        Default is ``&#39;ns&#39;``</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ring_id : int</span>
+<span class="sd">        The ID of the ring. Default is ``None``.</span>
+<span class="sd">    nodes_location : array</span>
+<span class="sd">        Array of locations of the nodes on the ring, in meters.</span>
+<span class="sd">    packets : list</span>
+<span class="sd">        List of packets present on the ring, containing:</span>
+
+<span class="sd">        - `raw_packet` : str</span>
+<span class="sd">            The raw packet string.</span>
+<span class="sd">        - `generation_timestamp` : float</span>
+<span class="sd">            Time when the packet was generated and stored into the RAM.</span>
+<span class="sd">        - `transmission_timestamp` : float</span>
+<span class="sd">            Time when the packet was added onto the ring.</span>
+<span class="sd">        - `packet_entry_point` : float</span>
+<span class="sd">            The location (in meters) where the packet was added.</span>
+<span class="sd">        - `entry_node_id` : int</span>
+<span class="sd">            The ID of the node where the packet was added.</span>
+<span class="sd">        - `destination_node_id` : int</span>
+<span class="sd">            The ID of the destination of the packet.</span>
+<span class="sd">    packet_record : list</span>
+<span class="sd">        A list containing the information on all packet transmission on the ring, including the columns:</span>
+
+<span class="sd">        - `Generation Timestamp` : float</span>
+<span class="sd">            The timestamp when the packet is generated and stored in the RAM.</span>
+<span class="sd">        - `Transmission Timestamp` : float</span>
+<span class="sd">            The timestamp when the packet is added onto the ring by the transmitter.</span>
+<span class="sd">        - `Reception Timestamp` : float</span>
+<span class="sd">            The timestamp when the packet is received by the receiver.</span>
+<span class="sd">        - `Raw Packet` : str</span>
+<span class="sd">            The raw packet content.</span>
+<span class="sd">        - `Source Node` : int</span>
+<span class="sd">            The ID of the source node.</span>
+<span class="sd">        - `Destination Node` : int</span>
+<span class="sd">            The ID of the destination node.</span>
+<span class="sd">        - `Status` : str</span>
+<span class="sd">            The status of the packet, can be ``added`` or ``removed``.</span>
+<span class="sd">        - Total Packet Count : int</span>
+<span class="sd">            The total number of packets on the ring at the time of the operation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">model</span><span class="p">,</span>
+            <span class="n">ring_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">time_unit</span><span class="o">=</span><span class="s1">&#39;ns&#39;</span><span class="p">,</span>
+            <span class="nb">reversed</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ring_id</span> <span class="o">=</span> <span class="n">ring_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes_location</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_nodes_location</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packet_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packet_record</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_unit</span> <span class="o">=</span> <span class="n">time_unit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reversed</span> <span class="o">=</span> <span class="nb">reversed</span>
+
+<div class="viewcode-block" id="Ring.get_nodes_location"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.ring.Ring.html#NetworkSim.architecture.base.ring.Ring.get_nodes_location">[docs]</a>    <span class="k">def</span> <span class="nf">get_nodes_location</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get locations of all nodes in the ring.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        locations : numpy array</span>
+<span class="sd">            An array of node locations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">locations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                <span class="n">stop</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">length</span><span class="p">,</span>
+                                <span class="n">num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">locations</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Ring.add_packet"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.ring.Ring.html#NetworkSim.architecture.base.ring.Ring.add_packet">[docs]</a>    <span class="k">def</span> <span class="nf">add_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">generation_timestamp</span><span class="p">,</span> <span class="n">transmission_timestamp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Packet addition to the ring.</span>
+<span class="sd">        The packet added will be in the format `[raw_packet, timestamp, node_id]`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        node_id : int</span>
+<span class="sd">            The ID of the node at which the packet is added.</span>
+<span class="sd">        destination_id : int</span>
+<span class="sd">            The ID of the destination node of the packet.</span>
+<span class="sd">        packet : str</span>
+<span class="sd">            The packet string added onto the ring.</span>
+<span class="sd">        generation_timestamp : float</span>
+<span class="sd">            The timestamp when the packet is generated.</span>
+<span class="sd">        transmission_timestamp : float</span>
+<span class="sd">            The timestamp when the packet is added.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check input types</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node_id</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Input node_id must be an integer.&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Add packet to the ring</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packets</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="n">packet</span><span class="p">,</span>
+            <span class="n">generation_timestamp</span><span class="p">,</span>
+            <span class="n">transmission_timestamp</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes_location</span><span class="p">[</span><span class="n">node_id</span><span class="p">],</span>
+            <span class="n">node_id</span><span class="p">,</span>
+            <span class="n">destination_id</span>
+        <span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packet_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packet_record</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="n">generation_timestamp</span><span class="p">,</span>
+            <span class="n">transmission_timestamp</span><span class="p">,</span>
+            <span class="kc">None</span><span class="p">,</span>
+            <span class="n">packet</span><span class="p">,</span>
+            <span class="n">node_id</span><span class="p">,</span>
+            <span class="n">destination_id</span><span class="p">,</span>
+            <span class="s1">&#39;added&#39;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">packet_count</span>
+        <span class="p">])</span></div>
+
+<div class="viewcode-block" id="Ring.remove_packet"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.ring.Ring.html#NetworkSim.architecture.base.ring.Ring.remove_packet">[docs]</a>    <span class="k">def</span> <span class="nf">remove_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">reception_timestamp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Packet removal from the ring.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        node_id : int</span>
+<span class="sd">            The ID of the node where the packet is removed.</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The packet to be removed from the ring, containing:</span>
+
+<span class="sd">            - `raw_packet`</span>
+<span class="sd">            - `generation_timestamp`</span>
+<span class="sd">            - `transmission_timestamp`</span>
+<span class="sd">            - `packet_entry_point`</span>
+<span class="sd">            - `entry_node_id`</span>
+<span class="sd">            - `destination_node_id`</span>
+
+<span class="sd">        reception_timestamp : float</span>
+<span class="sd">            The timestamp at which the packet is removed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packets</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packet_count</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">packet_record</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+            <span class="n">reception_timestamp</span><span class="p">,</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+            <span class="n">node_id</span><span class="p">,</span>
+            <span class="s1">&#39;removed&#39;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">packet_count</span>
+        <span class="p">])</span></div>
+
+<div class="viewcode-block" id="Ring.check_packet"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.base.ring.Ring.html#NetworkSim.architecture.base.ring.Ring.check_packet">[docs]</a>    <span class="k">def</span> <span class="nf">check_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_time</span><span class="p">,</span> <span class="n">node_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Packet existence check.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        current_time : float</span>
+<span class="sd">            Current time when the packet is checked.</span>
+<span class="sd">        node_id : int</span>
+<span class="sd">            Id of the node at which the check is performed.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        existence : bool</span>
+<span class="sd">            The existence of the packet. ``True`` when a packet exists.</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The packet information, containing:</span>
+
+<span class="sd">            - `raw_packet`</span>
+<span class="sd">            - `generation_timestamp`</span>
+<span class="sd">            - `transmission_timestamp`</span>
+<span class="sd">            - `packet_entry_point`</span>
+<span class="sd">            - `entry_node_id`</span>
+<span class="sd">            - `destination_node_id`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check input</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node_id</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Input node_id must be an integer.&#39;</span><span class="p">)</span>
+        <span class="c1"># Check presence of packet based on current time</span>
+        <span class="k">for</span> <span class="n">packet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">packets</span><span class="p">:</span>
+            <span class="c1"># Compare current location of packet with node location with time in ns</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_unit</span> <span class="o">==</span> <span class="s1">&#39;ns&#39;</span><span class="p">:</span>
+                <span class="n">_new_location</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="n">packet</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;speed&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-9</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_unit</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
+                <span class="n">_new_location</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="n">packet</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;speed&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Unknown time unit of the simulation.&#39;</span><span class="p">)</span>
+            <span class="n">new_location_on_ring</span> <span class="o">=</span> <span class="n">_new_location</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">length</span>
+            <span class="c1"># Calculate location on reversed ring</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reversed</span><span class="p">:</span>
+                <span class="n">new_location_on_ring</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">new_location_on_ring</span> <span class="o">-</span> <span class="n">packet</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">new_location_on_ring</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">new_location_on_ring</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">length</span>
+                <span class="k">elif</span> <span class="n">new_location_on_ring</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">length</span><span class="p">:</span>
+                    <span class="n">new_location_on_ring</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">length</span>
+            <span class="c1"># Update location when near end of the ring and causing no detection error</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">new_location_on_ring</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">):</span>
+                <span class="n">new_location_on_ring</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">new_location_on_ring</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_location</span><span class="p">[</span><span class="n">node_id</span><span class="p">],</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">packet</span>
+        <span class="c1"># No packet present</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

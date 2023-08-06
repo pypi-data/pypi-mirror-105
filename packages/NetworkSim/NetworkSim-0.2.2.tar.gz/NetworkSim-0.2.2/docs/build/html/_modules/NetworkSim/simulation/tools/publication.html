@@ -1,0 +1,1100 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSim.simulation.tools.publication &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>NetworkSim.simulation.tools.publication</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for NetworkSim.simulation.tools.publication</h1><div class="highlight"><pre>
+<span></span><span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Hongyi Yang&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;init&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plot_delay&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plot_buffer&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plot_throughput&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plot_delay_heatmap&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plot_packet_heatmap&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plot_ook_ber&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plot_scaled_network_delay&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;_compute_scaled_network_transfer_delay&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">gc</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rc</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1</span> <span class="kn">import</span> <span class="n">make_axes_locatable</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">erfc</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ncx2</span>
+
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.base.network</span> <span class="kn">import</span> <span class="n">Network</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.setup.model</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.simulator.base</span> <span class="kn">import</span> <span class="n">BaseSimulator</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.simulator.parallel</span> <span class="kn">import</span> <span class="n">ParallelSimulator</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.tools.performance_analysis</span> <span class="kn">import</span> \
+    <span class="n">get_transfer_delay</span><span class="p">,</span> <span class="n">get_queueing_delay</span><span class="p">,</span> <span class="n">get_min_transfer_delay</span><span class="p">,</span> <span class="n">get_service_delay</span><span class="p">,</span> \
+    <span class="n">get_final_batch_delay</span><span class="p">,</span> <span class="n">get_extended_run_delay</span><span class="p">,</span> <span class="n">get_overall_delay</span><span class="p">,</span> \
+    <span class="n">get_final_batch_throughput</span><span class="p">,</span> <span class="n">get_extended_run_throughput</span><span class="p">,</span> <span class="n">get_overall_throughput</span>
+
+<span class="n">queueing_delay_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;queueing delay&#39;</span><span class="p">,</span> <span class="s1">&#39;qd&#39;</span><span class="p">,</span> <span class="s1">&#39;queueing&#39;</span><span class="p">}</span>
+<span class="n">transfer_delay_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;transfer delay&#39;</span><span class="p">,</span> <span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="s1">&#39;transfer&#39;</span><span class="p">}</span>
+
+<span class="n">overall_range_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;overall&#39;</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">}</span>
+<span class="n">extended_range_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;extended&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">}</span>
+<span class="n">final_batch_range_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;final batch&#39;</span><span class="p">,</span> <span class="s1">&#39;fb&#39;</span><span class="p">}</span>
+
+<span class="n">load_keywards</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">}</span>
+<span class="n">scale_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;scale&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">}</span>
+
+<span class="n">mean_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;Mean&#39;</span><span class="p">,</span> <span class="s1">&#39;MEAN&#39;</span><span class="p">}</span>
+<span class="n">min_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;Min&#39;</span><span class="p">,</span> <span class="s1">&#39;MIN&#39;</span><span class="p">}</span>
+<span class="n">max_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;Max&#39;</span><span class="p">,</span> <span class="s1">&#39;MAX&#39;</span><span class="p">}</span>
+<span class="n">t_min_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tmin&#39;</span><span class="p">,</span> <span class="s1">&#39;TMIN&#39;</span><span class="p">}</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;PRGn_r&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;PRGn_r&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Paired&#39;</span><span class="p">)[</span><span class="mi">7</span><span class="p">],</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="n">markers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;s&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;^&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;o&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D&#39;</span>
+<span class="p">]</span>
+
+<span class="n">FIG_WIDTH</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">FIG_HEIGHT</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">MARKERSIZE</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">MARKER_EDGE_WIDTH</span> <span class="o">=</span> <span class="o">.</span><span class="mi">4</span>
+<span class="n">DPI</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">CAX_FONT_SIZE</span> <span class="o">=</span> <span class="mi">6</span>
+
+
+<span class="k">def</span> <span class="nf">_check_for_ParallelSimulator</span><span class="p">(</span><span class="n">simulator</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">ParallelSimulator</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;ParallelSimulator is expected.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_check_for_BaseSimulator</span><span class="p">(</span><span class="n">simulator</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">BaseSimulator</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;BaseSimulator is expected.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_check_delay_keywords</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">delay</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">queueing_delay_keywords</span> <span class="ow">and</span> <span class="n">delay</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">transfer_delay_keywords</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Delay type is not recognised.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_check_span_keywords</span><span class="p">(</span><span class="n">span</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">span</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overall_range_keywords</span> <span class="ow">and</span> <span class="n">span</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">extended_range_keywords</span> \
+            <span class="ow">and</span> <span class="n">span</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">final_batch_range_keywords</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Time span is not recognised.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_check_metric_keywords</span><span class="p">(</span><span class="n">metric</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">metric</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mean_keywords</span> <span class="ow">and</span> <span class="n">metric</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">min_keywords</span> \
+            <span class="ow">and</span> <span class="n">metric</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">max_keywords</span> <span class="ow">and</span> <span class="n">metric</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">t_min_keywords</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Metric is not recognised.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_check_scaled_network_keywords</span><span class="p">(</span><span class="n">data_type</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">data_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">load_keywards</span> <span class="ow">and</span> <span class="n">data_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">scale_keywords</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Scaled network plot data type is not recognised.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_convert_keywords</span><span class="p">(</span><span class="n">keyword</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">queueing_delay_keywords</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Queueing Delay&quot;</span>
+    <span class="k">elif</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">transfer_delay_keywords</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Transfer Delay&quot;</span>
+    <span class="k">elif</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">mean_keywords</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Average&quot;</span>
+    <span class="k">elif</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">min_keywords</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Minimum&quot;</span>
+    <span class="k">elif</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">max_keywords</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Maximum&quot;</span>
+    <span class="k">elif</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">t_min_keywords</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Theoretical Minimum&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">_get_delay</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">span</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="n">analytical</span><span class="p">):</span>
+    <span class="n">_check_for_BaseSimulator</span><span class="p">(</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="n">_check_delay_keywords</span><span class="p">(</span><span class="n">delay</span><span class="o">=</span><span class="n">delay</span><span class="p">)</span>
+    <span class="n">_check_span_keywords</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="n">span</span><span class="p">)</span>
+    <span class="n">_check_metric_keywords</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">overall_range_keywords</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">get_overall_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">extended_range_keywords</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">get_extended_run_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">final_batch_range_keywords</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">get_final_batch_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="n">analytical_delay</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">delay</span> <span class="ow">in</span> <span class="n">queueing_delay_keywords</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">min_keywords</span><span class="p">:</span>
+            <span class="n">simulation_delay</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;min_queueing_delay&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">max_keywords</span><span class="p">:</span>
+            <span class="n">simulation_delay</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;max_queueing_delay&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">mean_keywords</span><span class="p">:</span>
+            <span class="n">simulation_delay</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;mean_queueing_delay&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">analytical</span><span class="p">:</span>
+            <span class="n">analytical_delay</span> <span class="o">=</span> <span class="n">get_queueing_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span> <span class="o">+</span> <span class="n">get_service_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">delay</span> <span class="ow">in</span> <span class="n">transfer_delay_keywords</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">min_keywords</span><span class="p">:</span>
+            <span class="n">simulation_delay</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;min_transfer_delay&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">max_keywords</span><span class="p">:</span>
+            <span class="n">simulation_delay</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;max_transfer_delay&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">mean_keywords</span><span class="p">:</span>
+            <span class="n">simulation_delay</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;mean_transfer_delay&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">t_min_keywords</span><span class="p">:</span>
+            <span class="n">simulation_delay</span> <span class="o">=</span> <span class="n">get_min_transfer_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">analytical</span><span class="p">:</span>
+            <span class="n">analytical_delay</span> <span class="o">=</span> <span class="n">get_transfer_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">analytical_delay</span><span class="p">,</span> <span class="n">simulation_delay</span>
+
+
+<span class="k">def</span> <span class="nf">_get_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">span</span><span class="p">):</span>
+    <span class="n">_check_for_BaseSimulator</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="n">_check_span_keywords</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="n">span</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">overall_range_keywords</span><span class="p">:</span>
+        <span class="n">mean_throughput</span> <span class="o">=</span> <span class="n">get_overall_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">extended_range_keywords</span><span class="p">:</span>
+        <span class="n">mean_throughput</span> <span class="o">=</span> <span class="n">get_extended_run_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">final_batch_range_keywords</span><span class="p">:</span>
+        <span class="n">mean_throughput</span> <span class="o">=</span> <span class="n">get_final_batch_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mean_throughput</span>
+
+
+<span class="k">def</span> <span class="nf">_get_buffer_size</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">metric</span><span class="p">):</span>
+    <span class="n">_check_for_BaseSimulator</span><span class="p">(</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="n">_check_metric_keywords</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">)</span>
+    <span class="n">mean_queue_size</span><span class="p">,</span> <span class="n">max_queue_size</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">summary_type</span><span class="o">=</span><span class="s1">&#39;q&#39;</span><span class="p">)</span>
+    <span class="c1"># Compute buffer size in kB</span>
+    <span class="k">if</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">mean_keywords</span><span class="p">:</span>
+        <span class="n">buffer_queue</span> <span class="o">=</span> <span class="n">mean_queue_size</span>
+    <span class="k">elif</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">max_keywords</span><span class="p">:</span>
+        <span class="n">buffer_queue</span> <span class="o">=</span> <span class="n">max_queue_size</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">buffer_queue</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">buffer_size</span> <span class="o">=</span> <span class="n">buffer_queue</span> <span class="o">*</span> <span class="mi">1500</span> <span class="o">/</span> <span class="mi">1000</span>
+    <span class="k">return</span> <span class="n">buffer_queue</span><span class="p">,</span> <span class="n">buffer_size</span>
+
+
+<div class="viewcode-block" id="init"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.publication.init.html#NetworkSim.simulation.tools.publication.init">[docs]</a><span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot environment initialisation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;paper&quot;</span><span class="p">)</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;sans-serif&#39;</span><span class="p">,</span> <span class="s1">&#39;sans-serif&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Helvetica&#39;</span><span class="p">]})</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;mathtext.fontset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;stix&#39;</span>
+    <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;STIXGeneral&#39;</span>
+    <span class="n">SMALLER_SIZE</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">SMALL_SIZE</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">MEDIUM_SIZE</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">LARGE_SIZE</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">BIGGER_SIZE</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>          <span class="c1"># controls default text sizes</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="n">LARGE_SIZE</span><span class="p">)</span>     <span class="c1"># fontsize of the axes title</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">MEDIUM_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the x and y labels</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the tick labels</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the tick labels</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;legend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">SMALLER_SIZE</span><span class="p">)</span>  <span class="c1"># legend fontsize</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="n">BIGGER_SIZE</span><span class="p">)</span>  <span class="c1"># fontsize of the figure title</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="plot_delay"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.publication.plot_delay.html#NetworkSim.simulation.tools.publication.plot_delay">[docs]</a><span class="k">def</span> <span class="nf">plot_delay</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="n">span</span><span class="o">=</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">],</span> <span class="n">analytical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">semilog</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot delay statistics of a ParallelSimulator.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : ParallelSimulator</span>
+<span class="sd">        The simulator used.</span>
+<span class="sd">    delay : str, optional</span>
+<span class="sd">        The type of delay to be plotted, by default ``td``, chosen from the following:</span>
+
+<span class="sd">        - `qd`, `queueing delay` or `queueing`</span>
+<span class="sd">            The overall queueing delay.</span>
+<span class="sd">        - `td`, `transfer delay` or `transfer`</span>
+<span class="sd">            The transfer delay.</span>
+<span class="sd">    span : str, optional</span>
+<span class="sd">        The time span of the delay statistics in the simulation, by default ``extended``, chosen from the following:</span>
+
+<span class="sd">        - `overall` or `all`</span>
+<span class="sd">            The entire duration of the simulation.</span>
+<span class="sd">        - `final batch` or `fb`</span>
+<span class="sd">            The statistics from the final batch when simulation converges.</span>
+<span class="sd">        - `extended` or `e`</span>
+<span class="sd">            The extended period of the simulation.</span>
+<span class="sd">    metrics : list, optional</span>
+<span class="sd">        A list of the metric(s) of delay statistics, by default ``mean``, chosen from the following:</span>
+
+<span class="sd">        - `mean`</span>
+<span class="sd">            Mean delay statistics.</span>
+<span class="sd">        - `min`</span>
+<span class="sd">            Minimum delay statistics.</span>
+<span class="sd">        - `max`</span>
+<span class="sd">            Maximum delay statistics.</span>
+<span class="sd">    analytical : bool, optional</span>
+<span class="sd">        If analytical results are plotted, by default True</span>
+<span class="sd">    semilog : bool, optional</span>
+<span class="sd">        If to plot data on a semi-logarithmic scale</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fig : Figure</span>
+<span class="sd">        The figure plotted.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_check_for_ParallelSimulator</span><span class="p">(</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="c1"># Get plot data</span>
+    <span class="n">analytical_delays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">simulation_delays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">load</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
+        <span class="n">_analytical_delays</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">_simulation_delays</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">_load</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">individual_simulator</span> <span class="ow">in</span> <span class="n">simulator</span><span class="o">.</span><span class="n">simulator</span><span class="p">:</span>
+            <span class="n">analytical_delay</span><span class="p">,</span> <span class="n">simulation_delay</span> <span class="o">=</span> <span class="n">_get_delay</span><span class="p">(</span>
+                <span class="n">simulator</span><span class="o">=</span><span class="n">individual_simulator</span><span class="p">,</span>
+                <span class="n">delay</span><span class="o">=</span><span class="n">delay</span><span class="p">,</span>
+                <span class="n">span</span><span class="o">=</span><span class="n">span</span><span class="p">,</span>
+                <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span>
+                <span class="n">analytical</span><span class="o">=</span><span class="n">analytical</span>
+            <span class="p">)</span>
+            <span class="n">_analytical_delays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">analytical_delay</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+            <span class="n">_simulation_delays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">simulation_delay</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+            <span class="n">_load_percentage</span> <span class="o">=</span> <span class="n">individual_simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="p">[</span><span class="s1">&#39;average_bit_rate&#39;</span><span class="p">]</span> <span class="o">/</span> \
+                <span class="n">individual_simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="p">[</span><span class="s1">&#39;maximum_bit_rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="k">if</span> <span class="n">individual_simulator</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+                <span class="n">_load</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_load_percentage</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_load</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_load_percentage</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">analytical_delays</span><span class="p">:</span>
+            <span class="n">analytical_delays</span> <span class="o">=</span> <span class="n">_analytical_delays</span>
+        <span class="n">simulation_delays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_simulation_delays</span><span class="p">)</span>
+        <span class="n">load</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_load</span><span class="p">)</span>
+    <span class="c1"># Generate plot</span>
+    <span class="n">init</span><span class="p">()</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">FIG_WIDTH</span> <span class="o">*</span> <span class="mf">1.05</span><span class="p">,</span> <span class="n">FIG_HEIGHT</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">DPI</span><span class="p">)</span>
+    <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;Network Traffic Load ($\%$)&quot;</span>
+    <span class="n">ylabel</span> <span class="o">=</span> <span class="n">_convert_keywords</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; ($\mu$s)&quot;</span>
+    <span class="k">if</span> <span class="n">analytical</span><span class="p">:</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">load</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">analytical_delays</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="n">MARKERSIZE</span><span class="p">,</span>
+                     <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="n">MARKER_EDGE_WIDTH</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                     <span class="n">color</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Analytical Average&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">metrics</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">analytical</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Simulation &quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">label</span> <span class="o">+=</span> <span class="n">_convert_keywords</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">load</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">simulation_delays</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">markers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">markersize</span><span class="o">=</span><span class="n">MARKERSIZE</span><span class="p">,</span>
+                     <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="n">MARKER_EDGE_WIDTH</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                     <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ci</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">analytical</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">semilog</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_data_ratio</span><span class="p">(),</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+<div class="viewcode-block" id="plot_throughput"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.publication.plot_throughput.html#NetworkSim.simulation.tools.publication.plot_throughput">[docs]</a><span class="k">def</span> <span class="nf">plot_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">span</span><span class="o">=</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="n">semilog</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot mean throughput statistics of a ParallelSimulator.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : ParallelSimulator</span>
+<span class="sd">        The simulator used.</span>
+<span class="sd">    span : str, optional</span>
+<span class="sd">        The time span of the delay statistics in the simulation, by default ``extended``, chosen from the following:</span>
+
+<span class="sd">        - `overall` or `all`</span>
+<span class="sd">            The entire duration of the simulation.</span>
+<span class="sd">        - `final batch` or `fb`</span>
+<span class="sd">            The statistics from the final batch when simulation converges.</span>
+<span class="sd">        - `extended` or `e`</span>
+<span class="sd">            The extended period of the simulation.</span>
+<span class="sd">    semilog : bool, optional</span>
+<span class="sd">        If to plot data on a semi-logarithmic scale, by default ``False``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fig : Figure</span>
+<span class="sd">        The figure plotted.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_check_for_ParallelSimulator</span><span class="p">(</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="c1"># Get plot data</span>
+    <span class="n">throughput</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">load</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">individual_simulator</span> <span class="ow">in</span> <span class="n">simulator</span><span class="o">.</span><span class="n">simulator</span><span class="p">:</span>
+        <span class="n">mean_throughput</span> <span class="o">=</span> <span class="n">_get_throughput</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">individual_simulator</span><span class="p">,</span> <span class="n">span</span><span class="o">=</span><span class="n">span</span><span class="p">)</span>
+        <span class="n">throughput</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_throughput</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+        <span class="n">load</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">individual_simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span> <span class="o">*</span>
+                    <span class="n">individual_simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="p">[</span><span class="s1">&#39;average_bit_rate&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="c1"># Generate plot</span>
+    <span class="n">init</span><span class="p">()</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">FIG_WIDTH</span><span class="p">,</span> <span class="n">FIG_HEIGHT</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">DPI</span><span class="p">)</span>
+    <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;Network Traffic Load (Tbit/s)&quot;</span>
+    <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;Average Throughput (Tbit/s)&quot;</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">load</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">throughput</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="n">MARKERSIZE</span><span class="p">,</span>
+                 <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="n">MARKER_EDGE_WIDTH</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ci</span><span class="o">=</span><span class="mi">95</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">semilog</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">ScalarFormatter</span><span class="p">())</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_data_ratio</span><span class="p">(),</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+<div class="viewcode-block" id="plot_buffer"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.publication.plot_buffer.html#NetworkSim.simulation.tools.publication.plot_buffer">[docs]</a><span class="k">def</span> <span class="nf">plot_buffer</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span> <span class="n">semilog</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot buffer size statistics of a ParallelSimulator.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : ParallelSimulator</span>
+<span class="sd">        The simulator used.</span>
+<span class="sd">    metric : list, optional</span>
+<span class="sd">        A list of the metric(s) of delay statistics, by default ``[&#39;mean&#39;, &#39;max&#39;]``, \</span>
+<span class="sd">            chosen from the following:</span>
+
+<span class="sd">        - `mean`</span>
+<span class="sd">            Mean delay statistics.</span>
+<span class="sd">        - `min`</span>
+<span class="sd">            Minimum delay statistics.</span>
+<span class="sd">        - `max`</span>
+<span class="sd">            Maximum delay statistics.</span>
+<span class="sd">    semilog : bool, optional</span>
+<span class="sd">        If to plot data on a semi-logarithmic scale, by default ``True``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fig : Figure</span>
+<span class="sd">        The figure plotted.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_check_for_ParallelSimulator</span><span class="p">(</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="c1"># Get plot data</span>
+    <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">buffer_packet</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">load</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
+        <span class="n">_buffer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">_buffer_packet</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">_load</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">individual_simulator</span> <span class="ow">in</span> <span class="n">simulator</span><span class="o">.</span><span class="n">simulator</span><span class="p">:</span>
+            <span class="n">_buffer_queue</span><span class="p">,</span> <span class="n">_buffer_size</span> <span class="o">=</span> <span class="n">_get_buffer_size</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">individual_simulator</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">)</span>
+            <span class="n">_buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_buffer_size</span><span class="p">)</span>
+            <span class="n">_buffer_packet</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_buffer_queue</span><span class="p">)</span>
+            <span class="n">_load_percentage</span> <span class="o">=</span> <span class="n">individual_simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="p">[</span><span class="s1">&#39;average_bit_rate&#39;</span><span class="p">]</span> <span class="o">/</span> \
+                <span class="n">individual_simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="p">[</span><span class="s1">&#39;maximum_bit_rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="k">if</span> <span class="n">individual_simulator</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+                <span class="n">_load</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_load_percentage</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_load</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_load_percentage</span><span class="p">)</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_buffer</span><span class="p">)</span>
+        <span class="n">buffer_packet</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_buffer_packet</span><span class="p">)</span>
+        <span class="n">load</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_load</span><span class="p">)</span>
+    <span class="n">init</span><span class="p">()</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">FIG_WIDTH</span> <span class="o">*</span> <span class="mf">1.18</span><span class="p">,</span> <span class="n">FIG_HEIGHT</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">DPI</span><span class="p">)</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+    <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;Network Traffic Load ($\%$)&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">ylabel</span> <span class="o">=</span> <span class="n">_convert_keywords</span><span class="p">(</span><span class="n">metric</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; Buffer Size (kB)&quot;</span>
+        <span class="n">ylabel2</span> <span class="o">=</span> <span class="n">_convert_keywords</span><span class="p">(</span><span class="n">metric</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; Buffer Size (No. of Packets)&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;Buffer Size (kB)&quot;</span>
+        <span class="n">ylabel2</span> <span class="o">=</span> <span class="s2">&quot;Buffer Size (No. of Packets)&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">metrics</span><span class="p">)):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">_convert_keywords</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">load</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">buffer</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">markers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">markersize</span><span class="o">=</span><span class="n">MARKERSIZE</span><span class="p">,</span>
+                     <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="n">MARKER_EDGE_WIDTH</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span>
+                     <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ci</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">load</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">buffer_packet</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel2</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">semilog</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">]:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">ScalarFormatter</span><span class="p">())</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">]:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">]:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+<span class="k">def</span> <span class="nf">_extract_simulators</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">data_rate</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to extractor the simulators with specified data rate.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : ParallelSimulator</span>
+<span class="sd">        The ParallelSimulator to be unpacked.</span>
+<span class="sd">    data_rate : float</span>
+<span class="sd">        Data rate of the simulators to be extracted.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    simulators : list</span>
+<span class="sd">        A list of simulators with the specified data rate.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_check_for_ParallelSimulator</span><span class="p">(</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="n">simulators</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">individual_simulator</span> <span class="ow">in</span> <span class="n">simulator</span><span class="o">.</span><span class="n">simulator</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">individual_simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="p">[</span><span class="s1">&#39;average_bit_rate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">data_rate</span><span class="p">:</span>
+            <span class="n">simulators</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">individual_simulator</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">simulators</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; simulators found.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">simulators</span>
+
+
+<span class="k">def</span> <span class="nf">_compute_delay_heatmap</span><span class="p">(</span><span class="n">simulators</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">span</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to compute the mean delay statistics for the heatmap plot.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulators : list</span>
+<span class="sd">        List of BaseSimulator used.</span>
+<span class="sd">    delay : str</span>
+<span class="sd">        Type of delay to be computed.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    delay_heatmap : numpy 2d array</span>
+<span class="sd">        An array of computed mean delay values to be used in the heatmap.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Raised when inconsistency in simulator node number is found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_check_delay_keywords</span><span class="p">(</span><span class="n">delay</span><span class="o">=</span><span class="n">delay</span><span class="p">)</span>
+    <span class="n">_check_span_keywords</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="n">span</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">delay</span> <span class="ow">in</span> <span class="n">queueing_delay_keywords</span><span class="p">:</span>
+        <span class="n">delay_type</span> <span class="o">=</span> <span class="s1">&#39;Queueing Delay&#39;</span>
+    <span class="k">elif</span> <span class="n">delay</span> <span class="ow">in</span> <span class="n">transfer_delay_keywords</span><span class="p">:</span>
+        <span class="n">delay_type</span> <span class="o">=</span> <span class="s1">&#39;Transfer Delay&#39;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">simulators</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+    <span class="n">packet_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">])</span>
+    <span class="n">delay_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">])</span>
+    <span class="n">delay_heatmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">])</span>
+    <span class="n">delay_heatmap</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="k">for</span> <span class="n">simulator</span> <span class="ow">in</span> <span class="n">simulators</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Inconsistent number of nodes are found among the simulators.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">overall_range_keywords</span><span class="p">:</span>
+            <span class="n">latency</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span>
+        <span class="k">elif</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">extended_range_keywords</span><span class="p">:</span>
+            <span class="n">start_index</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">batch_stats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;end_index&#39;</span><span class="p">]</span>
+            <span class="n">latency</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span><span class="p">[</span><span class="n">start_index</span><span class="p">:]</span>
+        <span class="k">elif</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">final_batch_range_keywords</span><span class="p">:</span>
+            <span class="n">start_index</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">batch_stats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;start_index&#39;</span><span class="p">]</span>
+            <span class="n">end_index</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">batch_stats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;end_index&#39;</span><span class="p">]</span>
+            <span class="n">latency</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span><span class="p">[</span><span class="n">start_index</span><span class="p">:</span><span class="n">end_index</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">latency_dict</span> <span class="ow">in</span> <span class="n">latency</span><span class="p">:</span>
+            <span class="n">packet_count</span><span class="p">[</span><span class="n">latency_dict</span><span class="p">[</span><span class="s1">&#39;Source ID&#39;</span><span class="p">]][</span><span class="n">latency_dict</span><span class="p">[</span><span class="s1">&#39;Destination ID&#39;</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">delay_sum</span><span class="p">[</span><span class="n">latency_dict</span><span class="p">[</span><span class="s1">&#39;Source ID&#39;</span><span class="p">]][</span><span class="n">latency_dict</span><span class="p">[</span><span class="s1">&#39;Destination ID&#39;</span><span class="p">]]</span> <span class="o">+=</span> <span class="n">latency_dict</span><span class="p">[</span><span class="n">delay_type</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">packet_count</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">delay_heatmap</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">delay_sum</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">packet_count</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">delay_heatmap</span>
+
+
+<div class="viewcode-block" id="plot_delay_heatmap"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.publication.plot_delay_heatmap.html#NetworkSim.simulation.tools.publication.plot_delay_heatmap">[docs]</a><span class="k">def</span> <span class="nf">plot_delay_heatmap</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">data_rate</span><span class="p">,</span> <span class="n">span</span><span class="o">=</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="s1">&#39;td&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot mean delay statistics of a specified data rate in a ParallelSimulator.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : ParallelSimulator</span>
+<span class="sd">        The simulator used.</span>
+<span class="sd">    data_rate : float</span>
+<span class="sd">        The chosen data rate.</span>
+<span class="sd">    span : str, optional</span>
+<span class="sd">        The time span of the delay statistics in the simulation, by default ``extended``, chosen from the following:</span>
+
+<span class="sd">        - `overall` or `all`</span>
+<span class="sd">            The entire duration of the simulation.</span>
+<span class="sd">        - `final batch` or `fb`</span>
+<span class="sd">            The statistics from the final batch when simulation converges.</span>
+<span class="sd">        - `extended` or `e`</span>
+<span class="sd">            The extended period of the simulation.</span>
+<span class="sd">    delay : str, optional</span>
+<span class="sd">        The type of delay to be plotted, by default ``td``, chosen from the following:</span>
+
+<span class="sd">        - `qd`, `queueing delay` or `queueing`</span>
+<span class="sd">            The overall queueing delay.</span>
+<span class="sd">        - `td`, `transfer delay` or `transfer`</span>
+<span class="sd">            The transfer delay.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fig : Figure</span>
+<span class="sd">        The figure plotted.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get simulators with the specified</span>
+    <span class="n">simulators</span> <span class="o">=</span> <span class="n">_extract_simulators</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">,</span> <span class="n">data_rate</span><span class="o">=</span><span class="n">data_rate</span><span class="p">)</span>
+    <span class="c1"># Compute data to be plotted</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">_compute_delay_heatmap</span><span class="p">(</span><span class="n">simulators</span><span class="o">=</span><span class="n">simulators</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">delay</span><span class="p">,</span> <span class="n">span</span><span class="o">=</span><span class="n">span</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>
+    <span class="c1"># Generate plot</span>
+    <span class="n">init</span><span class="p">()</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">FIG_WIDTH</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">FIG_HEIGHT</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">DPI</span><span class="p">)</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Average &#39;</span> <span class="o">+</span> <span class="n">_convert_keywords</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; ($\mu$s)&#39;</span>
+    <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">divider</span> <span class="o">=</span> <span class="n">make_axes_locatable</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">cax</span> <span class="o">=</span> <span class="n">divider</span><span class="o">.</span><span class="n">append_axes</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;3%&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">125</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cbar_ax</span><span class="o">=</span><span class="n">cax</span><span class="p">,</span>
+                <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;pad&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">1</span><span class="p">},)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">end</span><span class="p">,</span> <span class="n">start</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">cax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">cax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">CAX_FONT_SIZE</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Destination Node&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Source Node&#39;</span><span class="p">)</span>
+    <span class="n">frame_linewidth</span> <span class="o">=</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">frame_linewidth</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">frame_linewidth</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">frame_linewidth</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">frame_linewidth</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_data_ratio</span><span class="p">(),</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+<span class="k">def</span> <span class="nf">_compute_packet_heatmap</span><span class="p">(</span><span class="n">simulators</span><span class="p">,</span> <span class="n">span</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to compute the normalised packet number statistics for the heatmap plot.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulators : list</span>
+<span class="sd">        List of BaseSimulator used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    packet_heatmap : numpy 2d array</span>
+<span class="sd">        An array of computed packet number values to be used in the heatmap.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Raised when inconsistency in simulator node number is found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_check_span_keywords</span><span class="p">(</span><span class="n">span</span><span class="o">=</span><span class="n">span</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">simulators</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+    <span class="n">packet_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">simulator</span> <span class="ow">in</span> <span class="n">simulators</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Inconsistent number of nodes are found among the simulators.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">overall_range_keywords</span><span class="p">:</span>
+            <span class="n">latency</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span>
+        <span class="k">elif</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">extended_range_keywords</span><span class="p">:</span>
+            <span class="n">start_index</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">batch_stats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;end_index&#39;</span><span class="p">]</span>
+            <span class="n">latency</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span><span class="p">[</span><span class="n">start_index</span><span class="p">:]</span>
+        <span class="k">elif</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">final_batch_range_keywords</span><span class="p">:</span>
+            <span class="n">start_index</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">batch_stats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;start_index&#39;</span><span class="p">]</span>
+            <span class="n">end_index</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">batch_stats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;end_index&#39;</span><span class="p">]</span>
+            <span class="n">latency</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">latency</span><span class="p">[</span><span class="n">start_index</span><span class="p">:</span><span class="n">end_index</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">latency_dict</span> <span class="ow">in</span> <span class="n">latency</span><span class="p">:</span>
+            <span class="n">packet_count</span><span class="p">[</span><span class="n">latency_dict</span><span class="p">[</span><span class="s1">&#39;Source ID&#39;</span><span class="p">]][</span><span class="n">latency_dict</span><span class="p">[</span><span class="s1">&#39;Destination ID&#39;</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">max_packet</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">packet_count</span><span class="p">)</span>
+    <span class="n">min_packet</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">packet_count</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+                <span class="n">packet_count</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">packet_count</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">packet_count</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">min_packet</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">max_packet</span> <span class="o">-</span> <span class="n">min_packet</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">packet_count</span>
+
+
+<div class="viewcode-block" id="plot_packet_heatmap"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.publication.plot_packet_heatmap.html#NetworkSim.simulation.tools.publication.plot_packet_heatmap">[docs]</a><span class="k">def</span> <span class="nf">plot_packet_heatmap</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">data_rate</span><span class="p">,</span> <span class="n">span</span><span class="o">=</span><span class="s1">&#39;e&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot mean packet number statistics of a specified data rate in a ParallelSimulator.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    simulator : ParallelSimulator</span>
+<span class="sd">        The simulator used.</span>
+<span class="sd">    data_rate : float</span>
+<span class="sd">        The chosen data rate.</span>
+<span class="sd">    span : str, optional</span>
+<span class="sd">        The time span of the delay statistics in the simulation, by default ``extended``, chosen from the following:</span>
+
+<span class="sd">        - `overall` or `all`</span>
+<span class="sd">            The entire duration of the simulation.</span>
+<span class="sd">        - `final batch` or `fb`</span>
+<span class="sd">            The statistics from the final batch when simulation converges.</span>
+<span class="sd">        - `extended` or `e`</span>
+<span class="sd">            The extended period of the simulation.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fig : Figure</span>
+<span class="sd">        The figure plotted.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get simulators with the specified</span>
+    <span class="n">simulators</span> <span class="o">=</span> <span class="n">_extract_simulators</span><span class="p">(</span><span class="n">simulator</span><span class="p">,</span> <span class="n">data_rate</span><span class="p">)</span>
+    <span class="c1"># Compute data to be plotted</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">_compute_packet_heatmap</span><span class="p">(</span><span class="n">simulators</span><span class="o">=</span><span class="n">simulators</span><span class="p">,</span> <span class="n">span</span><span class="o">=</span><span class="n">span</span><span class="p">)</span>
+    <span class="c1"># Generate plot</span>
+    <span class="n">init</span><span class="p">()</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">FIG_WIDTH</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">FIG_HEIGHT</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">DPI</span><span class="p">)</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Normalised No. of Packets Transmitted&#39;</span>
+    <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">divider</span> <span class="o">=</span> <span class="n">make_axes_locatable</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">cax</span> <span class="o">=</span> <span class="n">divider</span><span class="o">.</span><span class="n">append_axes</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;3%&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">125</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cbar_ax</span><span class="o">=</span><span class="n">cax</span><span class="p">,</span>
+                <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;pad&#39;</span><span class="p">:</span> <span class="o">.</span><span class="mi">1</span><span class="p">},)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">end</span><span class="p">,</span> <span class="n">start</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">cax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">cax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">CAX_FONT_SIZE</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Destination Node&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Source Node&#39;</span><span class="p">)</span>
+    <span class="n">frame_linewidth</span> <span class="o">=</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">frame_linewidth</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">frame_linewidth</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">frame_linewidth</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">frame_linewidth</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_data_ratio</span><span class="p">(),</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+<div class="viewcode-block" id="plot_ook_ber"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.publication.plot_ook_ber.html#NetworkSim.simulation.tools.publication.plot_ook_ber">[docs]</a><span class="k">def</span> <span class="nf">plot_ook_ber</span><span class="p">(</span><span class="n">snr_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">snr_max</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">show_coherent</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot OOK bit error rate vs average energy-to-noise ratio [1]_.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    snr_max : int, optional</span>
+<span class="sd">        Maximum energy-to-noise ratio value in dB, by default ``15``.</span>
+<span class="sd">    show_coherent : bool, optional</span>
+<span class="sd">        If coherent detection is shown, by default ``False``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fig : Figure</span>
+<span class="sd">        The figure plotted.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Tang, Qinghui, Sandeep KS Gupta, and Loren Schwiebert. &quot;BER performance analysis of an on-off keying \</span>
+<span class="sd">         based minimum energy coding for energy constrained wireless sensor applications.&quot; \</span>
+<span class="sd">         In IEEE International Conference on Communications, 2005. \</span>
+<span class="sd">         ICC 2005. 2005, vol. 4, pp. 2734-2738. IEEE, 2005.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Compute values</span>
+    <span class="n">SNR_MIN</span> <span class="o">=</span> <span class="n">snr_min</span>
+    <span class="n">SNR_MAX</span> <span class="o">=</span> <span class="n">snr_max</span>
+    <span class="n">Eb_No_dB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">SNR_MIN</span><span class="p">,</span> <span class="n">SNR_MAX</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+    <span class="n">Eb_No</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">Eb_No_dB</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">Eb_No</span>
+    <span class="n">b_th</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Eb_No</span><span class="p">)</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">b_th</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Eb_No</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">b_th</span> <span class="o">/</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">b_th</span> <span class="o">/</span> <span class="n">sigma</span><span class="p">)</span>
+    <span class="n">pes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b_th</span> <span class="o">*</span> <span class="n">b_th</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">))</span>
+    <span class="n">pem</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">ncx2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="n">a</span><span class="p">))</span>
+    <span class="n">ook_non_coherent</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">pem</span> <span class="o">+</span> <span class="n">pes</span><span class="p">)</span>
+    <span class="n">ook_coherent</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">erfc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Eb_No</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="c1"># Generate plot</span>
+    <span class="n">init</span><span class="p">()</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">FIG_WIDTH</span><span class="p">,</span> <span class="n">FIG_HEIGHT</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">DPI</span><span class="p">)</span>
+    <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;$E_b/N_o$ (dB)&quot;</span>
+    <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;BER&quot;</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Noncoherent&quot;</span><span class="p">,</span> <span class="s2">&quot;Coherent&quot;</span><span class="p">]</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">Eb_No_dB</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ook_non_coherent</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">show_coherent</span><span class="p">:</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">Eb_No_dB</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ook_coherent</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">markers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                     <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">show_coherent</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_data_ratio</span><span class="p">(),</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+<span class="k">def</span> <span class="nf">_compute_scaled_network_transfer_delay</span><span class="p">(</span><span class="n">data_type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Function to compute the data to be plotted in a scaled network.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data_type : str</span>
+<span class="sd">        The type of data to be plotted.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    x : list</span>
+<span class="sd">        A list of x values to be plotted.</span>
+<span class="sd">    y : list</span>
+<span class="sd">        A list of y values to be plotted.</span>
+<span class="sd">    labels : list</span>
+<span class="sd">        A list of y labels.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_check_scaled_network_keywords</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="n">data_type</span><span class="p">)</span>
+    <span class="n">transfer_delay</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">data_type</span> <span class="ow">in</span> <span class="n">load_keywards</span><span class="p">:</span>
+        <span class="n">load_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+        <span class="n">num_nodes_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">11100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">data_type</span> <span class="ow">in</span> <span class="n">scale_keywords</span><span class="p">:</span>
+        <span class="n">load_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">num_nodes_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1280</span><span class="p">,</span> <span class="mi">5120</span><span class="p">,</span> <span class="mi">10240</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">num_nodes_list</span><span class="p">)):</span>
+        <span class="n">num_nodes</span> <span class="o">=</span> <span class="n">num_nodes_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="n">num_nodes</span> <span class="o">*</span> <span class="mf">1.2</span>
+        <span class="n">network</span> <span class="o">=</span> <span class="n">Network</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">num_nodes</span><span class="o">=</span><span class="n">num_nodes</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">network</span><span class="o">=</span><span class="n">network</span><span class="p">)</span>
+        <span class="n">_transfer_delay</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">load_list</span><span class="p">)):</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="p">[</span><span class="s1">&#39;average_bit_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">simulator</span> <span class="o">=</span> <span class="n">BaseSimulator</span><span class="p">(</span><span class="n">convergence</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+            <span class="n">_transfer_delay</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_transfer_delay</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">_transfer_delay</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="n">_transfer_delay</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">transfer_delay</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_transfer_delay</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data_type</span> <span class="ow">in</span> <span class="n">load_keywards</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">num_nodes_list</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">transfer_delay</span><span class="p">)))</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;\%&quot;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">load_list</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">data_type</span> <span class="ow">in</span> <span class="n">scale_keywords</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">load_list</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">transfer_delay</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">num_nodes_list</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span>
+
+
+<div class="viewcode-block" id="plot_scaled_network_delay"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.publication.plot_scaled_network_delay.html#NetworkSim.simulation.tools.publication.plot_scaled_network_delay">[docs]</a><span class="k">def</span> <span class="nf">plot_scaled_network_delay</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="s1">&#39;load&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot delay of a scaled network.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data_type : str, optional</span>
+<span class="sd">        The data of focus, chosen from the following:</span>
+
+<span class="sd">        - `load` or `l`: Varying load of the network at 10%, 15%, 20% and 25% for \</span>
+<span class="sd">            network node number from 100 to 10100.</span>
+<span class="sd">        - `scale`or `s`: Varying number of nodes in the network at 512, 1280, 5120, and 10240 \</span>
+<span class="sd">            for network traffic load from 1% to 40$.</span>
+
+<span class="sd">        Default is ``load``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fig : Figure</span>
+<span class="sd">        The figure plotted.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">_compute_scaled_network_transfer_delay</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="n">data_type</span><span class="p">)</span>
+    <span class="n">init</span><span class="p">()</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">FIG_WIDTH</span><span class="p">,</span> <span class="n">FIG_HEIGHT</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">DPI</span><span class="p">)</span>
+    <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;Analytical Average Transfer Delay ($\mu$s)&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)):</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">markers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">markersize</span><span class="o">=</span><span class="n">MARKERSIZE</span><span class="p">,</span>
+                     <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="n">MARKER_EDGE_WIDTH</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                     <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">zorder</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data_type</span> <span class="ow">in</span> <span class="n">scale_keywords</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+        <span class="n">ylim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="n">ylim</span><span class="p">)</span>
+        <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;Network Traffic Load (\%)&quot;</span>
+    <span class="k">elif</span> <span class="n">data_type</span> <span class="ow">in</span> <span class="n">load_keywards</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">ticker</span><span class="o">.</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+        <span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;Number of Nodes&quot;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">width</span><span class="o">=.</span><span class="mi">3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_data_ratio</span><span class="p">(),</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

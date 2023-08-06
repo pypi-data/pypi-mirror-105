@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSim.simulation.tools.info &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>NetworkSim.simulation.tools.info</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for NetworkSim.simulation.tools.info</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Info&quot;</span><span class="p">]</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hongyi Yang&quot;</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<div class="viewcode-block" id="Info"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.info.Info.html#NetworkSim.simulation.tools.info.Info">[docs]</a><span class="k">class</span> <span class="nc">Info</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Information class to generate basic information of modules involved in the simulation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">simulator</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span> <span class="o">=</span> <span class="n">simulator</span>
+
+<div class="viewcode-block" id="Info.ram_info"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.info.Info.html#NetworkSim.simulation.tools.info.Info.ram_info">[docs]</a>    <span class="k">def</span> <span class="nf">ram_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain information on generated data packets in transmitter RAM.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        device_id : int</span>
+<span class="sd">            The ID of the RAM.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        generated_packets : pandas DataFrame</span>
+<span class="sd">            A DataFrame with the generated data packets that have been stored in transmitter RAM, \</span>
+<span class="sd">            containing the columns:</span>
+
+<span class="sd">            - `Timestamp` : float</span>
+<span class="sd">                The timestamp when the packet is generated using the method chosen.</span>
+<span class="sd">            - `Interarrival to Next` : float</span>
+<span class="sd">                The interarrival time from this packet to the next one.</span>
+<span class="sd">            - `Raw Packet` : str or list</span>
+<span class="sd">                The raw data packet generated, in string format if simulation is not abstract, and in list format \</span>
+<span class="sd">                if simulation is abstract.</span>
+<span class="sd">            - `Destination ID` : int</span>
+<span class="sd">                The destination node ID to which the data packet is supposed to be sent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">RAM</span><span class="p">[</span><span class="n">device_id</span><span class="p">]</span><span class="o">.</span><span class="n">generated_data_packet</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">_info</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+            <span class="s1">&#39;Data Packet Generation Timestamp&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Interarrival Time to Next Packet&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Raw Packet Content&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Packet Destination Node ID&#39;</span>
+        <span class="p">])</span></div>
+
+<div class="viewcode-block" id="Info.transmitter_info"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.info.Info.html#NetworkSim.simulation.tools.info.Info.transmitter_info">[docs]</a>    <span class="k">def</span> <span class="nf">transmitter_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">,</span> <span class="n">info_type</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain information on transmitted control or data packets in transmitter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        device_id : int</span>
+<span class="sd">            The ID of the transmitter.</span>
+<span class="sd">        info_type : str</span>
+<span class="sd">            The type of ring on which the transmitter transmits the packets.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        transmitted_packets : pandas DataFrame</span>
+<span class="sd">            A DataFrame with the transmitted control or data packets.</span>
+
+<span class="sd">            If control ring is selected, the output contains the columns:</span>
+
+<span class="sd">            - `Transmission Timestamp` : float</span>
+<span class="sd">                The timestamp when the control packet is transmitted onto the control ring.</span>
+<span class="sd">            - `Raw Packet` : str or list</span>
+<span class="sd">                The transmitted raw control packet, in the format of a list if abstract simulation is used \</span>
+<span class="sd">                or string if the simulation is not abstract.</span>
+<span class="sd">            - `Destination ID` : int</span>
+<span class="sd">                The destination node ID to which the control packet is transmitted.</span>
+
+<span class="sd">            If data ring is selected, the output contains the columns:</span>
+
+<span class="sd">            - `Transmission Timestamp` : float</span>
+<span class="sd">                The timestamp when the data packet is transmitted onto the data rings.</span>
+<span class="sd">            - `Raw Packet` : str or list</span>
+<span class="sd">                The transmitted raw data packet, in the format of a list if abstract simulation is used \</span>
+<span class="sd">                or string if the simulation is not abstract.</span>
+<span class="sd">            - `Destination ID` : int</span>
+<span class="sd">                The destination node ID to which the data packet is transmitted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_control_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;control&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">}</span>
+        <span class="n">_data_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
+        <span class="c1"># Select output data</span>
+        <span class="k">if</span> <span class="n">info_type</span> <span class="ow">in</span> <span class="n">_control_keywords</span><span class="p">:</span>
+            <span class="n">_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">transmitter</span><span class="p">[</span><span class="n">device_id</span><span class="p">]</span><span class="o">.</span><span class="n">transmitted_control_packet</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">_info</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+                <span class="s1">&#39;Control Packet Transmission Timestamp&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Raw Packet Content&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Packet Destination Node ID&#39;</span>
+            <span class="p">])</span>
+        <span class="k">elif</span> <span class="n">info_type</span> <span class="ow">in</span> <span class="n">_data_keywords</span><span class="p">:</span>
+            <span class="n">_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">transmitter</span><span class="p">[</span><span class="n">device_id</span><span class="p">]</span><span class="o">.</span><span class="n">transmitted_data_packet</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">_info</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+                <span class="s1">&#39;Data Packet Transmission Timestamp&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Raw Packet Content&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Packet Destination Node ID&#39;</span>
+            <span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Ring type not recognised. Please select either &#39;control&#39; for control ring &quot;</span>
+                             <span class="s2">&quot;or &#39;data&#39; for data rings.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Info.receiver_info"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.info.Info.html#NetworkSim.simulation.tools.info.Info.receiver_info">[docs]</a>    <span class="k">def</span> <span class="nf">receiver_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">,</span> <span class="n">info_type</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain information on received control or data packets in receiver.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        device_id : int</span>
+<span class="sd">            The ID of the receiver.</span>
+<span class="sd">        info_type : str</span>
+<span class="sd">            The type of information requested, chosen from the following:</span>
+
+<span class="sd">            - `control`</span>
+<span class="sd">                Received control packets.</span>
+<span class="sd">            - `data`</span>
+<span class="sd">                Received data packets.</span>
+<span class="sd">            - `queue`</span>
+<span class="sd">                RAM queue of control packets.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        packet_information : pandas DataFrame</span>
+<span class="sd">            A DataFrame with the receiver=d control or data packets.</span>
+
+<span class="sd">            If control ring is selected, the output contains the columns:</span>
+
+<span class="sd">            - `Reception Timestamp` : float</span>
+<span class="sd">                The timestamp when the control packet is received from the control ring.</span>
+<span class="sd">            - `Raw Packet` : str or list</span>
+<span class="sd">                The received raw control packet, in the format of a list if abstract simulation is used \</span>
+<span class="sd">                or string if the simulation is not abstract.</span>
+<span class="sd">            - `Source ID` : int</span>
+<span class="sd">                The source node ID from which the control packet is received.</span>
+
+<span class="sd">            If data ring is selected, the output contains the columns:</span>
+
+<span class="sd">            - `Reception Timestamp` : float</span>
+<span class="sd">                The timestamp when the data packet is received from the data rings.</span>
+<span class="sd">            - `Raw Packet` : str or list</span>
+<span class="sd">                The received raw data packet, in the format of a list if abstract simulation is used \</span>
+<span class="sd">                or string if the simulation is not abstract.</span>
+<span class="sd">            - `Source ID` : int</span>
+<span class="sd">                The source node ID from which the data packet is received.</span>
+
+<span class="sd">            If internal RAM queue is selected, the output contains the columns:</span>
+
+<span class="sd">            - `Operation Timestamp` : float</span>
+<span class="sd">                The timestamp when the operation is carried out.</span>
+<span class="sd">            - `Raw Packet` : str</span>
+<span class="sd">                The raw control packet.</span>
+<span class="sd">            - `Source ID` : int</span>
+<span class="sd">                Source ID of the control packet.</span>
+<span class="sd">            - `Operation` : str</span>
+<span class="sd">                Operation carried out on the packet in the queue.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_control_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;control&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">}</span>
+        <span class="n">_data_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
+        <span class="n">_queue_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;queue&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">}</span>
+        <span class="c1"># Select output data</span>
+        <span class="k">if</span> <span class="n">info_type</span> <span class="ow">in</span> <span class="n">_control_keywords</span><span class="p">:</span>
+            <span class="n">_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">receiver</span><span class="p">[</span><span class="n">device_id</span><span class="p">]</span><span class="o">.</span><span class="n">received_control_packet</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">_info</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+                <span class="s1">&#39;Control Packet Reception Timestamp&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Raw Control Packet Content&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Packet Source Node ID&#39;</span>
+            <span class="p">])</span>
+        <span class="k">elif</span> <span class="n">info_type</span> <span class="ow">in</span> <span class="n">_data_keywords</span><span class="p">:</span>
+            <span class="n">_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">receiver</span><span class="p">[</span><span class="n">device_id</span><span class="p">]</span><span class="o">.</span><span class="n">received_data_packet</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">_info</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+                <span class="s1">&#39;Data Packet Reception Timestamp&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Raw Data Packet Content&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Packet Source Node ID&#39;</span>
+            <span class="p">])</span>
+        <span class="k">elif</span> <span class="n">info_type</span> <span class="ow">in</span> <span class="n">_queue_keywords</span><span class="p">:</span>
+            <span class="n">_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">receiver</span><span class="p">[</span><span class="n">device_id</span><span class="p">]</span><span class="o">.</span><span class="n">queue_record</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">_info</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+                <span class="s1">&#39;Operation Timestamp&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Raw Control Packet Content&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Packet Source Node ID&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Operation&#39;</span>
+            <span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Ring type not recognised. Please select either &#39;control&#39; for control ring &quot;</span>
+                             <span class="s2">&quot;or &#39;data&#39; for data rings.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Info.ring_info"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.tools.info.Info.html#NetworkSim.simulation.tools.info.Info.ring_info">[docs]</a>    <span class="k">def</span> <span class="nf">ring_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ring_id</span><span class="p">,</span> <span class="n">info_type</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain packet transmission information on the control or data ring.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        packet_record : pandas DataFrame</span>
+<span class="sd">            A DataFrame containing the information on all packet transmission on the ring, including the columns:</span>
+
+<span class="sd">            - `Generation Timestamp` : float</span>
+<span class="sd">                The timestamp when the packet is generated and stored in the RAM.</span>
+<span class="sd">            - `Transmission Timestamp` : float</span>
+<span class="sd">                The timestamp when the packet is added onto the ring by the transmitter.</span>
+<span class="sd">            - `Reception Timestamp` : float</span>
+<span class="sd">                The timestamp when the packet is received by the receiver.</span>
+<span class="sd">            - `Raw Packet` : str</span>
+<span class="sd">                The raw packet content.</span>
+<span class="sd">            - `Source Node` : int</span>
+<span class="sd">                The ID of the source node.</span>
+<span class="sd">            - `Destination Node` : int</span>
+<span class="sd">                The ID of the destination node.</span>
+<span class="sd">            - `Status` : str</span>
+<span class="sd">                The status of the packet, can be ``added`` or ``removed``.</span>
+<span class="sd">            - Total Packet Count : int</span>
+<span class="sd">                The total number of packets on the ring at the time of the operation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_control_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;control&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">}</span>
+        <span class="n">_data_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">info_type</span> <span class="ow">in</span> <span class="n">_control_keywords</span><span class="p">:</span>
+            <span class="n">_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">control_ring</span><span class="o">.</span><span class="n">packet_record</span>
+        <span class="k">elif</span> <span class="n">info_type</span> <span class="ow">in</span> <span class="n">_data_keywords</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ring_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Data Ring ID must be specified.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">packet_record</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Type of information requested is not recognised.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">_info</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+            <span class="s1">&#39;Generation Timestamp&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Transmission Timestamp&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Reception Timestamp&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Packet Raw Content&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Source Node ID&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Destination Node ID&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Packet Status on Ring&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Real-Time Total Packet Count&#39;</span>
+        <span class="p">])</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

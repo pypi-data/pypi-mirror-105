@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSim.architecture.setup.model &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>NetworkSim.architecture.setup.model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for NetworkSim.architecture.setup.model</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Model&quot;</span><span class="p">]</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hongyi Yang&quot;</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.base.network</span> <span class="kn">import</span> <span class="n">Network</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.base.node</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.base.ring</span> <span class="kn">import</span> <span class="n">Ring</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.signal.control</span> <span class="kn">import</span> <span class="n">ControlSignal</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.signal.data</span> <span class="kn">import</span> <span class="n">DataSignal</span>
+
+
+<div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model">[docs]</a><span class="k">class</span> <span class="nc">Model</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Constructor for model.</span>
+
+<span class="sd">    The model includes network, node and signal definitions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    control_signal : ControlSignal, optional</span>
+<span class="sd">        The control signal definition. Default is ``ControlSignal()``.</span>
+<span class="sd">    data_signal : DataSignal, optional</span>
+<span class="sd">        The data signal definition. Default is ``DataSignal()``.</span>
+<span class="sd">    network : Network, optional</span>
+<span class="sd">        The network definition. Default is ``Network()``.</span>
+<span class="sd">    abstract : bool</span>
+<span class="sd">        Abstract representation of control and data packets. Default is ``True``.</span>
+<span class="sd">    bidirectional : bool, optional</span>
+<span class="sd">        The type of network architecture, either bidirectional or unidirectional. \</span>
+<span class="sd">            Default is ``False``, which is unidirectional.</span>
+
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nodes : list</span>
+<span class="sd">        A list containing the nodes in the model</span>
+<span class="sd">    data_rings : list</span>
+<span class="sd">        A list containing the data rings in the model</span>
+<span class="sd">    control_ring : Ring</span>
+<span class="sd">        The control ring in the network. The `ring_id` of this ring is ``-1``.</span>
+<span class="sd">    constants : dict</span>
+<span class="sd">        A dictionary containing:</span>
+
+<span class="sd">        - `speed` : speed of light in the fibre, in m/s</span>
+<span class="sd">        - `maximum_bit_rate` : maximum bit rate of each channel, in Gbit/s</span>
+<span class="sd">        - `average_bit_rate` : average bit rate of each channel, in Gbit/s</span>
+<span class="sd">        - `data_guard_interval` : guard interval of data packets, in ns</span>
+<span class="sd">        - `control_guard_interval` : guard interval of control packets, in ns</span>
+<span class="sd">        - `tuning_time` : tuning time of the receiver, in ns</span>
+<span class="sd">    data_packet_duration : float</span>
+<span class="sd">        The total duration of the data packet, including the guard interval.</span>
+<span class="sd">    circulation_time : float</span>
+<span class="sd">        The time for one complete circulation around the ring.</span>
+<span class="sd">    max_data_packet_num_on_ring : int</span>
+<span class="sd">        The maximum number of data packets a ring can contain.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">control_signal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">data_signal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">network</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">abstract</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">bidirectional</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">control_signal</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">control_signal</span> <span class="o">=</span> <span class="n">ControlSignal</span><span class="p">(</span><span class="n">abstract</span><span class="o">=</span><span class="n">abstract</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span> <span class="o">=</span> <span class="n">control_signal</span>
+        <span class="k">if</span> <span class="n">data_signal</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data_signal</span> <span class="o">=</span> <span class="n">DataSignal</span><span class="p">(</span><span class="n">abstract</span><span class="o">=</span><span class="n">abstract</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_signal</span> <span class="o">=</span> <span class="n">data_signal</span>
+        <span class="k">if</span> <span class="n">network</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">network</span> <span class="o">=</span> <span class="n">Network</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">=</span> <span class="n">network</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">abstract</span> <span class="o">=</span> <span class="n">abstract</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bidirectional</span> <span class="o">=</span> <span class="n">bidirectional</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_nodes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_rings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_data_rings</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reversed_data_rings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_reversed_data_rings</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">control_ring</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_control_ring</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">constants</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;speed&#39;</span><span class="p">:</span> <span class="mf">2e8</span><span class="p">,</span>  <span class="c1"># speed of light in fibre, in m/s</span>
+            <span class="s1">&#39;maximum_bit_rate&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>  <span class="c1"># system burst rate (maximum bit rate), in Gbit/s</span>
+            <span class="s1">&#39;average_bit_rate&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>  <span class="c1"># system average bit rate, in Gbit/s</span>
+            <span class="s1">&#39;data_guard_interval&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>  <span class="c1"># guard interval of data packets in ns</span>
+            <span class="s1">&#39;control_guard_interval&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span>  <span class="c1"># guard interval of control packets in ns</span>
+            <span class="s1">&#39;tuning_time&#39;</span><span class="p">:</span> <span class="mi">20</span>  <span class="c1"># tuning time of the receiver in ns</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_packet_duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_data_packet_total_duration</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circulation_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_circulation_time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_data_packet_num_on_ring</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_max_data_packet_num_on_ring</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Model.get_circulation_time"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model.get_circulation_time">[docs]</a>    <span class="k">def</span> <span class="nf">get_circulation_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate time for a signal to circulate around the ring once.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        circulation_time : float</span>
+<span class="sd">            The time taken for one circulation, in ns.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">length</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;speed&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e9</span></div>
+
+<div class="viewcode-block" id="Model.get_data_packet_duration"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model.get_data_packet_duration">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_packet_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculation of the duration of a data packet excluding guard interval</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        packet_duration : float</span>
+<span class="sd">            Duration of the data packet, in ns</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Calculate total time taken by one packet excluding guard interval</span>
+        <span class="n">_bit_duration</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;maximum_bit_rate&#39;</span><span class="p">)</span>
+        <span class="n">packet_duration</span> <span class="o">=</span> <span class="n">_bit_duration</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_signal</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="mi">8</span>
+        <span class="k">return</span> <span class="n">packet_duration</span></div>
+
+<div class="viewcode-block" id="Model.get_data_packet_total_duration"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model.get_data_packet_total_duration">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_packet_total_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculation of the duration of a data packet including guard interval</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        total_duration : float</span>
+<span class="sd">            Duration of the data packet with guard interval, in ns</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Calculate total time taken by one packet including guard interval</span>
+        <span class="n">_bit_duration</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;maximum_bit_rate&#39;</span><span class="p">)</span>
+        <span class="n">_packet_duration</span> <span class="o">=</span> <span class="n">_bit_duration</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_signal</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="mi">8</span>
+        <span class="n">total_duration</span> <span class="o">=</span> <span class="n">_packet_duration</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data_guard_interval&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">total_duration</span></div>
+
+<div class="viewcode-block" id="Model.get_max_data_packet_num_on_ring"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model.get_max_data_packet_num_on_ring">[docs]</a>    <span class="k">def</span> <span class="nf">get_max_data_packet_num_on_ring</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain the maximum number of data packets that can be fitted in the ring.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        max_packet_num : int</span>
+<span class="sd">            The maximum number of packets allowed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Calculate total time taken by one packet including guard interval</span>
+        <span class="n">_total_duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_data_packet_total_duration</span><span class="p">()</span>
+        <span class="c1"># Calculate total length of one transmission</span>
+        <span class="n">_transmission_length</span> <span class="o">=</span> <span class="n">_total_duration</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;speed&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-9</span>
+        <span class="c1"># Calculate maximum number of packets that could be fitted on the ring</span>
+        <span class="n">max_packet_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">length</span> <span class="o">//</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">_transmission_length</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># Type cast at the end to avoid TypeError: &#39;numpy.float64&#39; object cannot be interpreted as an integer</span>
+        <span class="k">return</span> <span class="n">max_packet_num</span></div>
+
+<div class="viewcode-block" id="Model.get_max_control_packet_num_on_ring"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model.get_max_control_packet_num_on_ring">[docs]</a>    <span class="k">def</span> <span class="nf">get_max_control_packet_num_on_ring</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain the maximum number of control packets that can be fitted in the ring.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        max_packet_num : int</span>
+<span class="sd">            The maximum number of packets allowed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_max_control_packet_num_between_nodes</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span></div>
+
+<div class="viewcode-block" id="Model.get_max_control_packet_num_between_nodes"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model.get_max_control_packet_num_between_nodes">[docs]</a>    <span class="k">def</span> <span class="nf">get_max_control_packet_num_between_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain the maximum number of control packets that can be fitted between two nodes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        max_packet_num_between_node : int</span>
+<span class="sd">            The maximum number of packets allowed between two nodes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Calculate total time taken by one packet including guard interval</span>
+        <span class="n">_bit_duration</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;maximum_bit_rate&#39;</span><span class="p">)</span>
+        <span class="n">_packet_duration</span> <span class="o">=</span> <span class="n">_bit_duration</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">id_length</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">control_length</span><span class="p">)</span>
+        <span class="n">_total_duration</span> <span class="o">=</span> <span class="n">_packet_duration</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;control_guard_interval&#39;</span><span class="p">)</span>
+        <span class="c1"># Calculate total length of one transmission</span>
+        <span class="n">_transmission_length</span> <span class="o">=</span> <span class="n">_total_duration</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;speed&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-9</span>
+        <span class="c1"># Calculate the distance between two node</span>
+        <span class="n">_node_interval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">get_interval</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">_node_interval</span> <span class="o">&lt;</span> <span class="n">_transmission_length</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;This configuration would result in control packet larger than the node interval.&quot;</span><span class="p">)</span>
+        <span class="c1"># Calculate maximum number of packets that could be fitted between two node</span>
+        <span class="n">max_packet_num_between_node</span> <span class="o">=</span> <span class="n">_node_interval</span> <span class="o">//</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">_transmission_length</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># Type cast at the end to avoid TypeError: &#39;numpy.float64&#39; object cannot be interpreted as an integer</span>
+        <span class="k">return</span> <span class="n">max_packet_num_between_node</span></div>
+
+<div class="viewcode-block" id="Model.generate_nodes"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model.generate_nodes">[docs]</a>    <span class="k">def</span> <span class="nf">generate_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a list of nodes based on the network configuration.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        nodes : list</span>
+<span class="sd">            List of `Node` objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">Node</span><span class="p">(</span>
+            <span class="n">control_signal</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">control_signal</span><span class="p">,</span>
+            <span class="n">data_signal</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_signal</span><span class="p">,</span>
+            <span class="n">network</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="p">,</span>
+            <span class="n">node_id</span><span class="o">=</span><span class="n">i</span>
+        <span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="Model.generate_data_rings"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model.generate_data_rings">[docs]</a>    <span class="k">def</span> <span class="nf">generate_data_rings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a list of data rings based on the network configuration.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_rings : list</span>
+<span class="sd">            List of `Ring` objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">Ring</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">ring_id</span><span class="o">=</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="Model.generate_reversed_data_rings"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model.generate_reversed_data_rings">[docs]</a>    <span class="k">def</span> <span class="nf">generate_reversed_data_rings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a list of data rings in the reversed transmission direction based on the network configuration.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_rings : list</span>
+<span class="sd">            List of `Ring` objects with `reversed=True`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">Ring</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">ring_id</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="nb">reversed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="Model.generate_control_ring"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model.generate_control_ring">[docs]</a>    <span class="k">def</span> <span class="nf">generate_control_ring</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a control ring based on the network configuration.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        control_ring : Ring</span>
+<span class="sd">            List of `Ring` objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Ring</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">ring_id</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>
