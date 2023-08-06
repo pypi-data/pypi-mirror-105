@@ -1,0 +1,16 @@
+napari_tracks_reader/__init__.py,sha256=DFUHBcst9XX_N69EIHGRYTxOA2AFRdaDsSTWwRd2zIc,145
+napari_tracks_reader/_reader.py,sha256=TapWhVFaU4XeJ_fBCapxIFkK4W0XDYabbmUhegBRaKU,3061
+napari_tracks_reader/_version.py,sha256=nJw07NaAOarsjNXV62uCKxBueTVXsMnv45wa1HFr3pM,142
+napari_tracks_reader/csv_tracks_parser.py,sha256=Iw3_r-ofVEAiLm2VzSMyt0ORY1aJxS1wVsLK1sN-mXU,1066
+napari_tracks_reader/icy_reader.py,sha256=pxyfDo8CXjoZDgbalGb0k33N-TO4PBxzCQClfNEgrIQ,1715
+napari_tracks_reader/isbi_reader.py,sha256=yEK6w98AMQFTp9TA83-Y_D1M5RHP0lg-jJE5S9WvIQs,1103
+napari_tracks_reader/trackmate_reader.py,sha256=NMJynH1SPPpUCITLxS8s7zC0AJWlC0knesbdlHBjo-g,5340
+napari_tracks_reader/xml_tracks_parser.py,sha256=K_ofdW1OjDLZ3Vw4SjIga_bxXlLCpckqt0fr6lz6IUA,1521
+napari_tracks_reader/_tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+napari_tracks_reader/_tests/test_reader.py,sha256=GxZc5jFX9Wleq5MLteBmMsLzQHXOmanCKzyzcBnoRLQ,3292
+napari_tracks_reader-0.1.2.dist-info/LICENSE,sha256=yjcqfZJWCx-p9tgytEDovNYtmt-ohwyYKH3qtm2YMQ4,35148
+napari_tracks_reader-0.1.2.dist-info/METADATA,sha256=2Ga1dxPeFi13OoKC7yI8Q5XdJ6wGwN7qCbNSi890rk0,3609
+napari_tracks_reader-0.1.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+napari_tracks_reader-0.1.2.dist-info/entry_points.txt,sha256=hNQLlcKNMx23c-jDEnLbN8V-57QyQOwYUHd4ipa2mPY,61
+napari_tracks_reader-0.1.2.dist-info/top_level.txt,sha256=cQ1GrSjdeXnFrh2NhUYb_NeBkcqa6At2w0qEEYAAL-4,21
+napari_tracks_reader-0.1.2.dist-info/RECORD,,
