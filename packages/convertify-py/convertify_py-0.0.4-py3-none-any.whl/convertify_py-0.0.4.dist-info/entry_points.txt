@@ -1,0 +1,3 @@
+[console_scripts]
+convertify-py = app.__main__:main
+
