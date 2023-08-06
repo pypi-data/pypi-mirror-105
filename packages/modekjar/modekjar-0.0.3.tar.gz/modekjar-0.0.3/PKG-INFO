@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: modekjar
+Version: 0.0.3
+Summary: Just a small function package for numpy, sympy and iminuit
+Home-page: https://github.com/Zaptos27/functions_moedekjaer.git
+Author: Mikkel Møller Mødekjær
+Author-email: MikkelMM99@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/Zaptos27/functions_moedekjaer.git/issues
+Description: # functions_moedekjaer
+        It is a function collection written primarylly by Mikkel Møller Mødekjær
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
