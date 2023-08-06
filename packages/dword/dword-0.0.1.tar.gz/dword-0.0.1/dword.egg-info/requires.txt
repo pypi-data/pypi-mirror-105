@@ -1,0 +1,8 @@
+requests
+opencv-python
+pytube
+pydub
+imageio
+imageio-ffmpeg
+fastcore
+moviepy
