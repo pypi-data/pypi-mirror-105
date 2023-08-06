@@ -1,0 +1,4 @@
+[console_scripts]
+acdumo = acdumo.acdumo:main
+acdumo-install-certifi = acdumo.install_certifi:main
+

@@ -1,0 +1,3 @@
+graft acdumo/static
+graft acdumo/templates
+global-exclude *.pyc
