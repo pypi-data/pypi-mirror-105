@@ -1,0 +1,5 @@
+[console_scripts]
+chmod = change_permisions:change
+locate = locate_file:main
+ls = ls:find_files
+
