@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+pSyCH/__init__.py
+pSyCH.egg-info/PKG-INFO
+pSyCH.egg-info/SOURCES.txt
+pSyCH.egg-info/dependency_links.txt
+pSyCH.egg-info/top_level.txt
