@@ -1,0 +1,8 @@
+README.md
+pear_cpy.bycython.c
+pear_cpy.c
+setup.py
+pear_cpy.egg-info/PKG-INFO
+pear_cpy.egg-info/SOURCES.txt
+pear_cpy.egg-info/dependency_links.txt
+pear_cpy.egg-info/top_level.txt

@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: pear-cpy
+Version: 0.0.0
+Summary: UNKNOWN
+Home-page: https://github.com/g3rrit/pear_cpy
+Author: Gerrit Proessl
+Author-email: grproessl@web.de
+License: MIT
+Description: # Description
+        
+        This package provides a template for creating a python package that interfaces with c code
+        
+        # Building
+        
+        `make sdist`
+        
+        # Publishing
+        
+        `make publish`
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
