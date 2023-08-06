@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: handDetection
+Version: 0.1
+Summary: Help to detect hand using OpenCV and mediapipe
+Home-page: https://github.com/subhamrex
+Author: Subham Kundu
+Author-email: subhamkundu486@gmail.com
+License: MIT
+Download-URL: https://github.com/subhamrex/handDetection-PyPi-Package
+Description: UNKNOWN
+Keywords: ComputerVision,HandDetection,handDetectionModule
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
