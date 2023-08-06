@@ -1,0 +1,10 @@
+gitfx/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gitfx/__main__.py,sha256=xVwcx35f6Ugy_d5e1evSpqSm-GhPtF8hxPciYZ6A8Gs,247
+gitfx/lang_version.py,sha256=TtzjDhtYxWatoZPUB_fHMEvAJ4ghSlms9UpiTXsuqp0,736
+gitfx/parse_funcs.py,sha256=Vh3PIGWW2pgp5SwmsRpQL5tdG-aUbOcF8gEX5KeIdlk,2131
+gitfx/run_funcs.py,sha256=5KCRiz9mPf7HFJaEik8D9R6944DCEJj44Y3n-Kx7x8Y,4662
+GitFx-0.0.3.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+GitFx-0.0.3.dist-info/METADATA,sha256=F17iJhWFxAO-sB0MDLLwfiM2dyI9ewss_lWRuDerQqQ,4950
+GitFx-0.0.3.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+GitFx-0.0.3.dist-info/top_level.txt,sha256=GmGr2392hBMrb6qkJVeq02vEhVSgLuVVLQorFEainrk,6
+GitFx-0.0.3.dist-info/RECORD,,
