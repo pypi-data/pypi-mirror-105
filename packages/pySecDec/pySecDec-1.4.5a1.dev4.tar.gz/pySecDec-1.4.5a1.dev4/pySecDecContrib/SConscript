@@ -1,0 +1,72 @@
+Import("env")
+
+cuba = "Cuba-4.2"
+form = "form-4.2.1"
+gsl = "gsl-2.5"
+nauty = "nauty26r7"
+
+contrib_extra_source = File(Split(f"""
+    SConscript
+    {gsl}.list
+"""))
+
+contrib = []
+
+contrib += \
+    File(["__init__.py", "__main__.py"])
+
+contrib += \
+    Install("include", "qmc.hpp")
+
+contrib += \
+    Install("include/secdecutil", Glob("util/secdecutil/*hpp")) + \
+    Install("include/secdecutil/integrators", Glob("util/secdecutil/integrators/*hpp"))
+
+def ConfigureAndInstall(env, target, packagename, extension=".tar.gz", configure_extra_args=""):
+    return env.Command(target, [f"{packagename}{extension}"], f"""
+        cd pySecDecContrib && \
+        tar -xf {packagename}{extension} && \
+        cd {packagename} && \
+        sed -i 's/mcc/false/g' configure && \
+        ./configure \
+            --prefix="$$PWD/../install" \
+            --libdir="$$PWD/../lib" \
+            --includedir="$$PWD/../include" \
+            --bindir="$$PWD/../bin" \
+            {configure_extra_args} && \
+        make && \
+        make install && \
+        cd .. && \
+        rm -rf {packagename}
+    """)
+
+cuba_files = ["lib/libcuba.a", "include/cuba.h"]
+contrib += \
+    ConfigureAndInstall(env, cuba_files, cuba,
+        configure_extra_args="CFLAGS='-O3 -fomit-frame-pointer -ffast-math -fno-finite-math-only -fexceptions -fcommon -fPIC'")
+
+form_files = ["bin/form", "bin/tform"]
+contrib += \
+    ConfigureAndInstall(env, form_files, form,
+        configure_extra_args="--without-gmp --without-zlib")
+
+gsl_files = open(f"{gsl}.list").read().splitlines()
+contrib += \
+    ConfigureAndInstall(env, gsl_files, gsl,
+        configure_extra_args="--disable-shared --enable-static --with-pic")
+
+nauty_files = ["bin/dreadnaut"]
+contrib += \
+    env.Command(nauty_files, [f"{nauty}.tar.gz"], f"""
+        cd pySecDecContrib && \
+        tar -xf {nauty}.tar.gz && \
+        cd {nauty} && \
+        ./configure && \
+        make dreadnaut && \
+        strip dreadnaut && \
+        cp -a dreadnaut ../bin/dreadnaut && \
+        cd .. && \
+        rm -rf {nauty}
+    """)
+
+Return("contrib")
