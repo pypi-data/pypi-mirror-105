@@ -1,0 +1,5 @@
+pyproject.toml
+DiscordSigning.egg-info/PKG-INFO
+DiscordSigning.egg-info/SOURCES.txt
+DiscordSigning.egg-info/dependency_links.txt
+DiscordSigning.egg-info/top_level.txt
