@@ -1,0 +1,9 @@
+transformers>=4.6.0
+pysbd
+bert-score
+rich
+sumeval
+stanford_openie
+
+[:python_version < "3.7"]
+dataclasses
