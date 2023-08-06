@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+src/MultiProcessDivision/__init__.py
+src/MultiProcessDivision/divide.py
+src/MultiProcessDivision.egg-info/PKG-INFO
+src/MultiProcessDivision.egg-info/SOURCES.txt
+src/MultiProcessDivision.egg-info/dependency_links.txt
+src/MultiProcessDivision.egg-info/requires.txt
+src/MultiProcessDivision.egg-info/top_level.txt
