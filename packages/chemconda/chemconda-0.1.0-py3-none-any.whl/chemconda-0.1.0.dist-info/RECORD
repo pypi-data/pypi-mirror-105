@@ -1,0 +1,15 @@
+chemconda/__init__.py,sha256=L6zbQIZKsAP-Knhm6fBcQFPoVdIDuejxze60qX23jiw,21
+chemconda/cli.py,sha256=OWYdDqAIZsrqe0xZ-j9egN4xCG7ec3tElJom_9mvTmM,598
+chemconda/config.py,sha256=HuolJlpOEjcDWzD6Wj64rP4qXbE3-V3FEx18NRfcr2o,2838
+chemconda/utils.py,sha256=NivvvK2IuAIgwFPQDBLzGNuJZAZuwsSdqjoStRj75PQ,6412
+chemconda/command/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+chemconda/command/install_conda.py,sha256=Q2IrmtvECV0KN-AICnmIlu74ZzX_Wzc_w0ZC8ijET2M,1302
+chemconda/command/install_packages.py,sha256=uJzOpjEog3RMaBYzUjoaWDryzYQ41s_4nwQcN9p9yG0,1677
+chemconda/command/new_kernel.py,sha256=nVIQRXZRTZSFWP4_GUc_DuaZ2ZPv4ese7BZTqhW-Kd0,1461
+chemconda/command/show_info.py,sha256=FMSurU6DgYZtdIQ9bAsZ0eW750wlCyZrhsBfITGoqgw,857
+chemconda-0.1.0.dist-info/LICENSE,sha256=D_QrI47d4mwEbuni6Bc7AkovXoR2SwATTa3eVOJzMSI,1064
+chemconda-0.1.0.dist-info/METADATA,sha256=bjruBV7Q6BN9ZBdwn9cOeYhWmQ1lg-CxYcRdxn15_3I,957
+chemconda-0.1.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+chemconda-0.1.0.dist-info/entry_points.txt,sha256=oh8FipqdtPaLCLOD4uA9W8rxZXC_t1YJLish6Q1gE5k,57
+chemconda-0.1.0.dist-info/top_level.txt,sha256=ZhWksPAt-Nsn2R0KiB2_DQW72uD2MTwVnHe2tsFQ-4s,10
+chemconda-0.1.0.dist-info/RECORD,,
