@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: auto-ml-cl
+Version: 0.0.5
+Summary: Auto machine learning with scikit-learn and TensorFlow framework.
+Home-page: https://github.com/lugq1990/auto-ml-cl
+Author: guangqiang.lu
+Author-email: gqianglu@outlook.com
+License: MIT
+Description: Auto machine learning with scikit-learn and TensorFlow framework.
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
