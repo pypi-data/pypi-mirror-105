@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+bivium/__init__.py
+bivium/alt.py
+bivium/bivium.py
+bivium.egg-info/PKG-INFO
+bivium.egg-info/SOURCES.txt
+bivium.egg-info/dependency_links.txt
+bivium.egg-info/top_level.txt
