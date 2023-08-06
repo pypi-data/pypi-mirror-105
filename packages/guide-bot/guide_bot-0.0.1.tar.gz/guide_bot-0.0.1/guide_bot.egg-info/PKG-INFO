@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: guide-bot
+Version: 0.0.1
+Summary: Neutron guide optimization package
+Home-page: https://git.esss.dk/highness/guide_bot
+Author: Mads Bertelsen
+Author-email: Mads.Bertelsen@ess.eu
+License: UNKNOWN
+Description: # Early version of guide_bot in python
+        
+        This project is a rewrite of the guide_bot software that was originally coded in MATLAB, https://github.com/mads-bertelsen/guide_bot.
+        
+        The purpose of guide_bot is to automate optimization of neutron guide systems given a simple job description and a description of the desired guide geometry. The guide geometry can be provided with as much or as little detail as desired, and everything not specified will be optimized. This has been used for many ESS instruments in early phases, as this allows investigating a broad range of different guide systems without much effort. guide_bot was also used at PSI for their guide upgrades for existing instruments. The guide simulations are performed by McStas and optimization was performed with iFit, usually on a cluster running SLURM.
+        
+        The rewrite in python is underway and is thus far from fully functional. The rewrite will provide several important benefits:
+        
+        * Open source software, no MATLAB license required
+        * Can depend on McStasScript which will handle McStas jobs, simplifying the guide_bot code
+        * The original guide_bot could only scan two dimensions, and only certain were allowed, this limitation was removed
+        * Much easier for the user to add a new figure of merit or source
+        * Avoided complex parameter space transformations by using constraints during optimization instead
+        * Can have python code executed before each optimization step, moves complexity away from instrument file
+        * User defined parameters are possible, which can depend on one another using arbitrary functions
+        * User defiend constraints can be added to the user defined parameters
+        * Computing tasks written as pickled python code, easy to perform the task on other hardware
+        * Now have unit tests (in progress)
+        
+        This is the earliest public version of the software, and is not yet ready for production. There are many systems which are yet to be added, such as allowing guides that break line of sight, specification of the guide coating, only the bare minimum of plots are shown.
+        
+        Currently these guide elements are implemented:
+        
+        * Straight guide (or tapered, start and end dimensions can differ, but the mirrors are straight)
+        * Elliptic guide
+        * Gap
+        
+        Currently it is recommended to install the software in a virtual python environment, follow the steps below.
+        
+        1) clone the repository
+        2) navigate to the folder in a terminal
+        3) create the virtual environement with: python -m venv venv
+        4) activate the virtual environemnt: source ./venv/bin/activate
+        5) install required packages with pip: pip install -r requirements.txt
+        6) install guide_bot with: pip install -e .
+        
+        Before using guide_bot, that virtual environment need to be activated by repeating step 4.
+        
+        For any suggestions on development or questions, please write Mads.Bertelsen@ess.eu
+        The project is funded by the EU project HighNESS and is done under work package 7.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown
