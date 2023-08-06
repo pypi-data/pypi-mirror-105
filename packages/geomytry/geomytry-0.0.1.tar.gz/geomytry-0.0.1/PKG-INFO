@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: geomytry
+Version: 0.0.1
+Summary: Useful functions to work with geometry
+Home-page: https://github.com/mordy-python/geomytry
+Author: Mordy Waldo
+Author-email: imky171@gmail.com
+License: MIT
+Download-URL: https://pypi.org/project/geomytry/
+Description: UNKNOWN
+Keywords: Geometry,Math,Shapes
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
