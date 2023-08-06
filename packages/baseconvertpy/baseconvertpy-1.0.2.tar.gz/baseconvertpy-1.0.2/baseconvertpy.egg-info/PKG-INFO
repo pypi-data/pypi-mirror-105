@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: baseconvertpy
+Version: 1.0.2
+Summary: A simple way to convert numbers from one base to another.
+Home-page: https://github.com/Siddharth3141/BaseConvertPy
+Author: Siddharth
+License: MIT
+Description: # Base Change
+        
+        An easy way to switch between bases in Python.
+        
+        # Usage
+        
+        #### Install
+        
+        `pip install baseconvertpy`
+        
+        #### Import
+        
+        `import baseconvertpy`
+        
+        #### Converting bases
+        
+        ```
+        baseconvertpy.convert(<Number>, <New Base>, <Original Base (Default is 10)>, <Charset (Default is characters for up to base 62)>)
+        ```
+        
+        #### Converting from base 10 to base X
+        
+        ```
+        baseconvertpy.to_baseX(<Number in base 10>, <New Base>, <Charset (Default is characters for up to base 62)>)
+        ```
+        
+        #### Converting from base X to base 10
+        
+        ```
+        baseconvertpy.to_base10(<Number in base X>, <Original Base>, <Charset (Default is characters for up to base 62)>)
+        ```
+Keywords: python,base,conversion,number
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
