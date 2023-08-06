@@ -1,0 +1,13 @@
+subtractor/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+subtractor/__main__.py,sha256=u2OdIBho7h5PA9lB46CouNkWv5ezHcXEnKhOYengEHk,230
+subtractor/cli.py,sha256=Ab5BStbtmqXCHqZLL0jR-yjCrDNDlhfgXMkRu-BwEC8,1725
+subtractor/pixel.py,sha256=wZ6QCPVeOIKDTZPX151Pb_0mdLvoVUcdryqavObCJRM,1405
+subtractor/report.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+subtractor/stream.py,sha256=AgofztjhfsCet6tUz9mkzSfkYlhJCE5AVuNwLym6N88,1479
+subtractor/subtractor.py,sha256=aGqDBUezHBiNRKfCivD51otoxJ3fadxcjp4vrbs8k7A,10479
+subtractor-0.0.5.dist-info/LICENSE,sha256=NpMdbXDPQfOKFkp3mpaePQrBhcjltWWrjBt9lkJSBQQ,1069
+subtractor-0.0.5.dist-info/METADATA,sha256=xfB2LwEdH72A0IwsT79rl4DNuNSFuSwhPeeIXfrDir0,25826
+subtractor-0.0.5.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+subtractor-0.0.5.dist-info/entry_points.txt,sha256=_yUTdZsMionChoiTYh1Tyn6o_TLz5wUGqJdNCGThkNI,52
+subtractor-0.0.5.dist-info/top_level.txt,sha256=KDVT-F9DvHvabowkVGlpaNo3wPAAk6zhyyndzTf-qVs,11
+subtractor-0.0.5.dist-info/RECORD,,
