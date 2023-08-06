@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: dbxref
+Version: 0.1.7
+Summary: A library for resolving database cross references
+Home-page: UNKNOWN
+Author: Lukas Jelonek
+Author-email: Lukas.Jelonek@computational.bio.uni-giessen.de
+License: MIT
+Project-URL: Source Code, https://git.computational.bio.uni-giessen.de/SOaAS/dbxref
+Keywords: dbxref
+Platform: UNKNOWN
+Requires-Dist: appdirs
+Requires-Dist: cachecontrol
+Requires-Dist: diskcache
+Requires-Dist: lockfile
+Requires-Dist: lxml
+Requires-Dist: pbr
+Requires-Dist: pyyaml
+Requires-Dist: requests
+
+A library for resolving database cross references
+
+
