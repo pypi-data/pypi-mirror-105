@@ -1,0 +1,3 @@
+[console_scripts]
+run-by-arch = run_by_arch:main
+

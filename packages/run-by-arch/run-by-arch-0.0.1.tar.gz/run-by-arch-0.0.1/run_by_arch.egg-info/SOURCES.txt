@@ -1,0 +1,9 @@
+LICENSE
+README.rst
+setup.py
+run_by_arch/__init__.py
+run_by_arch.egg-info/PKG-INFO
+run_by_arch.egg-info/SOURCES.txt
+run_by_arch.egg-info/dependency_links.txt
+run_by_arch.egg-info/entry_points.txt
+run_by_arch.egg-info/top_level.txt
