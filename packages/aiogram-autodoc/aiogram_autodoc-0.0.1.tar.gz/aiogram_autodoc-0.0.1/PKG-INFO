@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: aiogram_autodoc
+Version: 0.0.1
+Summary: Generates command documentation from handlers
+Home-page: https://github.com/viuipan/aiogram-autodoc
+Author-email: viuipan@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
