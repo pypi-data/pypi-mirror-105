@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:s="https://github.com/nturley/netlistsvg" width="266.02" height="1042">
+  <style>svg {  stroke: #000;  fill: none;  stroke-linejoin: round;  stroke-linecap: round;}text {  fill: #000;  stroke: none;  font-size: 10px;  font-weight: bold;  font-family: "Courier New", monospace;}.skidl_text {  fill: #999;  stroke: none;  font-weight: bold;  font-family: consolas, "Courier New", monospace;}.pin_num_text {    fill: #840000;}.pin_name_text {    fill: #008484;}.part_text {    fill: #840000;}.part_ref_text {    fill: #008484;}.part_name_text {    fill: #008484;}.pen_fill {    fill: #840000;}.background_fill {    fill: #FFFFC2}.nodelabel {  text-anchor: middle;}.inputPortLabel {  text-anchor: end;}.splitjoinBody {  fill: #000;}.symbol {  stroke-linejoin: round;  stroke-linecap: round;  stroke: #840000;}.detail {  stroke-linejoin: round;  stroke-linecap: round;  fill: #000;}</style>
+  <g s:type="GND_1_" s:width="30.0" s:height="30.0" id="cell_#PWR1" transform="translate(40.01999999999998,32)">
+    <s:alias val="GND_1_"/>
+    <g transform="translate(15.0,-0.0)">
+      <path d="M 0.0 0.0 L 0.0 15.0 L 15.0 15.0 L 0.0 30.0 L -15.0 15.0 L 0.0 15.0" style="stroke-width:1.0" class="cell_#PWR1 symbol "/>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="45.0" transform="rotate(0 0.0 45.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">GND</text>
+    </g>
+    <g s:x="15.0" s:y="0.0" s:pid="1" s:position="top"/>
+  </g>
+  <g s:type="VCC_1_" s:width="18.0" s:height="30.0" id="cell_#PWR2" transform="translate(162.01999999999998,980)">
+    <s:alias val="VCC_1_"/>
+    <g transform="translate(9.0,30.0)">
+      <path d="M -9.0 -15.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_#PWR2 symbol "/>
+      <path d="M 0.0 0.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_#PWR2 symbol "/>
+      <path d="M 0.0 -30.0 L 9.0 -15.0" style="stroke-width:1.0" class="cell_#PWR2 symbol "/>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="-45.0" transform="rotate(0 0.0 -45.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">VCC</text>
+    </g>
+    <g s:x="9.0" s:y="30.0" s:pid="1" s:position="bottom"/>
+  </g>
+  <g s:type="R_1_" s:width="24.0" s:height="90.0" id="cell_R1" transform="translate(120.01999999999998,38)">
+    <s:alias val="R_1_"/>
+    <g transform="translate(12.0,45.0)">
+      <rect x="-12.0" y="-30.0" width="24.0" height="60.0" style="stroke-width:3.0" class="cell_R1 symbol "/>
+      <path d="M 0.0 -45.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_R1 symbol"/>
+      <path d="M 0.0 45.0 L 0.0 30.0" style="stroke-width:1.0" class="cell_R1 symbol"/>
+      <text class="part_ref_text" text-anchor="middle" x="24.0" y="0.0" transform="rotate(-90 24.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="ref">R1</text>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="0.0" transform="rotate(-90 0.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">R</text>
+    </g>
+    <g s:x="12.0" s:y="0.0" s:pid="1" s:position="top"/>
+    <g s:x="12.0" s:y="90.0" s:pid="2" s:position="bottom"/>
+  </g>
+  <g s:type="R_1_" s:width="24.0" s:height="90.0" id="cell_R10" transform="translate(230.01999999999998,819)">
+    <s:alias val="R_1_"/>
+    <g transform="translate(12.0,45.0)">
+      <rect x="-12.0" y="-30.0" width="24.0" height="60.0" style="stroke-width:3.0" class="cell_R10 symbol "/>
+      <path d="M 0.0 -45.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_R10 symbol"/>
+      <path d="M 0.0 45.0 L 0.0 30.0" style="stroke-width:1.0" class="cell_R10 symbol"/>
+      <text class="part_ref_text" text-anchor="middle" x="24.0" y="0.0" transform="rotate(-90 24.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="ref">R10</text>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="0.0" transform="rotate(-90 0.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">R</text>
+    </g>
+    <g s:x="12.0" s:y="0.0" s:pid="1" s:position="top"/>
+    <g s:x="12.0" s:y="90.0" s:pid="2" s:position="bottom"/>
+  </g>
+  <g s:type="R_1_" s:width="24.0" s:height="90.0" id="cell_R11" transform="translate(230.01999999999998,920)">
+    <s:alias val="R_1_"/>
+    <g transform="translate(12.0,45.0)">
+      <rect x="-12.0" y="-30.0" width="24.0" height="60.0" style="stroke-width:3.0" class="cell_R11 symbol "/>
+      <path d="M 0.0 -45.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_R11 symbol"/>
+      <path d="M 0.0 45.0 L 0.0 30.0" style="stroke-width:1.0" class="cell_R11 symbol"/>
+      <text class="part_ref_text" text-anchor="middle" x="24.0" y="0.0" transform="rotate(-90 24.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="ref">R11</text>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="0.0" transform="rotate(-90 0.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">R</text>
+    </g>
+    <g s:x="12.0" s:y="0.0" s:pid="1" s:position="top"/>
+    <g s:x="12.0" s:y="90.0" s:pid="2" s:position="bottom"/>
+  </g>
+  <g s:type="R_1_" s:width="24.0" s:height="90.0" id="cell_R2" transform="translate(120.01999999999998,139)">
+    <s:alias val="R_1_"/>
+    <g transform="translate(12.0,45.0)">
+      <rect x="-12.0" y="-30.0" width="24.0" height="60.0" style="stroke-width:3.0" class="cell_R2 symbol "/>
+      <path d="M 0.0 -45.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_R2 symbol"/>
+      <path d="M 0.0 45.0 L 0.0 30.0" style="stroke-width:1.0" class="cell_R2 symbol"/>
+      <text class="part_ref_text" text-anchor="middle" x="24.0" y="0.0" transform="rotate(-90 24.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="ref">R2</text>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="0.0" transform="rotate(-90 0.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">R</text>
+    </g>
+    <g s:x="12.0" s:y="0.0" s:pid="1" s:position="top"/>
+    <g s:x="12.0" s:y="90.0" s:pid="2" s:position="bottom"/>
+  </g>
+  <g s:type="R_1_l" s:width="90.0" s:height="24.0" id="cell_R3" transform="translate(142.01999999999998,264)">
+    <s:alias val="R_1_l"/>
+    <g transform="translate(45.0,12.0)">
+      <rect x="-30.0" y="-12.0" width="60.0" height="24.0" style="stroke-width:3.0" class="cell_R3 symbol "/>
+      <path d="M -45.0 0.0 L -30.0 0.0" style="stroke-width:1.0" class="cell_R3 symbol"/>
+      <path d="M 45.0 0.0 L 30.0 0.0" style="stroke-width:1.0" class="cell_R3 symbol"/>
+      <text class="part_ref_text" text-anchor="middle" x="0.0" y="-24.0" transform="rotate(0 0.0 -24.0) translate(7.5 0.0)" style="font-size:15.0px" s:attribute="ref">R3</text>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="0.0" transform="rotate(0 0.0 0.0) translate(7.5 0.0)" style="font-size:15.0px" s:attribute="value">R</text>
+    </g>
+    <g s:x="0.0" s:y="12.0" s:pid="1" s:position="left"/>
+    <g s:x="90.0" s:y="12.0" s:pid="2" s:position="right"/>
+  </g>
+  <g s:type="R_1_R" s:width="90.0" s:height="24.0" id="cell_R4" transform="translate(22.019999999999982,259)">
+    <s:alias val="R_1_R"/>
+    <g transform="translate(45.0,12.0)">
+      <rect x="-30.0" y="-12.0" width="60.0" height="24.0" style="stroke-width:3.0" class="cell_R4 symbol "/>
+      <path d="M 45.0 0.0 L 30.0 0.0" style="stroke-width:1.0" class="cell_R4 symbol"/>
+      <path d="M -45.0 0.0 L -30.0 0.0" style="stroke-width:1.0" class="cell_R4 symbol"/>
+      <text class="part_ref_text" text-anchor="middle" x="0.0" y="24.0" transform="rotate(0 0.0 24.0) translate(-7.5 0.0)" style="font-size:15.0px" s:attribute="ref">R4</text>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="0.0" transform="rotate(0 0.0 0.0) translate(-7.5 0.0)" style="font-size:15.0px" s:attribute="value">R</text>
+    </g>
+    <g s:x="90.0" s:y="12.0" s:pid="1" s:position="right"/>
+    <g s:x="0.0" s:y="12.0" s:pid="2" s:position="left"/>
+  </g>
+  <g s:type="R_1_" s:width="24.0" s:height="90.0" id="cell_R5" transform="translate(230.01999999999998,314)">
+    <s:alias val="R_1_"/>
+    <g transform="translate(12.0,45.0)">
+      <rect x="-12.0" y="-30.0" width="24.0" height="60.0" style="stroke-width:3.0" class="cell_R5 symbol "/>
+      <path d="M 0.0 -45.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_R5 symbol"/>
+      <path d="M 0.0 45.0 L 0.0 30.0" style="stroke-width:1.0" class="cell_R5 symbol"/>
+      <text class="part_ref_text" text-anchor="middle" x="24.0" y="0.0" transform="rotate(-90 24.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="ref">R5</text>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="0.0" transform="rotate(-90 0.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">R</text>
+    </g>
+    <g s:x="12.0" s:y="0.0" s:pid="1" s:position="top"/>
+    <g s:x="12.0" s:y="90.0" s:pid="2" s:position="bottom"/>
+  </g>
+  <g s:type="R_1_" s:width="24.0" s:height="90.0" id="cell_R6" transform="translate(230.01999999999998,415)">
+    <s:alias val="R_1_"/>
+    <g transform="translate(12.0,45.0)">
+      <rect x="-12.0" y="-30.0" width="24.0" height="60.0" style="stroke-width:3.0" class="cell_R6 symbol "/>
+      <path d="M 0.0 -45.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_R6 symbol"/>
+      <path d="M 0.0 45.0 L 0.0 30.0" style="stroke-width:1.0" class="cell_R6 symbol"/>
+      <text class="part_ref_text" text-anchor="middle" x="24.0" y="0.0" transform="rotate(-90 24.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="ref">R6</text>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="0.0" transform="rotate(-90 0.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">R</text>
+    </g>
+    <g s:x="12.0" s:y="0.0" s:pid="1" s:position="top"/>
+    <g s:x="12.0" s:y="90.0" s:pid="2" s:position="bottom"/>
+  </g>
+  <g s:type="R_1_" s:width="24.0" s:height="90.0" id="cell_R7" transform="translate(230.01999999999998,516)">
+    <s:alias val="R_1_"/>
+    <g transform="translate(12.0,45.0)">
+      <rect x="-12.0" y="-30.0" width="24.0" height="60.0" style="stroke-width:3.0" class="cell_R7 symbol "/>
+      <path d="M 0.0 -45.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_R7 symbol"/>
+      <path d="M 0.0 45.0 L 0.0 30.0" style="stroke-width:1.0" class="cell_R7 symbol"/>
+      <text class="part_ref_text" text-anchor="middle" x="24.0" y="0.0" transform="rotate(-90 24.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="ref">R7</text>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="0.0" transform="rotate(-90 0.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">R</text>
+    </g>
+    <g s:x="12.0" s:y="0.0" s:pid="1" s:position="top"/>
+    <g s:x="12.0" s:y="90.0" s:pid="2" s:position="bottom"/>
+  </g>
+  <g s:type="R_1_" s:width="24.0" s:height="90.0" id="cell_R8" transform="translate(230.01999999999998,617)">
+    <s:alias val="R_1_"/>
+    <g transform="translate(12.0,45.0)">
+      <rect x="-12.0" y="-30.0" width="24.0" height="60.0" style="stroke-width:3.0" class="cell_R8 symbol "/>
+      <path d="M 0.0 -45.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_R8 symbol"/>
+      <path d="M 0.0 45.0 L 0.0 30.0" style="stroke-width:1.0" class="cell_R8 symbol"/>
+      <text class="part_ref_text" text-anchor="middle" x="24.0" y="0.0" transform="rotate(-90 24.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="ref">R8</text>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="0.0" transform="rotate(-90 0.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">R</text>
+    </g>
+    <g s:x="12.0" s:y="0.0" s:pid="1" s:position="top"/>
+    <g s:x="12.0" s:y="90.0" s:pid="2" s:position="bottom"/>
+  </g>
+  <g s:type="R_1_" s:width="24.0" s:height="90.0" id="cell_R9" transform="translate(230.01999999999998,718)">
+    <s:alias val="R_1_"/>
+    <g transform="translate(12.0,45.0)">
+      <rect x="-12.0" y="-30.0" width="24.0" height="60.0" style="stroke-width:3.0" class="cell_R9 symbol "/>
+      <path d="M 0.0 -45.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_R9 symbol"/>
+      <path d="M 0.0 45.0 L 0.0 30.0" style="stroke-width:1.0" class="cell_R9 symbol"/>
+      <text class="part_ref_text" text-anchor="middle" x="24.0" y="0.0" transform="rotate(-90 24.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="ref">R9</text>
+      <text class="part_name_text" text-anchor="middle" x="0.0" y="0.0" transform="rotate(-90 0.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">R</text>
+    </g>
+    <g s:x="12.0" s:y="0.0" s:pid="1" s:position="top"/>
+    <g s:x="12.0" s:y="90.0" s:pid="2" s:position="bottom"/>
+  </g>
+  <line x1="132.01999999999998" x2="55.01999999999998" y1="22" y2="22" class="net_2"/>
+  <line x1="55.01999999999998" x2="55.01999999999998" y1="22" y2="32" class="net_2"/>
+  <line x1="132.01999999999998" x2="132.01999999999998" y1="22" y2="38" class="net_2"/>
+  <line x1="242.01999999999998" x2="242.01999999999998" y1="808" y2="819" class="net_11"/>
+  <line x1="242.01999999999998" x2="242.01999999999998" y1="909" y2="920" class="net_12"/>
+  <line x1="132.01999999999998" x2="132.01999999999998" y1="128" y2="139" class="net_4"/>
+  <line x1="232.01999999999998" x2="242.01999999999998" y1="276" y2="276" class="net_6"/>
+  <line x1="242.01999999999998" x2="242.01999999999998" y1="276" y2="314" class="net_6"/>
+  <line x1="22.019999999999982" x2="12.019999999999982" y1="271" y2="271" class="net_6"/>
+  <line x1="12.019999999999982" x2="12.019999999999982" y1="271" y2="298" class="net_6"/>
+  <line x1="12.019999999999982" x2="242.01999999999998" y1="298" y2="298" class="net_6"/>
+  <circle cx="242.01999999999998" cy="298" r="2" style="fill:#000" class="net_6"/>
+  <line x1="242.01999999999998" x2="242.01999999999998" y1="298" y2="314" class="net_6"/>
+  <line x1="242.01999999999998" x2="242.01999999999998" y1="404" y2="415" class="net_7"/>
+  <line x1="242.01999999999998" x2="242.01999999999998" y1="505" y2="516" class="net_8"/>
+  <line x1="242.01999999999998" x2="242.01999999999998" y1="606" y2="617" class="net_9"/>
+  <line x1="242.01999999999998" x2="242.01999999999998" y1="707" y2="718" class="net_10"/>
+  <line x1="171.01999999999998" x2="171.01999999999998" y1="1010" y2="1020" class="net_3"/>
+  <line x1="171.01999999999998" x2="242.01999999999998" y1="1020" y2="1020" class="net_3"/>
+  <line x1="242.01999999999998" x2="242.01999999999998" y1="1010" y2="1020" class="net_3"/>
+  <line x1="132.01999999999998" x2="132.01999999999998" y1="229" y2="276" class="net_5"/>
+  <line x1="132.01999999999998" x2="142.01999999999998" y1="276" y2="276" class="net_5"/>
+  <line x1="132.01999999999998" x2="132.01999999999998" y1="229" y2="266" class="net_5"/>
+  <line x1="132.01999999999998" x2="122.01999999999998" y1="266" y2="266" class="net_5"/>
+  <line x1="122.01999999999998" x2="122.01999999999998" y1="266" y2="271" class="net_5"/>
+  <circle cx="132.01999999999998" cy="266" r="2" style="fill:#000" class="net_5"/>
+  <line x1="122.01999999999998" x2="112.01999999999998" y1="271" y2="271" class="net_5"/>
+</svg>

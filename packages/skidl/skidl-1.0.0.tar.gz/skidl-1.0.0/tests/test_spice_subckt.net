@@ -1,0 +1,17 @@
+.title 
+.include /media/devb/Main/xesscorp/KiCad/tools/skidl/tests/SpiceLib/lib/2N2222A.lib
+.include /media/devb/Main/xesscorp/KiCad/tools/skidl/tests/SpiceLib/lib/NCP1117.lib
+V1 N_2 0 5V
+V2 N_4 0 DC 0V PULSE(0V 5V 0s 0.2ms 0.2ms 0.8ms 2ms)
+Q1 N_1_1 N_5 0 2n2222a
+R1 N_2 N_1_1 1kOhm
+R2 N_4 N_5 10kOhm
+Q2 N_1_2 N_7 0 2n2222a
+R3 N_2 N_1_2 1kOhm
+R4 N_1_1 N_7 10kOhm
+Q3 N_8 N_9 0 2n2222a
+R5 N_2 N_8 1kOhm
+R6 N_1_2 N_9 10kOhm
+VIN N_10 0 8V
+X1 N_10 N_11 0 ncp1117_33-x
+R7 N_11 0 470Ohm

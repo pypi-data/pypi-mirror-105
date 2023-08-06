@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:s="https://github.com/nturley/netlistsvg" width="749.06" height="649">
+  <style>svg {
+    stroke: #000;
+    fill: none;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  text {
+    fill: #000;
+    stroke: none;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+  }
+  .skidl_text {
+    fill: #999;
+    stroke: none;
+    font-weight: bold;
+    font-family: consolas, "Courier New", monospace;
+  }
+  .pin_num_text {
+      fill: #840000;
+  }
+  .pin_name_text {
+      fill: #008484;
+  }
+  .part_text {
+      fill: #840000;
+  }
+  .part_ref_text {
+      fill: #008484;
+  }
+  .part_name_text {
+      fill: #008484;
+  }
+  .pen_fill {
+      fill: #840000;
+  }
+  .background_fill {
+      fill: #FFFFC2
+  }
+  .nodelabel {
+    text-anchor: middle;
+  }
+  .inputPortLabel {
+    text-anchor: end;
+  }
+  .splitjoinBody {
+    fill: #000;
+  }
+  .symbol {
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke: #840000;
+  }
+  .detail {
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill: #000;
+  }</style>
+  <g s:type="GND_1_" s:width="30.0" s:height="30.0" transform="translate(342.02,347)" id="cell_#PWR1">
+    <s:alias val="GND_1_"/>
+    <path d="M 0.0 0.0 L 0.0 15.0 L 15.0 15.0 L 0.0 30.0 L -15.0 15.0 L 0.0 15.0" style="stroke-width:1.0" class="cell_#PWR1 symbol "/>
+    <g s:x="0.0" s:y="0.0" s:pid="1" s:position="top"/>
+    <text class="part_name_text" text-anchor="middle" x="0.0" y="45.0" transform="rotate(0 0.0 45.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">GND</text>
+  </g>
+  <g s:type="VCC_1_" s:width="18.0" s:height="30.0" transform="translate(304.02,587)" id="cell_#PWR2">
+    <s:alias val="VCC_1_"/>
+    <path d="M -9.0 -15.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_#PWR2 symbol "/>
+    <path d="M 0.0 0.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_#PWR2 symbol "/>
+    <path d="M 0.0 -30.0 L 9.0 -15.0" style="stroke-width:1.0" class="cell_#PWR2 symbol "/>
+    <g s:x="0.0" s:y="0.0" s:pid="1" s:position="bottom"/>
+    <text class="part_name_text" text-anchor="middle" x="0.0" y="-45.0" transform="rotate(0 0.0 -45.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">VCC</text>
+  </g>
+  <g s:type="R_US_1_L" s:width="90.0" s:height="24.0" transform="translate(448.02,58)" id="cell_R1">
+    <s:alias val="R_US_1_L"/>
+    <path d="M 27.0 0.0 L 30.0 0.0" style="stroke-width:1.0" class="cell_R1 symbol "/>
+    <path d="M -27.0 0.0 L -30.0 0.0" style="stroke-width:1.0" class="cell_R1 symbol "/>
+    <path d="M 9.0 0.0 L 13.5 -12.0 L 18.0 0.0 L 22.5 12.0 L 27.0 0.0" style="stroke-width:1.0" class="cell_R1 symbol "/>
+    <path d="M -9.0 0.0 L -4.5 -12.0 L 0.0 0.0 L 4.5 12.0 L 9.0 0.0" style="stroke-width:1.0" class="cell_R1 symbol "/>
+    <path d="M -27.0 0.0 L -22.5 -12.0 L -18.0 0.0 L -13.5 12.0 L -9.0 0.0" style="stroke-width:1.0" class="cell_R1 symbol "/>
+    <g s:x="-45.0" s:y="0.0" s:pid="1" s:position="left">
+      <path d="M -45.0 0.0 L -30.0 0.0" style="stroke-width:1.0" class="cell_R1 symbol"/>
+    </g>
+    <g s:x="45.0" s:y="0.0" s:pid="2" s:position="right">
+      <path d="M 45.0 0.0 L 30.0 0.0" style="stroke-width:1.0" class="cell_R1 symbol"/>
+    </g>
+    <text class="part_ref_text" text-anchor="middle" x="0.0" y="-30.0" transform="rotate(0 0.0 -30.0) translate(7.5 0.0)" style="font-size:15.0px" s:attribute="ref">R1</text>
+    <text class="part_name_text" text-anchor="middle" x="0.0" y="30.0" transform="rotate(0 0.0 30.0) translate(7.5 0.0)" style="font-size:15.0px" s:attribute="value">4K7</text>
+  </g>
+  <g s:type="R_US_1_L" s:width="90.0" s:height="24.0" transform="translate(603.02,67)" id="cell_R2">
+    <s:alias val="R_US_1_L"/>
+    <path d="M 27.0 0.0 L 30.0 0.0" style="stroke-width:1.0" class="cell_R2 symbol "/>
+    <path d="M -27.0 0.0 L -30.0 0.0" style="stroke-width:1.0" class="cell_R2 symbol "/>
+    <path d="M 9.0 0.0 L 13.5 -12.0 L 18.0 0.0 L 22.5 12.0 L 27.0 0.0" style="stroke-width:1.0" class="cell_R2 symbol "/>
+    <path d="M -9.0 0.0 L -4.5 -12.0 L 0.0 0.0 L 4.5 12.0 L 9.0 0.0" style="stroke-width:1.0" class="cell_R2 symbol "/>
+    <path d="M -27.0 0.0 L -22.5 -12.0 L -18.0 0.0 L -13.5 12.0 L -9.0 0.0" style="stroke-width:1.0" class="cell_R2 symbol "/>
+    <g s:x="-45.0" s:y="0.0" s:pid="1" s:position="left">
+      <path d="M -45.0 0.0 L -30.0 0.0" style="stroke-width:1.0" class="cell_R2 symbol"/>
+    </g>
+    <g s:x="45.0" s:y="0.0" s:pid="2" s:position="right">
+      <path d="M 45.0 0.0 L 30.0 0.0" style="stroke-width:1.0" class="cell_R2 symbol"/>
+    </g>
+    <text class="part_ref_text" text-anchor="middle" x="0.0" y="-30.0" transform="rotate(0 0.0 -30.0) translate(7.5 0.0)" style="font-size:15.0px" s:attribute="ref">R2</text>
+    <text class="part_name_text" text-anchor="middle" x="0.0" y="30.0" transform="rotate(0 0.0 30.0) translate(7.5 0.0)" style="font-size:15.0px" s:attribute="value">4K7</text>
+  </g>
+  <g s:type="R_US_1_" s:width="24.0" s:height="90.0" transform="translate(703.02,67)" id="cell_R3">
+    <s:alias val="R_US_1_"/>
+    <path d="M 0.0 27.0 L 0.0 30.0" style="stroke-width:1.0" class="cell_R3 symbol "/>
+    <path d="M 0.0 -27.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_R3 symbol "/>
+    <path d="M 0.0 9.0 L 12.0 13.5 L 0.0 18.0 L -12.0 22.5 L 0.0 27.0" style="stroke-width:1.0" class="cell_R3 symbol "/>
+    <path d="M 0.0 -9.0 L 12.0 -4.5 L 0.0 0.0 L -12.0 4.5 L 0.0 9.0" style="stroke-width:1.0" class="cell_R3 symbol "/>
+    <path d="M 0.0 -27.0 L 12.0 -22.5 L 0.0 -18.0 L -12.0 -13.5 L 0.0 -9.0" style="stroke-width:1.0" class="cell_R3 symbol "/>
+    <g s:x="0.0" s:y="-45.0" s:pid="1" s:position="top">
+      <path d="M 0.0 -45.0 L 0.0 -30.0" style="stroke-width:1.0" class="cell_R3 symbol"/>
+    </g>
+    <g s:x="0.0" s:y="45.0" s:pid="2" s:position="bottom">
+      <path d="M 0.0 45.0 L 0.0 30.0" style="stroke-width:1.0" class="cell_R3 symbol"/>
+    </g>
+    <text class="part_ref_text" text-anchor="middle" x="30.0" y="0.0" transform="rotate(-90 30.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="ref">R3</text>
+    <text class="part_name_text" text-anchor="middle" x="-30.0" y="0.0" transform="rotate(-90 -30.0 0.0) translate(0.0 7.5)" style="font-size:15.0px" s:attribute="value">10K</text>
+  </g>
+  <g s:type="NCS2325D_1_V" s:width="180.0" s:height="120.0" transform="translate(432.02,207)" id="cell_U1A">
+    <s:alias val="NCS2325D_1_V"/>
+    <path d="M 60.0 0.0 L -60.0 60.0 L -60.0 -60.0 L 60.0 0.0" style="stroke-width:3.0" class="cell_U1A symbol background_fill"/>
+    <g s:x="90.0" s:y="0.0" s:pid="1" s:position="right">
+      <path d="M 90.0 0.0 L 60.0 0.0" style="stroke-width:1.0" class="cell_U1A symbol"/>
+      <text class="pin_num_text" text-anchor="start" x="60.0" y="0.0" transform="rotate(0 60.0 0.0) translate(1.5 -1.5)" style="font-size:15.0px"> 1 </text>
+    </g>
+    <g s:x="-90.0" s:y="-30.0" s:pid="2" s:position="left">
+      <path d="M -90.0 -30.0 L -60.0 -30.0" style="stroke-width:1.0" class="cell_U1A symbol"/>
+      <text class="pin_num_text" text-anchor="end" x="-60.0" y="-30.0" transform="rotate(0 -60.0 -30.0) translate(-1.5 -1.5)" style="font-size:15.0px"> 2 </text>
+      <text class="pin_name_text" text-anchor="start" x="-60.0" y="-30.0" transform="rotate(0 -60.0 -30.0) translate(1.5 3.0)" style="font-size:15.0px"> - </text>
+    </g>
+    <g s:x="-90.0" s:y="30.0" s:pid="3" s:position="left">
+      <path d="M -90.0 30.0 L -60.0 30.0" style="stroke-width:1.0" class="cell_U1A symbol"/>
+      <text class="pin_num_text" text-anchor="end" x="-60.0" y="30.0" transform="rotate(0 -60.0 30.0) translate(-1.5 -1.5)" style="font-size:15.0px"> 3 </text>
+      <text class="pin_name_text" text-anchor="start" x="-60.0" y="30.0" transform="rotate(0 -60.0 30.0) translate(1.5 3.0)" style="font-size:15.0px"> + </text>
+    </g>
+    <text class="part_ref_text" text-anchor="start" x="30.0" y="75.0" transform="rotate(0 30.0 75.0) translate(0.0 -7.5)" style="font-size:15.0px" s:attribute="ref">U1A</text>
+    <text class="part_name_text" text-anchor="start" x="30.0" y="45.0" transform="rotate(0 30.0 45.0) translate(0.0 -7.5)" style="font-size:15.0px" s:attribute="value">NCS2325D</text>
+  </g>
+  <g s:type="NCS2325D_2_V" s:width="180.0" s:height="120.0" transform="translate(102,42)" id="cell_U1B">
+    <s:alias val="NCS2325D_2_V"/>
+    <path d="M 60.0 0.0 L -60.0 60.0 L -60.0 -60.0 L 60.0 0.0" style="stroke-width:3.0" class="cell_U1B symbol background_fill"/>
+    <g s:x="-90.0" s:y="30.0" s:pid="5" s:position="left">
+      <path d="M -90.0 30.0 L -60.0 30.0" style="stroke-width:1.0" class="cell_U1B symbol"/>
+      <text class="pin_num_text" text-anchor="end" x="-60.0" y="30.0" transform="rotate(0 -60.0 30.0) translate(-1.5 -1.5)" style="font-size:15.0px"> 5 </text>
+      <text class="pin_name_text" text-anchor="start" x="-60.0" y="30.0" transform="rotate(0 -60.0 30.0) translate(1.5 3.0)" style="font-size:15.0px"> + </text>
+    </g>
+    <g s:x="-90.0" s:y="-30.0" s:pid="6" s:position="left">
+      <path d="M -90.0 -30.0 L -60.0 -30.0" style="stroke-width:1.0" class="cell_U1B symbol"/>
+      <text class="pin_num_text" text-anchor="end" x="-60.0" y="-30.0" transform="rotate(0 -60.0 -30.0) translate(-1.5 -1.5)" style="font-size:15.0px"> 6 </text>
+      <text class="pin_name_text" text-anchor="start" x="-60.0" y="-30.0" transform="rotate(0 -60.0 -30.0) translate(1.5 3.0)" style="font-size:15.0px"> - </text>
+    </g>
+    <g s:x="90.0" s:y="0.0" s:pid="7" s:position="right">
+      <path d="M 90.0 0.0 L 60.0 0.0" style="stroke-width:1.0" class="cell_U1B symbol"/>
+      <text class="pin_num_text" text-anchor="start" x="60.0" y="0.0" transform="rotate(0 60.0 0.0) translate(1.5 -1.5)" style="font-size:15.0px"> 7 </text>
+    </g>
+    <text class="part_ref_text" text-anchor="start" x="30.0" y="75.0" transform="rotate(0 30.0 75.0) translate(0.0 -7.5)" style="font-size:15.0px" s:attribute="ref">U1B</text>
+    <text class="part_name_text" text-anchor="start" x="30.0" y="45.0" transform="rotate(0 30.0 45.0) translate(0.0 -7.5)" style="font-size:15.0px" s:attribute="value">NCS2325D</text>
+  </g>
+  <g s:type="NCS2325D_3_V" s:width="0.0" s:height="180.0" transform="translate(422.02,437)" id="cell_U1C">
+    <s:alias val="NCS2325D_3_V"/>
+    <g s:x="0.0" s:y="-90.0" s:pid="4" s:position="top">
+      <path d="M 0.0 -90.0 L 0.0 -45.0" style="stroke-width:1.0" class="cell_U1C symbol"/>
+      <text class="pin_num_text" text-anchor="start" x="0.0" y="-45.0" transform="rotate(-90 0.0 -45.0) translate(1.5 -1.5)" style="font-size:15.0px"> 4 </text>
+      <text class="pin_name_text" text-anchor="end" x="0.0" y="-45.0" transform="rotate(-90 0.0 -45.0) translate(-1.5 3.0)" style="font-size:15.0px"> V- </text>
+    </g>
+    <g s:x="0.0" s:y="90.0" s:pid="8" s:position="bottom">
+      <path d="M 0.0 90.0 L 0.0 45.0" style="stroke-width:1.0" class="cell_U1C symbol"/>
+      <text class="pin_num_text" text-anchor="end" x="0.0" y="45.0" transform="rotate(-90 0.0 45.0) translate(-1.5 -1.5)" style="font-size:15.0px"> 8 </text>
+      <text class="pin_name_text" text-anchor="start" x="0.0" y="45.0" transform="rotate(-90 0.0 45.0) translate(1.5 3.0)" style="font-size:15.0px"> V+ </text>
+    </g>
+    <text class="part_ref_text" text-anchor="start" x="30.0" y="75.0" transform="rotate(0 30.0 75.0) translate(0.0 -7.5)" style="font-size:15.0px" s:attribute="ref">U1C</text>
+    <text class="part_name_text" text-anchor="start" x="30.0" y="45.0" transform="rotate(0 30.0 45.0) translate(0.0 -7.5)" style="font-size:15.0px" s:attribute="value">NCS2325D</text>
+  </g>
+  <g s:type="inputExt" s:width="30" s:height="20" transform="translate(353.02,48)" id="cell_IN">
+    <text x="-2" y="12" text-anchor="end" class="cell_IN pin_name_text" s:attribute="ref">IN</text>
+    <s:alias val="$_inputExt_"/>
+    <path d="M0,0 V20 H15 L30,10 15,0 Z" class="cell_IN symbol"/>
+    <g s:x="30" s:y="10" s:pid="Y" s:position="right"/>
+  </g>
+  <line x1="703.02" x2="332.02" y1="112" y2="112" class="net_3"/>
+  <line x1="332.02" x2="332.02" y1="112" y2="237" class="net_3"/>
+  <circle cx="332.02" cy="237" r="2" style="fill:#000" class="net_3"/>
+  <line x1="332.02" x2="342.02" y1="237" y2="237" class="net_3"/>
+  <line x1="342.02" x2="332.02" y1="237" y2="237" class="net_3"/>
+  <line x1="332.02" x2="332.02" y1="237" y2="347" class="net_3"/>
+  <circle cx="332.02" cy="237" r="2" style="fill:#000" class="net_3"/>
+  <line x1="332.02" x2="342.02" y1="347" y2="347" class="net_3"/>
+  <line x1="342.02" x2="332.02" y1="237" y2="237" class="net_3"/>
+  <line x1="332.02" x2="332.02" y1="237" y2="337" class="net_3"/>
+  <line x1="332.02" x2="422.02" y1="337" y2="337" class="net_3"/>
+  <circle cx="332.02" cy="337" r="2" style="fill:#000" class="net_3"/>
+  <circle cx="332.02" cy="237" r="2" style="fill:#000" class="net_3"/>
+  <line x1="422.02" x2="422.02" y1="337" y2="347" class="net_3"/>
+  <line x1="648.02" x2="648.02" y1="67" y2="12" class="net_6"/>
+  <line x1="648.02" x2="703.02" y1="12" y2="12" class="net_6"/>
+  <line x1="703.02" x2="703.02" y1="12" y2="22" class="net_6"/>
+  <line x1="522.02" x2="522.02" y1="207" y2="167" class="net_6"/>
+  <line x1="522.02" x2="737.02" y1="167" y2="167" class="net_6"/>
+  <line x1="737.02" x2="737.02" y1="167" y2="12" class="net_6"/>
+  <line x1="737.02" x2="703.02" y1="12" y2="12" class="net_6"/>
+  <circle cx="703.02" cy="12" r="2" style="fill:#000" class="net_6"/>
+  <line x1="703.02" x2="703.02" y1="12" y2="22" class="net_6"/>
+  <line x1="304.02" x2="294.02" y1="587" y2="627" class="net_2"/>
+  <line x1="422.02" x2="422.02" y1="527" y2="627" class="net_2"/>
+  <line x1="422.02" x2="294.02" y1="627" y2="627" class="net_2"/>
+  <line x1="403.02" x2="393.02" y1="58" y2="58" class="net_4"/>
+  <line x1="393.02" x2="393.02" y1="58" y2="58" class="net_4"/>
+  <line x1="393.02" x2="383.02" y1="58" y2="58" class="net_4"/>
+  <line x1="493.02" x2="493.02" y1="58" y2="12" class="net_5"/>
+  <line x1="493.02" x2="548.02" y1="12" y2="12" class="net_5"/>
+  <line x1="548.02" x2="548.02" y1="12" y2="67" class="net_5"/>
+  <circle cx="493.02" cy="12" r="2" style="fill:#000" class="net_5"/>
+  <line x1="548.02" x2="558.02" y1="67" y2="67" class="net_5"/>
+  <line x1="493.02" x2="493.02" y1="58" y2="12" class="net_5"/>
+  <line x1="493.02" x2="342.02" y1="12" y2="12" class="net_5"/>
+  <line x1="342.02" x2="342.02" y1="12" y2="177" class="net_5"/>
+</svg>

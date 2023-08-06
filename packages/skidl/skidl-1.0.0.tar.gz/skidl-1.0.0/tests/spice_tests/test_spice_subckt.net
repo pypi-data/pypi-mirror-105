@@ -1,0 +1,5 @@
+.title 
+.include /media/devb/Main/xesscorp/KiCad/tools/skidl/tests/SpiceLib/lib/NCP1117.lib
+R1 N2 0 470Ohm
+VIN N1 0 8V
+X1 N1 N2 0 ncp1117_33-x
