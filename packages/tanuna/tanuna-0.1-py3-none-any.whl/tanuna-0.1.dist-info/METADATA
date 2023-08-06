@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: tanuna
+Version: 0.1
+Summary: Python tools to work with dynamic systems
+Home-page: https://github.com/adrianschlatter/tanuna
+Author: Adrian Schlatter
+License: Revised BSD
+Keywords: lti,continuous time,filter,state space,system,control,dynamic
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: <4,>=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy
+Provides-Extra: dev
+Requires-Dist: check-manifest ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: twine ; extra == 'test'
+Requires-Dist: check-manifest ; extra == 'test'
+Requires-Dist: readme-renderer ; extra == 'test'
+Requires-Dist: flake8 ; extra == 'test'
+Requires-Dist: coverage ; extra == 'test'
+
+# tanuna
+
+tanuna is a Python package that supports working with dynamic systems. It is
+intended to include:
+
+- Continuous time and discrete time systems
+- Linear and non-linear systems
+- Time-invariant and time-varying systems
+- SISO and MIMO systems, including pure sources and pure sinks
+- System characterization (such as impulse- and frequency response)
+- Controller design
+
+Currently, the focus is on continuous-time LTI systems. Please find
+documentation including interesting examples on
+[readthedocs](https://tanuna.readthedocs.io).
+
+Furthermore - and maybe foremost - this project serves the author to learn
+and try:
+
+- feedback systems
+- Distributed revision control (git and github)
+- Modern documentation (sphinx and readthedocs)
+- Distribution (pypi)
+- (maybe) Build servers
+
+The name? Stands for "There Are No Unique Names Anymore" and resulted from an
+unsuccessful search for a sensible name that was not used already - well,
+almost: "tanuna" seems to be the essive singular form of "tanu". A "tanu" is
+a traditional Finnish bonnet worn by women.
+
+
