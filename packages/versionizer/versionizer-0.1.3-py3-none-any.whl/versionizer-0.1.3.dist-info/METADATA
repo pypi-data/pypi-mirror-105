@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: versionizer
+Version: 0.1.3
+Summary: Versionizer is a tool for automatically generating unit tests for functions that change between two commits.
+Home-page: https://github.com/Jordan-Gillard/Versionizer
+License: Apache-2.0
+Author: Jordan Gillard
+Author-email: jordan-gillard@outlook.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: GitPython (>=3.1.15,<4.0.0)
+Requires-Dist: asciistuff (>=1.2.2,<2.0.0)
+Requires-Dist: astor (>=0.8.1,<0.9.0)
+Requires-Dist: pynguin (>=0.8.0,<0.9.0)
+Requires-Dist: pytest (>=6.2.4,<7.0.0)
+Project-URL: Repository, https://github.com/Jordan-Gillard/Versionizer
