@@ -1,0 +1,5 @@
+[console_scripts]
+wfchef-create-recipe = wfchef.chef:main
+wfchef-duplicate = wfchef.duplicate:main
+wfchef-find-microstructures = wfchef.find_microstructures:main
+

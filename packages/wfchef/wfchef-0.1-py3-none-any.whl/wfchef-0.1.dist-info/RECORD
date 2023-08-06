@@ -1,0 +1,10 @@
+wfchef/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+wfchef/chef.py,sha256=CVOllGHEfo-nOzi_AHXf_Mbw2Zo9dSx85bjwaVALlz0,6575
+wfchef/duplicate.py,sha256=iy_p4NiDrrASxUY0S5eOa9KUM3UyM88ZvBoEkkQjrx0,4432
+wfchef/find_microstructures.py,sha256=DTPzsV5hCqDa8yYZDz7KNrdqE_wlkbgzmjUqAgpKOXI,7817
+wfchef/utils.py,sha256=Qy-5u8QH0I8TmimeTgBzHTPoPr8cPRO8qyQlGSIB22w,5731
+wfchef-0.1.dist-info/METADATA,sha256=L3Xr9DHFrdrgoI-rn43ko8dR_xMezGvA98SYJziB0zM,403
+wfchef-0.1.dist-info/WHEEL,sha256=U88EhGIw8Sj2_phqajeu_EAi3RAo8-C6zV3REsWbWbs,92
+wfchef-0.1.dist-info/entry_points.txt,sha256=9aec1Ukuyz7KUcYVvKbQuh4VXjNUvuWhmGEoIEPgY3A,163
+wfchef-0.1.dist-info/top_level.txt,sha256=ffZAIsezEnusbIOuk79arqNoi1o9jgM3OqbEocKIS6Y,7
+wfchef-0.1.dist-info/RECORD,,

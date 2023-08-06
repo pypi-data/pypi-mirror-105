@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: wfchef
+Version: 0.1
+Summary: UNKNOWN
+Home-page: https://github.com/tainagdcoleman/wfchef
+Author: Taina Coleman
+Author-email: tgcolema@usc.edu
+License: UNKNOWN
+Download-URL: https://github.com/tainagdcoleman/wfchef/archive/refs/tags/0.1.tar.gz
+Keywords: workflow,wfcommons,wf,task,graph,generator
+Platform: UNKNOWN
+Requires-Dist: networkx
+Requires-Dist: stringcase
+
+UNKNOWN
+
+
