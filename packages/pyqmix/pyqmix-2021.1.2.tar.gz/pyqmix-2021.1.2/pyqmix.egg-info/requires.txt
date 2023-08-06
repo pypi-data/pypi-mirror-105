@@ -1,0 +1,9 @@
+cffi
+ruamel.yaml==0.16.3
+appdirs
+
+[:platform_system == "Windows"]
+pywin32
+
+[:python_version < "3"]
+future
