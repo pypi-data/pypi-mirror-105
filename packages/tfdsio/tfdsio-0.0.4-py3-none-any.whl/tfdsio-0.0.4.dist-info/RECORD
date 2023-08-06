@@ -1,0 +1,10 @@
+tfdsio/__init__.py,sha256=8krjnk3M47Mu3y-d7Porvl2N6OFbYV9njs1bqRKZQgo,156
+tfdsio/adapter.py,sha256=tUGmVI5zNhkOuxyLH58dhmmZnc9y0SKDK05GoXVwdKU,18627
+tfdsio/dataset.py,sha256=lbGW48b6YetTsqhd4Gl6tNXlWGlU-Q3YrpRqeu7FkM8,14471
+tfdsio/torch.py,sha256=wJso7AUxOi_C7OwOxhgniaoF13Wybj--SoW5OyjHv0g,11877
+tfdsio/utils.py,sha256=nzITOYi-qgGEbLbbhhP9-8qlCMME1cWVtj8kHMctuv4,353
+tfdsio-0.0.4.dist-info/LICENSE,sha256=SKnmHRHmmCG2_zv0GqIVEROmtkbECy4Qz1HXA01AnNI,1066
+tfdsio-0.0.4.dist-info/METADATA,sha256=Tbt1QlE2EjSjRhFofwO_6fOEuN2nk7t8qbMMVsNP7fM,9999
+tfdsio-0.0.4.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+tfdsio-0.0.4.dist-info/top_level.txt,sha256=eMgXB-0gZWqBKsK2MHVfgcLBEN0btXgQLh_IrT-yL_g,7
+tfdsio-0.0.4.dist-info/RECORD,,
