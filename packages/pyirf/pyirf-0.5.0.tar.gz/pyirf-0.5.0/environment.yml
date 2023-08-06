@@ -1,0 +1,30 @@
+name: pyirf
+
+channels:
+  - default
+dependencies:
+  - python=3.7
+  - numpy
+  - ipython
+  - jupyter
+  - matplotlib
+  - scipy
+  - astropy>=4.0.2,<5
+  - setuptools
+  - tqdm
+  # tests
+  - pytest
+  - pytest-cov
+  # docs
+  - numpydoc
+  - sphinx
+  - sphinx_rtd_theme
+  - pip
+  - pytables
+  - pip:
+    - nbsphinx
+    - sphinx_automodapi
+    - uproot
+    - awkward1
+    - gammapy
+    - ogadf_schema
