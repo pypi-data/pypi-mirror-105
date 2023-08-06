@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pyshbullet
+Version: 1.0.10
+Summary: Python API wrapper for the pushbullet API
+Home-page: https://github.com/98129182/pyshbullet
+Author: 98129182
+Author-email: the98129182@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp
+Requires-Dist: tzlocal
+
+# Long description - still work in progress.
+## The description will be updated in future versions.
+
