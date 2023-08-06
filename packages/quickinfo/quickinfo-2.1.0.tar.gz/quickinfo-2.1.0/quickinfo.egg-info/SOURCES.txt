@@ -1,0 +1,9 @@
+README.md
+setup.py
+quickinfo/__init__.py
+quickinfo/brain.py
+quickinfo.egg-info/PKG-INFO
+quickinfo.egg-info/SOURCES.txt
+quickinfo.egg-info/dependency_links.txt
+quickinfo.egg-info/requires.txt
+quickinfo.egg-info/top_level.txt
