@@ -1,0 +1,5 @@
+setup.py
+foxpack.egg-info/PKG-INFO
+foxpack.egg-info/SOURCES.txt
+foxpack.egg-info/dependency_links.txt
+foxpack.egg-info/top_level.txt
