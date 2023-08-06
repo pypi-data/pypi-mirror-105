@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: auto-ml-cl
+Version: 0.0.5
+Summary: Auto machine learning with scikit-learn and TensorFlow framework.
+Home-page: https://github.com/lugq1990/auto-ml-cl
+Author: guangqiang.lu
+Author-email: gqianglu@outlook.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: scikit-learn
+Requires-Dist: pyyaml
+Requires-Dist: tensorflow (>=2.1.0)
+Requires-Dist: keras-tuner
+Requires-Dist: google-cloud-storage
+Requires-Dist: lightgbm
+Requires-Dist: xgboost
+Requires-Dist: flask
+Requires-Dist: flask-restful
+
+Auto machine learning with scikit-learn and TensorFlow framework.
+
+
