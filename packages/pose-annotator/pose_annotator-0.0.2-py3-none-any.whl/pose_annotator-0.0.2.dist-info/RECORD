@@ -1,0 +1,13 @@
+pose_annotator/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pose_annotator/__main__.py,sha256=xQidb7TSGJMi43C8FtRBso2MVqEv2YGBkfrwULkxkyM,179
+pose_annotator/utils.py,sha256=_m2ACePMd1ptNND0ah8X_oFPoh2mZi3kgqjByrdEItU,2415
+pose_annotator/gui/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pose_annotator/gui/custom_widgets.py,sha256=zGeOsj_LHUHb-se7v-ViLiiW22O4bwwuoy3f6FnEm2I,26856
+pose_annotator/gui/default_config.yaml,sha256=th9uFtlIINHAr5eES3V1iNJqCMvNATBLLyl6FujtFEk,240
+pose_annotator/gui/main.py,sha256=Nz8pg13bmGSKRTa6sjUTf2NtmJhWu9c4lfd5_weF1Lw,13519
+pose_annotator/gui/mainwindow.py,sha256=0RwofO2dVCVMEjJxdcMaLlpshA0x6pN0ZFwW2Sh_vC8,6430
+pose_annotator-0.0.2.dist-info/METADATA,sha256=wiNmP6yI31BI6FliDoSw0y7D-Wwup_UVgi6jhRBbMUE,1602
+pose_annotator-0.0.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+pose_annotator-0.0.2.dist-info/entry_points.txt,sha256=EiC4TMqphuGSLDOne9nbkWMg-eDnskKBYKd2tOwLbT8,64
+pose_annotator-0.0.2.dist-info/top_level.txt,sha256=kNIJmcramZ1jAbXwjvIxeVm0R_k2kMqnZnRwQfBWp8Q,15
+pose_annotator-0.0.2.dist-info/RECORD,,
