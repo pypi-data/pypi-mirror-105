@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: particlezoo
+Version: 0.0.1
+Summary: A particle zoo module
+Home-page: https://github.com/npapapietro/liesym
+Author: Nathan Papapietro <npapapietro95@gmail.com>
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+
+UNKNOWN
+
+
