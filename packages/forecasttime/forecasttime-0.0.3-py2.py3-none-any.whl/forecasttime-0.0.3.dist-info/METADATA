@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: forecasttime
+Version: 0.0.3
+Summary: Python package to integrate the workflow of a variety of time series forecast methods
+Home-page: https://github.com/phillip1029/forecasttime
+Author: Phillip Peng
+Author-email: ppeng08@gmail.com
+License: MIT license
+Keywords: forecasttime
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: seaborn
+Requires-Dist: matplotlib
+Requires-Dist: IPython
+Requires-Dist: joblib
+Requires-Dist: statsmodels
+Requires-Dist: tensorflow (==2.2.0)
+Requires-Dist: keras (==2.3.1)
+Requires-Dist: scikit-learn (==0.22)
+Requires-Dist: shap (==0.32.1)
+Requires-Dist: ipywidgets
+Requires-Dist: yellowbrick (==1.0.1)
+Requires-Dist: xgboost
+Requires-Dist: sklearn
+Requires-Dist: pmdarima
+Requires-Dist: pycaret
+Requires-Dist: yfinance
+Requires-Dist: torch
+Requires-Dist: plotly (>=4.4.1)
+Requires-Dist: delayed
+
+# forecasttime
+
+
+[![image](https://img.shields.io/pypi/v/forecasttime.svg)](https://pypi.python.org/pypi/forecasttime)
+
+
+**Python package to integrate the workflow of a variety of time series forecast methods**
+
+
+-   Free software: MIT license
+-   Documentation: https://phillip1029.github.io/forecasttime
+
+
+## Features
+
+-   TODO
+
+## Credits
+
+This package was created with [Cookiecutter](https://github.com/cookiecutter/cookiecutter) and the [giswqs/pypackage](https://github.com/giswqs/pypackage) project template.
+
+
