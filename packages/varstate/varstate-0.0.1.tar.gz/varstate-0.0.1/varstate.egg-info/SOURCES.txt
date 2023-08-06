@@ -1,0 +1,8 @@
+MANIFEST.in
+README.md
+setup.py
+varstate/__init__.py
+varstate.egg-info/PKG-INFO
+varstate.egg-info/SOURCES.txt
+varstate.egg-info/dependency_links.txt
+varstate.egg-info/top_level.txt
