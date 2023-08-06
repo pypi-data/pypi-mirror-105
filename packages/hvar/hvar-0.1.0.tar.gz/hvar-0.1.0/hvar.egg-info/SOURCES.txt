@@ -1,0 +1,11 @@
+README.md
+setup.py
+hvar/__init__.py
+hvar/myfunctions.py
+hvar.egg-info/PKG-INFO
+hvar.egg-info/SOURCES.txt
+hvar.egg-info/dependency_links.txt
+hvar.egg-info/requires.txt
+hvar.egg-info/top_level.txt
+tests/__init__.py
+tests/test_myfunctions.py

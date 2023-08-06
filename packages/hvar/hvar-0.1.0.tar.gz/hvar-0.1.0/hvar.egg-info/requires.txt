@@ -1,0 +1,10 @@
+xtarfile
+pytest-shutil
+google-cloud
+datetime
+google-api-client
+google-oauth
+google-oauth2-tool
+requests
+pybase64
+pandas
