@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+cci.new.egg-info/PKG-INFO
+cci.new.egg-info/SOURCES.txt
+cci.new.egg-info/dependency_links.txt
+cci.new.egg-info/entry_points.txt
+cci.new.egg-info/top_level.txt
