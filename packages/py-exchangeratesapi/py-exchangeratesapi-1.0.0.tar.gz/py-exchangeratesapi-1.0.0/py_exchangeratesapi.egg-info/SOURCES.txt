@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+exchangeratesapi/__init__.py
+exchangeratesapi/api.py
+py_exchangeratesapi.egg-info/PKG-INFO
+py_exchangeratesapi.egg-info/SOURCES.txt
+py_exchangeratesapi.egg-info/dependency_links.txt
+py_exchangeratesapi.egg-info/requires.txt
+py_exchangeratesapi.egg-info/top_level.txt
+test/__init__.py
+test/conftest.py
+test/test_api.py
