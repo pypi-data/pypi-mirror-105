@@ -1,0 +1,7 @@
+astropy
+simple_logger
+numpy
+
+[test]
+pytest
+pytest-depends

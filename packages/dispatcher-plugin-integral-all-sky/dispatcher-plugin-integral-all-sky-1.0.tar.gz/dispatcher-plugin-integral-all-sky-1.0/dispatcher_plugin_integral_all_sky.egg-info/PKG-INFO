@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: dispatcher-plugin-integral-all-sky
+Version: 1.0
+Summary: A plugin for online data analysis
+Home-page: UNKNOWN
+Author: Andrea Tramacere
+Author-email: andrea.tramacere@unige.ch
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Provides-Extra: test
