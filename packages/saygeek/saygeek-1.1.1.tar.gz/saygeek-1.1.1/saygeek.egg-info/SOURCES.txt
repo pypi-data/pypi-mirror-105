@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+saygeek/__init__.py
+saygeek/__main__.py
+saygeek/saygeek.py
+saygeek.egg-info/PKG-INFO
+saygeek.egg-info/SOURCES.txt
+saygeek.egg-info/dependency_links.txt
+saygeek.egg-info/entry_points.txt
+saygeek.egg-info/requires.txt
+saygeek.egg-info/top_level.txt
+saygeek/resources/saygeek.db
