@@ -1,0 +1,3 @@
+[console_scripts]
+topsis = topsis_101803532.topsis_bhawi:main
+
