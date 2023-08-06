@@ -1,0 +1,9 @@
+odoo/addons/l10n_es_auto_reload_banks/__init__.py,sha256=X9EJGOE2GtZbS0G82PtSXmWSZ_R8jEM0rlJTDliQjp4,21
+odoo/addons/l10n_es_auto_reload_banks/__manifest__.py,sha256=SF8VysnwDKFOqSlmUhI0m-dggRUO4nFxjXg2bLsn0to,613
+odoo/addons/l10n_es_auto_reload_banks/data/company.xml,sha256=r0CICYIvQaS-zERQn41BqL2oZp7fKiCqcpHxLKW4lsQ,147
+odoo/addons/l10n_es_auto_reload_banks/models/__init__.py,sha256=vMsvUSA3gV4F6BYSaxKsRRAyDr05bQKtKhrWG67OhZU,28
+odoo/addons/l10n_es_auto_reload_banks/models/ir_model_data.py,sha256=nWFQ8-ofzyQnk6kFKeJ_GomPBmjgi515DU1cS4WW0KI,283
+odoo12_addon_l10n_es_auto_reload_banks-12.0.1.0.0.dist-info/METADATA,sha256=2sDAIvv8GFbNP9a4NRSWt-rS_NssWPRZmHtm8ebqe8s,511
+odoo12_addon_l10n_es_auto_reload_banks-12.0.1.0.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+odoo12_addon_l10n_es_auto_reload_banks-12.0.1.0.0.dist-info/top_level.txt,sha256=qBj40grFkGOfDZ2WDSw3y1RnDlgG0u8rP8pvGNdbz4w,5
+odoo12_addon_l10n_es_auto_reload_banks-12.0.1.0.0.dist-info/RECORD,,
