@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: nnvis
+Version: 1.0.3
+Summary: Visualizing tool for PyTorch NN models
+Home-page: UNKNOWN
+Author: Silvie Němcová
+Author-email: nemcova.silva@gmail.com
+License: MIT
+Description: # Neural Network Training Progress Visualization
+        
+        Visualizing tool for PyTorch NN models.
+        
+        # Requirements
+        The tool requires following dependencies to run:
+        - Python>=3.8
+        - pip>=20
+        
+        If CUDA will be used:
+        - CUDA>=11.1
+        
+        # Quickstart
+        Install with 
+        ```pip install nnvis```
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
