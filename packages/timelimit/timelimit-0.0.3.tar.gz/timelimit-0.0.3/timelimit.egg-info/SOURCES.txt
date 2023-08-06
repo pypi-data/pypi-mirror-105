@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+timelimit/__init__.py
+timelimit/_constants.py
+timelimit/_timelimited.py
+timelimit.egg-info/PKG-INFO
+timelimit.egg-info/SOURCES.txt
+timelimit.egg-info/dependency_links.txt
+timelimit.egg-info/top_level.txt
