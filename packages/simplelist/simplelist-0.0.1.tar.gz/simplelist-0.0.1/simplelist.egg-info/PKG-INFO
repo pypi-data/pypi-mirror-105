@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: simplelist
+Version: 0.0.1
+Summary: A Simple List Maker
+Home-page: UNKNOWN
+Author: Neil Shah
+Author-email: neil@insight3d.tech
+License: MIT
+Description: Functions:
+        
+        In The Prosses Up Updating
+        
+        Change Log
+        ==========
+        
+        0.0.1 (19/04/2020)
+        -------------------
+        - First Release
+Keywords: lists
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
