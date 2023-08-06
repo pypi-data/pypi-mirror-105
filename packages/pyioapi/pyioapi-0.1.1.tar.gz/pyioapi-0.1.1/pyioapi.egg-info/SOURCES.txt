@@ -1,0 +1,9 @@
+README.md
+setup.py
+pyioapi/__init__.py
+pyioapi/read_girddesc.py
+pyioapi/test.py
+pyioapi.egg-info/PKG-INFO
+pyioapi.egg-info/SOURCES.txt
+pyioapi.egg-info/dependency_links.txt
+pyioapi.egg-info/top_level.txt
