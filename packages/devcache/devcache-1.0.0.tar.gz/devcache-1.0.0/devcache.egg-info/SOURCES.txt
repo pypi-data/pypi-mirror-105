@@ -1,0 +1,7 @@
+README.md
+setup.py
+devcache.egg-info/PKG-INFO
+devcache.egg-info/SOURCES.txt
+devcache.egg-info/dependency_links.txt
+devcache.egg-info/requires.txt
+devcache.egg-info/top_level.txt
