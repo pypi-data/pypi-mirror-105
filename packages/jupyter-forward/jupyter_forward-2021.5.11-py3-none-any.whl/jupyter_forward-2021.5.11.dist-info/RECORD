@@ -1,0 +1,9 @@
+jupyter_forward/__init__.py,sha256=D7bFI6Swm2jU1TXrvjuL3nBu9zSA0yKe4m8CagMAXgs,367
+jupyter_forward/cli.py,sha256=Qm-nVz6HqVlp4b2SWYhiEw-QePQnQSqizquROiD6GrM,2568
+jupyter_forward/core.py,sha256=vOH26KSo8QpJkX5ZYFBWPmk1ndCnsHN7n2GwtbZB_1E,11113
+jupyter_forward-2021.5.11.dist-info/LICENSE,sha256=J-pcmrEvzOJanOUaGHgSUx4IeghZuJkRSQsfiqV2pLI,11314
+jupyter_forward-2021.5.11.dist-info/METADATA,sha256=bWTmN3dH8Qd5h8F7Bgf6GGs4HNmzMMJn96Ifo9y_WH4,4289
+jupyter_forward-2021.5.11.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+jupyter_forward-2021.5.11.dist-info/entry_points.txt,sha256=zKRXkNAwJBRExZUQfdMFxjtJaSFSxAr8cqAC-FAoPKQ,102
+jupyter_forward-2021.5.11.dist-info/top_level.txt,sha256=G5XjQ6SXFa8cj4BUzYhlDQtiZnLWK0M8s3xIs67-XDM,16
+jupyter_forward-2021.5.11.dist-info/RECORD,,
