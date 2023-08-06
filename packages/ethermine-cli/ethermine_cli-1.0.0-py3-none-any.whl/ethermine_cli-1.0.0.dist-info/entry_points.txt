@@ -1,0 +1,3 @@
+[console_scripts]
+ethermine = ethermine.__main__:main
+
