@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: silhouetteplot
+Version: 0.1.0
+Summary: A library to plot silhouette plot of KMeans clustering
+Home-page: https://github.com/BharathN96/silhouetteplot
+Author: Bharath N
+Author-email: nbharath96@gmail.com
+License: MIT
+Description: To Plot silhouette plot of KMeans Clustering.
+        
+        
+        Change Log
+        ==========
+        
+        0.1.0 (10/05/2021)
+        -------------------
+        - First Release
+        
+Keywords: python,machine learning,KMeans,classification,silhouette score
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
