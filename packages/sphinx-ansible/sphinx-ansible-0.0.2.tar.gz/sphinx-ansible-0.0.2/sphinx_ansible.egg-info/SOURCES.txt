@@ -1,0 +1,11 @@
+COPYING
+MANIFEST.in
+README.md
+setup.py
+sphinx_ansible.egg-info/PKG-INFO
+sphinx_ansible.egg-info/SOURCES.txt
+sphinx_ansible.egg-info/dependency_links.txt
+sphinx_ansible.egg-info/requires.txt
+sphinx_ansible.egg-info/top_level.txt
+sphinxcontrib/sphinx_ansible/__init__.py
+sphinxcontrib/sphinx_ansible/runner.py
