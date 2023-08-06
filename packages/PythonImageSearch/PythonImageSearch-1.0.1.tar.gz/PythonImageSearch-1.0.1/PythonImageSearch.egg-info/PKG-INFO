@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: PythonImageSearch
+Version: 1.0.1
+Summary: Simple image search
+Home-page: https://github.com/RandomPythonProgrammer/python-image-search
+Author: RandomPythonProgrammer
+Author-email: jhc3628@gmail.com
+License: UNKNOWN
+Description: Idk just a random python image search thing, it uses selenium and stuff.
+Keywords: Image Search
+Platform: UNKNOWN
