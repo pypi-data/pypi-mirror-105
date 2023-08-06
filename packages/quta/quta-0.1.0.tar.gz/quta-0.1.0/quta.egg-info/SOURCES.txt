@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+quta/__init__.py
+quta/allocator.py
+quta/constraints.py
+quta/thruster.py
+quta.egg-info/PKG-INFO
+quta.egg-info/SOURCES.txt
+quta.egg-info/dependency_links.txt
+quta.egg-info/requires.txt
+quta.egg-info/top_level.txt
