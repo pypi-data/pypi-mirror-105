@@ -1,0 +1,11 @@
+elastix_napari/__init__.py,sha256=yRHYq63YbMrkMs5bwcckDN1hBnwu1sq-pexomVqsH_0,223
+elastix_napari/elastix_registration.py,sha256=aweAwEXHuQpNRX6fIXNwDlgyGZqReWBYOTUPahyyk5o,10508
+elastix_napari/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+elastix_napari/tests/conftest.py,sha256=UJMvBvxOZ82_gu1IFtPxjyUcp6ub9C55pyTAbM8HfQg,171
+elastix_napari/tests/test_registration.py,sha256=-qpg_gpflU5jd8e04RUV414jDFfoAn7DwbZZ75ZPoRo,4690
+elastix_napari-0.1.4.dist-info/LICENSE,sha256=CUvt2ilcBwKAfRAnoA4RNPTLcdUj3En21LPK9YkFMGg,11358
+elastix_napari-0.1.4.dist-info/METADATA,sha256=0M82WT1rwrw2Kp5Ue7pVTbAF0wWjq9BbDjIPh-ACqok,3303
+elastix_napari-0.1.4.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+elastix_napari-0.1.4.dist-info/entry_points.txt,sha256=PIzOKhTdGosZsbOp9QaNmvO6eOi6S4a8-BdjZVFE9ik,53
+elastix_napari-0.1.4.dist-info/top_level.txt,sha256=ianPpk64CKghsNPpj1C7zKB50-XGdRS-CD9HHqZDxw8,15
+elastix_napari-0.1.4.dist-info/RECORD,,
