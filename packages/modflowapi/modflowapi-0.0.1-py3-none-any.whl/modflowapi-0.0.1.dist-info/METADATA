@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: modflowapi
+Version: 0.0.1
+Summary: modflowapi is an extension to the xmipy Python package.
+Home-page: https://github.com/MODFLOW-USGS/modflowapi.git
+Author: Joseph D. Hughes, Martijn Russcher, Christian D. Langevin, Julian Hofer
+Author-email: jdhughes@usgs.gov, Martijn.Russcher@deltares.nl, langevin@usgs.gov, Julian.Hofer@deltares.nl
+License: CC0
+Platform: Windows
+Platform: Mac OS-X
+Platform: Linux
+Classifier: Topic :: Scientific/Engineering :: Hydrology
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: xmipy
+
+# modflowapi
+
+`modflowapi` is an extension to [xmiipy](https://pypi.org/project/xmipy/) for the MODFLOW API.
+
+The `modflowapi` can be used to access functionality in the eXtended Model Interface (XMI) wrapper (XmiWrapper) and additional functionality specific to the MODFLOW API. Currently it is a joint development of the USGS and Deltares.
+
+`modflowapi` can be installed by running
+```
+pip install modflowapi
+```
+
