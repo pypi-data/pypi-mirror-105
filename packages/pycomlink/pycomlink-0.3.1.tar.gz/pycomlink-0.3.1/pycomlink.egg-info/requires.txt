@@ -1,0 +1,15 @@
+numpy
+scipy
+pandas>=0.22
+matplotlib
+numba
+h5py
+xarray
+netcdf4
+shapely
+pyproj
+tqdm
+pykrige
+future
+tensorflow
+tensorflow-gpu
