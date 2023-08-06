@@ -1,0 +1,3 @@
+[console_scripts]
+mininux-replay-manager = mininux_replay_manager:main
+
