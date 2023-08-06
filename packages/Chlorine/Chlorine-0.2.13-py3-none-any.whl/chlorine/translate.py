@@ -1,0 +1,86 @@
+# -*- coding:utf-8 -*-
+
+"""
+    chlorine.translate
+    ~~~~~~~~~~~~~~
+    :copyright: (c) 2021 by the Fluorine Team.
+    :license: GPL-3.0, see LICENSE for more details.
+"""
+
+from re import match
+
+class Translate(object):
+    """
+    The translation object for chlorine
+    """
+
+    def __init__(self, string: str):
+        self.to_translate = string
+    
+    @staticmethod
+    def keywords() -> list:
+        """
+        The reserved keywords of Chlorine.
+        :return: chlorine关键字列表
+        """
+        return ['[','了别','了当','了得','了断','了无','了愿','了债','了办','了事','了然','了却','了结','了解','了如','了不得','了不起','说了算','铁了心','铁了事','开了窍','没了','乱了套','横了心','不了','不甚了然','知了','完了','算了','罢了','肿么了','过奖了','好极了','大不了','免不了','地面','的地','有地','地球','地空','地名','地貌','地区','地理','地块','地形','地势','地位','地图','地铁','地狱','地盘','地皮','地坪','地上','地点','地带','地方','地缝','地瓜','地火','地精','地库','地雷','地址','地震','地质','地下','地产','地层','地板','地表','地暖','土地','天地','田地','境地','圈地','外地','洼地','入地','异地','盆地','平地','湿地','圣地','实地','腹地','各地','工地','高地','耕地','该地','海地','基地','绝地','接地','空地','落地','领地','绿地','陆地','林地','之地','阵地','占地','质地','驻地','场地','产地','此地','草地','本地','白地','内地','拿地','农地','墓地','某地','得体','得意','得到','得分','得过','得很','得奖','得空','得了','得证','得知','得罪','得主','得出','取得','赢得','使得','锻得','懂得','获得','觉得','解得','记得','懒得','值得','显得','测得','变得','不得','彼得','难得','没得','免得','可的','打的','的卢','考古','梦开始的地方','泪目','十个泪目九个笑，还有一个在狂笑','十个泪目一个笑，还有九个在狂笑','公屏','核善','核平','核蔼','以核为贵','蘑菇蛋','蘑菇弹','以核服人','以德服人','以理服人','有生之年','爷青回','爷青结','失踪人口回归','up主','UP主','Up主','零零后','00后','鸽视频','阿婆主','富贵色','会员色','字母君','字幕菌','野生字幕菌','哈哈哈哈','红红火火恍恍惚惚','啊我死了','awsl','AWSL','Awsl','阿伟死了','阿伟瘦了','啊我是驴','武汉加油','有内味了','双厨狂喜','爷青回','禁止套娃','xswl','XSWL','Xswl','hhh','lol','LOL','Lol','rofl','Rofl','ROFL','Hahaha','hahaha','HaHaHa','HAHAHA','哔哩哔哩','bilibili','Bilibili','BiliBili','BILIBILI','发生肾么事了','发生甚么事了','把颈椎练坏了','年轻人不讲武德','不讲武德','有备而来','来骗','来偷袭','耗子尾汁','闪电五连鞭','金坷垃','奥利给','亿遍','亿点点','橘里橘气','紫气东来','磕到了',]
+
+    def translate(self) -> str:
+        """
+        to translate the string.
+        """
+        string = self.to_translate
+
+        string = string[:-1] if (string.endswith('?') or string.endswith("？")) else string
+
+        # use regular expression to identify chinese questions
+        try:
+            req = match(r'^(.*?)((的(值|数?量))?((究竟|到底)?(是([个群堆]?)(((什么|啥子?)(玩意儿?|东西|意思)?)|(谁|哪[个位]人)儿?)))|((是|有)(哪(((([一二三四五六七八九十百千万亿零]*)|几)(个|项|条|种|类)?)(.*?))|(一?些))|(多少)(.*?)?)|((怎么|如何|咋)(.*?))|((为)(什么|啥|毛)(.*?))|((在哪(里|个地(方|儿)|儿)?)))[呢呀啊哈吗]?$', string)
+            if req[5]:
+                return (req[1] if req[1] else '') + (req[3] if req[3] else '') + ('是谁' if req[13] else ('是什么' + ('意思' if req[12] == '意思' else '')))
+            elif req[14]:
+                if req[16]:
+                    return (req[1] if req[1] else '') + req[15] + '哪' + (req[17] if req[17] else req[23])
+                else:
+                    return (req[1] if req[1] else '') + (req[3] if req[3] else '') + req[15] + req[24] + req[25]
+            elif req[26]:
+                return (req[1] if req[1] else '') + (req[3] if req[3] else '') + '怎么' + req[28]
+            elif req[29]:
+                return (req[1] if req[1] else '') + (req[3] if req[3] else '') + req[30] + '什么' + req[32]
+            elif req[34]:
+                return (req[1] if req[1] else '') + (req[3] if req[3] else '') + '在哪里'
+            else:
+                keywords = self.keywords()
+                import jieba
+        except TypeError:
+            keywords = self.keywords()
+            import jieba
+        
+        for item in range(len(keywords)):
+            string = string.replace(keywords[item], f'[$@{item}]')
+
+        words = [w for w in jieba.cut(string)]
+
+        translate_map = {  # not formal uses of chinese
+            # algorithm to translate items in values(list) to their keys
+            '什么': ['啥','啥子','肾么','甚么'],
+            '怎么': ['咋'],
+            '炒饭': ['抄饭','吵饭'],
+            '充气': ['冲气'],
+            '装潢': ['装璜', '装黄'],
+            '盒饭': ['合饭'],
+            '菠萝': ['波萝', '菠罗'],
+            '零': ['〇'],
+        }
+
+        for formal, not_formals in translate_map.items():
+            for nf in not_formals:
+                for i in range(0, len(words)):
+                    if words[i] == nf:
+                        words[i] = formal
+
+        string = "".join(words)
+        # after translate
+        for item in range(len(keywords)):
+            string = string.replace(f'[$@{item}]', keywords[item])
+        return string
