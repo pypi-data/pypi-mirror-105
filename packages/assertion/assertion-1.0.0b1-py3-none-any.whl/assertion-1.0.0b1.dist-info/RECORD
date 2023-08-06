@@ -1,0 +1,8 @@
+assertion/__init__.py,sha256=rv0qHwn84yVY9JQGzVib55YIt0ExcH14HWlnpSdh8lM,69
+assertion/assertion.py,sha256=qx3xAcCBXr1eIwGgnm-zQC-5ZgLG68EYbjtz8Uv0qvw,9432
+assertion/deco.py,sha256=5y8N4aFr37jhfCwrJEzv8Bklaftit1vdIsiVaMBJvRM,6960
+assertion/deferred_info.py,sha256=I-ydiTVYEAHntMstO7sxlO7Pi65wti1w6fuRHq4sElc,1299
+assertion-1.0.0b1.dist-info/WHEEL,sha256=HVO3Ux7U9ykQjwvN_1wLUCcIvFs7FIfuWXl9J3uNzHs,87
+assertion-1.0.0b1.dist-info/METADATA,sha256=xJMnMKuJglRKUsAXlyn22Z2AZCZXBRQ5fELh5XV-HJo,10403
+assertion-1.0.0b1.dist-info/LICENSE.rst,sha256=FwHHwXdQObyFFM6L4E2qit-fTUQRH-VhK8L-uSRaTFo,1104
+assertion-1.0.0b1.dist-info/RECORD,,
