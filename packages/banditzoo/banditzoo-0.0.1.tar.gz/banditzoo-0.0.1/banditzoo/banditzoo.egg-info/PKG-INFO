@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: banditzoo
+Version: 0.0.1
+Summary: Python package of bandits and RL agents in different real-world environments
+Home-page: https://github.com/doerlbh/BanditZoo
+Author: Baihan Lin
+Author-email: doerlbh@gmail.com
+License: MIT
+Project-URL: Bug Tracker, https://github.com/doerlbh/BanditZoo/issues
+Description: # BanditZoo
+        Python package of bandits and RL agents in different real-world environments
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

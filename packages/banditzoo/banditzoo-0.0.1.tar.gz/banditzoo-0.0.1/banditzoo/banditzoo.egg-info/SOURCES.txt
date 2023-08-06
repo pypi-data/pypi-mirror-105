@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+banditzoo/banditzoo.egg-info/PKG-INFO
+banditzoo/banditzoo.egg-info/SOURCES.txt
+banditzoo/banditzoo.egg-info/dependency_links.txt
+banditzoo/banditzoo.egg-info/requires.txt
+banditzoo/banditzoo.egg-info/top_level.txt
