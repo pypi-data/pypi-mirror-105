@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.cfg
+setup.py
+wackyurls/__init__.py
+wackyurls.egg-info/PKG-INFO
+wackyurls.egg-info/SOURCES.txt
+wackyurls.egg-info/dependency_links.txt
+wackyurls.egg-info/top_level.txt
+wackyurls/data/adjectives.txt
+wackyurls/data/nouns.txt

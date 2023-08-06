@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: wackyurls
+Version: 0.1
+Summary: Generates random URLs from nouns and adjectives.
+Home-page: UNKNOWN
+Author: briccardo
+Author-email: rbiagini02@gmail.com
+License: MIT
+Description: # Installation
+        
+        `pip install wackyurls`
+        
+        # Usage
+        
+        ```python
+        import wackyurls
+        cool_url = wackyurls.new(7)
+        ```
+        `TheBigAndWrathfulAnnoyedHandsomelyPeacefulInnateLibrary`
+        
+        # Parameters
+        
+        ```python
+        new(word_count=3, capitalize=True, separator='')
+        ```
+        
+        - `word_count` is the total number of words. Valid range is 1 to 100.
+        - `capitalize` will capitalize every word if set to `True`.
+        - `separator` will add a separator between every word.
+        
+        # Credits
+        
+        Based on `sentence-url` by [Jabbey92](https://github.com/Jabbey92/sentence-url).
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
