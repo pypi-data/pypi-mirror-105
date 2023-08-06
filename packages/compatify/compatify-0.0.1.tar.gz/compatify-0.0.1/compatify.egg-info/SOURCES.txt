@@ -1,0 +1,7 @@
+setup.py
+compatify/__init__.py
+compatify.egg-info/PKG-INFO
+compatify.egg-info/SOURCES.txt
+compatify.egg-info/dependency_links.txt
+compatify.egg-info/requires.txt
+compatify.egg-info/top_level.txt
