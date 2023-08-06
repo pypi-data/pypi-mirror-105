@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+bitctrl/Bitctrl.py
+bitctrl/__init__.py
+bitctrl.egg-info/PKG-INFO
+bitctrl.egg-info/SOURCES.txt
+bitctrl.egg-info/dependency_links.txt
+bitctrl.egg-info/not-zip-safe
+bitctrl.egg-info/requires.txt
+bitctrl.egg-info/top_level.txt
