@@ -1,0 +1,14 @@
+numpy
+vtk<=8.2.0
+h5py
+scipy
+affine
+
+[Georeferencing]
+osgeo
+
+[Gmsh mesh to SRH-2D]
+meshio
+
+[HEC-RAS Control]
+pywin32
