@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: pydecompress
+Version: 0.0.2
+Summary: PyDecompress eases the process of extracting contents from different types of archives.
+Home-page: https://github.com/polkovnik-z/pydecompress
+Author: Ibragim Abubakarov
+Author-email: ibragim.ai95@gmail.com
+Maintainer: Ibragim Abubakarov
+Maintainer-email: ibragim.ai95@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Description-Content-Type: text/markdown
+
+[PyDecompress](https://github.com/polkovnik-z/pydecompress)
+==============
+Lightweight package that allows you to decompress archive files.
+
+##### Supported formats
+ - `.zip`
+ - `.tar`
+ - `.tar.gz`
+ - `.tar.xz`
+ - `.tar.bz2`
+ - `.tar.xz`
+ - `.tar.Z` - Requires the Linux **uncompress** package.
+
+Installation
+------------
+via **pip**:
+```bash
+pip install pydecompress
+```
+
+Usage example
+-----
+```python
+from pydecompress.extractor import Extractor
+
+res = Extractor.extract('path/to/archive.tar.gz', '/destination/folder')
+print(res) # Output: PosixPath('/destination/folder')
+```
+
