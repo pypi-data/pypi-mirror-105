@@ -1,0 +1,1 @@
+from opencvFPS.opencvFPS.main import showFrameRate
