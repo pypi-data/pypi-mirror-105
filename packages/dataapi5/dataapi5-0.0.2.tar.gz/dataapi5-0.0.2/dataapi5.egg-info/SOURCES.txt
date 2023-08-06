@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+dataapi5/__init__.py
+dataapi5.egg-info/PKG-INFO
+dataapi5.egg-info/SOURCES.txt
+dataapi5.egg-info/dependency_links.txt
+dataapi5.egg-info/entry_points.txt
+dataapi5.egg-info/not-zip-safe
+dataapi5.egg-info/top_level.txt
