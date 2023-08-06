@@ -1,0 +1,9 @@
+README.md
+mjworker.py
+setup.py
+mjworker.egg-info/PKG-INFO
+mjworker.egg-info/SOURCES.txt
+mjworker.egg-info/dependency_links.txt
+mjworker.egg-info/entry_points.txt
+mjworker.egg-info/requires.txt
+mjworker.egg-info/top_level.txt
