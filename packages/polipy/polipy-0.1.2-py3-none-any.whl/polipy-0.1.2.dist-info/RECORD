@@ -1,0 +1,15 @@
+polipy/__init__.py,sha256=8wyZKqwuHNm0Qkqhv_6TVsLBHExN6fbgZdxyEPYCJyA,78
+polipy/__main__.py,sha256=QK42pfCw-xW2aeBAoq8Vz4MNg-B2DNthhQNQ58oxyKs,2945
+polipy/constants.py,sha256=GjnyhebkhIGqRuVvFGCY3hmiZvaApQS9m4mHtiQfm7I,96
+polipy/exceptions.py,sha256=FeMtWrPJAM1VYbpTNFcU2x6ZCIOaO-xIuhtUVT8l1nI,90
+polipy/extractors.py,sha256=VxpheLlQWph9CvhDauyilVMEDXlvtHPlXdRYWpZBR7I,1711
+polipy/logger.py,sha256=T7ht0831C90sF5LMvnxPHghRmihm3wKgdVKXWJ7xVq8,484
+polipy/networking.py,sha256=VBsHt-DuGx3aLW6YTxOdM0VPt1xn_RBilrLbjy8XztY,1775
+polipy/polipy.py,sha256=caVS1TiOq8RyJb8WU3Y9MT96rqwFrBGkkAvjUBE8f_c,11806
+polipy/scraper.py,sha256=0bhoO1eQxvCSclCWqPtY-UWB3-NLmK_SdPd7EBEULGg,17307
+polipy-0.1.2.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+polipy-0.1.2.dist-info/METADATA,sha256=vI6PT6LkZseBm05rUiQOCIPJGJkC1DhEGYsOG_bYfgA,10732
+polipy-0.1.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+polipy-0.1.2.dist-info/entry_points.txt,sha256=6fHYYDr9RE2EpK2RBUtsHnI7nw69iMk1AZeJZ65_3iI,49
+polipy-0.1.2.dist-info/top_level.txt,sha256=m9BeqTFh70bckpycEo-cdQ3O9K7QxfNaZFTSRgtAyN0,7
+polipy-0.1.2.dist-info/RECORD,,
