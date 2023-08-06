@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "cf-django-aouth-toolkit"
+version = "1.0.0-alpha.1"
+description = ""
+authors = ["G <pxdimando@protonmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+
+[tool.poetry.dev-dependencies]
+twine = "^3.3.0"
+
+[tool.black]
+line-length = 110
+target-version = ['py35']
+exclude = '''
+^/(
+        oauth2_provider/migrations/
+    |   tests/migrations/
+    |   .tox
+)
+'''
