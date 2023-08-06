@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: mpservice
+Version: 0.7.3
+Summary: model serving with asyncio, multiprocessing, and batching
+Home-page: https://github.com/zpz/mpservice
+License: UNKNOWN
+Description: # mpservice
+        
+        Model serving with asyncio, multiprocessing, and batching.
+        
+        Although the code uses some machine-learning terminology to name things, the use case is generic.
+        
+        Reference: [Service Batching from Scratch, Again](https://zpz.github.io/blog/batched-service-redesign/).
+        
+        To install, do `pip install mpservice`.
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8
