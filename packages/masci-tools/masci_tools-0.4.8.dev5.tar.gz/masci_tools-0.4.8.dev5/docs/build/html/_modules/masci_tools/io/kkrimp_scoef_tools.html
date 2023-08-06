@@ -1,0 +1,444 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>masci_tools.io.kkrimp_scoef_tools &#8212; Masci-tools 0.2 documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Masci-tools 0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for masci_tools.io.kkrimp_scoef_tools</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1">#use print(&#39;message&#39;) instead of print &#39;message&#39; in python 2.7 as well:</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Tools for the create scoef functions of the impurity caluclation.</span>
+<span class="sd">Provides functionality to write an scoef file </span>
+<span class="sd">&quot;&quot;&quot;</span>
+         
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Copyright (c), 2018, Forschungszentrum Jülich GmbH,&quot;</span>
+                 <span class="s2">&quot;IAS-1/PGI-1, Germany. All rights reserved.&quot;</span><span class="p">)</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;MIT license, see LICENSE.txt file&quot;</span>
+<span class="n">__contributors__</span> <span class="o">=</span> <span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Philipp Rüßmann&quot;</span><span class="p">,</span> 
+                    <span class="sa">u</span><span class="s2">&quot;Fabian Bertoldo&quot;</span><span class="p">)</span>
+
+<span class="c1">####################################################################################</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<div class="viewcode-block" id="get_structure_data"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.kkrimp_scoef_tools.get_structure_data">[docs]</a><span class="k">def</span> <span class="nf">get_structure_data</span><span class="p">(</span><span class="n">structure</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to take data from AiiDA&#39;s StructureData type and store it into a single numpy array of the following form:</span>
+<span class="sd">    a = [[x-Position 1st atom, y-Position 1st atom, z-Position 1st atom, index 1st atom, charge 1st atom, 0.],</span>
+<span class="sd">         [x-Position 2nd atom, y-Position 2nd atom, z-Position 2nd atom, index 2nd atom, charge 1st atom, 0.],</span>
+<span class="sd">         [..., ..., ..., ..., ..., ...],</span>
+<span class="sd">         ...</span>
+<span class="sd">         ]</span>
+<span class="sd">    </span>
+<span class="sd">    :param structure: input structure of the type StructureData</span>
+<span class="sd">    </span>
+<span class="sd">    :return: numpy array a[# of atoms in the unit cell][5] containing the structure related data (positions in units</span>
+<span class="sd">             of the unit cell length)</span>
+<span class="sd">    </span>
+<span class="sd">    :note:   </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1">#import packages</span>
+    <span class="kn">from</span> <span class="nn">aiida.common.constants</span> <span class="k">import</span> <span class="n">elements</span> <span class="k">as</span> <span class="n">PeriodicTableElements</span>
+    <span class="kn">from</span> <span class="nn">masci_tools.io.common_functions</span> <span class="k">import</span> <span class="n">get_Ang2aBohr</span><span class="p">,</span> <span class="n">get_alat_from_bravais</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    
+    <span class="c1">#list of globally used constants</span>
+    <span class="n">a_to_bohr</span> <span class="o">=</span> <span class="n">get_Ang2aBohr</span><span class="p">()</span>
+    
+    <span class="c1">#get the connection between coordination number and element symbol</span>
+    <span class="n">_atomic_numbers</span> <span class="o">=</span> <span class="p">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;symbol&#39;</span><span class="p">]:</span><span class="n">num</span> <span class="k">for</span> <span class="n">num</span><span class="p">,</span>
+                <span class="n">data</span> <span class="ow">in</span> <span class="n">PeriodicTableElements</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()}</span>    
+    
+
+    <span class="c1">#convert units from Å to Bohr (KKR needs Bohr)</span>
+    <span class="n">bravais</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">cell</span><span class="p">)</span><span class="o">*</span><span class="n">a_to_bohr</span>
+    <span class="n">alat</span> <span class="o">=</span> <span class="n">get_alat_from_bravais</span><span class="p">(</span><span class="n">bravais</span><span class="p">,</span> <span class="n">is3D</span><span class="o">=</span><span class="n">structure</span><span class="o">.</span><span class="n">pbc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="c1">#bravais = bravais/alat  </span>
+    
+    <span class="c1">#initialize the array that will be returned later (it will be a (# of atoms in the cell) x 6-matrix)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">sites</span><span class="p">),</span><span class="mi">6</span><span class="p">))</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#running index for filling up the array with data correctly</span>
+    <span class="n">charges</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#will be needed to return the charge number for the different atoms later  </span>
+
+    <span class="c1">#loop to fill up the a-array with positions, index, charge and a 0. for every atom in the cell</span>
+    <span class="n">sites</span> <span class="o">=</span> <span class="n">structure</span><span class="o">.</span><span class="n">sites</span> 
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">#needed to do the indexing of atoms</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span> <span class="c1">#needed to do the indexing of atoms</span>
+    <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">sites</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">position</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">a_to_bohr</span><span class="o">/</span><span class="n">alat</span>          
+        <span class="n">sitekind</span> <span class="o">=</span> <span class="n">structure</span><span class="o">.</span><span class="n">get_kind</span><span class="p">(</span><span class="n">site</span><span class="o">.</span><span class="n">kind_name</span><span class="p">)</span>
+        <span class="n">naez</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">m</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="c1">#convert the element symbol from StructureData to the charge number</span>
+        <span class="k">for</span> <span class="n">ikind</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sitekind</span><span class="o">.</span><span class="n">symbols</span><span class="p">)):</span>
+            <span class="n">site_symbol</span> <span class="o">=</span> <span class="n">sitekind</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="n">ikind</span><span class="p">]</span>
+            <span class="n">charges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_atomic_numbers</span><span class="p">[</span><span class="n">site_symbol</span><span class="p">])</span>  
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">charges</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">naez</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">charges</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+        
+    <span class="k">return</span> <span class="n">a</span>        </div>
+
+<div class="viewcode-block" id="select_reference"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.kkrimp_scoef_tools.select_reference">[docs]</a><span class="k">def</span> <span class="nf">select_reference</span><span class="p">(</span><span class="n">structure_array</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function that references all of the atoms in the cell to one particular atom i in the cell and calculates </span>
+<span class="sd">    the distance from the different atoms to atom i. New numpy array will have the form:</span>
+<span class="sd">    x = [[x-Position 1st atom, y-Position 1st atom, z-Position 1st atom, index 1st atom, charge 1st atom, </span>
+<span class="sd">            distance 1st atom to atom i],</span>
+<span class="sd">         [x-Position 2nd atom, y-Position 2nd atom, z-Position 2nd atom, index 2nd atom, charge 1st atom, </span>
+<span class="sd">            distance 1st atom to atom i],</span>
+<span class="sd">         [..., ..., ..., ..., ..., ...],</span>
+<span class="sd">         ...</span>
+<span class="sd">         ]</span>
+<span class="sd">    </span>
+<span class="sd">    :param structure_array: input array of the cell containing all the atoms (obtained from get_structure_data)</span>
+<span class="sd">    :param i: index of the atom which should be the new reference</span>
+<span class="sd">    </span>
+<span class="sd">    :return: new structure array with the origin at the selected atom i (for KKRimp: impurity atom)</span>
+<span class="sd">    </span>
+<span class="sd">    :note: the first atom in the structure_array is labelled with 0, the second with 1, ...</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1">#import packages</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    
+    <span class="c1">#initialize new array for data centered around atom i</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">structure_array</span><span class="p">),</span><span class="mi">6</span><span class="p">))</span>
+    
+    <span class="c1">#take the positions of atom i as new origin</span>
+    <span class="n">x_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">structure_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">structure_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">structure_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    
+    <span class="c1">#calculate the positions and distances for all atoms in the cell with respect to the chosen atom i</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">structure_array</span><span class="p">)):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_distance</span><span class="p">(</span><span class="n">structure_array</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">structure_array</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_ref</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+      
+    <span class="k">return</span> <span class="n">x</span></div>
+
+<div class="viewcode-block" id="get_distance"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.kkrimp_scoef_tools.get_distance">[docs]</a><span class="k">def</span> <span class="nf">get_distance</span><span class="p">(</span><span class="n">structure_array</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates and returns the distances between to atoms i and j in the given structure_array</span>
+<span class="sd">    </span>
+<span class="sd">    :param structure_array: input numpy array of the cell containing all the atoms ((# of atoms) x 6-matrix)</span>
+<span class="sd">    :params i, j: indices of the atoms for which the distance should be calculated (indices again start at 0)</span>
+<span class="sd">    </span>
+<span class="sd">    :return: distance between atoms i and j in units of alat</span>
+<span class="sd">    </span>
+<span class="sd">    :note:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1">#import math package for square root calculation</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    
+    <span class="c1">#calculate x-, y-, z-components of distance of i and j </span>
+    <span class="n">del_x</span> <span class="o">=</span> <span class="n">structure_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">structure_array</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">del_y</span> <span class="o">=</span> <span class="n">structure_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">structure_array</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">del_z</span> <span class="o">=</span> <span class="n">structure_array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">structure_array</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="c1">#return absolute value of the distance of atom i and j</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">del_x</span><span class="o">*</span><span class="n">del_x</span> <span class="o">+</span> <span class="n">del_y</span><span class="o">*</span><span class="n">del_y</span> <span class="o">+</span> <span class="n">del_z</span><span class="o">*</span><span class="n">del_z</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="rotate_onto_z"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.kkrimp_scoef_tools.rotate_onto_z">[docs]</a><span class="k">def</span> <span class="nf">rotate_onto_z</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">structure_array</span><span class="p">,</span> <span class="n">vector</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rotates all positions of a structure array of orientation &#39;orient&#39; onto the z-axis. Needed to implement the</span>
+<span class="sd">    cylindrical cutoff shape.</span>
+<span class="sd">    </span>
+<span class="sd">    :param structure: input structure of the type StructureData</span>
+<span class="sd">    :param structure_array: input structure array, obtained by select_reference for the referenced system.</span>
+<span class="sd">    :param vector: reference vector that has to be mapped onto the z-axis. </span>
+<span class="sd">                   </span>
+<span class="sd">    :return: rotated system, now the &#39;orient&#39;-axis is aligned with the z-axis</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    
+    <span class="kn">from</span> <span class="nn">masci_tools.io.common_functions</span> <span class="k">import</span> <span class="n">vec_to_angles</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    
+    <span class="c1">#get angles, from vector</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">vec_to_angles</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">angles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">angles</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="c1">#initialize needed arrays</span>
+    <span class="n">x_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">structure_array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">s_</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">x_temp_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">structure_array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">s_</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">x_temp_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">structure_array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">s_</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1">#define rotation matrices</span>
+    <span class="c1">#========================</span>
+    <span class="c1">#rotation around z-axis with angle phi</span>
+    <span class="n">R_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="n">phi</span><span class="p">),</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="n">phi</span><span class="p">),</span> <span class="mf">0.</span><span class="p">],</span>
+                    <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="n">phi</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="n">phi</span><span class="p">),</span> <span class="mf">0.</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+    <span class="c1">#rotation around y-axis with angle theta</span>
+    <span class="n">R_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="n">theta</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="n">theta</span><span class="p">)],</span>
+                    <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+                    <span class="p">[</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="n">theta</span><span class="p">),</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="n">theta</span><span class="p">)]])</span>
+
+    <span class="c1">#first rotate around z-axis</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">structure_array</span><span class="p">)):</span>
+        <span class="n">x_temp_1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R_z</span><span class="p">,</span> <span class="n">x_res</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">x_temp_2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R_y</span><span class="p">,</span> <span class="n">x_temp_1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">x_temp_2</span></div>
+
+<div class="viewcode-block" id="find_neighbors"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.kkrimp_scoef_tools.find_neighbors">[docs]</a><span class="k">def</span> <span class="nf">find_neighbors</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">structure_array</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">clust_shape</span><span class="o">=</span><span class="s1">&#39;spherical&#39;</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">vector</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Applies periodic boundary conditions and obtains the distances between the selected atom i in the cell and </span>
+<span class="sd">    all other atoms that lie within a cutoff radius r_cut. Afterwards an numpy array with all those atoms including </span>
+<span class="sd">    atom i (x_res) will be returned.</span>
+<span class="sd">    </span>
+<span class="sd">    :param structure: input parameter of the StructureData type containing the three bravais lattice cell vectors</span>
+<span class="sd">    :param structure_array: input numpy structure array containing all the structure related data</span>
+<span class="sd">    :param i: centered atom at which the origin lies (same one as in select_reference)</span>
+<span class="sd">    :param radius: Specifies the radius of the cylinder or of the sphere, depending on clust_shape. </span>
+<span class="sd">                   Input in units of the lattice constant. </span>
+<span class="sd">    :param clust_shape: specifies the shape of the cluster that is used to determine the neighbors for the &#39;scoef&#39; file.</span>
+<span class="sd">                        Default value is &#39;spherical&#39;. Other possible forms are &#39;cylindrical&#39; (&#39;h&#39; and &#39;orient&#39; </span>
+<span class="sd">                        needed), ... .</span>
+<span class="sd">    :param h: needed for a cylindrical cluster shape. Specifies the height of the cylinder. Default=0. </span>
+<span class="sd">              Input in units of the lattice constant.</span>
+<span class="sd">    :param vector: needed for a cylindrical cluster shape. Specifies the orientation vector of the cylinder. Default:</span>
+<span class="sd">                   z-direction.</span>
+<span class="sd">                  </span>
+<span class="sd">    :return: array with all the atoms within the cutoff (x_res)</span>
+<span class="sd">    </span>
+<span class="sd">    :ToDo: - dynamical box construction (r_cut determines which values n1, n2, n3 have)</span>
+<span class="sd">           - different cluster forms (spherical, cylinder, ...), add default parameters, better solution for &#39;orient&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1">#import packages</span>
+    <span class="kn">from</span> <span class="nn">masci_tools.io.common_functions</span> <span class="k">import</span> <span class="n">get_Ang2aBohr</span><span class="p">,</span> <span class="n">get_alat_from_bravais</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    
+    <span class="c1">#list of globally used constants</span>
+    <span class="n">a_to_bohr</span> <span class="o">=</span> <span class="n">get_Ang2aBohr</span><span class="p">()</span>
+    
+    <span class="c1">#conversion into units of the lattice constant</span>
+    <span class="n">bravais</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">cell</span><span class="p">)</span><span class="o">*</span><span class="n">a_to_bohr</span>
+    <span class="n">alat</span> <span class="o">=</span> <span class="n">get_alat_from_bravais</span><span class="p">(</span><span class="n">bravais</span><span class="p">,</span> <span class="n">is3D</span><span class="o">=</span><span class="n">structure</span><span class="o">.</span><span class="n">pbc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    
+    <span class="c1">#obtain cutoff distance from radius and h</span>
+    <span class="n">dist_cut</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+    
+    <span class="c1">#initialize arrays and reference the system </span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">select_reference</span><span class="p">(</span><span class="n">structure_array</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">center</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">x_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> 
+    
+    <span class="c1">#calculate needed amount of boxes in all three directions</span>
+    <span class="c1">#========================================================</span>
+    <span class="c1">#spherical approach (same distance in all three directions)</span>
+    <span class="k">if</span> <span class="n">clust_shape</span> <span class="o">==</span> <span class="s1">&#39;spherical&#39;</span><span class="p">:</span>
+        <span class="n">box_1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">radius</span><span class="o">/</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">cell_lengths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">a_to_bohr</span><span class="o">/</span><span class="n">alat</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">box_2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">radius</span><span class="o">/</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">cell_lengths</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">a_to_bohr</span><span class="o">/</span><span class="n">alat</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">box_3</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">radius</span><span class="o">/</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">cell_lengths</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">a_to_bohr</span><span class="o">/</span><span class="n">alat</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1">#cylindrical shape (different distances for the different directions)</span>
+    <span class="k">elif</span> <span class="n">clust_shape</span> <span class="o">==</span> <span class="s1">&#39;cylindrical&#39;</span><span class="p">:</span>
+        <span class="n">maxval</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+        <span class="n">box_1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">maxval</span><span class="o">/</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">cell_lengths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">a_to_bohr</span><span class="o">/</span><span class="n">alat</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">box_2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">maxval</span><span class="o">/</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">cell_lengths</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">a_to_bohr</span><span class="o">/</span><span class="n">alat</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">box_3</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">maxval</span><span class="o">/</span><span class="p">(</span><span class="n">structure</span><span class="o">.</span><span class="n">cell_lengths</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">a_to_bohr</span><span class="o">/</span><span class="n">alat</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  
+    <span class="c1">#================================================================================================================</span>
+  
+    <span class="c1">#create array of all the atoms in an expanded system</span>
+    <span class="n">box</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">box_1</span><span class="p">,</span> <span class="n">box_2</span><span class="p">,</span> <span class="n">box_3</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">box</span><span class="p">,</span> <span class="n">box</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">box</span><span class="p">,</span> <span class="n">box</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">box</span><span class="p">,</span> <span class="n">box</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                    <span class="n">x_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_temp</span><span class="p">,</span> <span class="p">[[</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">structure</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">*</span><span class="n">structure</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> 
+                                                     <span class="n">l</span><span class="o">*</span><span class="n">structure</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">a_to_bohr</span><span class="o">/</span><span class="n">alat</span><span class="p">,</span> 
+                                                 <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">structure</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">*</span><span class="n">structure</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> 
+                                                     <span class="n">l</span><span class="o">*</span><span class="n">structure</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">a_to_bohr</span><span class="o">/</span><span class="n">alat</span><span class="p">,</span>
+                                                 <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">structure</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">*</span><span class="n">structure</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> 
+                                                     <span class="n">l</span><span class="o">*</span><span class="n">structure</span><span class="o">.</span><span class="n">cell</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="n">a_to_bohr</span><span class="o">/</span><span class="n">alat</span><span class="p">,</span> 
+                                                 <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">4</span><span class="p">],</span> <span class="mf">0.</span><span class="p">]],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+      
+    <span class="c1">#x_temp now contains all the atoms and their positions regardless if they are bigger or smaller than the cutoff</span>
+    <span class="n">x_new</span> <span class="o">=</span> <span class="n">x_temp</span>
+    
+    <span class="c1">#calculate the distances between all the atoms and the center atom i</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_temp</span><span class="p">)):</span>
+        <span class="n">x_new</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_distance</span><span class="p">(</span><span class="n">x_temp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+    
+    <span class="c1">#initialize result array</span>
+    <span class="n">x_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+    
+    <span class="c1">#only take atoms into account whose distance to atom i is smaller than the cutoff radius</span>
+    <span class="c1">#dist_cut = dist_cut</span>
+    <span class="k">if</span> <span class="n">clust_shape</span> <span class="o">==</span> <span class="s1">&#39;spherical&#39;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_temp</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">x_new</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">dist_cut</span> <span class="ow">and</span> <span class="n">x_new</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.</span><span class="p">:</span>
+                <span class="n">x_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_res</span><span class="p">,</span> <span class="p">[[</span><span class="n">x_temp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> 
+                                             <span class="n">x_temp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> 
+                                             <span class="n">x_temp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> 
+                                             <span class="n">x_temp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span> <span class="n">x_temp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">4</span><span class="p">],</span> <span class="n">x_new</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">5</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">clust_shape</span> <span class="o">==</span> <span class="s1">&#39;cylindrical&#39;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_temp</span><span class="p">)):</span>
+            <span class="c1">#rotate system into help system that is aligned with the z-axis</span>
+            <span class="n">x_help</span> <span class="o">=</span> <span class="n">rotate_onto_z</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">x_temp</span><span class="p">,</span> <span class="n">vector</span><span class="p">)</span>
+        
+            <span class="c1">#calculate in plane distance and vertical distance</span>
+            <span class="n">vert_dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">x_help</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+            <span class="n">inplane_dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_help</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x_help</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="c1">#print(vert_dist, inplane_dist)</span>
+            <span class="k">if</span> <span class="n">vert_dist</span> <span class="o">&lt;=</span> <span class="n">h</span><span class="o">/</span><span class="mf">2.</span> <span class="ow">and</span> <span class="n">inplane_dist</span> <span class="o">&lt;=</span> <span class="n">radius</span> <span class="ow">and</span> <span class="n">x_new</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.</span><span class="p">:</span>
+                <span class="n">x_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_res</span><span class="p">,</span> <span class="p">[[</span><span class="n">x_temp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> 
+                                             <span class="n">x_temp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> 
+                                             <span class="n">x_temp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> 
+                                             <span class="n">x_temp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span> <span class="n">x_temp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">4</span><span class="p">],</span> <span class="n">x_new</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">5</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+     
+    <span class="c1">#return an unordered array of all the atoms which are within the cutoff distance with respect to atom i</span>
+    <span class="k">return</span> <span class="n">x_res</span></div>
+
+<div class="viewcode-block" id="write_scoef"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.kkrimp_scoef_tools.write_scoef">[docs]</a><span class="k">def</span> <span class="nf">write_scoef</span><span class="p">(</span><span class="n">x_res</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sorts the data from find_neighbors with respect to the distance to the selected atom and writes the data</span>
+<span class="sd">    correctly formatted into the file &#39;scoef&#39;. Additionally the total number of atoms in the list is written out</span>
+<span class="sd">    in the first line of the file.</span>
+<span class="sd">    </span>
+<span class="sd">    :param x_res: array of atoms within the cutoff radius obtained by find_neighbors (unsorted)</span>
+<span class="sd">    </span>
+<span class="sd">    :output: returns scoef file with the total number of atoms in the first line, then with the formatted positions,</span>
+<span class="sd">             indices, charges and distances in the subsequent lines.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1">#sort the data from x_res with respect to distance to the centered atom</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">x_res</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
+    <span class="n">x_res</span> <span class="o">=</span> <span class="n">x_res</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+    
+    <span class="c1">#write data of x_res into the &#39;scoef&#39;-file</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_res</span><span class="p">))))</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_res</span><span class="p">)):</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:26.19e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])))</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:26.19e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])))</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:26.19e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">])))</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x_res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]))))</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:4.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">4</span><span class="p">])))</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:26.19e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">5</span><span class="p">])))</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="make_scoef"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.kkrimp_scoef_tools.make_scoef">[docs]</a><span class="k">def</span> <span class="nf">make_scoef</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">h</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">vector</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates the &#39;scoef&#39; file for a certain structure. Needed to conduct an impurity KKR calculation.</span>
+<span class="sd">    </span>
+<span class="sd">    :param structure: input structure of the StructureData type.</span>
+<span class="sd">    :param radius: input cutoff radius in units of the lattice constant.</span>
+<span class="sd">    :param h: height of the cutoff cylinder (negative for spherical cluster shape). For negative values, clust_shape </span>
+<span class="sd">              will be automatically assumed as &#39;spherical&#39;. If there will be given a h &gt; 0, the clust_shape </span>
+<span class="sd">              will be &#39;cylindrical&#39;.</span>
+<span class="sd">    :param vector: orientation vector of the cylinder (just for clust_shape=&#39;cylindrical&#39;). </span>
+<span class="sd">    :param i: atom index around which the cluster should be centered. Default: 0 (first atom in the structure).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1">#shape of the cluster is specified</span>
+    <span class="k">if</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">:</span>
+        <span class="n">clust_shape</span> <span class="o">=</span> <span class="s1">&#39;spherical&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">clust_shape</span> <span class="o">=</span> <span class="s1">&#39;cylindrical&#39;</span>
+    
+    <span class="c1">#store data from StructureData type in an numpy array</span>
+    <span class="n">structure_array</span> <span class="o">=</span> <span class="n">get_structure_data</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
+    
+    <span class="c1">#creates an array with all the atoms within a certain cluster shape and size with respect to atom i</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">find_neighbors</span><span class="p">(</span><span class="n">structure</span><span class="p">,</span> <span class="n">structure_array</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">clust_shape</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">vector</span><span class="p">)</span>  
+    
+    <span class="c1">#writes out the &#39;scoef&#39;-file</span>
+    <span class="n">write_scoef</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span></div>
+    
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Masci-tools 0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2018, Jens Broeder.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

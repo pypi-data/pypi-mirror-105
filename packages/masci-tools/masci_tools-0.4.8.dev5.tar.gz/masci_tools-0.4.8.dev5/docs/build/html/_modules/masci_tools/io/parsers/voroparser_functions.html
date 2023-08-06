@@ -1,0 +1,447 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>masci_tools.io.parsers.voroparser_functions &#8212; Masci-tools 0.2 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">Masci-tools 0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for masci_tools.io.parsers.voroparser_functions</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Everything that is needed to parse the output of a voronoi calculation.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+         
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Copyright (c), 2018, Forschungszentrum Jülich GmbH,&quot;</span>
+                 <span class="s2">&quot;IAS-1/PGI-1, Germany. All rights reserved.&quot;</span><span class="p">)</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;MIT license, see LICENSE.txt file&quot;</span>
+<span class="n">__contributors__</span> <span class="o">=</span> <span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Philipp Rüßmann&quot;</span><span class="p">)</span>
+
+<span class="c1">####################################################################################</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">masci_tools.io.common_functions</span> <span class="k">import</span> <span class="p">(</span><span class="n">get_corestates_from_potential</span><span class="p">,</span> <span class="n">get_highest_core_state</span><span class="p">,</span> <span class="n">search_string</span><span class="p">,</span> 
+                                             <span class="n">get_version_info</span><span class="p">,</span> <span class="n">get_Ry2eV</span><span class="p">,</span> <span class="n">get_ef_from_potfile</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">masci_tools.io.parsers.kkrparser_functions</span> <span class="k">import</span> <span class="n">get_core_states</span>
+
+
+<div class="viewcode-block" id="get_valence_min"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.voroparser_functions.get_valence_min">[docs]</a><span class="k">def</span> <span class="nf">get_valence_min</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;out_voronoi&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Construct minimum of energy contour (between valence band bottom and core states)&quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">array</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">searchstr</span> <span class="o">=</span> <span class="s1">&#39;All other states are above&#39;</span>
+    <span class="n">valence_minimum</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">txt</span> <span class="k">if</span> <span class="n">searchstr</span> <span class="ow">in</span> <span class="n">line</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">valence_minimum</span></div>
+
+
+<div class="viewcode-block" id="check_voronoi_output"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.voroparser_functions.check_voronoi_output">[docs]</a><span class="k">def</span> <span class="nf">check_voronoi_output</span><span class="p">(</span><span class="n">potfile</span><span class="p">,</span> <span class="n">outfile</span><span class="p">,</span> <span class="n">delta_emin_safety</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read output from voronoi code and create guess of energy contour&quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">zeros</span>
+    <span class="c1">#analyse core levels, minimum of valence band and their difference</span>
+    <span class="n">ncore</span><span class="p">,</span> <span class="n">ecore</span><span class="p">,</span> <span class="n">lcore</span> <span class="o">=</span> <span class="n">get_corestates_from_potential</span><span class="p">(</span><span class="n">potfile</span><span class="o">=</span><span class="n">potfile</span><span class="p">)</span>
+    <span class="n">e_val_min</span> <span class="o">=</span> <span class="n">get_valence_min</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">)</span>
+
+    <span class="c1">#print a table that summarizes the result</span>
+    <span class="n">e_core_max</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ncore</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pot    Highest core-level     low. val. state    diff&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ipot</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ncore</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">ncore</span><span class="p">[</span><span class="n">ipot</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">lval</span><span class="p">,</span> <span class="n">emax</span><span class="p">,</span> <span class="n">descr</span> <span class="o">=</span> <span class="n">get_highest_core_state</span><span class="p">(</span><span class="n">ncore</span><span class="p">[</span><span class="n">ipot</span><span class="p">],</span> <span class="n">ecore</span><span class="p">[</span><span class="n">ipot</span><span class="p">],</span> <span class="n">lcore</span><span class="p">[</span><span class="n">ipot</span><span class="p">])</span>
+            <span class="n">e_core_max</span><span class="p">[</span><span class="n">ipot</span><span class="p">]</span> <span class="o">=</span> <span class="n">emax</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%3i</span><span class="s1">     </span><span class="si">%2s</span><span class="s1"> </span><span class="si">%10.6f</span><span class="s1">            </span><span class="si">%6.2f</span><span class="s1">         </span><span class="si">%6.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ipot</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">descr</span><span class="p">,</span> <span class="n">emax</span><span class="p">,</span> <span class="n">e_val_min</span><span class="p">[</span><span class="n">ipot</span><span class="p">],</span> <span class="n">e_val_min</span><span class="p">[</span><span class="n">ipot</span><span class="p">]</span><span class="o">-</span><span class="n">emax</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%3i</span><span class="s1">     &lt;&lt; no core states &gt;&gt;&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ipot</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+            <span class="c1"># set to some large negative number for check to not give false positive in case of empty cells</span>
+            <span class="n">e_core_max</span><span class="p">[</span><span class="n">ipot</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1000</span>
+
+    <span class="c1">#get hint for energy integration:</span>
+    <span class="n">emin_guess</span> <span class="o">=</span> <span class="n">e_val_min</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="n">delta_emin_safety</span> <span class="c1"># in Ry</span>
+
+    <span class="k">return</span> <span class="n">emin_guess</span><span class="p">,</span> <span class="n">e_core_max</span><span class="o">.</span><span class="n">max</span><span class="p">()</span></div>
+    
+
+<div class="viewcode-block" id="parse_voronoi_output"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.voroparser_functions.parse_voronoi_output">[docs]</a><span class="k">def</span> <span class="nf">parse_voronoi_output</span><span class="p">(</span><span class="n">out_dict</span><span class="p">,</span> <span class="n">outfile</span><span class="p">,</span> <span class="n">potfile</span><span class="p">,</span> <span class="n">atominfo</span><span class="p">,</span> <span class="n">radii</span><span class="p">,</span> <span class="n">inputfile</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parse output of voronoi calculation and return (success, error_messages_list, out_dict)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># for collection of error messages:</span>
+    <span class="n">msg_list</span> <span class="o">=</span> <span class="p">[]</span>
+   
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">code_version</span><span class="p">,</span> <span class="n">compile_options</span><span class="p">,</span> <span class="n">serial_number</span> <span class="o">=</span> <span class="n">get_version_info</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;code_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">code_version</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;compile_options&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_options</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;calculation_serial_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">serial_number</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;code_info_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of voronoi: Version Info&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">emin</span><span class="p">,</span> <span class="n">e_core_max</span> <span class="o">=</span> <span class="n">check_voronoi_output</span><span class="p">(</span><span class="n">potfile</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;emin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emin</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;emin_units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Ry&#39;</span>
+        <span class="n">diff_emin_ef</span> <span class="o">=</span> <span class="n">emin</span> <span class="o">-</span> <span class="n">get_ef_from_potfile</span><span class="p">(</span><span class="n">potfile</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;emin_minus_efermi_Ry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">diff_emin_ef</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;emin_minus_efermi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">diff_emin_ef</span> <span class="o">*</span> <span class="n">get_Ry2eV</span><span class="p">()</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;emin_minus_efermi_Ry_units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Ry&#39;</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;emin_minus_efermi_units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;eV&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of voronoi: &#39;EMIN&#39;&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        
+    <span class="c1"># parse </span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ncore</span><span class="p">,</span> <span class="n">emax</span><span class="p">,</span> <span class="n">lmax</span><span class="p">,</span> <span class="n">descr_max</span> <span class="o">=</span> <span class="n">get_core_states</span><span class="p">(</span><span class="n">potfile</span><span class="p">)</span>
+        <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;number_of_core_states_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ncore</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;energy_highest_lying_core_state_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emax</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;energy_highest_lying_core_state_per_atom_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Rydberg&#39;</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;descr_highest_lying_core_state_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">descr_max</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;core_states_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of voronoi: core_states&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">Ncls</span><span class="p">,</span> <span class="n">natom</span><span class="p">,</span>  <span class="n">results</span> <span class="o">=</span> <span class="n">get_cls_info</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="n">clsinfo</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">tmpdict_all</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">icls</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">natom</span><span class="p">):</span>
+            <span class="n">tmpdict</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;iatom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;refpot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;rmt_ref&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;tb_cluster_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;sites&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+            <span class="n">clsinfo</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpdict</span><span class="p">)</span>
+        <span class="n">tmpdict_all</span><span class="p">[</span><span class="s1">&#39;cluster_info_atoms&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clsinfo</span>
+        <span class="n">tmpdict_all</span><span class="p">[</span><span class="s1">&#39;number_of_clusters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ncls</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;cluster_info_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmpdict_all</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of voronoi: Cluster Info&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;start_from_jellium_potentials&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">startpot_jellium</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of voronoi: Jellium startpot&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">natyp</span><span class="p">,</span> <span class="n">naez</span><span class="p">,</span> <span class="n">shapes</span> <span class="o">=</span> <span class="n">get_shape_array</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">atominfo</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;shapes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shapes</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of voronoi: SHAPE Info&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">Vtot</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">get_volumes</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;volume_total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vtot</span>
+        <span class="n">tmpdict_all</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">icls</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">naez</span><span class="p">):</span>
+            <span class="n">tmpdict</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;iatom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;v_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">tmpdict_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpdict</span><span class="p">)</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;volume_atoms&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmpdict_all</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;volume_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;alat^3&#39;</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;volumes_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of voronoi: Volume Info&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">get_radii</span><span class="p">(</span><span class="n">naez</span><span class="p">,</span> <span class="n">radii</span><span class="p">)</span>
+        <span class="n">tmpdict_all</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">icls</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">naez</span><span class="p">):</span>
+            <span class="n">tmpdict</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;iatom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;rmt0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;rout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;dist_nn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;rmt0_over_rout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+            <span class="n">tmpdict</span><span class="p">[</span><span class="s1">&#39;rout_over_dist_nn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">icls</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
+            <span class="n">tmpdict_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpdict</span><span class="p">)</span>
+        <span class="n">tmpdict_all</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;radii_units&#39;</span><span class="p">:</span><span class="s1">&#39;alat&#39;</span><span class="p">})</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;radii_atoms_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmpdict_all</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of voronoi: radii.dat Info&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">get_fpradius</span><span class="p">(</span><span class="n">naez</span><span class="p">,</span> <span class="n">atominfo</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;fpradius_atoms&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;fpradius_atoms_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;alat&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of voronoi: full potential radius&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_alat</span><span class="p">(</span><span class="n">inputfile</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;alat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;alat_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a_Bohr&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of voronoi: alat&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>   
+        
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_radial_meshpoints</span><span class="p">(</span><span class="n">potfile</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;radial_meshpoints&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of voronoi: radial meshpoints&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        
+    <span class="c1"># some consistency checks comparing lists with natyp/naez numbers</span>
+    <span class="c1">#TODO implement checks</span>
+        
+    <span class="c1">#convert arrays to lists</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">ndarray</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">out_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="o">==</span><span class="n">ndarray</span><span class="p">:</span>
+            <span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="o">==</span><span class="nb">dict</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">subkey</span> <span class="ow">in</span> <span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">subkey</span><span class="p">])</span><span class="o">==</span><span class="n">ndarray</span><span class="p">:</span>
+                    <span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">subkey</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">subkey</span><span class="p">])</span>
+                    
+                    
+    <span class="c1"># return output with error messages if there are any</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">msg_list</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">msg_list</span><span class="p">,</span> <span class="n">out_dict</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="p">[],</span> <span class="n">out_dict</span></div>
+    
+
+<span class="k">def</span> <span class="nf">startpot_jellium</span><span class="p">(</span><span class="n">outfile</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;JELLSTART POTENTIALS&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">itmp</span> <span class="o">==-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="k">def</span> <span class="nf">get_volumes</span><span class="p">(</span><span class="n">outfile</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;Total volume (alat^3)&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">Vtot</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="n">itmp</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39; Volume(alat^3)  :&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmpstr</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span>
+            <span class="n">tmpstr</span> <span class="o">=</span> <span class="n">tmpstr</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">tmpstr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">tmpstr</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpstr</span><span class="p">[</span><span class="mi">5</span><span class="p">])]</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpstr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Vtot</span><span class="p">,</span> <span class="n">results</span>
+
+
+<span class="k">def</span> <span class="nf">get_cls_info</span><span class="p">(</span><span class="n">outfile</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Ncls</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Natom</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">cls_all</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;CLSGEN_TB: Atom&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmpstr</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span>
+            <span class="n">tmpstr</span> <span class="o">=</span> <span class="n">tmpstr</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">tmpstr</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpstr</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpstr</span><span class="p">[</span><span class="mi">6</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpstr</span><span class="p">[</span><span class="mi">8</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpstr</span><span class="p">[</span><span class="mi">10</span><span class="p">])]</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpstr</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cls_all</span><span class="p">:</span>
+                <span class="n">Ncls</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">cls_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">tmpstr</span><span class="p">[</span><span class="mi">8</span><span class="p">]))</span>
+            <span class="n">Natom</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">Ncls</span><span class="p">,</span> <span class="n">Natom</span><span class="p">,</span> <span class="n">results</span>
+
+
+<span class="k">def</span> <span class="nf">get_shape_array</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">atominfo</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="c1">#naez/natyp number of items either one number (=ishape without cpa or two =[iatom, ishape] with CPA)</span>
+    <span class="c1"># read in naez and/or natyp and then find ishape array (1..natyp[=naez without CPA])</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;NAEZ= &#39;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">txt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span>
+        <span class="n">ipos</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;NAEZ=&#39;</span><span class="p">)</span>
+        <span class="n">naez</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="n">ipos</span><span class="o">+</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">naez</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;NATYP= &#39;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">txt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span>
+        <span class="n">ipos</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;NATYP=&#39;</span><span class="p">)</span>
+        <span class="n">natyp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="n">ipos</span><span class="o">+</span><span class="mi">6</span><span class="p">:]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">natyp</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        
+    <span class="c1"># consistency check</span>
+    <span class="k">if</span> <span class="n">naez</span><span class="o">==-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">natyp</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">naez</span> <span class="o">=</span> <span class="n">natyp</span>
+    <span class="k">elif</span> <span class="n">natyp</span><span class="o">==-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">naez</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">natyp</span> <span class="o">=</span> <span class="n">naez</span>
+    <span class="k">elif</span> <span class="n">natyp</span><span class="o">==-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">naez</span><span class="o">==-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Neither NAEZ nor NATYP found in </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">outfile</span><span class="p">)</span>
+    
+    <span class="c1"># read shape index from atominfo file</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">atominfo</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;&lt;SHAPE&gt;&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">ishape</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">iatom</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">natyp</span><span class="p">):</span>
+        <span class="n">txt</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="n">iatom</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">natyp</span><span class="o">&gt;</span><span class="n">naez</span><span class="p">:</span> <span class="c1">#CPA option</span>
+            <span class="n">ishape</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ishape</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]))</span>
+    
+    <span class="k">return</span> <span class="n">natyp</span><span class="p">,</span> <span class="n">naez</span><span class="p">,</span> <span class="n">ishape</span>
+
+
+<span class="k">def</span> <span class="nf">get_radii</span><span class="p">(</span><span class="n">naez</span><span class="p">,</span> <span class="n">radii</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">radii</span><span class="p">)</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">iatom</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">naez</span><span class="p">):</span>
+        <span class="c1"># IAT    Rmt0           Rout            Ratio(%)   dist(NN)      Rout/dist(NN) (%)              </span>
+        <span class="c1"># 1   0.5000001547   0.7071070000       70.71   1.0000003094       70.71</span>
+        <span class="n">tmpline</span> <span class="o">=</span> <span class="n">txt</span><span class="p">[</span><span class="mi">3</span><span class="o">+</span><span class="n">iatom</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">tmpline</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">tmpline</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpline</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpline</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpline</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpline</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpline</span><span class="p">[</span><span class="mi">5</span><span class="p">])]</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpline</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span>
+
+    
+<span class="k">def</span> <span class="nf">get_fpradius</span><span class="p">(</span><span class="n">naez</span><span class="p">,</span> <span class="n">atominfo</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">atominfo</span><span class="p">)</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;&lt;FPRADIUS&gt;&#39;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">iatom</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">naez</span><span class="p">):</span>
+        <span class="c1">#ZAT   LMXC  KFG   &lt;CLS&gt; &lt;REFPOT&gt; &lt;NTC&gt;  FAC  &lt;IRNS&gt; &lt;RMTREF&gt;   &lt;FPRADIUS&gt;</span>
+        <span class="c1"># 0.00 1 3 3 0 0      1      1      1    1.     199   2.3166000   0.4696902</span>
+        <span class="n">tmpline</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">txt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="n">iatom</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpline</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span>
+
+    
+<span class="k">def</span> <span class="nf">get_alat</span><span class="p">(</span><span class="n">inpfile</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">inpfile</span><span class="p">)</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;ALATBASIS&#39;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">txt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;ALATBASIS&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">result</span>
+    
+
+<span class="k">def</span> <span class="nf">get_radial_meshpoints</span><span class="p">(</span><span class="n">potfile</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">potfile</span><span class="p">)</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">itmp</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;exc:&#39;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">itmp</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">txt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span><span class="c1"># remove header line</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># extract meshpoints</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+    
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">Masci-tools 0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2018, Jens Broeder.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

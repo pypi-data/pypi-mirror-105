@@ -1,0 +1,887 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>masci_tools.io.parsers.kkrparser_functions &#8212; Masci-tools 0.2 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">Masci-tools 0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for masci_tools.io.parsers.kkrparser_functions</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python2</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Here I collect all functions needed to parse the output of a KKR calculation. </span>
+<span class="sd">These functions do not need aiida and are therefore separated from the actual </span>
+<span class="sd">parser file where parse_kkr_outputfile is called</span>
+<span class="sd">&quot;&quot;&quot;</span> 
+
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Copyright (c), 2017, Forschungszentrum Jülich GmbH,&quot;</span>
+                 <span class="s2">&quot;IAS-1/PGI-1, Germany. All rights reserved.&quot;</span><span class="p">)</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;MIT license, see LICENSE.txt file&quot;</span>
+<span class="n">__contributors__</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;Philipp Rüßmann&quot;</span>
+
+
+<span class="kn">from</span> <span class="nn">masci_tools.io.common_functions</span> <span class="k">import</span> <span class="p">(</span><span class="n">search_string</span><span class="p">,</span> <span class="n">get_version_info</span><span class="p">,</span> <span class="n">get_Ry2eV</span><span class="p">,</span> <span class="n">angles_to_vec</span><span class="p">,</span>
+                                                     <span class="n">get_corestates_from_potential</span><span class="p">,</span> <span class="n">get_highest_core_state</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">parse_array_float</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">searchstring</span><span class="p">,</span> <span class="n">splitinfo</span><span class="p">,</span> <span class="n">replacepair</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="n">searchstring</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">replacepair</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmpval</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">replacepair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">replacepair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">splitinfo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">tmpval</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">splitinfo</span><span class="p">[</span><span class="mi">1</span><span class="p">])[</span><span class="n">splitinfo</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+            <span class="k">elif</span> <span class="n">splitinfo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+                <span class="n">tmpval</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">splitinfo</span><span class="p">[</span><span class="mi">1</span><span class="p">])[</span><span class="n">splitinfo</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="n">splitinfo</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;splitinfo[0] has to be either 1 or 2&quot;</span><span class="p">)</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpval</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="k">def</span> <span class="nf">get_rms</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">outfile2</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">parse_array_float</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;average rms-error&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">])</span>
+    <span class="n">res2</span> <span class="o">=</span> <span class="n">parse_array_float</span><span class="p">(</span><span class="n">outfile2</span><span class="p">,</span> <span class="s1">&#39;rms-error for atom&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">])</span>
+    <span class="n">niter</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="c1"># number of iterations</span>
+    <span class="n">natoms</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res2</span><span class="p">)</span><span class="o">/</span><span class="n">niter</span><span class="p">)</span> <span class="c1"># number of atoms in system, needed to take only atom resolved rms of last iteration</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">,</span> <span class="n">res2</span><span class="p">[</span><span class="o">-</span><span class="n">natoms</span><span class="p">:]</span>
+
+
+<span class="k">def</span> <span class="nf">get_neutr</span><span class="p">(</span><span class="n">outfile</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">parse_array_float</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;charge neutrality in unit cell&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="k">def</span> <span class="nf">get_magtot</span><span class="p">(</span><span class="n">outfile</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">parse_array_float</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;TOTAL mag. moment in unit cell&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="k">def</span> <span class="nf">get_EF</span><span class="p">(</span><span class="n">outfile</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">parse_array_float</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;E FERMI&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;FERMI&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="k">def</span> <span class="nf">get_DOS_EF</span><span class="p">(</span><span class="n">outfile</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">parse_array_float</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;DOS(E_F)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="k">def</span> <span class="nf">get_Etot</span><span class="p">(</span><span class="n">outfile</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">parse_array_float</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;TOTAL ENERGY in ryd.&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="k">def</span> <span class="nf">find_warnings</span><span class="p">(</span><span class="n">outfile</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">tmptxt_caps</span> <span class="o">=</span> <span class="p">[</span><span class="n">txt</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">txt</span> <span class="ow">in</span> <span class="n">tmptxt</span><span class="p">]</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;WARNING&#39;</span><span class="p">,</span> <span class="n">tmptxt_caps</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt_caps</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span>
+            <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpval</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">extract_timings</span><span class="p">(</span><span class="n">outfile</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">search_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;main0&#39;</span><span class="p">,</span> 
+                   <span class="s1">&#39;main1a - tbref&#39;</span><span class="p">,</span> 
+                   <span class="s1">&#39;main1a  &#39;</span><span class="p">,</span> <span class="c1"># two spaces to differentiate from following key</span>
+                   <span class="s1">&#39;main1b - calctref13&#39;</span><span class="p">,</span> 
+                   <span class="s1">&#39;main1b  &#39;</span><span class="p">,</span> <span class="c1"># two spaces!</span>
+                   <span class="s1">&#39;main1c - serial part&#39;</span><span class="p">,</span> 
+                   <span class="s1">&#39;main1c  &#39;</span><span class="p">,</span><span class="c1"># two spaces!</span>
+                   <span class="s1">&#39;main2&#39;</span><span class="p">,</span> 
+                   <span class="s1">&#39;Time in Iteration&#39;</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">tmpvals</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">isearch</span> <span class="ow">in</span> <span class="n">search_keys</span><span class="p">:</span>
+            <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="n">isearch</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">tmpval</span> <span class="o">=</span> <span class="p">[</span><span class="n">isearch</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">])]</span>
+                <span class="n">tmpvals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpval</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmpvals</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpvals</span><span class="p">)</span>
+    <span class="c1">#print(res)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c1">#print(dict(res))</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_charges_per_atom</span><span class="p">(</span><span class="n">outfile_000</span><span class="p">):</span>
+    <span class="n">res1</span> <span class="o">=</span> <span class="n">parse_array_float</span><span class="p">(</span><span class="n">outfile_000</span><span class="p">,</span> <span class="s1">&#39;charge in wigner seitz&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="c1"># these two are not in output of DOS calculation (and are then ignored)</span>
+    <span class="n">res2</span> <span class="o">=</span> <span class="n">parse_array_float</span><span class="p">(</span><span class="n">outfile_000</span><span class="p">,</span> <span class="s1">&#39;nuclear charge&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;nuclear charge&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="k">try</span><span class="p">:</span>
+       <span class="n">res3</span> <span class="o">=</span> <span class="n">parse_array_float</span><span class="p">(</span><span class="n">outfile_000</span><span class="p">,</span> <span class="s1">&#39;core charge&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span> 
+       <span class="n">res3</span> <span class="o">=</span> <span class="n">parse_array_float</span><span class="p">(</span><span class="n">outfile_000</span><span class="p">,</span> <span class="s1">&#39;core charge&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">res1</span><span class="p">,</span> <span class="n">res2</span><span class="p">,</span> <span class="n">res3</span>
+
+
+<div class="viewcode-block" id="get_single_particle_energies"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.kkrparser_functions.get_single_particle_energies">[docs]</a><span class="k">def</span> <span class="nf">get_single_particle_energies</span><span class="p">(</span><span class="n">outfile_000</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    extracts single particle energies from outfile_000 (output.000.txt)</span>
+<span class="sd">    returns the valence contribution of the single particle energies</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_000</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;band energy per atom&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmpval</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpval</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">get_econt_info</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;E min&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">emin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;min&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;Temperature&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">tempr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;Temperature&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;Number of energy points&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">Nepts</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="n">doscalc</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;Density-of-States calculation&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">doscalc</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># npol</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;poles =&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="n">Npol</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1"># npt1, npt2, npt3</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;contour:&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">N1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">N2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+        <span class="n">N3</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Npol</span><span class="p">,</span> <span class="n">N1</span><span class="p">,</span> <span class="n">N2</span><span class="p">,</span> <span class="n">N3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Nepts</span><span class="p">,</span> <span class="mi">0</span>
+    
+    <span class="k">return</span> <span class="n">emin</span><span class="p">,</span> <span class="n">tempr</span><span class="p">,</span> <span class="n">Nepts</span><span class="p">,</span> <span class="n">Npol</span><span class="p">,</span> <span class="n">N1</span><span class="p">,</span> <span class="n">N2</span><span class="p">,</span> <span class="n">N3</span>
+
+
+<span class="k">def</span> <span class="nf">get_core_states</span><span class="p">(</span><span class="n">potfile</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span>
+    <span class="n">ncore</span><span class="p">,</span> <span class="n">energies</span><span class="p">,</span> <span class="n">lmoments</span> <span class="o">=</span> <span class="n">get_corestates_from_potential</span><span class="p">(</span><span class="n">potfile</span><span class="o">=</span><span class="n">potfile</span><span class="p">)</span>
+    <span class="n">emax</span><span class="p">,</span> <span class="n">lmax</span><span class="p">,</span> <span class="n">descr_max</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ipot</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ncore</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">ncore</span><span class="p">[</span><span class="n">ipot</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">lvalmax</span><span class="p">,</span> <span class="n">energy_max</span><span class="p">,</span> <span class="n">descr</span> <span class="o">=</span> <span class="n">get_highest_core_state</span><span class="p">(</span><span class="n">ncore</span><span class="p">[</span><span class="n">ipot</span><span class="p">],</span> <span class="n">energies</span><span class="p">[</span><span class="n">ipot</span><span class="p">],</span> <span class="n">lmoments</span><span class="p">[</span><span class="n">ipot</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">lvalmax</span><span class="p">,</span> <span class="n">energy_max</span><span class="p">,</span> <span class="n">descr</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;no core states&#39;</span>
+        <span class="n">emax</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">energy_max</span><span class="p">)</span>
+        <span class="n">lmax</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lvalmax</span><span class="p">)</span>
+        <span class="n">descr_max</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">descr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">ncore</span><span class="p">),</span> <span class="n">array</span><span class="p">(</span><span class="n">emax</span><span class="p">),</span> <span class="n">array</span><span class="p">(</span><span class="n">lmax</span><span class="p">),</span> <span class="n">array</span><span class="p">(</span><span class="n">descr_max</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_alatinfo</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;Lattice constants :&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">alat</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">twopialat</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">alat</span><span class="p">,</span> <span class="n">twopialat</span>
+
+
+<span class="k">def</span> <span class="nf">get_scfinfo</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">,</span> <span class="n">outfile_000</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_000</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;ITERATION :&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">niter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">nitermax</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp1</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;SCF ITERATION CONVERGED&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">itmp2</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;NUMBER OF SCF STEPS EXHAUSTED&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">itmp1</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">converged</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">converged</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">itmp2</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">nmax_reached</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">nmax_reached</span> <span class="o">=</span> <span class="kc">False</span>
+       
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;STRMIX        FCM       QBOUND&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">strmix</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">fcm</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">qbound</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">brymix</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;IMIX    IGF    ICC&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">imix</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">idtbry</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="n">mixinfo</span> <span class="o">=</span> <span class="p">[</span><span class="n">imix</span><span class="p">,</span> <span class="n">strmix</span><span class="p">,</span> <span class="n">qbound</span><span class="p">,</span> <span class="n">fcm</span><span class="p">,</span> <span class="n">idtbry</span><span class="p">,</span> <span class="n">brymix</span><span class="p">]</span>
+        
+    <span class="k">return</span> <span class="n">niter</span><span class="p">,</span> <span class="n">nitermax</span><span class="p">,</span> <span class="n">converged</span><span class="p">,</span> <span class="n">nmax_reached</span><span class="p">,</span> <span class="n">mixinfo</span>
+
+
+<div class="viewcode-block" id="get_kmeshinfo"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.kkrparser_functions.get_kmeshinfo">[docs]</a><span class="k">def</span> <span class="nf">get_kmeshinfo</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">,</span> <span class="n">outfile_000</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract kmesh info from output.0.txt and output.000.txt</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># first get info from output.0.txt</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">nkmesh</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;number of different k-meshes&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">nkmesh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="p">)</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;k-mesh NofKs&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">nofks</span><span class="p">,</span> <span class="n">nkx</span><span class="p">,</span> <span class="n">nky</span><span class="p">,</span> <span class="n">nkz</span> <span class="o">=</span> <span class="p">[],[],[],[]</span>
+    <span class="k">for</span> <span class="n">ik</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nkmesh</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="n">ik</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">nofks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">nkx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+        <span class="n">nky</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+        <span class="n">nkz</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span>
+    
+    <span class="n">tmpdict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;number_of_kpts&#39;</span><span class="p">:</span><span class="n">nofks</span><span class="p">,</span> <span class="s1">&#39;n_kx&#39;</span><span class="p">:</span><span class="n">nkx</span><span class="p">,</span> <span class="s1">&#39;n_ky&#39;</span><span class="p">:</span><span class="n">nky</span><span class="p">,</span> <span class="s1">&#39;n_kz&#39;</span><span class="p">:</span><span class="n">nkz</span><span class="p">}</span>
+    <span class="n">nkmesh</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpdict</span><span class="p">)</span>
+    
+    <span class="c1">#next get kmesh_ie from output.000.txt</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_000</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">kmesh_ie</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;KMESH =&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmpval</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">kmesh_ie</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpval</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">nkmesh</span><span class="p">,</span> <span class="n">kmesh_ie</span></div>
+    
+
+<span class="k">def</span> <span class="nf">get_symmetries</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;symmetries found for this lattice:&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="n">nsym</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;&lt; FINDGROUP &gt; : Finding symmetry operations&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="n">tmptxt2</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">:]</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;found for this lattice:&#39;</span><span class="p">,</span> <span class="n">tmptxt2</span><span class="p">)</span>
+        <span class="n">nsym</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmptxt2</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;symmetries will be used&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">nsym_used</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;&lt;SYMTAUMAT&gt;&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">tmpdict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">isym</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsym_used</span><span class="p">):</span>
+        <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">5</span><span class="o">+</span><span class="n">isym</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;0-&#39;</span><span class="p">,</span> <span class="s1">&#39;0 -&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;1-&#39;</span><span class="p">,</span> <span class="s1">&#39;1 -&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1"># bugfix for -120 degree euler angle</span>
+        <span class="n">desc</span> <span class="o">=</span> <span class="n">tmpval</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">inversion</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">euler</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">5</span><span class="p">])]</span>
+        <span class="n">unitary</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">))</span>
+        <span class="n">tmpdict</span><span class="p">[</span><span class="n">desc</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_inversion&#39;</span><span class="p">:</span><span class="n">inversion</span><span class="p">,</span> <span class="s1">&#39;is_unitary&#39;</span><span class="p">:</span><span class="n">unitary</span><span class="p">,</span> <span class="s1">&#39;euler_angles&#39;</span><span class="p">:</span><span class="n">euler</span><span class="p">}</span> 
+    <span class="n">desc</span> <span class="o">=</span> <span class="n">tmpdict</span>
+    <span class="k">return</span> <span class="n">nsym</span><span class="p">,</span> <span class="n">nsym_used</span><span class="p">,</span> <span class="n">desc</span>
+    
+
+<span class="k">def</span> <span class="nf">get_ewald</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;setting bulk Madelung coefficients&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="s1">&#39;3D&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="s1">&#39;2D&#39;</span>
+    <span class="k">if</span> <span class="n">info</span> <span class="o">==</span> <span class="s1">&#39;3D&#39;</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;&lt; LATTICE3D &gt;&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="n">rsum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="n">gsum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;&lt; LATTICE2D &gt;&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="n">rsum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">tmpval</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">14</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="n">gsum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmpval</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">rsum</span><span class="p">,</span> <span class="n">gsum</span><span class="p">,</span> <span class="n">info</span>
+
+
+<div class="viewcode-block" id="get_nspin"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.kkrparser_functions.get_nspin">[docs]</a><span class="k">def</span> <span class="nf">get_nspin</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    extract NSPIN value from output.0.txt</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;NSPIN&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">nspin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">nspin</span></div>
+
+
+<div class="viewcode-block" id="get_natom"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.kkrparser_functions.get_natom">[docs]</a><span class="k">def</span> <span class="nf">get_natom</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    extract NATYP value from output.0.txt</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;NATYP&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">natom</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">natom</span></div>
+
+
+<div class="viewcode-block" id="use_newsosol"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.kkrparser_functions.use_newsosol">[docs]</a><span class="k">def</span> <span class="nf">use_newsosol</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    extract NEWSOSOL info from output.0.txt</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;NEWSOSOL&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="n">newsosol</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">newsosol</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">newsosol</span></div>
+
+
+<div class="viewcode-block" id="get_spinmom_per_atom"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.kkrparser_functions.get_spinmom_per_atom">[docs]</a><span class="k">def</span> <span class="nf">get_spinmom_per_atom</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">natom</span><span class="p">,</span> <span class="n">nonco_out_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract spin moment information from outfile and nonco_angles_out (if given)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">itmp</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;m_spin&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmpline</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span>
+            <span class="n">tmparray</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">iatom</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">natom</span><span class="p">):</span>
+                <span class="n">tmpline</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span>
+                <span class="n">tmparray</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">tmpline</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">3</span><span class="p">]))</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmparray</span><span class="p">)</span>
+    
+    <span class="c1"># if the file is there, i.e. NEWSOSOL is used, then extract also direction of spins (angles theta and phi)</span>
+    <span class="k">if</span> <span class="n">nonco_out_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">result</span> <span class="o">!=</span> <span class="p">[]:</span>
+        <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">loadtxt</span>
+        <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">shape</span>  
+        <span class="n">angles</span> <span class="o">=</span> <span class="n">loadtxt</span><span class="p">(</span><span class="n">nonco_out_file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">angles</span><span class="p">))</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">angles</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="n">angles</span><span class="p">])</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="n">angles_to_vec</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">angles</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">vec</span><span class="p">,</span> <span class="n">angles</span> <span class="o">=</span> <span class="p">[],[]</span>
+        
+    <span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n">vec</span><span class="p">,</span> <span class="n">angles</span></div>
+
+
+<div class="viewcode-block" id="get_orbmom"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.kkrparser_functions.get_orbmom">[docs]</a><span class="k">def</span> <span class="nf">get_orbmom</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">natom</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    read orbmom info from outfile and return array (iteration, atom)=orbmom</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">itmp</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;m_spin&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmpline</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span>
+            <span class="n">tmparray</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">iatom</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">natom</span><span class="p">):</span>
+                <span class="n">tmpline</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span>
+                <span class="n">tmparray</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">tmpline</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">4</span><span class="p">]))</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmparray</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="c1">#, vec, angles</span></div>
+
+
+<div class="viewcode-block" id="get_lattice_vectors"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.kkrparser_functions.get_lattice_vectors">[docs]</a><span class="k">def</span> <span class="nf">get_lattice_vectors</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    read direct and reciprocal lattice vectors in internal units (useful for qdos generation)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">vecs</span><span class="p">,</span> <span class="n">rvecs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="n">tmpvecs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">search_txt</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;a_1: &#39;</span><span class="p">,</span> <span class="s1">&#39;a_2: &#39;</span><span class="p">,</span> <span class="s1">&#39;a_3: &#39;</span><span class="p">,</span> <span class="s1">&#39;b_1: &#39;</span><span class="p">,</span> <span class="s1">&#39;b_2: &#39;</span><span class="p">,</span> <span class="s1">&#39;b_3: &#39;</span><span class="p">]:</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="n">search_txt</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">itmp</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmpvec</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">tmpvecs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">tmpvec</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpvec</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpvec</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
+        <span class="k">if</span> <span class="n">search_txt</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;a_3: &#39;</span><span class="p">,</span> <span class="s1">&#39;b_3: &#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">itmp</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># reset vecs for 2D case </span>
+            <span class="n">tmpvecs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmpvecs</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">tmpvecs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmpvecs</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">search_txt</span><span class="o">==</span><span class="s1">&#39;a_3: &#39;</span><span class="p">:</span>
+            <span class="n">vecs</span> <span class="o">=</span> <span class="n">tmpvecs</span>
+            <span class="n">tmpvecs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">elif</span> <span class="n">search_txt</span><span class="o">==</span><span class="s1">&#39;b_3: &#39;</span><span class="p">:</span>
+            <span class="n">rvecs</span> <span class="o">=</span> <span class="n">tmpvecs</span>
+    <span class="k">return</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">rvecs</span></div>
+
+    
+<div class="viewcode-block" id="parse_kkr_outputfile"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.kkrparser_functions.parse_kkr_outputfile">[docs]</a><span class="k">def</span> <span class="nf">parse_kkr_outputfile</span><span class="p">(</span><span class="n">out_dict</span><span class="p">,</span> <span class="n">outfile</span><span class="p">,</span> <span class="n">outfile_0init</span><span class="p">,</span> <span class="n">outfile_000</span><span class="p">,</span> <span class="n">timing_file</span><span class="p">,</span> <span class="n">potfile_out</span><span class="p">,</span> <span class="n">nonco_out_file</span><span class="p">,</span> <span class="n">outfile_2</span><span class="o">=</span><span class="s1">&#39;output.2.txt&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parser method for the kkr outfile. It returns a dictionary with results</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># scaling factors etc. defined globally</span>
+    <span class="n">Ry2eV</span> <span class="o">=</span> <span class="n">get_Ry2eV</span><span class="p">()</span>
+    <span class="n">doscalc</span> <span class="o">=</span> <span class="kc">False</span>
+    
+    <span class="c1"># collection of parsing error messages</span>
+    <span class="n">msg_list</span> <span class="o">=</span> <span class="p">[]</span>
+        
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">code_version</span><span class="p">,</span> <span class="n">compile_options</span><span class="p">,</span> <span class="n">serial_number</span> <span class="o">=</span> <span class="n">get_version_info</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;code_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">code_version</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;compile_options&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_options</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;calculation_serial_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">serial_number</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;code_info_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: Version Info&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># used to group convergence info (rms, rms per atom, charge neutrality)</span>
+    <span class="c1"># also initialize convegence_group where all info stored for all iterations is kept</span>
+    <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">,</span> <span class="n">result_atoms_last</span> <span class="o">=</span> <span class="n">get_rms</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">outfile_000</span><span class="p">)</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;rms&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;rms_all_iterations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;rms_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result_atoms_last</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;rms_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;unitless&#39;</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: rms-error&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_neutr</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;charge_neutrality&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;charge_neutrality_all_iterations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;charge_neutrality_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;electrons&#39;</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: charge neutrality&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+       
+    <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># used to group magnetism info (spin and orbital moments)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_magtot</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;total_spin_moment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;total_spin_moment_all_iterations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;total_spin_moment_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mu_Bohr&#39;</span>
+            <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;magnetism_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: total magnetic moment&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">nspin</span> <span class="o">=</span> <span class="n">get_nspin</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+        <span class="n">natom</span> <span class="o">=</span> <span class="n">get_natom</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+        <span class="n">newsosol</span> <span class="o">=</span> <span class="n">use_newsosol</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;nspin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nspin</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;number_of_atoms_in_unit_cell&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">natom</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;use_newsosol&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">newsosol</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: nspin/natom&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">nspin</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">newsosol</span><span class="p">:</span>
+                <span class="c1">#reset automatically to None to turn off reading of nonco angles file</span>
+                <span class="n">nonco_out_file</span> <span class="o">=</span> <span class="kc">None</span>
+            
+            <span class="n">result</span><span class="p">,</span> <span class="n">vec</span><span class="p">,</span> <span class="n">angles</span> <span class="o">=</span> <span class="n">get_spinmom_per_atom</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">natom</span><span class="p">,</span> <span class="n">nonco_out_file</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;spin_moment_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
+                <span class="k">if</span> <span class="n">newsosol</span><span class="p">:</span>
+                    <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;spin_moment_vector_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vec</span><span class="p">[:]</span>
+                    <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;spin_moment_angles_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">angles</span><span class="p">[:]</span>
+                    <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;spin_moment_angles_per_atom_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;degree&#39;</span>
+                <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;spin_moment_per_atom_all_iterations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[:,:]</span>
+                <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;spin_moment_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mu_Bohr&#39;</span>
+                <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;magnetism_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: spin moment per atom&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="c1"># add orbital moments to magnetis group in parser output</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">nspin</span><span class="o">&gt;</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">newsosol</span><span class="p">:</span>
+            <span class="c1">#TODO orbital moment full vectors</span>
+            <span class="c1"># so far the KKR code writes only the component of the orbital moment </span>
+            <span class="c1"># parallel to the spin moment, thus vec and angles are returned empty </span>
+            <span class="c1"># by construction. This might change in the future </span>
+            <span class="c1">#result, vec, angles = get_orbmom(outfile, natom, nonco_angles_orbmom)</span>
+            <span class="c1"># so for now return only result= array containing all iterations, all atoms, orbital moment parallel to spin quantization axis</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">get_orbmom</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">natom</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;total_orbital_moment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span>
+                <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;orbital_moment_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
+                <span class="c1">#tmp_dict[&#39;orbital_moment_vector_per_atom&#39;] = vec[-1,:]</span>
+                <span class="c1">#tmp_dict[&#39;orbital_moment_angles_per_atom&#39;] = angles[-1,:]</span>
+                <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;orbital_moment_per_atom_all_iterations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[:,:]</span>
+                <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;orbital_moment_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mu_Bohr&#39;</span>
+                <span class="c1">#tmp_dict[&#39;orbital_moment_angles_per_atom_unit&#39;] = &#39;degree&#39;</span>
+                <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;magnetism_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: orbital moment&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_EF</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;fermi_energy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;fermi_energy_units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Ry&#39;</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;fermi_energy_all_iterations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;fermi_energy_all_iterations_units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Ry&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: EF&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_DOS_EF</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;dos_at_fermi_energy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;dos_at_fermi_energy_all_iterations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: DOS@EF&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_Etot</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;energy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">Ry2eV</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;energy_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;eV&#39;</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;total_energy_Ry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;total_energy_Ry_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Rydberg&#39;</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;total_energy_Ry_all_iterations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: total energy&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">find_warnings</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;number_of_warnings&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;warnings_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;warnings_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: search for warnings&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">extract_timings</span><span class="p">(</span><span class="n">timing_file</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;timings_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;timings_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;seconds&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: timings&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">get_single_particle_energies</span><span class="p">(</span><span class="n">outfile_000</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;single_particle_energies&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">*</span><span class="n">Ry2eV</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;single_particle_energies_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;eV&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: single particle energies&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result_WS</span><span class="p">,</span> <span class="n">result_tot</span><span class="p">,</span> <span class="n">result_C</span> <span class="o">=</span> <span class="n">get_charges_per_atom</span><span class="p">(</span><span class="n">outfile_000</span><span class="p">)</span>
+        <span class="n">niter</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;rms_all_iterations&#39;</span><span class="p">])</span>
+        <span class="n">natyp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result_tot</span><span class="p">)</span><span class="o">/</span><span class="n">niter</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;total_charge_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result_tot</span><span class="p">[</span><span class="o">-</span><span class="n">natyp</span><span class="p">:]</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;charge_core_states_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result_C</span><span class="p">[</span><span class="o">-</span><span class="n">natyp</span><span class="p">:]</span>
+        <span class="c1"># this check deals with the DOS case where output is slightly different</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result_WS</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">result_C</span><span class="p">):</span>
+            <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;charge_valence_states_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result_WS</span><span class="p">[</span><span class="o">-</span><span class="n">natyp</span><span class="p">:]</span><span class="o">-</span><span class="n">result_C</span><span class="p">[</span><span class="o">-</span><span class="n">natyp</span><span class="p">:]</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;total_charge_per_atom_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;electron charge&#39;</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;charge_core_states_per_atom_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;electron charge&#39;</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;charge_valence_states_per_atom_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;electron charge&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: charges&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">emin</span><span class="p">,</span> <span class="n">tempr</span><span class="p">,</span> <span class="n">Nepts</span><span class="p">,</span> <span class="n">Npol</span><span class="p">,</span> <span class="n">N1</span><span class="p">,</span> <span class="n">N2</span><span class="p">,</span> <span class="n">N3</span> <span class="o">=</span> <span class="n">get_econt_info</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+        <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;emin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emin</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;emin_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Rydberg&#39;</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;number_of_energy_points&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nepts</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tempr</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;temperature_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Kelvin&#39;</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;npol&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Npol</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;n1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N1</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;n2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N2</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;n3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">N3</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;energy_contour_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+        <span class="k">if</span> <span class="n">Npol</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">doscalc</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: energy contour&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ncore</span><span class="p">,</span> <span class="n">emax</span><span class="p">,</span> <span class="n">lmax</span><span class="p">,</span> <span class="n">descr_max</span> <span class="o">=</span> <span class="n">get_core_states</span><span class="p">(</span><span class="n">potfile_out</span><span class="p">)</span>
+        <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;number_of_core_states_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ncore</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;energy_highest_lying_core_state_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emax</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;energy_highest_lying_core_state_per_atom_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Rydberg&#39;</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;descr_highest_lying_core_state_per_atom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">descr_max</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;core_states_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: core_states&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">alat</span><span class="p">,</span> <span class="n">twopioveralat</span> <span class="o">=</span> <span class="n">get_alatinfo</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;alat_internal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alat</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;two_pi_over_alat_internal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">twopioveralat</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;alat_internal_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a_Bohr&#39;</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;two_pi_over_alat_internal_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1/a_Bohr&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: alat, 2*pi/alat&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">niter</span><span class="p">,</span> <span class="n">nitermax</span><span class="p">,</span> <span class="n">converged</span><span class="p">,</span> <span class="n">nmax_reached</span><span class="p">,</span> <span class="n">mixinfo</span> <span class="o">=</span> <span class="n">get_scfinfo</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">,</span> <span class="n">outfile_000</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="n">niter</span><span class="p">,</span> <span class="n">nitermax</span><span class="p">,</span> <span class="n">converged</span><span class="p">,</span> <span class="n">nmax_reached</span><span class="p">,</span> <span class="n">mixinfo</span> <span class="o">=</span> <span class="n">get_scfinfo</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">,</span> <span class="n">outfile_2</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;number_of_iterations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">niter</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;number_of_iterations_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nitermax</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;calculation_converged&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">converged</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;nsteps_exhausted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nmax_reached</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;imix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mixinfo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;strmix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mixinfo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;qbound&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mixinfo</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;fcm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mixinfo</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;idtbry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mixinfo</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;convergence_group&#39;</span><span class="p">][</span><span class="s1">&#39;brymix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mixinfo</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: scfinfo&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">nkmesh</span><span class="p">,</span> <span class="n">kmesh_ie</span> <span class="o">=</span> <span class="n">get_kmeshinfo</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">,</span> <span class="n">outfile_000</span><span class="p">)</span>
+        <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;number_different_kmeshes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nkmesh</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;number_kpoints_per_kmesh&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nkmesh</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;kmesh_energypoint&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmesh_ie</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;kmesh_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: kmesh&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">nsym</span><span class="p">,</span> <span class="n">nsym_used</span><span class="p">,</span> <span class="n">desc</span> <span class="o">=</span> <span class="n">get_symmetries</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+        <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;number_of_lattice_symmetries&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nsym</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;number_of_used_symmetries&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nsym_used</span>
+        <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;symmetry_description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">desc</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;symmetries_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: symmetries&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">doscalc</span><span class="p">:</span> <span class="c1"># in case of dos calculation no ewald summation is done</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">rsum</span><span class="p">,</span> <span class="n">gsum</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">get_ewald</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+            <span class="n">tmp_dict</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;ewald_summation_mode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;rsum_cutoff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rsum</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;rsum_number_of_vectors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rsum</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;rsum_number_of_shells&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rsum</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;rsum_cutoff_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a_Bohr&#39;</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;gsum_cutoff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gsum</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;gsum_number_of_vectors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gsum</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;gsum_number_of_shells&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gsum</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">tmp_dict</span><span class="p">[</span><span class="s1">&#39;gsum_cutoff_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1/a_Bohr&#39;</span>
+            <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;ewald_sum_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_dict</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: ewald summation for madelung poterntial&quot;</span>
+            <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">bv</span><span class="p">,</span> <span class="n">recbv</span> <span class="o">=</span> <span class="n">get_lattice_vectors</span><span class="p">(</span><span class="n">outfile_0init</span><span class="p">)</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;direct_bravais_matrix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bv</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;reciprocal_bravais_matrix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recbv</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;direct_bravais_matrix_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;alat&#39;</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;reciprocal_bravais_matrix_unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;2*pi / alat&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Error parsing output of KKR: lattice vectors (direct/reciprocal)&quot;</span>
+        <span class="n">msg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            
+        
+    <span class="c1">#convert arrays to lists</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">ndarray</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">out_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="o">==</span><span class="n">ndarray</span><span class="p">:</span>
+            <span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="o">==</span><span class="nb">dict</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">subkey</span> <span class="ow">in</span> <span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">subkey</span><span class="p">])</span><span class="o">==</span><span class="n">ndarray</span><span class="p">:</span>
+                    <span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">subkey</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">out_dict</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">subkey</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+                    
+                    
+    <span class="c1"># return output with error messages if there are any</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">msg_list</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">msg_list</span><span class="p">,</span> <span class="n">out_dict</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="p">[],</span> <span class="n">out_dict</span></div>
+    
+<div class="viewcode-block" id="check_error_category"><a class="viewcode-back" href="../../../../module_guide/code.html#masci_tools.io.parsers.kkrparser_functions.check_error_category">[docs]</a><span class="k">def</span> <span class="nf">check_error_category</span><span class="p">(</span><span class="n">err_cat</span><span class="p">,</span> <span class="n">err_msg</span><span class="p">,</span> <span class="n">out_dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if parser error of the non-critical category (err_cat != 1) are </span>
+<span class="sd">    actually consistent and may be discarded.</span>
+<span class="sd">    </span>
+<span class="sd">    :param err_cat: the error-category of the error message to be investigated</span>
+<span class="sd">    :param err_msg: the error-message</span>
+<span class="sd">    :param out_dict: the dict of results obtained from the parser function</span>
+<span class="sd">    </span>
+<span class="sd">    :returns: True/False if message is an error or warning</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># check special cases:</span>
+    <span class="c1"># 1. nonco_angle_file not present, but newsosol==False anyways</span>
+    <span class="k">if</span> <span class="s1">&#39;NONCO_ANGLES_OUT&#39;</span> <span class="ow">in</span> <span class="n">err_msg</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;use_newsosol&quot;</span> <span class="ow">in</span> <span class="n">out_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">out_dict</span><span class="p">[</span><span class="s2">&quot;use_newsosol&quot;</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+            
+    <span class="c1"># default behavior</span>
+    <span class="k">if</span> <span class="n">err_cat</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+    
+        
+  
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">Masci-tools 0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2018, Jens Broeder.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

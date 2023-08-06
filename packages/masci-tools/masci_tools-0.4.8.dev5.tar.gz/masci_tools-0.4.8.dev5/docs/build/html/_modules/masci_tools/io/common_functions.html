@@ -1,0 +1,353 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>masci_tools.io.common_functions &#8212; Masci-tools 0.2 documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Masci-tools 0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for masci_tools.io.common_functions</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Here commonly used functions that do not need aiida-stuff (i.e. can be tested </span>
+<span class="sd">without a database) are collected.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="c1">#helper functions used in calculation, parser etc.</span>
+<span class="k">def</span> <span class="nf">get_alat_from_bravais</span><span class="p">(</span><span class="n">bravais</span><span class="p">,</span> <span class="n">is3D</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="nb">sum</span>
+    <span class="n">bravais_tmp</span> <span class="o">=</span> <span class="n">bravais</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is3D</span><span class="p">:</span>
+        <span class="c1">#take only in-plane lattice to find maximum as alat</span>
+        <span class="n">bravais_tmp</span> <span class="o">=</span> <span class="n">bravais</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">bravais_tmp</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">get_Ang2aBohr</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mf">1.8897261254578281</span>
+    
+<span class="k">def</span> <span class="nf">get_aBohr2Ang</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">get_Ang2aBohr</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">get_Ry2eV</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mf">13.605693009</span>
+    
+<span class="k">def</span> <span class="nf">search_string</span><span class="p">(</span><span class="n">searchkey</span><span class="p">,</span> <span class="n">txt</span><span class="p">):</span>
+    <span class="n">iline</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">txt</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">searchkey</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">iline</span>
+        <span class="n">iline</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+
+<div class="viewcode-block" id="angles_to_vec"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.common_functions.angles_to_vec">[docs]</a><span class="k">def</span> <span class="nf">angles_to_vec</span><span class="p">(</span><span class="n">magnitude</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    convert (magnitude, theta, phi) to (x,y,z)</span>
+<span class="sd">    </span>
+<span class="sd">    theta/phi need to be in radians!</span>
+<span class="sd">    </span>
+<span class="sd">    Input can be single number, list of numpy.ndarray data</span>
+<span class="sd">    Returns x,y,z vector </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span>
+    
+    <span class="c1"># correct data type if necessary</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="n">magnitude</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="n">single_value_input</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)</span> <span class="o">!=</span> <span class="n">ndarray</span><span class="p">:</span>
+        <span class="n">magnitude</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="n">magnitude</span><span class="p">])</span>
+        <span class="n">single_value_input</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">!=</span> <span class="n">ndarray</span><span class="p">:</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="n">theta</span><span class="p">])</span>
+        <span class="n">single_value_input</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">!=</span> <span class="n">ndarray</span><span class="p">:</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="n">phi</span><span class="p">])</span>
+        <span class="n">single_value_input</span> <span class="o">=</span> <span class="kc">True</span>
+        
+    <span class="n">vec</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ivec</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">magnitude</span><span class="p">)):</span>
+        <span class="n">r_inplane</span> <span class="o">=</span> <span class="n">magnitude</span><span class="p">[</span><span class="n">ivec</span><span class="p">]</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">ivec</span><span class="p">])</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">r_inplane</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="n">ivec</span><span class="p">])</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">r_inplane</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="n">ivec</span><span class="p">])</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">ivec</span><span class="p">])</span><span class="o">*</span><span class="n">magnitude</span><span class="p">[</span><span class="n">ivec</span><span class="p">]</span>
+        <span class="n">vec</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">])</span>
+    <span class="n">vec</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>   
+    
+    <span class="k">if</span> <span class="n">single_value_input</span><span class="p">:</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        
+    <span class="k">return</span> <span class="n">vec</span></div>
+
+
+<div class="viewcode-block" id="vec_to_angles"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.common_functions.vec_to_angles">[docs]</a><span class="k">def</span> <span class="nf">vec_to_angles</span><span class="p">(</span><span class="n">vec</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    converts vector (x,y,z) to (magnitude, theta, phi)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">arctan2</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">shape</span>
+    <span class="n">magnitude</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">==</span><span class="mi">3</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">vec</span><span class="p">))</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="n">vec</span><span class="p">])</span>
+        <span class="n">multiple_entries</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">multiple_entries</span> <span class="o">=</span> <span class="kc">True</span>
+        
+    <span class="k">for</span> <span class="n">ivec</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vec</span><span class="p">)):</span>
+        <span class="n">phi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arctan2</span><span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="n">ivec</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">vec</span><span class="p">[</span><span class="n">ivec</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+        <span class="n">r_inplane</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="n">ivec</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">vec</span><span class="p">[</span><span class="n">ivec</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">theta</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arctan2</span><span class="p">(</span><span class="n">r_inplane</span><span class="p">,</span> <span class="n">vec</span><span class="p">[</span><span class="n">ivec</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+        <span class="n">magnitude</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_inplane</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">vec</span><span class="p">[</span><span class="n">ivec</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">multiple_entries</span><span class="p">:</span>
+        <span class="n">magnitude</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">magnitude</span><span class="p">),</span> <span class="n">array</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">array</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">magnitude</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">magnitude</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">phi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">magnitude</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span></div>
+    
+
+
+<span class="k">def</span> <span class="nf">get_version_info</span><span class="p">(</span><span class="n">outfile</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">tmptxt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;Code version:&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">itmp</span><span class="o">==-</span><span class="mi">1</span><span class="p">:</span> <span class="c1"># try to find serial number from header of file</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;# serial:&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="n">code_version</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">compile_options</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">serial_number</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="p">[</span><span class="n">itmp</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">code_version</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;Compile options:&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="n">compile_options</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">itmp</span> <span class="o">=</span> <span class="n">search_string</span><span class="p">(</span><span class="s1">&#39;serial number for files:&#39;</span><span class="p">,</span> <span class="n">tmptxt</span><span class="p">)</span>
+        <span class="n">serial_number</span> <span class="o">=</span> <span class="n">tmptxt</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">itmp</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">code_version</span><span class="p">,</span> <span class="n">compile_options</span><span class="p">,</span> <span class="n">serial_number</span>
+
+
+<div class="viewcode-block" id="get_corestates_from_potential"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.common_functions.get_corestates_from_potential">[docs]</a><span class="k">def</span> <span class="nf">get_corestates_from_potential</span><span class="p">(</span><span class="n">potfile</span><span class="o">=</span><span class="s1">&#39;potential&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read core states from potential file&quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">zeros</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">potfile</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+    <span class="c1">#get start of each potential part</span>
+    <span class="n">istarts</span> <span class="o">=</span> <span class="p">[</span><span class="n">iline</span> <span class="k">for</span> <span class="n">iline</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">txt</span><span class="p">))</span> <span class="k">if</span> <span class="s1">&#39;POTENTIAL&#39;</span> <span class="ow">in</span> <span class="n">txt</span><span class="p">[</span><span class="n">iline</span><span class="p">]]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">istarts</span><span class="p">)</span>
+
+    <span class="n">n_core_states</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#number of core states per potential</span>
+    <span class="n">e_core_states</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#energies of core states</span>
+    <span class="n">l_core_states</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#angular momentum index, i.e. 0=s, 1=p etc...</span>
+    <span class="k">for</span> <span class="n">ipot</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">istarts</span><span class="p">)):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">txt</span><span class="p">[</span><span class="n">istarts</span><span class="p">[</span><span class="n">ipot</span><span class="p">]</span><span class="o">+</span><span class="mi">6</span><span class="p">]</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ipot</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">n_core_states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">elevels</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1">#temp array for energies</span>
+        <span class="n">langmom</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="c1">#temp array for angular momentum index</span>
+        <span class="k">for</span> <span class="n">icore</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">txt</span><span class="p">[</span><span class="n">istarts</span><span class="p">[</span><span class="n">ipot</span><span class="p">]</span><span class="o">+</span><span class="mi">7</span><span class="o">+</span><span class="n">icore</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">langmom</span><span class="p">[</span><span class="n">icore</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">elevels</span><span class="p">[</span><span class="n">icore</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">))</span>
+        <span class="n">e_core_states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elevels</span><span class="p">)</span>
+        <span class="n">l_core_states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">langmom</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">n_core_states</span><span class="p">,</span> <span class="n">e_core_states</span><span class="p">,</span> <span class="n">l_core_states</span></div>
+
+
+<div class="viewcode-block" id="get_highest_core_state"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.common_functions.get_highest_core_state">[docs]</a><span class="k">def</span> <span class="nf">get_highest_core_state</span><span class="p">(</span><span class="n">nstates</span><span class="p">,</span> <span class="n">energies</span><span class="p">,</span> <span class="n">lmoments</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Find highest lying core state from list of core states, needed to find and check energy contour&quot;&quot;&quot;</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">energies</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+    <span class="n">lval</span> <span class="o">=</span> <span class="n">lmoments</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+    <span class="n">nquant</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">lmoments</span> <span class="o">==</span> <span class="n">lval</span><span class="p">)</span> <span class="o">+</span> <span class="n">lval</span>
+    <span class="n">level_descr</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%i%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">nquant</span><span class="p">,</span> <span class="s1">&#39;spdfgh&#39;</span><span class="p">[</span><span class="n">lval</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">lval</span><span class="p">,</span> <span class="n">energies</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">level_descr</span></div>
+
+
+<div class="viewcode-block" id="interpolate_dos"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.common_functions.interpolate_dos">[docs]</a><span class="k">def</span> <span class="nf">interpolate_dos</span><span class="p">(</span><span class="n">dospath</span><span class="p">,</span> <span class="n">return_original</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    interpolation function copied from complexdos3 fortran code</span>
+<span class="sd">    </span>
+<span class="sd">    Principle of DOS here: Two-point contour integration</span>
+<span class="sd">    for DOS in the middle of the two points. The input DOS</span>
+<span class="sd">    and energy must be complex. Parameter deltae should be</span>
+<span class="sd">    of the order of magnitude of eim::</span>
+<span class="sd">        </span>
+<span class="sd">              &lt;-2*deltae-&gt;   _</span>
+<span class="sd">                   /\        |     DOS=(n(1)+n(2))/2 + (n(1)-n(2))*eim/deltae</span>
+<span class="sd">                  /  \       |</span>
+<span class="sd">                (1)  (2)   2*i*eim=2*i*pi*Kb*Tk</span>
+<span class="sd">                /      \     |</span>
+<span class="sd">               /        \    |</span>
+<span class="sd">        ------------------------ (Real E axis)</span>
+<span class="sd">    </span>
+<span class="sd">    :param input: dospath, path where &#39;complex.dos&#39; file can be found</span>
+<span class="sd">    </span>
+<span class="sd">    :returns: E_Fermi, numpy array of interpolated dos </span>
+<span class="sd">    </span>
+<span class="sd">    :note: output units are in Ry!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">real</span><span class="p">,</span> <span class="n">imag</span>
+    
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">dospath</span><span class="o">+</span><span class="s1">&#39;/complex.dos&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span> <span class="c1"># dummy readin of header, may be replaced later</span>
+    <span class="n">npot</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">iemax</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">lmax</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="n">dosnew_all_atoms</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dos_all_atoms</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npot</span><span class="p">):</span>
+        <span class="c1">#print(&#39;Reading potential&#39;,i1)</span>
+        <span class="c1"># Read header (not used)</span>
+        <span class="k">for</span> <span class="n">iheader</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        
+        <span class="c1"># extract EF</span>
+        <span class="n">ef</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">7</span><span class="p">])</span>
+        
+        <span class="c1"># some more dummy lines</span>
+        <span class="k">for</span> <span class="n">iheader</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        
+        <span class="c1"># now header is done. start reading DOS</span>
+        <span class="c1"># Read dos: (total dos stored at DOS(LMAX+1,IE))</span>
+        <span class="n">dos_l_cmplx</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ie</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iemax</span><span class="p">):</span>
+            <span class="n">tmpline</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">ez</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tmpline</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">tmpline</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">dostmp_complex</span> <span class="o">=</span> <span class="p">[[</span><span class="n">tmpline</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">tmpline</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">tmpline</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">tmpline</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]]]</span>
+            <span class="n">dostmp_complex</span> <span class="o">+=</span> <span class="p">[[</span><span class="n">tmpline</span><span class="p">[</span><span class="n">iline</span><span class="p">],</span> <span class="n">tmpline</span><span class="p">[</span><span class="n">iline</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span> <span class="k">for</span> <span class="n">iline</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">tmpline</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
+            <span class="n">dostmp</span> <span class="o">=</span> <span class="p">[</span><span class="n">ez</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="n">dostmp_complex</span><span class="p">]</span>
+            <span class="n">dos_l_cmplx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dostmp</span><span class="p">)</span>
+        <span class="n">dos_l_cmplx</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">dos_l_cmplx</span><span class="p">)</span>
+        <span class="n">dos_l</span> <span class="o">=</span> <span class="n">imag</span><span class="p">(</span><span class="n">dos_l_cmplx</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+        <span class="n">dos_l</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">dos_l_cmplx</span><span class="o">.</span><span class="n">copy</span><span class="p">()[:,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">dos_all_atoms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dos_l</span><span class="p">)</span>
+        
+        <span class="c1"># Compute and write out corrected dos at new (middle) energy points:</span>
+        <span class="n">dosnew</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">ez</span> <span class="o">=</span> <span class="n">dos_l_cmplx</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">ie</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">iemax</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">deltae</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">ez</span><span class="p">[</span><span class="n">ie</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ez</span><span class="p">[</span><span class="n">ie</span><span class="p">])</span>
+            <span class="n">eim</span> <span class="o">=</span> <span class="n">imag</span><span class="p">(</span><span class="n">ez</span><span class="p">[</span><span class="n">ie</span><span class="p">])</span>
+            <span class="n">enew</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">ez</span><span class="p">[</span><span class="n">ie</span><span class="p">])</span> <span class="c1"># Real quantity</span>
+        
+            <span class="n">tmpdos</span> <span class="o">=</span> <span class="p">[</span><span class="n">enew</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">lmax</span><span class="o">+</span><span class="mi">3</span><span class="p">):</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">dos_l_cmplx</span><span class="p">[</span><span class="n">ie</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ll</span><span class="p">]</span><span class="o">-</span><span class="n">dos_l_cmplx</span><span class="p">[</span><span class="n">ie</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">ll</span><span class="p">])</span><span class="o">*</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mf">0.0</span><span class="o">+</span><span class="n">eim</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="n">deltae</span>
+                <span class="c1">#print ie+1, ll,  dos_l_cmplx[ie, ll], deltae, eim, t, shape(dos_l_cmplx[ie]), lmax</span>
+                <span class="c1">#tmpdos.append(dos_l_cmplx[ie, ll] + 0.5*(dos_l_cmplx[ie-1, ll]-dos_l_cmplx[ie+1, ll])*(0.+1j*eim)/deltae)</span>
+                <span class="n">tmpdos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dos_l_cmplx</span><span class="p">[</span><span class="n">ie</span><span class="p">,</span> <span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">tmpdos</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">tmpdos</span><span class="p">)</span>
+            <span class="c1"># build imaginary part (factor -1/2pi is already included)</span>
+            <span class="n">tmpdos</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="n">real</span><span class="p">(</span><span class="n">tmpdos</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span><span class="o">+</span><span class="p">[</span><span class="n">imag</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span> <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="n">tmpdos</span><span class="p">[</span><span class="mi">1</span><span class="p">:]])</span>
+            <span class="n">dosnew</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmpdos</span><span class="p">)</span>
+        
+        <span class="c1"># save to big array with all atoms</span>
+        <span class="n">dosnew_all_atoms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dosnew</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">i1</span> <span class="o">!=</span> <span class="n">npot</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span> <span class="c1"># dummy line</span>
+            
+    <span class="n">dosnew_all_atoms</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">dosnew_all_atoms</span><span class="p">)</span>
+    <span class="n">dos_all_atoms</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">dos_all_atoms</span><span class="p">)</span>
+    
+    <span class="c1"># close complex.dos file</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">return_original</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ef</span><span class="p">,</span> <span class="n">dos_all_atoms</span><span class="p">,</span> <span class="n">dosnew_all_atoms</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ef</span><span class="p">,</span> <span class="n">dosnew_all_atoms</span></div>
+    
+<div class="viewcode-block" id="get_ef_from_potfile"><a class="viewcode-back" href="../../../module_guide/code.html#masci_tools.io.common_functions.get_ef_from_potfile">[docs]</a><span class="k">def</span> <span class="nf">get_ef_from_potfile</span><span class="p">(</span><span class="n">potfile</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    extract fermi energy from potfile</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">potfile</span><span class="p">)</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">ef</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">txt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">ef</span></div>
+  
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Masci-tools 0.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2018, Jens Broeder.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

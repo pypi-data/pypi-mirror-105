@@ -1,0 +1,1239 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Source code Documentation (API reference) &#8212; Masci-tools 0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Welcome to the Masci-tools’s documentation!" href="../index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to the Masci-tools’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Masci-tools 0.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="source-code-documentation-api-reference">
+<h1>Source code Documentation (API reference)<a class="headerlink" href="#source-code-documentation-api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-masci_tools.vis.plot_methods">
+<span id="visualisation-and-plotting"></span><h2>Visualisation and Plotting<a class="headerlink" href="#module-masci_tools.vis.plot_methods" title="Permalink to this headline">¶</a></h2>
+<p>In this module are plot routines collected to create default plots out of certain
+ouput nodes from certain workflows with matplot lib.</p>
+<p>Comment: Do not use any aiida methods, otherwise the methods in here can become
+tricky to use inside a virtual environment. Make the user extract thing out of
+aiida objects before hand or write something on top. Since usually parameter nodes,
+or files are ploted, parse a dict or filepath.</p>
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.CDF_voigt_profile">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">CDF_voigt_profile</code><span class="sig-paren">(</span><em>x</em>, <em>fwhm_g</em>, <em>fwhm_l</em>, <em>mu</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#CDF_voigt_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.CDF_voigt_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cumulative distribution function of a voigt profile
+implementation of formula found here: <a class="reference external" href="https://en.wikipedia.org/wiki/Voigt_profile">https://en.wikipedia.org/wiki/Voigt_profile</a>
+# TODO: is there an other way then to calc 2F2?
+# or is there an other way to calc the integral of wofz directly, or use
+different error functions.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.construct_corelevel_spectrum">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">construct_corelevel_spectrum</code><span class="sig-paren">(</span><em>coreleveldict, natom_typesdict, exp_references={}, scale_to=-1, fwhm_g=0.6, fwhm_l=0.1, energy_range=[None, None], energy_grid=0.2, peakfunction='voigt'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#construct_corelevel_spectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.construct_corelevel_spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructrs a corelevel spectrum from a given corelevel dict</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list: [xdata_spec, ydata_spec, ydata_single_all, xdata_all, ydata_all, xdatalabel]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.default_histogram">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">default_histogram</code><span class="sig-paren">(</span><em>xdata</em>, <em>bins=None</em>, <em>range=None</em>, <em>density=None</em>, <em>weights=None</em>, <em>cumulative=False</em>, <em>bottom=None</em>, <em>histtype='bar'</em>, <em>align='mid'</em>, <em>orientation='vertical'</em>, <em>rwidth=None</em>, <em>log=False</em>, <em>color=None</em>, <em>label=None</em>, <em>stacked=False</em>, <em>normed=None</em>, <em>data=None</em>, <em>axis=None</em>, <em>title='hist'</em>, <em>xlabel='bins'</em>, <em>ylabel='counts'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#default_histogram"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.default_histogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a standard looking histogram</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.gaussian">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">gaussian</code><span class="sig-paren">(</span><em>x</em>, <em>fwhm</em>, <em>mu</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#gaussian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Gaussian line shape at x with FWHM fwhm and mean mu</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.histogram">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">histogram</code><span class="sig-paren">(</span><em>xdata, bins=None, range=None, density=None, weights=None, cumulative=False, bottom=None, histtype='bar', align='mid', orientation='vertical', rwidth=None, log=False, color=None, label=None, stacked=False, normed=None, data=None, axis=None, title='hist', xlabel='bins', ylabel='counts', limits=[None, None], legend=False, legend_option={}, saveas='histogram', return_hist_output=False, **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#histogram"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.histogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a standard looking histogram</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.hyp2f2">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">hyp2f2</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>z</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#hyp2f2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.hyp2f2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculation of the 2F2() hypergeometric function,
+since it is not part of scipy
+with the identity 2. from here:
+<a class="reference external" href="https://en.wikipedia.org/wiki/Generalized_hypergeometric_function">https://en.wikipedia.org/wiki/Generalized_hypergeometric_function</a>
+a, b,z array like inputs
+TODO: not clear to me how to do this… the identity is only useful
+if we mange the adjust the arguments in a way that we can use them…
+also maybe go for the special case we need first: 1,1,3/2;2;-z2</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.lorentzian">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">lorentzian</code><span class="sig-paren">(</span><em>x</em>, <em>fwhm</em>, <em>mu</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#lorentzian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.lorentzian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Lorentzian line shape at x with FWHM fwhm and mean mu</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.multi_scatter_plot">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">multi_scatter_plot</code><span class="sig-paren">(</span><em>xdata, ydata, sdata, xlabel='', ylabel='', title='', plot_labels=[], marker='o', legend=False, legend_option={}, saveas='mscatterplot', limits=[None, None], scale=[None, None], axis=None, color=[], xticks=[], alpha=1.0, label=None, **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#multi_scatter_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.multi_scatter_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>xdata : list or array
+ydata : list or array
+sdata: marker size list or array 
+Info: x, y and s data must have the same dimensions.
+…</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.multiaxis_scatterplot">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">multiaxis_scatterplot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#multiaxis_scatterplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.multiaxis_scatterplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a scatter plot with multiple axes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.multiple_scatterplots">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">multiple_scatterplots</code><span class="sig-paren">(</span><em>ydata, xdata, xlabel, ylabel, title, plot_labels=None, linestyle='-', marker='o', markersize=4.0, legend=False, legend_option={}, saveas='mscatterplot', limits=[None, None], scale=[None, None], axis=None, xerr=None, yerr=None, colors=[], linewidth=[], xticks=[], **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#multiple_scatterplots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.multiple_scatterplots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a standard scatter plot (this should be flexible enough) to do all the
+basic plots.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.multiplot_moved">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">multiplot_moved</code><span class="sig-paren">(</span><em>ydata, xdata, xlabel, ylabel, title, plot_labels, scale_move=1.0, linestyle='-', marker='o', legend=False, legend_option={}, saveas='mscatterplot', limits=[None, None], scale=[None, None]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#multiplot_moved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.multiplot_moved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots all the scater plots above each other. It adds an arbitray offset to the ydata to do this and
+calls multi scatter plot. Therefore you might not want to show the yaxis ticks</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_bands">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_bands</code><span class="sig-paren">(</span><em>path_to_bands_file, kpath, title='Bandstructure', plotlabel='bands', linetyp='o', limits=[None, None], saveas='bandstructure', color='k'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_bands"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_bands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a band structure from a bands.1 file from FLEUR
+params: kpath: dict: {r”$Gamma$”: 0.00000, r”$H$” : 1.04590, r”$N$” : 1.78546, r”$P$”: 2.30841, r”$Gamma$” : 3.21419, r”$N$” 3.95375 }</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_bands2">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_bands2</code><span class="sig-paren">(</span><em>xs</em>, <em>ys</em>, <em>ss</em>, <em>axis=None</em>, <em>linestyle='-'</em>, <em>markersize_scaling=20</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_bands2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_bands2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_bands_and_dos">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_bands_and_dos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_bands_and_dos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_bands_and_dos" title="Permalink to this definition">¶</a></dt>
+<dd><p>PLot a Bandstructure with a density of states on the right side.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_certain_bands">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_certain_bands</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_certain_bands"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_certain_bands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot only certain bands from a bands.1 file from FLEUR</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_convergence_results">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_convergence_results</code><span class="sig-paren">(</span><em>distance</em>, <em>total_energy</em>, <em>iteration</em>, <em>saveas1='t_energy_convergence'</em>, <em>saveas2='distance_convergence'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_convergence_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_convergence_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the total energy versus the scf iteration
+and plot the distance of the density versus iterations.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_convergence_results_m">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_convergence_results_m</code><span class="sig-paren">(</span><em>distances</em>, <em>total_energies</em>, <em>iterations</em>, <em>plot_labels=[]</em>, <em>saveas1='t_energy_convergence'</em>, <em>saveas2='distance_convergence'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_convergence_results_m"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_convergence_results_m" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the total energy versus the scf iteration
+and plot the distance of the density versus iterations.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_convex_hull2d">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_convex_hull2d</code><span class="sig-paren">(</span><em>hull, title='Convex Hull', xlabel='Atomic Procentage', ylabel='Formation energy / atom [eV]', linestyle='-', marker='o', legend=False, legend_option={}, saveas='convex_hull', limits=[None, None], scale=[None, None], axis=None, color='k', color_line='k', linewidth=2.0, markersize=4.0, marker_hull='o', markersize_hull=4.0, **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_convex_hull2d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_convex_hull2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot method for a 2d convex hull diagramm</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>hull</strong> – scipy.spatial.ConvexHull</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_corelevel_spectra">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_corelevel_spectra</code><span class="sig-paren">(</span><em>coreleveldict, natom_typesdict, exp_references={}, scale_to=-1, show_single=True, show_ref=True, energy_range=[None, None], title='', fwhm_g=0.6, fwhm_l=0.1, energy_grid=0.2, peakfunction='voigt', linetyp_spec='o-', limits=[None, None], xlabel='Binding energy [eV]', ylabel='Intensity [arb] (natoms*nelectrons)', saveas=None, **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_corelevel_spectra"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_corelevel_spectra" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ploting function of corelevel in the form of a spectrum.</p>
+<p>Convention: Binding energies are positiv!</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>coreleveldict: dict of corelevels with a list of corelevel energy of atomstypes
+# (The given corelevel accounts for a weight (number of electrons for full occupied corelevel) in the plot.)
+natom_typesdict: dict with number of atom types for each entry</dd>
+<dt>Kwargs:</dt>
+<dd>exp_references: dict with experimental refereces, will be ploted as vertical lines
+show_single (bool): plot all single peaks.
+scale_to float: the maximum ‘intensity’ will be scaled to this value (useful for experimental comparisons)
+title (string): something for labeling
+fwhm (float): full width half maximum of peaks (gaus, lorentz or voigt_profile)
+energy_grid (float): energy resolution
+linetyp_spec : linetype for spectrum
+peakfunction (string): what the peakfunction should be {‘voigt’, ‘pseudo-voigt’, ‘lorentz’, ‘gaus’}</dd>
+</dl>
+<p>example:</p>
+<dl class="docutils">
+<dt>coreleveldict = {u’Be’: {‘1s1/2’ <span class="classifier-delimiter">:</span> <span class="classifier">[-1.0220669053033051, -0.3185614920138805,</span></dt>
+<dd>-0.7924091040092139]}}</dd>
+</dl>
+<p>n_atom_types_Be12Ti = {‘Be’ : [4,4,4]}
+# TODO feature to make singles of different compounds a different color</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_corelevels">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_corelevels</code><span class="sig-paren">(</span><em>coreleveldict</em>, <em>compound=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_corelevels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_corelevels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ploting function to visualize corelevels and corelevel shifts</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_dos">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_dos</code><span class="sig-paren">(</span><em>path_to_dosfile, only_total=False, saveas='dos_plot', title='Density of states', linestyle='-', marker=None, legend=False, limits=[None, None]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_dos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_dos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the total density of states from a FLEUR DOS.1 file</p>
+<p>params:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_dos_atom_resolved">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_dos_atom_resolved</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_dos_atom_resolved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_dos_atom_resolved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the density of states from a FLEUR DOS.1 file</p>
+<p>params:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_dos_total_atom_resolved">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_dos_total_atom_resolved</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_dos_total_atom_resolved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_dos_total_atom_resolved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the density of states from a FLEUR DOS.1 file</p>
+<p>params:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_dos_total_l_resolved">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_dos_total_l_resolved</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_dos_total_l_resolved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_dos_total_l_resolved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the density of states from a FLEUR DOS.1 file</p>
+<p>params:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_fleur_bands">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_fleur_bands</code><span class="sig-paren">(</span><em>filename, limits=[None, [-15, 15]]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_fleur_bands"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_fleur_bands" title="Permalink to this definition">¶</a></dt>
+<dd><p>plot a fleur bandstructure</p>
+<p># TODO: performance has to be increased.
+Maybe allow to specify a procentage of the kpoints to read in and plot.
+Therefore enable a partially read in of the dos_band.hdf</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_lattice_constant">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_lattice_constant</code><span class="sig-paren">(</span><em>Total_energy, scaling, fit_y=None, relative=True, ref_const=None, multi=False, plotlables=['simulation data', 'fit results'], title='Equation of states', saveas='Lattice_constant'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_lattice_constant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_lattice_constant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a lattice constant versus Total energy
+Plot also the fit.
+On the x axis is the scaling, it</p>
+<p>params: Total_energy, list with floats, or list of lists of floats
+params: scaling, list with floats, or list of lists of floats
+params: fit_y, list with floats, evaluated fit, or list of lists of floats
+params: relative = True, (optional), scaling factor given, or lattice constants given?
+params: ref_const = None, (optional), float, or list of floats, lattice constant for scaling 1.0
+params: multi = False, (optional), bool, multiple plots?
+params: plotlables, list of strings, for lableling of the plots.
+params: title</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_one_element_corelv">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_one_element_corelv</code><span class="sig-paren">(</span><em>corelevel_dict</em>, <em>element</em>, <em>compound=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_one_element_corelv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_one_element_corelv" title="Permalink to this definition">¶</a></dt>
+<dd><p>This routine creates a plot which visualizes all the binding energies of one
+element (and currenlty one corelevel) for different atomtypes.</p>
+<p>i.e</p>
+<dl class="docutils">
+<dt>corelevels = {‘W’ <span class="classifier-delimiter">:</span> <span class="classifier">{‘4f7/2’</span> <span class="classifier-delimiter">:</span> <span class="classifier">[123, 123.3, 123.4 ,123.1],</span></dt>
+<dd><blockquote class="first">
+<div>‘4f5/2’ : [103, 103.3, 103.4, 103.1]},</div></blockquote>
+<p class="last">‘Be’ : {‘1s’: [118, 118.2, 118.4, 118.1, 118.3]}}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_relaxation_results">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_relaxation_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_relaxation_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_relaxation_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot from the result node of a relaxation workflow,
+All forces of every atom type versus relaxation cycle.
+Average force of all atom types versus relaxation cycle.
+Absolut relaxation in Angstroem of every atom type.
+Relative realxation of every atom type to a reference structure.
+(if none given use the structure from first relaxation cycle as reference)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_residuen">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_residuen</code><span class="sig-paren">(</span><em>xdata</em>, <em>fitdata</em>, <em>realdata</em>, <em>errors=None</em>, <em>xlabel='Energy [eV]'</em>, <em>ylabel='cts/s [arb]'</em>, <em>title='Residuen'</em>, <em>hist=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_residuen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_residuen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates and Plots the residuen for given xdata fit results and the real data.</p>
+<p>If hist=True also the normed residual distribution is ploted with a normal distribution.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.plot_spin_dos">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">plot_spin_dos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#plot_spin_dos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.plot_spin_dos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a spin density of states from FLEUR DOS.1, DOS.2 files together in one
+plot.</p>
+<p>params:</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.pseudo_voigt_profile">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">pseudo_voigt_profile</code><span class="sig-paren">(</span><em>x</em>, <em>fwhm_g</em>, <em>fwhm_l</em>, <em>mu</em>, <em>mix=0.5</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#pseudo_voigt_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.pseudo_voigt_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear combination of gaussian and loretzian instead of convolution
+Args:</p>
+<blockquote>
+<div>x: array of floats
+fwhm_g: FWHM of gaussian
+fwhm_l: FWHM of Lorentzian
+mu: Mean
+mix: ratio of gaus to lorentz, mix* gaus, (1-mix)*Lorentz</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.set_plot_defaults">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">set_plot_defaults</code><span class="sig-paren">(</span><em>title_fontsize=16</em>, <em>linewidth=2.0</em>, <em>markersize=4.0</em>, <em>labelfonstsize=15</em>, <em>ticklabelsize=14</em>, <em>axis_linewidth=2.0</em>, <em>tick_paramsx={'labelsize': 14</em>, <em>'length': 5</em>, <em>'size': 4.0</em>, <em>'width': 1.0}</em>, <em>tick_paramsy={'labelsize': 14</em>, <em>'length': 5</em>, <em>'size': 4.0</em>, <em>'width': 1.0}</em>, <em>figsize=(8</em>, <em>6)</em>, <em>save_plots=False</em>, <em>save_format='pdf'</em>, <em>legend=True</em>, <em>save_raw_plot_data=False</em>, <em>raw_plot_data_format='txt'</em>, <em>show=True</em>, <em>use_axis_fromatter=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#set_plot_defaults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.set_plot_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to use this to set some global default values.</p>
+<p>Set some evironment variable with or global variables.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.single_scatterplot">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">single_scatterplot</code><span class="sig-paren">(</span><em>ydata, xdata, xlabel, ylabel, title, plotlabel='scatterplot', linestyle='-', marker='o', limits=[None, None], saveas='scatterplot', color='k', scale=[None, None], axis=None, xerr=None, yerr=None, markersize=4.0, **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#single_scatterplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.single_scatterplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a standard scatter plot (this should be flexible enough) to do all the
+basic plots.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.surface_plot">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">surface_plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#surface_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.surface_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a standard 3D surface plot</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.voigt_profile">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">voigt_profile</code><span class="sig-paren">(</span><em>x</em>, <em>fwhm_g</em>, <em>fwhm_l</em>, <em>mu</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#voigt_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.voigt_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Voigt line shape at x with Lorentzian component FWHM fwhm_l
+and Gaussian component FWHM fwhm_g and mean mu.
+There is no closed form for the Voigt profile,
+but it is related to the real part of the Faddeeva function (wofz),
+which is used here.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.plot_methods.waterfall_plot">
+<code class="descclassname">masci_tools.vis.plot_methods.</code><code class="descname">waterfall_plot</code><span class="sig-paren">(</span><em>xdata, ydata, zdata, xlabel, ylabel, zlabel, title, plot_labels, linetyp='o-', legend=False, legend_option={}, saveas='mscatterplot', limits=[None, None], scale=[None, None]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/plot_methods.html#waterfall_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.plot_methods.waterfall_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a standard waterfall plot (this should be flexible enough) to do all the
+basic plots.</p>
+</dd></dl>
+
+<span class="target" id="module-masci_tools.vis.kkr_plot_FS_qdos"></span><dl class="function">
+<dt id="masci_tools.vis.kkr_plot_FS_qdos.FSqdos2D">
+<code class="descclassname">masci_tools.vis.kkr_plot_FS_qdos.</code><code class="descname">FSqdos2D</code><span class="sig-paren">(</span><em>p0='./'</em>, <em>totonly=True</em>, <em>s=20</em>, <em>ls_ef=':'</em>, <em>lw_ef=1</em>, <em>color=''</em>, <em>reload_data=False</em>, <em>clrbar=True</em>, <em>atoms=[]</em>, <em>ax=None</em>, <em>nosave=False</em>, <em>noalat=False</em>, <em>cmap=&lt;matplotlib.colors.LinearSegmentedColormap object&gt;</em>, <em>noplot=False</em>, <em>return_data=False</em>, <em>pclrmesh=False</em>, <em>logscale=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_FS_qdos.html#FSqdos2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_FS_qdos.FSqdos2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>plotting routine for dos files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.kkr_plot_FS_qdos.dispersionplot">
+<code class="descclassname">masci_tools.vis.kkr_plot_FS_qdos.</code><code class="descname">dispersionplot</code><span class="sig-paren">(</span><em>p0='./'</em>, <em>totonly=True</em>, <em>s=20</em>, <em>ls_ef=':'</em>, <em>lw_ef=1</em>, <em>units='Ry'</em>, <em>noefline=False</em>, <em>color=''</em>, <em>reload_data=False</em>, <em>clrbar=True</em>, <em>logscale=True</em>, <em>nosave=False</em>, <em>atoms=[]</em>, <em>ratios=False</em>, <em>atoms2=[]</em>, <em>noscale=False</em>, <em>newfig=False</em>, <em>cmap=None</em>, <em>alpha=1.0</em>, <em>qcomponent=-1</em>, <em>clims=[]</em>, <em>xscale=1.0</em>, <em>raster=True</em>, <em>atoms3=[]</em>, <em>alpha_reverse=False</em>, <em>return_data=False</em>, <em>xshift=0</em>, <em>yshift=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_FS_qdos.html#dispersionplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_FS_qdos.dispersionplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>plotting routine for dos files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.kkr_plot_FS_qdos.dosplot">
+<code class="descclassname">masci_tools.vis.kkr_plot_FS_qdos.</code><code class="descname">dosplot</code><span class="sig-paren">(</span><em>p0='./'</em>, <em>totonly=True</em>, <em>color=''</em>, <em>label=''</em>, <em>marker=''</em>, <em>lw=2</em>, <em>ms=5</em>, <em>ls='-'</em>, <em>ls_ef=':'</em>, <em>lw_ef=1</em>, <em>units='Ry'</em>, <em>noefline=False</em>, <em>interpol=False</em>, <em>allatoms=False</em>, <em>onespin=False</em>, <em>atoms=[]</em>, <em>lmdos=False</em>, <em>lm=[]</em>, <em>nofig=False</em>, <em>scale=1.0</em>, <em>shift=0</em>, <em>normalized=False</em>, <em>xyswitch=False</em>, <em>efcolor=''</em>, <em>return_data=False</em>, <em>xscale=1.0</em>, <em>xshift=0.0</em>, <em>yshift=0.0</em>, <em>filled=False</em>, <em>spins=2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_FS_qdos.html#dosplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_FS_qdos.dosplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>plotting routine for dos files</p>
+</dd></dl>
+
+<span class="target" id="module-masci_tools.vis.kkr_plot_bandstruc_qdos"></span><dl class="function">
+<dt id="masci_tools.vis.kkr_plot_bandstruc_qdos.FSqdos2D">
+<code class="descclassname">masci_tools.vis.kkr_plot_bandstruc_qdos.</code><code class="descname">FSqdos2D</code><span class="sig-paren">(</span><em>p0='./'</em>, <em>totonly=True</em>, <em>s=20</em>, <em>ls_ef=':'</em>, <em>lw_ef=1</em>, <em>color=''</em>, <em>reload_data=False</em>, <em>clrbar=True</em>, <em>atoms=[]</em>, <em>ax=None</em>, <em>nosave=False</em>, <em>noalat=False</em>, <em>cmap=&lt;matplotlib.colors.LinearSegmentedColormap object&gt;</em>, <em>noplot=False</em>, <em>return_data=False</em>, <em>pclrmesh=False</em>, <em>logscale=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_bandstruc_qdos.html#FSqdos2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_bandstruc_qdos.FSqdos2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>plotting routine for dos files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.kkr_plot_bandstruc_qdos.dispersionplot">
+<code class="descclassname">masci_tools.vis.kkr_plot_bandstruc_qdos.</code><code class="descname">dispersionplot</code><span class="sig-paren">(</span><em>p0='./'</em>, <em>totonly=True</em>, <em>s=20</em>, <em>ls_ef=':'</em>, <em>lw_ef=1</em>, <em>units='Ry'</em>, <em>noefline=False</em>, <em>color=''</em>, <em>reload_data=False</em>, <em>clrbar=True</em>, <em>logscale=True</em>, <em>nosave=False</em>, <em>atoms=[]</em>, <em>ratios=False</em>, <em>atoms2=[]</em>, <em>noscale=False</em>, <em>newfig=False</em>, <em>cmap=None</em>, <em>alpha=1.0</em>, <em>qcomponent=-1</em>, <em>clims=[]</em>, <em>xscale=1.0</em>, <em>raster=True</em>, <em>atoms3=[]</em>, <em>alpha_reverse=False</em>, <em>return_data=False</em>, <em>xshift=0</em>, <em>yshift=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_bandstruc_qdos.html#dispersionplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_bandstruc_qdos.dispersionplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>plotting routine for dos files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.kkr_plot_bandstruc_qdos.dosplot">
+<code class="descclassname">masci_tools.vis.kkr_plot_bandstruc_qdos.</code><code class="descname">dosplot</code><span class="sig-paren">(</span><em>p0='./'</em>, <em>totonly=True</em>, <em>color=''</em>, <em>label=''</em>, <em>marker=''</em>, <em>lw=2</em>, <em>ms=5</em>, <em>ls='-'</em>, <em>ls_ef=':'</em>, <em>lw_ef=1</em>, <em>units='Ry'</em>, <em>noefline=False</em>, <em>interpol=False</em>, <em>allatoms=False</em>, <em>onespin=False</em>, <em>atoms=[]</em>, <em>lmdos=False</em>, <em>lm=[]</em>, <em>nofig=False</em>, <em>scale=1.0</em>, <em>shift=0</em>, <em>normalized=False</em>, <em>xyswitch=False</em>, <em>efcolor=''</em>, <em>return_data=False</em>, <em>xscale=1.0</em>, <em>xshift=0.0</em>, <em>yshift=0.0</em>, <em>filled=False</em>, <em>spins=2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_bandstruc_qdos.html#dosplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_bandstruc_qdos.dosplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>plotting routine for dos files</p>
+</dd></dl>
+
+<span class="target" id="module-masci_tools.vis.kkr_plot_dos"></span><dl class="function">
+<dt id="masci_tools.vis.kkr_plot_dos.FSqdos2D">
+<code class="descclassname">masci_tools.vis.kkr_plot_dos.</code><code class="descname">FSqdos2D</code><span class="sig-paren">(</span><em>p0='./'</em>, <em>totonly=True</em>, <em>s=20</em>, <em>ls_ef=':'</em>, <em>lw_ef=1</em>, <em>color=''</em>, <em>reload_data=False</em>, <em>clrbar=True</em>, <em>atoms=[]</em>, <em>ax=None</em>, <em>nosave=False</em>, <em>noalat=False</em>, <em>cmap=&lt;matplotlib.colors.LinearSegmentedColormap object&gt;</em>, <em>noplot=False</em>, <em>return_data=False</em>, <em>pclrmesh=False</em>, <em>logscale=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_dos.html#FSqdos2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_dos.FSqdos2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>plotting routine for dos files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.kkr_plot_dos.dispersionplot">
+<code class="descclassname">masci_tools.vis.kkr_plot_dos.</code><code class="descname">dispersionplot</code><span class="sig-paren">(</span><em>p0='./'</em>, <em>totonly=True</em>, <em>s=20</em>, <em>ls_ef=':'</em>, <em>lw_ef=1</em>, <em>units='Ry'</em>, <em>noefline=False</em>, <em>color=''</em>, <em>reload_data=False</em>, <em>clrbar=True</em>, <em>logscale=True</em>, <em>nosave=False</em>, <em>atoms=[]</em>, <em>ratios=False</em>, <em>atoms2=[]</em>, <em>noscale=False</em>, <em>newfig=False</em>, <em>cmap=None</em>, <em>alpha=1.0</em>, <em>qcomponent=-1</em>, <em>clims=[]</em>, <em>xscale=1.0</em>, <em>raster=True</em>, <em>atoms3=[]</em>, <em>alpha_reverse=False</em>, <em>return_data=False</em>, <em>xshift=0</em>, <em>yshift=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_dos.html#dispersionplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_dos.dispersionplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>plotting routine for dos files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.kkr_plot_dos.dosplot">
+<code class="descclassname">masci_tools.vis.kkr_plot_dos.</code><code class="descname">dosplot</code><span class="sig-paren">(</span><em>p0='./'</em>, <em>totonly=True</em>, <em>color=''</em>, <em>label=''</em>, <em>marker=''</em>, <em>lw=2</em>, <em>ms=5</em>, <em>ls='-'</em>, <em>ls_ef=':'</em>, <em>lw_ef=1</em>, <em>units='Ry'</em>, <em>noefline=False</em>, <em>interpol=False</em>, <em>allatoms=False</em>, <em>onespin=False</em>, <em>atoms=[]</em>, <em>lmdos=False</em>, <em>lm=[]</em>, <em>nofig=False</em>, <em>scale=1.0</em>, <em>shift=0</em>, <em>normalized=False</em>, <em>xyswitch=False</em>, <em>efcolor=''</em>, <em>return_data=False</em>, <em>xscale=1.0</em>, <em>xshift=0.0</em>, <em>yshift=0.0</em>, <em>filled=False</em>, <em>spins=2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_dos.html#dosplot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_dos.dosplot" title="Permalink to this definition">¶</a></dt>
+<dd><p>plotting routine for dos files</p>
+</dd></dl>
+
+<span class="target" id="module-masci_tools.vis.kkr_plot_shapefun"></span><dl class="function">
+<dt id="masci_tools.vis.kkr_plot_shapefun.change_zoom">
+<code class="descclassname">masci_tools.vis.kkr_plot_shapefun.</code><code class="descname">change_zoom</code><span class="sig-paren">(</span><em>ax, zoom_range, center=[0, 0, 0]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_shapefun.html#change_zoom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_shapefun.change_zoom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the zoom of a 3d plot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><p class="first">Philipp Ruessmann</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ax</strong> – axis which is zoomed</li>
+<li><strong>zoom_range</strong> – range to which the image is zoomed, total range from center-zoom_range to center+zoom_range</li>
+<li><strong>center</strong> – center of the zoomed region (optional, defaults to origin)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.kkr_plot_shapefun.plot_shapefun">
+<code class="descclassname">masci_tools.vis.kkr_plot_shapefun.</code><code class="descname">plot_shapefun</code><span class="sig-paren">(</span><em>pos</em>, <em>out</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_shapefun.html#plot_shapefun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_shapefun.plot_shapefun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a simple matplotlib image to show the shapefunctions given it’s positions in the unit cell, the atoms’s vertices in <cite>ut</cite> and the plotting mode</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><p class="first">Philipp Ruessmann</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pos</strong> – positions of the centers of the cells</li>
+<li><strong>verts</strong> – array of vertices of the shapefunction (outlines of shapes)</li>
+<li><strong>mode</strong> – ‘all’ or ‘single’ determines whether or not all shapes are combined in a single figure or plotted as individual figures</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns ax:</th><td class="field-body"><p class="first last">return the axis in which the plot was done (useful to pass to ‘change_zoom’ and ‘zoom_in’ functions of this module</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.vis.kkr_plot_shapefun.zoom_in">
+<code class="descclassname">masci_tools.vis.kkr_plot_shapefun.</code><code class="descname">zoom_in</code><span class="sig-paren">(</span><em>ax</em>, <em>atm</em>, <em>pos</em>, <em>zoom_range=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/vis/kkr_plot_shapefun.html#zoom_in"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.vis.kkr_plot_shapefun.zoom_in" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zoom into shapefun of a single atom</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><p class="first">Philipp Ruessmann</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ax</strong> – axis in which shapefun plot is found</li>
+<li><strong>atm</strong> – atom index whose shapefunction is zoomed</li>
+<li><strong>pos</strong> – array of positions of centers of the shapes (needed to shift center of zommed region to correct atom</li>
+<li><strong>zoom_range</strong> – range of the zoomed region (optional, defaults to 10)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-masci_tools.io.common_functions">
+<span id="i-o-helper-and-output-file-parsers"></span><h2>I/O helper and output file parsers<a class="headerlink" href="#module-masci_tools.io.common_functions" title="Permalink to this headline">¶</a></h2>
+<p>Here commonly used functions that do not need aiida-stuff (i.e. can be tested 
+without a database) are collected.</p>
+<dl class="function">
+<dt id="masci_tools.io.common_functions.angles_to_vec">
+<code class="descclassname">masci_tools.io.common_functions.</code><code class="descname">angles_to_vec</code><span class="sig-paren">(</span><em>magnitude</em>, <em>theta</em>, <em>phi</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/common_functions.html#angles_to_vec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.common_functions.angles_to_vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert (magnitude, theta, phi) to (x,y,z)</p>
+<p>theta/phi need to be in radians!</p>
+<p>Input can be single number, list of numpy.ndarray data
+Returns x,y,z vector</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.common_functions.get_corestates_from_potential">
+<code class="descclassname">masci_tools.io.common_functions.</code><code class="descname">get_corestates_from_potential</code><span class="sig-paren">(</span><em>potfile='potential'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/common_functions.html#get_corestates_from_potential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.common_functions.get_corestates_from_potential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read core states from potential file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.common_functions.get_ef_from_potfile">
+<code class="descclassname">masci_tools.io.common_functions.</code><code class="descname">get_ef_from_potfile</code><span class="sig-paren">(</span><em>potfile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/common_functions.html#get_ef_from_potfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.common_functions.get_ef_from_potfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>extract fermi energy from potfile</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.common_functions.get_highest_core_state">
+<code class="descclassname">masci_tools.io.common_functions.</code><code class="descname">get_highest_core_state</code><span class="sig-paren">(</span><em>nstates</em>, <em>energies</em>, <em>lmoments</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/common_functions.html#get_highest_core_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.common_functions.get_highest_core_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find highest lying core state from list of core states, needed to find and check energy contour</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.common_functions.interpolate_dos">
+<code class="descclassname">masci_tools.io.common_functions.</code><code class="descname">interpolate_dos</code><span class="sig-paren">(</span><em>dospath</em>, <em>return_original=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/common_functions.html#interpolate_dos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.common_functions.interpolate_dos" title="Permalink to this definition">¶</a></dt>
+<dd><p>interpolation function copied from complexdos3 fortran code</p>
+<p>Principle of DOS here: Two-point contour integration
+for DOS in the middle of the two points. The input DOS
+and energy must be complex. Parameter deltae should be
+of the order of magnitude of eim:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="o">&lt;-</span><span class="mi">2</span><span class="o">*</span><span class="n">deltae</span><span class="o">-&gt;</span>   <span class="n">_</span>
+           <span class="o">/</span>\        <span class="o">|</span>     <span class="n">DOS</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">n</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">n</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">eim</span><span class="o">/</span><span class="n">deltae</span>
+          <span class="o">/</span>  \       <span class="o">|</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="p">(</span><span class="mi">2</span><span class="p">)</span>   <span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">*</span><span class="n">eim</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">Kb</span><span class="o">*</span><span class="n">Tk</span>
+        <span class="o">/</span>      \     <span class="o">|</span>
+       <span class="o">/</span>        \    <span class="o">|</span>
+<span class="o">------------------------</span> <span class="p">(</span><span class="n">Real</span> <span class="n">E</span> <span class="n">axis</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>input</strong> – dospath, path where ‘complex.dos’ file can be found</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">E_Fermi, numpy array of interpolated dos</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body">output units are in Ry!</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.common_functions.vec_to_angles">
+<code class="descclassname">masci_tools.io.common_functions.</code><code class="descname">vec_to_angles</code><span class="sig-paren">(</span><em>vec</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/common_functions.html#vec_to_angles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.common_functions.vec_to_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts vector (x,y,z) to (magnitude, theta, phi)</p>
+</dd></dl>
+
+<span class="target" id="module-masci_tools.io.io_fleur_bands"></span><p>Io routines for band structure files</p>
+<dl class="function">
+<dt id="masci_tools.io.io_fleur_bands.read_fleur_banddos_hdf">
+<code class="descclassname">masci_tools.io.io_fleur_bands.</code><code class="descname">read_fleur_banddos_hdf</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/io_fleur_bands.html#read_fleur_banddos_hdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.io_fleur_bands.read_fleur_banddos_hdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads in the banddos.hdf file from the FLEUR code</p>
+<p>returns a dictionary containing all datasets with multidim numpy arrays 
+and also containing the attributes of the groups</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filepath</strong> – path to the banddos.hdf file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">xcoord, bands, xlabels, band_character, band_char_label,</td>
+</tr>
+</tbody>
+</table>
+<p>kpoints, weights, rep_cell, cell, positions, atomicnumbers, special_point_pos</p>
+<p>Expected file content:
+datasets
+[u’bravaisMatrix’,</p>
+<blockquote>
+<div>u’numFoundEigenvals’,
+u’specialPointIndices’,
+u’lLikeCharge’,
+u’positions’,
+u’atomicNumbers’,
+u’coordinates’,
+u’weights’,
+u’reciprocalCell’,
+u’eigenvalues’,
+u’specialPointLabels’,
+u’equivAtomsGroup’]</div></blockquote>
+<p>attributes:
+{u’lastFermiEnergy’: array([0.20852455]),</p>
+<blockquote>
+<div>u’maxL’: array([3], dtype=int32),
+u’nAtoms’: array([2], dtype=int32),
+u’nSpecialPoints’: array([7], dtype=int32),
+u’nTypes’: array([1], dtype=int32),
+u’neigd’: array([19], dtype=int32),
+u’nkpt’: array([100], dtype=int32),
+u’spins’: array([1], dtype=int32),
+u’version’: array([1], dtype=int32)}</div></blockquote>
+</dd></dl>
+
+<span class="target" id="module-masci_tools.io.io_hdf5"></span><p>IO routines for hdf</p>
+<dl class="function">
+<dt id="masci_tools.io.io_hdf5.read_hdf">
+<code class="descclassname">masci_tools.io.io_hdf5.</code><code class="descname">read_hdf</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/io_hdf5.html#read_hdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.io_hdf5.read_hdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads in an hdf file and returns its context in a nested dictionary</p>
+<p>!Only works for files with unique group and dataset names</p>
+</dd></dl>
+
+<span class="target" id="module-masci_tools.io.kkr_params"></span><dl class="class">
+<dt id="masci_tools.io.kkr_params.kkrparams">
+<em class="property">class </em><code class="descclassname">masci_tools.io.kkr_params.</code><code class="descname">kkrparams</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for creating and handling the parameter input for a KKR calculation
+Optional keyword arguments are passed to init and stored in values dictionary.</p>
+<p>Example usage:
+params = kkrparams(LMAX=3, BRAVAIS=array([[1,0,0], [0,1,0], [0,0,1]]))</p>
+<dl class="docutils">
+<dt>Alternatively values can be set afterwards either individually with</dt>
+<dd>params.set_value(‘LMAX’, 3)</dd>
+<dt>or multiple keys at once with</dt>
+<dd>params.set_multiple_values(EMIN=-0.5, EMAX=1)</dd>
+</dl>
+<p>Other useful functions:
+- print the description of a keyword: params.get_description([key]) where [key] is a string for a keyword in params.values
+- print a list of mandatory keywords: params.get_all_mandatory()
+- print a list of keywords that are set including their value: params.get_set_values()</p>
+<dl class="docutils">
+<dt>Note: KKR-units (e.g. atomic units with energy in Ry, length in a_Bohr) are assumed </dt>
+<dd>except for the keys’&lt;RBLEFT&gt;’, ‘&lt;RBRIGHT&gt;’, ‘ZPERIODL’, and ‘ZPERIODR’ which should be given in Ang. units!</dd>
+</dl>
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.fill_keywords_to_inputfile">
+<code class="descname">fill_keywords_to_inputfile</code><span class="sig-paren">(</span><em>is_voro_calc=False</em>, <em>output='inputcard'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.fill_keywords_to_inputfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.fill_keywords_to_inputfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill new inputcard with keywords/values
+automatically check for input consistency
+if is_voro_calc==True change mandatory list to match voronoi code, default is KKRcode</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="masci_tools.io.kkr_params.kkrparams.get_KKRcalc_parameter_defaults">
+<em class="property">classmethod </em><code class="descname">get_KKRcalc_parameter_defaults</code><span class="sig-paren">(</span><em>silent=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.get_KKRcalc_parameter_defaults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.get_KKRcalc_parameter_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>set defaults (defined in header of this file) and returns dict, kkrparams_version</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.get_all_mandatory">
+<code class="descname">get_all_mandatory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.get_all_mandatory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.get_all_mandatory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of mandatory keys</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.get_description">
+<code class="descname">get_description</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.get_description"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.get_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns description of keyword ‘key’</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.get_dict">
+<code class="descname">get_dict</code><span class="sig-paren">(</span><em>group=None</em>, <em>subgroup=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.get_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.get_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns values dictionary.</p>
+<p>Prints values belonging to a certain group only if the ‘group’ argument
+is one of the following: ‘lattice’, ‘chemistry’, ‘accuracy’,</p>
+<blockquote>
+<div>‘external fields’, ‘scf cycle’, ‘other’</div></blockquote>
+<p>Additionally the subgroups argument allows to print only a subset of 
+all keys in a certain group. The following subgroups are available:
+in ‘lattice’ group:   ‘2D mode’, ‘shape functions’
+in ‘chemistry’ group: ‘Atom types’, ‘Exchange-correlation’, ‘CPA mode’,</p>
+<blockquote>
+<div>‘2D mode’</div></blockquote>
+<dl class="docutils">
+<dt>in ‘accuracy’ group:  ‘Valence energy contour’, ‘Semicore energy contour’,</dt>
+<dd>‘CPA mode’, ‘Screening clusters’, ‘Radial solver’, 
+‘Ewald summation’, ‘LLoyd’</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.get_missing_keys">
+<code class="descname">get_missing_keys</code><span class="sig-paren">(</span><em>use_aiida=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.get_missing_keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.get_missing_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find list of mandatory keys that are not yet set</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.get_set_values">
+<code class="descname">get_set_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.get_set_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.get_set_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of all keys/values that are set (i.e. not None)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.get_type">
+<code class="descname">get_type</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.get_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.get_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract expected type of ‘key’ from format info</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.get_value">
+<code class="descname">get_value</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.get_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.get_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets value of keyword ‘key’</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.is_mandatory">
+<code class="descname">is_mandatory</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.is_mandatory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.is_mandatory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns mandatory flag (True/False) for keyword ‘key’</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.read_keywords_from_inputcard">
+<code class="descname">read_keywords_from_inputcard</code><span class="sig-paren">(</span><em>inputcard='inputcard'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.read_keywords_from_inputcard"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.read_keywords_from_inputcard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read list of keywords from inputcard and extract values to keywords dict</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example usage:</th><td class="field-body">p = kkrparams(); p.read_keywords_from_inputcard(‘inputcard’)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body">converts ‘&lt;RBLEFT&gt;’, ‘&lt;RBRIGHT&gt;’, ‘ZPERIODL’, and ‘ZPERIODR’ automatically to Ang. units!</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.remove_value">
+<code class="descname">remove_value</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.remove_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.remove_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes value of keyword ‘key’, i.e. resets to None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.set_multiple_values">
+<code class="descname">set_multiple_values</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.set_multiple_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.set_multiple_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set multiple values (in example value1 and value2 of keywords ‘key1’ and ‘key2’) given as key1=value1, key2=value2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.set_value">
+<code class="descname">set_value</code><span class="sig-paren">(</span><em>key</em>, <em>value</em>, <em>silent=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.set_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.set_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets value of keyword ‘key’</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.update_to_kkrimp">
+<code class="descname">update_to_kkrimp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.update_to_kkrimp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.update_to_kkrimp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update parameter settings to match kkrimp specification.
+Sets self.__params_type and calls _update_mandatory_kkrimp()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.kkr_params.kkrparams.update_to_voronoi">
+<code class="descname">update_to_voronoi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_params.html#kkrparams.update_to_voronoi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_params.kkrparams.update_to_voronoi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update parameter settings to match voronoi specification.
+Sets self.__params_type and calls _update_mandatory_voronoi()</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-masci_tools.io.kkr_read_shapefun_info"></span><dl class="function">
+<dt id="masci_tools.io.kkr_read_shapefun_info.read_shapefun">
+<code class="descclassname">masci_tools.io.kkr_read_shapefun_info.</code><code class="descname">read_shapefun</code><span class="sig-paren">(</span><em>path='.'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkr_read_shapefun_info.html#read_shapefun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkr_read_shapefun_info.read_shapefun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read vertices of shapefunctions with 
+Zoom into shapefun of a single atom</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Philipp Ruessmann</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – path where voronoi output is found (optional, defaults to ‘./’)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns pos:</th><td class="field-body">positions of the centers of the shapefunctions</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns out:</th><td class="field-body">dictionary of the vertices of the shapefunctions</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-masci_tools.io.kkrimp_scoef_tools"></span><dl class="function">
+<dt id="masci_tools.io.kkrimp_scoef_tools.find_neighbors">
+<code class="descclassname">masci_tools.io.kkrimp_scoef_tools.</code><code class="descname">find_neighbors</code><span class="sig-paren">(</span><em>structure, structure_array, i, radius, clust_shape='spherical', h=0.0, vector=[0.0, 0.0, 1.0]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkrimp_scoef_tools.html#find_neighbors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkrimp_scoef_tools.find_neighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies periodic boundary conditions and obtains the distances between the selected atom i in the cell and 
+all other atoms that lie within a cutoff radius r_cut. Afterwards an numpy array with all those atoms including 
+atom i (x_res) will be returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>structure</strong> – input parameter of the StructureData type containing the three bravais lattice cell vectors</li>
+<li><strong>structure_array</strong> – input numpy structure array containing all the structure related data</li>
+<li><strong>i</strong> – centered atom at which the origin lies (same one as in select_reference)</li>
+<li><strong>radius</strong> – Specifies the radius of the cylinder or of the sphere, depending on clust_shape. 
+Input in units of the lattice constant.</li>
+<li><strong>clust_shape</strong> – specifies the shape of the cluster that is used to determine the neighbors for the ‘scoef’ file.
+Default value is ‘spherical’. Other possible forms are ‘cylindrical’ (‘h’ and ‘orient’ 
+needed), … .</li>
+<li><strong>h</strong> – needed for a cylindrical cluster shape. Specifies the height of the cylinder. Default=0. 
+Input in units of the lattice constant.</li>
+<li><strong>vector</strong> – needed for a cylindrical cluster shape. Specifies the orientation vector of the cylinder. Default:
+z-direction.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">array with all the atoms within the cutoff (x_res)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ToDo:</th><td class="field-body"><ul class="first last simple">
+<li>dynamical box construction (r_cut determines which values n1, n2, n3 have)</li>
+<li>different cluster forms (spherical, cylinder, …), add default parameters, better solution for ‘orient’</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.kkrimp_scoef_tools.get_distance">
+<code class="descclassname">masci_tools.io.kkrimp_scoef_tools.</code><code class="descname">get_distance</code><span class="sig-paren">(</span><em>structure_array</em>, <em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkrimp_scoef_tools.html#get_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkrimp_scoef_tools.get_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates and returns the distances between to atoms i and j in the given structure_array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>structure_array</strong> – input numpy array of the cell containing all the atoms ((# of atoms) x 6-matrix)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Params i, j:</th><td class="field-body">indices of the atoms for which the distance should be calculated (indices again start at 0)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">distance between atoms i and j in units of alat</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.kkrimp_scoef_tools.get_structure_data">
+<code class="descclassname">masci_tools.io.kkrimp_scoef_tools.</code><code class="descname">get_structure_data</code><span class="sig-paren">(</span><em>structure</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkrimp_scoef_tools.html#get_structure_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkrimp_scoef_tools.get_structure_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to take data from AiiDA’s StructureData type and store it into a single numpy array of the following form:
+a = [[x-Position 1st atom, y-Position 1st atom, z-Position 1st atom, index 1st atom, charge 1st atom, 0.],</p>
+<blockquote>
+<div>[x-Position 2nd atom, y-Position 2nd atom, z-Position 2nd atom, index 2nd atom, charge 1st atom, 0.],
+[…, …, …, …, …, …],
+…
+]</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>structure</strong> – input structure of the type StructureData</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">numpy array a[# of atoms in the unit cell][5] containing the structure related data (positions in units
+of the unit cell length)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.kkrimp_scoef_tools.make_scoef">
+<code class="descclassname">masci_tools.io.kkrimp_scoef_tools.</code><code class="descname">make_scoef</code><span class="sig-paren">(</span><em>structure, radius, path, h=-1.0, vector=[0.0, 0.0, 1.0], i=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkrimp_scoef_tools.html#make_scoef"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkrimp_scoef_tools.make_scoef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the ‘scoef’ file for a certain structure. Needed to conduct an impurity KKR calculation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>structure</strong> – input structure of the StructureData type.</li>
+<li><strong>radius</strong> – input cutoff radius in units of the lattice constant.</li>
+<li><strong>h</strong> – height of the cutoff cylinder (negative for spherical cluster shape). For negative values, clust_shape 
+will be automatically assumed as ‘spherical’. If there will be given a h &gt; 0, the clust_shape 
+will be ‘cylindrical’.</li>
+<li><strong>vector</strong> – orientation vector of the cylinder (just for clust_shape=’cylindrical’).</li>
+<li><strong>i</strong> – atom index around which the cluster should be centered. Default: 0 (first atom in the structure).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.kkrimp_scoef_tools.rotate_onto_z">
+<code class="descclassname">masci_tools.io.kkrimp_scoef_tools.</code><code class="descname">rotate_onto_z</code><span class="sig-paren">(</span><em>structure</em>, <em>structure_array</em>, <em>vector</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkrimp_scoef_tools.html#rotate_onto_z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkrimp_scoef_tools.rotate_onto_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotates all positions of a structure array of orientation ‘orient’ onto the z-axis. Needed to implement the
+cylindrical cutoff shape.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>structure</strong> – input structure of the type StructureData</li>
+<li><strong>structure_array</strong> – input structure array, obtained by select_reference for the referenced system.</li>
+<li><strong>vector</strong> – reference vector that has to be mapped onto the z-axis.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">rotated system, now the ‘orient’-axis is aligned with the z-axis</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.kkrimp_scoef_tools.select_reference">
+<code class="descclassname">masci_tools.io.kkrimp_scoef_tools.</code><code class="descname">select_reference</code><span class="sig-paren">(</span><em>structure_array</em>, <em>i</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkrimp_scoef_tools.html#select_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkrimp_scoef_tools.select_reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that references all of the atoms in the cell to one particular atom i in the cell and calculates 
+the distance from the different atoms to atom i. New numpy array will have the form:
+x = [[x-Position 1st atom, y-Position 1st atom, z-Position 1st atom, index 1st atom, charge 1st atom,</p>
+<blockquote>
+<div><blockquote>
+<div>distance 1st atom to atom i],</div></blockquote>
+<dl class="docutils">
+<dt>[x-Position 2nd atom, y-Position 2nd atom, z-Position 2nd atom, index 2nd atom, charge 1st atom, </dt>
+<dd>distance 1st atom to atom i],</dd>
+</dl>
+<p>[…, …, …, …, …, …],
+…
+]</p>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>structure_array</strong> – input array of the cell containing all the atoms (obtained from get_structure_data)</li>
+<li><strong>i</strong> – index of the atom which should be the new reference</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">new structure array with the origin at the selected atom i (for KKRimp: impurity atom)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><p class="first last">the first atom in the structure_array is labelled with 0, the second with 1, …</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.kkrimp_scoef_tools.write_scoef">
+<code class="descclassname">masci_tools.io.kkrimp_scoef_tools.</code><code class="descname">write_scoef</code><span class="sig-paren">(</span><em>x_res</em>, <em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/kkrimp_scoef_tools.html#write_scoef"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.kkrimp_scoef_tools.write_scoef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sorts the data from find_neighbors with respect to the distance to the selected atom and writes the data
+correctly formatted into the file ‘scoef’. Additionally the total number of atoms in the list is written out
+in the first line of the file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x_res</strong> – array of atoms within the cutoff radius obtained by find_neighbors (unsorted)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Output:</th><td class="field-body">returns scoef file with the total number of atoms in the first line, then with the formatted positions,
+indices, charges and distances in the subsequent lines.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-masci_tools.io.parsers.kkrparser_functions"></span><p>Here I collect all functions needed to parse the output of a KKR calculation. 
+These functions do not need aiida and are therefore separated from the actual 
+parser file where parse_kkr_outputfile is called</p>
+<dl class="function">
+<dt id="masci_tools.io.parsers.kkrparser_functions.check_error_category">
+<code class="descclassname">masci_tools.io.parsers.kkrparser_functions.</code><code class="descname">check_error_category</code><span class="sig-paren">(</span><em>err_cat</em>, <em>err_msg</em>, <em>out_dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrparser_functions.html#check_error_category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrparser_functions.check_error_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if parser error of the non-critical category (err_cat != 1) are 
+actually consistent and may be discarded.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>err_cat</strong> – the error-category of the error message to be investigated</li>
+<li><strong>err_msg</strong> – the error-message</li>
+<li><strong>out_dict</strong> – the dict of results obtained from the parser function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True/False if message is an error or warning</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.parsers.kkrparser_functions.get_kmeshinfo">
+<code class="descclassname">masci_tools.io.parsers.kkrparser_functions.</code><code class="descname">get_kmeshinfo</code><span class="sig-paren">(</span><em>outfile_0init</em>, <em>outfile_000</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrparser_functions.html#get_kmeshinfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrparser_functions.get_kmeshinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract kmesh info from output.0.txt and output.000.txt</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.parsers.kkrparser_functions.get_lattice_vectors">
+<code class="descclassname">masci_tools.io.parsers.kkrparser_functions.</code><code class="descname">get_lattice_vectors</code><span class="sig-paren">(</span><em>outfile_0init</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrparser_functions.html#get_lattice_vectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrparser_functions.get_lattice_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>read direct and reciprocal lattice vectors in internal units (useful for qdos generation)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.parsers.kkrparser_functions.get_natom">
+<code class="descclassname">masci_tools.io.parsers.kkrparser_functions.</code><code class="descname">get_natom</code><span class="sig-paren">(</span><em>outfile_0init</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrparser_functions.html#get_natom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrparser_functions.get_natom" title="Permalink to this definition">¶</a></dt>
+<dd><p>extract NATYP value from output.0.txt</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.parsers.kkrparser_functions.get_nspin">
+<code class="descclassname">masci_tools.io.parsers.kkrparser_functions.</code><code class="descname">get_nspin</code><span class="sig-paren">(</span><em>outfile_0init</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrparser_functions.html#get_nspin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrparser_functions.get_nspin" title="Permalink to this definition">¶</a></dt>
+<dd><p>extract NSPIN value from output.0.txt</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.parsers.kkrparser_functions.get_orbmom">
+<code class="descclassname">masci_tools.io.parsers.kkrparser_functions.</code><code class="descname">get_orbmom</code><span class="sig-paren">(</span><em>outfile</em>, <em>natom</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrparser_functions.html#get_orbmom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrparser_functions.get_orbmom" title="Permalink to this definition">¶</a></dt>
+<dd><p>read orbmom info from outfile and return array (iteration, atom)=orbmom</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.parsers.kkrparser_functions.get_single_particle_energies">
+<code class="descclassname">masci_tools.io.parsers.kkrparser_functions.</code><code class="descname">get_single_particle_energies</code><span class="sig-paren">(</span><em>outfile_000</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrparser_functions.html#get_single_particle_energies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrparser_functions.get_single_particle_energies" title="Permalink to this definition">¶</a></dt>
+<dd><p>extracts single particle energies from outfile_000 (output.000.txt)
+returns the valence contribution of the single particle energies</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.parsers.kkrparser_functions.get_spinmom_per_atom">
+<code class="descclassname">masci_tools.io.parsers.kkrparser_functions.</code><code class="descname">get_spinmom_per_atom</code><span class="sig-paren">(</span><em>outfile</em>, <em>natom</em>, <em>nonco_out_file=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrparser_functions.html#get_spinmom_per_atom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrparser_functions.get_spinmom_per_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract spin moment information from outfile and nonco_angles_out (if given)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.parsers.kkrparser_functions.parse_kkr_outputfile">
+<code class="descclassname">masci_tools.io.parsers.kkrparser_functions.</code><code class="descname">parse_kkr_outputfile</code><span class="sig-paren">(</span><em>out_dict</em>, <em>outfile</em>, <em>outfile_0init</em>, <em>outfile_000</em>, <em>timing_file</em>, <em>potfile_out</em>, <em>nonco_out_file</em>, <em>outfile_2='output.2.txt'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrparser_functions.html#parse_kkr_outputfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrparser_functions.parse_kkr_outputfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parser method for the kkr outfile. It returns a dictionary with results</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.parsers.kkrparser_functions.use_newsosol">
+<code class="descclassname">masci_tools.io.parsers.kkrparser_functions.</code><code class="descname">use_newsosol</code><span class="sig-paren">(</span><em>outfile_0init</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrparser_functions.html#use_newsosol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrparser_functions.use_newsosol" title="Permalink to this definition">¶</a></dt>
+<dd><p>extract NEWSOSOL info from output.0.txt</p>
+</dd></dl>
+
+<span class="target" id="module-masci_tools.io.parsers.voroparser_functions"></span><dl class="function">
+<dt id="masci_tools.io.parsers.voroparser_functions.check_voronoi_output">
+<code class="descclassname">masci_tools.io.parsers.voroparser_functions.</code><code class="descname">check_voronoi_output</code><span class="sig-paren">(</span><em>potfile</em>, <em>outfile</em>, <em>delta_emin_safety=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/voroparser_functions.html#check_voronoi_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.voroparser_functions.check_voronoi_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read output from voronoi code and create guess of energy contour</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.parsers.voroparser_functions.get_valence_min">
+<code class="descclassname">masci_tools.io.parsers.voroparser_functions.</code><code class="descname">get_valence_min</code><span class="sig-paren">(</span><em>outfile='out_voronoi'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/voroparser_functions.html#get_valence_min"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.voroparser_functions.get_valence_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct minimum of energy contour (between valence band bottom and core states)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="masci_tools.io.parsers.voroparser_functions.parse_voronoi_output">
+<code class="descclassname">masci_tools.io.parsers.voroparser_functions.</code><code class="descname">parse_voronoi_output</code><span class="sig-paren">(</span><em>out_dict</em>, <em>outfile</em>, <em>potfile</em>, <em>atominfo</em>, <em>radii</em>, <em>inputfile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/voroparser_functions.html#parse_voronoi_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.voroparser_functions.parse_voronoi_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse output of voronoi calculation and return (success, error_messages_list, out_dict)</p>
+</dd></dl>
+
+<span class="target" id="module-masci_tools.io.parsers.kkrimp_parser_functions"></span><dl class="class">
+<dt id="masci_tools.io.parsers.kkrimp_parser_functions.kkrimp_parser_functions">
+<em class="property">class </em><code class="descclassname">masci_tools.io.parsers.kkrimp_parser_functions.</code><code class="descname">kkrimp_parser_functions</code><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrimp_parser_functions.html#kkrimp_parser_functions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrimp_parser_functions.kkrimp_parser_functions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class of parser functions for KKRimp calculation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Usage:</th><td class="field-body">success, msg_list, out_dict = parse_kkrimp_outputfile().parse_kkrimp_outputfile(out_dict, files)</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="masci_tools.io.parsers.kkrimp_parser_functions.kkrimp_parser_functions.parse_kkrimp_outputfile">
+<code class="descname">parse_kkrimp_outputfile</code><span class="sig-paren">(</span><em>out_dict</em>, <em>file_dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrimp_parser_functions.html#kkrimp_parser_functions.parse_kkrimp_outputfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrimp_parser_functions.kkrimp_parser_functions.parse_kkrimp_outputfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main parser function for kkrimp, read information from files in file_dict and fills out_dict
+:param out_dict: dictionary that is filled with parsed output of the KKRimp calculation
+:param file_dict: dictionary of files that are parsed
+:returns: success (bool), msg_list(list of error/warning messages of parser), out_dict (filled dict of parsed output)
+:note: file_dict should contain the following keys</p>
+<blockquote>
+<div><ul class="simple">
+<li>‘outfile’, the std_out of the KKRimp calculation</li>
+<li>‘out_log’, the out_log.000.txt file</li>
+<li>‘out_pot’, the output potential</li>
+<li>‘out_enersp_at’, the out_energysp_per_atom_eV file</li>
+<li>‘out_enertot_at’, the out_energytotal_per_atom_eV file</li>
+<li>‘out_timing’, the timing file</li>
+<li>‘kkrflex_llyfac’, the file for the Lloyd factor</li>
+<li>‘kkrflex_angles’, the nonco_angles file for the KKRimp calculation</li>
+<li>‘out_spinmoms’, the output spin moments file</li>
+<li>‘out_orbmoms’, the output orbital moments file</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="masci_tools.io.parsers.kkrimp_parser_functions.modify_potential">
+<em class="property">class </em><code class="descclassname">masci_tools.io.parsers.kkrimp_parser_functions.</code><code class="descname">modify_potential</code><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrimp_parser_functions.html#modify_potential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrimp_parser_functions.modify_potential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for old modify potential script, ported from modify_potential script, initially by D. Bauer</p>
+<dl class="method">
+<dt id="masci_tools.io.parsers.kkrimp_parser_functions.modify_potential.neworder_potential">
+<code class="descname">neworder_potential</code><span class="sig-paren">(</span><em>potfile_in</em>, <em>potfile_out</em>, <em>neworder</em>, <em>potfile_2=None</em>, <em>replace_from_pot2=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrimp_parser_functions.html#modify_potential.neworder_potential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrimp_parser_functions.modify_potential.neworder_potential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read potential file and new potential using a list describing the order of the new potential.
+If a second potential is given as input together with an index list, then the corresponding of 
+the output potential are overwritten with positions from the second input potential.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>potfile_in</strong> (<em>str</em>) – absolute path to input potential</li>
+<li><strong>potfile_out</strong> (<em>str</em>) – absolute path to output potential</li>
+<li><strong>neworder</strong> (<em>list</em>) – list after which output potential is constructed from input potential</li>
+<li><strong>potfile_2</strong> (<em>str</em>) – optional, absolute path to second potential file if 
+positions in new list of potentials shall be replaced by positions of 
+second potential, requires <em>replace_from_pot</em> to be given as well</li>
+<li><strong>replace_from_pot</strong> (<em>list</em>) – optional, list containing tuples of (position 
+in newlist that is to be replaced, position in pot2 with which position 
+is replaced)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Usage:</th><td class="field-body"><ol class="first last arabic simple">
+<li>modify_potential().neworder_potential(&lt;path_to_input_pot&gt;, &lt;path_to_output_pot&gt;, [])</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="masci_tools.io.parsers.kkrimp_parser_functions.modify_potential.shapefun_from_scoef">
+<code class="descname">shapefun_from_scoef</code><span class="sig-paren">(</span><em>scoefpath</em>, <em>shapefun_path</em>, <em>atom2shapes</em>, <em>shapefun_new</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/masci_tools/io/parsers/kkrimp_parser_functions.html#modify_potential.shapefun_from_scoef"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#masci_tools.io.parsers.kkrimp_parser_functions.modify_potential.shapefun_from_scoef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read shapefun and create impurity shapefun using scoef info and shapes array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scoefpath</strong> – absolute path to scoef file</li>
+<li><strong>shapefun_path</strong> – absolute path to input shapefun file</li>
+<li><strong>shapes</strong> – shapes array for mapping between atom index and shapefunction index</li>
+<li><strong>shapefun_new</strong> – absolute path to output shapefun file to which the new shapefunction will be written</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Source code Documentation (API reference)</a><ul>
+<li><a class="reference internal" href="#module-masci_tools.vis.plot_methods">Visualisation and Plotting</a></li>
+<li><a class="reference internal" href="#module-masci_tools.io.common_functions">I/O helper and output file parsers</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">Welcome to the Masci-tools’s documentation!</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/module_guide/code.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to the Masci-tools’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Masci-tools 0.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2018, Jens Broeder.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>
