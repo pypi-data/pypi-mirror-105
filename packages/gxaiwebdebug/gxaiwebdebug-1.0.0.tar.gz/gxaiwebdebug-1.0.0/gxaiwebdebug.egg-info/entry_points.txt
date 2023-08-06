@@ -1,0 +1,6 @@
+[console_scripts]
+gxaiclientstart = AutoTestManager.client.ai_client:main
+gxclientstart = AutoTestManager.client.main:main
+gxcmdclient = AutoTestManager.server.modules.cmdclient:main
+gxserverstart = AutoTestManager.server.main:main
+
