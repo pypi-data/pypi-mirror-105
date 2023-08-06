@@ -1,0 +1,8 @@
+ic_loss/__init__.py,sha256=5K0tRD3Z1JmRiQS4e4Mh2kUWuMBrRHKYi2imBh7GOAk,69
+ic_loss/losses.py,sha256=P6e7fD_4qC0e77EZoE0CtKqMnDvdgA9hP2sKkcu-nE8,1597
+ic_loss/models.py,sha256=Y_KG96kmnRKM0QvsngjmMIOthKn1gQxNWrFyjRBuV2c,7498
+ic_loss-1.0.0.dist-info/LICENSE,sha256=b6N8p_8Hg4k4p7rZ0wlALUHZ7AMrCZnLfYFylJvH04Q,1091
+ic_loss-1.0.0.dist-info/METADATA,sha256=SA6iat4W9UhAIjOG8BZHO5G99bqIY4vnt1R-ldwSoFc,1035
+ic_loss-1.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+ic_loss-1.0.0.dist-info/top_level.txt,sha256=7SYz-QSuYYyAjB5t0KT8QFlqHgAZASYr8ICqU7KGeLc,8
+ic_loss-1.0.0.dist-info/RECORD,,
