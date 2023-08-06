@@ -1,0 +1,3 @@
+[scancode_location_provider]
+fetchcode_container = fetchcode_container:SkopeoPaths
+

@@ -1,0 +1,12 @@
+fetchcode_container/__init__.py,sha256=mS4YEEqYq17NDqdkVQq1emqTUN6UKmu2oy5O4brHidc,780
+fetchcode_container/bin/default-policy.json,sha256=zd-qjmp-VJe2fMDdjoUXBY0Ml96Rv0b_-GdShBXy2UY,256
+fetchcode_container/bin/skopeo,sha256=Z01d7IFhzkHTziRHwStaWW9De3rWUUgw3eQ5PcLVy_I,24365704
+fetchcode_container/licenses/apache-2.0.LICENSE,sha256=z8d0m5b2O9McPEK1xHG_dWgUBT6EfBDz6wA0F7xSPTA,11358
+fetchcode_container-1.2.3.210511.dist-info/METADATA,sha256=ajIDZ4nv1ezVoFhgHblHZrZE4F1kGSm_7ROW2kiaUWA,727
+fetchcode_container-1.2.3.210511.dist-info/README.rst,sha256=3cF2xZL9OkmtUQ9AavbaFnzoryfUxVC9acpg8BFwTkA,495
+fetchcode_container-1.2.3.210511.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+fetchcode_container-1.2.3.210511.dist-info/apache-2.0.LICENSE,sha256=z8d0m5b2O9McPEK1xHG_dWgUBT6EfBDz6wA0F7xSPTA,11358
+fetchcode_container-1.2.3.210511.dist-info/entry_points.txt,sha256=C-dtkgW-RPWPzJ2_3yr8ThWmsKjqK6pgLZh6pn_3UkE,84
+fetchcode_container-1.2.3.210511.dist-info/fetchcode_container.ABOUT,sha256=uZAA_P_q9Yw3UsRu3K-fBVBn4-gnMNFQncomvfrMCmY,414
+fetchcode_container-1.2.3.210511.dist-info/top_level.txt,sha256=NKkZItkLHCJ7Mi1OXJFZI1OJWEg3pnqfOq_otV4ll0g,20
+fetchcode_container-1.2.3.210511.dist-info/RECORD,,
