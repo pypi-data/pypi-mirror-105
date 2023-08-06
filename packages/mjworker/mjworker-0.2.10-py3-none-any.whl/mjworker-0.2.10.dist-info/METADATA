@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: mjworker
+Version: 0.2.10
+Summary: agent application for mj-monitor
+Home-page: https://gitlab.dataenlighten.com/devops/monitor
+Author: huyan
+Author-email: lixiuhu_lee@163.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: Click
+Requires-Dist: psutil
+Requires-Dist: requests
+
+UNKNOWN
+
+
