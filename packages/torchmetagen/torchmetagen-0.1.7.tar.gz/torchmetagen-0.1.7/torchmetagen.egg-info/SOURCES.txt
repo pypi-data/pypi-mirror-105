@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+torchmetagen/__init__.py
+torchmetagen.egg-info/PKG-INFO
+torchmetagen.egg-info/SOURCES.txt
+torchmetagen.egg-info/dependency_links.txt
+torchmetagen.egg-info/requires.txt
+torchmetagen.egg-info/top_level.txt
