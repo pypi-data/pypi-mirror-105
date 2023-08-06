@@ -1,0 +1,10 @@
+exchangeratesapi/__init__.py,sha256=Ny8O151rWTClcMqpJOePeewcKYFn_fdk5Qm6HUFTcnA,63
+exchangeratesapi/api.py,sha256=-maXwS_vNRZC6cQ_N83Uafq_t_QGeqIoICBOZaOHGi8,10036
+test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+test/conftest.py,sha256=lcNLwZPcJYwd50Ce9pOJ6uAZwIzWBcAc2joP90DzTiw,2896
+test/test_api.py,sha256=JWapjQtwmTMurWJq-MgDFXsOcnPFpSQSxgOWnCSfd4E,7559
+py_exchangeratesapi-1.0.0.dist-info/LICENSE,sha256=YwdTkmlJTdGxdR_q5ZKtI9SXw_oZS8PwLf9N39uEFk0,1075
+py_exchangeratesapi-1.0.0.dist-info/METADATA,sha256=pxCgENlZ-9vHwqly4PEx3XRrJ-oSaE2zd498C7TRux4,10855
+py_exchangeratesapi-1.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+py_exchangeratesapi-1.0.0.dist-info/top_level.txt,sha256=4D6Rjz_8ygDVvCCtFL6gb85e3HiIDQIg8uPWbavou_k,22
+py_exchangeratesapi-1.0.0.dist-info/RECORD,,
