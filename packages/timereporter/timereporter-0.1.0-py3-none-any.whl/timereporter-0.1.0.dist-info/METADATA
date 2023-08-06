@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: timereporter
+Version: 0.1.0
+Summary: Report working time from the command line.
+Author: Filip Lange
+Author-email: filip.lange@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: camel (>=0.1.2)
+Requires-Dist: colorama (>=0.4.1)
+Requires-Dist: tabulate (>=0.7.7)
