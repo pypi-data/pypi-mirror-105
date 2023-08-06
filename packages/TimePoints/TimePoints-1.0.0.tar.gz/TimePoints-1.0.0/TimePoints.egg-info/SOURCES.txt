@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+TimePoints/Measure.py
+TimePoints/__init__.py
+TimePoints.egg-info/PKG-INFO
+TimePoints.egg-info/SOURCES.txt
+TimePoints.egg-info/dependency_links.txt
+TimePoints.egg-info/requires.txt
+TimePoints.egg-info/top_level.txt
