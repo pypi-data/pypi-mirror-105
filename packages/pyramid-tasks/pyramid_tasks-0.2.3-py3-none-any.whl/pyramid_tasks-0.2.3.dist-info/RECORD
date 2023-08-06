@@ -1,0 +1,17 @@
+pyramid_tasks/__init__.py,sha256=CKrBwuF-eSfy4GnbVA5zrHo5TfMo4taua_kNQb7FIx0,3975
+pyramid_tasks/celery.py,sha256=KzCgFrNmKqHioL0Nsv6iJ8AbogJej1KS7lGEYYGtLVU,1084
+pyramid_tasks/settings.py,sha256=idapBOPQ2UVWCxnhoHjU28ZcXRNeVv3GX9zAP698-6w,3436
+pyramid_tasks/transaction.py,sha256=1W8loMyWkQNSXQafQ1EZdO9eF9spbIPfOXsSemECpTM,393
+pyramid_tasks/tweens.py,sha256=X43pIvJAhomeZ8FTXkbzAxni4i5CK8OiX0fry4C8ess,1788
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_integration.py,sha256=jrGWFxBlBvY-BugBUVIkfsL4R6OnC4eR6AMTYsVoV60,3009
+tests/test_settings.py,sha256=P0M5tubhwXpBGhXubl5SS2zsnAFZsK8ossiWo2-O-UQ,1710
+tests/test_tweens.py,sha256=AsWVERDzqLcyM8T6FqGgjGk_FO72BPtyPJ8OBUL_iwg,2118
+tests/pkgs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/pkgs/tweenapp/__init__.py,sha256=IW79mkOqP0FwdOKRnW96X1WhygFH08JCTNdg-6-uvpQ,1656
+tests/pkgs/venusianapp/__init__.py,sha256=a3jZtEIJrktzGsSshqTWl2ORjBdTw3w76o-hBGbuLII,199
+pyramid_tasks-0.2.3.dist-info/LICENSE,sha256=e-fsnQ4E6A-vyxVgLygwbgvWaxKmj6F2DMeSLqmMYUQ,1068
+pyramid_tasks-0.2.3.dist-info/METADATA,sha256=eYO4OzDNMeY4YvL-My5H1D279ySK1yoVVNDbDEomamk,10522
+pyramid_tasks-0.2.3.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+pyramid_tasks-0.2.3.dist-info/top_level.txt,sha256=Ppkw6nJCLFU_ID1AUOCGaWAoSYyyGRHNebFfwNtqmoA,20
+pyramid_tasks-0.2.3.dist-info/RECORD,,
