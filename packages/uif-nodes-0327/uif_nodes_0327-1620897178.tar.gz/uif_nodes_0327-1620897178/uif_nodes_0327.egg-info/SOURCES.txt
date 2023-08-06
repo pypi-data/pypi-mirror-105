@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.py
+uif_nodes/__init__.py
+uif_nodes/__main__.py
+uif_nodes/nodes.json
+uif_nodes_0327.egg-info/PKG-INFO
+uif_nodes_0327.egg-info/SOURCES.txt
+uif_nodes_0327.egg-info/dependency_links.txt
+uif_nodes_0327.egg-info/not-zip-safe
+uif_nodes_0327.egg-info/top_level.txt
