@@ -1,0 +1,3 @@
+[console_scripts]
+logbook-cli=logbook_cli.cli:app
+

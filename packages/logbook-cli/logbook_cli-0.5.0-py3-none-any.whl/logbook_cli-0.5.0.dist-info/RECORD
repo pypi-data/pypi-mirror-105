@@ -1,0 +1,10 @@
+logbook_cli/__init__.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+logbook_cli/__main__.py,sha256=TENbZb_vh4yEIVmQH196i3C9foj7BMhRogwU8zgZyMo,52
+logbook_cli/cli.py,sha256=w4zRnAHKMRiwveuFlMNYl9pre5kFZy2wUUQZVWsL7ik,4133
+logbook_cli/managers.py,sha256=JcLMNVvNHBVWuq_U20EhDQAOq9LhlI6WSk12Ptv7blA,2661
+logbook_cli/models.py,sha256=1RGPEqM72VwAOLK9KfEME6wNo5Izbwe1cqmdmkfWbPI,690
+logbook_cli/utils.py,sha256=zMAhowrh1mOJzc04DjFq813-o0VFmZoBmU84XwNZIUw,1196
+logbook_cli-0.5.0.dist-info/entry_points.txt,sha256=EfSSfaoMD4GGeYrUEXpaLrDrgufQCYp3To-9lNhadmo,51
+logbook_cli-0.5.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+logbook_cli-0.5.0.dist-info/METADATA,sha256=FDnx_jZiArve0J0mf-RcJ3mT1EBbl1w49Mp2JRtvOlY,658
+logbook_cli-0.5.0.dist-info/RECORD,,
