@@ -1,0 +1,13 @@
+ESCAPE = "\033[F"
+BLOCK = "```"
+BAR = "|"
+TICK = "█"
+DONE = "[*]"
+NOTE = "[!]"
+INFO = "[>]"
+ERROR = "[x]"
+STEP1 = "[|]"
+STEP2 = "[/]"
+STEP3 = "[-]"
+STEP4 = "[\]"
+STEPS = [STEP1, STEP2, STEP3, STEP4]
