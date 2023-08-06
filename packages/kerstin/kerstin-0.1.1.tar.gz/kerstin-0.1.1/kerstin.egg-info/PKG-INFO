@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: kerstin
+Version: 0.1.1
+Summary: A very serious package about Dr. Kerstin Kläser.
+Home-page: https://github.com/fepegar/kerstin
+Author: Fernando Perez-Garcia
+Author-email: fernando.perezgarcia.17@ucl.ac.uk
+License: MIT license
+Description: # `kerstin`
+        
+        This is a very serious Python package for Dr. Kerstin Kläser.
+        
+        # Installation and usage
+        
+        ```shell
+        $ pip install kerstin
+        $ mr2ct
+        ```
+        
+Keywords: kerstin
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
