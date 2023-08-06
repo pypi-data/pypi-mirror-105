@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pyflic
+Version: 2.0.1
+Summary: Python library to connect to and interact with Flic buttons.
+Home-page: https://github.com/soldag/pyflic
+Author: soldag
+Author-email: soeren_oldag@freenet.de
+License: CC0 1.0 Universal
+Description: # pyflic
+        
+        This repository only mirrors the flic python client library from https://github.com/50ButtonsEach/fliclib-linux-hci and just exists until there is an official PyPI package.
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
