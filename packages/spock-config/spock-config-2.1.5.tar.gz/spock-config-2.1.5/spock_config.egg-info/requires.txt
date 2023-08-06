@@ -1,0 +1,10 @@
+attrs
+GitPython
+pyYAML
+toml
+
+[s3]
+boto3
+botocore
+hurry.filesize
+s3transfer
