@@ -1,0 +1,13 @@
+
+[dev]
+twine==3.4.1
+black==20.8b1
+build==0.3.1.post1
+
+[doc]
+mkdocs==1.1.2
+mkdocstrings==0.15.0
+
+[test]
+flake8==3.9.2
+pytest==6.2.3
