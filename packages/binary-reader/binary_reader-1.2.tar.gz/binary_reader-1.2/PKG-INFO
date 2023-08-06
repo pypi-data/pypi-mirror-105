@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: binary_reader
+Version: 1.2
+Summary: A python module for basic binary file IO.
+Home-page: https://github.com/SutandoTsukai181/PyBinaryReader
+Author: SutandoTsukai181
+Author-email: mosamaeldeeb@gmail.com
+License: MIT
+Download-URL: https://github.com/SutandoTsukai181/PyBinaryReader/archive/refs/tags/v1.2.tar.gz
+Description: UNKNOWN
+Keywords: BINARY,IO
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.8
