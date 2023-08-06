@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: E4sy
+Version: 0.0.1
+Summary: Simplify Your Code, With Custom Commands.
+Home-page: UNKNOWN
+Author: Fred
+Author-email: unknown@gmail.com
+License: UNKNOWN
+Description: 
+        # e4sy
+        
+        
+        Developed by Fred (c) 2020
+        
+        ## Examples of How To Use
+        
+        
+        ```python
+        from e4sy import place, execute
+        
+        place(id=1, execution="print('test')")
+        place(id="other", execution="print('other function')")
+        
+        
+        execute(id=1)
+        
+        OUTPUT = test
+        
+        execute(id="other")
+        
+        OUTPUT = other function
+        
+        
+        ```
+        
+Keywords: python,simple,easy,e4sy,custom
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown

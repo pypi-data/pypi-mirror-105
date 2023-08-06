@@ -1,0 +1,8 @@
+README.md
+setup.py
+E4sy.egg-info/PKG-INFO
+E4sy.egg-info/SOURCES.txt
+E4sy.egg-info/dependency_links.txt
+E4sy.egg-info/top_level.txt
+e4sy/__init__.py
+e4sy/e4sy.py
