@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: elifearticle
+Version: 0.2.0
+Summary: eLife article object.
+Home-page: https://github.com/elifesciences/elife-article
+Maintainer: eLife Sciences Publications Ltd.
+Maintainer-email: tech-team@elifesciences.org
+License: MIT
+Description: elife-article
+        =============
+           
+        .. image:: https://coveralls.io/repos/elifesciences/elife-article/badge.svg?branch=master&service=github
+           :target: https://coveralls.io/github/elifesciences/elife-article?branch=master
+        
+        
+        eLife article object
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
