@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/bledom.egg-info/PKG-INFO
+src/bledom.egg-info/SOURCES.txt
+src/bledom.egg-info/dependency_links.txt
+src/bledom.egg-info/requires.txt
+src/bledom.egg-info/top_level.txt
