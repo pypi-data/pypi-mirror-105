@@ -1,0 +1,3 @@
+[console_scripts]
+lhcbstyle = lhcbstyle.__main__:parse_args
+
