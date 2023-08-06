@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENSE.txt
+MANIFEST.in
+README.txt
+setup.py
+randomEmailidGenerator.egg-info/PKG-INFO
+randomEmailidGenerator.egg-info/SOURCES.txt
+randomEmailidGenerator.egg-info/dependency_links.txt
+randomEmailidGenerator.egg-info/top_level.txt
+reidg/__init__.py

@@ -1,0 +1,1 @@
+This library will help you to generate ramdom email ids on the basis of numbers you provide as arguments to the script.

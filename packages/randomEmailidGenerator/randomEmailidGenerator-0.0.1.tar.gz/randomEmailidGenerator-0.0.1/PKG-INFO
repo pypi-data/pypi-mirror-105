@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: randomEmailidGenerator
+Version: 0.0.1
+Summary: A very basic random email id generator
+Home-page: UNKNOWN
+Author: Pranay Bankar
+Author-email: pranaybankar2890@gmail.com
+License: MIT
+Description: This library will help you to generate ramdom email ids on the basis of numbers you provide as arguments to the script.
+        
+        Change Log
+        ==========
+        
+        0.0.1 (10/05/2021)
+        ------------------
+        - First Release
+Keywords: email generator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
