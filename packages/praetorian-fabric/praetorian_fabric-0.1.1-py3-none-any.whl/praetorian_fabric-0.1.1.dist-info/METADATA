@@ -1,0 +1,96 @@
+Metadata-Version: 2.1
+Name: praetorian-fabric
+Version: 0.1.1
+Summary: Praetorian Fabric library extends standard `fabric` library, to maintain communication with praetorian services. Main purpose is to make necessary connections and provide suitable data.
+Home-page: https://github.com/Praetorian-Defence/praetorian-fabric
+Author: Adam Žúrek
+Author-email: adamzurek14@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Database
+Classifier: Topic :: Security
+Description-Content-Type: text/markdown
+Requires-Dist: python-dotenv (==0.15.*)
+Requires-Dist: fabric (>=2.5.0)
+Requires-Dist: praetorian-api-client (>=0.4.2)
+
+# praetorian-fabric
+
+Gladiator Titus in your service. I like heavy weights 🏋️. More strength, more praetorian, more fabric. 
+What more do you want? Gimme that heavy variables 💪.
+
+## Introduction
+
+Praetorian Fabric library extends standard `fabric` library, to maintain communication
+with praetorian services. Main purpose is to make necessary connections and provide
+suitable data.
+
+## Installation
+
+```python
+# pip
+pip install praetorian-fabric
+
+# pipenv
+pipenv install praetorian-fabric
+
+# poetry
+poetry add praetorian-fabric
+```
+
+## Usage
+
+####1. First you need to create environment variables:
+
+- `PRAETORIAN_API_URL`
+- `PRAETORIAN_API_KEY`
+- `PRAETORIAN_API_SECRET`
+- `PRAETORIAN_USERNAME`
+- `PRAETORIAN_PASSWORD`
+
+####2. Create `fabfile.py` folder in your project root directory
+####3. Instantiate `PraetorianConfig` object:
+
+```python
+praetorian_config = PraetorianConfig(project_name='foo project')
+```
+
+####4. Create task and connect to Praetorian SSH Proxy to gain needed variables:
+
+```python
+@task
+def deploy(ctx, remote_name):
+    ctx = praetorian_config.connect(ctx, remote_name)
+```
+####5. Get variables by dot notation anywhere in your tasks:
+
+```python
+@task
+def deploy(ctx, remote_name):
+    ctx = praetorian_config.connect(ctx, remote_name)
+
+    variable = praetorian_config.get_variable('variable_name')
+
+    nested_variable = praetorian_config.get_variable('variables.nested_variable.name')
+```
+---
+Developed with 💙 and ☕️ by [Adam Žúrek](https://zurek11.github.io/)
+with the support of [BACKBONE s.r.o.](https://www.backbone.sk/), 2021 (C)
+
+## 0.1.0 : 2021-08-05
+
+- 💪 Initial release
+
+## 0.1.1 : 2021-09-05
+
+- ✌️ Removed useless service calling.
+
+
