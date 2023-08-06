@@ -1,0 +1,3 @@
+[console_scripts]
+rrfuncat=rrfuncat.cmds:cli
+
