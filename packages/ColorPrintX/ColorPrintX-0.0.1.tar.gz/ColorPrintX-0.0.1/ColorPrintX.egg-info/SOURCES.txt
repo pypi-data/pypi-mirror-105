@@ -1,0 +1,10 @@
+CHANGELOG.TXT
+LICENSE.TXT
+MANIFEST.in
+README.TXT
+setup.py
+ColorPrintX/__init__.py
+ColorPrintX.egg-info/PKG-INFO
+ColorPrintX.egg-info/SOURCES.txt
+ColorPrintX.egg-info/dependency_links.txt
+ColorPrintX.egg-info/top_level.txt
