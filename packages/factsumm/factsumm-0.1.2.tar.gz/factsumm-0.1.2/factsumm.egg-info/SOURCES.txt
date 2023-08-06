@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+factsumm/__init__.py
+factsumm/version.py
+factsumm.egg-info/PKG-INFO
+factsumm.egg-info/SOURCES.txt
+factsumm.egg-info/dependency_links.txt
+factsumm.egg-info/requires.txt
+factsumm.egg-info/top_level.txt
+factsumm/utils/__init__.py
+factsumm/utils/level_entity.py
+factsumm/utils/level_sentence.py
+factsumm/utils/utils.py
