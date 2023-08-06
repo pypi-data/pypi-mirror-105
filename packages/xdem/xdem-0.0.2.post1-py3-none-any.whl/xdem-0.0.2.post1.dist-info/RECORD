@@ -1,0 +1,15 @@
+xdem/__init__.py,sha256=l9UKDfUPLHernMYfFUGM7NHTVLvbn9k15NtGEq6jmQk,152
+xdem/coreg.py,sha256=34wnZCBE1CZaIR5Iz6bPB_smvHyzUd66-nZkAiJ3PwY,53476
+xdem/ddem.py,sha256=px79EU2Tyr_32FsHVDaj9_GsOzVfJ9gqvMlXZ2vlQvU,7418
+xdem/dem.py,sha256=IdIWaw55mod9e3s3xBhniyBAfSibXzMkhSfEURq_I7Q,10322
+xdem/demcollection.py,sha256=InDMwhHX2eHrn_9yteVpD9j-mHjwlc6UA8FBMP_5i8c,12091
+xdem/examples.py,sha256=FffiO8Q8E1G2q1iNv48wYphd-Xl1xMu89ER47ing7Dk,2492
+xdem/spatial_tools.py,sha256=vl_YZs02ldg8zzQ1y4CqTYA0xT_-WtPEt2HiR8osCZ4,16877
+xdem/spstats.py,sha256=zg-u1dxmPKf6yyNXIPnPXknC_cblZHVjrFrZ89mI3K4,28088
+xdem/version.py,sha256=nmHyFzyGkJITKkzUBsX8f19i9D81q7CkGk0KmNOKaj4,46
+xdem/volume.py,sha256=rR68Q6nEz0uxlvLxyMzZCXgMt4_SQK7eEUz1kDy5mfs,21954
+xdem-0.0.2.post1.dist-info/LICENSE,sha256=gPOu7s6g4ueLPnNNDXNuKx2DQNtyMoPlGb5y4LDEscU,1067
+xdem-0.0.2.post1.dist-info/METADATA,sha256=utbIgeCa2kyRkjg7epOTxUpUK6YGMLy0Wrt4twllAkQ,4055
+xdem-0.0.2.post1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+xdem-0.0.2.post1.dist-info/top_level.txt,sha256=OuHN5RNUdb4cKHwTvacIKkKrOwGTnqNvh0Q8Wak2eFU,5
+xdem-0.0.2.post1.dist-info/RECORD,,
