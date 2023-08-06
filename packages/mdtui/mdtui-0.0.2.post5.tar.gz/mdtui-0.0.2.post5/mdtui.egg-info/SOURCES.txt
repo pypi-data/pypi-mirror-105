@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+mdtui/__init__.py
+mdtui/main.py
+mdtui.egg-info/PKG-INFO
+mdtui.egg-info/SOURCES.txt
+mdtui.egg-info/dependency_links.txt
+mdtui.egg-info/entry_points.txt
+mdtui.egg-info/requires.txt
+mdtui.egg-info/top_level.txt
