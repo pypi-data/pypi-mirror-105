@@ -1,0 +1,204 @@
+/* Reset */
+.tutorialsLauncher * {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Type */
+.tutorialsLauncher h1 {
+    font-weight: 600;
+    font-size: 48px;
+}
+
+.tutorialsLauncher h2 {
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.tutorialsLauncher h3 {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+/* Layout */
+.tutorialsLauncher {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    background-color: #f6f6f6;
+}
+
+
+/* Header */
+.tutorialsLauncherHeader {
+    padding: 150px 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #06bbb2 0%, #0079a4 100%);
+}
+
+.tutorialsLauncherHeader h1 {
+    padding: 25px 0;
+    color: white;
+    text-align: center;
+}
+
+.tutorialsLauncherHeader p {
+    max-width: 800px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.7em;
+    color: white;
+}
+
+.tutorialsLauncherHeader img {
+    width: 75px;
+}
+
+/* Tutorials */
+.tutorialsLauncherList {
+    padding: 50px 50px 0 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tutorialsLauncherListHeader {
+    width: 100%;
+    padding: 0 0 15px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+}
+
+.tutorialsLauncherListHeaderToolbar {
+   display: flex;
+   align-items: flex-end; 
+}
+
+.tutorialsLauncherListHeaderToolbar li {
+    list-style: none;
+}
+
+.tutorialsLauncherListGrid {
+    width: 100%;
+    padding: 50px 0 0 0;
+    margin: 0;
+    display: grid;
+    grid-template-rows: minmax(min-content, max-content);
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 0;
+}
+
+.tutorialsLauncherListGrid li {
+    width: 100%;
+    margin: 0 0 25px 0;
+    list-style: none;
+}
+
+.tutorialsLauncherListGrid li button {
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    border-radius: 5px;
+    background-color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out all;
+    box-shadow: 0 6px 15px rgba(36, 37, 38, 0.08);
+}
+
+.tutorialsLauncherListGrid li button:hover {
+    box-shadow: 0 6px 15px rgba(36, 37, 38, 0.15); 
+}
+
+.tutorialsLauncherListGrid li .tutorialIcon {
+    height: 100%;
+    width: 50px;
+    padding-right: 15px;
+    display: block;
+}
+
+.tutorialsLauncherListGrid li .tutorialDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tutorialsLauncherListGrid li .tutorialDetails>div {
+    display: flex;
+}
+
+.tutorialsLauncherListGrid li h3 {
+    text-transform: capitalize;
+    text-align: left;
+}
+
+.tutorialsLauncherListGrid li p {
+    padding: 7.5px 0 0 0;
+    color: darkgray;
+    text-align: left;
+}
+
+.tutorialsLauncherListGrid li .tutorialButton {
+    margin-left: auto;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.05);
+}
+
+.tutorialsLauncherListGrid li .tutorialButton:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.tutorialsLauncherListGrid li .tutorialButton .tutorialButtonIcon {
+    height: 100%;
+    padding: 5px;
+    display: flex;
+}
+
+
+/* Footer */
+.tutorialsLauncherFooter {
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+/* Tooltip */
+.launcherTooltip {
+    position: relative;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    font: inherit;
+}
+
+.launcherTooltipIcon {
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: black;
+    background-color: rgba(0,0,0,0.05);
+}
+
+.launcherTooltip p {
+    width: 200px;
+    padding: 15px;
+    position: absolute;
+    border-radius: 5px;
+    top: 25px;
+    right: 0;
+    color: white;
+    background-color: black;
+    box-shadow: 0 6px 15px rgba(36, 37, 38, 0.5);
+}
