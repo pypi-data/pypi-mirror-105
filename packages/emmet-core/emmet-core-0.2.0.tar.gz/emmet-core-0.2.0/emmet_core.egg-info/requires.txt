@@ -1,0 +1,7 @@
+pymatgen<2023.0,>=2021.3
+monty~=2021.3
+pydantic[email]~=1.8
+pybtex~=0.24
+typing-extensions~=3.7
+pymongo~=3.11
+maggma~=0.26.0
