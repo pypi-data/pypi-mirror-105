@@ -1,0 +1,397 @@
+# (C) Copyright 2007-2021 Enthought, Inc., Austin, TX
+# All rights reserved.
+#
+# This software is provided without warranty under the terms of the BSD
+# license included in LICENSE.txt and may be redistributed only under
+# the conditions described in the aforementioned license. The license
+# is also available online at http://www.enthought.com/licenses/BSD.txt
+#
+# Thanks for using Enthought open source!
+""" A trait type used to declare and access extension points. """
+
+
+# Standard library imports.
+from functools import wraps
+import inspect
+import warnings
+import weakref
+
+# Enthought library imports.
+from traits.api import List, TraitType, Undefined, provides
+from traits.trait_list_object import TraitList
+
+# Local imports.
+from .i_extension_point import IExtensionPoint
+
+
+# Exception message template.
+INVALID_TRAIT_TYPE = (
+    'extension points must be "List"s e.g. List, List(Int)'
+    " but a value of %s was specified."
+)
+
+
+# Even though trait types do not themselves have traits, we can still
+# declare that we implement an interface.
+@provides(IExtensionPoint)
+class ExtensionPoint(TraitType):
+    """ A trait type used to declare and access extension points.
+
+    Note that this is a trait *type* and hence does *NOT* have traits itself
+    (i.e. it does *not* inherit from 'HasTraits').
+
+    """
+
+    ###########################################################################
+    # 'ExtensionPoint' *CLASS* interface.
+    ###########################################################################
+
+    @staticmethod
+    def bind(obj, trait_name, extension_point_id):
+        """ Create a binding to an extension point. """
+
+        from .extension_point_binding import bind_extension_point
+
+        return bind_extension_point(obj, trait_name, extension_point_id)
+
+    @staticmethod
+    def connect_extension_point_traits(obj):
+        """ Connect all of the 'ExtensionPoint' traits on an object. """
+
+        for trait_name, trait in obj.traits(__extension_point__=True).items():
+            trait.trait_type.connect(obj, trait_name)
+
+    @staticmethod
+    def disconnect_extension_point_traits(obj):
+        """ Disconnect all of the 'ExtensionPoint' traits on an object. """
+
+        for trait_name, trait in obj.traits(__extension_point__=True).items():
+            trait.trait_type.disconnect(obj, trait_name)
+
+    ###########################################################################
+    # 'object' interface.
+    ###########################################################################
+
+    def __init__(self, trait_type=List, id=None, **metadata):
+        """ Constructor. """
+
+        # We add '__extension_point__' to the metadata to make the extension
+        # point traits easier to find with the 'traits' and 'trait_names'
+        # methods on 'HasTraits'.
+        metadata["__extension_point__"] = True
+        super().__init__(**metadata)
+
+        # The trait type that describes the extension point.
+        #
+        # If we are handed a trait type *class* e.g. List, instead of a trait
+        # type *instance* e.g. List() or List(Int) etc, then we instantiate it.
+        if inspect.isclass(trait_type):
+            trait_type = trait_type()
+
+        # Currently, we only support list extension points (we may in the
+        # future want to allow other collections e.g. dictionaries etc).
+        if not isinstance(trait_type, List):
+            raise TypeError(INVALID_TRAIT_TYPE % trait_type)
+
+        self.trait_type = trait_type
+
+        # The Id of the extension point.
+        if id is None:
+            raise ValueError("an extension point must have an Id")
+
+        self.id = id
+
+        # A dictionary that is used solely to keep a reference to all extension
+        # point listeners alive until their associated objects are garbage
+        # collected.
+        #
+        # Dict(weakref.ref(Any), Dict(Str, Callable))
+        self._obj_to_listeners_map = weakref.WeakKeyDictionary()
+
+    def __repr__(self):
+        """ String representation of an ExtensionPoint object """
+        return "ExtensionPoint(id={!r})".format(self.id)
+
+    ###########################################################################
+    # 'TraitType' interface.
+    ###########################################################################
+
+    def get(self, obj, trait_name):
+        """ Trait type getter. """
+        cache_name = _get_cache_name(trait_name)
+        if cache_name not in obj.__dict__:
+            _update_cache(obj, trait_name)
+
+        value = obj.__dict__[cache_name]
+        # validate again
+        self.trait_type.validate(obj, trait_name, value[:])
+        return value
+
+    def set(self, obj, name, value):
+        """ Trait type setter. """
+
+        extension_registry = self._get_extension_registry(obj)
+
+        # Note that some extension registry implementations may not support the
+        # setting of extension points (the default, plugin extension registry
+        # for exxample ;^).
+        extension_registry.set_extensions(self.id, value)
+
+    ###########################################################################
+    # 'ExtensionPoint' interface.
+    ###########################################################################
+
+    def connect(self, obj, trait_name):
+        """ Connect the extension point to a trait on an object.
+
+        This allows the object to react when contributions are added or
+        removed from the extension point.
+
+        fixme: It would be nice to be able to make the connection automatically
+        but we would need a slight tweak to traits to allow the trait type to
+        be notified when a new instance that uses the trait type is created.
+
+        """
+
+        def listener(extension_registry, event):
+            """ Listener called when an extension point is changed.
+
+            Parameters
+            ----------
+            extension_registry : IExtensionRegistry
+                Registry that maintains the extensions.
+            event : ExtensionPointChangedEvent
+                Event created for the change.
+                If the event.index is None, this means the entire extensions
+                list is set to a new value. If the event.index is not None,
+                some portion of the list has been modified.
+            """
+            if event.index is not None:
+                # We know where in the list is changed.
+
+                # Mutate the _ExtensionPointValue to fire ListChangeEvent
+                # expected from observing item change.
+                getattr(obj, trait_name)._sync_values(event)
+
+                # For on_trait_change('name_items')
+                obj.trait_property_changed(
+                    trait_name + "_items", Undefined, event
+                )
+
+            else:
+                # The entire list has changed. We reset the cache and fire a
+                # normal trait changed event.
+                _update_cache(obj, trait_name)
+
+        # In case the cache was created first and the registry is then mutated
+        # before this ``connect`` is called, the internal cache would be in
+        # an inconsistent state. This also has the side-effect of firing
+        # another change event, hence allowing future changes to be observed
+        # without having to access the trait first.
+        _update_cache(obj, trait_name)
+
+        extension_registry = self._get_extension_registry(obj)
+
+        # Add the listener to the extension registry.
+        extension_registry.add_extension_point_listener(listener, self.id)
+
+        # Save a reference to the listener so that it does not get garbage
+        # collected until its associated object does.
+        listeners = self._obj_to_listeners_map.setdefault(obj, {})
+        listeners[trait_name] = listener
+
+    def disconnect(self, obj, trait_name):
+        """ Disconnect the extension point from a trait on an object. """
+
+        extension_registry = self._get_extension_registry(obj)
+
+        listener = self._obj_to_listeners_map[obj].get(trait_name)
+        if listener is not None:
+            # Remove the listener from the extension registry.
+            extension_registry.remove_extension_point_listener(
+                listener, self.id
+            )
+
+            # Clean up.
+            del self._obj_to_listeners_map[obj][trait_name]
+
+    ###########################################################################
+    # Private interface.
+    ###########################################################################
+
+    def _get_extension_registry(self, obj):
+        """ Return the extension registry in effect for an object. """
+
+        extension_registry = getattr(obj, "extension_registry", None)
+        if extension_registry is None:
+            raise ValueError(
+                'The "ExtensionPoint" trait type can only be used in '
+                "objects that have a reference to an extension registry "
+                'via their "extension_registry" trait. '
+                "Extension point Id <%s>" % self.id
+            )
+
+        return extension_registry
+
+
+def _warn_if_not_internal(func):
+    """ Decorator for instance methods of _ExtensionPointValue such that its
+    effect is nullified if the function is not called with the _internal_use
+    flag set to true.
+    """
+
+    @wraps(func)
+    def decorated(object, *args, **kwargs):
+        if not object._internal_use:
+            warnings.warn(
+                "Extension point cannot be mutated directly.",
+                RuntimeWarning,
+                stacklevel=2,
+            )
+            # This restores the existing behavior where the operation
+            # is acted on a list object that is not persisted.
+            return func(TraitList(iter(object)), *args, **kwargs)
+        return func(object, *args, **kwargs)
+
+    return decorated
+
+
+class _ExtensionPointValue(TraitList):
+    """ _ExtensionPointValue is the list being returned while retrieving the
+    attribute value for an ExtensionPoint trait.
+
+    This list returned for an ExtensionPoint acts as a proxy to query
+    extensions in an ExtensionRegistry for a given extension point id. Users of
+    ExtensionPoint expect to handle a list-like object, and expect to be able
+    to listen to "mutation" on the list. The ExtensionRegistry remains to be
+    the source of truth as to what extensions are available for a given
+    extension point ID.
+
+    Users are not expected to mutate the list directly. All mutations to
+    extensions are expected to go through the extension registry to maintain
+    consistency. With that, all methods for mutating the list are nullified,
+    unless it is used internally.
+
+    The requirement to support ``observe("name:items")`` means this list,
+    associated with `name`, cannot be a property that gets recomputed on every
+    access (enthought/traits#624), it needs to be cached. As with any
+    cached quantity, it needs to be synchronized with the ExtensionRegistry.
+
+    Note that the list can only be synchronized with the extension registry
+    when the listeners are connected (see ``ExtensionPoint.connect``).
+
+    Parameters
+    ----------
+    iterable : iterable
+        Iterable providing the items for the list
+    """
+
+    def __new__(cls, *args, **kwargs):
+        # Methods such as 'append' or 'extend' may be called during unpickling.
+        # Initialize internal flag to true which gets changed back to false
+        # in __init__.
+        self = super().__new__(cls)
+        self._internal_use = True
+        return self
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # Flag to control access for mutating the list. Only internal
+        # code can mutate the list. See _sync_values
+        self._internal_use = False
+
+    def _sync_values(self, event):
+        """ Given an ExtensionPointChangedEvent, modify the values in this list
+        to match. This is an internal method only used by Envisage code.
+
+        Parameters
+        ----------
+        event : ExtenstionPointChangedEvent
+            Event being fired for extension point values changed (typically
+            via the extension registry)
+        """
+        self._internal_use = True
+        try:
+            if isinstance(event.index, slice):
+                if event.added:
+                    self[event.index] = event.added
+                else:
+                    del self[event.index]
+            else:
+                slice_ = slice(
+                    event.index, event.index + len(event.removed)
+                )
+                self[slice_] = event.added
+        finally:
+            self._internal_use = False
+
+    __delitem__ = _warn_if_not_internal(TraitList.__delitem__)
+    __iadd__ = _warn_if_not_internal(TraitList.__iadd__)
+    __imul__ = _warn_if_not_internal(TraitList.__imul__)
+    __setitem__ = _warn_if_not_internal(TraitList.__setitem__)
+    append = _warn_if_not_internal(TraitList.append)
+    clear = _warn_if_not_internal(TraitList.clear)
+    extend = _warn_if_not_internal(TraitList.extend)
+    insert = _warn_if_not_internal(TraitList.insert)
+    pop = _warn_if_not_internal(TraitList.pop)
+    remove = _warn_if_not_internal(TraitList.remove)
+    reverse = _warn_if_not_internal(TraitList.reverse)
+    sort = _warn_if_not_internal(TraitList.sort)
+
+
+def _get_extensions(object, name):
+    """ Return the extensions reported by the extension registry for the
+    given object and the name of a trait whose type is an ExtensionPoint.
+
+    Parameters
+    ----------
+    object : HasTraits
+        Object on which an ExtensionPoint is defined
+    name : str
+        Name of the trait whose trait type is an ExtensionPoint.
+
+    Returns
+    -------
+    extensions : list
+        All the extensions for the extension point.
+    """
+    extension_point = object.trait(name).trait_type
+    extension_registry = extension_point._get_extension_registry(object)
+
+    # Get the extensions to this extension point.
+    return extension_registry.get_extensions(extension_point.id)
+
+
+def _get_cache_name(trait_name):
+    """ Return the attribute name on the object for storing the cached
+    extension point value associated with a given trait.
+
+    Parameters
+    ----------
+    trait_name : str
+        The name of the trait for which ExtensionPoint is defined.
+    """
+    return "__envisage_{}".format(trait_name)
+
+
+def _update_cache(obj, trait_name):
+    """ Update the internal cached value for the extension point and
+    fire change event.
+
+    Parameters
+    ----------
+    obj : HasTraits
+        The object on which an ExtensionPoint is defined.
+    trait_name : str
+        The name of the trait for which ExtensionPoint is defined.
+    """
+    cache_name = _get_cache_name(trait_name)
+    old = obj.__dict__.get(cache_name, Undefined)
+    new = (
+        _ExtensionPointValue(
+            _get_extensions(obj, trait_name)
+        )
+    )
+    obj.__dict__[cache_name] = new
+    obj.trait_property_changed(trait_name, old, new)
