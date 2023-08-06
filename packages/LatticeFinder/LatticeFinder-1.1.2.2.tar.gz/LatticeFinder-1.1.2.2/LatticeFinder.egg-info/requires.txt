@@ -1,0 +1,16 @@
+numpy
+scipy
+ase>=3.19.0
+Sphinx
+sphinx-rtd-theme
+sphinx-tabs
+sphinxcontrib-applehelp
+sphinxcontrib-devhelp
+sphinxcontrib-htmlhelp
+sphinxcontrib-jsmath
+sphinxcontrib-plantuml
+sphinxcontrib-qthelp
+sphinxcontrib-serializinghtml
+sphinxcontrib-wiki
+packaging
+termcolor
