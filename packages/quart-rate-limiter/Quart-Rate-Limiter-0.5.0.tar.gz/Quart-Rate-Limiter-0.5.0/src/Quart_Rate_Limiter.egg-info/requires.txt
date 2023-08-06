@@ -1,0 +1,4 @@
+Quart>=0.15
+
+[redis]
+aioredis
