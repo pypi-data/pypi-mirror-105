@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: bledom
+Version: 0.0.3
+Summary: Python library for controlling BLEDOM devices
+Home-page: https://github.com/thegreatrazz/pybledom
+Author: Raresh Nistor
+Author-email: raresh@nistor.email
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/thegreatrazz/pybledom/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: bleak (>=0.11.0)
+
+# Python BLEDOM
+
+Lets you control LEDs from your computer.
+
+Dox tbd.
+
+
