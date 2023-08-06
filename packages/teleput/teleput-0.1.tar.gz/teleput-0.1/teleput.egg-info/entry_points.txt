@@ -1,0 +1,3 @@
+[console_scripts]
+teleput = teleput_cli.teleput:main
+

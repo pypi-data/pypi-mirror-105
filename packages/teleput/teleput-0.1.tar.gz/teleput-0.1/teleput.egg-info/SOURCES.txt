@@ -1,0 +1,12 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.cfg
+teleput.egg-info/PKG-INFO
+teleput.egg-info/SOURCES.txt
+teleput.egg-info/dependency_links.txt
+teleput.egg-info/entry_points.txt
+teleput.egg-info/requires.txt
+teleput.egg-info/top_level.txt
+teleput_cli/__init__.py
+teleput_cli/teleput.py
