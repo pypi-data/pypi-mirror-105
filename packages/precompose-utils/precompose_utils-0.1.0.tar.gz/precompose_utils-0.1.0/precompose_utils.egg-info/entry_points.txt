@@ -1,0 +1,5 @@
+[console_scripts]
+precompose-clean = precompose_utils.clean:main
+precompose-mount = precompose_utils.mount:main
+precompose-unmount = precompose_utils.unmount:main
+

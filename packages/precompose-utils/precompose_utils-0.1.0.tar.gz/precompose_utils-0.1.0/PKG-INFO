@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: precompose_utils
+Version: 0.1.0
+Summary: Utilities for working with apps packaged by precompose
+Home-page: https://github.com/hello-seam/precompose_utils
+Author: Jordan Webb
+Author-email: jordan@getseam.com
+License: AGPL-3.0-or-later
+Project-URL: Bug Tracker, https://github.com/hello-seam/precompose_utils/issues
+Project-URL: Source Code, https://github.com/hello-seam/precompose_utils
+Description: # precompose_utils
+        
+        This is a set of tools for working with applications packaged by [precompose](https://github.com/hello-seam/precompose).
+        
+        ## precompose-mount
+        
+        ```
+        usage: precompose-mount [-h] [--overwrite] [--override-name NAME] REF
+        
+        Mount a precomposed application
+        
+        positional arguments:
+          REF                   ostree ref to mount
+        
+        optional arguments:
+          -h, --help            show this help message and exit
+          --overwrite           overwrite existing app
+          --override-name NAME  override app name
+        ```
+        
+        ## precompose-unmount
+        
+        ```
+        usage: precompose-unmount [-h] [--quiet] [--force] APP
+        
+        Unmount a precomposed application
+        
+        positional arguments:
+          APP         app to unmount
+        
+        optional arguments:
+          -h, --help  show this help message and exit
+          --quiet     suppress output
+          --force     ignore running containers
+        ```
+        
+        ## precompose-clean
+        
+        ```
+        usage: precompose-clean [-h] [--quiet]
+        
+        Clean up unused checkouts
+        
+        optional arguments:
+          -h, --help  show this help message and exit
+          --quiet     suppress output
+        ```
+        
+Keywords: linux,docker,docker-compose,containers,ostree
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
