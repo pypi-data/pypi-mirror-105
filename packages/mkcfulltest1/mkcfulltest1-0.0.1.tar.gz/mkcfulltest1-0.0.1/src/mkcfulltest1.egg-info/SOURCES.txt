@@ -1,0 +1,6 @@
+README.md
+setup.py
+src/mkcfulltest1.egg-info/PKG-INFO
+src/mkcfulltest1.egg-info/SOURCES.txt
+src/mkcfulltest1.egg-info/dependency_links.txt
+src/mkcfulltest1.egg-info/top_level.txt
