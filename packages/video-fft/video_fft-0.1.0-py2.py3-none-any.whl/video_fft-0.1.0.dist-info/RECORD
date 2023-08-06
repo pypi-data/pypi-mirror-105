@@ -1,0 +1,9 @@
+video_fft/__init__.py,sha256=aOHawL1zuHMfBWKXqwUkXcW96oXLNCY-CXdHDqkz4g4,18
+video_fft/__main__.py,sha256=KmrLvhAGc_Z8xFhU43o55qoTXBtfuwkEyjqzIg6T3Mg,2020
+video_fft/video_fft_calculator.py,sha256=Nirl9m0lfzRcth7W9XPpSnzpgbiUuos75yomSmy77e4,6606
+video_fft-0.1.0.dist-info/LICENSE,sha256=zeqAHGWrSIwdPHsZMZv1_N0gGFO1xxjcZEz9CplR4EM,1086
+video_fft-0.1.0.dist-info/METADATA,sha256=WBQrjUqh-pJ5NylCxR3ahwIq-sQFK0WSZ4znrGaDp3I,5590
+video_fft-0.1.0.dist-info/WHEEL,sha256=kGT74LWyRUZrL4VgLh6_g12IeVl_9u9ZVhadrgXZUEY,110
+video_fft-0.1.0.dist-info/entry_points.txt,sha256=mWh3yOT-riHxPu79zIOLGg7QwbXwTzQsvXwpWGOIG-E,55
+video_fft-0.1.0.dist-info/top_level.txt,sha256=T-s4XfMEMFcFrynQ3m-oI87Qi-xOOsHAGPbVYS9_qic,10
+video_fft-0.1.0.dist-info/RECORD,,
