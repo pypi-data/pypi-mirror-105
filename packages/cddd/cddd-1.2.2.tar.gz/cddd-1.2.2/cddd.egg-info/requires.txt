@@ -1,0 +1,8 @@
+tensorflow-gpu==1.10.0
+scikit-learn
+pandas<=1.0.3
+requests
+appdirs
+
+[cpu]
+tensorflow==1.10.0
