@@ -1,0 +1,7 @@
+README.md
+setup.cfg
+setup.py
+PyPRChecker.egg-info/PKG-INFO
+PyPRChecker.egg-info/SOURCES.txt
+PyPRChecker.egg-info/dependency_links.txt
+PyPRChecker.egg-info/top_level.txt
