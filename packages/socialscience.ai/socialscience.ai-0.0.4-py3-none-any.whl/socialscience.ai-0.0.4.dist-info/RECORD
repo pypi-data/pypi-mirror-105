@@ -1,0 +1,12 @@
+social_science_ai/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+social_science_ai/linear_regression/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+social_science_ai/linear_regression/basic_nodes.py,sha256=drOyH6W3N5kw1fBXkBv_aPk_F5N0t3qnVzg35fFYgo0,1980
+social_science_ai/linear_regression/generate.py,sha256=fgu2BsJKrkru3ErPSy0RXJQpyrSABNtk4weR58cf2yI,1443
+social_science_ai/linear_regression/linear_regression.py,sha256=hJ3V71lx7GGfR7y7VysNwQh__2wTa4eyR1oOsEHaJK8,1143
+social_science_ai/linear_regression/propagate.py,sha256=nuV6yuza7X_HCApK9G-mns0tqPThjDMb04K6JIte0Po,1437
+social_science_ai/linear_regression/test.py,sha256=xnyir1Ap4HpGo4P15tm8B1lrpkCCD7Hry4vy-kbxEug,1708
+social_science_ai/linear_regression/visualize.py,sha256=Z9rmTlrANBBJs9vdN7pWcjisTrhZyZ8tVmbUyAE_T88,943
+socialscience.ai-0.0.4.dist-info/METADATA,sha256=UEfKJRMAXr2c_Yj9nEJjN95-DuQ92XjFjxz29mpCu4U,524
+socialscience.ai-0.0.4.dist-info/WHEEL,sha256=YUYzQ6UQdoqxXjimOitTqynltBCkwY6qlTfTh2IzqQU,97
+socialscience.ai-0.0.4.dist-info/top_level.txt,sha256=2J2s-yZnZdLptZ0hOe1zfWaOM_nI9yRns4bMorujhLo,18
+socialscience.ai-0.0.4.dist-info/RECORD,,
