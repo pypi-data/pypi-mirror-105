@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+bin/CARTools.py
+src/cartools.egg-info/PKG-INFO
+src/cartools.egg-info/SOURCES.txt
+src/cartools.egg-info/dependency_links.txt
+src/cartools.egg-info/top_level.txt
