@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: mars-o-matic
+Version: 0.0.0
+Summary: Project to parse batch records and extract their datapoints
+Home-page: https://github.com/pyscaffold/pyscaffold/
+Author: Hugo Ehlinger
+Author-email: hugo.ehlinger@capgemini.com
+License: MIT
+Project-URL: Documentation, https://pyscaffold.org/
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Description-Content-Type: text/x-rst; charset=UTF-8
+Requires-Dist: importlib-metadata ; python_version < "3.8"
+Provides-Extra: testing
+Requires-Dist: setuptools ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+============
+mars-o-matic
+============
+
+
+Add a short description here!
+
+
+Description
+===========
+
+A longer description of your project goes here...
+
+
+.. _pyscaffold-notes:
+
+Note
+====
+
+This project has been set up using PyScaffold 4.0.1. For details and usage
+information on PyScaffold see https://pyscaffold.org/.
+
+
