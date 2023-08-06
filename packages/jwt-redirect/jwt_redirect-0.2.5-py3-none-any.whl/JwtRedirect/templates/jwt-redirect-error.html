@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>认证失败</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .error-frame {
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #777;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            height: 64px;
+            padding: 10px 20px;
+            background-color: brown;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .status-code {
+            font-size: 48px;
+            color: #333
+        }
+
+        .reason {
+            margin: 0 0 0 20px;
+            font-size: 36px;
+            height: 36px;
+            line-height: 48px;
+            color: #333;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .goto {
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .goto a {
+            padding: 5px 20px;
+            background: #315fa5;
+            color: white;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-frame">
+        <div class="header">
+            <div class="status-code">
+                {{ status_code }}
+            </div>
+            <div class="reason">
+                {{ reason }}
+            </div>
+        </div>
+        <div class="content">
+            {{ text | safe }}
+        </div>
+        <div class="goto">
+            <a href="{{ back_url }}">返回</a>
+        </div>
+    </div>
+</body>
+</html>
