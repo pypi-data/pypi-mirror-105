@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: simcse
+Version: 0.2
+Summary: A sentence embedding tool based on SimCSE
+Home-page: https://github.com/princeton-nlp/SimCSE
+Author: Tianyu Gao, Xingcheng Yao, Danqi Chen
+Author-email: tianyug@cs.princeton.edu
+License: MIT
+Download-URL: https://github.com/princeton-nlp/SimCSE/archive/refs/tags/0.2.tar.gz
+Description: UNKNOWN
+Keywords: sentence,embedding,simcse,nlp
+Platform: UNKNOWN
