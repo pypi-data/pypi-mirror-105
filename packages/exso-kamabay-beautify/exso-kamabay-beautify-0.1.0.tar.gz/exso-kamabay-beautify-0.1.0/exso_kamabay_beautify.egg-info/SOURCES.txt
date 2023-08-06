@@ -1,0 +1,10 @@
+LICENSE
+README.rst
+setup.py
+beautify/__init__.py
+beautify/beautify.py
+exso_kamabay_beautify.egg-info/PKG-INFO
+exso_kamabay_beautify.egg-info/SOURCES.txt
+exso_kamabay_beautify.egg-info/dependency_links.txt
+exso_kamabay_beautify.egg-info/requires.txt
+exso_kamabay_beautify.egg-info/top_level.txt

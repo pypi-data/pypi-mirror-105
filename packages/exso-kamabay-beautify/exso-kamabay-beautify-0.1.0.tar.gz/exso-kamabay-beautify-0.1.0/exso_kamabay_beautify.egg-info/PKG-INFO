@@ -1,0 +1,137 @@
+Metadata-Version: 1.1
+Name: exso-kamabay-beautify
+Version: 0.1.0
+Summary: beautify the appearance of the application on the terminal.
+Home-page: https://github.com/ExsoKamabay/terminal-banner
+Author: Exso Kamabay
+Author-email: UNKNOWN
+License: Apache License 2.0
+Description: **beautify the appearance of the application in the terminal.**
+        
+        what can be done, give the text color, text background, change the font, choose a banner according to the category of your choice.
+        
+        Method Property
+        
+        - font
+        - strings
+        - textArt
+        - list_art
+        - list_font
+        - decoration
+        - help_me_bro
+        - random_font
+        - url_strings
+        - list_ascii_art
+        - list_decoration
+        
+        **Fonts**
+        
+        - `list font 1`_
+        - `list font 2`_
+        
+        **Art**
+        
+        - `art list 1`_
+        - `art list 2`_
+        
+        **Decoration**
+        
+        - `decor list 1`_
+        - `decor list 2`_
+        
+        **Banner list name**
+        
+        - `category banner list name`_
+        
+        
+        
+        **the color of the strings.**
+        
+        .. code:: python
+        
+            from beautify import Beautify
+            # Beautify(**kwargs).method_name
+            print(Beautify(
+                string="Hello Dunia Apa Kabar?",
+                font="scammer",
+                color="#magenta", #can use,name color,hex,rgb
+                bg_color=None).font) #can use,name color,hex,rgb
+        
+        
+        **the class keyword in the method.**
+        
+        Beautify(kwargs).font
+        
+        - string
+        - font
+        - color 
+        - bg_color
+        
+        Beautify(kwargs).decoration
+        
+        - decoration
+        - reverse "True/False"
+        - color
+        - bg_color
+        
+        Beautify(kwargs).strings
+        
+        - string
+        - color
+        - bg_color
+        
+        Beautify(kwargs).url_strings(kwargs)
+        
+        in Beautify()
+        
+        - url
+        - color
+        - bg_color
+        
+        in url_strings()
+        
+        - Attribute 'default None'
+        - Class 'default None'
+        
+        Beautify(kwargs).textArt
+        
+        - string
+        - color
+        - font
+        - decoration
+        - bg_color
+        
+        Beautify(kwargs).random_font
+        
+        - string
+        - font1
+        - font2
+        - font3
+        - font4
+        - color
+        - bg_color
+        
+        **method to see all list.**
+        
+        - Beautify(category= `category banner list name`_ ).list_ascii_art
+        - Beautify().list_font
+        - Beautify().list_art
+        - Beautify().list_decoration
+        
+        
+        .. _list font 1: https://github.com/sepandhaghighi/art/blob/master/FontList.ipynb
+        .. _list font 2: https://www.4r7.ir/FontList.html
+        .. _art list 1: https://github.com/sepandhaghighi/art/blob/master/ArtList.ipynb
+        .. _art list 2: https://www.4r7.ir/ArtList.html
+        .. _decor list 1: https://github.com/sepandhaghighi/art/blob/master/DecorList.ipynb
+        .. _decor list 2: https://www.4r7.ir/DecorList.html
+        .. _category banner list name: https://github.com/ExsoKamabay/terminal-banner/blob/main/category_names_ascii_art
+Keywords: beautify,terminal color,color,font,style,terminal
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Text Processing :: Fonts
+Classifier: Topic :: Text Processing :: General
+Classifier: Topic :: Multimedia
+Classifier: Topic :: Utilities
