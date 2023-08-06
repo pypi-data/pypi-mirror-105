@@ -1,0 +1,14 @@
+brs/__init__.py,sha256=U-olgYPHi4yuzrilQvHmZscn8zNRjak7hXtDThm7hvE,122
+brs/bits.py,sha256=JTIfbrukk0VTf0zyAjpGJyPnPFrRiDnp3LIt4L1zBi4,1013
+brs/brs.py,sha256=pavWugjdzkAfKMEQlxcf748Of8QSRd6CkT4TVvS_0Ng,9968
+brs/color.py,sha256=_Khr1tdrm7UMJ3TcNpnsvKMwyog9R8YlTufgza22_F8,681
+brs/orientation.py,sha256=mv7KW4ifUM3vDiH3Qb7_KPfa4Rq444ALuncOMIEWafY,234
+brs/reader.py,sha256=9voEghqb3i94Ca2QYRmpS5j02ACxg-OIAbNjj9o_CZU,5172
+brs/user.py,sha256=cxeKo7TEyFJPNUc7I6Y3hz5YioKBIidVoitZGM2GEjU,532
+brs/utils.py,sha256=RUBDlgxYpWRwMXFoRUIBVRO7DA167ziEIDp763Nw4-c,391
+brs/writer.py,sha256=n8Szo1zUSNudlDclk5iQFx5Vu39Y8tEvPj8ynxCZ9kQ,3096
+brs_py-0.5.2.dist-info/LICENSE,sha256=UyLz_3q5oDAPmDuX74MXAfOa3FFxXzukoxl6-JjaAVI,1071
+brs_py-0.5.2.dist-info/METADATA,sha256=whq3F7dxYh_Bgwe521E4Ml_-GeI4kPla-MKGohw_2o0,1151
+brs_py-0.5.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+brs_py-0.5.2.dist-info/top_level.txt,sha256=xewxY4ucSzZgCE9aCv7T1Yxqvl1CK0XQWh9nveFIEsw,4
+brs_py-0.5.2.dist-info/RECORD,,
