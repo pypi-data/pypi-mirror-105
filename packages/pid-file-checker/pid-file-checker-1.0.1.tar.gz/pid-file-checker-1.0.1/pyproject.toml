@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "pid-file-checker"
+version = "1.0.1"
+description = "Monitor a pid file"
+readme = "README.md"
+license = "MIT"
+authors = ["Gabriel Augendre <gabriel.augendre@itsfactory.fr>"]
+maintainers = [
+    "Gabriel Augendre <gabriel.augendre@itsfactory.fr>",
+    "Romain Da Costa Vieira <romain.da-costa-vieira@itsfactory.fr>",
+    "Jason Gallet <jason.gallet@itsfactory.fr>",
+    "Jean-Sébastien Heitz-Schaaf <jean-sebastien.heitz-schaaf@itsfactory.fr>",
+    "Emilio Staropoli <emilio.staropoli@itsfactory.fr>",
+]
+homepage = "https://github.com/itsolutionsfactory/pid-file-checker"
+repository = "https://github.com/itsolutionsfactory/pid-file-checker"
+keywords = [
+    "pid",
+    "daemon",
+    "monitoring",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+psutil = ">=5.8.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pre-commit = "^2.9.3"
+
+[tool.poetry.scripts]
+pfc = 'pid_file_checker.checker:main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+target-version = ['py37']
+
+[tool.isort]
+profile = "black"
