@@ -1,0 +1,4 @@
+
+    [trytond.modules]
+    authentication_totp_optional = trytond.modules.authentication_totp_optional
+    

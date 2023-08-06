@@ -1,0 +1,6 @@
+trytond<6.1,>=6.0
+trytonlq_authentication_totp<6.1,>=6.0
+
+[qrcode]
+pillow
+qrcode
