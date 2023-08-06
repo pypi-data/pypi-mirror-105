@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+setup.py
+Julianexampleproject/__init__.py
+Julianexampleproject.egg-info/PKG-INFO
+Julianexampleproject.egg-info/SOURCES.txt
+Julianexampleproject.egg-info/dependency_links.txt
+Julianexampleproject.egg-info/top_level.txt
