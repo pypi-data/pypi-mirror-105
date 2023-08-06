@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: mdf-canon
+Version: 5.4
+Summary: MDF Canon: common library
+Home-page: https://www.expertlabservice.it/en/software/measurement-development-framework
+Author: Daniele Paganelli
+Author-email: dp@mythsmith.it
+License: MIT
+Description: # MDF Canon (Measurement Development Platform)
+        
+        Welcome to the repository for the MDF Canon component development. 
+        ``mdf_canon`` contains common data access code, written in Python3 and released with a MIT license.
+        
+        MDF is an open source software platform divided in a client package (``mdf_client``), a server package (``mdf_droid``) and a bridge package (``mdf_canon``).
+        
+        ``mdf_canon`` was forked in 2019 from the github project ``misura.canon``, and since substantially diverged.
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3

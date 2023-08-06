@@ -1,0 +1,575 @@
+# -*- coding: utf-8 -*-
+"""Indexing hdf5 files"""
+from __future__ import unicode_literals
+from tables.vlarray import VLArray
+import tables
+from tables.link import SoftLink
+from mdf_canon.csutil import DEFAULT_PROTOCOL
+ext = '.h5'
+
+import os
+from traceback import format_exc
+import functools
+from tables.nodes import filenode
+from tables.file import _open_files
+from traceback import print_exc
+from time import time, sleep
+from multiprocessing import Lock
+
+from .. import csutil
+from ..csutil import lockme,  unlockme, enc_options, dumps, unicode_encode
+from ..logger import get_module_logging
+
+
+def addHeader(func):
+    @functools.wraps(func)
+    def addHeader_wrapper(self, *a, **kw):
+        if not self.test:
+            return False
+        rc = kw.get('reference_class', False)
+        if rc is not False:
+            del kw['reference_class']
+        g = func(self, *a, **kw)
+        if rc:
+            if rc not in self._header:
+                self._header[rc] = []
+            self._header[rc].append(g._v_pathname)
+#		self.test.flush()
+        return True
+    return addHeader_wrapper
+
+
+class CoreFile(object):
+    fixed_mode = False
+    """Low-level HDF access functions"""
+
+    def __init__(self, path=False, uid='', mode='a', title='', 
+                 log=get_module_logging(__name__), 
+                 header=True, version= '', load_conf=False):
+        self._header = {}  # static header listing
+        self.node_cache = {}
+        self.path = False
+        self.uid = False
+        self._test = False  # currently opened HDF file
+        self.log = log
+        self._lock = Lock()
+        self.version = None
+        # FIXME: open_file is defined in SharedFile...!!!!
+        if path is not False:
+            self.open_file(path, uid, mode=mode, 
+                           header=header, 
+                           version=version, 
+                           load_conf=load_conf)
+
+    def fileno(self):
+        return self.test.fileno()
+    
+    def iscloud(self):
+        return False
+
+    def get_uid(self):
+        return self.uid
+
+    def get_path(self):
+        return self.path
+
+    def get_id(self):
+        r = os.path.basename(self.path)
+        # Exclude the extension
+        r = r.split('.')
+        r = '.'.join(r[:-1])
+        return r
+
+    @property
+    def test(self):
+        if self._test:
+            if self._test.isopen:
+                return self._test
+        return False
+
+    @test.setter
+    def test(self, test):
+        self._test = test
+
+    def _get_node(self, path, subpath=False):
+        if subpath:
+            if not path.endswith('/'):
+                path += '/'
+            path = path + subpath
+        n = self.node_cache.get(path, False)
+        if n is not False:
+            if not n._v_isopen:
+                self.log.debug('Found closed node. Reopening:', path, n._v_isopen)
+                n = False
+        if n is False:
+            n = self.test.get_node(path)
+            while hasattr(n, 'dereference'):
+                n = n.dereference()
+            # Never cache hard links
+            kid = getattr(n._v_attrs, 'kid', False)
+            if not kid or kid==path:
+                self.node_cache[path] = n
+        return n
+    
+    
+    
+    @lockme()
+    def list_sizes(self):
+        sizes = []
+        done = set([])
+        total = 0
+        for g in self.test.walk_groups():
+            if isinstance(g, SoftLink):
+                continue
+            for n in self.test.walk_nodes(g):
+                p = n._v_pathname
+                if p in done:
+                    continue
+                if isinstance(n, SoftLink):
+                    continue
+                if isinstance(n, VLArray):
+                    print('Calculating VLArray', n._v_pathname)
+                    dump = n._v_pathname.replace('/','+')+'.h5'
+                    if os.path.exists(dump):
+                        os.remove(dump)
+                    f = tables.open_file(dump, mode='a')
+                    new = f.create_vlarray('/','dump',expectedrows=len(n),
+                                     chunkshape=n._v_chunkshape, 
+                                     filters=n._v_new_filters, atom=n.atom)
+                    for r in n:
+                        new.append(r)
+                    f.close()
+                    sz = os.stat(dump).st_size
+                    os.remove(dump)
+                else:
+                    sz = getattr(n,'size_on_disk', 0)
+                sz /= 1e6
+                if sz:
+                    sizes.append((p, sz))
+                    done.add(n._v_pathname)
+                total += sz
+        sizes = sorted(sizes, key=lambda e: e[1], reverse=True)
+        return sizes, total
+    
+    @lockme()
+    def get_node(self, path, subpath=False):
+        return self._get_node(path, subpath=subpath)
+
+    @lockme()
+    def __len__(self, path=False):
+        t = self.test
+        if t is False:
+            self.log.warning('Asking length without file')
+            return 0
+        # Eq. to nonzero
+        if not path:
+            return True
+        n = self._get_node(path)
+        r = len(n)
+#		n.close()
+        return r
+
+    def isopen(self):
+        if self.test is False:
+            return False
+        return self.test.isopen
+
+    def __nonzero__(self):
+        return self.test is not False
+    
+    def __bool__(self):
+        return self.test is not False
+    
+    @staticmethod
+    def close_handlers(path, mode=False):
+        """Close all handlers for `path` with `mode`"""
+        r = []
+        vh = list(_open_files.get_handlers_by_name(path))
+        for h in vh:
+            if mode and h.mode != mode:
+                r.append(('Keeping handler:', id(h), h.mode, mode, path))
+                print(r[-1])
+                continue
+            r.append(('Closing handler:', id(h), h.mode, path))
+            print(r)
+            h.close()
+        return r
+    
+    @staticmethod
+    def highest_mode(path):
+        for h in list(_open_files.get_handlers_by_name(path)):
+            if h.mode in ('a','w'):
+                return 'a'
+        return 'r'
+    
+    @lockme()
+    def close(self, all_handlers=False):
+        self.log.debug('CoreFile.close', self.path, type(self.test))
+        self.node_cache = {}
+        try:
+            if self.test is not False:
+                self.test.close()
+            if all_handlers:
+                r = CoreFile.close_handlers(self.path)
+                for msg in r:
+                    self.log.debug(*msg)
+            return True
+        except:
+            self.log.debug("Closing:", format_exc())
+            return False
+
+    @lockme()
+    def remove(self):
+        """Delete the file from the filesystem"""
+        self.close()
+        os.remove(self.path)
+        return True
+    
+    def get_mode(self):
+        if not self.test:
+            return False
+        return self.test.mode
+
+    def reopen(self, mode=None):
+        self.log.debug('Reopening', self.path, mode)
+        if not self.path:
+            self.log.debug('reopen: no path defined')
+            return False
+        
+        kw = {}
+        if self.test:
+            if self.fixed_mode and mode and mode!=self.test.mode:
+                self.log.error('reopen: forbidden by fixed_mode attribute')
+                return False
+            try:
+                kw['mode'] = self.test.mode
+                if mode and mode==kw.get('mode', None):
+                    self.log.debug('reopen not needed, mode is correct', mode)
+                    return True
+                self.log.debug('Closing for reopening:', self.path)
+                self.close(all_handlers=True)
+                sleep(0.2)
+            except:
+                self.log.debug('While reopening', self.path, 
+                               format_exc())
+        if mode=='a':
+            r = CoreFile.close_handlers(self.path, 'r')
+            for msg in r:
+                self.log.debug(*msg)
+        if mode:
+            kw['mode'] = mode
+        self.log.debug('ready to reopen')
+        self.open_file(self.path, **kw)
+        return True
+
+    ######################
+    # Manipulation
+    def _has_node(self, where, name=False):
+        if self.test is False:
+            return False
+        if name:
+            where += '/' + name
+        if not where:
+            self.log.warning('Empty node location:',where)
+            return False
+        if not where.startswith('/'):
+            where = '/'+where
+        return where in self.test
+
+    @lockme()
+    def has_node(self, where, name=False):
+        return self._has_node(where, name)
+
+
+    @lockme()
+    def has_node_attr(self, path, attr):
+        if not path.startswith('/'):
+            self.log.debug('has_node_path, wrong path', path, attr)
+            path = '/' + path
+        n = self._get_node(path)
+        r = hasattr(n._v_attrs, attr)
+#		n.close()
+        return r
+
+    @lockme()
+    def get_node_attr(self, *a, **kw):
+        """Return the attribute named `attrname` of node `where`"""
+        r = self.test.get_node_attr(*a, **kw)
+        r1 =  csutil.xmlrpcSanitize(r)
+        return r1
+
+    @lockme()
+    def set_node_attr(self, *a, **kw):
+        return self.test.set_node_attr(*a, **kw)
+
+    def _get_node_attributes(self, node):
+        r = {}
+        a = node._v_attrs
+        for key in a._v_attrnamesuser:
+            dat = getattr(a, key)
+            # Skip decoding binary signature
+            if key=='signature':
+                continue
+            r[key] = csutil.xmlrpcSanitize(dat)
+        return r
+
+    @lockme()
+    def get_attributes(self, where, name=None):
+        n = self._get_node(where, name)
+        return self._get_node_attributes(n) 
+    
+    def _update_last_edit_time(self, where, name=None, t=None):
+        t = t or time()
+        self.test.set_node_attr(where, 'last_edit_time', t, name=name)
+        return t
+        
+    @lockme()
+    def update_last_edit_time(self, *a, **k):
+        return self._update_last_edit_time(*a, **k)
+
+    def _set_attributes(self, where, name=None, attrs={}):
+        """Non-locking call to set_node_attr on `where` with a dict of `attrs`.
+        Optionally accepts leaf `name`."""
+        if 'last_edit_time' not in attrs:
+            attrs['last_edit_time'] = time()
+        for k, v in attrs.items():
+            self.log.debug('setting node attr', where, name, k, repr(v))
+            self.test.set_node_attr(where, k, v, name=name)
+
+    @lockme()
+    def set_attributes(self, *a, **kw):
+        """Locking call to _set_attributes"""
+        return self._set_attributes(*a, **kw)
+
+    @lockme()
+    def len(self, where):
+        n = self._get_node(where)
+        r = int(n.nrows)
+        return r
+
+    @lockme()
+    def append_to_node(self, where, data, uptime=True):
+        """Append data to node located in `where`"""
+        if self.test is False:
+            self.log.warning('Append error: Node not found', where)
+            return False
+        r = False
+        try:
+            n = self._get_node(where)
+            r = n.append(data)
+            if uptime:
+                self._update_last_edit_time(n)
+        except:
+            self.log.error('Exception appending to', where, type(data), data, repr(data))
+            print_exc()
+        return r
+
+    @lockme()
+    def list_nodes(self, *a, **k):
+        """Return a list of node names"""
+        lst = self.test.list_nodes(*a, **k)
+        r = [n._v_name for n in lst]
+        return csutil.xmlrpcSanitize(r)
+
+    @lockme()
+    def group_len(self, path, classname=''):
+        """Returns length of objects contained in group path"""
+        return len(self.test.list_nodes(path, classname=classname))
+
+    def get_unique_name(self, where, prefix='', suffix=''):
+        """Return unique name for object under `where` group with `prefix`"""
+        idx = self.group_len(where)
+        name = prefix + suffix  # no idx contained
+        if not len(name):
+            name = '0'
+        while self.has_node(where, name):
+            name = prefix + str(idx) + suffix
+            idx += 1
+        return name
+
+    def _file_node(self, path):
+        """Unlocked version of file_node"""
+        if self.test is False:
+            self.log.warning('CoreFile.file_node: no test', self.path)
+            return ''
+        node = self._get_node(path)
+        self.log.debug('open file node', path)
+        node = filenode.open_node(node, 'r')
+        r = node.read()
+# 		node.close()
+        return r
+
+    @lockme()
+    def file_node(self, path):
+        """Returns content of filenode in path"""
+        return self._file_node(path)
+
+    def xmlrpc_file_node(self, path):
+        return csutil.binfunc(self.file_node(path))
+
+    @lockme()
+    def flush(self):
+        if not self.test:
+            return False
+        return self.test.flush()
+
+    ######################
+    # Creation
+
+    @lockme()
+    def create_group(self, *a, **kw):
+        g = self.test.create_group(*a, **kw)
+        self._update_last_edit_time(g)
+        return True
+
+    @lockme()
+    @addHeader
+    def create_vlarray(self, *a, **kw):
+        g = self.test.create_vlarray(*a, **kw)
+        self._update_last_edit_time(g)
+        return g
+
+    @lockme()
+    @addHeader
+    def create_earray(self, *a, **kw):
+        g = self.test.create_earray(*a, **kw)
+        self._update_last_edit_time(g)
+        return g
+
+    @lockme()
+    @addHeader
+    def create_table(self, *a, **kw):
+        g = self.test.create_table(*a, **kw)
+        self._update_last_edit_time(g)
+        return g
+
+    @lockme()
+    @addHeader
+    def create_hard_link(self, *a, **k):
+        g = self.test.create_hard_link(*a, **k)
+        return g
+    
+    @lockme()
+    @addHeader
+    def create_soft_link(self, *a, **k):
+        g = self.test.create_soft_link(*a, **k)
+        return g
+
+    @lockme()
+    def remove_node(self, path, recursive=1):
+        if not self._has_node(path):
+            return False
+
+        self.test.remove_node(path, recursive=recursive)
+        # Clean the cached header
+        path += '/'
+        for k, v in self._header.items():
+            if path not in v:
+                continue
+            v.remove(path)
+            self._header[k] = v
+            break
+#		self.test.flush()
+        return True
+
+    @unlockme
+    def filenode_write(self, path, data='', obj=None, mode='w', t=None):
+        # TODO: better use of the mode param
+        if self.test is False:
+            return False
+        self.reopen(mode='a')
+        n = False
+        attrs = {}
+        self.log.debug('CoreFile.filenode_write', path)
+        if self.has_node(path) and mode == 'w':
+            self.log.debug('removing old node', path)
+            t0 = time()
+            attrs = self.get_attributes(path)
+            self.log.debug('saved attributes', attrs)
+            self.remove_node(path)
+        self.log.debug('filenode_write lock')
+        self._lock.acquire()
+        where = os.path.dirname(path)
+        name = os.path.basename(path)
+        self.log.debug('newNode', path, where, name)
+        try:
+            node = filenode.new_node(self.test, where=where, name=name)
+        except:
+            self._lock.release()
+            print_exc()
+            return False
+        self.log.debug('newNode done', where, name)
+        if obj:
+            t0 = time()
+            data = dumps(obj, DEFAULT_PROTOCOL)
+            t1 = time()
+            self.log.debug('dumping', t1 - t0)
+            node.write(data)
+            t2 = time()
+            self.log.debug('writing', t2 - t1)
+            self.log.debug('total', t2 - t0)
+        else:
+            node.write(unicode_encode(data,**enc_options))
+#		node.close()
+        # Restore attributes
+        self.test.flush()
+        self._lock.release()
+        
+        if attrs and len(attrs) > 0:
+            self.log.debug('restoring attrs', attrs)
+            self.set_attributes(path, attrs=attrs)
+        
+        self.update_last_edit_time(path, t=t)
+        
+        self.log.debug('DONE CoreFile.filenode_write', path)
+        return len(data)
+
+
+
+    def link(self, link_path, referred_path):
+        """Create a new link from link_path to existing object referred_path"""
+        if not self.has_node(referred_path):
+            self.log.debug('Impossible to create link:', link_path, referred_path)
+            return False
+        v = link_path.split('/')
+        name = v.pop(-1)
+        where = '/'.join(v)
+        if not len(where):
+            where = '/'
+        self.log.debug('Creating link', link_path, referred_path, where, name)
+        #g = self.create_hard_link(
+        #    str(where), str(name), referred_path, createparents=True)
+        g = self.create_soft_link(str(where), str(name), 
+                                  target=str(referred_path), createparents=True)
+        if g:
+            return True
+        return False
+
+    def debug(self):
+        msg = ['Debug info for object', str(id(self)), str(id(self.test)),
+               repr(self),
+               repr(self.test)]
+        msg = '\n'.join(msg)
+        self.log.debug(msg)
+        self.log.debug(self.test)
+        return msg
+
+    def _versioned(self, path, version=False):
+        """Translate standard orig path into configured version path.
+        Returns translated path only if it exists.
+        Eg: /conf to /ver_1/conf"""
+        if type(version)==int:
+            version = '/ver_'+str(version)
+        if version is False:
+            version = self.version or ''
+        if version and not version.startswith('/'):
+            version = '/'+version
+        if version and not path.startswith(version):
+            path1 = version + path
+            if self._has_node(path1):
+                return path1
+        return path
+
+    @lockme()
+    def versioned(self, path, version=False):
+        return self._versioned(path, version=version)
