@@ -1,0 +1,14 @@
+README.rst
+setup.py
+dmodelspy/__init__.py
+dmodelspy/mogi.py
+dmodelspy/sill.py
+dmodelspy/sphere2D.py
+dmodelspy/sphere3D.py
+dmodelspy/spheroid.py
+dmodelspy/version.py
+dmodelspy.egg-info/PKG-INFO
+dmodelspy.egg-info/SOURCES.txt
+dmodelspy.egg-info/dependency_links.txt
+dmodelspy.egg-info/requires.txt
+dmodelspy.egg-info/top_level.txt
