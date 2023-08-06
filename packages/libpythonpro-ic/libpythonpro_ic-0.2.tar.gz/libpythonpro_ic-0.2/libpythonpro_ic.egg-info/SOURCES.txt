@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+libpythonpro/__init__.py
+libpythonpro/github_api.py
+libpythonpro_ic.egg-info/PKG-INFO
+libpythonpro_ic.egg-info/SOURCES.txt
+libpythonpro_ic.egg-info/dependency_links.txt
+libpythonpro_ic.egg-info/not-zip-safe
+libpythonpro_ic.egg-info/requires.txt
+libpythonpro_ic.egg-info/top_level.txt
