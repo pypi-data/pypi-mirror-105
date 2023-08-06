@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: glm_saga
+Version: 0.1
+Summary: A PyTorch solver for elastic net
+Home-page: https://github.com/madrylab/glm_saga
+Author: Eric Wong
+Author-email: wongeric@mit.edu
+License: MIT
+Description: UNKNOWN
+Platform: any
