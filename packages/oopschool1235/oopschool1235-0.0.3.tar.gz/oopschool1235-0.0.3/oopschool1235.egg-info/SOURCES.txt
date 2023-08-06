@@ -1,0 +1,10 @@
+README.rst
+setup.cfg
+setup.py
+oopschool/__init__.py
+oopschool/newschool.py
+oopschool/school.py
+oopschool1235.egg-info/PKG-INFO
+oopschool1235.egg-info/SOURCES.txt
+oopschool1235.egg-info/dependency_links.txt
+oopschool1235.egg-info/top_level.txt
