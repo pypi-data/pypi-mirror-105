@@ -1,0 +1,5 @@
+requests>=2.25
+lxml>=4.5.2
+geoip2>=3.0.0
+IPy>=1.01
+PyYAML>=5.4.1
