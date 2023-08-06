@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: kaggleUploader
+Version: 0.0.1
+Summary: Wrapper built on top of kaggle api to help with uploading of datasets to your Kaggle account with minimal and easier interface.
+Home-page: https://gitlab.com/antoreep_jana/kaggleuploader/-/tree/master/
+Author: Antoreep Jana
+Author-email: antoreepjana@gmail.com
+License: MIT
+Download-URL: https://gitlab.com/antoreep_jana/kaggleuploader/-/archive/v0.0.1/kaggleuploader-v0.0.1.tar.gz
+Description: # kaggleUploader
+        
+        Wrapper built on top of kaggle api to help with uploading of datasets to your Kaggle account with minimal and easier interface.
+Keywords: Kaggle Uploader,Kaggle Dataset Uploader,dataset uploader,Google Colab,kaggle dataset upload google colab
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown

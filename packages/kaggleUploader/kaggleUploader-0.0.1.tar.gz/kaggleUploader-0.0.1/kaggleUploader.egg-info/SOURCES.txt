@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+kaggleUploader/__init__.py
+kaggleUploader/uploader.py
+kaggleUploader.egg-info/PKG-INFO
+kaggleUploader.egg-info/SOURCES.txt
+kaggleUploader.egg-info/dependency_links.txt
+kaggleUploader.egg-info/top_level.txt
