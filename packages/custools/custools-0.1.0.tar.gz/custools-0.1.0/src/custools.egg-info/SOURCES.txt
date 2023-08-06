@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+src/custools.egg-info/PKG-INFO
+src/custools.egg-info/SOURCES.txt
+src/custools.egg-info/dependency_links.txt
+src/custools.egg-info/entry_points.txt
+src/custools.egg-info/requires.txt
+src/custools.egg-info/top_level.txt
+src/tools/ImgTools.py
+src/tools/PdfTools.py
+src/tools/__init__.py
+src/tools/entrypoints/__init__.py
+src/tools/entrypoints/main.py
