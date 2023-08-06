@@ -1,0 +1,7 @@
+README.md
+setup.py
+src/hwpkg.py
+src/hwpkg.egg-info/PKG-INFO
+src/hwpkg.egg-info/SOURCES.txt
+src/hwpkg.egg-info/dependency_links.txt
+src/hwpkg.egg-info/top_level.txt
