@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: Bitkub-Api
+Version: 0.0.4
+Summary: A Non-official very basic Bitkub API
+Home-page: UNKNOWN
+Author: Chayanon Promchaiya
+Author-email: UNKNOWN
+License: MIT
+Description: UNKNOWN
+Keywords: bitkub_api
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
