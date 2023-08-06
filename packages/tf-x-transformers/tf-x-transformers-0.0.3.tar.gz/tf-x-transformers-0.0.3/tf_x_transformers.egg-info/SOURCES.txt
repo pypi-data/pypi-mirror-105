@@ -1,0 +1,12 @@
+.gitignore
+README.md
+compare.ipynb
+setup.py
+tf_x_transformers/__init__.py
+tf_x_transformers/tf_entmax.py
+tf_x_transformers/tf_x_transformers.py
+tf_x_transformers.egg-info/PKG-INFO
+tf_x_transformers.egg-info/SOURCES.txt
+tf_x_transformers.egg-info/dependency_links.txt
+tf_x_transformers.egg-info/requires.txt
+tf_x_transformers.egg-info/top_level.txt

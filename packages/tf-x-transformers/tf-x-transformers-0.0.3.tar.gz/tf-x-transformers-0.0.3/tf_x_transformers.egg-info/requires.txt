@@ -1,0 +1,4 @@
+tensorflow>=2.2
+einops>=0.3
+fastcore
+tf_fast_api
