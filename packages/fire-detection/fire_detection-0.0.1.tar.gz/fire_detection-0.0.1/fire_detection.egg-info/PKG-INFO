@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: fire-detection
+Version: 0.0.1
+Summary: A fire detecting library
+Home-page: UNKNOWN
+Author: Hamza Mustafa
+Author-email: hamxam1@gmail.com
+License: MIT
+Description: #This is Fire Detection Library . Just have to install it and run the file for fire detection by CCTV.
+        
+        Change Log
+        ==========
+        
+        0.0.1 (19/03/2021)
+        -------------------
+        - First Release
+Keywords: fire
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3

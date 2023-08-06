@@ -1,0 +1,10 @@
+CHANGELOG.txt
+LICENSE.txt
+MANIFEST.in
+README.txt
+setup.py
+fire_detection/__init__.py
+fire_detection.egg-info/PKG-INFO
+fire_detection.egg-info/SOURCES.txt
+fire_detection.egg-info/dependency_links.txt
+fire_detection.egg-info/top_level.txt
