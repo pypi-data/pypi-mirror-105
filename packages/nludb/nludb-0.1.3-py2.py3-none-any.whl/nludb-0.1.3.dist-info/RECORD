@@ -1,0 +1,16 @@
+nludb/__init__.py,sha256=trgfRjNYDm2fbxXyjfeC3HzFFJvLcNcBTAqWGGQy91c,664
+nludb/embedding_index.py,sha256=T8uZI0bywMgNTppchjVP42NDTOA5T50vMReCvhND0To,1653
+nludb/nludb.py,sha256=98TS4iDGRj_Fag0L4aHVDwRc2ir7ijNOLzat5dO8fGM,1102
+nludb/api/base.py,sha256=LZo5BXIW76RhPwc15-XlP65gzsd2kSS6FJzbxodiSjc,1284
+nludb/examples/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nludb/examples/chatbot.py,sha256=cIfCbOn9Yg9fQnxVGGLQIIR_R8BJjCGhrIMzC_lNLbQ,2666
+nludb/types/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nludb/types/base.py,sha256=Egnqn6CVjrm1APPdQjFvUh79qje0cTge9s-9aGf3MOg,188
+nludb/types/embedding_index.py,sha256=eFZ7HS33foT9mslx73yMedzILiTuGcmnARDGTDtDDNs,1743
+nludb/types/search.py,sha256=DW4hP4xDKfqGWE0UcbR4Jwad6a9QsxaCrYJPsmvNi8U,666
+nludb-0.1.3.dist-info/AUTHORS.rst,sha256=t59hzPjXAH3QRjWDI0O7QTjDowjBadPqtMy50k3dGGU,72
+nludb-0.1.3.dist-info/LICENSE.txt,sha256=xIWZd9IaaLWkhQLBTifdr0ejwHbzTjgEM9JU8exlKBo,1080
+nludb-0.1.3.dist-info/METADATA,sha256=G_LQo1zGtr8DL7tpVfXb4DB6JQg6ha9cH6akMMW0N48,728
+nludb-0.1.3.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+nludb-0.1.3.dist-info/top_level.txt,sha256=I94BG7UEj_el_zBWLvm9PEmMbs5r9fULCxFO7qJDVIw,6
+nludb-0.1.3.dist-info/RECORD,,
