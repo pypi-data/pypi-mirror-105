@@ -1,0 +1,5 @@
+aiohttp<4,>=3
+pytest-aiohttp
+pytest-print
+jinja2
+requests

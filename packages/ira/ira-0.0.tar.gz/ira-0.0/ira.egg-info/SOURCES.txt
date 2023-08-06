@@ -1,0 +1,7 @@
+setup.py
+ira/__init__.py
+ira.egg-info/PKG-INFO
+ira.egg-info/SOURCES.txt
+ira.egg-info/dependency_links.txt
+ira.egg-info/requires.txt
+ira.egg-info/top_level.txt
