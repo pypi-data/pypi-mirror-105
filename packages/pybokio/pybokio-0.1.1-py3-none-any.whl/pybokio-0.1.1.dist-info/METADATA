@@ -1,0 +1,122 @@
+Metadata-Version: 2.1
+Name: pybokio
+Version: 0.1.1
+Summary: Unofficial SDK for interacting with Bokio.
+Home-page: https://github.com/vonNiklasson/pybokio
+Author: Johan Niklasson
+Author-email: johan@niklasson.me
+License: MIT
+Project-URL: Source, https://github.com/vonNiklasson/pybokio
+Project-URL: Bug Reports, https://github.com/vonNiklasson/pybokio/issues
+Keywords: SDK API Bokio
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development
+Classifier: Topic :: Office/Business :: Financial :: Accounting
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests (<3,>=2.20)
+Requires-Dist: jsonschema (<4,>=3.0)
+Requires-Dist: dataclasses (==0.8) ; python_version >= "3.6" and python_version < "3.7"
+
+# PyBokio
+
+[![License][license_img]][license_target]
+[![Latest PyPI version][pypi_version_img]][pypi_version_target]
+[![PyPI status][pypi_status_img]][pypi_status_target]
+
+
+[license_target]: https://raw.githubusercontent.com/vonNiklasson/pybokio/develop/LICENSE
+[license_img]: https://img.shields.io/pypi/l/pybokio.svg
+
+[pypi_version_target]: https://pypi.python.org/pypi/pybokio/
+[pypi_version_img]: https://img.shields.io/pypi/v/pybokio.svg
+
+[pypi_status_target]: https://pypi.python.org/pypi/pybokio/
+[pypi_status_img]: https://img.shields.io/pypi/status/pybokio.svg
+
+Unofficial SDK for interacting with [Bokio](https://www.bokio.se)
+
+> Currently the project is in very early development and very little 
+> functionality can be used. But if you are eager to get stuff going, 
+> please consider helping out by [contributing](#contributing)!
+
+
+## Usage
+
+### Connecting
+
+#### Connecting with credentials
+
+The simplest way to connect with the client is through credentials.
+
+```python
+from pybokio import BokioClient
+
+client = BokioClient(
+    company_id="00000000-0000-4000-0000-000000000000",
+    username="your@email.here",
+    password="your.password"
+)
+client.connect()
+```
+
+#### Connecting with cookies
+
+A preferred way to connect is to reuse the cookies after logging in with credentials.
+
+**Saving cookies from an existing session**
+
+```python
+import pickle
+
+...
+
+cookies = client.get_cookies()
+with open('session.pickle', 'wb') as f:
+    pickle.dump(cookies, f)
+```
+
+**Reusing cookies to connect again**
+
+```python
+from pybokio import BokioClient
+import pickle
+
+with open('session.pickle') as f:
+    cookies = pickle.load(f)
+
+client = BokioClient.from_cookies(
+    company_id="00000000-0000-4000-0000-000000000000",
+    cookies=cookies
+)
+client.connect()
+```
+
+
+## Contributing
+
+Contributions are always welcome!
+
+To contribute, please take the following steps:
+
+1. [Fork](https://github.com/vonNiklasson/PyBokio/fork) the repo
+2. Add your change
+3. Make a pull request with a short description of the change you're proposing.
+
+
+## Authors
+
+- [@vonNiklasson](https://www.github.com/vonNiklasson)
+
+
+
