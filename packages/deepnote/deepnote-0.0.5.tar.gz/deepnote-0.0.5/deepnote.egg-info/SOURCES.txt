@@ -1,0 +1,8 @@
+README.md
+setup.cfg
+setup.py
+deepnote.egg-info/PKG-INFO
+deepnote.egg-info/SOURCES.txt
+deepnote.egg-info/dependency_links.txt
+deepnote.egg-info/requires.txt
+deepnote.egg-info/top_level.txt
