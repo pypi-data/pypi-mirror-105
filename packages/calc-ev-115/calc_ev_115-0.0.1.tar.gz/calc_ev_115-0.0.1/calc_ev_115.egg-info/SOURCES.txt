@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+calc_ev_115/__init__.py
+calc_ev_115/__main__.py
+calc_ev_115/calc_ev_115.py
+calc_ev_115/test_calculator.py
+calc_ev_115.egg-info/PKG-INFO
+calc_ev_115.egg-info/SOURCES.txt
+calc_ev_115.egg-info/dependency_links.txt
+calc_ev_115.egg-info/top_level.txt
