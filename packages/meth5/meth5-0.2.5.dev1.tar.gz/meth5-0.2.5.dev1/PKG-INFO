@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: meth5
+Version: 0.2.5.dev1
+Summary: HDF5 based file format for storage, retrieval, and analysis of modification predictions from Nanopore
+Home-page: https://github.com/snajder-r/meth5format
+Author: Rene Snajder
+Author-email: r.snajder@dkfz-heidelberg.de
+License: MIT
+Description: # MetH5Format
+        HDF5-based container format for Methylation calls from long reads
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
