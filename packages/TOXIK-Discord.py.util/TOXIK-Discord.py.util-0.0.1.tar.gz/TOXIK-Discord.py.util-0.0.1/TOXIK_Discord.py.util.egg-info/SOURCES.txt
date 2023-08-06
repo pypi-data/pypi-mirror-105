@@ -1,0 +1,4 @@
+TOXIK_Discord.py.util.egg-info/PKG-INFO
+TOXIK_Discord.py.util.egg-info/SOURCES.txt
+TOXIK_Discord.py.util.egg-info/dependency_links.txt
+TOXIK_Discord.py.util.egg-info/top_level.txt

@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: TOXIK-Discord.py.util
+Version: 0.0.1
+Summary: Some useful discord.py utilities
+Home-page: https://github.com/ToxikDevs/Discord.py-extras
+Author: Toxik Devs
+Author-email: mail@toxik.cf
+License: UNKNOWN
+Description: # About
+        Some ***Extras*** For Discord.py Just to make stuff a bit easier
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
