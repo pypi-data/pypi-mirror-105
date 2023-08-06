@@ -1,0 +1,7 @@
+README.md
+setup.py
+jaxed/__init__.py
+jaxed.egg-info/PKG-INFO
+jaxed.egg-info/SOURCES.txt
+jaxed.egg-info/dependency_links.txt
+jaxed.egg-info/top_level.txt
