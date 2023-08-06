@@ -1,0 +1,17 @@
+rules/__init__.py,sha256=NPvm31gwOmj8IgRY0nCZ8TVsnSL4ndofNSQqmFv58OY,518
+rules/apps.py,sha256=tkFXlWuhqlRz7rQTgFF7QdP3L_5EhljQQPQH0r2fUJM,260
+rules/permissions.py,sha256=0iaitz-uJkLUDtS2SbnLtnST-S9G6yk3wi5sKf0dZe4,709
+rules/predicates.py,sha256=MW2r2r4wnWXRWqgtEDpRxzdhgioWubqQiTtHNxtpZ-Q,9762
+rules/rulesets.py,sha256=CkXBtXxCcICqpjGRWd9LOeDqNDyFvm9WeyE53sPSTY0,1042
+rules/contrib/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rules/contrib/admin.py,sha256=kQXja6VurF37qtX7KCfK17Jw1grQ8POb0npi5zNmp1A,2121
+rules/contrib/models.py,sha256=ZoH7si32oWdxYfgc6YHq2oSOXKcjCvoLrv8v3Fbfhxs,3129
+rules/contrib/rest_framework.py,sha256=EIg99eG73BxbMuP_G9HSQJSrw9X47DUSxiYwiinDRN8,2808
+rules/contrib/views.py,sha256=DQuRszXE7eWz_J3M4EYxQ6hXZ9yUlzgo4V0AfE9sKkY,10300
+rules/templatetags/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rules/templatetags/rules.py,sha256=60_G3aCPrt524PcceD7QXx9t-8DyjSk1x_UpoCQ5jJ8,461
+rules-3.0.dist-info/LICENSE,sha256=GyxgiRaLpkKZXMuzYLJBt9ItNlDVufWn5VMqVm4j7Pk,1057
+rules-3.0.dist-info/METADATA,sha256=siypUHt47nfLCYzOlnVmMUiogRgzIekMSCgo2ymPjNA,37721
+rules-3.0.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+rules-3.0.dist-info/top_level.txt,sha256=pz427Bn_KnJWCECOKzlurdKsYEbPox4BD41i2qtWUWU,6
+rules-3.0.dist-info/RECORD,,
