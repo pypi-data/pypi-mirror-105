@@ -1,0 +1,9 @@
+otpmml/libotpmml.dll,sha256=hEZ3e98FQSIH5Njf2Z1pJbb6-tbGvWebBeD6Rg33eok=,270418
+otpmml/otpmml.py,sha256=Ptw3Gx8YlX0UXP3UhinE33kipxTH0nvbr8p_FSOgrUo=,10849
+otpmml/README.txt,sha256=2U1mCyBBDRca8q4wQa-YHeOg7jaSzQPUXw23Xfq1xgA=,478
+otpmml/uninst-otpmml.exe,sha256=5uRwhKG81weh4sOZkalyACWmd1PQbi9pdvpB1kuk0t0=,108753
+otpmml/_otpmml.pyd,sha256=wvFANxk2DAolfjzKZK9aWIB_qqAn2fOmx6QHoRUPA84=,466933
+otpmml/__init__.py,sha256=p2rZkL-ZQp8B3bU-f8MyL8WZoloYcvLOl1dUkCX3SYI=,300
+otpmml-1.11.dist-info/METADATA,sha256=MaNJThuG7LpR9aLlGa5gS3oYOvTuHL3PXqplSw_rUA4=,1635
+otpmml-1.11.dist-info/RECORD,,
+otpmml-1.11.dist-info/WHEEL,sha256=AZhNL47hR_4Dc3F35inmFwmd8WvMxgxS_8qQcNYgCEE=,66
