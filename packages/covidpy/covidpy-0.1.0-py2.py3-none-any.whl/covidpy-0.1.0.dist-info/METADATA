@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: covidpy
+Version: 0.1.0
+Summary: Detailed Regular Information about World's Covid19 Data
+Home-page: https://github.com/hridoyboss12/covidpy
+Author: Nahidujjaman Hridoy
+Author-email: nahidujjamanhridoy@gmail.com
+License: BSD 2-clause
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: bs4
+Requires-Dist: requests
+Requires-Dist: pandas
+
+UNKNOWN
+
+
