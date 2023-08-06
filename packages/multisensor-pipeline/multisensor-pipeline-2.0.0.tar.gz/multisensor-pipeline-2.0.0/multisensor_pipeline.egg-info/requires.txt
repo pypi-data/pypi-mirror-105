@@ -1,0 +1,6 @@
+pyzmq
+PyAudio
+networkx
+numpy
+Pillow
+pynput
