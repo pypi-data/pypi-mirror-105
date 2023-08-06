@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: toxicity
+Version: 0.30
+Summary: Deep learning classifier of russian toxic comments
+Home-page: https://github.com/nsbarsukov/toxic-comments-detector
+Author: Barsukov Nikita
+Author-email: nikita.s.barsukov@gmail.com
+License: MIT
+Download-URL: https://github.com/nsbarsukov/toxic-comments-detector/archive/refs/tags/0.1.tar.gz
+Description: 
+        ## Install package
+        ```shell
+        pip install toxicity
+        ```
+        
+        ## Example
+        ```python
+        from toxicity import ToxicCommentsDetector
+        
+        test_raw_texts = [
+            'ты чего берега попутал?',
+            'это правый берег реки, не путай с левым'
+        ]
+        
+        toxicDetector = ToxicCommentsDetector()
+        print(toxicDetector.predict(test_raw_texts))
+        ```
+Keywords: toxic,comments,tensorflow,classifier
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
