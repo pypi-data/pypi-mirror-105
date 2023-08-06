@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: jrpygcloudml
+Version: 0.1.1
+Summary: Jumping Rivers: Google Cloud Machine Learning
+Author: Jamie
+Author-email: jamie@jumpingrivers.com
+Requires-Python: >=3.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: numpy (>=1.19)
