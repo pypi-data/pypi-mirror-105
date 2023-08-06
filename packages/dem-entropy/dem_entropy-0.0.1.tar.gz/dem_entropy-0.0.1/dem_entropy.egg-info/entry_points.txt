@@ -1,0 +1,3 @@
+[console_scripts]
+clem = dem_entropy.clem:main
+
