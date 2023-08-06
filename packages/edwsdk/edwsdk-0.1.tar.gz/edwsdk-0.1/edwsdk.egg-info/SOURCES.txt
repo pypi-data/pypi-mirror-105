@@ -1,0 +1,8 @@
+setup.py
+edwsdk/__init__.py
+edwsdk/edw1.py
+edwsdk/edw2.py
+edwsdk.egg-info/PKG-INFO
+edwsdk.egg-info/SOURCES.txt
+edwsdk.egg-info/dependency_links.txt
+edwsdk.egg-info/top_level.txt
