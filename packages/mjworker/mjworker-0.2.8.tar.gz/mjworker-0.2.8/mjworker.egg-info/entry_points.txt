@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        mjworker=mjworker.worker:cli
+    
