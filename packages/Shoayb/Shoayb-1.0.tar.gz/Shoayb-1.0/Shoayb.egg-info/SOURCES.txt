@@ -1,0 +1,6 @@
+README.md
+setup.py
+Shoayb.egg-info/PKG-INFO
+Shoayb.egg-info/SOURCES.txt
+Shoayb.egg-info/dependency_links.txt
+Shoayb.egg-info/top_level.txt
