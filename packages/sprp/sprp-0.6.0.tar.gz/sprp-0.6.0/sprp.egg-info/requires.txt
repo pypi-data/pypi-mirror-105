@@ -1,0 +1,7 @@
+shapely
+pyproj
+numpy
+gdal
+geojson
+flask
+flask_cors

@@ -1,0 +1,4 @@
+[console_scripts]
+sprp-cmd = sprp.app.sprpcmd:main
+sprp-web = sprp.app.apiserver:main
+
