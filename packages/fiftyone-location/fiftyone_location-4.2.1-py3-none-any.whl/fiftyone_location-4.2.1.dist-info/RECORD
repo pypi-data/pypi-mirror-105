@@ -1,0 +1,7 @@
+fiftyone_location/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fiftyone_location/location_cloud.py,sha256=3KJ-gqgu263saVaGD0QqUMjX_V4w-e7Lp54NhOB-uaY,2126
+fiftyone_location/location_pipelinebuilder.py,sha256=OMb_vg6kdZl3okqnAY9fODI51kHflxn7rBXWX_dSgcY,2738
+fiftyone_location-4.2.1.dist-info/METADATA,sha256=FU8J3LoS8WWnMMq_tNmE4Q1WcxZ0xAOl6nn8MENnWjA,3300
+fiftyone_location-4.2.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+fiftyone_location-4.2.1.dist-info/top_level.txt,sha256=gK1DJbqAaDdg0JewndupzB620H73I59wp7YLDuqUglA,18
+fiftyone_location-4.2.1.dist-info/RECORD,,
