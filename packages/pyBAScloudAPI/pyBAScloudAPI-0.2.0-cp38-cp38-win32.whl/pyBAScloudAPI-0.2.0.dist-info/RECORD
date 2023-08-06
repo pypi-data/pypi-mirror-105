@@ -1,0 +1,11 @@
+BAScloudAPI.dll,sha256=oufhBQhAkyge6SQfSyGOI73LCsgeLUC_24dGcn8FMDo,556544
+cpr.dll,sha256=jmrbIgIsLMf_K-rs6Ay0AaEkqjYV93BvLAIXg9o4XKI,108032
+fmt.dll,sha256=7jYNMPAeVb4uPQ1bF4314w8eaZtl6p32ncLO52WRV14,193536
+libcurl.dll,sha256=s8L10v97bmV1epi7ZkdukmL8u8vkOeMpN44x-YBMnkQ,333312
+pyBAScloudAPI.cp38-win32.pyd,sha256=YfviTP95pJl-bAMVWUBEkZR6Mq2SHb2TCLULEn6sIg8,428544
+zlib.dll,sha256=EwqnSkNIdBvmDivIofKTHYsWNTGrDynC6kTbfisGkYs,95232
+pyBAScloudAPI-0.2.0.dist-info/LICENSE,sha256=O-uQr0Un6JOBZVopGH8EC-5K3jvnMOCd0K1_bCTGxgo,1085
+pyBAScloudAPI-0.2.0.dist-info/METADATA,sha256=nxkfZFC3VIA-pWGTRvMDpttwuPLs-Y09w0SEJMlIkeQ,447
+pyBAScloudAPI-0.2.0.dist-info/WHEEL,sha256=_iQIYqodxlIIeRSKaaUx61MUqAflFno6m3IasYrHq0k,96
+pyBAScloudAPI-0.2.0.dist-info/top_level.txt,sha256=m5UWm8MUv8LRrVYTAN_kwDOMPldJn2mL9nCT0Y1jGlk,14
+pyBAScloudAPI-0.2.0.dist-info/RECORD,,
