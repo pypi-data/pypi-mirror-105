@@ -1,0 +1,13 @@
+GPViz-0.0.3.dist-info/DESCRIPTION.rst,sha256=e7qXeVDi2xFJSbqWYkqrq9WrnDC8bAW_r5axzm53qPg,145
+GPViz-0.0.3.dist-info/METADATA,sha256=J3s1M5--puS8lQoUM-HQNYiZBSOoqInhKJi8tPsEUag,1114
+GPViz-0.0.3.dist-info/RECORD,,
+GPViz-0.0.3.dist-info/WHEEL,sha256=8Lm45v9gcYRm70DrgFGVe4WsUtUMi1_0Tso1hqPGMjA,92
+GPViz-0.0.3.dist-info/metadata.json,sha256=K2psZb_bHwZftVmd4FKsd1mNQVISb2B39wixgWGamGw,854
+GPViz-0.0.3.dist-info/top_level.txt,sha256=MmW5U6ZuZYVFJhRQce5kWpYjwfmU_p3NB8IiaS7n6lc,6
+gpviz/__init__.py,sha256=7eHFe1hIzgv5bQF3fNCqDMfdmyW81O6kBwnGY6vvFko,440
+gpviz/gp.py,sha256=JokdNTJUuVUiYlUM0fn-aOtKmxot1XogrPdAXje6T74,7478
+gpviz/install.py,sha256=C6PgkK9tPJpKAH3mUsm86eQ4bjkxFEyj2T9aOrPUEGg,537
+gpviz/kernel.py,sha256=bjhdeUHHPAu_NkdIJfsozWZQBj-9kGFG6C2mCtmsOfs,2530
+gpviz/utils.py,sha256=rZMQhVATLIAsi0svT_swk0GyCaXIwcFoE7Xg6zoBAw8,1587
+gpviz/styles/__init__.py,sha256=jz0WjS4LyzjDhVWTlakCkF5ZiUujFJJV86MkJUeik-M,42
+gpviz/styles/colours.py,sha256=4JmqRLIei4vo0cnrJImefPCef1SGDcllok1D3LShjRM,661
