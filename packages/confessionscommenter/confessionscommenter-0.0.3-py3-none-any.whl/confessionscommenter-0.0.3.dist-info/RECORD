@@ -1,0 +1,10 @@
+confessionscommenter/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+confessionscommenter/commandline_utils.py,sha256=mezlQ4ALRwIHB47le-3OD88dIfx8ogampz9c4Cu2gkY,1634
+confessionscommenter/general_utils.py,sha256=9HRQGwbU-L82G0GZmBZfb7EkDMmATMOPPmFieN_MBw8,2043
+confessionscommenter/main.py,sha256=OenCq-QbCnoyUu6TWyMgyw7WGDDfRN3_ZV4ii4CtJUU,863
+confessionscommenter/meme_utils.py,sha256=-mgGPWtVKinFjEZznG0gNnrdlvWdZIUC71LA4TNs0_s,2345
+confessionscommenter-0.0.3.dist-info/LICENSE,sha256=CRvaIHK65k9s8GI_vGZ7ZM4n2au7FVf2aguWnmcFgok,1075
+confessionscommenter-0.0.3.dist-info/METADATA,sha256=qHMna2benqi34BhsL_td0hw6NQztqzPQu1s_gRm2fLo,737
+confessionscommenter-0.0.3.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+confessionscommenter-0.0.3.dist-info/top_level.txt,sha256=W0pKufKzVTLekSd0Sbi_xpSR_teVic0FfHA5C5OTbW4,21
+confessionscommenter-0.0.3.dist-info/RECORD,,
