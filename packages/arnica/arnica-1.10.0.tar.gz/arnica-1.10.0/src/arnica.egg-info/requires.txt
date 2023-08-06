@@ -1,0 +1,10 @@
+numpy
+scipy
+matplotlib
+h5py
+PyYAML>=3.13
+lxml
+hdfdict
+click
+pandas
+plotille
