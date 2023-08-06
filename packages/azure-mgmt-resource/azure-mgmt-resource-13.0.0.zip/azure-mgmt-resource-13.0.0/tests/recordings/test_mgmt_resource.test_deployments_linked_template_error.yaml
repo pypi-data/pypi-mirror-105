@@ -1,0 +1,55 @@
+interactions:
+- request:
+    body: '{"properties": {"templateLink": {"uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json"},
+      "parametersLink": {"uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.parameters.json"},
+      "mode": "Incremental"}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '330'
+      Content-Type:
+      - application/json; charset=utf-8
+      User-Agent:
+      - python/3.8.9 (Linux-5.4.0-1046-azure-x86_64-with-glibc2.2.5) msrest/0.6.21
+        VSTS_0fb41ef4-5012-48a9-bf39-4ee3de03ee35_build_2384_0 msrest_azure/0.6.4
+        azure-mgmt-resource/13.0.0 Azure-SDK-For-Python
+      accept-language:
+      - en-US
+    method: PUT
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test_mgmt_resource_test_deployments_linked_template_errorafa117b7/providers/Microsoft.Resources/deployments/pytestlinkedafa117b7?api-version=2021-04-01
+  response:
+    body:
+      string: '{"error":{"code":"InvalidContentLink","message":"Unable to download
+        deployment content from ''https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json''.
+        The tracking Id is ''a0f46344-abba-44b7-97c7-a1e0376e0c79''. Please see https://aka.ms/arm-deploy
+        for usage details."}}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '323'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Thu, 13 May 2021 01:26:36 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ms-failure-cause:
+      - gateway
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1199'
+    status:
+      code: 400
+      message: Bad Request
+version: 1
