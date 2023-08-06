@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: redvox-pandas
+Version: 0.0.4
+Summary: change me
+Home-page: https://github.com/RedVoxInc/redpandas
+Author: RedVox
+Author-email: dev@redvoxsound.com
+License: Apache
+Platform: UNKNOWN
+Requires-Python: >=3.6, <3.9
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (==1.19.5)
+Requires-Dist: scipy (>=1.6.1)
+Requires-Dist: pandas (>=1.1.5)
+Requires-Dist: redvox (>=3.0.0rc31)
+Requires-Dist: libwwz (>=1.0.0)
+Requires-Dist: matplotlib (>=3.3.2)
+Requires-Dist: librosa
+
+# redpandas
+
+Fill me in
+
+
