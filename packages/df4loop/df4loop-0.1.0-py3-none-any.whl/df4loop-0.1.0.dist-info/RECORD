@@ -1,0 +1,9 @@
+df4loop/__init__.py,sha256=5rTXvrp1Zi6Z9GHx3ilDX-k3d0-g8n556ZZXxrT5RTM,104
+df4loop/df4loop.py,sha256=dDL5dtWHlApbbf919Hac0qRQovNbh-3ZRF6lsurwkGk,1308
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_df4loop.py,sha256=eOmaVsK_Est43LGoQ6hTuEArnexgZsQ2YLM6o7Me9eY,3843
+df4loop-0.1.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+df4loop-0.1.0.dist-info/METADATA,sha256=AucZJR9u7rvXhUrHQy1Dar6EFZ3M_RBHgKHRZlYJwXs,3449
+df4loop-0.1.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+df4loop-0.1.0.dist-info/top_level.txt,sha256=QDYSSWLaIq0qfYCegUk1lLKr2X6tGYZkFjcHqdQ57-c,14
+df4loop-0.1.0.dist-info/RECORD,,
