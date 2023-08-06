@@ -1,0 +1,10 @@
+apiclient/__init__.py,sha256=u1viOtiQwNsh3RBEpva5u7IA1x1lgRTyy1TzlA2-dbI,2944
+apiclient/api.py,sha256=F9G2CuDAzYrrTsaXSWI-z3mz9K2bkzJYSDak55OASOc,1608
+apiclient/backends/__init__.py,sha256=jiWzazcF90zqlUnrfRNtyC1CkG1ugh1xo42pPjUjAJI,1174
+apiclient/backends/_aiohttp.py,sha256=J4t_RAo7Kf6SqpE1bptHCbKrf2eWpAE4dnPTy9mKQpQ,1899
+apiclient/backends/_httpx.py,sha256=PHl9M5cxr4Zk6nvTz2WSiRNpR3dEGYLnG6LQ4H9WcvY,1366
+aio_apiclient-0.1.1.dist-info/LICENSE,sha256=ytogAgYcPT6gWj8aRc-cZwhSq9Y3wOzG-4KteKCyQOw,1070
+aio_apiclient-0.1.1.dist-info/METADATA,sha256=Y5SFIKiOxZ1MthTsq_5jKfo34X3SXy84oHO5H2KwL-w,5232
+aio_apiclient-0.1.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+aio_apiclient-0.1.1.dist-info/top_level.txt,sha256=CNL4yr8OrNw2YMoKsuFme2txKhQ3YQC61464soKjmNk,10
+aio_apiclient-0.1.1.dist-info/RECORD,,
