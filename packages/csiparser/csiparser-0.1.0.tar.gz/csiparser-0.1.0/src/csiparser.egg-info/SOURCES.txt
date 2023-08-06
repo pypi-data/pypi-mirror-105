@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+src/csiparser.py
+src/csiparser.egg-info/PKG-INFO
+src/csiparser.egg-info/SOURCES.txt
+src/csiparser.egg-info/dependency_links.txt
+src/csiparser.egg-info/requires.txt
+src/csiparser.egg-info/top_level.txt
