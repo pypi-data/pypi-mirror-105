@@ -1,0 +1,4 @@
+os
+matplotlib
+plotly
+scipy
