@@ -1,0 +1,7 @@
+thumbor_expire/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+thumbor_expire/base64_hmac_sha1_expire.py,sha256=_zyg_joOpIEMmkZRYIHaUtJcdtAmpM_tO1iDW2v75cM,1576
+thumbor_expire/crypto.py,sha256=3CF1Sfvr3u_SWDDhSOtS757dLmuV9bMTcb387IMgoPE,2589
+thumbor_expire-0.1.3.dist-info/LICENSE,sha256=WR1jMgAYbGdENLCDomg7WZXFM4YawGhGmhn95x4NkXs,1062
+thumbor_expire-0.1.3.dist-info/WHEEL,sha256=dqElwnlLMc7-lr24lzizalXwnuKWWcPA6D2n0jC3DJ8,87
+thumbor_expire-0.1.3.dist-info/METADATA,sha256=mHs3guRVI9Y6Hypc4aKIQeyLlfmDFGFquRTJMBKTDiQ,1427
+thumbor_expire-0.1.3.dist-info/RECORD,,
