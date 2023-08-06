@@ -1,0 +1,13 @@
+{
+  "title": "AiiDA Explorer",
+  "description": "Parameters for the AiiDA Explorer.",
+  "type": "object",
+  "properties": {
+    "rest_url": {
+      "description": "AiiDA REST API server URL",
+      "type": ["null", "string"],
+      "pattern": "^https?://",
+      "default": null
+    }
+  }
+}
