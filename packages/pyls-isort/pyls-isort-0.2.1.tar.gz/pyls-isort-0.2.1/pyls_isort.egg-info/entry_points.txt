@@ -1,0 +1,3 @@
+[pylsp]
+pyls_isort = pyls_isort.plugin
+
