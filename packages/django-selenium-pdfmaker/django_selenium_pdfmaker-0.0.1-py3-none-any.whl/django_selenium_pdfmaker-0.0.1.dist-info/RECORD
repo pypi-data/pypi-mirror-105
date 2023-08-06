@@ -1,0 +1,10 @@
+django_selenium_pdfmaker/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_selenium_pdfmaker/admin.py,sha256=vHQD_coT_fm113sDTIuwFqb-pzRLYyWCmwosbAQ-a7c,102
+django_selenium_pdfmaker/models.py,sha256=TyYPb9Lf7rYtEstzY2nEWdxCJE4bKz9clLnuES1dCl4,589
+django_selenium_pdfmaker/modules.py,sha256=RyewgEt06vDHR2oGsh_cRLD2O7FT0KZHPX1eVoGQgTg,4315
+django_selenium_pdfmaker/tests.py,sha256=MX9ATUN_iw6U6c2-aH-FoMtQ1e4i0_8Nn6wysHSVzZ0,750
+django_selenium_pdfmaker-0.0.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+django_selenium_pdfmaker-0.0.1.dist-info/METADATA,sha256=jPj11WH8wwSICnW3x8AZEnR0X1GBCSp0lZE3HRtpjrM,841
+django_selenium_pdfmaker-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+django_selenium_pdfmaker-0.0.1.dist-info/top_level.txt,sha256=6z8ZDCYHQR8UDhAlFXCEaVlTK3nqisaAfEzvt4uyH4g,25
+django_selenium_pdfmaker-0.0.1.dist-info/RECORD,,

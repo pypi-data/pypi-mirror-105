@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: django-selenium-pdfmaker
+Version: 0.0.1
+Summary: A Light Django Application which uses selenium to convert any html page to pdf. Using this approach you can easily make pdf of HTML pages with charts, tables and having their loaded Styles.
+Home-page: https://github.com/Execut3/django-selenium-pdfmaker
+Author: Reza Torkaman Ahmadi
+Author-email: execut3.binarycodes@gmail.com
+License: GPT
+Keywords: django,selenium,pdf,export-pdf,convert-html-to-pdf
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Description-Content-Type: text/markdown
+Requires-Dist: Django (>=2.0)
+Requires-Dist: selenium
+
+# django-selenium-pdfmaker
+A Light Django Application which uses selenium to convert any html page to pdf. Using this approach you can easily make pdf of HTML pages with charts, tables and having their loaded Styles.
+
+
