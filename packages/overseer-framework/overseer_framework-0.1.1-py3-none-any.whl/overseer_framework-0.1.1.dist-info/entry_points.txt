@@ -1,0 +1,3 @@
+[console_scripts]
+overseer=overseer.cli:main
+

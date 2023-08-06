@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: overseer-framework
+Version: 0.1.1
+Summary: TUI to some frameworks
+Home-page: https://pypi.org/project/overseer-framework/
+License: Proprietary
+Author: Alexandre Janvrin
+Author-email: alexandre.janvrin@reseau.eseo.fr
+Requires-Python: >=3.9,<4.0
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Security
+Project-URL: Repository, https://pypi.org/project/overseer-framework/
+Description-Content-Type: text/markdown
+
+# WIP
+CLI to some frameworks
+
+# LICENSE
+Proprietary yet, maybe AGPLv3+ in the future we'll see
+
+# AUTHOR
+Alexandre Janvrin (alexandre.janvrin@reseau.eseo.fr)
+
