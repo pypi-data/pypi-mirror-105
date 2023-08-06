@@ -1,0 +1,9 @@
+README.md
+setup.py
+adelapdf/__init__.py
+adelapdf/pdf2image.py
+adelapdf/pdf2text.py
+adelapdf.egg-info/PKG-INFO
+adelapdf.egg-info/SOURCES.txt
+adelapdf.egg-info/dependency_links.txt
+adelapdf.egg-info/top_level.txt
