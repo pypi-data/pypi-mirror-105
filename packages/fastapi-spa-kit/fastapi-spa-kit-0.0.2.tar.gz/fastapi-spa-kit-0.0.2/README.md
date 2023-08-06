@@ -1,0 +1,36 @@
+# fastapi-spa-kit
+Kit for developing SPA with FastAPI.
+
+## Features
+* Handler for static files and HTML file.
+  Typically, static files are handled by [Nginx](https://www.nginx.com/) or something like that. 
+  But for development mode it can take a long time to set up a separate config file.
+  `add_dev_spa_static_handler` function mounts [`StaticFiles`](https://fastapi.tiangolo.com/tutorial/static-files/#use-staticfiles)
+  class to FastAPI `app` and adds route that handles getting HTML file.
+  ### Example
+  ```python
+  from fastapi import FastAPI
+  from fastapi_spa_kit import add_dev_spa_static_handler
+  
+  # config module contains project configuration.
+  # IS_DEV_MODE is state of current environment.
+  from .config import IS_DEV_MODE
+  
+  app = FastAPI()
+  
+  # add some handlers...
+  
+  # finally, add route '/static' and HTML file handler
+  if IS_DEV_MODE:
+      add_dev_spa_static_handler(
+          app, 
+          'path/to/static',
+          'path/to/index.html'
+      )
+  ```
+
+## Documentation
+This repository contains [documentation](docs/fastapi_spa_kit/index.md).
+
+## TODO
+* Add tests
