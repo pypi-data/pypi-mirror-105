@@ -1,0 +1,5 @@
+*egg*
+build*
+*pyc
+aesthetic/__pycache__*
+dist*
