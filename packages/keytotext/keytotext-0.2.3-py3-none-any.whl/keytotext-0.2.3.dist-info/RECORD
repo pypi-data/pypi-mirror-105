@@ -1,0 +1,9 @@
+keytotext/__init__.py,sha256=cOarnGmehjz8WbDQpIE60UUAkaY_J1QhVDArONR9BbE,172
+keytotext/eval.py,sha256=tUAlCBrRgS7huzBaVqNnPQedI_oTLY6I-_YpXBmUy_8,5252
+keytotext/newmodels.py,sha256=-DjS4C5RK-K8gYy4AwevOcQTC4IWQBkFOmxsUEvlDJg,2265
+keytotext/pipeline.py,sha256=6BgnhOCKdCChVgTHxK5GBGOq-rkEQ4DKMIU1vbQwODE,5664
+keytotext/trainer.py,sha256=gETopCKql_Ucmqurcv09ve0f10lExfcTNcBiI4nB0fU,4923
+keytotext-0.2.3.dist-info/LICENSE,sha256=NJ5DtkyNG69wOI-oU-xifXqOUtBJtN8Egk_JEWIlmQA,1090
+keytotext-0.2.3.dist-info/WHEEL,sha256=o-Q2E8s7BKkCJ1EC2uQdaymZVVu2aUt1e8uTTFpzHVs,81
+keytotext-0.2.3.dist-info/METADATA,sha256=BCrejQlzmENb8N1ZMy9fSXrE57p2ohF3Dv9DF__ynDo,4331
+keytotext-0.2.3.dist-info/RECORD,,
