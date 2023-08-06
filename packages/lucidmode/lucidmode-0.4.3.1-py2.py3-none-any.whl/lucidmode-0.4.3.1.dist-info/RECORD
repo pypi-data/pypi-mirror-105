@@ -1,0 +1,12 @@
+lucidmode/__init__.py,sha256=n0z1t_ELL6EDavFUQLT9XJ2DrOXblvxIVfEl1h_5P9s,255
+lucidmode/convolution.py,sha256=idnXw8RR1XfBH3ZoyvjXbFf2fJE2EWjGaAkqXDmsqaY,2718
+lucidmode/functions.py,sha256=uUB8vJ_RsD3BL1hZTU3eLRwL7_JDai306Jp380TLhc4,4344
+lucidmode/models.py,sha256=At_Gd3zNn-70U6uCdf04ClBuQuSUO9WIPDjvJv0AJlQ,22546
+lucidmode/optimizers.py,sha256=lY6UCYw5hJq5tgMwJhjYT3S6y2zbgyLLd59ODm8MriU,3156
+lucidmode/propagate.py,sha256=Awb9ueZS8Q-FqIBYaSQM3ycLmhCH5XdUNI2rN8GjhgE,7799
+lucidmode/regularization.py,sha256=sXvCF3808i8PGOvxlXy-gXd4vpEYA3b8_Xt-JS5CMaQ,3257
+lucidmode-0.4.3.1.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+lucidmode-0.4.3.1.dist-info/METADATA,sha256=QvKkMSZ2iX8zErGHDKEKIpxz5hQK9sPetSBXDP6u22w,5126
+lucidmode-0.4.3.1.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+lucidmode-0.4.3.1.dist-info/top_level.txt,sha256=gyaOrdBcMr0GYOFaIfl1RM2drjrYz35Sl374mtQpp6M,10
+lucidmode-0.4.3.1.dist-info/RECORD,,
