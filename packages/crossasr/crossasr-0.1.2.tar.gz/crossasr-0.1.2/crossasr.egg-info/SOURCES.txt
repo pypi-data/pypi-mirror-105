@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+crossasr/__init__.py
+crossasr/asr.py
+crossasr/constant.py
+crossasr/crossasr.py
+crossasr/estimator.py
+crossasr/text.py
+crossasr/tts.py
+crossasr/utils.py
+crossasr.egg-info/PKG-INFO
+crossasr.egg-info/SOURCES.txt
+crossasr.egg-info/dependency_links.txt
+crossasr.egg-info/requires.txt
+crossasr.egg-info/top_level.txt
