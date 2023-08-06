@@ -1,0 +1,14 @@
+README.md
+setup.py
+flypool/__init__.py
+flypool/__main__.py
+flypool/ethermine.py
+flypool/ravencoin.py
+flypool/utils.py
+flypool_cli.egg-info/PKG-INFO
+flypool_cli.egg-info/SOURCES.txt
+flypool_cli.egg-info/dependency_links.txt
+flypool_cli.egg-info/entry_points.txt
+flypool_cli.egg-info/not-zip-safe
+flypool_cli.egg-info/requires.txt
+flypool_cli.egg-info/top_level.txt

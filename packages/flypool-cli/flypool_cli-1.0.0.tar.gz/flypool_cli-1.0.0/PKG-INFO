@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: flypool_cli
+Version: 1.0.0
+Summary: A command-line tool for monitoring the status on flypools(ether and raven).
+Home-page: https://github.com/KohakuBlueleaf/ethermine_cli
+Author: BlueLeaf
+Author-email: apolloyeh0123@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
