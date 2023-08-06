@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "jittoku"
+version = "0.1.0"
+description = "Useful scripts for QE etc."
+authors = ["Koki Muraoka <koki.muraoka@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.plugins."jittoku.commands"]
+"json2entries"= "jittoku.cli.json2entries:main"
+"entries2json"= "jittoku.cli.entries2json:main"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+ase = "^3.21.1"
+
+[tool.poetry.dev-dependencies]
+pysen = {version = "0.9.1", extras = ["lint"]}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pysen]
+version = "0.9"
+
+[tool.pysen.lint]
+enable_black = true
+enable_flake8 = true
+enable_isort = true
+enable_mypy = true
+mypy_preset = "strict"
+line_length = 88
+py_version = "py37"
+[[tool.pysen.lint.mypy_targets]]
+  paths = ["."]
