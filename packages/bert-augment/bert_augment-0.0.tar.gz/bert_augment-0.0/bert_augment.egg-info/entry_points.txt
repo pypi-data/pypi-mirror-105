@@ -1,0 +1,3 @@
+[console_scripts]
+bertaugment = bert_augment:main
+
