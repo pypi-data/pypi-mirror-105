@@ -1,0 +1,10 @@
+prometheus_build_info/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+prometheus_build_info/builder.py,sha256=P0L-pnwHGTTYrIkApQzORNQJeNVULKRVmntL5r-q5u4,623
+prometheus_build_info/info.py,sha256=sO_5NT1dBqTKczi3OHE7mRFs7bz08US1K7pkDAWKLWQ,819
+prometheus_build_info/metrics.py,sha256=X1EUVugLOX_L6dZdDMkhI2tTz2GSrS63wbPb3COvVBY,866
+prometheus_build_info-2.0.0.dist-info/LICENSE,sha256=ZSGbuNwYORVNUBf_vO_8VRktgLWuWoLVAl640tzHSj0,1069
+prometheus_build_info-2.0.0.dist-info/METADATA,sha256=VSDhb79-srAVFYJ2tCTv0N3SWseVlQQ9eTpPDBqNwWs,2543
+prometheus_build_info-2.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+prometheus_build_info-2.0.0.dist-info/entry_points.txt,sha256=lypj4Vf19218HTSSVzM3IUzCbIpTxjPIwm89G01pd7Y,101
+prometheus_build_info-2.0.0.dist-info/top_level.txt,sha256=Xd4wjtwoG7cB3Chs1wVxAVy4pMunFxHYAVwRq0ITiIo,22
+prometheus_build_info-2.0.0.dist-info/RECORD,,
