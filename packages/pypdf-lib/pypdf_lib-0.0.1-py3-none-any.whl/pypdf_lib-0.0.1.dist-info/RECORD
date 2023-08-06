@@ -1,0 +1,9 @@
+pypdf/__init__.py,sha256=wpQjeKu33azsNGz8xUXrQTja8PtTE5kg0TlJMiO29i0,4788
+pypdf/logger.py,sha256=_s62f4SDpZYCfrufUn3TXeKMEJx5qXP-cDRXF1f1yDw,579
+pypdf/utils.py,sha256=P_1Bo2EhOlUN566TiB8XLlSUIptWqUOY5k5yPE07Sb4,2769
+pypdf/bin/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pypdf_lib-0.0.1.dist-info/LICENSE,sha256=Yp_6Ppbe-iQmvMPloxYVFWHGl1EHtMZoEeVKgoxo9ZQ,1065
+pypdf_lib-0.0.1.dist-info/METADATA,sha256=aZn_iTh629Nc-p4vNBYz1EUXcP2aKBuUJ5H-mI3yw4g,2243
+pypdf_lib-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+pypdf_lib-0.0.1.dist-info/top_level.txt,sha256=h5GFBkPn2VVC5XY0R6rAdS3UcJLUIeJGCmSB2wUfpW4,6
+pypdf_lib-0.0.1.dist-info/RECORD,,
