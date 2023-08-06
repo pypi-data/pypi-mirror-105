@@ -1,0 +1,5 @@
+{
+    "extends": "../config.base.json",
+    "numberValue": 456,
+    "pathValue": "./config.something-else.json"
+}

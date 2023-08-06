@@ -1,0 +1,10 @@
+{
+    "numberValue": 123,
+    "stringValue": "this is a string",
+    "boolValue": true,
+    "dictValue": {
+        "a": 1,
+        "b": 2,
+        "c": 3
+    }
+}
