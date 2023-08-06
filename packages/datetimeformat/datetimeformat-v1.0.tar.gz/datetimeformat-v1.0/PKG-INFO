@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: datetimeformat
+Version: v1.0
+Summary: Infer datetime format from datetime string or standardize datetime and timezone format
+Home-page: https://github.com/zhuangbaokun/datetimeformat
+Author: Zhuang Baokun
+Author-email: zhuangbaokun@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/zhuangbaokun/datetimeformat/archive/refs/tags/v1.0.tar.gz
+Description: UNKNOWN
+Keywords: datetime,format,detect,infer,standardize datetime and timezone format
+Platform: UNKNOWN
