@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: etudes
+Version: 0.1
+Summary: An utility package to help build machine learning applications
+Home-page: https://github.com/renannascimento/etudes
+Author: Renan Nascimento
+Author-email: renan.engcomp@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Etudes
+
+An utility package to help build machine learning applications
+
