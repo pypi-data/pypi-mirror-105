@@ -1,0 +1,15 @@
+LICENSE.txt
+README.txt
+setup.py
+asciiWriter/__init__.py
+asciiWriter/asciiWriter.py
+asciiWriter/marks.py
+asciiWriter/patterns.py
+asciiWriter/text.py
+asciiWriter/utils.py
+asciiWriter/wrap_single_line.py
+asciiWriter.egg-info/PKG-INFO
+asciiWriter.egg-info/SOURCES.txt
+asciiWriter.egg-info/dependency_links.txt
+asciiWriter.egg-info/requires.txt
+asciiWriter.egg-info/top_level.txt
