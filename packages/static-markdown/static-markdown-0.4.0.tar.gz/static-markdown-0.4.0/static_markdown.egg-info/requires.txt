@@ -1,0 +1,16 @@
+markdown
+py-gfm
+python-slugify
+loguru
+
+[dev]
+tox
+pytest
+requests
+pytest-xprocess
+black
+isort
+flake8
+
+[maintain]
+twine
