@@ -1,0 +1,6 @@
+opentelemetry/exporter/cloud_monitoring/__init__.py,sha256=-GXqPI9PD33rvp7huE-GYrZpx8A84wpJvIxSlsNPBsw,8390
+opentelemetry/exporter/cloud_monitoring/version.py,sha256=6JZ8Ppt99QgnrumbbVUwYbQnPmWPfPFbh_nOcJoADNs,604
+opentelemetry_exporter_cloud_monitoring-0.10b1.dist-info/METADATA,sha256=GV59bx3mVLEhKVgH0iqEXJiBDLCejE0q1FmySLkQuX4,1814
+opentelemetry_exporter_cloud_monitoring-0.10b1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+opentelemetry_exporter_cloud_monitoring-0.10b1.dist-info/top_level.txt,sha256=5p97iTMneNm1LAKDalzEVpYhvPZsaqJZzdLuD_upSaQ,14
+opentelemetry_exporter_cloud_monitoring-0.10b1.dist-info/RECORD,,
