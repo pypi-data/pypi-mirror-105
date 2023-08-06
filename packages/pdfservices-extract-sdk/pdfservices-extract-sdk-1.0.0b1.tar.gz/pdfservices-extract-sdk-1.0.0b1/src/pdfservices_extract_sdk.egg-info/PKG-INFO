@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pdfservices-extract-sdk
+Version: 1.0.0b1
+Summary: Adobe Document Services Extract PDF API Client Library
+Home-page: https://opensource.adobe.com/pdftools-sdk-docs/beta/extract/index.html#
+Author: Adobe Document Services
+Author-email: extractapi@adobe.com
+License: Apache2
+Description: PDFServices Extract Python SDK
+        =======================
+        
+        The Adobe PDFServices Extract Python SDK provides APIs for extracting elements and renditions from PDFs.
+        
+        Adobe Document Cloud’s simple cloud-based APIs help you get up and running quickly. Once you’ve received your developer credential, download and set up the sample project. After you’re familiar with the APIs, leverage the samples in your own server-side code.
+        
+        Installation
+        ------------
+        
+        * Install [Python](https://www.python.org/) 3.6 or higher. 
+        * pip install pdfservices-extract-sdk
+        
+        Resources
+        ------------
+        
+        * [QuickStart](https://opensource.adobe.com/pdftools-sdk-docs/beta/extract/index.html#)
+        * [Samples](https://github.com/adobe/pdfservices-extract-python-sdk-samples)
+        * [API Reference](https://opensource.adobe.com/pdfservices-extract-python-sdk-samples/apidocs/index.html)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
