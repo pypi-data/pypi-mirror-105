@@ -1,0 +1,11 @@
+sql_metadata/__init__.py,sha256=CBeFsfMTLzEFn44g1-Ko7yR3diGK1X-nRBegUq2vc8w,201
+sql_metadata/compat.py,sha256=tPqdn_9fLZGwwGeRpciLsdV64EqnU1Or9cTKO7TzjEE,1311
+sql_metadata/generalizator.py,sha256=EcWLbp5aMnEsjEBlkDB3gsIxAgZIwuCsn_NT5xZSxJ0,2438
+sql_metadata/keywords_lists.py,sha256=eYsxY-BUmGrz6YtH3Yx7E0PmIEQGuUvJE5yb1cnNiUU,1829
+sql_metadata/parser.py,sha256=LA78kcTHFLdKN04m_-BrMu7IsYytWQ43w3_Z0dnc5kA,30108
+sql_metadata/token.py,sha256=OjsV5nvmFYpJu6WlM12dTTiryQtLmw8cQ1XmJWz-AfY,7559
+sql_metadata/utils.py,sha256=1o8KnHaCXrn_-bJFTQSiziXQHAOxpfnDfAaORb5HgrQ,337
+sql_metadata-2.0.0.dist-info/LICENSE,sha256=pMoyurMnb2E3MZw_0Xyg81uBmgbkH7NPAldQ9-niBis,1070
+sql_metadata-2.0.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+sql_metadata-2.0.0.dist-info/METADATA,sha256=T7iWRAIUM6Ni2F8F1pEmTQtL-qdITlMBzqpL8EBsmXY,8845
+sql_metadata-2.0.0.dist-info/RECORD,,
