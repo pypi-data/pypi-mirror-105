@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+./pyStuffing/BitStuffing.py
+./pyStuffing/ByteStuffing.py
+./pyStuffing/__init__.py
+./pyStuffing/cls.py
+pyStuffing/BitStuffing.py
+pyStuffing/ByteStuffing.py
+pyStuffing/__init__.py
+pyStuffing/cls.py
+pyStuffing.egg-info/PKG-INFO
+pyStuffing.egg-info/SOURCES.txt
+pyStuffing.egg-info/dependency_links.txt
+pyStuffing.egg-info/requires.txt
+pyStuffing.egg-info/top_level.txt
