@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+src/halca1006/__init__.py
+src/halca1006/hal.py
+src/halca1006.egg-info/PKG-INFO
+src/halca1006.egg-info/SOURCES.txt
+src/halca1006.egg-info/dependency_links.txt
+src/halca1006.egg-info/top_level.txt
