@@ -1,0 +1,12 @@
+fileseq/__init__.py,sha256=c2sSu6z-9PJf33OtGbmvGnFCWWf_-grjQ739iJ8Ky8k,4977
+fileseq/__version__.py,sha256=622hD3qJqhv4C6pyrO23lfTGvr4puThdOJtb-JpmMHU,23
+fileseq/constants.py,sha256=YLnyacVJXI5gZl57NvevlVmtTZFOq8PMm6JzOj6kw1Q,6471
+fileseq/exceptions.py,sha256=pBZa_q2bvsmHvSHAILuCsb1bUVEZ8ubWJuSXqf5xMCA,453
+fileseq/filesequence.py,sha256=sVZ5wkAwH6eD9QqXvJh3Twb25wXNpVoCPmQ6paakG4s,44013
+fileseq/frameset.py,sha256=aVLbjch-Sm5DHkYTVc2aDo0Du714wT8K3cOXmdLa6WU,46954
+fileseq/utils.py,sha256=HW0XbpUoa2qHx7RhuR3qAJ5zBhKMGu0pu0rdoVQO0r8,9606
+Fileseq-1.13.0.dist-info/LICENSE,sha256=bEMuW1VCrKdWQapVaVoQ-KwuwWnODSLVfGxzzM1sdUM,1140
+Fileseq-1.13.0.dist-info/METADATA,sha256=eiW4mqVPlRRdNZR2RlNgcDv9OzJzmuZ9L45WWvh_Z48,4917
+Fileseq-1.13.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+Fileseq-1.13.0.dist-info/top_level.txt,sha256=Z-u4Bkx5BxyXGkriLWP5UBVq9NrZC8vzLDt6qc-pxds,8
+Fileseq-1.13.0.dist-info/RECORD,,
