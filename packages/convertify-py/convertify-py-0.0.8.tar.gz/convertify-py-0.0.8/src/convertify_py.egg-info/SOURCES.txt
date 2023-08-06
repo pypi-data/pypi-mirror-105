@@ -1,0 +1,17 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/convertify/__init__.py
+src/convertify/__main__.py
+src/convertify/cli.py
+src/convertify/data/__init__.py
+src/convertify/data/convert.py
+src/convertify/data/get_unit_list.py
+src/convertify/resources/data.csv
+src/convertify_py.egg-info/PKG-INFO
+src/convertify_py.egg-info/SOURCES.txt
+src/convertify_py.egg-info/dependency_links.txt
+src/convertify_py.egg-info/entry_points.txt
+src/convertify_py.egg-info/top_level.txt
