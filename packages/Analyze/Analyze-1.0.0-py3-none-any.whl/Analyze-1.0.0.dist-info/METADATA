@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: Analyze
+Version: 1.0.0
+Summary: Analyze is a python library that provides comprehensive statistical analysis of a dataframe in 5 lines of code. It creates significant insight for data scientists, analysts and machine learning engineers, enabling quick understanding of a dataset.
+Home-page: https://github.com/Chaboddunamis/analyze
+Author: Henry Uwakwe
+Author-email: Henry.uwakxy@gmail.com
+License: UNKNOWN
+Keywords: data-science,machine-learning,python,statistics
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: pandas-profiling
+Requires-Dist: numpy
+Requires-Dist: scipy
+
+# Analyze
+Analyze is a python library that provides comprehensive statistical analysis of a dataframe in 5 lines of code. It creates significant insight for data scientists, analysts and machine learning engineers, enabling quick understanding of a dataset.
+
+
