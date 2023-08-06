@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: htc_utils
+Version: 0.1.0
+Summary: Home-rolled Condor utilities
+Home-page: UNKNOWN
+Author: Joseph Hunkeler
+Author-email: jhunkeler@gmail.com
+License: GPL
+Description: UNKNOWN
+Keywords: condor htcondor util
+Platform: UNKNOWN
