@@ -1,0 +1,4 @@
+This package is used to create a suitable plan of credit price.Based on credit score and a series of interests, you can train a credit price model through this package, Then you can use this model to give anyone a loan interest based on his or her credit score.
+
+
+Example:
