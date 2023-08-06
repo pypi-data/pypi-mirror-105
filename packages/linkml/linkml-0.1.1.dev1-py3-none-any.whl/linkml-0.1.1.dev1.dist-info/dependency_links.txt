@@ -1,0 +1,3 @@
+git+https://github.com/hsolbrig/jsonasobj#egg=jsonasobj
+git+https://github.com/linkml/linkml-model@runtime_split#egg=linkml-model
+git+https://github.com/hsolbrig/pyld#egg=pyld
