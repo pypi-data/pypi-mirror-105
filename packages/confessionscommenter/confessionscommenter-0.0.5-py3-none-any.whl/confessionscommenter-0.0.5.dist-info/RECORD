@@ -1,0 +1,10 @@
+confessionscommenter/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+confessionscommenter/commandline_utils.py,sha256=uexXRLIpHJetMeCkuxH4h4LfwLcRoA87eqzSWrJ3Uq4,1655
+confessionscommenter/general_utils.py,sha256=9HRQGwbU-L82G0GZmBZfb7EkDMmATMOPPmFieN_MBw8,2043
+confessionscommenter/main.py,sha256=bB_Y49H27nRC9djMkV_XEqFMNRr_cz8VLTy4Fbm1kfg,905
+confessionscommenter/meme_utils.py,sha256=-mgGPWtVKinFjEZznG0gNnrdlvWdZIUC71LA4TNs0_s,2345
+confessionscommenter-0.0.5.dist-info/LICENSE,sha256=CRvaIHK65k9s8GI_vGZ7ZM4n2au7FVf2aguWnmcFgok,1075
+confessionscommenter-0.0.5.dist-info/METADATA,sha256=kAQ3pFppRins4M3z7oQIeHTVcyZtCyKnq96ewhSonFM,816
+confessionscommenter-0.0.5.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+confessionscommenter-0.0.5.dist-info/top_level.txt,sha256=W0pKufKzVTLekSd0Sbi_xpSR_teVic0FfHA5C5OTbW4,21
+confessionscommenter-0.0.5.dist-info/RECORD,,
