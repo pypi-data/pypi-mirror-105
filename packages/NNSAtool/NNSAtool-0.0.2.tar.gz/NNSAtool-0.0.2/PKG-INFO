@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: NNSAtool
+Version: 0.0.2
+Summary: Neural Network Semantic Analysis tool
+Home-page: UNKNOWN
+Author: Dmitry Paniavin
+Author-email: pndmev@gmail.com
+License: MIT
+Description: Neural Network Semantic Analysis tool
+        =====================================
+        
+        This library provides an interface for the development of neural network semantic analyzers.
+        The approach is based on the generalization of problem-solving techniques.
+        
+        Change Log
+        ==========
+        
+        0.0.1 (09.05.2021)
+        ------------------
+        - BertDataset & BertDataLoadersFactory
+        
+        0.0.2 (09.05.2021)
+        ------------------
+        - Minor bags fixed
+Keywords: Neural Network Semantic Analysis
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
