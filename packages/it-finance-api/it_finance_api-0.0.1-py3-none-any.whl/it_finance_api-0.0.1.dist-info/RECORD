@@ -1,0 +1,11 @@
+it_finance_api/VERSION,sha256=5mNQReHSR47EynEtjA4d_O-Lt7Wx6OO7Vg03_jmannI,6
+it_finance_api/__init__.py,sha256=LSZyGNs7RwRpHl8x2wOyNjRlugcFOkiuHw2mZmto1Kc,55
+it_finance_api/endpoints.py,sha256=gbl8_8yu6iq0oUbpW0Vo_cb0IwaIoYsSPSEhBuQV2RA,308
+it_finance_api/exceptions.py,sha256=QY9knLJej9zmmgbq7eHstGsGO5d4c_zS34VxyRmffKQ,1071
+it_finance_api/it_finance_api.py,sha256=DcYJ5pivAk5KrSdfRT7mov_RqeBVJj9WX9JWc_UbG5c,4049
+it_finance_api/response.py,sha256=O7k0a6oagtnDDyPzcjSdi_tFQb8_Ck1KJqchkSck2wE,1244
+it_finance_api/version.py,sha256=e2PU-bP9TCC3FJHSt9PFDK4DoTHXvHj0RhI06xoq4cA,315
+it_finance_api-0.0.1.dist-info/METADATA,sha256=hDJmo2Hw6yuBYIDAZqyqPsJcCqP9HXuRM2QldqFzvKs,1325
+it_finance_api-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+it_finance_api-0.0.1.dist-info/top_level.txt,sha256=zo-QF7HUXQANOtzyjo4xeAwHUZ_TOEL-CQ0FLNacbwM,15
+it_finance_api-0.0.1.dist-info/RECORD,,
