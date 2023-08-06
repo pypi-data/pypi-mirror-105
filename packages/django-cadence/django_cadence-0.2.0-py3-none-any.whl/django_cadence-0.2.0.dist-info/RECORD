@@ -1,0 +1,14 @@
+django_cadence/__init__.py,sha256=tL8h3qfkTPbfTnoEEw0XvVgKObxgio4NsuvBV2biC9s,694
+django_cadence/apps.py,sha256=H2rWpupOesemgBkZeyF-qMe1R8RZbeb0nD4uJUsE2uo,1301
+django_cadence/apps.pyi,sha256=ZZg5rpM_kXo7uZeMX5WhDtCopdSg571dIIhg-ft5jY8,163
+django_cadence/dispatcher.py,sha256=GkRlpQu68_DLMQ3aJdjopL0g8bRHbqTQlx1uokcmYiM,2611
+django_cadence/dispatcher.pyi,sha256=1p7u4E27O2ZLLH8wy7Mw6qmbXxMJESwNK4qBIXv-sdg,50
+django_cadence/management/__init__.py,sha256=_51a3MHV36LxhAwfEJsWlkB8qLQ9QUoe63yYRIRkv-w,266
+django_cadence/management/commands/__init__.py,sha256=_51a3MHV36LxhAwfEJsWlkB8qLQ9QUoe63yYRIRkv-w,266
+django_cadence/management/commands/runcadence.py,sha256=QO81VEhgM71X4uWLaMIuYQ1yhe0ed6_T6nPHX7pkLeU,1723
+django_cadence/scheduling.py,sha256=B1di4hK3-y-7f5XhmzLrrbpttED7GQ790vIEhIkadew,1804
+django_cadence/scheduling.pyi,sha256=bvCxavQ07VnaGjmX-1tmVvdJ8v4pbWJK8J6ddBf1bY8,278
+django_cadence-0.2.0.dist-info/LICENSE.md,sha256=HyVuytGSiAUQ6ErWBHTqt1iSGHhLmlC8fO7jTCuR8dU,16725
+django_cadence-0.2.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+django_cadence-0.2.0.dist-info/METADATA,sha256=meanTdRBPDS-KfQN30UY1h9WoINVOPGRMP1jLwx1k5A,4554
+django_cadence-0.2.0.dist-info/RECORD,,
