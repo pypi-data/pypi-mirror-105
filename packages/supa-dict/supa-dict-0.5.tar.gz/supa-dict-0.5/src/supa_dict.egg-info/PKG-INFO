@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: supa-dict
+Version: 0.5
+Summary: An enhanced dictionary object
+Home-page: https://github.com/fuzzy/sdict
+Author: Mike 'Fuzzy' Partin
+Author-email: fuzzy@creepypoo.me
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/fuzzy/sdict/issues
+Description: # sDict (Supa Dict!)
+        
+        SDict is an enhanced dictionary object for Python. It has several features
+        and applications especially well suited to use in templating engines.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
