@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "id": "x-ecs.spec.json",
+    "$id": "x-ecs.spec.json",
+    "title": "x-ecs",
+    "description": "x-ecs specification",
+    "type": "object",
+    "properties": {
+        "Lookup": {
+            "type": "object",
+            "$ref": "x-resources.common.spec.json#/definitions/Lookup"
+        },
+        "Use": {
+            "type": "string"
+        },
+        "Properties": {
+            "type": "object"
+        }
+    },
+    "oneOf": [
+        {
+            "type": "object",
+            "required": [
+                "Lookup"
+            ]
+        },
+        {
+            "type": "string",
+            "required": [
+                "Use"
+            ]
+        },
+        {
+            "type": "object",
+            "required": [
+                "Properties"
+            ]
+        }
+    ]
+}
