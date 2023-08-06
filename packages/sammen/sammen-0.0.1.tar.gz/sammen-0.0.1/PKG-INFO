@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: sammen
+Version: 0.0.1
+Summary: Dansk for together - multiple watch to ensure special events come together or go away.
+Home-page: https://github.com/sthagen/sammen
+Author: Stefan Hagen
+Author-email: stefan@hagen.link
+License: UNKNOWN
+Description: # sammen
+        Dansk for together - multiple watch to ensure special events come together or go away. 
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6.13
+Description-Content-Type: text/markdown
+Provides-Extra: dev
