@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+iconGenerate.egg-info/PKG-INFO
+iconGenerate.egg-info/SOURCES.txt
+iconGenerate.egg-info/dependency_links.txt
+iconGenerate.egg-info/entry_points.txt
+iconGenerate.egg-info/top_level.txt
