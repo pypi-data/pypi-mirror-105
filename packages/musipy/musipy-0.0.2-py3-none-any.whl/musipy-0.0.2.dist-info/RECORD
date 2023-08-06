@@ -1,0 +1,11 @@
+musipy/__init__.py,sha256=ogxmIav2f3_7DI7HXuaM1-AzajYRNnxvhu00NbvFBT8,52
+musipy/add.py,sha256=j3WmhkbIef0M_1wCcIwBD7HAHWfvmTDU5BkQb-t4l6o,31
+musipy/subtract.py,sha256=WFA772XGLtBCedzKChVBOcHldK6lwyFBPuxgyrEOPnY,36
+musipy/extras/__init__.py,sha256=9GX8zOiK1ADsuJ-qsAWRSXOP8SlxDCA2p4rDdIDAZd0,57
+musipy/extras/divide.py,sha256=nTbBkuGHMEv8Z-jPJQou5POk45zxy6GJ85mnE_xbkEU,32
+musipy/extras/multiply.py,sha256=5TZQZzLOQz5zUIqBQ5j-8Ve-BwvM8KUwgu667tZchIU,34
+musipy-0.0.2.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+musipy-0.0.2.dist-info/METADATA,sha256=GAAzaCu58_7bkW4P6aS6Y-XOxew4qlZJvZLdVS3TS64,260
+musipy-0.0.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+musipy-0.0.2.dist-info/top_level.txt,sha256=j-wWbwjELQ3C03UaGh9Iv5AsIAQ36NV5GVtodc6ww6E,7
+musipy-0.0.2.dist-info/RECORD,,
