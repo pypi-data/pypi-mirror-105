@@ -1,0 +1,4 @@
+[console_scripts]
+depack = de.pack:main
+unpack = de.pack:main
+
