@@ -1,0 +1,9 @@
+matplotlib
+numpy
+PyLaTeX
+pyyaml
+scikit-learn
+scipy
+statsmodels
+tensorflow
+foolbox
