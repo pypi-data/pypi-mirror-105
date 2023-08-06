@@ -1,0 +1,8 @@
+locate_file.py
+ls.py
+setup.py
+windows_unix_commands.egg-info/PKG-INFO
+windows_unix_commands.egg-info/SOURCES.txt
+windows_unix_commands.egg-info/dependency_links.txt
+windows_unix_commands.egg-info/entry_points.txt
+windows_unix_commands.egg-info/top_level.txt
