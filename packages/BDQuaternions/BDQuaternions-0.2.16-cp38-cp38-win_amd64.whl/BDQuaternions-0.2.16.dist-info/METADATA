@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: BDQuaternions
+Version: 0.2.16
+Summary: Package for manipulations with Quaternions
+Home-page: https://github.com/bond-anton/BDQuaternions
+Author: Anton Bondarenko
+Author-email: bond.anton@gmail.com
+License: Apache Software License
+Requires-Dist: numpy
+Requires-Dist: scipy
+
+# BDQuaternions
+
+
