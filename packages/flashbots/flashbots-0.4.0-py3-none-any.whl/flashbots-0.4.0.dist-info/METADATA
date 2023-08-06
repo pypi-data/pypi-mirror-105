@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: flashbots
+Version: 0.4.0
+Summary: 
+Author: Georgios Konstantopoulos
+Author-email: me@gakonst.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: web3 (>=5.17.0,<5.18.0)
