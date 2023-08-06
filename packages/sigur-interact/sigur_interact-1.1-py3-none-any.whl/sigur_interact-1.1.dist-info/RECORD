@@ -1,0 +1,12 @@
+sigur_interact/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sigur_interact/commands.py,sha256=wqxkW_BXQppaQqXsnDARY2rIZNPSb6F9EZyK2THTJRE,1501
+sigur_interact/functions.py,sha256=yfEnyaNqPjJ4BAsQnmqTPwIMAKMYSAJof-6pYpSq8Rc,561
+sigur_interact/main.py,sha256=oQdEdKvuM1ICB0vUkTNmmGGAAe6Eufn6dxgaNrXH8tA,2768
+sigur_interact/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sigur_interact/tests/main_test.py,sha256=IaNWdrRmMZjcoqtZF3JdbNjgFKUIGniT7hh176K9mJw,193
+sigur_interact/tests/settings_test.py,sha256=bN4LKcW2k-WFK8eqCqIEgFPnG_XkHPrJPQEOZcfAMHw,49
+sigur_interact-1.1.dist-info/LICENSE,sha256=6kbiFSfobTZ7beWiKnHpN902HgBx-Jzgcme0SvKqhKY,1091
+sigur_interact-1.1.dist-info/METADATA,sha256=stSNUjXXKIaFUfBcAcmO7uOREJDfDpk2jttCp5BnOgM,269
+sigur_interact-1.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+sigur_interact-1.1.dist-info/top_level.txt,sha256=wEM-j_7R-XFLFpzlOCJEuMT29a8v2Fn7DC9nSvNzZJ8,15
+sigur_interact-1.1.dist-info/RECORD,,
