@@ -1,0 +1,26 @@
+Metadata-Version: 2.0
+Name: open-jarvis
+Version: 0.1.6
+Summary: Helper classes for Jarvis applications
+Home-page: https://github.com/open-jarvis
+Author: Philipp Scheer
+Author-email: scheer28philipp@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: couchdb2
+Requires-Dist: python-dateutil
+Requires-Dist: paho.mqtt; platform_machine == "armv7l"
+
+## Jarvis
+
+This package contains helper classes for [open-jarvis](https://github.com/open-jarvis) applications.  
+See [open-jarvis.github.io](https://open-jarvis.github.io) for documentation!
+
+
+
