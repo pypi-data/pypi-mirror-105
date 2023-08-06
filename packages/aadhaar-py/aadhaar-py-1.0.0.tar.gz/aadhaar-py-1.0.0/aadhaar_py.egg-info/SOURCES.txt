@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+aadhaar/__init__.py
+aadhaar/exceptions.py
+aadhaar/offline_xml.py
+aadhaar/qr.py
+aadhaar/tests.py
+aadhaar/utils.py
+aadhaar_py.egg-info/PKG-INFO
+aadhaar_py.egg-info/SOURCES.txt
+aadhaar_py.egg-info/dependency_links.txt
+aadhaar_py.egg-info/requires.txt
+aadhaar_py.egg-info/top_level.txt
