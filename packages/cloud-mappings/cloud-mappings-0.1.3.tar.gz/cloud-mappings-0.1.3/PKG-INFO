@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: cloud-mappings
+Version: 0.1.3
+Summary: MutableMapping interfaces for common cloud storage providers
+Home-page: https://github.com/JJ11teen/cloud-mappings
+Author: Lucas Sargent
+Author-email: lucas.sargent@eliiza.com.au
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/JJ11teen/cloud-mappings/issues
+Description: # cloud-mappings
+        MutableMapping interfaces for common cloud storage providers
+        
+        
+        [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
