@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+scrapBoss/__init__.py
+scrapBoss/enggine_search_apk.py
+scrapBoss/enggine_search_exe.py
+scrapBoss/github_search_file.py
+scrapBoss.egg-info/PKG-INFO
+scrapBoss.egg-info/SOURCES.txt
+scrapBoss.egg-info/dependency_links.txt
+scrapBoss.egg-info/requires.txt
+scrapBoss.egg-info/top_level.txt
