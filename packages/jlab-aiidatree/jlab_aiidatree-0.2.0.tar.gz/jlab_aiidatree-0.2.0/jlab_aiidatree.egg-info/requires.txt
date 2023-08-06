@@ -1,0 +1,8 @@
+jupyter_server<2,>=1.6
+
+[aiida]
+aiida-core~=1.6.3
+
+[dev]
+jupyterlab~=3.0
+jupyter-packaging

@@ -1,0 +1,32 @@
+exclude binder
+recursive-exclude binder *
+exclude .devcontainer
+recursive-exclude .devcontainer *
+
+include LICENSE
+include README.md
+include CHANGELOG.md
+include pyproject.toml
+include jupyter-config/jlab_aiidatree.json
+include schema/settings-aiidatree.json
+include images/*.png
+
+include package.json
+include install.json
+include ts*.json
+include yarn.lock
+
+graft jlab_aiidatree/labextension
+
+# Javascript files
+graft src
+graft style
+prune **/node_modules
+prune lib
+
+# Patterns to exclude from any directory
+global-exclude *~
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude .git
+global-exclude .ipynb_checkpoints
