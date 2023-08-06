@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+swaggerjmx_diff/__init__.py
+swaggerjmx_diff/diff.py
+swaggerjmx_diff.egg-info/PKG-INFO
+swaggerjmx_diff.egg-info/SOURCES.txt
+swaggerjmx_diff.egg-info/dependency_links.txt
+swaggerjmx_diff.egg-info/requires.txt
+swaggerjmx_diff.egg-info/top_level.txt
