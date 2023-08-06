@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+jsonsearch/__init__.py
+jsonsearch/jsonsearch.py
+jsonsearch.egg-info/PKG-INFO
+jsonsearch.egg-info/SOURCES.txt
+jsonsearch.egg-info/dependency_links.txt
+jsonsearch.egg-info/requires.txt
+jsonsearch.egg-info/top_level.txt
