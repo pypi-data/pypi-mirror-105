@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="container content">
+    {% if error is defined %}
+        <article class="message is-warning">
+          <div class="message-header">
+            <p>Warning</p>
+            <button class="delete" aria-label="delete"></button>
+          </div>
+          <div class="message-body">
+            {{ error }}
+          </div>
+        </article>
+    {% endif %}
+
+        <form class="form" action="/login" method="get">
+            <input type="hidden" name="password" id="password" value="">
+            <div class="field">
+                <h6>Username</h6>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Username" name="username">
+                </div>
+            </div>
+            <br>
+            <div class="field">
+                <h6>Password</h6>
+                <div class="control">
+                    <input type="password" class="input" placeholder="Password" oninput="document.getElementById('password').value = sha512(this.value)">
+                </div>
+            </div>
+            <br>
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-primary">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha512/0.8.0/sha512.min.js"></script>
+{% endblock %}
