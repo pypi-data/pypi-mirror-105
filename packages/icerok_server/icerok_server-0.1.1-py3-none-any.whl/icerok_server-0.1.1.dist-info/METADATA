@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: icerok_server
+Version: 0.1.1
+Summary: Measure you FPGA circuit!
+Home-page: https://github.com/FPGAwars/icerok-server-python
+Author: Juan Gonzalez (Obijuan)
+Author-email: obijuan.cube@gmail.com
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+
+# icerok-server-python
+Receive data from the icerok circuits on the FPGA
+
