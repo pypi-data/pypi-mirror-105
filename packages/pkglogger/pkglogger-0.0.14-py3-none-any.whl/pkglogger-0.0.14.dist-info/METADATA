@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: pkglogger
+Version: 0.0.14
+Summary: This package help you to keep logs
+Home-page: https://github.com/pypa/sampleproject
+Author: Avik Das
+Author-email: avik_das_2017@cba.isb.edu
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=2.0
+Description-Content-Type: text/markdown
+
+#Project Description
+
+*# pkglogger*
+
+Folder Structure to develop package of Pypi library and publish.
+
+*#Developer : Avik Das*
+
+*##Steps to run the package :*
+
+1.pip install pkglogger==<version number>
+2.from pkglogger import pkglogger
+3.pkglogger.logger('path/','','','','','','')
+4.var1 = directory where log file will be created
+5.var2 = Logger number
+6.var3 = Function name
+7.var4 = Task status
+8.var5 = Error
+9.var6 = Output path
+10.var7 = URL Link
+
+
+
