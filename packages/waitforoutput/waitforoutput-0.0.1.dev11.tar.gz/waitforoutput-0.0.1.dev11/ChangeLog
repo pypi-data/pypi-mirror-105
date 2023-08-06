@@ -1,0 +1,14 @@
+CHANGES
+=======
+
+* CI: Build before publish
+* Update README.md
+* Change tests reporter stage
+* Add git clone stage
+* Update README.md
+* Add .gitconfig to gitignore
+* Add a pipeline
+* Make a Python package
+* Add some tests coverage
+* Refactor, use rkd.api.io
+* Initial version
