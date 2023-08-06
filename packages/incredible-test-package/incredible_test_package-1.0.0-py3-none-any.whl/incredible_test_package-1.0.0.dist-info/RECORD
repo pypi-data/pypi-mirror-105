@@ -1,0 +1,7 @@
+test_package/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+test_package/things.py.py,sha256=rM91uan8mLMMgMaRTSNxpFLyRjAOyvhWaYx90NMjgPY,85
+incredible_test_package-1.0.0.dist-info/LICENSE,sha256=3iu0kQ1MdwLeoVelycT_98CsqgQZ0QVxBgONP33CaGE,1093
+incredible_test_package-1.0.0.dist-info/METADATA,sha256=jm67cS4s0HfMjl4Xqk2qyZTpbCDEuP7xgNPL438SLmo,187
+incredible_test_package-1.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+incredible_test_package-1.0.0.dist-info/top_level.txt,sha256=GeXTEKqyjBx-5S0TKnJMkgF1M3Cpjq6YSWM7P4c9-lg,13
+incredible_test_package-1.0.0.dist-info/RECORD,,
