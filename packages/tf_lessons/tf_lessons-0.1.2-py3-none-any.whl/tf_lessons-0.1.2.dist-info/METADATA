@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: tf_lessons
+Version: 0.1.2
+Summary: An amazing sample package!
+Home-page: https://github.com/nepito/tf_lessons
+Author: Ciencia de Datos • GECI
+Author-email: ciencia.datos@islas.org.mx
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Requires-Dist: numpy
+Requires-Dist: tensorflow
+
+# TensorFlow lessons
+[![codecov](https://codecov.io/gh/nepito/tf_lessons/branch/main/graph/badge.svg)](https://codecov.io/gh/nepito/tf_lessons)
+
+To install
+```bash
+pip install tf_lessons
+```
+
+To run te example
+```python
+import tf_lessons as tfl
+neuron = tfl.Neuron()
+prediction = neuron.predict([10.0])
+```
+The prediction will be aprox 19.0
+
+
