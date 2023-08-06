@@ -1,0 +1,17 @@
+tiramisu_brulee/__init__.py,sha256=1lmRXePTiFurt6Q6N9DvggtPJw-mrDGErwoOpxv2tRs,85
+tiramisu_brulee/data.py,sha256=5DBob59_Thp03vwjZcCTndJCcf9ldfJ_KVVAVrhOfkg,2447
+tiramisu_brulee/loss.py,sha256=fOty0P0qUktebMmjI6kRf7v-88XnE_alwYA8d-oHb-k,3760
+tiramisu_brulee/util.py,sha256=-Y14khqVNBOJw9E0pwYV3jcoV4Fq_tuUA6xa_iWf8qM,1988
+tiramisu_brulee/experiment/__init__.py,sha256=iwhKnzeBJLKxpRVjvzwiRE63_zNpIBfaKLITauVph-0,24
+tiramisu_brulee/experiment/default_configs.py,sha256=VIy_uip4P5C5zV6xSxgef1Mq8OnUQWWpDJkOr8vgtkA,1823
+tiramisu_brulee/experiment/lightningtiramisu.py,sha256=ZuAYyoB--oM6fqslJezG0pku61fUR9PE_D2cxrrAthA,1710
+tiramisu_brulee/model/__init__.py,sha256=LIxjgV3fbKe9E1gUOMss5NAiz11MSIBMOfEx3WZGOS4,48
+tiramisu_brulee/model/attention.py,sha256=XHxcNhAh4maX-9iwk9jrSs-hilR95_cOssc_PeG278s,8017
+tiramisu_brulee/model/dense.py,sha256=gyimXozgxkpErg1G1i4SZpnwHogfTE8XylD5qSQFP6M,5909
+tiramisu_brulee/model/tiramisu.py,sha256=ri8YhKC_Wx3tDSALkGQCiARKEKv-qikL5WWij6EYWOw,5055
+tiramisu_brulee-0.1.0.dist-info/AUTHORS.rst,sha256=HxzxcYMpI0bNO4Oai8x7YA7KjgHZtfgXjMpaCZKvDiY,160
+tiramisu_brulee-0.1.0.dist-info/LICENSE,sha256=M9rMg55CMUEpeUywXAjV3_BlkbyTDOHWiPv6FgfrtKw,586
+tiramisu_brulee-0.1.0.dist-info/METADATA,sha256=PGTPmHylnBHibYKUAoVNfzFT8VHWLmQPcY2CaPy6RVc,2336
+tiramisu_brulee-0.1.0.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+tiramisu_brulee-0.1.0.dist-info/top_level.txt,sha256=cjch8EyAWj4hL0p2xhK1tULwwQv2bURdsFwCSnMnqys,16
+tiramisu_brulee-0.1.0.dist-info/RECORD,,
