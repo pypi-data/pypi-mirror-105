@@ -1,0 +1,10 @@
+LICENSE,sha256=qoGP1zf8IunD7Hjk6mONeEUXNg2BbH3i9YTnSeD0DbI,1453
+aiomsa/__init__.py,sha256=S7qz0noZ2B9NE0OJDPOpautwPU2Y7pi-AqYxOLMcFY4,3560
+aiomsa/e2.py,sha256=yuZ4WRgbD3flQLj4nSLLFnyN87O1gE7Mrr83no_AR6k,3419
+aiomsa/exceptions.py,sha256=cO3RBmD3pObcQaCJVXCSEN2gdCa9-9kFBjalbjjSv0M,918
+aiomsa/models.py,sha256=iL-L2-ZtnKSHhwh2r46HpjGiqoy0YOIJQyuGJ1_e6do,3390
+aiomsa/server.py,sha256=sjor8z_2f0EVYCBUjL6nausbvZiUjrfJ-_VfdPKXLIQ,7343
+aiomsa-0.1.0a4.dist-info/LICENSE,sha256=qoGP1zf8IunD7Hjk6mONeEUXNg2BbH3i9YTnSeD0DbI,1453
+aiomsa-0.1.0a4.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+aiomsa-0.1.0a4.dist-info/METADATA,sha256=Q4v_yGmJJKX_lco80R_2F8kETY4jA-xX6BGYoz_sjyA,2910
+aiomsa-0.1.0a4.dist-info/RECORD,,
