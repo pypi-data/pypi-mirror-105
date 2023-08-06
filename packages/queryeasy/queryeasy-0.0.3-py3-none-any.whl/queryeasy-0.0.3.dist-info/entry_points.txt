@@ -1,0 +1,3 @@
+[console_scripts]
+queryeasy = queryeasy:_run_query
+
