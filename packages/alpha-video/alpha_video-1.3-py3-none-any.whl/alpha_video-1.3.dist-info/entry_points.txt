@@ -1,0 +1,3 @@
+[console_scripts]
+alpha-video = alpha_video.__main__
+
