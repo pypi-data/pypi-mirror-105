@@ -1,0 +1,8 @@
+timelimit/__init__.py,sha256=GrGuet45QoPWt6cT6XTmr4y9fx7CwKVWx6qJZQ9m2cI,170
+timelimit/_constants.py,sha256=07NzQXBgNlnw5kSN6ZYxE9By-_RuH3Jyy58Z74sIio0,21
+timelimit/_timelimited.py,sha256=zIlFnLQA3-JE5insY4XX66P7Xgb09fiFyjrGwfG2wEs,2699
+timelimit-0.0.1.dist-info/LICENSE,sha256=WRDtYJNLZFEEPBkjHciTZSYMGVHO81rmwYC2azmbMzA,1091
+timelimit-0.0.1.dist-info/METADATA,sha256=PjsKtmkqt_Y3oo-3llSWOJIG1uhVpIAN0CtbZxeko4s,1881
+timelimit-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+timelimit-0.0.1.dist-info/top_level.txt,sha256=_P5yoxEzOxCqu97sphvM4JyNNU_VRY_PzCwQqha5Rdk,10
+timelimit-0.0.1.dist-info/RECORD,,
