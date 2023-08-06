@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+setup.py
+pythonegardia.egg-info/PKG-INFO
+pythonegardia.egg-info/SOURCES.txt
+pythonegardia.egg-info/dependency_links.txt
+pythonegardia.egg-info/requires.txt
+pythonegardia.egg-info/top_level.txt
+pythonegardia.egg-info/zip-safe
