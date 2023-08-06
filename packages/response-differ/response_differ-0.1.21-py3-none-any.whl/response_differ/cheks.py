@@ -1,0 +1,46 @@
+import copy
+
+import click
+from deepdiff import DeepDiff
+from deepdiff.model import REPORT_KEYS
+from nested_lookup import nested_delete
+
+#from response_differ import play, get_grouped_exception
+from . import play
+from .exceptions import get_grouped_exception
+
+
+def check_status_code(replayed):
+    if not replayed.response.ok:
+        message = f"URL:{replayed.response.url}\n " \
+                  f"STATUS CODE: {replayed.response.status_code}"
+        play.Replayed.errors.append(AssertionError(message))
+
+
+def check_diff_responses():
+    for i in play.Replayed.responses:
+        paths = play.Replayed.config['path']
+        if i['uri'] in paths:
+            old = i['old']
+            new = i['new']
+            if paths[i['uri']]:
+                old = _filter(old, filters=paths[i['uri']])
+                new = _filter(new, filters=paths[i['uri']])
+            result = DeepDiff(old, new, ignore_order=True)
+
+            if any(key in list(REPORT_KEYS) for key in result.keys()):
+                click.secho(f"  {'ID'}                      | {i['id']}")
+                click.secho(f"  {'Difference'}              | {result}")
+                message = f"ERROR {result}"
+                play.Replayed.errors.append(AssertionError(message))
+    if not play.Replayed.errors:
+        raise AssertionError
+                #exception_cls = get_grouped_exception(*play.Replayed.errors)
+                #raise exception_cls(play.Replayed.errors)
+
+
+def _filter(resp, filters):
+    filtered_resp = copy.deepcopy(resp)
+    for f in filters:
+        filtered_resp = _filter(nested_delete(filtered_resp, f), filters=filters[1::])
+    return filtered_resp
