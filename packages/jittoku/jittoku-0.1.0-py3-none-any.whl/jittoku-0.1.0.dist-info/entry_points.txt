@@ -1,0 +1,4 @@
+[jittoku.commands]
+entries2json=jittoku.cli.entries2json:main
+json2entries=jittoku.cli.json2entries:main
+

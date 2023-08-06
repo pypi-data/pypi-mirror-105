@@ -1,0 +1,8 @@
+jittoku/__init__.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+jittoku/cli/entries2json.py,sha256=ARLCYiShyojVuNaQ5abNSlikZUC2ejuYmdjmAiRV6S8,532
+jittoku/cli/json2entries.py,sha256=kAQBmBG1mymh60tcxVa4dw4okAG-90xYssYU4K_YPQA,484
+jittoku-0.1.0.dist-info/entry_points.txt,sha256=Om80IgBXZvMQ_rQaCw3K4F25Q_nqfAkb8hRQyH-S4yM,106
+jittoku-0.1.0.dist-info/LICENSE,sha256=7a2B9H1a_bQ5K1QewAd2rVUiJ0V4DDPlu5RhhsSjl-g,1069
+jittoku-0.1.0.dist-info/WHEEL,sha256=VN2eEg4PHbTOniXb-cCYQPc6zUTS4dAcATjlgU3q-Lo,83
+jittoku-0.1.0.dist-info/METADATA,sha256=OBu6enK6eR6knfBVd1Ix1OeZDCcLyX5TdP7w7eLHEFc,472
+jittoku-0.1.0.dist-info/RECORD,,
