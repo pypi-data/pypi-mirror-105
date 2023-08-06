@@ -1,0 +1,10 @@
+elifearticle/__init__.py,sha256=FVHPBGkfhbQDi_z3v0PiKJrXXqXOx0vGW_1VaqNJi7U,22
+elifearticle/_parse.py,sha256=kPyKr5TgFmDzq4ncIBJNc4_LAWmsDCRxVC9irqF6o9o,23531
+elifearticle/article.py,sha256=ta7BrbhEJMu0qkFmyftu7Jryt1pS6ix3fl-xcWZQBHE,11734
+elifearticle/parse.py,sha256=MW_maMJBKdHOK1jbeJXr8Q9RuVmOdb3DgHhjQ8kIpgU,24719
+elifearticle/utils.py,sha256=5CHnyYRJTBhqPlOwb35FLMUkO_eoCNCAVHbD1G0_NqE,4936
+elifearticle-0.2.0.dist-info/LICENSE,sha256=tVf-s04sTJPXmlI9jPJVOZjNf_B18eIIh71p11oNfNs,1071
+elifearticle-0.2.0.dist-info/METADATA,sha256=3tRRFhWKTJWhu0vLHW2ELHRYQMXF2pP1itNyS9W7hvo,747
+elifearticle-0.2.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+elifearticle-0.2.0.dist-info/top_level.txt,sha256=bnVCxYnQDoj2h-E4PGhq4uwzwM6epJ5sJrHYORf5QOw,13
+elifearticle-0.2.0.dist-info/RECORD,,
