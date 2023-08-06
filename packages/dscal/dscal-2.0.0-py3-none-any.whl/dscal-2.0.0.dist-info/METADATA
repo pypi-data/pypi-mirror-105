@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: dscal
+Version: 2.0.0
+Summary: Package for quick solutions to calculus problems with assistance for python programs[console or gui(tkinter)]
+Home-page: UNKNOWN
+Author: Dhruv Sehwal
+Author-email: zarexdhruv@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: matplotlib
+Requires-Dist: numexpr
+Requires-Dist: sympy
+
+dscal 
+-----------------
+
+A library for all sort of calculus problems and graphing hurdles.
+
+Get instant results with fewer lines of code and without facing 
+problems.
+
+For any query/suggestions feel free to e-mail at zarexdhruv@gmail.com
+Change log
+==================
+
+Latest release
+
+2.0.0 (13/05/2021)
+
+-dscal.calculus
+ provides support for use in console based code and visualisation.
+ Use class calculus of this module the same.
+
+ run command
+
+ help(dscal.calculus)
+
+ to find out all usage and example.
+
+-dscal.tkcal
+ provides support for use in tkinter based GUI application code and visualisation.
+ Use class calculus of this module the same.
+
+ run command
+
+ help(dscal.tkcal)
+
+ to find out all usage and example.
+
