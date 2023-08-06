@@ -1,0 +1,4 @@
+ipython
+
+[:python_version >= "3.6"]
+black>=19.3

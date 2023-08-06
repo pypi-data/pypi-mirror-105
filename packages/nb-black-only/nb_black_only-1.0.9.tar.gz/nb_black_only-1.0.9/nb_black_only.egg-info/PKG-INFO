@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: nb-black-only
+Version: 1.0.9
+Summary: A simple extension for Jupyter Notebook and Jupyter Lab to beautify Python code automatically using Black. This version only supports black and stripts yapf support. Based on https://github.com/dnanhkhoa/nb_black
+Home-page: https://github.com/Rjdrenth/nb_black_only
+Author: Khoa Duong
+Author-email: dnanhkhoa@live.com
+License: MIT
+Description: # nb_black
+        
+        [![PyPI](https://img.shields.io/pypi/v/nb_black.svg)](https://pypi.org/project/nb-black-only/)
+        [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/nb_black.svg)](https://pypi.org/project/nb-black/)
+        
+        A simple extension for Jupyter Notebook and Jupyter Lab to beautify Python code automatically using **[Black](https://github.com/psf/black)**.
+        
+        Please note that the **Black** package only supports Python 3.6+. 
+        If you edit the code while running the cell, the formatting is
+        not submitted to the Jupyter notebook and instead silently suppressed, so you have to stick with
+        the edited, but unformatted code.
+        
+        ## Installation
+        
+        You can install this package using [pip](http://www.pip-installer.org):
+        
+        ```
+        $ [sudo] pip install nb_black
+        ```
+        
+        ## Usage
+        
+        For Jupyter Notebook:
+        
+        ```
+        %load_ext nb_black
+        ```
+        
+        For Jupyter Lab:
+        
+        ```
+        %load_ext lab_black
+        ```
+        
+        Just put this code into the first cell in your Notebook, and that's all. :)
+        
+Keywords: black-formatter black-beautifier black jupyterlab-extension jupyter-notebook-extension
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
