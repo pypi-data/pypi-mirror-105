@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: dycelib
+Version: 0.1.1
+Summary: Simple Python tools for dice-based probabilities
+Home-page: https://posita.github.io/dyce/0.1.1/
+Author: Matt Bogosian
+Author-email: matt@bogosian.net
+License: MIT License
+Platform: UNKNOWN
+Classifier: Topic :: Education
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
+Requires-Dist: typing
+Requires-Dist: typing-extensions
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: debug ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: jedi ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: tox ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: mike ; extra == 'doc'
+Requires-Dist: mkdocs-exclude ; extra == 'doc'
+Requires-Dist: mkdocs-material ; extra == 'doc'
+Requires-Dist: mkdocstrings ; extra == 'doc'
+
+<!-- -*- encoding: utf-8 -*-
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!! IMPORTANT: READ THIS BEFORE EDITING! !!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  Please keep each sentence on its own unwrapped line.
+  It looks like crap in a text editor, but it has no effect on rendering, and it allows much more useful diffs.
+  Thank you!
+
+  WARNING: THIS DOCUMENT MUST BE SELF-CONTAINED.
+  ALL LINKS MUST BE ABSOLUTE.
+  This file is used on GitHub and PyPi (via setup.py).
+  There is no guarantee that other docs/resources will be available where this content is displayed.
+-->
+
+*Copyright and other protections apply.
+Please see the accompanying `LICENSE` file for rights and restrictions governing use of this software.
+All rights not expressly waived or licensed are reserved.
+If that file is missing or appears to be modified from its original, then please contact the author before viewing or using this software in any capacity.*
+
+[![v0.1.1 Version](https://img.shields.io/pypi/v/dycelib/0.1.1.svg)](https://pypi.python.org/pypi/dycelib/0.1.1)
+[![v0.1.1 Development Stage](https://img.shields.io/pypi/status/dycelib/0.1.1.svg)](https://pypi.python.org/pypi/dycelib/0.1.1)
+[![v0.1.1 License](https://img.shields.io/pypi/l/dycelib/0.1.1.svg)](http://opensource.org/licenses/MIT)
+[![v0.1.1 Supported Python Versions](https://img.shields.io/pypi/pyversions/dycelib/0.1.1.svg)](https://pypi.python.org/pypi/dycelib/0.1.1)
+[![v0.1.1 Supported Python Implementations](https://img.shields.io/pypi/implementation/dycelib/0.1.1.svg)](https://pypi.python.org/pypi/dycelib/0.1.1)
+
+# `dyce` - Simple Python tools for dice-based probabilities
+
+[![Build Status](https://travis-ci.com/posita/dyce.svg?branch=master)](https://travis-ci.com/posita/dyce?branch=master)
+
+> :point_up: *Curious about integrating your project with the above services?
+  Jeff Knupp ([**@jeffknupp**](https://github.com/jeffknupp)) [describes how](https://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/).*
+
+`dyce` is a pure-Python library for exploring dice probabilities designed to be immediately and broadly useful with minimal additional investment beyond basic knowledge of Python.
+Inspired by [AnyDice](https://anydice.com/), `dyce` leverages Pythonic syntax and operators for rolling dice and computing weighted outcomes.
+While Python is not as terse as a dedicated grammar, it is quite sufficient.
+Those familiar with various [game notations](https://en.wikipedia.org/wiki/Dice_notation) should be able to adapt quickly.
+See [the docs](https://posita.github.io/dyce/0.1/) for more information.
+
+`dyce` is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+See the accompanying `LICENSE` file for details.
+Source code is [available on GitHub](https://github.com/posita/dyce).
+
+## Issues
+
+If you find a bug, or want a feature, please [file an issue](https://github.com/posita/dyce/issues) (if it has not already been filed).
+If you are willing and able, consider [contributing](https://posita.github.io/dyce/latest/contrib/).
+
+
