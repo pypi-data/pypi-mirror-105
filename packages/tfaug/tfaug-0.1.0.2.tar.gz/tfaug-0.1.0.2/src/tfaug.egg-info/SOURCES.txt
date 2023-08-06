@@ -1,0 +1,8 @@
+README.md
+setup.py
+src/tfaug.py
+src/tfaug.egg-info/PKG-INFO
+src/tfaug.egg-info/SOURCES.txt
+src/tfaug.egg-info/dependency_links.txt
+src/tfaug.egg-info/requires.txt
+src/tfaug.egg-info/top_level.txt
