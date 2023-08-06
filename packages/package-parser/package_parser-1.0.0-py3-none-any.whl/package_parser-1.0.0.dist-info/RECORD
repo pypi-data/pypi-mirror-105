@@ -1,0 +1,11 @@
+package_parser/__init__.py,sha256=DSCW7w01xGPsc5IvgkdaziSYfZa-jI5eRkVoc3IwgIk,289
+package_parser/__meta__.py,sha256=49GnLBOo8XHx7wHK55t6Cfddvk0cE3hzqPsnXzGEEVk,263
+package_parser/utils.py,sha256=HKSNqzcfAPZWvJnIm8JiGdSCRT7rvUnMNn_ED9IrJjI,11605
+package_parser/__pycache__/__init__.cpython-38.pyc,sha256=hHtE1NLpdnIyWSnjOiPDmQTOFrKR2OfkF-RvQblLq2I,540
+package_parser/__pycache__/__meta__.cpython-38.pyc,sha256=UYWOMvZCfT2Rgj6pEjaMPcSOR1rX_kTHRz8k97gXuG0,426
+package_parser/__pycache__/utils.cpython-38.pyc,sha256=fJbgWtI8bTXNZlvL--owClHNBols9WJvm0cYuEL7IqM,8423
+package_parser-1.0.0.dist-info/LICENSE,sha256=IqUUqXZEWkeHlpFhKpQhrl0hDdk2DNxuBTW0BfxhatM,1090
+package_parser-1.0.0.dist-info/METADATA,sha256=Ew1tPY9Lfp1uaeaoGYBYRG3dQEsvef7-E_kcpVn0BTY,1021
+package_parser-1.0.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+package_parser-1.0.0.dist-info/top_level.txt,sha256=FRa-D3WTF5s04Nl9o8D5g2WULa_17M0rpzo2KhkcTIg,15
+package_parser-1.0.0.dist-info/RECORD,,
