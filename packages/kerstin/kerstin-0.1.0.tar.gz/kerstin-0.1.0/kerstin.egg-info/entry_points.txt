@@ -1,0 +1,3 @@
+[console_scripts]
+mr2ct = kerstin.mr2ct:main
+
