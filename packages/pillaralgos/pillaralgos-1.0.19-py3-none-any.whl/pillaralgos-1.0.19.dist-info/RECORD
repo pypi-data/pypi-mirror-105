@@ -1,0 +1,12 @@
+pillaralgos/__init__.py,sha256=dnU0HD_ZgDfbBZOkBmZe-6d_uSUVAKC-cHOJJwZ9q8Y,302
+pillaralgos/algo1.py,sha256=hBMc4wmePtgHb67lFPfOhAVyhOJQmdlx0FmATQa0-ww,5031
+pillaralgos/algo2.py,sha256=kgt1PiVHNEUbz_yV_zpdBGDg_eUK7v5yFbdHS1Wk5N4,4708
+pillaralgos/algo3_0.py,sha256=pYV1GOf0RwXK-Gyg2OydG3w0bIs6PQKb0UdI4ZSvMmM,5620
+pillaralgos/algo3_5.py,sha256=kjHRXLSsXQr7sYHzA5jW7AudjQ4uVkhlusVmt3BnIxQ,5174
+pillaralgos/brain.py,sha256=n1TvqUKYvcWdTUAHMKdQGtYfTT2hDQ82cEHeBFhqJ-4,2738
+pillaralgos/helpers/__init__.py,sha256=gwy4fCCGTF9nip3XUoLreasowqwa3MtPYqCHn97XR0A,161
+pillaralgos/helpers/data_handler.py,sha256=1KP3WGQWBPPJfzPC7s-883g5RnXSiB3PEoA3iOrNgMk,11091
+pillaralgos/helpers/emoji_getter.py,sha256=vR3x534zIsWB1M2YMvknKNYooQJCGzrL6Hf0QnqeKzM,5445
+pillaralgos-1.0.19.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+pillaralgos-1.0.19.dist-info/METADATA,sha256=PdwoHDTQ4XI35SPS8Uci_5hL-0JCc_LpnXjsE4vuuZo,5938
+pillaralgos-1.0.19.dist-info/RECORD,,
