@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: fetchcode-container
+Version: 1.2.3.210511
+Summary: A ScanCode path provider plugin to provide a prebuilt native skopeobinary built from sources that are bundled in the repo and sdist.
+Home-page: https://github.com/nexB/scancode-plugins
+Author: nexB
+Author-email: info@aboutcode.org
+License:  apache-2.0 AND other-permissive
+Description: A ScanCode path provider plugin to provide a prebuilt native skopeobinary built from sources that are bundled in the repo and sdist.
+Keywords: open source,docker,scancode,container,fetchcode,skopeo
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
