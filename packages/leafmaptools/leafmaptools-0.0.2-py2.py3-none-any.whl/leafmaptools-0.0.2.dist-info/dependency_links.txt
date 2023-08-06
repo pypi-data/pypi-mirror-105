@@ -1,0 +1,7 @@
+geojson
+h3
+ipyfilechooser
+ipyleaflet
+ipywidgets
+mercantile
+
