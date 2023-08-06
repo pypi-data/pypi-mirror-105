@@ -1,0 +1,10 @@
+README.rst
+dot_plot.py
+setup.py
+Dot_Plot.egg-info/PKG-INFO
+Dot_Plot.egg-info/SOURCES.txt
+Dot_Plot.egg-info/dependency_links.txt
+Dot_Plot.egg-info/top_level.txt
+library/__init__.py
+library/core.py
+library/gui.py
