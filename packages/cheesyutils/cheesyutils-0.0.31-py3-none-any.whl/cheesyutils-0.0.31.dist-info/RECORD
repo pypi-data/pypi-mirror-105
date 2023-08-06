@@ -1,0 +1,16 @@
+cheesyutils/__init__.py,sha256=Rzo2oeNzNZ-07GuM1J5bxjX7NvAdEQjvBmSF7TtdK1w,207
+cheesyutils/discord_bots/__init__.py,sha256=1WtcDN6cpkBaeHA200LJr4ICMe_QqhYD7pIRUUAMd88,201
+cheesyutils/discord_bots/bot.py,sha256=9R8pofSRT84ovQT4LaZ0_cITdbg4oJQYe0uDl5SQLLA,21159
+cheesyutils/discord_bots/constants.py,sha256=ssmdf3-Utqo-o2wxx3fUpSRCLC8BIX5iXahQQxikBUg,269
+cheesyutils/discord_bots/database.py,sha256=NVPW3cyJVGkaasLVyMgthksjZGgdxtpgcRsSCr7wqtw,2761
+cheesyutils/discord_bots/embed.py,sha256=DHh2eUBx3VlQdKcebZFBB4gxmyTZOUrh4E9LRKwzCQg,1987
+cheesyutils/discord_bots/help_command.py,sha256=0NwEEwblYyeOVAQByDgvoPgG9VyyVzKYCzDsGHXg2RY,5719
+cheesyutils/discord_bots/paginator.py,sha256=qGLTo5C8IRfRmY0IWnhN8kpd9pz8rm9qplko1E6fWTE,9287
+cheesyutils/discord_bots/utils.py,sha256=JCiYNBAliwgih9PTiqquY1y1bNHbiMSJHOF3TzodD08,15591
+cheesyutils/discord_bots/cogs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cheesyutils/discord_bots/cogs/meta.py,sha256=jqCkcUe7FfvBFvr9cSkfDTYSxQ01vZyT7Z8TiWSy4a4,19716
+cheesyutils-0.0.31.dist-info/LICENSE,sha256=SozVA744ndNdYthTqEWDd2jpz1MuLwZIqRSG5nxyL80,1074
+cheesyutils-0.0.31.dist-info/METADATA,sha256=7xTc_wPBhC7u70Cc9lhcnsXTCjS207y-DqoYhYWglF8,1083
+cheesyutils-0.0.31.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+cheesyutils-0.0.31.dist-info/top_level.txt,sha256=143b4xRfkRT-DPhfm3rB5I_vSSUJ2owEmpoh-AZLfrM,12
+cheesyutils-0.0.31.dist-info/RECORD,,
