@@ -1,0 +1,135 @@
+Metadata-Version: 2.1
+Name: json-scribe
+Version: 2.0.0
+Summary: JSON-based logging for the masses
+Home-page: https://github.com/aweber/json-scribe
+Author: AWeber Communications, Inc
+Author-email: api@aweber.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Provides-Extra: dev
+Requires-Dist: coverage (==5.5) ; extra == 'dev'
+Requires-Dist: flake8 (==3.9.2) ; extra == 'dev'
+Requires-Dist: readme-renderer (==21.0) ; extra == 'dev'
+Requires-Dist: wheel (==0.36.2) ; extra == 'dev'
+Requires-Dist: yapf (==0.22.0) ; extra == 'dev'
+Requires-Dist: Sphinx (==1.8.5) ; (python_version < "3") and extra == 'dev'
+Requires-Dist: Sphinx (==4.0.1) ; (python_version >= "3.7") and extra == 'dev'
+Provides-Extra: readthedocs
+Requires-Dist: Sphinx (==4.0.1) ; extra == 'readthedocs'
+
+JSON Logging
+============
+Write your logs as json-lines.
+
++---------------+-------------------------------------------------+
+| Source Code   | `aweber/json-scribe`_                           |
++---------------+-------------------------------------------------+
+| Downloads     | json-scribe @ `pypi.org`_                       |
++---------------+-------------------------------------------------+
+
+This library is the result of sending docker container logs to loggly.
+Loggly works well with structured Syslog data but if you pass structured
+Syslog lines to an aggregator as JSON you end up with an unindexed mess.
+This library includes a few classes that make it easier and cleaner to send
+log content as JSON objects on single lines *including exceptions*.
+
+Usage
+-----
+
+Configuration
+^^^^^^^^^^^^^
+
+.. code-block:: json
+
+   {
+      "version": 1,
+      "filters": {
+         "defaultsetter": {
+            "()": "jsonscribe.AttributeSetter",
+            "add_fields": {
+               "correlation_id": "ext://UUID"
+            }
+         }
+      },
+      "formatters": {
+         "jsonlines": {
+            "()": "jsonscribe.JSONFormatter",
+            "include_fields": [
+               "name",
+               "levelname",
+               "asctime",
+               "message",
+               "module",
+               "correlation_id",
+               "exc_info"
+            ],
+         }
+      },
+      "handlers": {
+         "loggly": {
+            "class": "logging.StreamHandler",
+            "formatter": "jsonlines",
+            "filters": ["defaultsetter"],
+            "stream": "ext://sys.stdout"
+         }
+      },
+      "loggers": {
+         "somepackage": {
+            "level": "DEBUG",
+         }
+      },
+      "root": {
+         "level": "INFO",
+         "handlers": ["jsonlines"]
+      }
+   }
+
+Logging
+^^^^^^^
+The following snippet is the simplest usage.  It is nothing more than the
+textbook usage of the logging module.  It uses the logging configuration from
+above and generates a JSON blob.
+
+.. code-block:: python
+
+   import logging.config
+   import json
+
+   if __name__ == '__main__':
+      config = json.load(open('config.json'))
+      logging.config.dictConfig(config)
+      logger = logging.getLogger(__package__).getChild('main')
+      logger.info('processing request')
+
+The JSON message looks something like the following.  It is reformatted to
+make it readable.  The default is to render it as compact JSON.
+
+.. code-block:: json
+
+   {
+      "name": "somepackage.main",
+      "levelname": "INFO",
+      "asctime": "2018-08-09T07:44:54.231",
+      "module": "somepackage.entrypoints",
+      "correlation_id": "33CA3FB3-D66F-4D32-83A5-D5A8C3D92A6E",
+      "message": "processing request",
+      "exc_info": null
+   }
+
+
+.. _aweber/json-scribe: https://github.com/aweber/json-scribe
+.. _pypi.org: https://pypi.org/project/json-scribe
+
+

@@ -1,0 +1,8 @@
+jsonscribe/__init__.py,sha256=FBa9cc16cq08XdqH7jwCRYzHFuGkB50amxZtyn0Vfc0,264
+jsonscribe/filters.py,sha256=YeuirVxSWU3_DqEyNvjZwz373zphb-amSY55F0vCPrA,1235
+jsonscribe/formatters.py,sha256=CfV0ofS5wvV-RSLiTj5Y65HWWlm0Xtm3nG8nR8zOP94,4622
+jsonscribe/utils.py,sha256=-hpMrBL5o3XLgO3Wjns0-MMdj0ywQsdUTpxL-R62KIE,797
+json_scribe-2.0.0.dist-info/METADATA,sha256=Y9wcEij5eVtDwId5mh2doOalJq30Wf_2oH6ClrrvCx0,4156
+json_scribe-2.0.0.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+json_scribe-2.0.0.dist-info/top_level.txt,sha256=iXtSKxRNeEIBOcuVe24dC0rE_De-qvUNFrRb7lu7WE0,11
+json_scribe-2.0.0.dist-info/RECORD,,
