@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: template-configurator
+Version: 0.1.2
+Summary: Configuration tool for LinkML model generation
+Home-page: https://linkml.github.io/template-configurator
+Author: Harold Solbrig
+Author-email: solbrig@jhu.edu
+License: CC0 1.0 Universal
+Keywords: linkml,LOD,Modeling,Linked open data
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.7
+Requires-Dist: hbreader
+Requires-Dist: jsonasobj2
+Requires-Dist: template-config-model
+
+A f-string based configuration tool used to generate new LinkML model repositories
+
+
