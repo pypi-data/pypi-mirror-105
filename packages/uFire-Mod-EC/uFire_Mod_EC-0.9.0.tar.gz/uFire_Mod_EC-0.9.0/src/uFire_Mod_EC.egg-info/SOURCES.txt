@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.cfg
+src/uFire_Mod_EC/__init__.py
+src/uFire_Mod_EC/shell.py
+src/uFire_Mod_EC/uFire_Mod_EC.py
+src/uFire_Mod_EC.egg-info/PKG-INFO
+src/uFire_Mod_EC.egg-info/SOURCES.txt
+src/uFire_Mod_EC.egg-info/dependency_links.txt
+src/uFire_Mod_EC.egg-info/top_level.txt
