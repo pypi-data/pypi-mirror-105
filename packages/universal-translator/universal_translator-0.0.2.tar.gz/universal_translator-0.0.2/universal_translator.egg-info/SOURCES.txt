@@ -1,0 +1,17 @@
+README.md
+setup.cfg
+setup.py
+universal_translator/__init__.py
+universal_translator/data.py
+universal_translator/model.py
+universal_translator/tok.py
+universal_translator.egg-info/PKG-INFO
+universal_translator.egg-info/SOURCES.txt
+universal_translator.egg-info/dependency_links.txt
+universal_translator.egg-info/requires.txt
+universal_translator.egg-info/top_level.txt
+universal_translator/modules/__init__.py
+universal_translator/modules/emb.py
+universal_translator/modules/enc.py
+universal_translator/modules/head.py
+universal_translator/modules/utils.py
