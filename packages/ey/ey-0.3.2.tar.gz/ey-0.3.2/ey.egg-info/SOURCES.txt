@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.cfg
+ey.egg-info/PKG-INFO
+ey.egg-info/SOURCES.txt
+ey.egg-info/dependency_links.txt
+ey.egg-info/top_level.txt
