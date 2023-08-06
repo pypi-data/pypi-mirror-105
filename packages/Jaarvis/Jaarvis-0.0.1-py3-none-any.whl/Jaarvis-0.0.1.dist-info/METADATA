@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: Jaarvis
+Version: 0.0.1
+Summary: Utility code 
+Home-page: https://github.com/RahulnKumar/Rahul-Utils
+Author: Rahul Kumar
+Author-email: rahulbits2015@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6.9
+Requires-Dist: requests
+
+# Rahul-Utils
+A custom pip package for ml/dl/rl utility functions
+
+
