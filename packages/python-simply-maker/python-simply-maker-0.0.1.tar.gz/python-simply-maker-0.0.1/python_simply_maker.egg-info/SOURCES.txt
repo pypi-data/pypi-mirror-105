@@ -1,0 +1,12 @@
+CHANGELOG.txt
+LICENSE.txt
+MANIFEST.in
+README.txt
+__init__.py
+pyproject.toml
+setup.py
+python_simply_maker.egg-info/PKG-INFO
+python_simply_maker.egg-info/SOURCES.txt
+python_simply_maker.egg-info/dependency_links.txt
+python_simply_maker.egg-info/requires.txt
+python_simply_maker.egg-info/top_level.txt

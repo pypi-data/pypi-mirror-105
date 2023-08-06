@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: python-simply-maker
+Version: 0.0.1
+Summary: Coder simplement en python
+Home-page: UNKNOWN
+Author: liamgen
+Author-email: UNKNOWN
+License: MIT
+Description: Texte en écriture
+        
+        Changelog 
+        Version actuelle : v0.0.1
+        
+        0.0.0 - 13/05/21
+        
+        - Create package
+Keywords: python
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
