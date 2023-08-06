@@ -1,0 +1,12 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+inter_morse/__init__.py
+inter_morse/__main__.py
+inter_morse.egg-info/PKG-INFO
+inter_morse.egg-info/SOURCES.txt
+inter_morse.egg-info/dependency_links.txt
+inter_morse.egg-info/entry_points.txt
+inter_morse.egg-info/requires.txt
+inter_morse.egg-info/top_level.txt
