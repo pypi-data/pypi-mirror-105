@@ -1,0 +1,9 @@
+jenkins_scrapper.py
+setup.py
+jenkins_scrapper.egg-info/PKG-INFO
+jenkins_scrapper.egg-info/SOURCES.txt
+jenkins_scrapper.egg-info/dependency_links.txt
+jenkins_scrapper.egg-info/namespace_packages.txt
+jenkins_scrapper.egg-info/requires.txt
+jenkins_scrapper.egg-info/top_level.txt
+jenkins_scrapper.egg-info/zip-safe
