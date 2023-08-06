@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: pygbtn
+Version: 0.0.1
+Summary: Make buttons in pygame with pyg_btn!
+Home-page: UNKNOWN
+Author: SATAN01 (Shourya sinha)
+Author-email: <shouryasinha001@gmail.com>
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: python,pygame,buttons,game-development
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3

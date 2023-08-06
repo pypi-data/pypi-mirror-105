@@ -1,0 +1,7 @@
+setup.py
+Files/__init__.py
+pygbtn.egg-info/PKG-INFO
+pygbtn.egg-info/SOURCES.txt
+pygbtn.egg-info/dependency_links.txt
+pygbtn.egg-info/requires.txt
+pygbtn.egg-info/top_level.txt
