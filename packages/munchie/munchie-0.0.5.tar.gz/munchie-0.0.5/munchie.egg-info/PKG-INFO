@@ -1,0 +1,17 @@
+Metadata-Version: 1.2
+Name: munchie
+Version: 0.0.5
+Summary: Pre-packaged common functions for day-to-day
+Home-page: UNKNOWN
+Author: Anthony Gaetano
+Author-email: adgaetano@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: python,first package
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: MacOS :: MacOS X
+Requires-Python: >=3.8, <4
