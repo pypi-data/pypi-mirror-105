@@ -1,0 +1,3 @@
+[console_scripts]
+my-script=matching_network.__main__:cli
+
