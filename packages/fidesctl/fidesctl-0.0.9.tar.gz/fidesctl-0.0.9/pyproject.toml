@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools", "wheel"]  # PEP 508 specifications.
+
+[tool.black]
+    py36 = true
+    include = '\.pyi?$'
+    exclude = '''
+    /(
+        \.git
+      | \.hg
+      | \.mypy_cache
+      | \.tox
+      | \.venv
+      | _build
+      | buck-out
+      | build
+      | dist
+
+      # The following are specific to Black, you probably don't want those.
+      | blib2to3
+      | tests/data
+    )/
+
+
+[tool.pylint.MESSAGE_CONTROL]
+disable=[
+    "bad-continuation",
+    "no-else-return",
+    "too-few-public-methods",
+    "line-too-long",
+    "duplicate-code",
+    "import-error",
+    "unused-argument",
+    "no-self-use",
+    "import-outside-toplevel",
+    "fixme"]
+
+
+[tool.pylint.REPORTS]
+reports="no"
+
+[tool.pylint.FORMAT]
+max-line-length="88"
+
+[tool.pylint.BASIC]
+good-names="_,i,j,k,e,qs,pk,setUp,tearDown,maxDiff,default_app_config"
