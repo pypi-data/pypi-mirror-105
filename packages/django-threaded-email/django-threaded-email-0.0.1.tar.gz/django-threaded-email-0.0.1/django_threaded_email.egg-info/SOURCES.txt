@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+django_threaded_email/__init__.py
+django_threaded_email/django_threaded_email.py
+django_threaded_email.egg-info/PKG-INFO
+django_threaded_email.egg-info/SOURCES.txt
+django_threaded_email.egg-info/dependency_links.txt
+django_threaded_email.egg-info/top_level.txt
