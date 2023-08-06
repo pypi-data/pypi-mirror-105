@@ -1,0 +1,8 @@
+pandoc_run_python/filter.py,sha256=1EmMM5U139YP-rS1ZPe2fK_dVsokvGbe9LjgPYln7DU,2457
+pandoc_run_python/mpl_backend.py,sha256=kuKh43tnlZZLrWzzUT7HaeVOQXqAGrqoQNkJOQF4WIM,966
+pandoc_run_python/types.py,sha256=g4mfCtY557VO5EFjtt68CW7M7yhYl-MgJWensKA2xJY,424
+pandoc_run_python-0.1.16.dist-info/entry_points.txt,sha256=Hu7iB34WHBZXfZ7ZQd9VkIYLJyFv0mukjldsbZnsbaU,67
+pandoc_run_python-0.1.16.dist-info/LICENSE,sha256=4DH6ero40aTi0g1JSoIpu1wyBNJkYHdHIFFjlqsTpNM,1068
+pandoc_run_python-0.1.16.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+pandoc_run_python-0.1.16.dist-info/METADATA,sha256=BXzysyby2bFD-Z2IzYy_XLMQb_dcpPnCLVXUJIbwS9Q,2732
+pandoc_run_python-0.1.16.dist-info/RECORD,,
