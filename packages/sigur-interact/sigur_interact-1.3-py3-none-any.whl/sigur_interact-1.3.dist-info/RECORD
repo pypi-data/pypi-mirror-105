@@ -1,0 +1,17 @@
+sigur_interact/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sigur_interact/commands.py,sha256=NQb6Y3BLZNJdQ0Q1CBacJudxiX_5FMqFx_kbxXjw4UY,1355
+sigur_interact/functions.py,sha256=wyP44galoYjlw6A2ah34EbJiH-_lWIlhZqIRSuA4xqs,3081
+sigur_interact/main.py,sha256=ACp8XVUrAmLot6fu6I9Kx1DHiaH1SolKWQ4aMwOF9h8,3437
+sigur_interact/settings.py,sha256=BeO3zZB3-mdoi-fUg0QQkFf_qP4N1LoUXzEImQMLYLM,116
+sigur_interact/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sigur_interact/tests/main_test.py,sha256=L-JtBEwTQDLQSMAcTFKo1s1LnLInExfh44n2n4AI7ek,233
+sigur_interact/tests/make_connection_test.py,sha256=IlONbDNSZIw3eCCHDaoXrHIzxXbCsC_CuPGUWelDgDw,360
+sigur_interact/tests/settings_test.py,sha256=bN4LKcW2k-WFK8eqCqIEgFPnG_XkHPrJPQEOZcfAMHw,49
+sigur_interact/tests/functions_test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sigur_interact/tests/functions_test/get_object_info_test.py,sha256=u3HH9mqn9g_dAj38pFCzRKZ1fAMMfAnDz7gvpPOgsPk,253
+sigur_interact/tests/functions_test/send_command_test.py,sha256=gnDkIzDGi5TKrE2djXEZVE9eJdC89xk_kQM4RhLfa0g,197
+sigur_interact-1.3.dist-info/LICENSE,sha256=6kbiFSfobTZ7beWiKnHpN902HgBx-Jzgcme0SvKqhKY,1091
+sigur_interact-1.3.dist-info/METADATA,sha256=HhFDVM7JDNPTc4iXp1vT2JOa0XEE0wVXd6Olw6dWJbI,269
+sigur_interact-1.3.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+sigur_interact-1.3.dist-info/top_level.txt,sha256=wEM-j_7R-XFLFpzlOCJEuMT29a8v2Fn7DC9nSvNzZJ8,15
+sigur_interact-1.3.dist-info/RECORD,,
