@@ -1,0 +1,14 @@
+iamzero/__init__.py,sha256=KWWY0MrbppeS-qaf5F9UCyBz8OSGXFdnvFiavpz_eU4,1774
+iamzero/client.py,sha256=9bl1FY6FoUD1Xol12sAxIGBIKTua9VhvtDTFMEa4KtI,3714
+iamzero/config.py,sha256=GDik_qTmjHKRysXMnF67xLD_vWSGi1aVu17Jb4j9E50,4369
+iamzero/event.py,sha256=UJPPvbUfLDpbe5z9JYkNoshuKBuzlQBIHgyMdr5Ohmg,243
+iamzero/identity.py,sha256=48rWkS2jgE2ZU45ajkqDwPeLjQj_d0rPfFFwZ1CsK4M,3158
+iamzero/instrumentation/__init__.py,sha256=Ah7_5UuvPskpzpZv7-1zUlSVEZJaQVECXhG-hXSR5mw,24
+iamzero/instrumentation/botocore.py,sha256=hX7U0JgNWGc_D9eup8CKNmfdqU42l9ECZnbFJ8b0Fkc,2069
+iamzero/logging.py,sha256=6AQFkXGrDOYvheStc2-3rgnf8fU-qcah8seajqEsIPc,836
+iamzero/publisher.py,sha256=3h20M3QLZ7eILSspNdGeeGtzA6TL3bvAoXiUFxpnrEQ,8508
+iamzero/test_config.py,sha256=ooYDz744YSwyUO-AfK--VKL75pQaXgbSp5kZ0Md3xZg,138
+iamzero/version.py,sha256=vu_LccLlmoyQR0cVgtNnwxsHCW5OZPM8ynpF_MLqapI,18
+iamzero-0.0.4.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+iamzero-0.0.4.dist-info/METADATA,sha256=PYuLcruInnFfVTBB4S0Pye4Wo80db3d1LrOkuoGq6eA,2927
+iamzero-0.0.4.dist-info/RECORD,,
