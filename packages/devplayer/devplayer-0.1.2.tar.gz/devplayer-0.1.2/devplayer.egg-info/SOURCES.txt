@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+devplayer/__init__.py
+devplayer/__main__.py
+devplayer/songs.py
+devplayer.egg-info/PKG-INFO
+devplayer.egg-info/SOURCES.txt
+devplayer.egg-info/dependency_links.txt
+devplayer.egg-info/entry_points.txt
+devplayer.egg-info/requires.txt
+devplayer.egg-info/top_level.txt
