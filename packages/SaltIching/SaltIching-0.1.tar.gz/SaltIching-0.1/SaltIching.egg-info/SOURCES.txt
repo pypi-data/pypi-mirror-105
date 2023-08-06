@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+./src/iching/__init__.py
+./src/iching/data.json
+./src/iching/iching.py
+SaltIching.egg-info/PKG-INFO
+SaltIching.egg-info/SOURCES.txt
+SaltIching.egg-info/dependency_links.txt
+SaltIching.egg-info/not-zip-safe
+SaltIching.egg-info/top_level.txt
+src/iching/__init__.py
+src/iching/data.json
+src/iching/iching.py
