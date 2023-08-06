@@ -1,0 +1,1 @@
+from .Trumper import trump

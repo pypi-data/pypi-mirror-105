@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+Trumping/Trumper.py
+Trumping/__init__.py
+Trumping.egg-info/PKG-INFO
+Trumping.egg-info/SOURCES.txt
+Trumping.egg-info/dependency_links.txt
+Trumping.egg-info/not-zip-safe
+Trumping.egg-info/top_level.txt
