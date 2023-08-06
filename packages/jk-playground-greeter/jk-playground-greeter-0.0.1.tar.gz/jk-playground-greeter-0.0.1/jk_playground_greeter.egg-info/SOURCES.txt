@@ -1,0 +1,11 @@
+CHANGELOG.txt
+LICENSE.txt
+MANIFEST.in
+README.txt
+setup.py
+jk-playground-greeter/__init__.py
+jk-playground-greeter/greet.py
+jk_playground_greeter.egg-info/PKG-INFO
+jk_playground_greeter.egg-info/SOURCES.txt
+jk_playground_greeter.egg-info/dependency_links.txt
+jk_playground_greeter.egg-info/top_level.txt

@@ -1,0 +1,1 @@
+This is my playground module used for testing publishing Python package.

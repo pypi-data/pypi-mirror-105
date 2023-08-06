@@ -1,0 +1,19 @@
+Metadata-Version: 1.2
+Name: jk-playground-greeter
+Version: 0.0.1
+Summary: Playground project for testing package publishing process
+Home-page: https://github.com/josipklaric/python-greeter-module
+Author: Josip Klaric
+Author-email: josipklaric@gmail.com
+License: UNKNOWN
+Description: This is my playground module used for testing publishing Python package.
+        
+        Change Log
+        ==========
+        
+        0.0.1 (2021-05-13)
+        ------------------
+        - Initial Relaese
+Keywords: playground,module,test
+Platform: UNKNOWN
+Requires-Python: >=3.6
