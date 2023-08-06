@@ -1,0 +1,3 @@
+[console_scripts]
+configure = template_configurator:main
+
