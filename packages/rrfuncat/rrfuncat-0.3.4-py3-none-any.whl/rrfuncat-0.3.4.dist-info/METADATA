@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: rrfuncat
+Version: 0.3.4
+Summary: rrFuncat 将同花顺、通达信、文华财经等的公式移植到了 Python 中
+Author: romepeng
+Author-email: romepeng@outlook.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
