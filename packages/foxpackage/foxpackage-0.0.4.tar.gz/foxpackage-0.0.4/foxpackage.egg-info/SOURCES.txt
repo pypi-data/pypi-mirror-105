@@ -1,0 +1,5 @@
+setup.py
+foxpackage.egg-info/PKG-INFO
+foxpackage.egg-info/SOURCES.txt
+foxpackage.egg-info/dependency_links.txt
+foxpackage.egg-info/top_level.txt
