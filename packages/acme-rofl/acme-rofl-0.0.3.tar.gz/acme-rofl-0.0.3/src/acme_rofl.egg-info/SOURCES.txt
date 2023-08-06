@@ -1,0 +1,11 @@
+LICENSE
+README.md
+acme-rofl.service
+pyproject.toml
+setup.py
+src/acme_rofl/__init__.py
+src/acme_rofl.egg-info/PKG-INFO
+src/acme_rofl.egg-info/SOURCES.txt
+src/acme_rofl.egg-info/dependency_links.txt
+src/acme_rofl.egg-info/entry_points.txt
+src/acme_rofl.egg-info/top_level.txt
