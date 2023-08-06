@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: stepperpi
+Version: 0.0.1
+Summary: Python package for controlling a stepper motor with TB6600 driver on a raspberry pi.
+Home-page: https://github.com/jarnedeclercq/stepperpi
+Author: Jarne De Clercq
+Author-email: jarnedeclercq@gmail.com
+License: UNKNOWN
+Description: # Stepperpi
+        Python package for controlling a stepper motor with TB6600 driver on a raspberry pi.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
