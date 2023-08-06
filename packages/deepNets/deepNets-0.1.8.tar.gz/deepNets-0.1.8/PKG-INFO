@@ -1,0 +1,31 @@
+Metadata-Version: 1.2
+Name: deepNets
+Version: 0.1.8
+Summary: A basic deep learning tool
+Home-page: UNKNOWN
+Author: Deepak Velmurugan
+Author-email: deepazlions@gmail.com
+License: MIT
+Project-URL: Homepage, https://deep-nets.herokuapp.com
+Project-URL: Source, https://github.com/DeepakVelmurugan/deepNets
+Description: 
+        
+        Change Log
+        ==========
+        
+        0.1.8 (09/05/2021)
+        -------------------
+        - Deep learning library for constructing neutral networks
+        - Supports neural network modules(conv layers,fully-connected layers,non-linearities) and classification(softmax) functions.
+        - Ability to specify and train Convolutional Networks that process images.
+        - Developed with python and can be run in any machine.
+Keywords: deepLearning
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8

@@ -1,0 +1,9 @@
+Change Log
+==========
+
+0.1.8 (09/05/2021)
+-------------------
+- Deep learning library for constructing neutral networks
+- Supports neural network modules(conv layers,fully-connected layers,non-linearities) and classification(softmax) functions.
+- Ability to specify and train Convolutional Networks that process images.
+- Developed with python and can be run in any machine.
