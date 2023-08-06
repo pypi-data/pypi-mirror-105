@@ -1,0 +1,3 @@
+[console_scripts]
+advancedlogging = advancedlogging.cli:main
+
