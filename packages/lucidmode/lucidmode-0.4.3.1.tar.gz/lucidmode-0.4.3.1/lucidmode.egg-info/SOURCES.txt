@@ -1,0 +1,14 @@
+README.rst
+setup.py
+lucidmode/__init__.py
+lucidmode/convolution.py
+lucidmode/functions.py
+lucidmode/models.py
+lucidmode/optimizers.py
+lucidmode/propagate.py
+lucidmode/regularization.py
+lucidmode.egg-info/PKG-INFO
+lucidmode.egg-info/SOURCES.txt
+lucidmode.egg-info/dependency_links.txt
+lucidmode.egg-info/requires.txt
+lucidmode.egg-info/top_level.txt
