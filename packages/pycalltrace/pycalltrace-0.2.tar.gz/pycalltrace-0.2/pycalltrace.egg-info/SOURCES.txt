@@ -1,0 +1,8 @@
+README.md
+pycalltrace.py
+setup.py
+pycalltrace.egg-info/PKG-INFO
+pycalltrace.egg-info/SOURCES.txt
+pycalltrace.egg-info/dependency_links.txt
+pycalltrace.egg-info/not-zip-safe
+pycalltrace.egg-info/top_level.txt

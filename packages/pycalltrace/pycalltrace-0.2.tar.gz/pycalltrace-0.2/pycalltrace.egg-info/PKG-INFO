@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: pycalltrace
+Version: 0.2
+Summary: record and trace the function call chain
+Home-page: https://github.com/kwsy/calltrace
+Author: dongsheng zhang
+Author-email: xigongda200608@163.com
+License: BSD
+Description-Content-Type: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
