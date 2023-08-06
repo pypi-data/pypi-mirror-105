@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+src/pydonicli.egg-info/PKG-INFO
+src/pydonicli.egg-info/SOURCES.txt
+src/pydonicli.egg-info/dependency_links.txt
+src/pydonicli.egg-info/entry_points.txt
+src/pydonicli.egg-info/requires.txt
+src/pydonicli.egg-info/top_level.txt
