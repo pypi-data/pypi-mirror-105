@@ -1,0 +1,56 @@
+Metadata-Version: 1.1
+Name: image_classification_pytorch
+Version: 0.0.10
+Summary: Image classification with pretrained models in Pytorch
+Home-page: https://github.com/denred0/image_classification_pytorch
+Author: Denis Potapov
+Author-email: potapovdenisdmit@gmail.com
+License: MIT
+Download-URL: https://github.com/denred0/image_classification_pytorch/archive/refs/tags/0.0.9.tar.gz
+Description: # Image classification with pretrained models in Pytorch
+        
+        Use pretrained models to train your data.
+        
+        ## Installation
+        
+        ```sh
+        pip install image-classification-pytorch
+        ```
+        
+        ## ✨ Quick start 
+        
+        
+        ```sh
+        import image_classification_pytorch as icp
+        ```
+        ```sh
+        # Images of each class in its own folder with the class name. 
+        # Examples of folders: homer_simpson, bart_simpson etc. 
+        from google.colab import drive
+        drive.mount('/content/gdrive')
+        !unzip -q /content/gdrive/My\ Drive/datasets/image_classification_pytorch/data_simpsons.zip -d train
+        ```
+        ```sh
+        # add model
+        tf_efficientnet_b4_ns = {'model_type': 'tf_efficientnet_b4_ns', 'im_size': 380, 'im_size_test': 380, 'batch_size': 8, 'mean': [0.485, 0.456, 0.406], 'std': [0.229, 0.224, 0.225]}
+        models = [tf_efficientnet_b4_ns]
+        ```
+        ```sh
+        # create trainer
+        trainer = ICPTrainer(models=models, data_dir='data_simpsons')
+        # start training
+        trainer.fit_test()
+        ```
+        
+        ## Colab Quick start
+        [image_classification_pytorch_get_started.ipynb](https://colab.research.google.com/drive/1M7oJDizCOrFTDJz0CaDy-ClvDMUvmlnv?usp=sharing)
+        
+Keywords: pytorch,image classification,imagenet,pretrained model
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
