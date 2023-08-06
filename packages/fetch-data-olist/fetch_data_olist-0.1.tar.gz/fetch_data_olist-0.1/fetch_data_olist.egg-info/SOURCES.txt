@@ -1,0 +1,9 @@
+setup.py
+fetch_data/__init__.py
+fetch_data/process_data.py
+fetch_data/config/__init__.py
+fetch_data/config/config.py
+fetch_data_olist.egg-info/PKG-INFO
+fetch_data_olist.egg-info/SOURCES.txt
+fetch_data_olist.egg-info/dependency_links.txt
+fetch_data_olist.egg-info/top_level.txt
