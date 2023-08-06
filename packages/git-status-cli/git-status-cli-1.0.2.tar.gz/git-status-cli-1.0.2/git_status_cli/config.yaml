@@ -1,0 +1,6 @@
+# Add the folder containing all your gits here:
+#gits_folder: /absolute/path/to/your/gits/folder
+
+# You can also add individual gits here
+#individual_gits:
+#- /absolute/path/to/a/git/folder
