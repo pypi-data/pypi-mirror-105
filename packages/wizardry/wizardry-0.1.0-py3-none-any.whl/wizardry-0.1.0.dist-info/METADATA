@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: wizardry
+Version: 0.1.0
+Summary: 
+Author: ssantoshp
+Author-email: santoshpassoubady@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: requests (>=2.25.1,<3.0.0)
+Requires-Dist: termcolor (>=1.1.0,<2.0.0)
+Requires-Dist: typer[all] (>=0.3.2,<0.4.0)
+Description-Content-Type: text/markdown
+
+## What is it?
+
+Wizardry is a CLI for building powerful algorithmic trading strategies faster and easier (for Lean/QuantConnect)
+
+## Installation
+
+```
+pip install wizardry
+```
+
