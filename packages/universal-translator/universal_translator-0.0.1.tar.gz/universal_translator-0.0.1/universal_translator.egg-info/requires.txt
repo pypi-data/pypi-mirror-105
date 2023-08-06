@@ -1,0 +1,3 @@
+numpy
+pytorch_fast_transformers
+sentencepiece

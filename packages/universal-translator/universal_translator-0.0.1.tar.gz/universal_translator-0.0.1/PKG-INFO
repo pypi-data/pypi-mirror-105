@@ -1,0 +1,14 @@
+Metadata-Version: 1.2
+Name: universal_translator
+Version: 0.0.1
+Summary: multilingual translator
+Home-page: https://github.com/s-omranpour/Universal-Translator
+Author: Soroush Omranpour
+Author-email: soroush.333@gmail.com
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/s-omranpour/Universal-Translator/issues
+Project-URL: Source, https://github.com/s-omranpour/Universal-Translator
+Description: UNKNOWN
+Keywords: nlp,universal,translation,multilingual
+Platform: UNKNOWN
+Requires-Python: >=3.7, <4
