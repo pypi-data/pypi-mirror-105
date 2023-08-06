@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "sparkvis"
+version = "0.4.0"
+description = "Visualize tensors using Sparklines"
+authors = ["Shawn Presser <shawnpresser@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+sparklines = "^0.4.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
