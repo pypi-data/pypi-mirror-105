@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: nicegui
+Version: 0.1.4
+Summary: High-Level Abstraction Web-GUI Using Just Python
+License: MIT
+Author: Zauberzeug GmbH
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: icecream (>=2.1.0,<3.0.0)
+Requires-Dist: justpy (==0.1.5)
+Requires-Dist: matplotlib (>=3.4.1,<4.0.0)
+Requires-Dist: typing-extensions (>=3.10.0,<4.0.0)
