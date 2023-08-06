@@ -1,0 +1,36 @@
+# General ignore
+**/*__pycache__
+**/*.archive
+**/*.DS_Store
+**/*.vscode
+Icon?
+
+# Distribution / packaging
+.eggs/
+.installed.cfg
+.Python
+*.egg
+*.egg-info/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+env/
+lib/
+lib64/
+parts/
+sdist/
+var/
+
+# Repository specific
+**/*.app
+apps/
+dashboards/iMessage/graphics/
+dashboards/iMessage/imessage_metric_ideas
+src/app_reference/pydoni_location.txt
+src/commands/imessage/workflow_elt/manual_tables/table_data/
+src/commands/notes/ph_refresh.py
+src/commands/photo/instagram_hashtags.py
+src/commands/photo/website_extract_image_titles.py
+src/commands/photo/split_batch_exported_timelapse.py
