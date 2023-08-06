@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: pyConic
+Version: 0.1.1
+Summary: Python tools to work with conic sections
+Home-page: https://github.com/adrianschlatter/pyConic
+Author: Adrian Schlatter
+License: Revised BSD
+Keywords: conic mathematics
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: twine ; extra == 'test'
+Requires-Dist: check-manifest ; extra == 'test'
+Requires-Dist: flake8 ; extra == 'test'
+Requires-Dist: coverage ; extra == 'test'
+
+# pyConic
+
+pyConic is a Python package helping with identification and transformation
+of conic sections.
+
+
+
