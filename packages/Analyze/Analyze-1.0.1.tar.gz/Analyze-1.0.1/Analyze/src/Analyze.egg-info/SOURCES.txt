@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+Analyze/src/Analyze.py
+Analyze/src/Analyze.egg-info/PKG-INFO
+Analyze/src/Analyze.egg-info/SOURCES.txt
+Analyze/src/Analyze.egg-info/dependency_links.txt
+Analyze/src/Analyze.egg-info/requires.txt
+Analyze/src/Analyze.egg-info/top_level.txt
