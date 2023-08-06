@@ -1,0 +1,10 @@
+setup.py
+udacity_NormalDistribution533/Binomialdistribution.py
+udacity_NormalDistribution533/Gaussiandistribution.py
+udacity_NormalDistribution533/Generaldistribution.py
+udacity_NormalDistribution533/__init__.py
+udacity_NormalDistribution533.egg-info/PKG-INFO
+udacity_NormalDistribution533.egg-info/SOURCES.txt
+udacity_NormalDistribution533.egg-info/dependency_links.txt
+udacity_NormalDistribution533.egg-info/not-zip-safe
+udacity_NormalDistribution533.egg-info/top_level.txt
