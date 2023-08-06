@@ -1,0 +1,6 @@
+MiPaqueteria.py
+setup.py
+manux.egg-info/PKG-INFO
+manux.egg-info/SOURCES.txt
+manux.egg-info/dependency_links.txt
+manux.egg-info/top_level.txt
