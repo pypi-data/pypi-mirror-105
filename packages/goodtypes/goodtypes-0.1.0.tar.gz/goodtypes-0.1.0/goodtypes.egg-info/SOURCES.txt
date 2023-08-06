@@ -1,0 +1,14 @@
+README.md
+setup.py
+goodtypes/__init__.py
+goodtypes/__pkginfo__.py
+goodtypes/bytes.py
+goodtypes/daterange.py
+goodtypes/util.py
+goodtypes.egg-info/PKG-INFO
+goodtypes.egg-info/SOURCES.txt
+goodtypes.egg-info/dependency_links.txt
+goodtypes.egg-info/top_level.txt
+tests/__init__.py
+tests/test_daterange.py
+tests/test_util.py
