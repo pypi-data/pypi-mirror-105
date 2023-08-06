@@ -1,0 +1,13 @@
+mtrec/__init__.py,sha256=ek8JdDKPPRCGy6FaD1l6iJzCQXzOYLYCL3XC5s70ZFM,15
+mtrec/functions/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mtrec/functions/feature_column.py,sha256=AelsDQLkNrgiAxE0Rdr8aF830ai2ibdDSinkXcOL3Go,447
+mtrec/functions/utils.py,sha256=Cd3bHqxGfURYV5wbrO-ePuW4W6PldcO044G0009Rc6E,359
+mtrec/layers/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mtrec/layers/core.py,sha256=U97SUixGnwx6bpj-1JCRcdIjDH2aohFKmJrJVy-iUmo,2560
+mtrec/models/__init__.py,sha256=iHuwDIA5EYF1MOlNlMcnwM6p4cspye9kzA_HHO9UI0A,55
+mtrec/models/mmoe.py,sha256=Li6Gveq2ZVRA7CuX7-9YkLSJRDXSoIMiyvVtLw5aiJs,4620
+mtrec-0.0.1.dist-info/LICENSE.txt,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+mtrec-0.0.1.dist-info/METADATA,sha256=Rp43MPcJNwfP-Juux4eKGO2BYKCNezTfsEGi0aGy_SA,1814
+mtrec-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+mtrec-0.0.1.dist-info/top_level.txt,sha256=1UMtYeEo2ehws1hKhXVw6M80U91gMhIqGm8bBHkP-QU,6
+mtrec-0.0.1.dist-info/RECORD,,
