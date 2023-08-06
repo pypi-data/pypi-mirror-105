@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/ndim/__about__.py
+src/ndim/__init__.py
+src/ndim/enr.py
+src/ndim/enr2.py
+src/ndim/nball.py
+src/ndim/ncube.py
+src/ndim/nsimplex.py
+src/ndim/nsphere.py
+src/ndim.egg-info/PKG-INFO
+src/ndim.egg-info/SOURCES.txt
+src/ndim.egg-info/dependency_links.txt
+src/ndim.egg-info/requires.txt
+src/ndim.egg-info/top_level.txt
