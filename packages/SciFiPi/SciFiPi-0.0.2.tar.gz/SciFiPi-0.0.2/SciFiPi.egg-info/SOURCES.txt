@@ -1,0 +1,8 @@
+README.md
+setup.cfg
+setup.py
+SciFiPi.egg-info/PKG-INFO
+SciFiPi.egg-info/SOURCES.txt
+SciFiPi.egg-info/dependency_links.txt
+SciFiPi.egg-info/requires.txt
+SciFiPi.egg-info/top_level.txt
