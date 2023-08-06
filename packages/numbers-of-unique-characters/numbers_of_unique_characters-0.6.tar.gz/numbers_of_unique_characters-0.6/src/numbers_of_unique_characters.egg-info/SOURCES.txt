@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/numbers_of_unique_characters/__init__.py
+src/numbers_of_unique_characters/__main__.py
+src/numbers_of_unique_characters/collection_framework.py
+src/numbers_of_unique_characters.egg-info/PKG-INFO
+src/numbers_of_unique_characters.egg-info/SOURCES.txt
+src/numbers_of_unique_characters.egg-info/dependency_links.txt
+src/numbers_of_unique_characters.egg-info/top_level.txt

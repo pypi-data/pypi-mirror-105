@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: numbers_of_unique_characters
+Version: 0.6
+Summary: Python module is used to find unique characters.
+Home-page: https://git.foxminded.com.ua/Yuliia_Nikolaevna/foxminded/
+Author: Yuliia_Kuzminska
+Author-email: yuliia.nikolaevna86@gmail.com
+License: UNKNOWN
+Description: The application that takes a string and returns the number of unique characters in the string.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Framework :: Pytest
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown

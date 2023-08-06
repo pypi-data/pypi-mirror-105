@@ -1,0 +1,17 @@
+#[build-system]
+#requires = ["flit_core >=2,<4"]
+#build-backend = "flit_core.buildapi"
+#
+#[tool.flit.metadata]
+[build-system]
+requires = [
+    "setuptools>=54.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+module = "numbers _of_unique_characters"
+author = "Yuliia_Kuzminska"
+author-email = "yuliia.nikolaevna86@gmail.com"
+home-page = "https://git.foxminded.com.ua/Yuliia_Nikolaevna/foxminded/"
+classifiers = [ "License :: OSI Approved :: MIT License",]
+
