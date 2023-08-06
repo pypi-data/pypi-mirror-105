@@ -1,0 +1,13 @@
+<g 
+    {% if tag %}
+        class="{{ tag }}"
+    {% endif %}
+    transform="
+        translate({{ x * scale.x }} {{  y * scale.y }}) 
+        scale({{ scale.x }} {{ scale.y }})
+    "
+>
+    {% block content %}
+        {{ content|safe }}
+    {% endblock %}
+</g>

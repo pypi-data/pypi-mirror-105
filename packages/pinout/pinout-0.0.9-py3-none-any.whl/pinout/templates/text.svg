@@ -1,0 +1,14 @@
+<text
+    transform="
+        translate({{ x * scale.x }} {{  y * scale.y }}) 
+        scale({{ scale.x }} {{ scale.y }})
+    "  
+    fill="{{ fill|rgb }}"
+    dominant-baseline="auto"
+    text-anchor="left"
+    font-family="{{ family }}"
+    font-size="{{ size }}"
+    font-weight="{{ weight }}"
+>
+    {{ text_content }}
+</text>
