@@ -1,0 +1,10 @@
+setup.py
+fakegaussian/__init__.py
+fakegaussian/cli.py
+fakegaussian/fake.py
+fakegaussian.egg-info/PKG-INFO
+fakegaussian.egg-info/SOURCES.txt
+fakegaussian.egg-info/dependency_links.txt
+fakegaussian.egg-info/entry_points.txt
+fakegaussian.egg-info/requires.txt
+fakegaussian.egg-info/top_level.txt
