@@ -1,0 +1,10 @@
+likeshell/__init__.py,sha256=95avXSf0IPAmMgU2HmFiNC0WSb-hrh10Agihigxek6A,154
+likeshell/__version__.py,sha256=iwbwLXuCTKQ9yCIB4B4nsPpZbmtvMEsWnlXue9aUfiM,62
+likeshell/console.py,sha256=T6pMnJQx3C5BdLttj_WGmWrfkhIwPKZ4E3b6O2Wzhgw,354
+likeshell/options.py,sha256=ZLB1UIh_nWISys_Va8GnD14Wu30K1WvMJfmKQyb-ow8,2617
+likeshell/shell.py,sha256=8jB7U23CNN4M_sRHuxwU3k4prA0h45AxC9jltIaLqzY,2551
+likeshell-0.0.2.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+likeshell-0.0.2.dist-info/METADATA,sha256=EszZAkaRzaS_622cDFTlQ-o4lY4N9zDm1NwNML4_ABA,1387
+likeshell-0.0.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+likeshell-0.0.2.dist-info/top_level.txt,sha256=MEwL6mKA6Ky6LQPNGH8yV-uKDDZZ5q9XoG8IAiPoTnY,10
+likeshell-0.0.2.dist-info/RECORD,,
