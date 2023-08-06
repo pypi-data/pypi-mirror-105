@@ -1,0 +1,9 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+appicon/__init__.py
+appicon.egg-info/PKG-INFO
+appicon.egg-info/SOURCES.txt
+appicon.egg-info/dependency_links.txt
+appicon.egg-info/top_level.txt
