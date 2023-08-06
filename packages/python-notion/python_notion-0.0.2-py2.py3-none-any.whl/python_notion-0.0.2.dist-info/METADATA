@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: python-notion
+Version: 0.0.2
+Summary: A Python SDK for notion API.
+Home-page: https://github.com/tirkarthi/python-notion
+Author: Karthikeyan Singaravelan
+Author-email: tir.karthi@gmail.com
+License: MIT license
+Keywords: notion,notion-python,python-notion,notion-sdk,notion-client
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Requires-Dist: uplink (==0.9.4)
+
+======
+notion
+======
+
+
+.. image:: https://img.shields.io/pypi/v/python-notion.svg
+        :target: https://pypi.python.org/pypi/python-notion
+
+A Python package for notion API at https://developers.notion.com/reference/intro.
+
+
+* Free software: MIT license
+
+
+Usage
+-----
+
+```
+>>> from notion import Notion
+>>> client = Notion(api_token="XYZ")
+>>> client.get_users(notion_version="2021-12-12")
+```
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
