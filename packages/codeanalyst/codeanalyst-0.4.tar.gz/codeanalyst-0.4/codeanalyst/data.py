@@ -1,0 +1,77 @@
+languages = {
+  "java": "java",
+  "c": "c",
+  "c99": "c99",
+  "cpp": "cpp",
+  "cpp14": "cpp14",
+  "cpp17": "cpp17",
+  "php": "php",
+  "perl": "perl",
+  "python2": "python2",
+  "python3": "python3",
+  "python": "python3",
+  "ruby": "ruby",
+  "go": "go",
+  "scala": "scala",
+  "bash": "bash",
+  "sql": "sql",
+  "pascal": "pascal",
+  "c#": "csharp",
+  "vb.net": "vbn",
+  "haskell": "haskell",
+  "objective-c": "objc",
+  "swift": "swift",
+  "groovy": "groovy",
+  "fortran": "fortran",
+  "brainfuck": "brainfuck",
+  "lua": "lua",
+  "tcl": "tcl",
+  "hack": "hack",
+  "rust": "rust",
+  "d": "d",
+  "ada": "ada",
+  "r": "r",
+  "freebasic": "freebasic",
+  "verilog": "verilog",
+  "cobol": "cobol",
+  "dart": "dart",
+  "yabasic": "yabasic",
+  "clojure": "clojure",
+  "node": "nodejs",
+  "scheme": "scheme",
+  "forth": "forth",
+  "prolog": "prolog",
+  "octave": "octave",
+  "cs": "coffeescript",
+  "icon": "icon",
+  "fsharp": "fsharp",
+  "nasm": "nasm",
+  "gccasm": "gccasm",
+  "intercal": "intercal",
+  "nemerle": "nemerle",
+  "ocaml": "ocaml",
+  "unlambda": "unlambda",
+  "picolisp": "picolisp",
+  "clisp": "clisp",
+  "elixir": "elixir",
+  "factor": "factor",
+  "falcon": "falcon",
+  "fantom": "fantom",
+  "nim": "nim",
+  "kotlin": "kotlin",
+  "whitespace": "whitespace",
+  "erlang": "erlang",
+  "jlang": "jlang"
+}
+
+
+
+
+v3_langs = ["java", "c", "c99", "cpp", "cpp14", "php", "perl", "python", "python3", "ruby", "go", "scala", "bash", "sql", "c#", "vb.net", "haskell", 
+            "objective-c", "swift", "groovy", "fortran", "tcl", "rust", "ada", "r", "dart", "node", "octave", "cs", "nasm", "picolisp", "clisp", "elixir", "factor"]
+
+v2_langs = ["python2", "lua", "verilog", "cobol", "clojure", "scheme", "gccasm", "nim", "racket", "kotlin"]
+
+v1_langs = ["d", "freebasic", "yabasic", "prolog", "icon", "fsharp", "ocaml", "pike"]
+
+v0_langs = ["cpp17", "brainfuck", "hack", "forth", "intercal", "nemerle", "unlambda", "falcon", "fantom", "smalltalk", "mozart", "lolcode", "whitespace", "erlang", "jlang"]
