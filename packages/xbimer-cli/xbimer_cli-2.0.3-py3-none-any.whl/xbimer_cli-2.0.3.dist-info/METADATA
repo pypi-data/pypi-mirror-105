@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: xbimer-cli
+Version: 2.0.3
+Summary: Command line tools for xBIMer
+Home-page: https://github.com/xbimer/xbimer-cli.git
+Author: beanjs
+Author-email: 502554248@qq.com
+License: MIT
+Keywords: archicad,xbimer,xbimer-cli
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires-Python: >=3.7.5
+Description-Content-Type: text/markdown
+Requires-Dist: requests (==2.25.1)
+Requires-Dist: semver (==2.13.0)
+Requires-Dist: click (==7.1.2)
+Requires-Dist: colorama (==0.4.4)
+
+<h1 align="center" >xBIMer CLI</h1>
+<p align="center">Command line tools for xBIMer</p>
+
+<p align="center">
+<a href="https://github.com/xbimer/xbimer-docs">Read Documentation</a>
+</p>
+
+
