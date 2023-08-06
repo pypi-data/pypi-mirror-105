@@ -1,0 +1,15 @@
+muffin>=0.71.2
+aioredis
+
+[build]
+bump2version
+
+[fake]
+fakeredis
+
+[tests]
+pytest
+pytest-aio
+pytest-mypy
+aioredis
+fakeredis
