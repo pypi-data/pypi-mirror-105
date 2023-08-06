@@ -1,0 +1,8 @@
+README.md
+setup.cfg
+setup.py
+cocoyoyo_librairie_api.egg-info/PKG-INFO
+cocoyoyo_librairie_api.egg-info/SOURCES.txt
+cocoyoyo_librairie_api.egg-info/dependency_links.txt
+cocoyoyo_librairie_api.egg-info/requires.txt
+cocoyoyo_librairie_api.egg-info/top_level.txt
