@@ -1,0 +1,8 @@
+README.md
+setup.py
+shrike/__init__.py
+shrike.egg-info/PKG-INFO
+shrike.egg-info/SOURCES.txt
+shrike.egg-info/dependency_links.txt
+shrike.egg-info/requires.txt
+shrike.egg-info/top_level.txt
