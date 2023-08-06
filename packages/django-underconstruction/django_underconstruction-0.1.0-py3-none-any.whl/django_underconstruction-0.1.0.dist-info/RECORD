@@ -1,0 +1,11 @@
+django_underconstruction/__init__.py,sha256=13YXcTEjREYIXL0ukTZuEYpLbPQz5NZbh9rT2O0HEdg,46
+django_underconstruction/apps.py,sha256=Fry3dxjK1aZSg5DsIkJMTR0aL6JF_IdlzL_GX8h4Sbw,169
+django_underconstruction/middleware.py,sha256=zPKpw-0vaS9ONFZ45jb9ZJF-B507obHJ0Cs9i_fKV9E,374
+django_underconstruction/settings.py,sha256=b4NDujHyo4HawzSnej4W5ff1YVvQxQP_L6SOTyrtS4s,269
+django_underconstruction/version.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+django_underconstruction/templates/django_underconstruction/construction.html,sha256=1OIricZIYI_kxWyp16lK_XAocX-SwPtBZEAKEaFijeQ,929
+django_underconstruction-0.1.0.dist-info/LICENSE,sha256=boQkq8Bi2N0NM1_eDOXufOwuC1gAIOyoS6wcAIxDv7o,1080
+django_underconstruction-0.1.0.dist-info/METADATA,sha256=XU3OR_C34_UbqXmoQ1tcIylDbe9KlVIb16scXUJa-IY,2000
+django_underconstruction-0.1.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+django_underconstruction-0.1.0.dist-info/top_level.txt,sha256=eDe0EBtNT5ollsdRffpB8QGhZWrZtyBQlYS6Cim8k8k,25
+django_underconstruction-0.1.0.dist-info/RECORD,,
