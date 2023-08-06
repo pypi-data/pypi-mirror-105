@@ -1,0 +1,10 @@
+py_xlsx_textconv/__init__.py,sha256=yyLtGsBhynC-sSHdax-rRGvHNjH-gdWxIY68WnPVfDw,22
+py_xlsx_textconv/__main__.py,sha256=vYq3xOFkMfmcDC5_kjGrPX7ooj2IT7WCAWQjZ0nOMcg,386
+py_xlsx_textconv/convert.py,sha256=RxMgaY6oAOH-fCFetJRbqYNkECjxiUiw0fz4Xvm2pos,1354
+py_xlsx_textconv/run.py,sha256=jjhwFIZbmXJjVsys-MoEDjo_ErgRGampa_GaYVFqRy8,1191
+py_xlsx_textconv-0.0.3.dist-info/LICENSE,sha256=3-eSBzNcbfPEt3rK15ayBOcT2cPxbCJH8tXOTKZtV7A,878
+py_xlsx_textconv-0.0.3.dist-info/METADATA,sha256=lIdSpEEzusGtwDs4ZYvUoNjfn8fREUBMlCyIL4JMoRc,2356
+py_xlsx_textconv-0.0.3.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+py_xlsx_textconv-0.0.3.dist-info/entry_points.txt,sha256=AtAdfAHZSMucU3q1OsG0i4L-NDcF4rmBzETNwLSGJL8,69
+py_xlsx_textconv-0.0.3.dist-info/top_level.txt,sha256=VRHIZJ_XJ_6nITiH90ETBDOxAAVwP9N5T9CVySRTjeg,17
+py_xlsx_textconv-0.0.3.dist-info/RECORD,,
