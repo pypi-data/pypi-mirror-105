@@ -1,0 +1,10 @@
+nagios_check_supervisord-2.1.1.data/data/share/doc/nagios-check-supervisord/AUTHORS,sha256=-1y2sJaryv9ObXCktZVzA7NHHpnP-zBWV9FiH4VBPbI,250
+nagios_check_supervisord-2.1.1.data/data/share/doc/nagios-check-supervisord/COPYING,sha256=jOtLnuWt7d5Hsx6XXB2QxzrSe2sWWh3NgMfFRetluQM,35147
+nagios_check_supervisord-2.1.1.data/data/share/doc/nagios-check-supervisord/README.rst,sha256=tl5JqG2G3gPZ-52Z-83UsQXzEU0efsavjHnq79WCnRg,4309
+nagios_check_supervisord-2.1.1.data/scripts/check_supervisord.py,sha256=bJcir5UOsMTjWwnsp53B-91zhx1iKxT1i5TXvXB2Cfg,16078
+nagios_check_supervisord-2.1.1.dist-info/AUTHORS,sha256=-1y2sJaryv9ObXCktZVzA7NHHpnP-zBWV9FiH4VBPbI,250
+nagios_check_supervisord-2.1.1.dist-info/COPYING,sha256=jOtLnuWt7d5Hsx6XXB2QxzrSe2sWWh3NgMfFRetluQM,35147
+nagios_check_supervisord-2.1.1.dist-info/METADATA,sha256=cGO2MIVtm_c_DnYw_4SUkmtUskAj9_SBmiPYE_nfkhE,8644
+nagios_check_supervisord-2.1.1.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+nagios_check_supervisord-2.1.1.dist-info/top_level.txt,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+nagios_check_supervisord-2.1.1.dist-info/RECORD,,
