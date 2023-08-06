@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: calc-ev-115
+Version: 0.0.1
+Summary: simple calculator
+Home-page: https://github.com/EVitkunaite
+Author: Egle Vitkunaite
+Author-email: egle3ph0@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+The calculator package
+
+pip install calc_ev_115
+
+Import:
+
+#import calc_ev_115
+#calc = calc_ev_115.Calculator() 
+
+The calculator has these functions:
+
+    #Addition (.add(to_add))
+    #Substraction (.substract(to_sub))
+    #Multiplication (.multiply(to_mul))
+    #Division (.divide(to_div))
+    #n root function (.root(to_root))
+
+The example of usage of this package:
+#result = calc.add(2)
+#print(result)
+
+This calculator package has memory in itself. 
+To erase the current value use calculator.reset() command.
+
