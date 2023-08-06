@@ -1,0 +1,11 @@
+pycares/__init__.py,sha256=StelPfPN4vkHFQoU5YtLfkUoT0vPRqF8lnoWKrUD0BY,25529
+pycares/__main__.py,sha256=G5w3GVUlWwkSOzO5h0KtDUCC4x7XTiKQCZfngNfZOto,2674
+pycares/_cares.cpython-36m-darwin.so,sha256=DyB45JDbuiD36IiNKic1KxIAgQjzOTZoNBCByYuoPak,175008
+pycares/_version.py,sha256=LZ7yGk0HFp9UTt5rSDGybyeBoeAiYkWU3pHrC7CK8u0,23
+pycares/errno.py,sha256=iHM7r53nULgWwYAKeBhhFYq1hsO4DBuVsXBQeuqifys,1019
+pycares/utils.py,sha256=WXvoHfPeL7EoKdelvJ9LzIviMH3ijElLxH2Hgz5-0qU,1343
+pycares-3.2.3.dist-info/LICENSE,sha256=QnuzpTcgJKJuLCkLJDglErzHyhI0McTdF43WE77qfu4,1070
+pycares-3.2.3.dist-info/METADATA,sha256=hBnUcWYAKuUF06c3Ipn9nCOUj8cZYIazdLWLuPOENEw,4164
+pycares-3.2.3.dist-info/WHEEL,sha256=SCcPaD1xriZouD6EXl7AgcYiQmH1NgiskymVTsykSG4,110
+pycares-3.2.3.dist-info/top_level.txt,sha256=nIeo7L2XUVBQZO2YE6pH7tlKaBWTfmmRcXbqe_NWYCw,15
+pycares-3.2.3.dist-info/RECORD,,
