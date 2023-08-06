@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: iamunused
+Version: 0.1.0
+Summary: Scan and remediate unused permissions within IAM Policies
+Home-page: https://github.com/chrisdunne/iamunused
+Author: Chris Dunne
+Author-email: contact@chrisdunne.net
+License: MIT
+Description: # iamunused
+        Scan and remediate unused permissions within IAM Policies
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
