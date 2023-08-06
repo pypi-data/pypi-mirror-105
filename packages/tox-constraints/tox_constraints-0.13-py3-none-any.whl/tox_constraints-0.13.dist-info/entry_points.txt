@@ -1,0 +1,9 @@
+[console_scripts]
+toxc-clean = tox_constraints.git_filter:clean
+toxc-install = tox_constraints.git_filter:install
+toxc-recut = tox_constraints.recutter:main
+toxc-smudge = tox_constraints.git_filter:smudge
+
+[tox]
+constraints = tox_constraints.hooks
+
