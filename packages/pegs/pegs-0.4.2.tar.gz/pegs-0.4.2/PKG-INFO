@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pegs
+Version: 0.4.2
+Summary: Peak-set Enrichment of Gene-Sets (PEGS)
+Home-page: https://github.com/fls-bioinformatics-core/pegs
+Author: Mudassar Iqbal, Peter Briggs
+Maintainer: Peter Briggs
+Maintainer-email: peter.briggs@manchester.ac.uk
+License: BSD-3-Clause
+Description: PEGS is a Python bioinformatics utility for calculating enrichments of gene cluster enrichments from peak data at different genomic distances
+Keywords: PEGS
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
