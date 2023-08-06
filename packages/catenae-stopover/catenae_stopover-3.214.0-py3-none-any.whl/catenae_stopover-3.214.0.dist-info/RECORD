@@ -1,0 +1,12 @@
+catenae/__init__.py,sha256=VkCZBByGVu-yl2gyKgE3X-8sGI4fOUQ_IgbUzQKTo0g,1773
+catenae/catenae.py,sha256=cK_xNB8uvgNS8XcMd37_0DAH-pyt_uX1uMnsr_Ujfko,16253
+catenae/errors.py,sha256=7FNW7Mj-eoMZoLm2n2eQRFh-ZNpUTbeieET6GAMzxdk,389
+catenae/logger.py,sha256=ozHF59ShOBd-9pRRR6c0Pw5wKzSJV_E1u3MI5-HXNx4,620
+catenae/queue.py,sha256=PWF7KEwKpE5vTvncsiRmqh7H4oCXuUDkM0-bGhImACk,2017
+catenae/threading.py,sha256=EzWztWIazgpQkcpzaxCvy7NsQpIpSvGT4uw-YlqHY9w,1841
+catenae/utils.py,sha256=MUAOqSJ6M_5QXiaTH3vwTzPuaAcxO6xnSf59NgClhug,951
+catenae_stopover-3.214.0.dist-info/LICENSE,sha256=z8d0m5b2O9McPEK1xHG_dWgUBT6EfBDz6wA0F7xSPTA,11358
+catenae_stopover-3.214.0.dist-info/METADATA,sha256=b-mOlYLaChiF4ndoFbF-hca_n6oq3Ah_LFL6FXD_a0E,796
+catenae_stopover-3.214.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+catenae_stopover-3.214.0.dist-info/top_level.txt,sha256=8E6E0SqL9fHRQOOIaHVm5xJyTIBR5BqQiu04oOmV2YQ,8
+catenae_stopover-3.214.0.dist-info/RECORD,,
