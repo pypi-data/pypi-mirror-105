@@ -1,0 +1,16 @@
+pyparsing
+sympy
+
+[all]
+pytest
+yaml
+watchdog
+typer
+
+[command]
+watchdog
+typer
+
+[test]
+pytest
+yaml
