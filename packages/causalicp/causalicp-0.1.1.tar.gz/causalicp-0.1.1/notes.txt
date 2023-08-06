@@ -1,0 +1,8 @@
+# How they compute the confidence intervals
+
+ConfInt[1, usevariab] <- pmax(ConfInt[1, usevariab, 
+                drop = FALSE], tmp$coefficients + qnorm(1 - alpha/4) * 
+                tmp$coefficientsvar, na.rm = TRUE)
+            ConfInt[2, usevariab] <- pmin(ConfInt[2, usevariab, 
+                drop = FALSE], tmp$coefficients - qnorm(1 - alpha/4) * 
+                tmp$coefficientsvar, na.rm = TRUE)

@@ -1,0 +1,5 @@
+sempler.generators
+==================
+
+.. automodule:: causalicp.icp
+   :members:
