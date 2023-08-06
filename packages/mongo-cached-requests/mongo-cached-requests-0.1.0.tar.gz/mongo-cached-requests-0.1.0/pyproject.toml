@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "mongo-cached-requests"
+version = "0.1.0"
+description = "requests cached to mongodb"
+authors = ["Patrick Fenerty <patrick@fenerty.me>"]
+license = "GNU"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.25.1"
+pymongo = "^3.11.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
