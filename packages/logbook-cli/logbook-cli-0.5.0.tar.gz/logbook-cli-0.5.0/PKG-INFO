@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: logbook-cli
+Version: 0.5.0
+Summary: Command line tool to keep logs
+Author: Maksudul Haque
+Author-email: saad.mk112@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: SQLAlchemy (==1.4.15)
+Requires-Dist: colorama (==0.4.4)
+Requires-Dist: shellingham (==1.4.0)
+Requires-Dist: tabulate (==0.8.9)
+Requires-Dist: typer (==0.3.2)
+Description-Content-Type: text/markdown
+
+# logbook-cli
+
