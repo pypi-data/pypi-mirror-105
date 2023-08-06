@@ -1,0 +1,5 @@
+setup.py
+PaqueteAECA.egg-info/PKG-INFO
+PaqueteAECA.egg-info/SOURCES.txt
+PaqueteAECA.egg-info/dependency_links.txt
+PaqueteAECA.egg-info/top_level.txt
