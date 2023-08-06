@@ -1,0 +1,27 @@
+CHANGES
+=======
+
+1.0.1
+-----
+
+* Increase timeouts for CI
+* Exit process, when timeout is reached
+* Update README - examples were outdated
+
+1.0.0
+-----
+
+* Make behavior more predictable
+* Update README.md
+* Update README.md
+* CI: Build before publish
+* Update README.md
+* Change tests reporter stage
+* Add git clone stage
+* Update README.md
+* Add .gitconfig to gitignore
+* Add a pipeline
+* Make a Python package
+* Add some tests coverage
+* Refactor, use rkd.api.io
+* Initial version
