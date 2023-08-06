@@ -1,0 +1,6 @@
+setup.py
+oface.egg-info/PKG-INFO
+oface.egg-info/SOURCES.txt
+oface.egg-info/dependency_links.txt
+oface.egg-info/not-zip-safe
+oface.egg-info/top_level.txt
