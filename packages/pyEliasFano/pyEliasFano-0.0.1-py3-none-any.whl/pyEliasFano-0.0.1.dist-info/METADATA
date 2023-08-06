@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pyEliasFano
+Version: 0.0.1
+Summary: pyEliasFano offers a **quasi-succinct** represenation for a monotone non-decreasing sequence of n integers from the universe [0 . . . m) occupying 2*n+n*ceil(log2(m/n)) bits.
+Home-page: https://github.com/rmrschub/pyEliasFano
+Author: René Schubotz
+Author-email: rene.schubotz@dfki.de
+License: CC BY-NC-SA 4.0
+Platform: UNKNOWN
+Requires-Dist: math
+Requires-Dist: typing
+Requires-Dist: bitarray
+Requires-Dist: unary-coding
+
+UNKNOWN
+
+
