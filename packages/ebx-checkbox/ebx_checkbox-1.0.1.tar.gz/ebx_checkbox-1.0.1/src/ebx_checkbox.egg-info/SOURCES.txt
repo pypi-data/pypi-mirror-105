@@ -1,0 +1,8 @@
+LICENSE
+pyproject.toml
+setup.cfg
+src/ebx_checkbox.egg-info/PKG-INFO
+src/ebx_checkbox.egg-info/SOURCES.txt
+src/ebx_checkbox.egg-info/dependency_links.txt
+src/ebx_checkbox.egg-info/top_level.txt
+src/ebx_checklist/__init__.py
