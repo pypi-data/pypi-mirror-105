@@ -1,0 +1,8 @@
+pint>=0.17
+pint-pandas>=0.2
+xlrd
+openpyxl
+configobj
+simplejson
+jsonschema
+PyYAML
