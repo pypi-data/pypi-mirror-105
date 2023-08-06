@@ -1,0 +1,6 @@
+jq_test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+jq_test/jq-linux-x86_64,sha256=ubY6pLPMhd-L3KiE7_tp1m6evXF0VKniEtlCP_4-lV8,497799
+jq_test/jq-linux64,sha256=xrOn19PntwxvUbcGo7kL0BgzhGxU0yyjLwAn8AIm_20,3027945
+jq_test-0.2.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+jq_test-0.2.0.dist-info/METADATA,sha256=NkKhauhu6Rc7f_ljtOBv7tyKxWmoN0UYMfEJ_yeOxQs,285
+jq_test-0.2.0.dist-info/RECORD,,
