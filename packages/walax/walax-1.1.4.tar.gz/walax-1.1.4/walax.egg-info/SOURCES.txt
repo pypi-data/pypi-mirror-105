@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+walax/__init__.py
+walax/admin.py
+walax/apps.py
+walax/models.py
+walax/routers.py
+walax/serializers.py
+walax/tests.py
+walax/views.py
+walax.egg-info/PKG-INFO
+walax.egg-info/SOURCES.txt
+walax.egg-info/dependency_links.txt
+walax.egg-info/requires.txt
+walax.egg-info/top_level.txt
