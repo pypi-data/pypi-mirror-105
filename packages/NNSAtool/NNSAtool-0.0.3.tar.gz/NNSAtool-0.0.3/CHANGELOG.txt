@@ -1,0 +1,32 @@
+Change Log
+==========
+
+0.0.1 (09.05.2021)
+------------------
+#Test version
+- BertDataset & BertDataLoaderFactory
+
+0.0.2 (09.05.2021)
+------------------
+# Test version
+- Minor bags fixed
+
+0.0.3 (14.05.2021)
+------------------
+- PreProcConst
+- ModuleConst
+- EmbModeConst
+- PreAggModeConst, PostAggModeConst, AggModeConst
+- PreTransModeConst, PostTransModeConst
+
+- TokenizedDataset & TokenizedDataLoaderFactory
+    (BertDataset & BertDataLoaderFactory DEPRICATED)
+
+- EmbeddingModule
+
+- ModuleChain & ModuleChainFactory
+- TransitionModule
+
+- AggregationModule & AggregationModuleFactory
+
+- SemanticAggregator
