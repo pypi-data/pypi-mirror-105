@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: napari-arboretum
+Version: 0.0.1
+Summary: Track graph and lineage tree visualization with napari
+Home-page: https://github.com/quantumjot/arboretum
+Author: Alan R. Lowe
+Author-email: a.lowe@ucl.ac.uk
+License: LICENCE.md
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Framework :: napari
+Classifier: Topic :: Software Development :: Testing
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.17.3)
+Requires-Dist: scipy (>=1.3.1)
+Requires-Dist: napari (>=0.4.0)
+Requires-Dist: pyqtgraph (>=0.10.0)
+
+# Arboretum
+
+### Overview
+
+A dockable widget for [Napari](https://github.com/napari) for visualizing cell lineage trees.
+
+
+Features:
++ Lineage tree plot widget
++ Integration with [btrack](https://github.com/quantumjot/BayesianTracker)
+
+[![LineageTree](./examples/napari.png)](http://lowe.cs.ucl.ac.uk/cellx.html)  
+*Automated cell tracking and lineage tree reconstruction*.
+
+---  
+
+ :construction:  **WORK IN PROGRESS**  :construction:
+
+ This project has changed considerably. The `Tracks` layer, originally developed for this plugin, is now an official layer type in napari. Read the napari documentation here:  
+ https://napari.org/api/stable/napari.layers.Tracks.html#napari.layers.Tracks
+
+
+ To view the legacy version of this plugin, visit the legacy branch:  
+ https://github.com/quantumjot/arboretum/tree/v1-legacy
+
+---
+
+#### TODO:
++ [x] Refactor for Napari 0.4.0 (now including `napari.layers.Tracks`!)
++ [ ] Highlight cells in the viewer from the lineage tree view
++ [ ] Visualize merges
++ [ ] Color trees by properties
+
+---
+
+### Installation
+
+We recommend that you first install napari. Detailed instructions are here: https://github.com/napari/napari.
+
+```sh
+pip install napari[all]
+```
+
+then install arboretum:
+
+```sh
+git clone https://github.com/quantumjot/arboretum.git
+cd arboretum
+pip install -e .
+```
+
+Once installed, Arboretum will be visible in the `Plugins > Add Dock Widget > arboretum` menu in napari.
+
+

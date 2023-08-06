@@ -1,0 +1,15 @@
+napari_arboretum/__init__.py,sha256=I21ylbXbD3bIIDfGkTchESv4gBS_Rkv--V-d1XwjD_E,197
+napari_arboretum/_colormaps.py,sha256=ojN8Z6ELu9lj5h8_97flP7Wodf4Unt6jWklZLczZGCc,2239
+napari_arboretum/_hookimpls.py,sha256=lALTTVkmyaJkOllw27unHOxmD6_FXTdW7Gs3VQMgsX8,189
+napari_arboretum/_version.py,sha256=Tjb_poy6EuGRi7TlrksJa9Qpx1MXOCO3p3F6tJ8xa5o,142
+napari_arboretum/graph.py,sha256=em9KpQgUvXyQTHhR-zVIixcTSUw6em_d_o3E-M_78EY,4404
+napari_arboretum/plugin.py,sha256=_fn3K_FeUTYhWW3qbyc4JB5RF3Uw7qulf4L7wkxr5_Y,3610
+napari_arboretum/tree.py,sha256=-QHDUy1_xc1yIwbNBTM0Z1SSy10LuEDE4awgY0Kl5OA,2813
+napari_arboretum/_tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+napari_arboretum/_tests/test_dock_widget.py,sha256=BYkpTPOcfYc4NcF1ZS7JTwKQkM1dBYqz8Adn9LJT5Vk,623
+napari_arboretum-0.0.1.dist-info/LICENSE.md,sha256=IOi4cHfE04PyhcUBKNXXIPsCNHJupyWLpXkGNUD0IGg,1082
+napari_arboretum-0.0.1.dist-info/METADATA,sha256=ZSEj20KRxg3mPwPthHtfv17II3wiZ_A9IvHVBVWVizY,2396
+napari_arboretum-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+napari_arboretum-0.0.1.dist-info/entry_points.txt,sha256=kwu301unLqpGhC_fV6evk94Y-3Gr73V_z_GKXtNBmNw,53
+napari_arboretum-0.0.1.dist-info/top_level.txt,sha256=Q_N6XOkusrkWnZ9gZ5YNs8uTrYPGt6VQSl2zMx5mbNI,17
+napari_arboretum-0.0.1.dist-info/RECORD,,
