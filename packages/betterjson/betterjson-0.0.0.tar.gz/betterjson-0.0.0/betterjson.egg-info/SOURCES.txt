@@ -1,0 +1,7 @@
+README.md
+setup.py
+betterjson/__init__.py
+betterjson.egg-info/PKG-INFO
+betterjson.egg-info/SOURCES.txt
+betterjson.egg-info/dependency_links.txt
+betterjson.egg-info/top_level.txt
