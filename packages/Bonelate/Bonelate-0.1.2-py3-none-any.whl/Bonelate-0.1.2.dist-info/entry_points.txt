@@ -1,0 +1,3 @@
+[console_scripts]
+bonelate = bonelate.__main__:app
+
