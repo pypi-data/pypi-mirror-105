@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+gre/__init__.py
+gre/__main__.py
+grefornoobs.egg-info/PKG-INFO
+grefornoobs.egg-info/SOURCES.txt
+grefornoobs.egg-info/dependency_links.txt
+grefornoobs.egg-info/entry_points.txt
+grefornoobs.egg-info/top_level.txt
