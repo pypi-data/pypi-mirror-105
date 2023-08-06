@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+plotcollector/__init__.py
+plotcollector/plotcollector.py
+plotcollector.egg-info/PKG-INFO
+plotcollector.egg-info/SOURCES.txt
+plotcollector.egg-info/dependency_links.txt
+plotcollector.egg-info/requires.txt
+plotcollector.egg-info/top_level.txt
+plotcollector/data/window.ui

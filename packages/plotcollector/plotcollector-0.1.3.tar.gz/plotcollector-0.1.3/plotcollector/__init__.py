@@ -1,0 +1,1 @@
+from .plotcollector import view
