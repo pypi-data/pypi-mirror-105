@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: ventaapi
+Version: 1.0.0
+Summary: Local API connector library for Venta Air Washers
+Home-page: UNKNOWN
+Author: Vladislav Sharapov
+License: MIT
+Description: # Venta API
+        
+        Local API connector library for Venta Air Washers (e.g. LW73/LW74)
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
