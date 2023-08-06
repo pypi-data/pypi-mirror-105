@@ -1,0 +1,6 @@
+cdef double trapz_1d(double[:] y, double[:] x)
+cdef double mean_square(double[:] x)
+cdef double mean_square_root(double[:] x)
+cdef double[:] interp_1d(double[:] x_new, double[:] x, double[:] y)
+cdef double[:] gradient1d(double[:] y, double[:] x)
+cdef double[:] gradient1d_error(double[:] err, double[:] x)

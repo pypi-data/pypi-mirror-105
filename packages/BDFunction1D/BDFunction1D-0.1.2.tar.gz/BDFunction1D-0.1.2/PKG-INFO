@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: BDFunction1D
+Version: 0.1.2
+Summary: BD one dimensional real argument real value functions
+Home-page: https://github.com/bond-anton/BDFunction1D
+Author: Anton Bondarenko
+Author-email: bond.anton@gmail.com
+License: Apache Software License
+Description: # BDFunction1D
+        
+        ![Build](https://github.com/bond-anton/BDFunction1D/workflows/Build/badge.svg)
+        [![codecov](https://codecov.io/gh/bond-anton/BDFunction1D/branch/master/graph/badge.svg)](https://codecov.io/gh/bond-anton/BDPoisson1D)
+        
+        One dimensional real argument real value functions.
+        
+        ## Installation
+        
+        To install run
+        ```shell
+        pip install BDFunction1D
+        ```
+        or
+        ```shell
+        python setup.py install
+        ```
+        ## Usage
+        
+        Please see the demo directory for the usage examples.
+        
+        ## License
+        
+        BDFunction1D is free open source software licensed under Apache license version 2.0
+        
+Keywords: 1D R->R functions
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
