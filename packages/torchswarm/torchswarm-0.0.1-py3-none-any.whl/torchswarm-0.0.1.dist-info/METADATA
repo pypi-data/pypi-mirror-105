@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: torchswarm
+Version: 0.0.1
+Summary: A fast implementation of Particle Swarm Optimization using PyTorch
+Home-page: https://github.com/rohanmohapatra/torchswarm
+Author: Rohan Mohapatra
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: torch
+
+# Torchswarm 
+
+A fast implementation of Particle Swarm Optimization using PyTorch
+
+## We support
+### Variants of Particle Swarm Optimization
+We support for all kinds of PSO
+### Bring your own particle
+We allow for getting a custom particle with a different velocity update rule, 
+The Class must have the following methods:
+- `__init__`
+- `move`
+- `update_velocity`
+## How to define your problem.
+Create a class by inheriting `torchswarm.functions.Function` and an `evaluate` method.
+```python
+class XSquare(Function):
+    def evaluate(self, x):
+        return x**2
+``` 
+
+## Contributors:
+- [Rohan Mohapatra](https://github.com/rohanmohapatra)
+
+
+
+
+

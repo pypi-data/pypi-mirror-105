@@ -1,0 +1,13 @@
+torchswarm/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+torchswarm/functions/__init__.py,sha256=wdEEzjH72t3fF5a8ic37yyGe7vtZr8GrOjZ6tULAZR4,56
+torchswarm/particle/__init__.py,sha256=EykDjpTFJCP8yHWHkmPzxob6oflww21bU9j98Pn719s,5490
+torchswarm/particle/particle_factory.py,sha256=jCFdMzHBx20aDV9UIB5GXlv34Topg8HB2xQEaCcy02w,529
+torchswarm/swarmoptimizer/__init__.py,sha256=m_do3L1itRQGZ7ClniA6pn6mjYZ8urXNyPbbhPmtnQ8,3141
+torchswarm/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+torchswarm/utils/parameters.py,sha256=6n_Xu1NwAPE2W4Ab6g-g-g-MjIlUOi_sx1IKOIPBd8Q,34
+torchswarm/utils/rotation_utils.py,sha256=Q5OV71JEpjzzZXI-n37_-vfgZ8TF3mVO-yaWT370OA0,1175
+torchswarm-0.0.1.dist-info/LICENSE,sha256=a6jENa56gyP-BmaBAk8iJq_5S_oHQ5wpv8vsvFTLo3Q,1071
+torchswarm-0.0.1.dist-info/METADATA,sha256=rWUKSnwDXD221PLLgQ7dTZeuJRSxqm1kefSIYoBwQNc,1120
+torchswarm-0.0.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+torchswarm-0.0.1.dist-info/top_level.txt,sha256=Ups4aoKURpxXABa_l0p2QBy5FyLr0Gg9wh1jgjqpceY,11
+torchswarm-0.0.1.dist-info/RECORD,,
