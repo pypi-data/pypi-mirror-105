@@ -1,0 +1,8 @@
+bs4
+Faker
+httpx
+lxml
+pre-commit
+pytest
+pytest-cov
+sphinx-autodoc-typehints
