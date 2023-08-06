@@ -1,0 +1,11 @@
+_klimits.cpython-39-x86_64-linux-gnu.so,sha256=QtA4O8Ehc91P2_uK3f0YstqMoscof-ATurs-kgFnAT0,873624
+klimits-1.0.3.dist-info/RECORD,,
+klimits-1.0.3.dist-info/WHEEL,sha256=C-sg6l2ppbqlkU_0fUt0o5fTSvsM-h9TfVKAh4ryMfI,111
+klimits-1.0.3.dist-info/METADATA,sha256=PVXDGwYYM1kU_8zOXlYeWpMxJuvLE2Qliff6ZqcTQvY,3357
+klimits-1.0.3.dist-info/LICENSE,sha256=-UPFAkK50BYtSmNdKyULCBKXAV9kj-khSfMOPHPrSLQ,1072
+klimits-1.0.3.dist-info/top_level.txt,sha256=zcNnwYtfC2fb1V09GLe74lkKrFNVVsrnEIMt_6lwkM0,17
+klimits/joint_limit_equations.py,sha256=bo5zQAphlk_jrz5KJtxkkWrTdtpD7ugZN_JZ_oUdXkA,18198
+klimits/limit_calculation.py,sha256=nFhDt7-y4r-xmfyzj6_Jl0KVOxA1LqxUmGYDns84JFA,25554
+klimits/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+klimits/test_trajectory_generation.py,sha256=a8WYlqVBQ1NYuZNhsuG3eUZqa0N7ASpqbPaMUULNUx8,12318
+klimits/trajectory_plotter.py,sha256=i0rvo3479QdXkKFJpnDNyDLZ7NPaOL3saX28C3DTjk0,12483
