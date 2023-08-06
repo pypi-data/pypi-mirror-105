@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "django-cadence"
+version = "0.2.0"
+description = "A package to provide periodic scheduled task support in Django"
+authors = ["Dan Sloan <dan@luciddan.com>"]
+maintainers = ["Dan Sloan <dan@luciddan.com>"]
+license = "MPL-2.0"
+readme = "README.md"
+homepage = "https://github.com/LucidDan/django-cadence/"
+repository = "https://github.com/LucidDan/django-cadence.git"
+documentation = "https://django-cadence.rtfd.io/"
+keywords = ["scheduling", "task", "periodic", "cron", "django"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Environment :: Web Environment",
+    "Framework :: Django :: 2.2",
+    "Framework :: Django :: 3.0",
+    "Framework :: Django :: 3.1",
+    "Typing :: Typed"
+]
+
+[tool.poetry.urls]
+issues = "https://github.com/LucidDan/django-cadence/issues"
+
+[tool.poetry.dependencies]
+python = ">=3.6.2,<4.0.0"
+django = ">=2.2.0,<3.3"
+# should be safe up to 4.0
+apscheduler = ">=3.6.0,<4.0.0"
+# Celery 5 known to include big changes, don't support it until we test
+celery = { version = ">=4.4.0,<5.0.0", optional = true }
+# Likewise, Dramatiq doesn't change much within minor versions, but caution may be needed when a 1.0 release drops
+django_dramatiq = { version = ">=0.9.0,<1.0.0", optional = true }
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+pytest-cov = "^2.11.1"
+pytest-django = "^4.2.0"
+mypy = ">=0.770"
+django-stubs = "^1.8.0"
+black = "^21.5b1"
+pytest-mock = "^3.6.1"
+lxml = "^4.6.3"
+sphinx = "^4.0.1"
+recommonmark = "^0.7.1"
+sphinxcontrib-napoleon = "^0.7"
+alabaster = "^0.7.12"
+
+[tool.poetry.extras]
+dramatiq = ["django_dramatiq"]
+celery = ["celery"]
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.masonry.api"
