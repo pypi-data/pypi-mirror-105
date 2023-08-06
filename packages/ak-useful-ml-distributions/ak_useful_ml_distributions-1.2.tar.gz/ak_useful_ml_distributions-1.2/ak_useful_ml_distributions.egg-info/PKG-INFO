@@ -1,0 +1,15 @@
+Metadata-Version: 1.0
+Name: ak-useful-ml-distributions
+Version: 1.2
+Summary: Distribution Classes for Machine Learning
+Home-page: UNKNOWN
+Author: Andrew Kalil
+Author-email: andrew_kalil@hotmail.com
+License: UNKNOWN
+Description-Content-Type: text/markdown
+Description: # Example Package
+        
+        This is a simple example package. You can use
+        [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+        to write your content.
+Platform: UNKNOWN
