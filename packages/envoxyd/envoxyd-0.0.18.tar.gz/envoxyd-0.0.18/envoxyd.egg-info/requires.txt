@@ -1,0 +1,2 @@
+envoxy>=0.1.17
+flask_cors==3.0.9
