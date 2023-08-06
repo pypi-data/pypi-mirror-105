@@ -1,0 +1,13 @@
+numpy
+scipy
+matplotlib
+ase>=3.21.1
+Sphinx==3.5.4
+sphinx-rtd-theme
+sphinxcontrib-applehelp
+sphinxcontrib-devhelp
+sphinxcontrib-htmlhelp
+sphinxcontrib-jsmath
+sphinxcontrib-qthelp
+sphinxcontrib-serializinghtml
+sphinxcontrib-wiki
