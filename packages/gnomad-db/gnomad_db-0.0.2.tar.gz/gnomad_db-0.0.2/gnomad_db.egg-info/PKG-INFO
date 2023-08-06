@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: gnomad-db
+Version: 0.0.2
+Summary: This package scales the huge gnomAD files to a SQLite database, which is easy and fast to query. It extracts from a gnomAD vcf the minor allele frequency for each variants.
+Home-page: UNKNOWN
+Author: KalinNonchev
+Author-email: boo@foo.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
