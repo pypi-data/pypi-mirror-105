@@ -1,0 +1,9 @@
+Metadata-Version: 1.2
+Name: lusportscentre
+Version: 0.1
+Summary: A simple wrapper for the Lancaster Sports Centre API, allowing you to book sessions etc.
+Home-page: https://www.github.com/ravenkls/lusportscentre/
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.8.0
