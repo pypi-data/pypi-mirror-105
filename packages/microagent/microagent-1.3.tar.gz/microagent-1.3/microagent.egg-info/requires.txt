@@ -1,0 +1,11 @@
+ujson
+requests
+
+[aioredis]
+aioredis==1.3
+
+[amqp]
+aioamqp==0.14
+
+[kafka]
+aiokafka==0.7
