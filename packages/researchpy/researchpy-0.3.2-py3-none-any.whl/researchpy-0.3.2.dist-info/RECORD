@@ -1,0 +1,11 @@
+researchpy/__init__.py,sha256=RErzbvWhYkXeNx3BQ0loaIITdEeDC7HyEeKBNkj72Z4,226
+researchpy/correlation.py,sha256=A3iKZueVRSVYrXtIQ0VzAbhlaO0K6H2Agr6JhiQnOgg,3219
+researchpy/crosstab.py,sha256=lOATADmMYm4714IFOcKAON8R7szm1VZQuG3FqeCkomE,6505
+researchpy/difference_test.py,sha256=V4Ox_MDjHr1Po2GuSjUc9Bg58Tty3doPHPhOfu28mNc,17422
+researchpy/summary.py,sha256=6421hAHIxjdQZx0Q3LeD2VqBPH5n5j9ASy8rYBOwKLY,18909
+researchpy/ttest.py,sha256=rARcg_Zxnx1YIlSeeVTSjh611qbxlPn_BvmSuoAUbvk,11387
+researchpy-0.3.2.dist-info/LICENSE.txt,sha256=0ojyQHcDKZjp7I21qFHBQgTU1hQ9Tfz9FPgwekOwax8,1541
+researchpy-0.3.2.dist-info/METADATA,sha256=8us0ye13Pbh7WTJbgb_Y4xg9peh-2k3iKmCuGHB2w1c,1033
+researchpy-0.3.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+researchpy-0.3.2.dist-info/top_level.txt,sha256=_v7XQ-HCRytQ5t_tLauLERBLfVXJjzzYYkOBIeztrsE,11
+researchpy-0.3.2.dist-info/RECORD,,
