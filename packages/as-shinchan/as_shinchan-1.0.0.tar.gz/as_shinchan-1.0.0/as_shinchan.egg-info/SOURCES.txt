@@ -1,0 +1,9 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+as_shinchan/__init__.py
+as_shinchan.egg-info/PKG-INFO
+as_shinchan.egg-info/SOURCES.txt
+as_shinchan.egg-info/dependency_links.txt
+as_shinchan.egg-info/top_level.txt
