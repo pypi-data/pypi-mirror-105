@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: sinabs-cpp
+Version: 0.post0.dev16
+Summary: SynSense Spiking Neural Network simulator for deep neural networks (DNNs).
+Home-page: UNKNOWN
+Author: SynSense (formerly AiCTX)
+Author-email: sinabs@synsense.ai
+License: GNU AGPLv3
+Project-URL: Source Code, https://gitlab.com/aiCTX/sinabs
+Project-URL: Documentation, https://sinabs.ai
+Description: UNKNOWN
+Keywords: spiking,SNN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
