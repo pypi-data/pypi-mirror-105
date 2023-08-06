@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: pythaiasr
+Version: 0.1
+Summary: Python Thai ASR
+Home-page: https://github.com/wannaphong/pythaiasr
+Author: Wannaphong Phatthiyaphaibun
+Author-email: wannaphong@yahoo.com
+License: Apache Software License 2.0
+Keywords: asr
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: Thai
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown
+Requires-Dist: datasets
+Requires-Dist: transformers
+Requires-Dist: torchaudio
+Requires-Dist: torch
+Requires-Dist: librosa
+Requires-Dist: numpy
+
+# pythaiasr
+
+Python Thai ASR
+
+I made a simple python package for Thai ASR. I used model from [chompk/wav2vec2-large-xlsr-thai-tokenized](https://huggingface.co/chompk/wav2vec2-large-xlsr-thai-tokenized).
+
+
+Google Colab: [Link Google colab](https://colab.research.google.com/drive/1zHt3GoxXWCaNSMRzE5lrvpYm9RolcxOW?usp=sharing)
+
+## Install
+
+```sh
+pip install -e .
+```
+
+## Usage
+
+```python
+from pythaiasr import asr
+
+file = "a.wav"
+print(asr(file))
+```
+### API
+
+```python
+asr(file: str, show_pad: bool = False)
+```
+
+- file: path of sound file
+- show_pad: show [PAD] in output
+- return: thai text from ASR
+
