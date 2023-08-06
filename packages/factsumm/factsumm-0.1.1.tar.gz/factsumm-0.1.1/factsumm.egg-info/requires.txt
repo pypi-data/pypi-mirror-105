@@ -1,0 +1,10 @@
+transformers>=4.6.0
+pysbd
+bert-score
+rich
+sumeval
+stanford_openie
+flair
+
+[:python_version < "3.7"]
+dataclasses
