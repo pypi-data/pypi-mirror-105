@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: iar
+Version: 1.0.0
+Summary: Irregularly Observed Autoregressive Models
+Home-page: https://github.com/felipeelorrieta
+Author: Felipe Elorrieta
+Author-email: felipe.elorrieta@usach.cl
+License: MIT
+Keywords: irregulary observed time series,autoregressive
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: sklearn
+Requires-Dist: statsmodels
+
+UNKNOWN
+
+
