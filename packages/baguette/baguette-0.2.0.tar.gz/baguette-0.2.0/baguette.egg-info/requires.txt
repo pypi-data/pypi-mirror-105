@@ -1,0 +1,17 @@
+aiofiles
+cachetools
+jinja2
+
+[dev]
+autoflake
+black
+flake8
+isort
+pytest
+pytest-asyncio
+pytest-cov
+requests
+twine
+
+[uvicorn]
+uvicorn[standard]
