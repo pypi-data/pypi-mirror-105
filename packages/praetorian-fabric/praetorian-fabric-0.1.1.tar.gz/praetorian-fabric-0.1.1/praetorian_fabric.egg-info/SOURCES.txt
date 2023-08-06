@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+praetorian_fabric/__init__.py
+praetorian_fabric/config.py
+praetorian_fabric/version.py
+praetorian_fabric.egg-info/PKG-INFO
+praetorian_fabric.egg-info/SOURCES.txt
+praetorian_fabric.egg-info/dependency_links.txt
+praetorian_fabric.egg-info/requires.txt
+praetorian_fabric.egg-info/top_level.txt
