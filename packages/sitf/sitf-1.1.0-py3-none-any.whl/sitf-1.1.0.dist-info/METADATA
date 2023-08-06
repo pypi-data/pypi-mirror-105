@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: sitf
+Version: 1.1.0
+Summary: Sort Images by day's wise into to the folders
+Home-page: UNKNOWN
+Author: Shatak Gurukar
+Author-email: shatakgurukar@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: image
+
+UNKNOWN
+
+
