@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: camml
+Version: 0.0.1
+Summary: A package of ML components for CTL field camera systems. 
+Home-page: UNKNOWN
+Author: Conservation Technology Lab at the San Diego Zoo Wildlife Alliance
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown
+
+# camml
+A package of ML components for CTL field camera systems. 
+
+
