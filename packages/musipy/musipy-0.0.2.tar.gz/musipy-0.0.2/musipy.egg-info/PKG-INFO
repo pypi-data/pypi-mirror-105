@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: musipy
+Version: 0.0.2
+Summary: Python package to analyse songs
+Home-page: UNKNOWN
+Author: Anirudh Prabhakaran
+Author-email: anirudhprabhakaran3@gmail.com
+License: UNKNOWN
+Description: This python package helps analyse songs
+Platform: UNKNOWN
