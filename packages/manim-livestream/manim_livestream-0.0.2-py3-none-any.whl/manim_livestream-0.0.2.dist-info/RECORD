@@ -1,0 +1,17 @@
+manim_livestream/__init__.py,sha256=h-ixHMtDfj1YXjHHONotVkI3wP3b5T7FyeoMz3SGWLc,239
+manim_livestream/__main__.py,sha256=3Zl861le7aJ-wCNx3hxGr2dCbj-fZbdXxNtVH7Hfv5I,2131
+manim_livestream/cli.py,sha256=F78oLUhGtdEGNp1wCoQ9K6XgrOl5haW4gxXYT_TJ5fg,560
+manim_livestream/config/__init__.py,sha256=yy_o6iuXygsG-55LTLsmFoLe2dVMO81tc3KIabz-MrI,960
+manim_livestream/config/default.cfg,sha256=sj_1IVHPkxax3FfytNZPQq3AfMjlrpw2HObmwK26i8Y,319
+manim_livestream/config/logger_utils.py,sha256=IFpuQZgUCQYBimggU8z8vXkoS0nlso29Ci7ESVx0QWM,339
+manim_livestream/stream_file_writer.py,sha256=7PI8zpb0YTzY1MxWJI4IyCsEFfZ4FL7piy1cKh9b5X8,2779
+manim_livestream/stream_renderer.py,sha256=mc6QWNkG7pfS3TL-ctiSQHqCNPGgiSALQkfqeg51UxU,375
+manim_livestream/stream_rtp.sdp,sha256=vghJ5BvBC2wJgELyBrqVQRJaz3Y6oQBq8UDxfg8_yNQ,180
+manim_livestream/stream_starter.py,sha256=_Z--raRgsdLyBV7vlaXpk6LUTULTSegvsyvzjLNsj_I,3311
+manim_livestream/streaming_scene.py,sha256=Ii4bz_SwPrPRJVYBqMzIPwmYFDAEidoUxnBnj7xlMsg,3451
+manim_livestream/utils.py,sha256=zzIbmqq9lTH9Tg00LNvVNTSJ4ntSkef3YOpv0uz1rx8,1615
+manim_livestream-0.0.2.dist-info/entry_points.txt,sha256=3Zf2QiKW2nPUT6eN-lqGJAl_JThmJpnDb-NJ4mpIXSk,51
+manim_livestream-0.0.2.dist-info/LICENSE.txt,sha256=P0mBPAUnNU7TJoDwPfFQnuGucvZwoJbroQWY9IySN4A,1095
+manim_livestream-0.0.2.dist-info/WHEEL,sha256=VN2eEg4PHbTOniXb-cCYQPc6zUTS4dAcATjlgU3q-Lo,83
+manim_livestream-0.0.2.dist-info/METADATA,sha256=Co_UZXOAhiBfdI-KmdxJL6M9xUxZrE72rLahslgY16U,4145
+manim_livestream-0.0.2.dist-info/RECORD,,
