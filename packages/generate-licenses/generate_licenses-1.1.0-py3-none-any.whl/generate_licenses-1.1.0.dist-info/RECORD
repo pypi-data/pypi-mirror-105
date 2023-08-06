@@ -1,0 +1,7 @@
+licenses_generator/__init__.py,sha256=gmILdW0y7fKCCAsg74lg_9cgwVlmWsWXEqC6xPitplQ,1419
+licenses_generator/generate_licenses.py,sha256=d7YlhFPkPxQXWPj3BpIV0NXXn4Xu8XgvdDVNd1_Q5Go,9167
+generate_licenses-1.1.0.dist-info/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+generate_licenses-1.1.0.dist-info/METADATA,sha256=40pm1o8a8PXA5aF48fgFGstoyJEIA7VII6wgp_xPZkw,3347
+generate_licenses-1.1.0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+generate_licenses-1.1.0.dist-info/top_level.txt,sha256=Z_VnVE7ASMJ-zPI5ZJpWdXfBdNEbqtpQjI2OxdLCHmc,19
+generate_licenses-1.1.0.dist-info/RECORD,,
