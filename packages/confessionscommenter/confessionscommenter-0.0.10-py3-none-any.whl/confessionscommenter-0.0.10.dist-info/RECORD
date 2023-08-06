@@ -1,0 +1,13 @@
+confessionscommenter/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+confessionscommenter/api_utils.py,sha256=quI7SPg90mNQzyB9olxVGmIrLpOLEqxV0pBBH_I0NAE,2261
+confessionscommenter/commandline_utils.py,sha256=8uE5__AuthSHQuKw4RiXLxcl-7E01WXf3jl6_wR5kkg,1763
+confessionscommenter/general_utils.py,sha256=i0DOMcM4zPCSaiYVNzSyv6cQGmifwX2li2KGZOWtwiU,2120
+confessionscommenter/image_clipboard.py,sha256=6YW4-bD8Dj_IPzhKz5iaLGUCoLxG7UH_unMYBlcNdvg,2859
+confessionscommenter/main.py,sha256=ejyfK9g6QlAMYd_sr-h_3EBYzvLWCo1f2QAv54h0tDE,3040
+confessionscommenter/meme_data.json,sha256=2KsJAAFb0zdPj7uyuflqL5U8Q_D2jFBmh_0TVUGsb_0,7235
+confessionscommenter/meme_utils.py,sha256=kHI9TBl9-pJ5O0a-CALt0RLLWl2n9M8BhyTk37IlQNU,2909
+confessionscommenter-0.0.10.dist-info/LICENSE,sha256=CRvaIHK65k9s8GI_vGZ7ZM4n2au7FVf2aguWnmcFgok,1075
+confessionscommenter-0.0.10.dist-info/METADATA,sha256=GOAVONyAVM_yKZoduG42GRyLQNMY8nTLmZp5Rn0z2RI,933
+confessionscommenter-0.0.10.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+confessionscommenter-0.0.10.dist-info/top_level.txt,sha256=W0pKufKzVTLekSd0Sbi_xpSR_teVic0FfHA5C5OTbW4,21
+confessionscommenter-0.0.10.dist-info/RECORD,,
