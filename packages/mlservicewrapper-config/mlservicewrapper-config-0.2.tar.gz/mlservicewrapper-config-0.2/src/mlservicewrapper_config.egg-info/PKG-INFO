@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: mlservicewrapper-config
+Version: 0.2
+Summary: Configuration helpers for ml services
+Home-page: https://github.com/ml-service-wrapper/ml-service-wrapper-config
+Author: Matthew Haugen
+License: UNKNOWN
+Description: # ml-service-wrapper-config
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
