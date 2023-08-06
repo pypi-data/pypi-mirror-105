@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: skb
+Version: 1.2.3
+Summary: SKB - Synth Kit Builder for Synthstrom Deluge
+Home-page: https://github.com/neilbaldwin/skb
+Author: Neil Baldwin
+Author-email: neil.baldwin@mac.com
+License: MIT
+Project-URL: Source Code, https://github.com/neilbaldwin/skb
+Description: UNKNOWN
+Keywords: synthstrom,deluge,utility,synth,kit,builder
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
