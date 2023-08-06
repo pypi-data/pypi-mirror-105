@@ -1,0 +1,3 @@
+[console_scripts]
+polipy = polipy.__main__:main
+
