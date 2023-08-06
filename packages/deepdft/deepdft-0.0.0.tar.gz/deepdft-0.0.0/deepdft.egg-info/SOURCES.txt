@@ -1,0 +1,6 @@
+setup.py
+deepdft/__init__.py
+deepdft.egg-info/PKG-INFO
+deepdft.egg-info/SOURCES.txt
+deepdft.egg-info/dependency_links.txt
+deepdft.egg-info/top_level.txt
