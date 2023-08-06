@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: kmy-scrap
+Version: 0.1.0
+Summary: apikey search enggine scraping based.
+Home-page: https://github.com/ExsoKamabay/Api-scrap
+Author: Exso Kamabay
+Author-email: <lexyong66@gmail.com>
+License: Apache License 2.0
+Description: .. code :: python
+        from kmy_scrap import HappyMod,Uptodown,DlanDroid,Gamemod,Rexdl,A2zapk,Google,Warna
+        from kmy_scrap import Sourceforge,OceanOfGame,IpWhois
+        from kmy_scrap import Github_search_enggine,picSearch
+        happymod = HappyMod()
+        qresults = happymod.happymod(query="free fire")
+        print(qresults)
+        ** returns the result in the form of json.**
+Keywords: python,free,apikey,apikey scraping based
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
