@@ -1,0 +1,8 @@
+README.md
+setup.py
+duco/duco.py
+duco/filters.py
+duco.egg-info/PKG-INFO
+duco.egg-info/SOURCES.txt
+duco.egg-info/dependency_links.txt
+duco.egg-info/top_level.txt
