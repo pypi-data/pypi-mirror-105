@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: robotframework-webservice
+Version: 0.1.2
+Summary: Webservice for running Robot Framework tasks
+Home-page: UNKNOWN
+Author: Deutsche Post Adress GmbH & Co. KG
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Robot Framework
+Classifier: Framework :: Robot Framework :: Tool
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: robotframework
+Requires-Dist: fastapi
+Requires-Dist: aiofiles
+Requires-Dist: uvicorn
+Requires-Dist: requests
+
+UNKNOWN
+
+
