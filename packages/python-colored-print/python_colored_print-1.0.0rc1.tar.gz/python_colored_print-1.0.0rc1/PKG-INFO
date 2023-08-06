@@ -1,0 +1,66 @@
+Metadata-Version: 1.1
+Name: python_colored_print
+Version: 1.0.0rc1
+Summary: A simple python library in order to print in different colorsand save them into a file optionally.
+Home-page: https://github.com/agn-7/colored-print
+Author: agn-7
+Author-email: benyaminjmf@gmail.com
+License: MIT
+Download-URL: https://github.com/agn-7/colored-print/archive/refs/tags/v1.0.0-rc1.zip
+Description: 
+        Colored Print
+        -------------
+        
+        
+        .. image:: https://img.shields.io/pypi/v/mix-mavis
+           :target: https://pypi.org/project/colored-print/
+           :alt: PyPI
+        
+        
+        .. image:: https://img.shields.io/pypi/pyversions/wfuzz
+           :target: https://pypi.org/project/colored-print/
+           :alt: Python Versions
+        
+        
+        .. image:: https://img.shields.io/badge/license-MIT-blue.svg
+           :target: https://raw.githubusercontent.com/agn-7/colored-print/master/LICENSE
+           :alt: GitHub license
+        
+        
+        A lightweight python library in order to print in different colors and save them into a file optionally.
+        
+        Setup
+        -----
+        
+        .. code-block:: bash
+        
+           pip install python-colored-print
+        
+        Usage
+        -----
+        
+        .. code-block:: python
+        
+           from colored_print import ColoredPrint
+        
+        
+           log = ColoredPrint()
+        
+           log.success("Hello", 123, "Bye").store()
+           log.info("Hello", 123, "Bye")
+           log.warn("Hello", 123, "Bye")
+           log.err("Hello", 123, "Bye").store()
+           log.pink("Hello", 123, "Bye")
+        
+        Output
+        ------
+        
+        
+        .. image:: https://i.stack.imgur.com/HMVP6.png
+           :target: https://i.stack.imgur.com/HMVP6.png
+           :alt: Output
+        
+        
+Keywords: log,logging,python3,python
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
