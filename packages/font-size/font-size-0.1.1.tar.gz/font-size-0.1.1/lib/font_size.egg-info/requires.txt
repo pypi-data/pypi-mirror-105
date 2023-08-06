@@ -1,0 +1,16 @@
+fontTools
+brotli
+rich
+
+[dev]
+coverage
+pytest
+tox
+flake8
+mypy
+black
+
+[maintain]
+wheel
+setuptools
+twine

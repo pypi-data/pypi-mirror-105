@@ -1,0 +1,16 @@
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+lib/font_size.egg-info/PKG-INFO
+lib/font_size.egg-info/SOURCES.txt
+lib/font_size.egg-info/dependency_links.txt
+lib/font_size.egg-info/entry_points.txt
+lib/font_size.egg-info/requires.txt
+lib/font_size.egg-info/top_level.txt
+lib/fontsize/__init__.py
+lib/fontsize/__main__.py
+lib/fontsize/size.py
