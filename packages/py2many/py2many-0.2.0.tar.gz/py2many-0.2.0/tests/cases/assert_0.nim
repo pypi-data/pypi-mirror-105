@@ -1,0 +1,1 @@
+assert(not (0))
