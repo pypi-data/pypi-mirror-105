@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: tf-x-transformers
+Version: 0.0.5
+Summary: TF-X-Transformers - TF2.x
+Home-page: https://github.com/junnyu/tf-x-transformers
+Author: Junn Yu
+Author-email: 573009727@qq.com
+License: MIT
+Keywords: artificial intelligence,attention mechanism,transformerstensorflow 2.x
+Platform: UNKNOWN
+Requires-Dist: tensorflow (>=2.2)
+Requires-Dist: einops (>=0.3)
+Requires-Dist: fastcore
+Requires-Dist: tf-fast-api
+
+UNKNOWN
+
+

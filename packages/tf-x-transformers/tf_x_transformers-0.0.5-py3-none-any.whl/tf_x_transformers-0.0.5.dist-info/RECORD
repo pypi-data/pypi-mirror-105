@@ -1,0 +1,8 @@
+tf_x_transformers/__init__.py,sha256=pb88NZ9uYYfr6Sctomf6v9jen5KP2PAUS3WmC2WDhSg,207
+tf_x_transformers/autoregressive_wrapper.py,sha256=3mkDeci90Mdh9shZD3eecvFzUf3X6MVB9FXSc4FMOoM,5308
+tf_x_transformers/tf_entmax.py,sha256=T34zbsn6oiUDtw3IpqoTw0a14NAhc8Oo_T2Y5W3Ofo0,7353
+tf_x_transformers/tf_x_transformers.py,sha256=DoLO0HFUNO-RfWMweNMEG1ecLIcKJ0xe4nFSN5EuJtg,33996
+tf_x_transformers-0.0.5.dist-info/METADATA,sha256=BZvH91Z_Nu0vU6RmObStQiOSD2Ej9rndMiVQ40cWSbk,436
+tf_x_transformers-0.0.5.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+tf_x_transformers-0.0.5.dist-info/top_level.txt,sha256=yKoEM4PC4yaUJk8CE9jsjzWXZ1Mbu8_Zq9KMp6ayI3M,18
+tf_x_transformers-0.0.5.dist-info/RECORD,,
