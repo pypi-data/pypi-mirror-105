@@ -1,0 +1,10 @@
+LICENSE.txt
+pyproject.toml
+setup.cfg
+src/CryptostatsPython/Cryptostats.py
+src/CryptostatsPython/__init__.py
+src/Cryptostats_Python.egg-info/PKG-INFO
+src/Cryptostats_Python.egg-info/SOURCES.txt
+src/Cryptostats_Python.egg-info/dependency_links.txt
+src/Cryptostats_Python.egg-info/requires.txt
+src/Cryptostats_Python.egg-info/top_level.txt
