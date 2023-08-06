@@ -1,0 +1,10 @@
+setup.py
+devhgcaltruth/__init__.py
+devhgcaltruth/_plotly.py
+devhgcaltruth/trees.py
+devhgcaltruth.egg-info/PKG-INFO
+devhgcaltruth.egg-info/SOURCES.txt
+devhgcaltruth.egg-info/dependency_links.txt
+devhgcaltruth.egg-info/not-zip-safe
+devhgcaltruth.egg-info/requires.txt
+devhgcaltruth.egg-info/top_level.txt
