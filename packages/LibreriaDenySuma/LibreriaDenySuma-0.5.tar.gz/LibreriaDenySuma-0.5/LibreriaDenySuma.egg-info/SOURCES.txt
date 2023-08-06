@@ -1,0 +1,6 @@
+MiLibreriaSuma.py
+setup.py
+LibreriaDenySuma.egg-info/PKG-INFO
+LibreriaDenySuma.egg-info/SOURCES.txt
+LibreriaDenySuma.egg-info/dependency_links.txt
+LibreriaDenySuma.egg-info/top_level.txt
