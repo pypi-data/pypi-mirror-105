@@ -1,0 +1,8 @@
+README.md
+setup.py
+src/quantclean.py
+src/quantclean.egg-info/PKG-INFO
+src/quantclean.egg-info/SOURCES.txt
+src/quantclean.egg-info/dependency_links.txt
+src/quantclean.egg-info/requires.txt
+src/quantclean.egg-info/top_level.txt
