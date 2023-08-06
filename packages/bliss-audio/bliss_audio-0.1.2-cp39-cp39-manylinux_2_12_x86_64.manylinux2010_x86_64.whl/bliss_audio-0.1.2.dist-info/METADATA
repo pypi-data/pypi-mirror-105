@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: bliss_audio
+Version: 0.1.2
+Classifiers: Programming Language :: Rust
+Classifiers: Operating System :: POSIX :: Linux
+Author: Polochon-street <polochonstreet@gmx.fr>
+Author-Email: Polochon-street <polochonstreet@gmx.fr>
