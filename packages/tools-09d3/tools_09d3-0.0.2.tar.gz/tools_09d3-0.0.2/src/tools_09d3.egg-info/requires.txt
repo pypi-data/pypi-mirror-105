@@ -1,0 +1,10 @@
+
+[dev]
+pytest
+sphinx
+black
+isort
+sphinx-rtd-theme
+numpydoc
+build
+twine
