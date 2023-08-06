@@ -1,0 +1,7 @@
+opentelemetry/instrumentation/pymysql/__init__.py,sha256=6xwy9VRT1iXuuUH5oyPx3slonHJB7ZsFMSxzrzIfrNc,3146
+opentelemetry/instrumentation/pymysql/version.py,sha256=5Dta1eq_z_oljMJIonIOCRrpiHBsEmZKofktXH9RL2A,608
+opentelemetry_instrumentation_pymysql-0.21b0.dist-info/METADATA,sha256=q1cgSDN5IQV8THHgyLp6URCKcQAfgVQ9R_TdgO6nUT4,1795
+opentelemetry_instrumentation_pymysql-0.21b0.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+opentelemetry_instrumentation_pymysql-0.21b0.dist-info/entry_points.txt,sha256=HmKi49fWuL4mY2UEKBtn0rNKo5iNSg6v6NcU34TnOcM,98
+opentelemetry_instrumentation_pymysql-0.21b0.dist-info/top_level.txt,sha256=5p97iTMneNm1LAKDalzEVpYhvPZsaqJZzdLuD_upSaQ,14
+opentelemetry_instrumentation_pymysql-0.21b0.dist-info/RECORD,,
