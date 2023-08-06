@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: tf-fast-api
+Version: 0.0.1
+Summary: tf fast api
+Home-page: https://github.com/JunnYu/tensorflow_fast_api
+Author: Jun Yu
+Author-email: 573009727@qq.com
+License: MIT
+Keywords: tf
+Platform: UNKNOWN
+Requires-Dist: tensorflow (>=2.3.0)
+Requires-Dist: fastcore
+
+UNKNOWN
+
+
