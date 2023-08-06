@@ -1,0 +1,23 @@
+import setuptools
+
+setuptools.setup(
+    name="tgtk",
+    version="1.0.0",
+    author="reaitten",
+    description="A Telegram Bot written in Python language to mirror files on the internet to Telegram",
+    long_description=open('README.md', 'r', encoding='utf-8').read(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/reaitten/tk",
+    project_urls={
+        "Bug Tracker": "https://github.com/reaitten/tk/issues",
+    },
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "Operating System :: POSIX :: Linux",
+        "Development Status :: 5 - Production/Stable"
+    ],
+    packages=setuptools.find_packages(),
+    install_requires=open('requirements.txt', 'r', encoding='utf-8').read().split('\n'),
+    python_requires=">=3.8",
+)
