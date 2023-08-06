@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: calc_SB
+Version: 0.1.0
+Summary: Calculator package
+Home-page: https://github.com/cyber-zen/GTx-CS1301
+Author: Simas B
+Author-email: test@test.test
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+
+ Example Package
+
+This is a simple example package. You can use
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
