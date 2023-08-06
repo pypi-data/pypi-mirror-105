@@ -1,0 +1,10 @@
+argparse
+ipykernel
+ipython
+ipython-genutils
+numpy
+pandas
+scikit-learn
+fastdtw
+dtwalign
+tzlocal
