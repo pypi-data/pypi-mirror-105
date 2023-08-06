@@ -1,0 +1,16 @@
+AUTHORS.md
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+src/compas_testext/__init__.py
+src/compas_testext/__main__.py
+src/compas_testext.egg-info/PKG-INFO
+src/compas_testext.egg-info/SOURCES.txt
+src/compas_testext.egg-info/dependency_links.txt
+src/compas_testext.egg-info/entry_points.txt
+src/compas_testext.egg-info/not-zip-safe
+src/compas_testext.egg-info/top_level.txt
