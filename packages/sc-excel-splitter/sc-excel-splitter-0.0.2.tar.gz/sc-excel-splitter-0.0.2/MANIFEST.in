@@ -1,0 +1,3 @@
+include requirements.txt
+include CHANGES.rst
+recursive-include excel/tests/sample_config *
