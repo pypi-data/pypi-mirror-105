@@ -1,0 +1,5 @@
+include *.pyx
+include *.pyd
+include KWD_Histogram2D.h
+include KWD_NetSimplex.h
+include KWD_NetSimplexCapacity.h
