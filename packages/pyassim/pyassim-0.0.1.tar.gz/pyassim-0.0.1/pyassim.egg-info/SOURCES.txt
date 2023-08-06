@@ -1,0 +1,9 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+pyassim.egg-info/PKG-INFO
+pyassim.egg-info/SOURCES.txt
+pyassim.egg-info/dependency_links.txt
+pyassim.egg-info/requires.txt
+pyassim.egg-info/top_level.txt
