@@ -1,0 +1,7 @@
+setup.cfg
+setup.py
+gotovrvex.egg-info/PKG-INFO
+gotovrvex.egg-info/SOURCES.txt
+gotovrvex.egg-info/dependency_links.txt
+gotovrvex.egg-info/not-zip-safe
+gotovrvex.egg-info/top_level.txt
