@@ -1,0 +1,14 @@
+rvmath/__init__.py,sha256=okJweFA68UQ3mdrDSqe-Z6VozaRjGRMA65ZW2hlq8Uo,693
+rvmath/base.py,sha256=pl-T5cmOlEnv84azmFYydKXTIHxNoZId7-Gs9uvC9Es,11200
+rvmath/testsuite/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rvmath/testsuite/test_construction.py,sha256=Hc7HKl-CHnDGLcuL9tpxOCsuKRw-fVyL15rUMsh-KF8,4445
+rvmath/testsuite/test_rvs.py,sha256=gxOG9OIa8dpHkGMXT2649o-hjHFFucYLYmYTaiazU9w,1850
+rvmath/testsuite/test_str_repr.py,sha256=8dXAwoOsJdUvt7PsD2Nab7ey5k9soeYo8d6A5JUqs-Y,731
+rvmath/testsuite/test_to_distro.py,sha256=RubBoxFcMCJUeGw58UdmDB2EUh1xFhhjscFgdxnu8RY,1089
+rvmath-0.1.dist-info/AUTHORS,sha256=48jrl6g7V_6lLxKv10nnegfCYHCQwxns0ySxYqDsxSw,159
+rvmath-0.1.dist-info/LICENSE,sha256=TAPOdC7hnt17iN8ahp1JXGjyimGTuZ1KLtOajrxLJkA,1583
+rvmath-0.1.dist-info/METADATA,sha256=Mtj4MdSTTqSjVmdm4GkjGuGH9g2oncq5BmLAwWUO6xw,7555
+rvmath-0.1.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+rvmath-0.1.dist-info/top_level.txt,sha256=xZrvcDs8SSu4OtH6PxDT6uLMULcSBr-10HNDS9orSXg,7
+rvmath-0.1.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+rvmath-0.1.dist-info/RECORD,,
