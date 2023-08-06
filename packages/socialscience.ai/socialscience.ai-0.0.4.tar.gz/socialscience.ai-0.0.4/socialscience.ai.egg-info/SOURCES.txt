@@ -1,0 +1,15 @@
+README.md
+setup.py
+social_science_ai/__init__.py
+social_science_ai/linear_regression/__init__.py
+social_science_ai/linear_regression/basic_nodes.py
+social_science_ai/linear_regression/generate.py
+social_science_ai/linear_regression/linear_regression.py
+social_science_ai/linear_regression/propagate.py
+social_science_ai/linear_regression/test.py
+social_science_ai/linear_regression/visualize.py
+socialscience.ai.egg-info/PKG-INFO
+socialscience.ai.egg-info/SOURCES.txt
+socialscience.ai.egg-info/dependency_links.txt
+socialscience.ai.egg-info/requires.txt
+socialscience.ai.egg-info/top_level.txt
