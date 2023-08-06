@@ -1,0 +1,16 @@
+{
+	"title_language": "romaji", 
+	"anime_show_studio": true,
+	"anime_show_season": true,
+	"anime_show_genres": true,
+	"anime_show_status": true,
+	"anime_show_episode": true,
+	"manga_show_status": true,
+	"manga_show_genres": true,
+	"manga_show_chapter": true,
+	"manga_show_volume": true,
+	"char_show_birthdate": true,
+	"char_show_gender": true,
+	"char_show_age": true,
+	"per_page": 4
+}

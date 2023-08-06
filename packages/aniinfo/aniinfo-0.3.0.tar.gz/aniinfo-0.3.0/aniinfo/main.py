@@ -1,0 +1,31 @@
+import argparse
+import sys
+import os
+from .data import anime
+
+def help():
+    args = sys.argv[1:]
+    if len(args) < 1:
+        print( "usage: ...")
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--get", '-g')
+parser.add_argument("--anime", '-a')
+parser.add_argument("--manga", '-m')
+parser.add_argument("--characters", '-c')
+
+parser.add_argument("--page", '-p')
+args = parser.parse_args()
+
+if args.get:
+	print(anime.fetch_anime(args.get))
+
+elif args.anime:
+	anime.search_anime(args.anime, args.page)
+
+elif args.manga:
+	anime.search_manga(args.manga, args.page)
+
+elif args.characters:
+	anime.search_char(args.characters, args.page)
