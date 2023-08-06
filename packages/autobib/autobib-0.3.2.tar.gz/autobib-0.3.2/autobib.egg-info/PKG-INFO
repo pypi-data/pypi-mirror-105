@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: autobib
+Version: 0.3.2
+Summary: Automatically download missing entries to your bibliography file.
+Home-page: https://github.com/hdembinski/autobib
+Author: Hans Dembinski
+Author-email: hans.dembinski@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/hdembinski/autobib/issues
+Description: # autobib
+        
+        ![PyPI](https://img.shields.io/pypi/v/autobib)
+        ![PyPI - License](https://img.shields.io/pypi/l/autobib)
+        ![PyPI - Status](https://img.shields.io/pypi/status/autobib)
+        
+        `autobib` automatically fetches BibTeX entries from online databases (currently restricted to Inspire) based on references that were added to the LaTeX document but not yet to the `.bib` file. The automatically fetched entries are appended to the first `.bib` file defined in your LaTeX source (first entry of `\bibliography{...}`). For this to work, the cite key has to be a key used by the online database.
+        
+        In other words, you still need to look up a citation online and copy the cite key to your LaTeX file, but you don't have to also copy the whole BibTeX entry to your local `.bib` file (essentially adding it twice), since `autobib` does the latter for you.
+        
+        `autobib` only appends new entries to your `.bib` file and otherwise leaves it as is. Using it is therefore safe.
+        
+        ## Installation and usage
+        
+        `pip install autobib`
+        
+        This installs a new script called `bibtex`, which is a drop-in replacement of the original `bibtex` command. The same name is chosen to make it work automatically with tooling like `latexmk`, which is otherwise hard to achieve.
+        
+        Make sure that the `bibtex` script installed by `autobib` is found first by shell lookup. The path where the script is located must come first in the search paths listed by `PATH`, before the original `bibtex`.
+        
+        ## Planned features
+        
+        - Also fetch from [adsabs](https://ui.adsabs.harvard.edu/)
+        - Smart-detect duplicates with some similarity metric, e.g. if the same paper is cited once using the adsabs key and once using the Inspire key
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: MacOS X
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Text Processing :: Markup :: LaTeX
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: test
