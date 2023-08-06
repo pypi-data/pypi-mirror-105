@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: dem-entropy
+Version: 0.0.1
+Summary: A scripts to compute local entropy from DEM tif files.
+Home-page: https://github.com/rgrimson/dem_entropy
+Author: Rafael Grimson
+Author-email: rgrimson@gmail.com
+License: MIT
+Keywords: clem entropy dem gis-tools
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: argparse
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: rasterio
+Requires-Dist: scikit-image
+
+A scripts to compute local entropy from DEM tif files.
+
+
