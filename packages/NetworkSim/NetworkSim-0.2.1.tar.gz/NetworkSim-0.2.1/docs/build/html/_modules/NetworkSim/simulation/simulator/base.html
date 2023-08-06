@@ -1,0 +1,843 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSim.simulation.simulator.base &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>NetworkSim.simulation.simulator.base</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for NetworkSim.simulation.simulator.base</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;BaseSimulator&quot;</span><span class="p">]</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hongyi Yang&quot;</span><span class="p">,</span> <span class="s2">&quot;Cheuk Ming Chung&quot;</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
+<span class="kn">import</span> <span class="nn">simpy</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">trange</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span> <span class="k">as</span> <span class="n">SEM</span>
+
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.setup.model</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.process.ram</span> <span class="kn">import</span> <span class="n">RAM</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.process.receiver.fixed</span> <span class="kn">import</span> <span class="n">FR</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.process.receiver.fixed_upstream</span> <span class="kn">import</span> <span class="n">FR_U</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.process.receiver.fixed_downstream</span> <span class="kn">import</span> <span class="n">FR_D</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.process.receiver.tunable</span> <span class="kn">import</span> <span class="n">TR</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.process.transmitter.fixed</span> <span class="kn">import</span> <span class="n">FT</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.process.transmitter.tunable</span> <span class="kn">import</span> <span class="n">TT</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.process.transmitter.tunable_upstream</span> <span class="kn">import</span> <span class="n">TT_U</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.process.transmitter.tunable_downstream</span> <span class="kn">import</span> <span class="n">TT_D</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.tools.info</span> <span class="kn">import</span> <span class="n">Info</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.tools.summary</span> <span class="kn">import</span> <span class="n">Summary</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.tools.plot</span> <span class="kn">import</span> <span class="n">plot_latency</span><span class="p">,</span> <span class="n">plot_latency_throughput</span><span class="p">,</span> <span class="n">plot_count</span>
+
+
+<div class="viewcode-block" id="BaseSimulator"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.simulator.base.BaseSimulator.html#NetworkSim.simulation.simulator.base.BaseSimulator">[docs]</a><span class="k">class</span> <span class="nc">BaseSimulator</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulation wrapper to create a discrete event simulation of the ring network.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    until : float</span>
+<span class="sd">        The end time of the simulation. Default is ``None``.</span>
+<span class="sd">    convergence : bool</span>
+<span class="sd">        Automatic convergence mode of simulation. Default is ``True``.</span>
+<span class="sd">    sem_tr : float</span>
+<span class="sd">        The threshold standard error of mean (SEM) for convergence. Default is ``0.05``.</span>
+<span class="sd">    bs : int</span>
+<span class="sd">        The batch size for SEM calculation during convergence. Default is ``10000``.</span>
+<span class="sd">    env: simpy Environment, optional</span>
+<span class="sd">        The environment in which the simulation is carried out. Default is ``simpy.Environment()``.</span>
+<span class="sd">    model : Model, optional</span>
+<span class="sd">        The network model used for the simulation. Default is ``Model()``.</span>
+<span class="sd">    transmitter_type: str</span>
+<span class="sd">        The type of transmitter used for the simulation, chosen from the list:</span>
+
+<span class="sd">        - `fixed`, `f` or `F`</span>
+<span class="sd">            Fixed transmitter.</span>
+<span class="sd">        - `tunable`, `t` or `T`</span>
+<span class="sd">            Tunable transmitter.</span>
+
+<span class="sd">        Default is  ``tunable``.</span>
+<span class="sd">    receiver_type: str</span>
+<span class="sd">        The type of receiver used for the simulation, chosen from the list:</span>
+
+<span class="sd">        - `fixed`, `f` or `F`</span>
+<span class="sd">            Fixed receiver.</span>
+<span class="sd">        - `tunable`, `t`, or `T`</span>
+<span class="sd">            Tunable receiver.</span>
+
+<span class="sd">        Default is  ``fixed``.</span>
+<span class="sd">    traffic_generation_method : str</span>
+<span class="sd">        The method used for generate source traffic, chosen from the list:</span>
+
+<span class="sd">        - `poisson`</span>
+<span class="sd">            Poisson distribution.</span>
+<span class="sd">        - `pareto`</span>
+<span class="sd">            Pareto distribution.</span>
+
+<span class="sd">        Default is ``poisson``.</span>
+<span class="sd">    bidirectional : bool, optional</span>
+<span class="sd">        The type of network architecture, either bidirectional or unidirectional. \</span>
+<span class="sd">            Default is ``False``, which is unidirectional.</span>
+<span class="sd">    seed : int, optional</span>
+<span class="sd">        The seed used for source traffic generation. Default is ``1``.</span>
+
+<span class="sd">    ----------</span>
+<span class="sd">    latency : list</span>
+<span class="sd">        A list of packet transmission latency recorded during the simulation, containing the keys:</span>
+
+<span class="sd">        - `Latency Timestamp` : float</span>
+<span class="sd">            The timestamp when the latency is recorded.</span>
+<span class="sd">        - `Source ID` : int</span>
+<span class="sd">            The ID of the source node.</span>
+<span class="sd">        - `Destination ID` : int</span>
+<span class="sd">            The ID of the destination node.</span>
+<span class="sd">        - `Queueing Delay` : float</span>
+<span class="sd">            The recorded queueing delay latency.</span>
+<span class="sd">        - `Transfer Delay` : float</span>
+<span class="sd">            The recorded transfer delay latency.</span>
+<span class="sd">        - `Data Rate` : float</span>
+<span class="sd">            The data rate recorded as the operation is completed.</span>
+
+<span class="sd">    error : list</span>
+<span class="sd">        A list of transmission errors occurred during the simulation, containing the keys:</span>
+
+<span class="sd">        - `Error Timestamp` : float</span>
+<span class="sd">            The timestamp when the error occurred.</span>
+<span class="sd">        - `Source ID` : int</span>
+<span class="sd">            The ID of the source node.</span>
+<span class="sd">        - `Destination ID` : int</span>
+<span class="sd">            The ID of the destination node.</span>
+<span class="sd">        - `Error Type` : str</span>
+<span class="sd">            The type of error recorded.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">until</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">convergence</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">sem_tr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">bs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">extended</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">transmitter_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">receiver_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">traffic_generation_method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">bidirectional</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="nb">id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># Check for simulator operation mode</span>
+        <span class="k">if</span> <span class="n">until</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">convergence</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Either fixed-time or convergence simulation must be chosen.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">convergence</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">until</span> <span class="o">=</span> <span class="n">until</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">convergence</span> <span class="o">=</span> <span class="n">convergence</span>
+        <span class="c1"># Check for standard error of mean range</span>
+        <span class="k">if</span> <span class="n">convergence</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sem_tr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">sem_tr</span> <span class="o">=</span> <span class="mf">0.05</span>
+            <span class="k">if</span> <span class="n">sem_tr</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">sem_tr</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Standard error of mean (sem) for convergence must lie between 0 and 1.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sem_tr</span> <span class="o">=</span> <span class="n">sem_tr</span>
+        <span class="k">if</span> <span class="n">bs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">bs</span> <span class="o">=</span> <span class="mi">10000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bs</span> <span class="o">=</span> <span class="n">bs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extended</span> <span class="o">=</span> <span class="n">extended</span>
+        <span class="k">if</span> <span class="n">env</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+        <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">bidirectional</span><span class="o">=</span><span class="n">bidirectional</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">transmitter_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">transmitter_type</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span>
+        <span class="k">if</span> <span class="n">receiver_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">receiver_type</span> <span class="o">=</span> <span class="s1">&#39;F&#39;</span>
+        <span class="k">if</span> <span class="n">traffic_generation_method</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">traffic_generation_method</span> <span class="o">=</span> <span class="s1">&#39;poisson&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transmitter_type</span> <span class="o">=</span> <span class="n">transmitter_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receiver_type</span> <span class="o">=</span> <span class="n">receiver_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">traffic_generation_method</span> <span class="o">=</span> <span class="n">traffic_generation_method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bidirectional</span> <span class="o">=</span> <span class="n">bidirectional</span>
+        <span class="c1"># Check for bidirectional ring consistency</span>
+        <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">bidirectional</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Please ensure Model bidirectional value is consistent with Simulator.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">seed</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">RAM</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">upstream_transmitter</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">downstream_transmitter</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">upstream_receiver</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">downstream_receiver</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">transmitter</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">receiver</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fixed_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fixed&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tunable_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tunable&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runtime</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latency</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">TT_FR_tuning_delay</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ram_queue_delay</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_stats</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">_initialise_ram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        RAM initialisation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        node_id : int</span>
+<span class="sd">            Id of the node (RAM).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Create RAM process</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">RAM</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">RAM</span><span class="p">(</span>
+            <span class="n">env</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span>
+            <span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">until</span><span class="p">,</span>
+            <span class="n">ram_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+            <span class="n">distribution</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">traffic_generation_method</span><span class="p">,</span>
+            <span class="n">bidirectional</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">,</span>
+            <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seed</span>
+        <span class="p">)</span>
+        <span class="c1"># Initialise RAM process</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">RAM</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span><span class="o">.</span><span class="n">initialise</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_initialise_transmitter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Transmitter initialisation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        node_id : int</span>
+<span class="sd">            ID of the node (transmitter).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transmitter_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tunable_keywords</span><span class="p">:</span>
+                <span class="c1"># Transmitter in upstream direction</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">upstream_transmitter</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">TT_U</span><span class="p">(</span>
+                    <span class="n">env</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span>
+                    <span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">until</span><span class="p">,</span>
+                    <span class="n">ram</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">RAM</span><span class="p">[</span><span class="n">node_id</span><span class="p">],</span>
+                    <span class="n">transmitter_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span>
+                    <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                    <span class="n">simulator</span><span class="o">=</span><span class="bp">self</span>
+                <span class="p">)</span>
+                <span class="c1"># Transmitter in downstream direction</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">downstream_transmitter</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">TT_D</span><span class="p">(</span>
+                    <span class="n">env</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span>
+                    <span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">until</span><span class="p">,</span>
+                    <span class="n">ram</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">RAM</span><span class="p">[</span><span class="n">node_id</span><span class="p">],</span>
+                    <span class="n">transmitter_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span>
+                    <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                    <span class="n">simulator</span><span class="o">=</span><span class="bp">self</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Only tunable transmitter is implemented for bi-directional systems.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">upstream_transmitter</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span><span class="o">.</span><span class="n">initialise</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">downstream_transmitter</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span><span class="o">.</span><span class="n">initialise</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Create and initialise transmitter process</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transmitter_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fixed_keywords</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">transmitter</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">FT</span><span class="p">(</span>
+                    <span class="n">env</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span>
+                    <span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">until</span><span class="p">,</span>
+                    <span class="n">ram</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">RAM</span><span class="p">[</span><span class="n">node_id</span><span class="p">],</span>
+                    <span class="n">transmitter_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span>
+                    <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                    <span class="n">simulator</span><span class="o">=</span><span class="bp">self</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">transmitter_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tunable_keywords</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">transmitter</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">TT</span><span class="p">(</span>
+                    <span class="n">env</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span>
+                    <span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">until</span><span class="p">,</span>
+                    <span class="n">ram</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">RAM</span><span class="p">[</span><span class="n">node_id</span><span class="p">],</span>
+                    <span class="n">transmitter_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span>
+                    <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                    <span class="n">simulator</span><span class="o">=</span><span class="bp">self</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Transmitter type not implemented.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">transmitter</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span><span class="o">.</span><span class="n">initialise</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_initialise_receiver</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Receiver initialisation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        node_id : int</span>
+<span class="sd">            ID of the node (receiver).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fixed_keywords</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">upstream_receiver</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">FR_U</span><span class="p">(</span>
+                    <span class="n">env</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span>
+                    <span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">until</span><span class="p">,</span>
+                    <span class="n">receiver_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span>
+                    <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                    <span class="n">simulator</span><span class="o">=</span><span class="bp">self</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">downstream_receiver</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">FR_D</span><span class="p">(</span>
+                    <span class="n">env</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span>
+                    <span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">until</span><span class="p">,</span>
+                    <span class="n">receiver_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span>
+                    <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                    <span class="n">simulator</span><span class="o">=</span><span class="bp">self</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Only fixed receiver is implemented for bi-directional systems.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">upstream_receiver</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span><span class="o">.</span><span class="n">initialise</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">downstream_receiver</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span><span class="o">.</span><span class="n">initialise</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Create and initialise receiver process</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fixed_keywords</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">receiver</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">FR</span><span class="p">(</span>
+                    <span class="n">env</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span>
+                    <span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">until</span><span class="p">,</span>
+                    <span class="n">receiver_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span>
+                    <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                    <span class="n">simulator</span><span class="o">=</span><span class="bp">self</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tunable_keywords</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">receiver</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">TR</span><span class="p">(</span>
+                    <span class="n">env</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="p">,</span>
+                    <span class="n">until</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">until</span><span class="p">,</span>
+                    <span class="n">receiver_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span>
+                    <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+                    <span class="n">simulator</span><span class="o">=</span><span class="bp">self</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Receiver type not implemented.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">receiver</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span><span class="o">.</span><span class="n">initialise</span><span class="p">()</span>
+
+<div class="viewcode-block" id="BaseSimulator.initialise"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.simulator.base.BaseSimulator.html#NetworkSim.simulation.simulator.base.BaseSimulator.initialise">[docs]</a>    <span class="k">def</span> <span class="nf">initialise</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialisation of the simulation, where RAM, transmitter, and receiver processes are added to the environment.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check if the combination is implemented</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transmitter_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fixed_keywords</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fixed_keywords</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;The FT-FR model is not implemented.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">transmitter_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tunable_keywords</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tunable_keywords</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;The TT-TR model is not implemented.&quot;</span><span class="p">)</span>
+        <span class="c1"># Initialise all three subsystems</span>
+        <span class="k">for</span> <span class="n">node_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_initialise_ram</span><span class="p">(</span><span class="n">node_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_initialise_transmitter</span><span class="p">(</span><span class="n">node_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_initialise_receiver</span><span class="p">(</span><span class="n">node_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseSimulator.run"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.simulator.base.BaseSimulator.html#NetworkSim.simulation.simulator.base.BaseSimulator.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run simulation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_start_time</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+        <span class="c1"># Fixed-time mode</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">convergence</span><span class="p">:</span>
+            <span class="n">desc</span> <span class="o">=</span> <span class="s1">&#39;Simulator &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; (convergence disabled)&#39;</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">until</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">desc</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+        <span class="c1"># Automatic convergence mode</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># initialise parameters</span>
+            <span class="n">sem</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+            <span class="n">mean_data_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+            <span class="n">until</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">batch_number</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="k">def</span> <span class="nf">compute_batch_sem</span><span class="p">(</span><span class="n">last_sem</span><span class="p">,</span> <span class="n">last_mean</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;Function to compute batch SEM of data rate.</span>
+
+<span class="sd">                Parameters</span>
+<span class="sd">                ----------</span>
+<span class="sd">                last_sem : float</span>
+<span class="sd">                    Previous SEM value.</span>
+<span class="sd">                last_mean : float</span>
+<span class="sd">                    Previous batch mean.</span>
+<span class="sd">                start : int</span>
+<span class="sd">                    Index of the starting pointer of the `latency` list.</span>
+
+<span class="sd">                Returns</span>
+<span class="sd">                -------</span>
+<span class="sd">                sem, end, mean_data_rate : float, int, float</span>
+<span class="sd">                    Calculated batch data rate SEM value, the last index of the `latency` list \</span>
+<span class="sd">                        and the mean data rate of the batch.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="c1"># Check if latency is updated</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latency</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">last_sem</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">last_mean</span>
+                <span class="c1"># Calculate batch SEM</span>
+                <span class="n">batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">latency</span><span class="p">[</span><span class="n">start</span><span class="p">:]</span>
+                <span class="n">batch_data_rate</span> <span class="o">=</span> <span class="nb">list</span><span class="p">([</span><span class="n">record</span><span class="p">[</span><span class="s1">&#39;Data Rate&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">])</span>
+                <span class="n">sem</span> <span class="o">=</span> <span class="n">SEM</span><span class="p">(</span><span class="n">batch_data_rate</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+                <span class="n">mean_data_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">batch_data_rate</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">sem</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">mean_data_rate</span>
+
+            <span class="k">def</span> <span class="nf">update_until</span><span class="p">(</span><span class="n">until</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;Function to update the `until` values in all processes.</span>
+
+<span class="sd">                Parameters</span>
+<span class="sd">                ----------</span>
+<span class="sd">                until : int</span>
+<span class="sd">                    New until value.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">for</span> <span class="n">ram</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">RAM</span><span class="p">:</span>
+                    <span class="n">ram</span><span class="o">.</span><span class="n">until</span> <span class="o">=</span> <span class="n">until</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">upstream_transmitter</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">upstream_transmitter</span><span class="p">:</span>
+                        <span class="n">upstream_transmitter</span><span class="o">.</span><span class="n">until</span> <span class="o">=</span> <span class="n">until</span>
+                    <span class="k">for</span> <span class="n">downstream_transmitter</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">downstream_transmitter</span><span class="p">:</span>
+                        <span class="n">downstream_transmitter</span><span class="o">.</span><span class="n">until</span> <span class="o">=</span> <span class="n">until</span>
+                    <span class="k">for</span> <span class="n">upstream_receiver</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">upstream_receiver</span><span class="p">:</span>
+                        <span class="n">upstream_receiver</span><span class="o">.</span><span class="n">until</span> <span class="o">=</span> <span class="n">until</span>
+                    <span class="k">for</span> <span class="n">downstream_receiver</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">downstream_receiver</span><span class="p">:</span>
+                        <span class="n">downstream_receiver</span><span class="o">.</span><span class="n">until</span> <span class="o">=</span> <span class="n">until</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">transmitter</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transmitter</span><span class="p">:</span>
+                        <span class="n">transmitter</span><span class="o">.</span><span class="n">until</span> <span class="o">=</span> <span class="n">until</span>
+                    <span class="k">for</span> <span class="n">receiver</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver</span><span class="p">:</span>
+                        <span class="n">receiver</span><span class="o">.</span><span class="n">until</span> <span class="o">=</span> <span class="n">until</span>
+
+            <span class="c1"># Run batches until convergence</span>
+            <span class="n">pbar_while</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">batch_number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Simulator &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; (convergence enabled)&#39;</span><span class="p">)</span>
+            <span class="k">while</span> <span class="n">sem</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sem_tr</span><span class="p">:</span>
+                <span class="c1"># Update until values and run batch</span>
+                <span class="n">update_until</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">until</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span><span class="p">)</span>
+                <span class="n">desc_for</span> <span class="o">=</span> <span class="s1">&#39;Simulator &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; Batch &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">batch_number</span><span class="p">)</span>
+                <span class="n">pbar_for</span> <span class="o">=</span> <span class="n">trange</span><span class="p">(</span><span class="n">until</span><span class="p">,</span> <span class="n">until</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">desc_for</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pbar_for</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+                <span class="c1"># Compute and record batch statistics</span>
+                <span class="n">stats</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">until</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;start_index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">start</span>
+                <span class="n">sem</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">mean_data_rate</span> <span class="o">=</span> <span class="n">compute_batch_sem</span><span class="p">(</span><span class="n">last_sem</span><span class="o">=</span><span class="n">sem</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">last_mean</span><span class="o">=</span><span class="n">mean_data_rate</span><span class="p">)</span>
+                <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;end_index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">start</span>
+                <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;sem&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sem</span>
+                <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_data_rate</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">batch_stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+                <span class="n">until</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span>
+                <span class="n">batch_number</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">desc_while</span> <span class="o">=</span> <span class="s1">&#39;Simulator </span><span class="si">%d</span><span class="s1"> (convergence enabled, batch SEM </span><span class="si">%.5f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">sem</span><span class="p">)</span>
+                <span class="n">pbar_while</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="n">desc_while</span><span class="p">)</span>
+                <span class="n">pbar_while</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># Run extended simulations after convergence</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extended</span><span class="p">:</span>
+                <span class="c1"># Run for another 50% of time</span>
+                <span class="n">extended_begin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">extended_until</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">update_until</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">extended_until</span><span class="p">)</span>
+                <span class="n">desc</span> <span class="o">=</span> <span class="s1">&#39;Simulator &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; Extended Run&#39;</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trange</span><span class="p">(</span><span class="n">extended_begin</span><span class="p">,</span> <span class="n">extended_until</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">desc</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+
+        <span class="n">_end_time</span> <span class="o">=</span> <span class="n">timer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runtime</span> <span class="o">=</span> <span class="n">_end_time</span> <span class="o">-</span> <span class="n">_start_time</span></div>
+
+<div class="viewcode-block" id="BaseSimulator.info"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.simulator.base.BaseSimulator.html#NetworkSim.simulation.simulator.base.BaseSimulator.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">info_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">component_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">component_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain information of simulation components. Check `Info` class fore more details.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        info_type : str</span>
+<span class="sd">            The type of information requested, chosen from the following:</span>
+
+<span class="sd">            - `control` or `c`</span>
+<span class="sd">                Information on control ring. When `device_type == None`, this returns all packet transmission \</span>
+<span class="sd">                information on the control ring, otherwise it refers to control packets transmitted by a transmitter \</span>
+<span class="sd">                or control packets received by a receiver. `component_id` is not required in this case.</span>
+<span class="sd">            - `data` or `d`</span>
+<span class="sd">                Information on data ring. When `device_type == None`, this returns all packet transmission \</span>
+<span class="sd">                information on the data ring, otherwise it refers to data packets transmitted by a transmitter \</span>
+<span class="sd">                or data packets received by a receiver. An `component_id` must be specified in this case.</span>
+
+<span class="sd">        component_type : str</span>
+<span class="sd">            The type of component in the simulation, chosen from the following:</span>
+
+<span class="sd">            - `ram` or `RAM`</span>
+<span class="sd">                Transmitter RAM information, where data packets are generated. An `component_id` must be specified \</span>
+<span class="sd">                in this case, but `info_type` is not required.</span>
+<span class="sd">            - `transmitter` or `t`</span>
+<span class="sd">                Transmitter packet information. Both `component_id` and `info_type` must be specified.</span>
+<span class="sd">            - `receiver` or `r`</span>
+<span class="sd">                Receiver packet information. Both `component_id` and `info_type` must be specified.</span>
+
+<span class="sd">        component_id : int</span>
+<span class="sd">            The ID of the component of choice.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        info : pandas DataFrame</span>
+<span class="sd">            A DataFrame containing the information requested.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_ram_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ram&#39;</span><span class="p">,</span> <span class="s1">&#39;RAM&#39;</span><span class="p">}</span>
+        <span class="n">_transmitter_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;transmitter&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">}</span>
+        <span class="n">_receiver_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;receiver&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">}</span>
+        <span class="n">_info</span> <span class="o">=</span> <span class="n">Info</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">component_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_info</span><span class="o">.</span><span class="n">ring_info</span><span class="p">(</span><span class="n">ring_id</span><span class="o">=</span><span class="n">component_id</span><span class="p">,</span> <span class="n">info_type</span><span class="o">=</span><span class="n">info_type</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">component_type</span> <span class="ow">in</span> <span class="n">_ram_keywords</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_info</span><span class="o">.</span><span class="n">ram_info</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="n">component_id</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">component_type</span> <span class="ow">in</span> <span class="n">_transmitter_keywords</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_info</span><span class="o">.</span><span class="n">transmitter_info</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="n">component_id</span><span class="p">,</span> <span class="n">info_type</span><span class="o">=</span><span class="n">info_type</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">component_type</span> <span class="ow">in</span> <span class="n">_receiver_keywords</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_info</span><span class="o">.</span><span class="n">receiver_info</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="n">component_id</span><span class="p">,</span> <span class="n">info_type</span><span class="o">=</span><span class="n">info_type</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Type of information requested is not recognised.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseSimulator.summary"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.simulator.base.BaseSimulator.html#NetworkSim.simulation.simulator.base.BaseSimulator.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">summary_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">output_format</span><span class="o">=</span><span class="s1">&#39;df&#39;</span><span class="p">,</span>
+        <span class="n">node_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">latency_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">bar3d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">data_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain a summary of the simulation performed. Refer to `Summary` class for more details.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        summary_type : str, optional</span>
+<span class="sd">            The type of summary, chosen from the following:</span>
+
+<span class="sd">            - `None`</span>
+<span class="sd">                No `summary_type` input, and a generic summary is returned.</span>
+<span class="sd">            - `latency` or `l`</span>
+<span class="sd">                Latency summary, with latency information for all source-destination combinations.</span>
+<span class="sd">            - `ram` or `RAM`</span>
+<span class="sd">                Transmitter RAM data generation summary.</span>
+<span class="sd">            - `transmitter` or `t`</span>
+<span class="sd">                Transmitter summary.</span>
+<span class="sd">            - `receiver` or `r`</span>
+<span class="sd">                Receiver summary.</span>
+<span class="sd">            - `count` or `c`</span>
+<span class="sd">                Total packet transmission count.</span>
+<span class="sd">            - `queue` or `q`</span>
+<span class="sd">                Queue size in RAMs.</span>
+<span class="sd">        output_format : str, optional</span>
+<span class="sd">            The format of the summary, chosen from the following:</span>
+
+<span class="sd">            - `df`</span>
+<span class="sd">                Return a pandas DataFrame, which is the default output format.</span>
+<span class="sd">            - `csv`</span>
+<span class="sd">                Export a summary of the simulation performed as a csv file. Refer to `Summary` class for more details.</span>
+<span class="sd">            - `plot`</span>
+<span class="sd">                A plot of the summary selected.</span>
+<span class="sd">        node_id : int, optional</span>
+<span class="sd">            The node ID used for latency summary plot output.</span>
+<span class="sd">        latency_type : string, optional</span>
+<span class="sd">            The latency type of interset, by default is ``None``, which is transfer delay. \</span>
+<span class="sd">                Setting it as `queueing delay` or `qd` switches it to queueing delay.</span>
+<span class="sd">        bar3d : bool, optional</span>
+<span class="sd">            Enable 3d bar plot for queueing delay, default is ``False``.</span>
+<span class="sd">        data_range : str, optional</span>
+<span class="sd">            The range of data selected for latency and delay summary, chosen from the following:</span>
+
+<span class="sd">            - `all` or `a`</span>
+<span class="sd">                All simulation data.</span>
+<span class="sd">            - `extended` or `e`</span>
+<span class="sd">                Extended simulation data in convergence mode.</span>
+<span class="sd">            - `batch` or `b`</span>
+<span class="sd">                Last batch data in convergence mode.</span>
+
+<span class="sd">            Default is ``None``, \</span>
+<span class="sd">                which is extended data for convergence mode and all data for non-convergence mode.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_latency_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;latency&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">}</span>
+        <span class="n">_ram_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ram&#39;</span><span class="p">,</span> <span class="s1">&#39;RAM&#39;</span><span class="p">}</span>
+        <span class="n">_transmitter_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;transmitter&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">}</span>
+        <span class="n">_receiver_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;receiver&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">}</span>
+        <span class="n">_count_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">}</span>
+        <span class="n">_queueing_delay_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;queueing delay&#39;</span><span class="p">,</span> <span class="s1">&#39;qd&#39;</span><span class="p">}</span>
+        <span class="n">_queue_size_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;queue&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">}</span>
+        <span class="n">_summary</span> <span class="o">=</span> <span class="n">Summary</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">summary_df</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">_summary_name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">summary_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">summary_df</span> <span class="o">=</span> <span class="n">_summary</span><span class="o">.</span><span class="n">simulation_summary</span><span class="p">()</span>
+            <span class="n">summary_type</span> <span class="o">=</span> <span class="s1">&#39;simulation&#39;</span>
+        <span class="k">elif</span> <span class="n">summary_type</span> <span class="ow">in</span> <span class="n">_ram_keywords</span><span class="p">:</span>
+            <span class="n">summary_df</span> <span class="o">=</span> <span class="n">_summary</span><span class="o">.</span><span class="n">ram_summary</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">summary_type</span> <span class="ow">in</span> <span class="n">_transmitter_keywords</span><span class="p">:</span>
+            <span class="n">summary_df</span> <span class="o">=</span> <span class="n">_summary</span><span class="o">.</span><span class="n">transmitter_summary</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">summary_type</span> <span class="ow">in</span> <span class="n">_receiver_keywords</span><span class="p">:</span>
+            <span class="n">summary_df</span> <span class="o">=</span> <span class="n">_summary</span><span class="o">.</span><span class="n">receiver_summary</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">summary_type</span> <span class="ow">in</span> <span class="n">_latency_keywords</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">latency_type</span> <span class="ow">in</span> <span class="n">_queueing_delay_keywords</span><span class="p">:</span>
+                <span class="n">summary_df</span> <span class="o">=</span> <span class="n">_summary</span><span class="o">.</span><span class="n">packet_delay_summary</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">summary_df</span> <span class="o">=</span> <span class="n">_summary</span><span class="o">.</span><span class="n">latency_summary</span><span class="p">(</span><span class="n">data_range</span><span class="o">=</span><span class="n">data_range</span><span class="p">,</span> <span class="n">latency_type</span><span class="o">=</span><span class="n">latency_type</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">summary_type</span> <span class="ow">in</span> <span class="n">_count_keywords</span><span class="p">:</span>
+            <span class="n">summary_df</span> <span class="o">=</span> <span class="n">_summary</span><span class="o">.</span><span class="n">packet_count_summary</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">summary_type</span> <span class="ow">in</span> <span class="n">_queue_size_keywords</span><span class="p">:</span>
+            <span class="n">summary_df</span> <span class="o">=</span> <span class="n">_summary</span><span class="o">.</span><span class="n">ram_queue_summary</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Summary type is not recognised.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Output summary based on format selected</span>
+        <span class="k">if</span> <span class="n">output_format</span> <span class="o">==</span> <span class="s1">&#39;df&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">summary_df</span>
+        <span class="k">elif</span> <span class="n">output_format</span> <span class="o">==</span> <span class="s1">&#39;csv&#39;</span><span class="p">:</span>
+            <span class="n">_summary_name</span> <span class="o">=</span> <span class="n">summary_type</span>
+            <span class="n">_file_name</span> <span class="o">=</span> <span class="n">_summary_name</span> <span class="o">+</span> <span class="s2">&quot;_summary.csv&quot;</span>
+            <span class="n">summary_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">_file_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">output_format</span> <span class="o">==</span> <span class="s1">&#39;plot&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">summary_type</span> <span class="o">==</span> <span class="s1">&#39;simulation&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">plot_latency_throughput</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latency</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">summary_type</span> <span class="ow">in</span> <span class="n">_latency_keywords</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">plot_latency</span><span class="p">(</span>
+                    <span class="n">simulator</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+                    <span class="n">latency</span><span class="o">=</span><span class="n">summary_df</span><span class="p">,</span>
+                    <span class="n">node_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span>
+                    <span class="n">latency_type</span><span class="o">=</span><span class="n">latency_type</span><span class="p">,</span>
+                    <span class="n">bar3d</span><span class="o">=</span><span class="n">bar3d</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">summary_type</span> <span class="ow">in</span> <span class="n">_count_keywords</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">plot_count</span><span class="p">(</span><span class="n">summary_df</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Plot type not recognised.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Output format not recognised.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseSimulator.export_data_as_csv"><a class="viewcode-back" href="../../../../modules/auto_generated/NetworkSim.simulation.simulator.base.BaseSimulator.html#NetworkSim.simulation.simulator.base.BaseSimulator.export_data_as_csv">[docs]</a>    <span class="k">def</span> <span class="nf">export_data_as_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Export a python list as a csv file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        file_name: string</span>
+<span class="sd">            Name of the output csv file</span>
+
+<span class="sd">        data : ndarray (structured or homogeneous), Iterable, dict, or DataFrame</span>
+<span class="sd">            The data to be exported as csv file</span>
+
+<span class="sd">        index: list, optional</span>
+<span class="sd">            Index to use for resulting csv file</span>
+
+<span class="sd">        columns: list, optional</span>
+<span class="sd">            Column labels to use for csv file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;file_name must be a string.&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">file_name</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;.csv&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">file_name</span> <span class="o">=</span> <span class="n">file_name</span> <span class="o">+</span> <span class="s2">&quot;.csv&quot;</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+        <span class="n">row_names</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">index</span><span class="p">:</span>
+            <span class="n">row_names</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">row_names</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

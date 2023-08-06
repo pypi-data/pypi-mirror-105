@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSim &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>NetworkSim</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/README.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><a class="reference external" href="https://github.com/HYang1996/NetworkSim/actions?query=workflow%3A%22Build+and+Test%22"><img alt="github" src="https://img.shields.io/github/workflow/status/HYang1996/NetworkSim/Build%20and%20Test?logo=github" /></a> <a class="reference external" href="https://networksim.readthedocs.io/en/latest/"><img alt="readthedocs" src="https://readthedocs.org/projects/networksim/badge/?version=latest" /></a> <a class="reference external" href="https://pypi.org/project/NetworkSim/"><img alt="pypi" src="https://img.shields.io/pypi/v/NetworkSim" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/HYang1996/NetworkSim/master?filepath=examples"><img alt="binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<div class="section" id="networksim">
+<h1>NetworkSim<a class="headerlink" href="#networksim" title="Permalink to this headline">¶</a></h1>
+<p>NetworkSim is a Python package used to simulation data transmission in a typical optical wavelength ring network using the Wavelength Division Multiplexing (WDM) technique.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/Ring-Network-Diagram.png"><img alt="_images/Ring-Network-Diagram.png" src="_images/Ring-Network-Diagram.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">A typical WDM optical ring network in the data center</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>In this package, two protocols have been implemented for the simulation, namely the fixed transmitter - tunable receiver (FT-TR) protocol and the tunable transmitter - fixed receiver (TT-FR) protocol.</p>
+<p>This package is developed as part of our final year group project and is still under development. It will be constantly updated as we troubleshoot bugs and implement additional features.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The package is available via PyPI using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install NetworkSim
+</pre></div>
+</div>
+</div>
+<div class="section" id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">NetworkSim</span> <span class="kn">import</span> <span class="n">BaseSimulator</span>
+
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">BaseSimulator</span><span class="p">()</span>
+<span class="n">simulator</span><span class="o">.</span><span class="n">initialise</span><span class="p">()</span>
+<span class="n">simulator</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">simulator</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>Read the detailed package <a class="reference external" href="https://networksim.readthedocs.io/en/latest/">API reference</a>.</p>
+</div>
+<div class="section" id="package-structure">
+<h2>Package Structure<a class="headerlink" href="#package-structure" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NetworkSim
+├── architecture
+│   ├── base
+│   │   ├── network.py
+│   │   ├── node.py
+│   │   └── ring.py
+│   ├── setup
+│   │   └── model.py
+│   └── signal
+│       ├── control.py
+│       └── data.py
+├── simulation
+│   ├── process
+│   │   ├── ram.py
+│   │   ├── receiver
+│   │   │   ├── base.py
+│   │   │   ├── fixed.py
+│   │   │   ├── fixed_downstream.py
+│   │   │   ├── fixed_upstream.py
+│   │   │   └── tunable.py
+│   │   └── transmitter
+│   │       ├── base.py
+│   │       ├── fixed.py
+│   │       ├── tunable.py
+│   │       ├── tunable_downstream.py
+│   │       └── tunable_upstream.py
+│   ├── simulator
+│   │   ├── base.py
+│   │   └── parallel.py
+│   └── tools
+│       ├── clock.py
+│       ├── distribution.py
+│       ├── info.py
+│       ├── load_save.py
+│       ├── performance_analysis.py
+│       ├── plot.py
+│       ├── presentation.py
+│       ├── publication.py
+│       └── summary.py
+├── system_verilog
+│   ├── README.md
+│   ├── receiver.py
+│   └── transmitter.py
+└── tests
+    ├── test_packet_detection_and_reception.py
+    ├── test_packet_movement_on_ring.py
+    ├── test_packet_transmission_time.py
+    ├── test_source_traffic_generation.py
+    ├── test_transmitter_data_packet_transmission.py
+    ├── test_transmitter_ram_queue.py
+    └── test_transmitter_ring_slot_availability_check.py
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

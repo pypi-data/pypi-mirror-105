@@ -1,0 +1,803 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>API Reference &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ControlSignal" href="modules/auto_generated/NetworkSim.architecture.signal.ControlSignal.html" />
+    <link rel="prev" title="NetworkSim" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#network-signal-configuration">Network Signal Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#signal-configuration">Signal Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.signal.ControlSignal.html">ControlSignal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.signal.DataSignal.html">DataSignal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#network-architecture-base-configuration">Network Architecture Base Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#node-configuration">Node Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.base.node.Node.html">Node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#network-configuration">Network Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.base.network.Network.html">Network</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ring-configuration">Ring Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.base.ring.Ring.html">Ring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#network-architecture-setup">Network Architecture Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-configuration">Model Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.setup.model.Model.html">Model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation-tools">Simulation Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#network-performance-analysis">Network Performance Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_queueing_delay.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.performance_analysis</span></code>.get_queueing_delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_service_delay.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.performance_analysis</span></code>.get_service_delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_transfer_delay.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.performance_analysis</span></code>.get_transfer_delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_final_batch_delay.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.performance_analysis</span></code>.get_final_batch_delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_extended_run_delay.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.performance_analysis</span></code>.get_extended_run_delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_overall_delay.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.performance_analysis</span></code>.get_overall_delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_final_batch_throughput.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.performance_analysis</span></code>.get_final_batch_throughput</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_extended_run_throughput.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.performance_analysis</span></code>.get_extended_run_throughput</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_overall_throughput.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.performance_analysis</span></code>.get_overall_throughput</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#probability-distributions-for-discrete-event-simulation">Probability Distributions for Discrete Event Simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.distribution.Distribution.html">Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#synchronised-clocks">Synchronised Clocks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.clock.TransmitterDataClock.html">TransmitterDataClock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.clock.ReceiverDataClock.html">ReceiverDataClock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.clock.ControlClock.html">ControlClock</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-information">Simulation Information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.info.Info.html">Info</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-summary">Simulation Summary</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.summary.Summary.html">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-results-plotting">Simulation Results Plotting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.init.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.plot</span></code>.init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_latency_heatmap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.plot</span></code>.plot_latency_heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_latency_scatter.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.plot</span></code>.plot_latency_scatter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_latency.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.plot</span></code>.plot_latency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_latency_throughput.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.plot</span></code>.plot_latency_throughput</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_count.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.plot</span></code>.plot_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_latency_3d.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.plot</span></code>.plot_latency_3d</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_batch_throughput.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.plot</span></code>.plot_batch_throughput</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_analytical_simulation_latency.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.plot</span></code>.plot_analytical_simulation_latency</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-model-loading-and-saving">Simulation Model Loading and Saving</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.load_save.load_model.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.load_save</span></code>.load_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.load_save.save_model.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.load_save</span></code>.save_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.load_save.clear_env.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.load_save</span></code>.clear_env</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tools-used-for-publication-purposes">Tools used for Publication Purposes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.init.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.publication</span></code>.init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_delay.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.publication</span></code>.plot_delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_throughput.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.publication</span></code>.plot_throughput</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_buffer.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.publication</span></code>.plot_buffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_delay_heatmap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.publication</span></code>.plot_delay_heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_packet_heatmap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.publication</span></code>.plot_packet_heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_ook_ber.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.publication</span></code>.plot_ook_ber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_scaled_network_delay.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools.publication</span></code>.plot_scaled_network_delay</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation-processes">Simulation Processes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ram-process">RAM Process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.ram.RAM.html">RAM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#transmitter-process">Transmitter Process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html">BaseTransmitter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.transmitter.FT.html">FT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.transmitter.TT.html">TT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.transmitter.TT_U.html">TT_U</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.transmitter.TT_D.html">TT_D</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#receiver-process">Receiver Process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html">BaseReceiver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.receiver.FR.html">FR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.receiver.TR.html">TR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.receiver.FR_U.html">FR_U</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.receiver.FR_D.html">FR_D</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation-setup">Simulation Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-simulation-wrapper">Basic Simulation Wrapper</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.simulator.base.BaseSimulator.html">BaseSimulator</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parallel-simulation">Parallel Simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.simulator.parallel.ParallelSimulator.html">ParallelSimulator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#systemverilog-integration">SystemVerilog Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#receiver-module">Receiver Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.system_verilog.receiver.generate_testvector.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.system_verilog.receiver</span></code>.generate_testvector</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#transmitter-module">Transmitter Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.system_verilog.transmitter.print_delay_lut.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.system_verilog.transmitter</span></code>.print_delay_lut</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/auto_generated/NetworkSim.system_verilog.transmitter.generate_testvector.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.system_verilog.transmitter</span></code>.generate_testvector</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>API Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/api_reference.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-reference">
+<span id="id1"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
+<style type="text/css">
+    h1 {
+        /* margin: 0 -10px 0 -10px; */
+        text-align: center;
+        background-color: #cde8ef;
+        /* font-family: Helvetica, Arial, sans-serif; */
+        /* font-size: 100%; */
+        border-radius: 0 15px 0 15px;
+        -moz-border-radius: 0 15px 0 15px;
+        padding: 10px;
+    }
+
+    h2 {
+        background-color: #BED4EB;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    h3 {
+        padding: 5px;
+        border-radius: 10px;
+        background-color: #eee;
+    }
+</style><div class="section" id="network-signal-configuration">
+<span id="architecture-ref"></span><h2>Network Signal Configuration<a class="headerlink" href="#network-signal-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="#module-NetworkSim.architecture.signal" title="NetworkSim.architecture.signal"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.architecture.signal</span></code></a> module contains definitions of the control and data signals used in the ring network.</p>
+<span class="target" id="module-NetworkSim.architecture.signal"></span><div class="section" id="signal-configuration">
+<h3>Signal Configuration<a class="headerlink" href="#signal-configuration" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.signal.ControlSignal.html#NetworkSim.architecture.signal.ControlSignal" title="NetworkSim.architecture.signal.ControlSignal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ControlSignal</span></code></a>([id_length, control_length, …])</p></td>
+<td><p>Constructor for control signals.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.signal.DataSignal.html#NetworkSim.architecture.signal.DataSignal" title="NetworkSim.architecture.signal.DataSignal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSignal</span></code></a>([size, abstract])</p></td>
+<td><p>Constructor for data signals.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="network-architecture-base-configuration">
+<h2>Network Architecture Base Configuration<a class="headerlink" href="#network-architecture-base-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="#module-NetworkSim.architecture.base" title="NetworkSim.architecture.base"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.architecture.base</span></code></a> module contains useful components for the configuration of the optical ring network hardware architecture.</p>
+<span class="target" id="module-NetworkSim.architecture.base"></span><div class="section" id="node-configuration">
+<h3>Node Configuration<a class="headerlink" href="#node-configuration" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.base.node.Node.html#NetworkSim.architecture.base.node.Node" title="NetworkSim.architecture.base.node.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Node</span></code></a>(control_signal, data_signal, network[, …])</p></td>
+<td><p>Constructor of the individual node in the ring network</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="network-configuration">
+<h3>Network Configuration<a class="headerlink" href="#network-configuration" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.base.network.Network.html#NetworkSim.architecture.base.network.Network" title="NetworkSim.architecture.base.network.Network"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Network</span></code></a>([length, num_nodes, direction])</p></td>
+<td><p>Constructor of the network architecture</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ring-configuration">
+<h3>Ring Configuration<a class="headerlink" href="#ring-configuration" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.base.ring.Ring.html#NetworkSim.architecture.base.ring.Ring" title="NetworkSim.architecture.base.ring.Ring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ring</span></code></a>(model[, ring_id, time_unit, reversed])</p></td>
+<td><p>Ring class to store packets on both control and data rings.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="network-architecture-setup">
+<h2>Network Architecture Setup<a class="headerlink" href="#network-architecture-setup" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="#module-NetworkSim.architecture.setup" title="NetworkSim.architecture.setup"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.architecture.setup</span></code></a> module enables integration of the network components into a complete network model.</p>
+<span class="target" id="module-NetworkSim.architecture.setup"></span><div class="section" id="model-configuration">
+<h3>Model Configuration<a class="headerlink" href="#model-configuration" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.architecture.setup.model.Model.html#NetworkSim.architecture.setup.model.Model" title="NetworkSim.architecture.setup.model.Model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model</span></code></a>([control_signal, data_signal, …])</p></td>
+<td><p>Constructor for model.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="simulation-tools">
+<span id="simulation-ref"></span><h2>Simulation Tools<a class="headerlink" href="#simulation-tools" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="#module-NetworkSim.simulation.tools" title="NetworkSim.simulation.tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.tools</span></code></a> module contains essential tools used for the simulation.</p>
+<span class="target" id="module-NetworkSim.simulation.tools"></span><div class="section" id="network-performance-analysis">
+<h3>Network Performance Analysis<a class="headerlink" href="#network-performance-analysis" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_queueing_delay.html#NetworkSim.simulation.tools.performance_analysis.get_queueing_delay" title="NetworkSim.simulation.tools.performance_analysis.get_queueing_delay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_queueing_delay</span></code></a>(simulator)</p></td>
+<td><p>Function to compute the queueing delay latency of the defined network.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_service_delay.html#NetworkSim.simulation.tools.performance_analysis.get_service_delay" title="NetworkSim.simulation.tools.performance_analysis.get_service_delay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_service_delay</span></code></a>(simulator)</p></td>
+<td><p>Function to compute the service delay latency of the defined network.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_transfer_delay.html#NetworkSim.simulation.tools.performance_analysis.get_transfer_delay" title="NetworkSim.simulation.tools.performance_analysis.get_transfer_delay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transfer_delay</span></code></a>(simulator[, include_pd])</p></td>
+<td><p>Function to compute the transfer delay latency of the defined network.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_final_batch_delay.html#NetworkSim.simulation.tools.performance_analysis.get_final_batch_delay" title="NetworkSim.simulation.tools.performance_analysis.get_final_batch_delay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_final_batch_delay</span></code></a>(simulator)</p></td>
+<td><p>Function to compute mean queueing and transfer delay of the final batch in the simulation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_extended_run_delay.html#NetworkSim.simulation.tools.performance_analysis.get_extended_run_delay" title="NetworkSim.simulation.tools.performance_analysis.get_extended_run_delay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_extended_run_delay</span></code></a>(simulator)</p></td>
+<td><p>Function to compute mean queueing and transfer delay of the extended run.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_overall_delay.html#NetworkSim.simulation.tools.performance_analysis.get_overall_delay" title="NetworkSim.simulation.tools.performance_analysis.get_overall_delay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_overall_delay</span></code></a>(simulator)</p></td>
+<td><p>Function to compute the mean queueing and transfer delay of a simulation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_final_batch_throughput.html#NetworkSim.simulation.tools.performance_analysis.get_final_batch_throughput" title="NetworkSim.simulation.tools.performance_analysis.get_final_batch_throughput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_final_batch_throughput</span></code></a>(simulator)</p></td>
+<td><p>Function to compute the mean throughput of a simulation in the final batch.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_extended_run_throughput.html#NetworkSim.simulation.tools.performance_analysis.get_extended_run_throughput" title="NetworkSim.simulation.tools.performance_analysis.get_extended_run_throughput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_extended_run_throughput</span></code></a>(simulator)</p></td>
+<td><p>Function to compute the mean throughput of a simulation during the extended run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.performance_analysis.get_overall_throughput.html#NetworkSim.simulation.tools.performance_analysis.get_overall_throughput" title="NetworkSim.simulation.tools.performance_analysis.get_overall_throughput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_overall_throughput</span></code></a>(simulator)</p></td>
+<td><p>Function to compute the overall mean throughput of a simulation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="probability-distributions-for-discrete-event-simulation">
+<h3>Probability Distributions for Discrete Event Simulation<a class="headerlink" href="#probability-distributions-for-discrete-event-simulation" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.distribution.Distribution.html#NetworkSim.simulation.tools.distribution.Distribution" title="NetworkSim.simulation.tools.distribution.Distribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Distribution</span></code></a>(seed[, model])</p></td>
+<td><p>Distribution class to generate interarrival time based on the chosen distribution.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="synchronised-clocks">
+<h3>Synchronised Clocks<a class="headerlink" href="#synchronised-clocks" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.clock.TransmitterDataClock.html#NetworkSim.simulation.tools.clock.TransmitterDataClock" title="NetworkSim.simulation.tools.clock.TransmitterDataClock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TransmitterDataClock</span></code></a>([model])</p></td>
+<td><p>Synchronised clock for all transmitter on data rings.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.clock.ReceiverDataClock.html#NetworkSim.simulation.tools.clock.ReceiverDataClock" title="NetworkSim.simulation.tools.clock.ReceiverDataClock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReceiverDataClock</span></code></a>([model])</p></td>
+<td><p>Synchronised clock for all receiver on data rings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.clock.ControlClock.html#NetworkSim.simulation.tools.clock.ControlClock" title="NetworkSim.simulation.tools.clock.ControlClock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ControlClock</span></code></a>([model])</p></td>
+<td><p>Synchronised clock for all transmitter and receiver on control ring.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="simulation-information">
+<h3>Simulation Information<a class="headerlink" href="#simulation-information" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.info.Info.html#NetworkSim.simulation.tools.info.Info" title="NetworkSim.simulation.tools.info.Info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Info</span></code></a>(simulator)</p></td>
+<td><p>Information class to generate basic information of modules involved in the simulation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="simulation-summary">
+<h3>Simulation Summary<a class="headerlink" href="#simulation-summary" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.summary.Summary.html#NetworkSim.simulation.tools.summary.Summary" title="NetworkSim.simulation.tools.summary.Summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Summary</span></code></a>(simulator)</p></td>
+<td><p>Summary class to generate summaries for a given simulator.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="simulation-results-plotting">
+<h3>Simulation Results Plotting<a class="headerlink" href="#simulation-results-plotting" title="Permalink to this headline">¶</a></h3>
+<p>Plots can also be directly generated from simulation summary.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.init.html#NetworkSim.simulation.tools.plot.init" title="NetworkSim.simulation.tools.plot.init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init</span></code></a>()</p></td>
+<td><p>Plot environment initialisation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_latency_heatmap.html#NetworkSim.simulation.tools.plot.plot_latency_heatmap" title="NetworkSim.simulation.tools.plot.plot_latency_heatmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_latency_heatmap</span></code></a>(latency[, type, fig, …])</p></td>
+<td><p>Plot average latency of all nodes in a simulator as a heatmap.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_latency_scatter.html#NetworkSim.simulation.tools.plot.plot_latency_scatter" title="NetworkSim.simulation.tools.plot.plot_latency_scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_latency_scatter</span></code></a>(latency, node_id)</p></td>
+<td><p>Scatter plot of latency information of one node,         both as a source node and as a destination node.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_latency.html#NetworkSim.simulation.tools.plot.plot_latency" title="NetworkSim.simulation.tools.plot.plot_latency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_latency</span></code></a>(simulator, latency[, node_id, …])</p></td>
+<td><p>Function to plot latency information.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_latency_throughput.html#NetworkSim.simulation.tools.plot.plot_latency_throughput" title="NetworkSim.simulation.tools.plot.plot_latency_throughput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_latency_throughput</span></code></a>(latency)</p></td>
+<td><p>Plot latency and throughput of a simulation across time.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_count.html#NetworkSim.simulation.tools.plot.plot_count" title="NetworkSim.simulation.tools.plot.plot_count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_count</span></code></a>(packet_count[, fig, ax, title])</p></td>
+<td><p>Plot transmission packet count as a heatmap.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_latency_3d.html#NetworkSim.simulation.tools.plot.plot_latency_3d" title="NetworkSim.simulation.tools.plot.plot_latency_3d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_latency_3d</span></code></a>(latency, type)</p></td>
+<td><p>3d bar plot of parameters as source/destination pair.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_batch_throughput.html#NetworkSim.simulation.tools.plot.plot_batch_throughput" title="NetworkSim.simulation.tools.plot.plot_batch_throughput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_batch_throughput</span></code></a>(simulator[, show_ci])</p></td>
+<td><p>Plot batch throughput of simulations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.plot.plot_analytical_simulation_latency.html#NetworkSim.simulation.tools.plot.plot_analytical_simulation_latency" title="NetworkSim.simulation.tools.plot.plot_analytical_simulation_latency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_analytical_simulation_latency</span></code></a>(simulator)</p></td>
+<td><p>Plot analytical and simulation transfer delay.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="simulation-model-loading-and-saving">
+<h3>Simulation Model Loading and Saving<a class="headerlink" href="#simulation-model-loading-and-saving" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.load_save.load_model.html#NetworkSim.simulation.tools.load_save.load_model" title="NetworkSim.simulation.tools.load_save.load_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_model</span></code></a>([fname, dir])</p></td>
+<td><p>Function to load previously saved pickle files as models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.load_save.save_model.html#NetworkSim.simulation.tools.load_save.save_model" title="NetworkSim.simulation.tools.load_save.save_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_model</span></code></a>(simulator, fname[, dir, minimal])</p></td>
+<td><p>Function to save simulation models as pickle files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.load_save.clear_env.html#NetworkSim.simulation.tools.load_save.clear_env" title="NetworkSim.simulation.tools.load_save.clear_env"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_env</span></code></a>(simulator, minimal)</p></td>
+<td><p>Function to clear all <cite>simpy Environment</cite> in the simulator.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tools-used-for-publication-purposes">
+<h3>Tools used for Publication Purposes<a class="headerlink" href="#tools-used-for-publication-purposes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.init.html#NetworkSim.simulation.tools.publication.init" title="NetworkSim.simulation.tools.publication.init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init</span></code></a>()</p></td>
+<td><p>Plot environment initialisation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_delay.html#NetworkSim.simulation.tools.publication.plot_delay" title="NetworkSim.simulation.tools.publication.plot_delay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_delay</span></code></a>(simulator[, delay, span, …])</p></td>
+<td><p>Plot delay statistics of a ParallelSimulator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_throughput.html#NetworkSim.simulation.tools.publication.plot_throughput" title="NetworkSim.simulation.tools.publication.plot_throughput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_throughput</span></code></a>(simulator[, span, semilog])</p></td>
+<td><p>Plot mean throughput statistics of a ParallelSimulator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_buffer.html#NetworkSim.simulation.tools.publication.plot_buffer" title="NetworkSim.simulation.tools.publication.plot_buffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_buffer</span></code></a>(simulator[, metrics, semilog])</p></td>
+<td><p>Plot buffer size statistics of a ParallelSimulator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_delay_heatmap.html#NetworkSim.simulation.tools.publication.plot_delay_heatmap" title="NetworkSim.simulation.tools.publication.plot_delay_heatmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_delay_heatmap</span></code></a>(simulator, data_rate[, …])</p></td>
+<td><p>Plot mean delay statistics of a specified data rate in a ParallelSimulator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_packet_heatmap.html#NetworkSim.simulation.tools.publication.plot_packet_heatmap" title="NetworkSim.simulation.tools.publication.plot_packet_heatmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_packet_heatmap</span></code></a>(simulator, data_rate[, span])</p></td>
+<td><p>Plot mean packet number statistics of a specified data rate in a ParallelSimulator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_ook_ber.html#NetworkSim.simulation.tools.publication.plot_ook_ber" title="NetworkSim.simulation.tools.publication.plot_ook_ber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_ook_ber</span></code></a>([snr_min, snr_max, show_coherent])</p></td>
+<td><p>Plot OOK bit error rate vs average energy-to-noise ratio <a href="#id3"><span class="problematic" id="id2">[1]_</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.tools.publication.plot_scaled_network_delay.html#NetworkSim.simulation.tools.publication.plot_scaled_network_delay" title="NetworkSim.simulation.tools.publication.plot_scaled_network_delay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_scaled_network_delay</span></code></a>([data_type])</p></td>
+<td><p>Plot delay of a scaled network.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="simulation-processes">
+<h2>Simulation Processes<a class="headerlink" href="#simulation-processes" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="#module-NetworkSim.simulation.process" title="NetworkSim.simulation.process"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.process</span></code></a> module contains essential processes used for the simulation.</p>
+<span class="target" id="module-NetworkSim.simulation.process"></span><div class="section" id="ram-process">
+<h3>RAM Process<a class="headerlink" href="#ram-process" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.ram.RAM.html#NetworkSim.simulation.process.ram.RAM" title="NetworkSim.simulation.process.ram.RAM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RAM</span></code></a>(env, until, ram_id, bidirectional[, …])</p></td>
+<td><p>RAM process generation for simulation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="transmitter-process">
+<h3>Transmitter Process<a class="headerlink" href="#transmitter-process" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter" title="NetworkSim.simulation.process.transmitter.BaseTransmitter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseTransmitter</span></code></a>(env, ram, transmitter_id, …)</p></td>
+<td><p>Transmitter processes creator for the simulation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.transmitter.FT.html#NetworkSim.simulation.process.transmitter.FT" title="NetworkSim.simulation.process.transmitter.FT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FT</span></code></a>(env, ram, transmitter_id, simulator, until)</p></td>
+<td><p>Fixed transmitter simulator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.transmitter.TT.html#NetworkSim.simulation.process.transmitter.TT" title="NetworkSim.simulation.process.transmitter.TT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TT</span></code></a>(env, ram, transmitter_id, simulator, until)</p></td>
+<td><p>Tunable transmitter simulator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.transmitter.TT_U.html#NetworkSim.simulation.process.transmitter.TT_U" title="NetworkSim.simulation.process.transmitter.TT_U"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TT_U</span></code></a>(env, ram, transmitter_id, simulator, until)</p></td>
+<td><p>Tunable transmitter simulator in bi-directional system, transmitting downstream packets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.transmitter.TT_D.html#NetworkSim.simulation.process.transmitter.TT_D" title="NetworkSim.simulation.process.transmitter.TT_D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TT_D</span></code></a>(env, ram, transmitter_id, simulator, until)</p></td>
+<td><p>Tunable transmitter simulator in bi-directional system, transmitting downstream packets.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="receiver-process">
+<h3>Receiver Process<a class="headerlink" href="#receiver-process" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver" title="NetworkSim.simulation.process.receiver.BaseReceiver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseReceiver</span></code></a>(env, until, receiver_id, simulator)</p></td>
+<td><p>Receiver processes creator for the simulation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.receiver.FR.html#NetworkSim.simulation.process.receiver.FR" title="NetworkSim.simulation.process.receiver.FR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FR</span></code></a>(env, until, receiver_id, simulator[, model])</p></td>
+<td><p>Fixed receiver simulator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.receiver.TR.html#NetworkSim.simulation.process.receiver.TR" title="NetworkSim.simulation.process.receiver.TR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TR</span></code></a>(env, until, receiver_id, simulator[, model])</p></td>
+<td><p>Tunable receiver simulator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.receiver.FR_U.html#NetworkSim.simulation.process.receiver.FR_U" title="NetworkSim.simulation.process.receiver.FR_U"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FR_U</span></code></a>(env, until, receiver_id, simulator[, model])</p></td>
+<td><p>Fixed receiver simulator corresponding to upstream transmitters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.process.receiver.FR_D.html#NetworkSim.simulation.process.receiver.FR_D" title="NetworkSim.simulation.process.receiver.FR_D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FR_D</span></code></a>(env, until, receiver_id, simulator[, model])</p></td>
+<td><p>Fixed receiver simulator corresponding to downstream transmitters.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="simulation-setup">
+<h2>Simulation Setup<a class="headerlink" href="#simulation-setup" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="#module-NetworkSim.simulation.simulator" title="NetworkSim.simulation.simulator"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.simulation.simulator</span></code></a> module contains a wrapper to set up all necessary processes for the simulation.</p>
+<span class="target" id="module-NetworkSim.simulation.simulator"></span><div class="section" id="basic-simulation-wrapper">
+<h3>Basic Simulation Wrapper<a class="headerlink" href="#basic-simulation-wrapper" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.simulator.base.BaseSimulator.html#NetworkSim.simulation.simulator.base.BaseSimulator" title="NetworkSim.simulation.simulator.base.BaseSimulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseSimulator</span></code></a>([until, convergence, sem_tr, …])</p></td>
+<td><p>Simulation wrapper to create a discrete event simulation of the ring network.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="parallel-simulation">
+<h3>Parallel Simulation<a class="headerlink" href="#parallel-simulation" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.simulation.simulator.parallel.ParallelSimulator.html#NetworkSim.simulation.simulator.parallel.ParallelSimulator" title="NetworkSim.simulation.simulator.parallel.ParallelSimulator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParallelSimulator</span></code></a>([until, convergence, …])</p></td>
+<td><p>Parallel simulator class to enable multiple simulations to be run in parallel with minimum input parameters.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="systemverilog-integration">
+<h2>SystemVerilog Integration<a class="headerlink" href="#systemverilog-integration" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">NetworkSim.system_verilog</span></code> module contains useful functions to generate relevant files used for writing and verification of the SystemVerilog modules in the project.</p>
+<div class="section" id="receiver-module">
+<h3>Receiver Module<a class="headerlink" href="#receiver-module" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.system_verilog.receiver.generate_testvector.html#NetworkSim.system_verilog.receiver.generate_testvector" title="NetworkSim.system_verilog.receiver.generate_testvector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_testvector</span></code></a>(simulator[, …])</p></td>
+<td><p>Generate testvector files for receiver module.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="transmitter-module">
+<h3>Transmitter Module<a class="headerlink" href="#transmitter-module" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.system_verilog.transmitter.print_delay_lut.html#NetworkSim.system_verilog.transmitter.print_delay_lut" title="NetworkSim.system_verilog.transmitter.print_delay_lut"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_delay_lut</span></code></a>([simulator, upstream])</p></td>
+<td><p>Print delay LUT</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/auto_generated/NetworkSim.system_verilog.transmitter.generate_testvector.html#NetworkSim.system_verilog.transmitter.generate_testvector" title="NetworkSim.system_verilog.transmitter.generate_testvector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_testvector</span></code></a>(simulator[, …])</p></td>
+<td><p>Testvector generation for transmitters.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

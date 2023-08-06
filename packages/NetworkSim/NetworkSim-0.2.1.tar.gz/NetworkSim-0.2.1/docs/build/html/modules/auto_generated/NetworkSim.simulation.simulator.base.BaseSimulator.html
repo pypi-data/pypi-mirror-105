@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>BaseSimulator &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ParallelSimulator" href="NetworkSim.simulation.simulator.parallel.ParallelSimulator.html" />
+    <link rel="prev" title="FR_D" href="NetworkSim.simulation.process.receiver.FR_D.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#network-signal-configuration">Network Signal Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#network-architecture-base-configuration">Network Architecture Base Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#network-architecture-setup">Network Architecture Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#simulation-tools">Simulation Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#simulation-processes">Simulation Processes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../api_reference.html#simulation-setup">Simulation Setup</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../api_reference.html#basic-simulation-wrapper">Basic Simulation Wrapper</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">BaseSimulator</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_reference.html#parallel-simulation">Parallel Simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#systemverilog-integration">SystemVerilog Integration</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../api_reference.html">API Reference</a> &raquo;</li>
+        
+      <li>BaseSimulator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/modules/auto_generated/NetworkSim.simulation.simulator.base.BaseSimulator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="basesimulator">
+<h1>BaseSimulator<a class="headerlink" href="#basesimulator" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="NetworkSim.simulation.simulator.base.BaseSimulator">
+<em class="property">class </em><code class="sig-prename descclassname">NetworkSim.simulation.simulator.base.</code><code class="sig-name descname">BaseSimulator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">until</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">convergence</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">sem_tr</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">extended</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">env</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">transmitter_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">receiver_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">traffic_generation_method</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bidirectional</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">id</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/simulator/base.html#BaseSimulator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.simulator.base.BaseSimulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulation wrapper to create a discrete event simulation of the ring network.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>until</strong> (<em>float</em>) – The end time of the simulation. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>convergence</strong> (<em>bool</em>) – Automatic convergence mode of simulation. Default is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>sem_tr</strong> (<em>float</em>) – The threshold standard error of mean (SEM) for convergence. Default is <code class="docutils literal notranslate"><span class="pre">0.05</span></code>.</p></li>
+<li><p><strong>bs</strong> (<em>int</em>) – The batch size for SEM calculation during convergence. Default is <code class="docutils literal notranslate"><span class="pre">10000</span></code>.</p></li>
+<li><p><strong>env</strong> (<em>simpy Environment, optional</em>) – The environment in which the simulation is carried out. Default is <code class="docutils literal notranslate"><span class="pre">simpy.Environment()</span></code>.</p></li>
+<li><p><strong>model</strong> (<em>Model, optional</em>) – The network model used for the simulation. Default is <code class="docutils literal notranslate"><span class="pre">Model()</span></code>.</p></li>
+<li><p><strong>transmitter_type</strong> (<em>str</em>) – The type of transmitter used for the simulation, chosen from the list:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>fixed</cite>, <cite>f</cite> or <cite>F</cite></dt><dd><p>Fixed transmitter.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>tunable</cite>, <cite>t</cite> or <cite>T</cite></dt><dd><p>Tunable transmitter.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Default is  <code class="docutils literal notranslate"><span class="pre">tunable</span></code>.</p>
+</li>
+<li><p><strong>receiver_type</strong> (<em>str</em>) – The type of receiver used for the simulation, chosen from the list:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>fixed</cite>, <cite>f</cite> or <cite>F</cite></dt><dd><p>Fixed receiver.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>tunable</cite>, <cite>t</cite>, or <cite>T</cite></dt><dd><p>Tunable receiver.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Default is  <code class="docutils literal notranslate"><span class="pre">fixed</span></code>.</p>
+</li>
+<li><p><strong>traffic_generation_method</strong> (<em>str</em>) – The method used for generate source traffic, chosen from the list:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>poisson</cite></dt><dd><p>Poisson distribution.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>pareto</cite></dt><dd><p>Pareto distribution.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Default is <code class="docutils literal notranslate"><span class="pre">poisson</span></code>.</p>
+</li>
+<li><p><strong>bidirectional</strong> (<em>bool, optional</em>) – The type of network architecture, either bidirectional or unidirectional.             Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>, which is unidirectional.</p></li>
+<li><p><strong>seed</strong> (<em>int, optional</em>) – The seed used for source traffic generation. Default is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><strong>———-</strong></p></li>
+<li><p><strong>latency</strong> (<em>list</em>) – A list of packet transmission latency recorded during the simulation, containing the keys:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>Latency Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the latency is recorded.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Source ID</cite><span class="classifier">int</span></dt><dd><p>The ID of the source node.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Destination ID</cite><span class="classifier">int</span></dt><dd><p>The ID of the destination node.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Queueing Delay</cite><span class="classifier">float</span></dt><dd><p>The recorded queueing delay latency.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Transfer Delay</cite><span class="classifier">float</span></dt><dd><p>The recorded transfer delay latency.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Data Rate</cite><span class="classifier">float</span></dt><dd><p>The data rate recorded as the operation is completed.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>error</strong> (<em>list</em>) – A list of transmission errors occurred during the simulation, containing the keys:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>Error Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the error occurred.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Source ID</cite><span class="classifier">int</span></dt><dd><p>The ID of the source node.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Destination ID</cite><span class="classifier">int</span></dt><dd><p>The ID of the destination node.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Error Type</cite><span class="classifier">str</span></dt><dd><p>The type of error recorded.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="NetworkSim.simulation.simulator.base.BaseSimulator.export_data_as_csv">
+<code class="sig-name descname">export_data_as_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">index</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">columns</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/simulator/base.html#BaseSimulator.export_data_as_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.simulator.base.BaseSimulator.export_data_as_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export a python list as a csv file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> (<em>string</em>) – Name of the output csv file</p></li>
+<li><p><strong>data</strong> (<em>ndarray (structured or homogeneous), Iterable, dict, or DataFrame</em>) – The data to be exported as csv file</p></li>
+<li><p><strong>index</strong> (<em>list, optional</em>) – Index to use for resulting csv file</p></li>
+<li><p><strong>columns</strong> (<em>list, optional</em>) – Column labels to use for csv file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.simulation.simulator.base.BaseSimulator.info">
+<code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">info_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">component_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">component_id</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/simulator/base.html#BaseSimulator.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.simulator.base.BaseSimulator.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain information of simulation components. Check <cite>Info</cite> class fore more details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>info_type</strong> (<em>str</em>) – The type of information requested, chosen from the following:</p>
+<ul>
+<li><dl class="simple">
+<dt><cite>control</cite> or <cite>c</cite></dt><dd><p>Information on control ring. When <cite>device_type == None</cite>, this returns all packet transmission                 information on the control ring, otherwise it refers to control packets transmitted by a transmitter                 or control packets received by a receiver. <cite>component_id</cite> is not required in this case.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>data</cite> or <cite>d</cite></dt><dd><p>Information on data ring. When <cite>device_type == None</cite>, this returns all packet transmission                 information on the data ring, otherwise it refers to data packets transmitted by a transmitter                 or data packets received by a receiver. An <cite>component_id</cite> must be specified in this case.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>component_type</strong> (<em>str</em>) – The type of component in the simulation, chosen from the following:</p>
+<ul>
+<li><dl class="simple">
+<dt><cite>ram</cite> or <cite>RAM</cite></dt><dd><p>Transmitter RAM information, where data packets are generated. An <cite>component_id</cite> must be specified                 in this case, but <cite>info_type</cite> is not required.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>transmitter</cite> or <cite>t</cite></dt><dd><p>Transmitter packet information. Both <cite>component_id</cite> and <cite>info_type</cite> must be specified.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>receiver</cite> or <cite>r</cite></dt><dd><p>Receiver packet information. Both <cite>component_id</cite> and <cite>info_type</cite> must be specified.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>component_id</strong> (<em>int</em>) – The ID of the component of choice.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>info</strong> – A DataFrame containing the information requested.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.simulation.simulator.base.BaseSimulator.initialise">
+<code class="sig-name descname">initialise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/simulator/base.html#BaseSimulator.initialise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.simulator.base.BaseSimulator.initialise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialisation of the simulation, where RAM, transmitter, and receiver processes are added to the environment.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.simulation.simulator.base.BaseSimulator.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/simulator/base.html#BaseSimulator.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.simulator.base.BaseSimulator.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run simulation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.simulation.simulator.base.BaseSimulator.summary">
+<code class="sig-name descname">summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">summary_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">output_format</span><span class="o">=</span><span class="default_value">'df'</span></em>, <em class="sig-param"><span class="n">node_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">latency_type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bar3d</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">data_range</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/simulator/base.html#BaseSimulator.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.simulator.base.BaseSimulator.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain a summary of the simulation performed. Refer to <cite>Summary</cite> class for more details.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>summary_type</strong> (<em>str, optional</em>) – The type of summary, chosen from the following:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>None</cite></dt><dd><p>No <cite>summary_type</cite> input, and a generic summary is returned.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>latency</cite> or <cite>l</cite></dt><dd><p>Latency summary, with latency information for all source-destination combinations.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>ram</cite> or <cite>RAM</cite></dt><dd><p>Transmitter RAM data generation summary.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>transmitter</cite> or <cite>t</cite></dt><dd><p>Transmitter summary.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>receiver</cite> or <cite>r</cite></dt><dd><p>Receiver summary.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>count</cite> or <cite>c</cite></dt><dd><p>Total packet transmission count.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>queue</cite> or <cite>q</cite></dt><dd><p>Queue size in RAMs.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>output_format</strong> (<em>str, optional</em>) – The format of the summary, chosen from the following:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>df</cite></dt><dd><p>Return a pandas DataFrame, which is the default output format.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>csv</cite></dt><dd><p>Export a summary of the simulation performed as a csv file. Refer to <cite>Summary</cite> class for more details.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>plot</cite></dt><dd><p>A plot of the summary selected.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p><strong>node_id</strong> (<em>int, optional</em>) – The node ID used for latency summary plot output.</p></li>
+<li><p><strong>latency_type</strong> (<em>string, optional</em>) – The latency type of interset, by default is <code class="docutils literal notranslate"><span class="pre">None</span></code>, which is transfer delay.                 Setting it as <cite>queueing delay</cite> or <cite>qd</cite> switches it to queueing delay.</p></li>
+<li><p><strong>bar3d</strong> (<em>bool, optional</em>) – Enable 3d bar plot for queueing delay, default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>data_range</strong> (<em>str, optional</em>) – The range of data selected for latency and delay summary, chosen from the following:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>all</cite> or <cite>a</cite></dt><dd><p>All simulation data.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>extended</cite> or <cite>e</cite></dt><dd><p>Extended simulation data in convergence mode.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>batch</cite> or <cite>b</cite></dt><dd><p>Last batch data in convergence mode.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>,                 which is extended data for convergence mode and all data for non-convergence mode.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSim.simulation.process.transmitter.base &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>NetworkSim.simulation.process.transmitter.base</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for NetworkSim.simulation.process.transmitter.base</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;BaseTransmitter&quot;</span><span class="p">]</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hongyi Yang&quot;</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.setup.model</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.tools.clock</span> <span class="kn">import</span> <span class="n">TransmitterDataClock</span><span class="p">,</span> <span class="n">ControlClock</span><span class="p">,</span> <span class="n">ReceiverDataClock</span>
+
+
+<div class="viewcode-block" id="BaseTransmitter"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter">[docs]</a><span class="k">class</span> <span class="nc">BaseTransmitter</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transmitter processes creator for the simulation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    env : simpy Environment</span>
+<span class="sd">        The simulation environment.</span>
+<span class="sd">    ram : RAM</span>
+<span class="sd">        The RAM at which the transmitter access its information.</span>
+<span class="sd">    transmitter_id : int</span>
+<span class="sd">        The transmitter ID.</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used.</span>
+<span class="sd">    model : Model, optional</span>
+<span class="sd">        The network model used for the simulation.</span>
+<span class="sd">        Default is ``Model()``.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    transmitted_data_packet : list</span>
+<span class="sd">        A list keeping the information of the transmitted data packets, containing the columns:</span>
+
+<span class="sd">        - `Timestamp`</span>
+<span class="sd">        - `Raw Packet`</span>
+<span class="sd">        - `Destination ID`</span>
+<span class="sd">    transmitted_control_packet : list</span>
+<span class="sd">        A list keeping the information of the transmitted control packets, containing the columns:</span>
+
+<span class="sd">        - `Timestamp`</span>
+<span class="sd">        - `Raw Packet`</span>
+<span class="sd">        - `Destination ID`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">env</span><span class="p">,</span>
+            <span class="n">ram</span><span class="p">,</span>
+            <span class="n">transmitter_id</span><span class="p">,</span>
+            <span class="n">simulator</span><span class="p">,</span>
+            <span class="n">until</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ram</span> <span class="o">=</span> <span class="n">ram</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transmitter_id</span> <span class="o">=</span> <span class="n">transmitter_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span> <span class="o">=</span> <span class="n">simulator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">until</span> <span class="o">=</span> <span class="n">until</span>
+        <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transmitter_data_clock_cycle</span> <span class="o">=</span> <span class="n">TransmitterDataClock</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">clock_cycle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_receiver_data_clock_cycle</span> <span class="o">=</span> <span class="n">ReceiverDataClock</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">clock_cycle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_control_clock_cycle</span> <span class="o">=</span> <span class="n">ControlClock</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">clock_cycle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transmitted_data_packet</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transmitted_control_packet</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tunable_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tunable&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">}</span>
+
+<div class="viewcode-block" id="BaseTransmitter.get_packet_from_ram"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter.get_packet_from_ram">[docs]</a>    <span class="k">def</span> <span class="nf">get_packet_from_ram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_upstream</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get first packet from RAM queue.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        is_upstream : bool, optional</span>
+<span class="sd">            If the packet is in upstream queue. Default is ``False``. \</span>
+<span class="sd">                This is used only for bi-directional systems.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        generation_timestamp : float</span>
+<span class="sd">            Time of packet generation.</span>
+<span class="sd">        data_packet : str</span>
+<span class="sd">            Data packet to be transmitted.</span>
+<span class="sd">        destination_id : int</span>
+<span class="sd">            The ID of the destination node.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">is_upstream</span><span class="p">:</span>
+                <span class="n">generation_timestamp</span><span class="p">,</span> <span class="n">data_packet</span><span class="p">,</span> <span class="n">destination_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="o">.</span><span class="n">upstream_queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">generation_timestamp</span><span class="p">,</span> <span class="n">data_packet</span><span class="p">,</span> <span class="n">destination_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="o">.</span><span class="n">downstream_queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">generation_timestamp</span><span class="p">,</span> <span class="n">data_packet</span><span class="p">,</span> <span class="n">destination_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="o">.</span><span class="n">record_queue_size</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ram</span><span class="o">.</span><span class="n">pop_from_queue_record</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">generation_timestamp</span><span class="p">,</span> <span class="n">data_packet</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">ram_queue_delay</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">generation_timestamp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">generation_timestamp</span><span class="p">,</span> <span class="n">data_packet</span><span class="p">,</span> <span class="n">destination_id</span></div>
+
+<div class="viewcode-block" id="BaseTransmitter.transmit_control_packet"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter.transmit_control_packet">[docs]</a>    <span class="k">def</span> <span class="nf">transmit_control_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">generation_timestamp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Control packet transmission function.</span>
+
+<span class="sd">        This function adds the control packet onto the ring and keeps a record of the transmission.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The control packet.</span>
+<span class="sd">        destination_id : int</span>
+<span class="sd">            The ID of the node to which the control packet is transmitted.</span>
+<span class="sd">        generation_timestamp : float</span>
+<span class="sd">            The timestamp when the control packet is generated and stored in RAM.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Add control packet onto the ring</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">control_ring</span><span class="o">.</span><span class="n">add_packet</span><span class="p">(</span>
+            <span class="n">packet</span><span class="o">=</span><span class="n">packet</span><span class="p">,</span>
+            <span class="n">generation_timestamp</span><span class="o">=</span><span class="n">generation_timestamp</span><span class="p">,</span>
+            <span class="n">transmission_timestamp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transmitter_id</span><span class="p">,</span>
+            <span class="n">destination_id</span><span class="o">=</span><span class="n">destination_id</span>
+        <span class="p">)</span>
+        <span class="c1"># Store control packet information</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transmitted_control_packet</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="n">packet</span><span class="p">,</span>
+            <span class="n">destination_id</span>
+        <span class="p">])</span></div>
+
+<div class="viewcode-block" id="BaseTransmitter.transmit_data_packet"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter.transmit_data_packet">[docs]</a>    <span class="k">def</span> <span class="nf">transmit_data_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ring_id</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">generation_timestamp</span><span class="p">,</span> <span class="nb">reversed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Data packet transmission function.</span>
+
+<span class="sd">        This function adds the data packet onto the ring and keeps a record of the transmission.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ring_id : int</span>
+<span class="sd">            The ID of the data ring on which the packet is transmitted.</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The data packet.</span>
+<span class="sd">        destination_id : int</span>
+<span class="sd">            The ID of the node to which the data packet is transmitted.</span>
+<span class="sd">        generation_timestamp : float</span>
+<span class="sd">            The timestamp when the data packet is generated and stored in RAM.</span>
+<span class="sd">        reversed : bool, optional</span>
+<span class="sd">            If checking the reversed ring. Defaults is ``False``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Add data packet onto the ring</span>
+        <span class="k">if</span> <span class="nb">reversed</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reversed_data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">add_packet</span><span class="p">(</span>
+                <span class="n">packet</span><span class="o">=</span><span class="n">packet</span><span class="p">,</span>
+                <span class="n">generation_timestamp</span><span class="o">=</span><span class="n">generation_timestamp</span><span class="p">,</span>
+                <span class="n">transmission_timestamp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+                <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transmitter_id</span><span class="p">,</span>
+                <span class="n">destination_id</span><span class="o">=</span><span class="n">destination_id</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">add_packet</span><span class="p">(</span>
+                <span class="n">packet</span><span class="o">=</span><span class="n">packet</span><span class="p">,</span>
+                <span class="n">generation_timestamp</span><span class="o">=</span><span class="n">generation_timestamp</span><span class="p">,</span>
+                <span class="n">transmission_timestamp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+                <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transmitter_id</span><span class="p">,</span>
+                <span class="n">destination_id</span><span class="o">=</span><span class="n">destination_id</span>
+            <span class="p">)</span>
+        <span class="c1"># Store data packet information</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transmitted_data_packet</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="n">packet</span><span class="p">,</span>
+            <span class="n">destination_id</span>
+        <span class="p">])</span></div>
+
+<div class="viewcode-block" id="BaseTransmitter.ring_is_full"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter.ring_is_full">[docs]</a>    <span class="k">def</span> <span class="nf">ring_is_full</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ring_id</span><span class="p">,</span> <span class="nb">reversed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function to check if the data ring is fully occupied.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ring_id : int</span>
+<span class="sd">            The ID of the data ring on which the packet is transmitted.</span>
+<span class="sd">        reversed : bool, optional</span>
+<span class="sd">            If checking the reversed ring. Defaults is ``False``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ring_is_full : bool</span>
+<span class="sd">            ``True`` if the data ring is full, otherwise ``False``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">reversed</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reversed_data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">packet_count</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">max_data_packet_num_on_ring</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">packet_count</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">max_data_packet_num_on_ring</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="BaseTransmitter.check_data_packet"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter.check_data_packet">[docs]</a>    <span class="k">def</span> <span class="nf">check_data_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ring_id</span><span class="p">,</span> <span class="nb">reversed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function to check if there is a data packet present at the transmitter</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ring_id : int</span>
+<span class="sd">            The ID of the data ring on which the packet is transmitted.</span>
+<span class="sd">        reversed : bool, optional</span>
+<span class="sd">            If checking the reversed ring. Defaults is ``False``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        present : bool</span>
+<span class="sd">            Presence of the data packet. ``True`` if present, ``False`` if not present.</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            Packet information, in the format:</span>
+
+<span class="sd">            - `raw_packet`</span>
+<span class="sd">            - `generation_timestamp`</span>
+<span class="sd">            - `transmission_timestamp`</span>
+<span class="sd">            - `packet_entry_point`</span>
+<span class="sd">            - `entry_node_id`</span>
+<span class="sd">            - `destination_node_id`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">reversed</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reversed_data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">check_packet</span><span class="p">(</span>
+                <span class="n">current_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+                <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transmitter_id</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">check_packet</span><span class="p">(</span>
+                <span class="n">current_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+                <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transmitter_id</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseTransmitter.check_data_packet_after_guard_interval"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter.check_data_packet_after_guard_interval">[docs]</a>    <span class="k">def</span> <span class="nf">check_data_packet_after_guard_interval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ring_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function to check if there is a data packet present at the transmitter after the guard interval</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        present : bool</span>
+<span class="sd">            Presence of the data packet. ``True`` if present, ``False`` if not present.</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            Packet information, in the format:</span>
+
+<span class="sd">            - `raw_packet`</span>
+<span class="sd">            - `generation_timestamp`</span>
+<span class="sd">            - `transmission_timestamp`</span>
+<span class="sd">            - `packet_entry_point`</span>
+<span class="sd">            - `entry_node_id`</span>
+<span class="sd">            - `destination_node_id`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">check_packet</span><span class="p">(</span>
+            <span class="n">current_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data_guard_interval&#39;</span><span class="p">),</span>
+            <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transmitter_id</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseTransmitter.check_control_packet"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter.check_control_packet">[docs]</a>    <span class="k">def</span> <span class="nf">check_control_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function to check if there is a control packet present at the transmitter</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        present : bool</span>
+<span class="sd">            Presence of the data packet. ``True`` if present, ``False`` if not present.</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            Packet information, in the format:</span>
+
+<span class="sd">            - `raw_packet`</span>
+<span class="sd">            - `generation_timestamp`</span>
+<span class="sd">            - `transmission_timestamp`</span>
+<span class="sd">            - `packet_entry_point`</span>
+<span class="sd">            - `entry_node_id`</span>
+<span class="sd">            - `destination_node_id`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">control_ring</span><span class="o">.</span><span class="n">check_packet</span><span class="p">(</span>
+            <span class="n">current_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transmitter_id</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseTransmitter.generate_control_packet"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter.generate_control_packet">[docs]</a>    <span class="k">def</span> <span class="nf">generate_control_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">control</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function to generate a control packet.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        control_packet : str</span>
+<span class="sd">            The raw control packet string in binary</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">generate_packet</span><span class="p">(</span>
+            <span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transmitter_id</span><span class="p">,</span>
+            <span class="n">destination</span><span class="o">=</span><span class="n">destination</span><span class="p">,</span>
+            <span class="n">control_code</span><span class="o">=</span><span class="n">control</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseTransmitter.transmit_on_data_ring"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter.transmit_on_data_ring">[docs]</a>    <span class="k">def</span> <span class="nf">transmit_on_data_ring</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process to transmit data packets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;This is an abstract data packet transmission process method.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseTransmitter.transmit_on_control_ring"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter.transmit_on_control_ring">[docs]</a>    <span class="k">def</span> <span class="nf">transmit_on_control_ring</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process to transmit control packets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;This is an abstract control packet transmission process method.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseTransmitter.initialise"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.transmitter.BaseTransmitter.html#NetworkSim.simulation.process.transmitter.BaseTransmitter.initialise">[docs]</a>    <span class="k">def</span> <span class="nf">initialise</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialisation of the transmitter simulation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">receiver_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tunable_keywords</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transmit_on_control_ring</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transmit_on_data_ring</span><span class="p">())</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

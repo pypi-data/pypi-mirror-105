@@ -1,0 +1,679 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSim.simulation.process.receiver.base &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>NetworkSim.simulation.process.receiver.base</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for NetworkSim.simulation.process.receiver.base</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;BaseReceiver&quot;</span><span class="p">]</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hongyi Yang&quot;</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="kn">from</span> <span class="nn">NetworkSim.architecture.setup.model</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.tools.clock</span> <span class="kn">import</span> <span class="n">TransmitterDataClock</span><span class="p">,</span> <span class="n">ControlClock</span><span class="p">,</span> <span class="n">ReceiverDataClock</span>
+
+
+<div class="viewcode-block" id="BaseReceiver"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver">[docs]</a><span class="k">class</span> <span class="nc">BaseReceiver</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Receiver processes creator for the simulation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    env : simpy Environment</span>
+<span class="sd">        The simulation environment.</span>
+<span class="sd">    until : float</span>
+<span class="sd">        The end time of the simulation.</span>
+<span class="sd">    receiver_id : int</span>
+<span class="sd">        The receiver ID.</span>
+<span class="sd">    simulator : BaseSimulator</span>
+<span class="sd">        The simulator used.</span>
+<span class="sd">    model : Model, optional</span>
+<span class="sd">        The network model used for the simulation.</span>
+<span class="sd">        Default is ``Model()``.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    received_data_packet : list</span>
+<span class="sd">        A list keeping the information of the received data packets, containing the columns:</span>
+
+<span class="sd">        - `Timestamp`</span>
+<span class="sd">        - `Raw Packet`</span>
+<span class="sd">        - `Source ID`</span>
+<span class="sd">    received_control_packet : list</span>
+<span class="sd">        A list keeping the information of the received control packets, containing the columns:</span>
+
+<span class="sd">        - `Timestamp`</span>
+<span class="sd">        - `Raw Packet`</span>
+<span class="sd">        - `Source ID`</span>
+<span class="sd">    queue_record : list</span>
+<span class="sd">        A list keeping the information of the control packets stored in the receiver RAM, including the columns:</span>
+
+<span class="sd">        - `Timestamp` : float</span>
+<span class="sd">            The timestamp when the operation is carried out.</span>
+<span class="sd">        - `Raw Packet` : str</span>
+<span class="sd">            The raw control packet.</span>
+<span class="sd">        - `Source ID` : int</span>
+<span class="sd">            Source ID of the control packet.</span>
+<span class="sd">        - `Operation` : str</span>
+<span class="sd">            Operation carried out on the packet in the queue.</span>
+<span class="sd">    queue : list</span>
+<span class="sd">        A list of packet in the receiver RAM queue, in the format:</span>
+
+<span class="sd">        - `raw_packet`</span>
+<span class="sd">        - `generation_timestamp`</span>
+<span class="sd">        - `transmission_timestamp`</span>
+<span class="sd">        - `packet_entry_point`</span>
+<span class="sd">        - `entry_node_id`</span>
+<span class="sd">        - `destination_node_id`</span>
+<span class="sd">        - `reception_timestamp`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">env</span><span class="p">,</span>
+            <span class="n">until</span><span class="p">,</span>
+            <span class="n">receiver_id</span><span class="p">,</span>
+            <span class="n">simulator</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">until</span> <span class="o">=</span> <span class="n">until</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span> <span class="o">=</span> <span class="n">receiver_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span> <span class="o">=</span> <span class="n">simulator</span>
+        <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transmitter_data_clock_cycle</span> <span class="o">=</span> <span class="n">TransmitterDataClock</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">clock_cycle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_receiver_data_clock_cycle</span> <span class="o">=</span> <span class="n">ReceiverDataClock</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">clock_cycle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_control_clock_cycle</span> <span class="o">=</span> <span class="n">ControlClock</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">clock_cycle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">received_data_packet</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">received_control_packet</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue_record</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fixed_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fixed&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tunable_keywords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tunable&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">receiver_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tunable_keywords</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_time_compensation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_receiver_data_clock_cycle</span> <span class="o">-</span> \
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_packet_duration</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_receiver_data_clock_cycle</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_time_compensation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transmitter_data_clock_cycle</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_packet_duration</span>
+
+<div class="viewcode-block" id="BaseReceiver.is_upstream"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.is_upstream">[docs]</a>    <span class="k">def</span> <span class="nf">is_upstream</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the destination node is an upstream node.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        source_id : int</span>
+<span class="sd">            ID of the source node.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        is_upstream : bool</span>
+<span class="sd">            ``True`` if the destination is upstream, ``False`` if downstream.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_difference</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span> <span class="o">-</span> <span class="n">source_id</span>
+        <span class="k">if</span> <span class="n">_difference</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">_difference</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span>
+        <span class="k">if</span> <span class="n">_difference</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">num_nodes</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.record_error"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.record_error">[docs]</a>    <span class="k">def</span> <span class="nf">record_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="nb">reversed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check packet information and record error of data packet transmission.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The data packet</span>
+<span class="sd">        reversed : bool, optional</span>
+<span class="sd">            If the receiver is receiving on the reversed data rings.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">packet</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span><span class="p">:</span>
+            <span class="n">error_type</span> <span class="o">=</span> <span class="s1">&#39;destination ID mismatch&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+                <span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                <span class="n">packet</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>
+                <span class="n">error_type</span>
+            <span class="p">])</span>
+        <span class="c1"># Check if packet circulates around the ring in TT-FR configuration</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">receiver_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fixed_keywords</span> \
+                <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">packet</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">circulation_time</span><span class="p">:</span>
+            <span class="n">error_type</span> <span class="o">=</span> <span class="s1">&#39;circulation for TT-FR&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+                <span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                <span class="n">packet</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>
+                <span class="n">error_type</span>
+            <span class="p">])</span>
+        <span class="c1"># Check if packet is sent on the correct direction for bidirectional systems</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">bidirectional</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">reversed</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_upstream</span><span class="p">(</span><span class="n">source_id</span><span class="o">=</span><span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">]):</span>
+                    <span class="n">error_type</span> <span class="o">=</span> <span class="s1">&#39;downstream data found on upstream&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+                        <span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                        <span class="n">packet</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>
+                        <span class="n">error_type</span>
+                    <span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_upstream</span><span class="p">(</span><span class="n">source_id</span><span class="o">=</span><span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">]):</span>
+                    <span class="n">error_type</span> <span class="o">=</span> <span class="s1">&#39;upstream data found on downstream&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+                        <span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                        <span class="n">packet</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>
+                        <span class="n">error_type</span>
+                    <span class="p">])</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.record_latency"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.record_latency">[docs]</a>    <span class="k">def</span> <span class="nf">record_latency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Record latency of the data packet transmission.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The control packet.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data_rate</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">latency</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_signal</span><span class="o">.</span><span class="n">size</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">latency</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;Latency Timestamp&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="s1">&#39;Source ID&#39;</span><span class="p">:</span> <span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>  <span class="c1"># Source node</span>
+            <span class="s1">&#39;Destination ID&#39;</span><span class="p">:</span> <span class="n">packet</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>  <span class="c1"># Destination node</span>
+            <span class="s1">&#39;Queueing Delay&#39;</span><span class="p">:</span> <span class="n">packet</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">packet</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>  <span class="c1"># Queueing delay</span>
+            <span class="s1">&#39;Transfer Delay&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">packet</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>  <span class="c1"># Transfer delay</span>
+            <span class="s1">&#39;Data Rate&#39;</span><span class="p">:</span> <span class="n">data_rate</span>
+        <span class="p">})</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.control_id_match"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.control_id_match">[docs]</a>    <span class="k">def</span> <span class="nf">control_id_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function to check if the control packet destination ID matches the receiver ID.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The control packet.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        if_match : bool</span>
+<span class="sd">            If the received packet ID matches that of the receiver. ``True`` if matched, otherwise ``False``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Interpret control packet</span>
+        <span class="n">source_id</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">control_code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpret_control_packet</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">destination_id</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.get_original_control_packet"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.get_original_control_packet">[docs]</a>    <span class="k">def</span> <span class="nf">get_original_control_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Locate the original control packet if a new control packet with &quot;Remove&quot; code is obtained.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The control packet.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        original_packet : packet</span>
+<span class="sd">            The original control packet if found. Otherwise return ``None``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Interpret latest control packet information</span>
+        <span class="n">source_id</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">control_code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpret_control_packet</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+        <span class="c1"># Generate original control packet by changing the control code</span>
+        <span class="n">control</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Original &quot;Add&quot; control code</span>
+        <span class="n">raw_control_packet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">control_signal</span><span class="o">.</span><span class="n">generate_packet</span><span class="p">(</span>
+            <span class="n">source</span><span class="o">=</span><span class="n">source_id</span><span class="p">,</span>
+            <span class="n">destination</span><span class="o">=</span><span class="n">destination_id</span><span class="p">,</span>
+            <span class="n">control_code</span><span class="o">=</span><span class="n">control</span>
+        <span class="p">)</span>
+        <span class="c1"># Return the control packet in receiver RAM queue with the same raw packet and correct circulation time</span>
+        <span class="n">_circulation_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">length</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;speed&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">packet</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">:</span>
+            <span class="n">time_difference</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">packet</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">packet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">raw_control_packet</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">time_difference</span> <span class="o">%</span> <span class="n">_circulation_time</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">packet</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.ram_queue_input"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.ram_queue_input">[docs]</a>    <span class="k">def</span> <span class="nf">ram_queue_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="s1">&#39;low&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handling input to the receiver RAM queue.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The control packet.</span>
+<span class="sd">        priority : str</span>
+<span class="sd">            Priority of the packet:</span>
+
+<span class="sd">            - If `&quot;high&quot;`, the packet is inserted to the list (at the beginning). \</span>
+<span class="sd">            - If `&quot;low&quot;`, the packet is append to the list (at the end).</span>
+
+<span class="sd">            Default is ``&quot;low&quot;``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Interpret control packet information and store its information</span>
+        <span class="n">source_id</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">control_code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpret_control_packet</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+        <span class="c1"># Determine and perform control packet operation</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">control_code</span><span class="p">:</span>  <span class="c1"># Packet added</span>
+            <span class="n">operation</span> <span class="o">=</span> <span class="s2">&quot;Added&quot;</span>
+            <span class="n">packet</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">priority</span> <span class="o">==</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">control_code</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># Previously added packet now removed</span>
+            <span class="n">operation</span> <span class="o">=</span> <span class="s2">&quot;Removed&quot;</span>
+            <span class="n">original_packet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_original_control_packet</span><span class="p">(</span><span class="n">packet</span><span class="o">=</span><span class="n">packet</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">original_packet</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">operation</span> <span class="o">=</span> <span class="s2">&quot;Unknown&quot;</span>
+        <span class="c1"># Record RAM queue information</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue_record</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+            <span class="n">operation</span>
+        <span class="p">])</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.receive_control_packet"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.receive_control_packet">[docs]</a>    <span class="k">def</span> <span class="nf">receive_control_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Control packet reception function.</span>
+
+<span class="sd">        This function removes the control packet from the ring and keeps a record of the transmission.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The control packet.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Remove control packet from the ring</span>
+        <span class="c1"># packet contains [raw_packet, timestamp, entry_point, source_node_id]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">control_ring</span><span class="o">.</span><span class="n">remove_packet</span><span class="p">(</span>
+            <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span><span class="p">,</span>
+            <span class="n">packet</span><span class="o">=</span><span class="n">packet</span><span class="p">,</span>
+            <span class="n">reception_timestamp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span>
+        <span class="p">)</span>
+        <span class="c1"># Store control packet information</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">received_control_packet</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="p">])</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.ram_queue_output"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.ram_queue_output">[docs]</a>    <span class="k">def</span> <span class="nf">ram_queue_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handling output from the receiver RAM queue.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The control packet read from the front of the queue.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        source_id : int</span>
+<span class="sd">            The data ring to tune to for reception.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Interpret control packet information and store its information</span>
+        <span class="n">source_id</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">control_code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpret_control_packet</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+        <span class="c1"># Record RAM queue information</span>
+        <span class="n">operation</span> <span class="o">=</span> <span class="s2">&quot;Processed&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue_record</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+            <span class="n">operation</span>
+        <span class="p">])</span>
+        <span class="c1"># Return the receiving ring to tune to</span>
+        <span class="k">return</span> <span class="n">source_id</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.receive_data_packet"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.receive_data_packet">[docs]</a>    <span class="k">def</span> <span class="nf">receive_data_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ring_id</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="nb">reversed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Data packet reception function.</span>
+
+<span class="sd">        This function removes the data packet from the ring and keeps a record of the transmission.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ring_id : int</span>
+<span class="sd">            The ID of the data ring where the packet is removed.</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            The data packet.</span>
+<span class="sd">        reversed : bool, optional</span>
+<span class="sd">            If the receiver is receiving on the reversed data rings.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">reversed</span><span class="p">:</span>
+            <span class="c1"># Remove data packet from the ring</span>
+            <span class="c1"># packet contains [raw_packet, timestamp, entry_point, source_node_id]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reversed_data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">remove_packet</span><span class="p">(</span>
+                <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span><span class="p">,</span>
+                <span class="n">packet</span><span class="o">=</span><span class="n">packet</span><span class="p">,</span>
+                <span class="n">reception_timestamp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span>
+            <span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">remove_packet</span><span class="p">(</span>
+                <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span><span class="p">,</span>
+                <span class="n">packet</span><span class="o">=</span><span class="n">packet</span><span class="p">,</span>
+                <span class="n">reception_timestamp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span>
+            <span class="p">)</span>
+        <span class="c1"># Store data packet information</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">received_data_packet</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">packet</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="p">])</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.check_data_packet"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.check_data_packet">[docs]</a>    <span class="k">def</span> <span class="nf">check_data_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ring_id</span><span class="p">,</span> <span class="nb">reversed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function to check if there is a data packet present at the receiver</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ring_id : int</span>
+<span class="sd">            The ID of the data ring to check.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        present : bool</span>
+<span class="sd">            Presence of the data packet. ``True`` if present, ``False`` if not present.</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            Packet information, in the format:</span>
+
+<span class="sd">            - `raw_packet`</span>
+<span class="sd">            - `generation_timestamp`</span>
+<span class="sd">            - `transmission_timestamp`</span>
+<span class="sd">            - `packet_entry_point`</span>
+<span class="sd">            - `entry_node_id`</span>
+<span class="sd">            - `destination_node_id`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">reversed</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reversed_data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">check_packet</span><span class="p">(</span>
+                <span class="n">current_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+                <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_rings</span><span class="p">[</span><span class="n">ring_id</span><span class="p">]</span><span class="o">.</span><span class="n">check_packet</span><span class="p">(</span>
+                <span class="n">current_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+                <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.check_control_packet"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.check_control_packet">[docs]</a>    <span class="k">def</span> <span class="nf">check_control_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function to check if there is a control packet present at the receiver</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        present : bool</span>
+<span class="sd">            Presence of the data packet. ``True`` if present, ``False`` if not present.</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            Packet information, in the format:</span>
+
+<span class="sd">            - `raw_packet`</span>
+<span class="sd">            - `generation_timestamp`</span>
+<span class="sd">            - `transmission_timestamp`</span>
+<span class="sd">            - `packet_entry_point`</span>
+<span class="sd">            - `entry_node_id`</span>
+<span class="sd">            - `destination_node_id`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">control_ring</span><span class="o">.</span><span class="n">check_packet</span><span class="p">(</span>
+            <span class="n">current_time</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span>
+            <span class="n">node_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.interpret_control_packet"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.interpret_control_packet">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_control_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function to interpret a control packet.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        packet : packet</span>
+<span class="sd">            Packet information, in the format:</span>
+
+<span class="sd">            - `raw_packet`</span>
+<span class="sd">            - `generation_timestamp`</span>
+<span class="sd">            - `transmission_timestamp`</span>
+<span class="sd">            - `packet_entry_point`</span>
+<span class="sd">            - `entry_node_id`</span>
+<span class="sd">            - `destination_node_id`</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        source_id : int</span>
+<span class="sd">            The source ID.</span>
+<span class="sd">        destination_id : int</span>
+<span class="sd">            The destination ID.</span>
+<span class="sd">        control_code : int</span>
+<span class="sd">            The control code.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span><span class="p">]</span><span class="o">.</span><span class="n">interpret_control_packet</span><span class="p">(</span><span class="n">packet</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.receive_on_control_ring"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.receive_on_control_ring">[docs]</a>    <span class="k">def</span> <span class="nf">receive_on_control_ring</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process to receive control packets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;This is an abstract control packet reception process method.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.receive_on_data_ring"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.receive_on_data_ring">[docs]</a>    <span class="k">def</span> <span class="nf">receive_on_data_ring</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process to receive data packets.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;This is an abstract data packet reception process method.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseReceiver.initialise"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.BaseReceiver.html#NetworkSim.simulation.process.receiver.BaseReceiver.initialise">[docs]</a>    <span class="k">def</span> <span class="nf">initialise</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialisation of the receiver simulation.</span>
+
+<span class="sd">        This function adds two asynchronous receiver processes into the environment:</span>
+
+<span class="sd">        - Reception of control packets</span>
+<span class="sd">        - Reception of data packets</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulator</span><span class="o">.</span><span class="n">receiver_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tunable_keywords</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">receive_on_control_ring</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">receive_on_data_ring</span><span class="p">())</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

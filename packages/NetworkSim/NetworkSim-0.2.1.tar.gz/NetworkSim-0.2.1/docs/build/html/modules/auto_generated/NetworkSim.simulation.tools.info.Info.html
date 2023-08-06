@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Info &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Summary" href="NetworkSim.simulation.tools.summary.Summary.html" />
+    <link rel="prev" title="ControlClock" href="NetworkSim.simulation.tools.clock.ControlClock.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#network-signal-configuration">Network Signal Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#network-architecture-base-configuration">Network Architecture Base Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#network-architecture-setup">Network Architecture Setup</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../api_reference.html#simulation-tools">Simulation Tools</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../api_reference.html#network-performance-analysis">Network Performance Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_reference.html#probability-distributions-for-discrete-event-simulation">Probability Distributions for Discrete Event Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_reference.html#synchronised-clocks">Synchronised Clocks</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../api_reference.html#simulation-information">Simulation Information</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Info</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_reference.html#simulation-summary">Simulation Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_reference.html#simulation-results-plotting">Simulation Results Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_reference.html#simulation-model-loading-and-saving">Simulation Model Loading and Saving</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_reference.html#tools-used-for-publication-purposes">Tools used for Publication Purposes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#simulation-processes">Simulation Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#simulation-setup">Simulation Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#systemverilog-integration">SystemVerilog Integration</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../api_reference.html">API Reference</a> &raquo;</li>
+        
+      <li>Info</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/modules/auto_generated/NetworkSim.simulation.tools.info.Info.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="info">
+<h1>Info<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="NetworkSim.simulation.tools.info.Info">
+<em class="property">class </em><code class="sig-prename descclassname">NetworkSim.simulation.tools.info.</code><code class="sig-name descname">Info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">simulator</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/tools/info.html#Info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.tools.info.Info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information class to generate basic information of modules involved in the simulation.</p>
+<dl class="py method">
+<dt id="NetworkSim.simulation.tools.info.Info.ram_info">
+<code class="sig-name descname">ram_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">device_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/tools/info.html#Info.ram_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.tools.info.Info.ram_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain information on generated data packets in transmitter RAM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device_id</strong> (<em>int</em>) – The ID of the RAM.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>generated_packets</strong> – A DataFrame with the generated data packets that have been stored in transmitter RAM,             containing the columns:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the packet is generated using the method chosen.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Interarrival to Next</cite><span class="classifier">float</span></dt><dd><p>The interarrival time from this packet to the next one.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Raw Packet</cite><span class="classifier">str or list</span></dt><dd><p>The raw data packet generated, in string format if simulation is not abstract, and in list format                 if simulation is abstract.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Destination ID</cite><span class="classifier">int</span></dt><dd><p>The destination node ID to which the data packet is supposed to be sent.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.simulation.tools.info.Info.receiver_info">
+<code class="sig-name descname">receiver_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">device_id</span></em>, <em class="sig-param"><span class="n">info_type</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/tools/info.html#Info.receiver_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.tools.info.Info.receiver_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain information on received control or data packets in receiver.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device_id</strong> (<em>int</em>) – The ID of the receiver.</p></li>
+<li><p><strong>info_type</strong> (<em>str</em>) – The type of information requested, chosen from the following:</p>
+<ul>
+<li><dl class="simple">
+<dt><cite>control</cite></dt><dd><p>Received control packets.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>data</cite></dt><dd><p>Received data packets.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>queue</cite></dt><dd><p>RAM queue of control packets.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>packet_information</strong> – A DataFrame with the receiver=d control or data packets.</p>
+<p>If control ring is selected, the output contains the columns:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>Reception Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the control packet is received from the control ring.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Raw Packet</cite><span class="classifier">str or list</span></dt><dd><p>The received raw control packet, in the format of a list if abstract simulation is used                 or string if the simulation is not abstract.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Source ID</cite><span class="classifier">int</span></dt><dd><p>The source node ID from which the control packet is received.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>If data ring is selected, the output contains the columns:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>Reception Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the data packet is received from the data rings.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Raw Packet</cite><span class="classifier">str or list</span></dt><dd><p>The received raw data packet, in the format of a list if abstract simulation is used                 or string if the simulation is not abstract.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Source ID</cite><span class="classifier">int</span></dt><dd><p>The source node ID from which the data packet is received.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>If internal RAM queue is selected, the output contains the columns:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>Operation Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the operation is carried out.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Raw Packet</cite><span class="classifier">str</span></dt><dd><p>The raw control packet.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Source ID</cite><span class="classifier">int</span></dt><dd><p>Source ID of the control packet.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Operation</cite><span class="classifier">str</span></dt><dd><p>Operation carried out on the packet in the queue.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.simulation.tools.info.Info.ring_info">
+<code class="sig-name descname">ring_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ring_id</span></em>, <em class="sig-param"><span class="n">info_type</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/tools/info.html#Info.ring_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.tools.info.Info.ring_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain packet transmission information on the control or data ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><strong>packet_record</strong> – A DataFrame containing the information on all packet transmission on the ring, including the columns:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>Generation Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the packet is generated and stored in the RAM.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Transmission Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the packet is added onto the ring by the transmitter.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Reception Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the packet is received by the receiver.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Raw Packet</cite><span class="classifier">str</span></dt><dd><p>The raw packet content.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Source Node</cite><span class="classifier">int</span></dt><dd><p>The ID of the source node.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Destination Node</cite><span class="classifier">int</span></dt><dd><p>The ID of the destination node.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Status</cite><span class="classifier">str</span></dt><dd><p>The status of the packet, can be <code class="docutils literal notranslate"><span class="pre">added</span></code> or <code class="docutils literal notranslate"><span class="pre">removed</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Total Packet Count<span class="classifier">int</span></dt><dd><p>The total number of packets on the ring at the time of the operation.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pandas DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.simulation.tools.info.Info.transmitter_info">
+<code class="sig-name descname">transmitter_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">device_id</span></em>, <em class="sig-param"><span class="n">info_type</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/simulation/tools/info.html#Info.transmitter_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.simulation.tools.info.Info.transmitter_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain information on transmitted control or data packets in transmitter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device_id</strong> (<em>int</em>) – The ID of the transmitter.</p></li>
+<li><p><strong>info_type</strong> (<em>str</em>) – The type of ring on which the transmitter transmits the packets.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>transmitted_packets</strong> – A DataFrame with the transmitted control or data packets.</p>
+<p>If control ring is selected, the output contains the columns:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>Transmission Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the control packet is transmitted onto the control ring.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Raw Packet</cite><span class="classifier">str or list</span></dt><dd><p>The transmitted raw control packet, in the format of a list if abstract simulation is used                 or string if the simulation is not abstract.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Destination ID</cite><span class="classifier">int</span></dt><dd><p>The destination node ID to which the control packet is transmitted.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>If data ring is selected, the output contains the columns:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>Transmission Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the data packet is transmitted onto the data rings.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Raw Packet</cite><span class="classifier">str or list</span></dt><dd><p>The transmitted raw data packet, in the format of a list if abstract simulation is used                 or string if the simulation is not abstract.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Destination ID</cite><span class="classifier">int</span></dt><dd><p>The destination node ID to which the data packet is transmitted.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

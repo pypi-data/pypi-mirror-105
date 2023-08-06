@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Ring &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Model" href="NetworkSim.architecture.setup.model.Model.html" />
+    <link rel="prev" title="Network" href="NetworkSim.architecture.base.network.Network.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#network-signal-configuration">Network Signal Configuration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../api_reference.html#network-architecture-base-configuration">Network Architecture Base Configuration</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../api_reference.html#node-configuration">Node Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api_reference.html#network-configuration">Network Configuration</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../api_reference.html#ring-configuration">Ring Configuration</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Ring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#network-architecture-setup">Network Architecture Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#simulation-tools">Simulation Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#simulation-processes">Simulation Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#simulation-setup">Simulation Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api_reference.html#systemverilog-integration">SystemVerilog Integration</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../api_reference.html">API Reference</a> &raquo;</li>
+        
+      <li>Ring</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/modules/auto_generated/NetworkSim.architecture.base.ring.Ring.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ring">
+<h1>Ring<a class="headerlink" href="#ring" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="NetworkSim.architecture.base.ring.Ring">
+<em class="property">class </em><code class="sig-prename descclassname">NetworkSim.architecture.base.ring.</code><code class="sig-name descname">Ring</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">ring_id</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">time_unit</span><span class="o">=</span><span class="default_value">'ns'</span></em>, <em class="sig-param"><span class="n">reversed</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/architecture/base/ring.html#Ring"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.architecture.base.ring.Ring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ring class to store packets on both control and data rings.
+Packets can be added or removed from the ring.
+Time of addition of the packet is recorded to track packet location.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>model</strong> (<em>Model</em>) – The network model used. Default is <code class="docutils literal notranslate"><span class="pre">Model()</span></code>.</p></li>
+<li><p><strong>time_unit</strong> (<em>str</em>) – The time unit used for the simulation, chosen from the following:</p>
+<ul class="simple">
+<li><p>‘ns’</p></li>
+<li><p>‘s’</p></li>
+</ul>
+<p>Default is <code class="docutils literal notranslate"><span class="pre">'ns'</span></code></p>
+</li>
+</ul>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ring_id</strong> (<em>int</em>) – The ID of the ring. Default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>nodes_location</strong> (<em>array</em>) – Array of locations of the nodes on the ring, in meters.</p></li>
+<li><p><strong>packets</strong> (<em>list</em>) – <p>List of packets present on the ring, containing:</p>
+<ul>
+<li><dl class="simple">
+<dt><cite>raw_packet</cite><span class="classifier">str</span></dt><dd><p>The raw packet string.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>generation_timestamp</cite><span class="classifier">float</span></dt><dd><p>Time when the packet was generated and stored into the RAM.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>transmission_timestamp</cite><span class="classifier">float</span></dt><dd><p>Time when the packet was added onto the ring.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>packet_entry_point</cite><span class="classifier">float</span></dt><dd><p>The location (in meters) where the packet was added.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>entry_node_id</cite><span class="classifier">int</span></dt><dd><p>The ID of the node where the packet was added.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>destination_node_id</cite><span class="classifier">int</span></dt><dd><p>The ID of the destination of the packet.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>packet_record</strong> (<em>list</em>) – <p>A list containing the information on all packet transmission on the ring, including the columns:</p>
+<ul>
+<li><dl class="simple">
+<dt><cite>Generation Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the packet is generated and stored in the RAM.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Transmission Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the packet is added onto the ring by the transmitter.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Reception Timestamp</cite><span class="classifier">float</span></dt><dd><p>The timestamp when the packet is received by the receiver.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Raw Packet</cite><span class="classifier">str</span></dt><dd><p>The raw packet content.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Source Node</cite><span class="classifier">int</span></dt><dd><p>The ID of the source node.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Destination Node</cite><span class="classifier">int</span></dt><dd><p>The ID of the destination node.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>Status</cite><span class="classifier">str</span></dt><dd><p>The status of the packet, can be <code class="docutils literal notranslate"><span class="pre">added</span></code> or <code class="docutils literal notranslate"><span class="pre">removed</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Total Packet Count<span class="classifier">int</span></dt><dd><p>The total number of packets on the ring at the time of the operation.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="NetworkSim.architecture.base.ring.Ring.add_packet">
+<code class="sig-name descname">add_packet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span></em>, <em class="sig-param"><span class="n">destination_id</span></em>, <em class="sig-param"><span class="n">packet</span></em>, <em class="sig-param"><span class="n">generation_timestamp</span></em>, <em class="sig-param"><span class="n">transmission_timestamp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/architecture/base/ring.html#Ring.add_packet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.architecture.base.ring.Ring.add_packet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packet addition to the ring.
+The packet added will be in the format <cite>[raw_packet, timestamp, node_id]</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_id</strong> (<em>int</em>) – The ID of the node at which the packet is added.</p></li>
+<li><p><strong>destination_id</strong> (<em>int</em>) – The ID of the destination node of the packet.</p></li>
+<li><p><strong>packet</strong> (<em>str</em>) – The packet string added onto the ring.</p></li>
+<li><p><strong>generation_timestamp</strong> (<em>float</em>) – The timestamp when the packet is generated.</p></li>
+<li><p><strong>transmission_timestamp</strong> (<em>float</em>) – The timestamp when the packet is added.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.architecture.base.ring.Ring.check_packet">
+<code class="sig-name descname">check_packet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">current_time</span></em>, <em class="sig-param"><span class="n">node_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/architecture/base/ring.html#Ring.check_packet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.architecture.base.ring.Ring.check_packet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packet existence check.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current_time</strong> (<em>float</em>) – Current time when the packet is checked.</p></li>
+<li><p><strong>node_id</strong> (<em>int</em>) – Id of the node at which the check is performed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>existence</strong> (<em>bool</em>) – The existence of the packet. <code class="docutils literal notranslate"><span class="pre">True</span></code> when a packet exists.</p></li>
+<li><p><strong>packet</strong> (<em>packet</em>) – The packet information, containing:</p>
+<ul>
+<li><p><cite>raw_packet</cite></p></li>
+<li><p><cite>generation_timestamp</cite></p></li>
+<li><p><cite>transmission_timestamp</cite></p></li>
+<li><p><cite>packet_entry_point</cite></p></li>
+<li><p><cite>entry_node_id</cite></p></li>
+<li><p><cite>destination_node_id</cite></p></li>
+</ul>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.architecture.base.ring.Ring.get_nodes_location">
+<code class="sig-name descname">get_nodes_location</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/architecture/base/ring.html#Ring.get_nodes_location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.architecture.base.ring.Ring.get_nodes_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get locations of all nodes in the ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>locations</strong> – An array of node locations.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="NetworkSim.architecture.base.ring.Ring.remove_packet">
+<code class="sig-name descname">remove_packet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span></em>, <em class="sig-param"><span class="n">packet</span></em>, <em class="sig-param"><span class="n">reception_timestamp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/NetworkSim/architecture/base/ring.html#Ring.remove_packet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#NetworkSim.architecture.base.ring.Ring.remove_packet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packet removal from the ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_id</strong> (<em>int</em>) – The ID of the node where the packet is removed.</p></li>
+<li><p><strong>packet</strong> (<em>packet</em>) – The packet to be removed from the ring, containing:</p>
+<ul>
+<li><p><cite>raw_packet</cite></p></li>
+<li><p><cite>generation_timestamp</cite></p></li>
+<li><p><cite>transmission_timestamp</cite></p></li>
+<li><p><cite>packet_entry_point</cite></p></li>
+<li><p><cite>entry_node_id</cite></p></li>
+<li><p><cite>destination_node_id</cite></p></li>
+</ul>
+</li>
+<li><p><strong>reception_timestamp</strong> (<em>float</em>) – The timestamp at which the packet is removed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>

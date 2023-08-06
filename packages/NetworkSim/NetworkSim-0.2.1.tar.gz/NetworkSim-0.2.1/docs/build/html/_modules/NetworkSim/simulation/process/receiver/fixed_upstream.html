@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSim.simulation.process.receiver.fixed_upstream &mdash; NetworkSim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> NetworkSim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">NetworkSim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>NetworkSim.simulation.process.receiver.fixed_upstream</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for NetworkSim.simulation.process.receiver.fixed_upstream</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;FR_U&quot;</span><span class="p">]</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hongyi Yang&quot;</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">NetworkSim.simulation.process.receiver.base</span> <span class="kn">import</span> <span class="n">BaseReceiver</span>
+
+
+<div class="viewcode-block" id="FR_U"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.FR_U.html#NetworkSim.simulation.process.receiver.FR_U">[docs]</a><span class="k">class</span> <span class="nc">FR_U</span><span class="p">(</span><span class="n">BaseReceiver</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fixed receiver simulator corresponding to upstream transmitters.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    env : simpy Environment</span>
+<span class="sd">        The simulation environment.</span>
+<span class="sd">    receiver_id : int</span>
+<span class="sd">        The receiver ID.</span>
+<span class="sd">    model : Model, optional</span>
+<span class="sd">        The network model used for the simulation.</span>
+<span class="sd">        Default is ``Model()``.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    received_data_packet_df : pandas DataFrame</span>
+<span class="sd">        A DataFrame keeping the information of the received data packets, containing the columns:</span>
+
+<span class="sd">        - `Timestamp`</span>
+<span class="sd">        - `Raw Packet`</span>
+<span class="sd">        - `Source ID`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">env</span><span class="p">,</span>
+            <span class="n">until</span><span class="p">,</span>
+            <span class="n">receiver_id</span><span class="p">,</span>
+            <span class="n">simulator</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">,</span>
+            <span class="n">until</span><span class="o">=</span><span class="n">until</span><span class="p">,</span>
+            <span class="n">receiver_id</span><span class="o">=</span><span class="n">receiver_id</span><span class="p">,</span>
+            <span class="n">simulator</span><span class="o">=</span><span class="n">simulator</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="n">model</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="FR_U.receive_on_data_ring"><a class="viewcode-back" href="../../../../../modules/auto_generated/NetworkSim.simulation.process.receiver.FR_U.html#NetworkSim.simulation.process.receiver.FR_U.receive_on_data_ring">[docs]</a>    <span class="k">def</span> <span class="nf">receive_on_data_ring</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Receiver process to remove a new data packet from the ring.</span>
+
+<span class="sd">        This process operates at the unit clock frequency, and the data packet would be removed from the \</span>
+<span class="sd">        ring whenever it is detected.</span>
+
+<span class="sd">        In this process:</span>
+<span class="sd">        1. The receiver waits and receives the data packet, \</span>
+<span class="sd">        removes it from the ring and keeps a record of the transmission.</span>
+<span class="sd">        2. The latency of the transmission is recorded.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">until</span><span class="p">:</span>
+            <span class="c1"># Check for packet if packet exist get it.</span>
+            <span class="n">present</span><span class="p">,</span> <span class="n">packet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_data_packet</span><span class="p">(</span><span class="n">ring_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span><span class="p">,</span> <span class="nb">reversed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">present</span><span class="p">:</span>
+                <span class="c1"># Remove packet from the ring and keep a record of its information</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">record_error</span><span class="p">(</span><span class="n">packet</span><span class="p">,</span> <span class="nb">reversed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">receive_data_packet</span><span class="p">(</span><span class="n">ring_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">receiver_id</span><span class="p">,</span> <span class="n">packet</span><span class="o">=</span><span class="n">packet</span><span class="p">,</span> <span class="nb">reversed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="c1"># Wait for the end of the data packet</span>
+                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data_packet_duration</span><span class="p">)</span>
+                <span class="c1"># Record latency information</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">record_latency</span><span class="p">(</span><span class="n">packet</span><span class="o">=</span><span class="n">packet</span><span class="p">)</span>
+                <span class="c1"># Sync with clock</span>
+                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_time_compensation</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Receivers operate on same clock cycle as transmitters</span>
+                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_transmitter_data_clock_cycle</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Nico Chung, Hongyi Yang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+<style>
+    @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+</style>
+
+
+</body>
+</html>
