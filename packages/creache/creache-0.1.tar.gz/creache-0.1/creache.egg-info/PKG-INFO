@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: creache
+Version: 0.1
+Summary: A tool that looks to convert structs to class entities in swift
+Home-page: UNKNOWN
+Author: Markim Shaw
+Author-email: ms79723@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
