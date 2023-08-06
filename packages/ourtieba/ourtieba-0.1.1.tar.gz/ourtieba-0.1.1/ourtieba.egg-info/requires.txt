@@ -1,0 +1,6 @@
+flask
+sqlalchemy
+flask-moment
+flask_apscheduler
+requests_html
+gunicorn
