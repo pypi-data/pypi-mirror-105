@@ -1,0 +1,10 @@
+galaxykit/__init__.py,sha256=tM_hDRBZsPiVAvePDHGo2EzoqjxnDUoMxZlW64aZBMU,32
+galaxykit/client.py,sha256=c9YG3rTGztwrWfTnn_2Oy_dCzcQhfnv3VgL4GYXmfg8,3318
+galaxykit/dockerutils.py,sha256=m_pbpb7yq9SSvse5Mskh0FYGduZYFuvsXyKQAjm799Y,1213
+galaxykit/groups.py,sha256=PYAR1m_PwNa2xtcUaV-KnvfFUUMc06YHVShTpGvXY0M,2272
+galaxykit/users.py,sha256=9Hbyt8w6vktQtiMjSZiOfHirnPfKgAP1txNE0-a7s1E,2690
+galaxykit-0.0.1.dist-info/LICENSE.md,sha256=FWBoQXekYNSXRU86l255USna3L9nZDC1idXqak4rizc,718
+galaxykit-0.0.1.dist-info/METADATA,sha256=iRU3SoP4NFcJdXNQ6w_3kPOcT5nMyFCJJGL5ExtI1Ps,617
+galaxykit-0.0.1.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+galaxykit-0.0.1.dist-info/top_level.txt,sha256=VjOrfTIUB_6PYdscogzxes1YcjzxmAaqeMommuk4vaM,10
+galaxykit-0.0.1.dist-info/RECORD,,
