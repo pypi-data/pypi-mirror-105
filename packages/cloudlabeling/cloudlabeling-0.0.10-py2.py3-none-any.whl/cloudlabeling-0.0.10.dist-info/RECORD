@@ -1,0 +1,9 @@
+cloudlabeling/__init__.py,sha256=_BJDnCU0TB48JtfA6m-JgTsu-So_0JP4DX4pi088NaQ,260
+cloudlabeling/cloudlabeling.py,sha256=1xWyOxUZA2EhBCLh0fjxC25W1dalD1FnnVyGMRnFcWg,3609
+cloudlabeling/server.py,sha256=s4wYYluSyVC8Cqp8qSy3us-U2zci0I-O4E26Ldobtzs,16267
+cloudlabeling/data/example.json,sha256=qLZGaqYknxOsjh5yTT-Fv1ds5Gs3PbgZm9fhQl-oq-g,25
+cloudlabeling-0.0.10.dist-info/LICENSE,sha256=fmYpo7XeZ5GNjdA3xkzhT9BHtENeUUBjSJjwI0Z2fmM,1072
+cloudlabeling-0.0.10.dist-info/METADATA,sha256=-OjGWcGXohXPS9IPimGaW8Rh1FMlRjHGpW1dC0qKy6Q,1887
+cloudlabeling-0.0.10.dist-info/WHEEL,sha256=Z-nyYpwrcSqxfdux5Mbn_DQ525iP7J2DG3JgGvOYyTQ,110
+cloudlabeling-0.0.10.dist-info/top_level.txt,sha256=juhODzM7AO_IS9qbrwu1NaE7G9ly3o_-NqGqis79oV0,14
+cloudlabeling-0.0.10.dist-info/RECORD,,
