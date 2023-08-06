@@ -1,0 +1,9 @@
+hermod/__init__.py,sha256=H9BR8YqhPTNWUUB6cEvKCv3LXs2kfbA_6KYPJePccr8,236
+hermod/hermod.py,sha256=MQdGq8qAxj6ZgfeGFZuzb4Uenlk39Zg4tNLNCJawbSE,1031
+hermod/message.py,sha256=1yT70PfZzPTiI1Lthqb4NVCkM4dvsCEjiihwT4jzQ58,463
+hermod/message_field.py,sha256=Y4J5R-FJ9pOXK6-tBUZtpnIPSQN7Iychtxeav8GMzy8,1173
+hermod/message_relation.py,sha256=b5Wi9rqBo1kLSbB7IVlLPZINemT7ln7yg9XHixi7E-o,500
+hermod-0.1.0.dist-info/LICENSE,sha256=VdEIaQ7Ll1yn3j8fibS7RgE-QTQa75tf55Ap3HWnYnA,1071
+hermod-0.1.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+hermod-0.1.0.dist-info/METADATA,sha256=j9Nu5NJCoZRk5BU36iHrnmhrR8hUmcaFsei79djT_iM,2833
+hermod-0.1.0.dist-info/RECORD,,
