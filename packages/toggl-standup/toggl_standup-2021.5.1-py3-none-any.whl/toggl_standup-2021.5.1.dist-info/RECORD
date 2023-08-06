@@ -1,0 +1,8 @@
+togglstandup/__init__.py,sha256=RWIstXTCVgitXMmaAQOYLAVfV1LIy9qMbYzclwwa4o8,72
+togglstandup/__main__.py,sha256=RWIstXTCVgitXMmaAQOYLAVfV1LIy9qMbYzclwwa4o8,72
+togglstandup/__version__.py,sha256=UUKFJpbyS8ev6v9VlgFX2lBUoacGccP6SE0why5UdV4,25
+togglstandup/cli.py,sha256=NMuKFrJjJv7WIwh1XHZpFZENB85ZQH78J3dauKmjGdU,2414
+toggl_standup-2021.5.1.dist-info/entry_points.txt,sha256=1tB9n4XriUlcSRIkyuvhRXjNJDobToC6ShK1OmHF4bY,44
+toggl_standup-2021.5.1.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+toggl_standup-2021.5.1.dist-info/METADATA,sha256=ghahRF-30Xm5W-OM4dP3h6JDQBMRvcoRhbbc57fvmuo,2180
+toggl_standup-2021.5.1.dist-info/RECORD,,
