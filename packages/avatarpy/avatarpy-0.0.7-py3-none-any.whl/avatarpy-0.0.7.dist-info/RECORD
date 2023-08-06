@@ -1,0 +1,13 @@
+avatarpy/__init__.py,sha256=5_2wIEYPa1GXUZ79T6gImXTrsUaUenuMBTnn31-Z71A,99
+avatarpy/animate.py,sha256=Ap6KO62bJUnwRRgmAlcsaYuUEVql5Se6M7YObNgmxbM,4666
+avatarpy/avatar.py,sha256=0OwSZLcJ7jfTlkNGs4YQErYwoE2bbIo_Aw4qEJzlMtE,13420
+avatarpy/core.py,sha256=to8NPlfVI9NpHXFcZvDS7gz_awXjjJqq7Cy5gWfIFq0,6542
+avatarpy/dataset.py,sha256=YY7hJLlcl1qiWcP_X_P2SSkwQelBiH3R6Bq4xmMPJFE,352
+avatarpy/describe.py,sha256=FZAldzgxi9FA68CBI1TKZ5r5PCEgZDhXO7BnM6gtQtc,3087
+avatarpy/transform.py,sha256=6TQbbJ5zUCWJJxnYKiJcNrFJJdAnQ4EfBlCfGw_EUxI,2825
+avatarpy/data/freely_moving.csv,sha256=JMldlVxeDL30m7tr1oOoPRkOHydxmvmCETgnrmSo3jk,412141
+avatarpy-0.0.7.dist-info/LICENSE,sha256=pl_waJZY-hPBbykGLTiFDGPGt80vk-h86pxe7n4bKoI,1085
+avatarpy-0.0.7.dist-info/METADATA,sha256=9fspAm6IlOWqylxyFKv6r7jKRFaXwvrfPJzZOjm9gfE,548
+avatarpy-0.0.7.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+avatarpy-0.0.7.dist-info/top_level.txt,sha256=8dIb8mxFyphKdChyFoZwATFMotGqO4zyUwpBfqhSzW0,9
+avatarpy-0.0.7.dist-info/RECORD,,
