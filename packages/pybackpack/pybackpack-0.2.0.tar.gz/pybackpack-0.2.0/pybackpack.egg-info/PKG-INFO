@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: pybackpack
+Version: 0.2.0
+Summary: A collection of everyday utils, helpers and tools in Python.
+Home-page: https://github.com/pooyavahidi/pybackpack
+Author: Pooya Vahidi
+License: UNKNOWN
+Description: # pybackpack
+        A collection of everyday utils, helpers and tools in Python.
+        
+        ## cli module
+        A few classes to make implementation of cli tools more organized. It uses composite
+        pattern for creating the parsers and subcommands. It also uses function decorators which
+        identity which function has to be executed for the provided arguments. 
+        The idea behind this module is to encapsulate each parser and it’s arguments, and the corresponding handler function.
+        
+        Look at the `tests/cli/my_cli.py` for a multi sub-commands example.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
