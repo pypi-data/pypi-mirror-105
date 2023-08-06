@@ -1,0 +1,15 @@
+likeshell/__init__.py,sha256=Asrd3t0k2xJCjjlACa3PYNeBcl2KRL1uR2HBi_KJ1p0,130
+likeshell/__version__.py,sha256=kCmAege6JyYltvQIB33l-QYdSTheQkH3l4wuQpt2Gv0,62
+likeshell/comment.py,sha256=pm0dLUJu67iUfiPBi_iyO8wRO6Y4v6cd6--3yJSiI8I,956
+likeshell/console.py,sha256=kgBIpXQsHXd_0A8n4Jrz1XqdKhuT1Trm8bSmVGCFr4A,1351
+likeshell/context.py,sha256=TfRTRkJBU6AjVXbKu7pQ36U8f59CX8XOPeR6uCO_z3w,1559
+likeshell/decoration.py,sha256=G1xK27pSssVLSAcaPSgjufk5X_IZvXLq_vvXJjQKYW4,261
+likeshell/exceptions.py,sha256=56ssDvgDlqbbBMue9PlNhjGSHpT2oZoaURttTSYmbOI,852
+likeshell/options.py,sha256=KkIf9FfXAZKas3xitfC4L3UJ9f0jbIcb0rb36DTagKk,10675
+likeshell/shell.py,sha256=3SOVjVWs95H_nt91Lqh7yCz2Yr7nWVp1WMJvimPSWVc,5916
+likeshell/types.py,sha256=jdO7CPfimJpPlYhSI00Ud6Dll6FE_sIYYB5VtvktWE4,23745
+likeshell-0.0.7.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+likeshell-0.0.7.dist-info/METADATA,sha256=0P8Tktrd6YDCigfNoCVM4RvDvOZ7wizrKSr3RZmOOR8,2315
+likeshell-0.0.7.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+likeshell-0.0.7.dist-info/top_level.txt,sha256=MEwL6mKA6Ky6LQPNGH8yV-uKDDZZ5q9XoG8IAiPoTnY,10
+likeshell-0.0.7.dist-info/RECORD,,
