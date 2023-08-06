@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: olympus-sdk
+Version: 0.1.0
+Summary: SDK for Olympus DAO (OHM) contracts
+Home-page: https://github.com/3-3PO/olympus-sdk
+Author: 3-3PO
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/3-3PO/olympus-sdk/issues
+Description: # Olympus SDK
+        
+        Unofficial SDK for [Olympus DAO](https://olympusdao.finance) (OHM)
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
