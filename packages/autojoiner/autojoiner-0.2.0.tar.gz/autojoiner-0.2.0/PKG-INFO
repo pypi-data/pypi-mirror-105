@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: autojoiner
+Version: 0.2.0
+Summary: UNKNOWN
+Home-page: https://github.com/rishi255/autojoiner
+Author: Rishikesh Rachchh
+Author-email: rishikeshrachchh@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Provides-Extra: gui
