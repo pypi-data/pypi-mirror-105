@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: bamboo-crawler
+Version: 0.1.2
+Summary: UNKNOWN
+Home-page: https://github.com/kitsuyui/bamboo-crawler
+Author: Yui Kitsu
+Author-email: kitsuyui+github@kitsuyui.com
+License: UNKNOWN
+Description: # Bamboo Crawler
+        
+        [![CircleCI Status](https://circleci.com/gh/kitsuyui/bamboo-crawler.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/kitsuyui/bamboo-crawler)
+        
+        A Hobby Crawler.
+        It is almost under construction.
+        
+        # Usage
+        
+        ## Installation
+        
+        ```console
+        $ pip install bamboo-crawler
+        ```
+        
+        ## Run
+        
+        ```
+        $ bamboo --recipe recipe.yml
+        ```
+        
+        ## Recipe
+        
+        ```YAML
+        mytask:
+          input:
+            type: ConstantInputter
+            options:
+              value: http://httpbin.org/robots.txt
+          process:
+            type: HTTPCrawler
+          output:
+            type: StdoutOutputter
+        ```
+        
+        # License
+        
+        BSD 2-clause "Simplified" License
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Description-Content-Type: text/markdown
+Provides-Extra: dev
