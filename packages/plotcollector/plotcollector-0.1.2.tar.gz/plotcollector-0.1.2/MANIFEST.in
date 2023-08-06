@@ -1,0 +1,2 @@
+include window.ui
+recursive-include plotcollector/data *
