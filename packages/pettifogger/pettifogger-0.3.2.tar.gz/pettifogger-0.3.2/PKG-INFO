@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pettifogger
+Version: 0.3.2
+Summary: Github actions workflow validator
+Home-page: https://gitlab.com/blissfulreboot/python/pettifogger
+Author: Aki Mäkinen
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: colorama (>=0.4.4,<0.5.0)
+Requires-Dist: jsonschema (>=3.2.0,<4.0.0)
+Requires-Dist: networkx (>=2.5.1,<3.0.0)
+Requires-Dist: ruamel.yaml (>=0.17.4,<0.18.0)
+Requires-Dist: watchdog (==2.1.0)
