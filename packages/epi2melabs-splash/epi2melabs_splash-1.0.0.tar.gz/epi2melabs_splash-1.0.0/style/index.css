@@ -1,0 +1,107 @@
+#epi2melabs-splash {
+  z-index: 10;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#epi2melabs-logo {
+  position: absolute;
+  display: flex;
+}
+
+#epi2melabs-logo .logoGraphic {
+  width: 165px;
+  margin: 0 15px 0 0;
+}
+
+#epi2melabs-logo .logoGraphic div {
+  height: 56px;
+  width: 100%;
+  margin: 15px 0 15px 0;
+  border-radius: 8px;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#epi2melabs-logo .graphicTop {
+  background-color: #69BCB8;
+  animation-duration: 1s;
+  animation-name: bounceWidthTop;
+}
+
+#epi2melabs-logo .logoGraphic .graphicMid {
+  width: calc(175px / 2);
+  background-color: #FECE63;
+  animation-duration: 1.3s;
+  animation-name: bounceWidthMid;
+}
+
+#epi2melabs-logo .graphicBot {
+  background-color: #007BA6;
+  animation-duration: 1.5s;
+  animation-name: bounceWidthBot;
+}
+
+#epi2melabs-logo .logoText {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#epi2melabs-logo .logoText h1 {
+  margin: 0;
+  font-size: 94px;
+  font-family: sans-serif;
+  font-weight: 500;
+  line-height: 100px;
+  color: #333;
+  user-select: none;
+}
+
+#epi2melabs-logo .logoText h2 {
+  margin: -20px 0 0 2px;
+  font-size: 54px;
+  font-family: sans-serif;
+  font-weight: 500;
+  color: #333;
+  user-select: none;
+}
+
+@keyframes bounceWidthTop {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 40%;
+  }
+}
+
+@keyframes bounceWidthMid {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes bounceWidthBot {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 60%;
+  }
+}
