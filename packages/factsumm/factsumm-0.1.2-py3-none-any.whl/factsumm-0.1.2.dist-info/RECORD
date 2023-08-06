@@ -1,0 +1,11 @@
+factsumm/__init__.py,sha256=pRbzHFnVjqSWtIhgS2BDuDDqW8bQ_IVswMvM6N3cH6U,12283
+factsumm/version.py,sha256=YvuYzWnKtqBb-IqG8HAu-nhIYAsgj9Vmc_b9o7vO-js,22
+factsumm/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+factsumm/utils/level_entity.py,sha256=oOeBiLgA82FgZD0qeFKoR1PDAaLAFXnQMUwOzFjMtHA,4229
+factsumm/utils/level_sentence.py,sha256=tSdfwVhSVWbMl3pIVdervZDat6DN9vQWTjRzaSB7TzU,3391
+factsumm/utils/utils.py,sha256=M13jedMxVEdBaqfpDJtNYpgb6Joyj-nOg76HSxSC-d0,6771
+factsumm-0.1.2.dist-info/LICENSE,sha256=Ae_gFQsvf7sNvIwYDRomRZmLeZpSvW8kq-1D9u4Gw5M,11360
+factsumm-0.1.2.dist-info/METADATA,sha256=m-ugYHOehsR4bFywovBwaBtinIBslt92F25tMTwjW5A,11667
+factsumm-0.1.2.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+factsumm-0.1.2.dist-info/top_level.txt,sha256=lxKSJmqIPbfYCB9s4A_Xf1n6KsSWsKywopjQNu9GZXQ,9
+factsumm-0.1.2.dist-info/RECORD,,
