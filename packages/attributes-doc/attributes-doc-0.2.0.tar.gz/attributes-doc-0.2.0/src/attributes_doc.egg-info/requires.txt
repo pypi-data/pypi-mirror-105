@@ -1,0 +1,18 @@
+
+[:python_version < "3"]
+typing
+
+[test]
+coverage
+pytest-cov
+
+[test:python_version < "3"]
+pytest<5
+
+[test:python_version >= "3"]
+pytest
+
+[test:python_version >= "3.9"]
+mypy
+pycodestyle
+pylint
