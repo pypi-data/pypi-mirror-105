@@ -1,0 +1,7 @@
+README.rst
+setup.cfg
+setup.py
+PyMultition.egg-info/PKG-INFO
+PyMultition.egg-info/SOURCES.txt
+PyMultition.egg-info/dependency_links.txt
+PyMultition.egg-info/top_level.txt

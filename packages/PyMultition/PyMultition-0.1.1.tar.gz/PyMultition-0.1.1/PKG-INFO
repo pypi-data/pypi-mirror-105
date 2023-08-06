@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: PyMultition
+Version: 0.1.1
+Summary: A Multiton Class for preventing duplicate instances based on serializing init values.
+Home-page: https://github.com/Gzyjl/PyMultition
+Author: GongZiyao
+Author-email: gong.ziyao@outlook.com
+License: MIT
+Description: UNKNOWN
+Keywords: python multition Instanciate
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
+Classifier: Programming Language :: Python :: 3.7

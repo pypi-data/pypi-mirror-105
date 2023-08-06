@@ -1,0 +1,18 @@
+from setuptools import setup, find_packages
+
+
+setup(
+    name='PyMultition',
+    version='0.1.1',
+    url='https://github.com/Gzyjl/PyMultition',
+    author="GongZiyao",
+    author_email='gong.ziyao@outlook.com',
+    keywords='python multition Instanciate',
+    description='A Multiton Class for preventing duplicate instances based on serializing init values.',
+    license='MIT',  # 开源许可证类型
+    classifiers=[
+        'Operating System :: OS Independent',
+        'Topic :: Software Development',
+        'Programming Language :: Python :: 3.7',
+    ],
+)
