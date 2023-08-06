@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: htranslate
+Version: 1.0.1
+Summary: Translate text into h-binary.
+License: MIT
+Author: vcokltfre
+Author-email: vcokltfre@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: fastapi (>=0.65.0,<0.66.0)
+Requires-Dist: uvicorn (>=0.13.4,<0.14.0)
