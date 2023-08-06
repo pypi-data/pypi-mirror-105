@@ -1,0 +1,1032 @@
+#!/usr/bin/python3
+# Copyright (C) 2021 Cryptotronix
+# Author: Kit Smith <kit@cryptotronix.com>
+
+# CORE
+import os
+import sys
+import sqlite3
+import random
+import uuid
+import json
+import datetime
+import inspect
+import argparse
+from pathlib import Path
+# TEXTTABLE
+import texttable
+from texttable import Texttable
+# SQLALCHEMY
+import sqlalchemy as sql
+from sqlalchemy import inspect as sqlinspect
+from sqlalchemy import func as sqlfunc
+from sqlalchemy.orm import mapper, aliased
+from sqlalchemy.exc import NoSuchTableError
+# REQUESTS
+import requests
+from requests.exceptions import Timeout as TimeoutException
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+# PROMPT TOOLKIT
+from prompt_toolkit import PromptSession, prompt
+from prompt_toolkit.completion import NestedCompleter
+from prompt_toolkit.styles import Style
+from prompt_toolkit.formatted_text import HTML
+from prompt_toolkit.history import History
+from prompt_toolkit.completion import Completer, WordCompleter
+
+# DISABLING WARNINGS
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+# COMMAND LINE ARGUMENTS
+parser = argparse.ArgumentParser(prog='CTFshell',
+                                 description="Client CLI for the Cryptotronix CTF server.")
+parser.add_argument('-d',
+                    '--database',
+                    action='store',
+                    default=None,
+                    metavar="PATH",
+                    type=Path,
+                    help='provide a non-default path to the database.')
+parser.add_argument('-n',
+                    '--no_verify',
+                    action='store_true',
+                    default=False,
+                    help='do not verify server TLS certificates. ONLY USE THIS IF YOU KNOW WHAT YOU ARE DOING.')
+
+# RELEASE
+REL = 1
+# "SERIAL"
+SER = random.randrange(100000, 999999)
+# "INFORM"
+INF = "v" + str(random.randrange(0, 9)) + "." + str(random.randrange(0, 99))
+# "LIBRARY"
+LIB = str(random.randrange(0, 9)) + "/" + str(random.randrange(0, 9))
+
+# PROMPT STYLING
+style = Style.from_dict({
+    'completion-menu.completion': 'bg:#865a91 #fff8e7',
+    'completion-menu.completion.current': 'bg:#572365 #fff8e7',
+    'scrollbar.background': 'bg:#638038',
+    'scrollbar.button': 'bg:#a2bb3e',
+    'bottom-toolbar': '#865a91 bg:#fff8e7',
+    'good': "bold #b2c858 bg:#865a91",
+    'bad': "bold #c86f58 bg:#865a91",
+    'tooltext': "#fff8e7 bg:#865a91",
+    'bold': "bold"
+})
+
+guide = """
+                WELCOME TO CTF
+
+CTF is a game of ingenuity, resourcefulness, and hacking. In it you
+will explore the innermost depths of the chosen target. Hardened
+Hackers have run screaming from the terrors contained within!
+
+In CTF the intrpid explorer sends flag answers to a server, which
+is prepared to provide you with the points humanity so desperately
+craves, guarded by fearsome hardware and diabolical hints!
+
+To register on the server use the 'register' command, providing a
+maximum 32 character username.
+
+To view the flags use the 'flags' command.
+
+To submit answers to the server use the 'submit' command, providing
+the flag you are attempting to solve and your answer.
+
+To view the leaderboard use the 'leaderboard' command. Note, you
+will not appear on the leaderboard until you have at least one
+point.
+
+To ask for hints use the 'hintbot' command. He's pretty lazy so he
+might not be awake at the start of the game. Send him the name of
+a flag to ask for a hint, or just chat with him.
+
+If you want to use an already created user use the 'set_user'
+command and provide a user's uuid.
+
+If you need to change the server hostname from what you are about to
+provide, use the 'set_hostname' command.
+
+Have fun!
+
+"""
+
+sql_schema = [
+        "PRAGMA foreign_keys = ON;",
+        """
+CREATE TABLE settings (
+        k text PRIMARY KEY NOT NULL,
+        v text NOT NULL
+);
+        """,
+        'INSERT INTO settings (k, v) VALUES ("history_limit", "32");',
+        'INSERT INTO settings (k, v) VALUES ("initialized", "0");',
+        'INSERT INTO settings (k, v) VALUES ("hostname", "ctf.risciv.com");',
+        """
+CREATE TABLE cmd_history (
+       entry_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+       timestamp text NOT NULL,
+       command text NOT NULL
+);
+        """,
+        """
+CREATE TRIGGER history_limit
+AFTER INSERT ON cmd_history
+BEGIN
+        DELETE FROM cmd_history
+        WHERE entry_id < (SELECT max(entry_id) FROM cmd_history) -
+                (SELECT CAST(v as INTEGER) FROM settings WHERE k == "history_limit");
+END;
+        """]
+
+
+# maps to cmd_history table
+class Cmd_History:
+    def __init__(self, timestamp, command):
+        self.timestamp = timestamp
+        self.command = command
+
+
+# maps to settings table
+class Setting:
+    def __init__(self, k, v):
+        self.k = k
+        self.v = v
+
+
+class text:
+    PURPLE = '\033[95m'
+    CYAN = '\033[96m'
+    DARKCYAN = '\033[36m'
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    END = '\033[0m'
+
+
+class DBHistory(History):
+
+    def __init__(self, session):
+        self.Session = session
+        super(DBHistory, self).__init__()
+
+    def load_history_strings(self):
+        session = self.Session()
+        history = session.query(Cmd_History.command).all()
+        session.close()
+
+        if len(history) > 0:
+            history = list(map(lambda x: x[0], history))
+            return reversed(history)
+        else:
+            return reversed([])
+
+    def store_string(self, string):
+        session = self.Session()
+        session.add(Cmd_History(timestamp=datetime.datetime.now(),
+                                command=string))
+        session.commit()
+        session.close()
+
+
+class CTFShell():
+
+    EXIT_CODE = -1
+
+    def __init__(self, db_path=None, no_verify=False):
+        super().__init__()
+
+        self.tls_verify = not no_verify
+
+        self.score = 0
+        self.moves = 0
+
+        self.prompt_text = "> "
+
+        # a list of all "do_" commands (those available to the user)
+        self.cmds = list(filter(lambda x: x.startswith("do_"), dir(self)))
+
+        # database location handling
+        if db_path is None:
+            db_loc = ".CTFshell.db"
+            db_dir = os.getcwd()
+            self.db_path = Path(db_dir + "/" + db_loc)
+        else:
+            self.db_path = db_path
+
+        # creating the database if it does not exist
+        if not self.db_path.exists():
+            try:
+                db = sqlite3.connect(self.db_path)
+                for statement in sql_schema:
+                    db.execute(statement)
+                db.commit()
+                db.close()
+            except sqlite3.Error as e:
+                print(f"failed to init database.\n{type(e).__name__}: {str(e)}\n",
+                      file=sys.stderr)
+                if db is not None:
+                    db.rollback()
+                    db.close()
+                exit(1)
+
+        # connecting to the database and binding the shell tables
+        try:
+            self.engine = sql.create_engine("sqlite:///" + str(self.db_path))
+            self.connection = self.engine.connect()
+            self.metadata = sql.MetaData(bind=self.engine)
+            self.Session = sql.orm.sessionmaker(bind=self.engine)
+
+            cmd_history = sql.Table(
+                    "cmd_history",
+                    self.metadata,
+                    autoload=True,
+                    autoload_with=self.engine)
+
+            settings = sql.Table(
+                    "settings",
+                    self.metadata,
+                    autoload=True,
+                    autoload_with=self.engine)
+
+            try:
+                sqlinspect(Cmd_History)
+            except sql.exc.NoInspectionAvailable:
+                mapper(Cmd_History, cmd_history)
+            try:
+                sqlinspect(Setting)
+            except sql.exc.NoInspectionAvailable:
+                mapper(Setting, settings)
+        except NoSuchTableError:
+            print("qm-shell database does not have required tables",
+                  file=sys.stderr)
+            exit(1)
+        except sql.exc.OperationalError as e:
+            print(str(e), file=sys.stderr)
+            exit(1)
+
+        session = self.Session()
+        init_set = session.query(Setting).filter_by(k="initialized").first()
+        initialized = bool(int(init_set.v))
+        self.initialized = initialized
+
+        location = ""
+        if not initialized:
+            self.address = None
+            location = "West of AST Headquarters"
+        else:
+            addr_setting = session.query(Setting).filter_by(k="hostname").first()
+            self.address = addr_setting.v
+            session.commit()
+            location = "AST Headquarters"
+
+        user = session.query(Setting).filter_by(k="user_uuid").first()
+        if user is None:
+            self.user_uuid = None
+        else:
+            self.user_uuid = user.v
+
+        session.close()
+
+        # update toolbar
+        self._update_stats()
+
+        # BANNER
+        self.intro = (
+                text.BOLD + "CTF" + text.END + "\n\n" +
+                'Welcome to CTF.\n' +
+                f'Release {REL} / Serial number {SER} / Inform {INF} Library {LIB}\n' +
+                text.BOLD + f'{location}' + text.END)
+        if not initialized:
+            self.intro = (
+                    self.intro + "\n" +
+                    'This is an open field west of a white laboratory, with a metal blast door.\n' +
+                    'There is a small mailbox here.\n' +
+                    "A rubber mat saying 'Welcome to the CTF!' lies by the door.")
+
+        # COMPLETION AND SHELL PROMPTS
+
+        completer = self._get_completer()
+
+        # create persisitent history using our db
+        self.history = DBHistory(self.Session)
+
+        session_options = {
+                "completer": completer,
+                "history": self.history,
+                "style": style,
+                "bottom_toolbar": self._toolbar
+                }
+
+        # create the session
+        self.session = PromptSession(**session_options)
+
+    def _get_completer(self):
+        # creates our nested completion dict
+        cmd_names = list(map(lambda x: x.replace("do_", ""), self.cmds))
+        cmpldict = {}
+
+        # ###### ATTENTION ####### #
+        # #  MUST MODIFY IF A    # #
+        # # NEW COMMAND REQUIRES # #
+        # #     COMPLETION       # #
+        # ######################## #
+        if self.initialized:
+            for cmd in cmd_names:
+                if cmd == "submit":
+                    resp = None
+                    try:
+                        resp = requests.get(f"https://{self.address}/text_flags",
+                                            timeout=5,
+                                            verify=self.tls_verify)
+
+                        if resp.status_code != 200:
+                            cmpldict[cmd] = None
+                    except Exception:
+                        cmpldict[cmd] = None
+                    else:
+                        flags = json.loads(resp.text)
+                        sub_dict = {}
+                        for flag in flags["flags"]:
+                            sub_dict[flag[0]] = None
+                        cmpldict[cmd] = sub_dict
+                elif cmd == "help":
+                    cmd_dict = {}
+                    for cmd2 in cmd_names:
+                        cmd_dict[cmd2] = None
+                    cmpldict[cmd] = cmd_dict
+                else:
+                    cmpldict[cmd] = None
+        else:
+            cmpldict["open"] = {"mailbox": None}
+            cmpldict["read"] = {"leaflet": None}
+            cmpldict["exit"] = None
+
+        return NestedCompleter.from_nested_dict(cmpldict)
+
+    def _update_stats(self):
+        if self.user_uuid is not None and self.address is not None:
+            resp = None
+            try:
+                resp = requests.get(f"https://{self.address}/user_stats" +
+                                    f"?uuid={self.user_uuid}",
+                                    verify=self.tls_verify,
+                                    timeout=3)
+                if resp.status_code == 200:
+                    stats = json.loads(resp.text)
+                    self.score = stats["total_points"]
+                    self.moves = stats["submissions"]
+            except Exception:
+                self.score = -1
+                self.moves = -1
+        else:
+            self.score = 0
+            self.moves = 0
+
+    def _toolbar(self):
+        location = "AST Headquarters"
+        if not self.initialized:
+            location = "West of AST Headquarters"
+
+        score = self.score
+        moves = self.moves
+
+        columns, _ = os.get_terminal_size()
+        padlen = (columns -
+                  len(f"{location}Score: {score}     Moves: {moves}     "))
+        padding = " " * padlen
+
+        tooltext = (
+                f"{location}{padding}Score: {score}     Moves: {moves}     ")
+        return[('class:bottom-toolbar', tooltext)]
+
+    def _usrcmd(func):
+        def cmd(*args, **kwargs):
+            res = func(*args, **kwargs)
+            # if an exit function is used, return the exit code
+            if func.__name__ == "do_exit":
+                return CTFShell.EXIT_CODE
+            else:
+                return res
+        cmd.__doc__ = func.__doc__
+        return cmd
+
+    def _getrank(total_points, score):
+        division = total_points // 8
+        hacker = division + (total_points % 8)
+        rank = "Beginner"
+        if score >= (division * 6) + hacker:
+            rank = "Master Hacker"
+        elif score >= (division * 5) + hacker:
+            rank = "Wizard"
+        elif score >= (division * 4) + hacker:
+            rank = "Master"
+        elif score >= division * 4:
+            rank = "Hacker"
+        elif score >= division * 3:
+            rank = "Junior Hacker"
+        elif score >= division * 2:
+            rank = "Novice Hacker"
+        elif score >= division:
+            rank = "Amateur Hacker"
+
+        return rank
+
+    def _initloop(self):
+        leaflet = False
+        done = False
+        while not done:
+            try:
+                # get input
+                command = self.session.prompt(self.prompt_text)
+            except KeyboardInterrupt:
+                continue
+            except EOFError:
+                break
+            else:
+                # processing input
+                if not len(command.strip()) == 0:
+                    # separates the command and the args
+                    split_input = command.strip().split(" ", 1)
+                    cmd = split_input[0]
+                    args = None
+                    if len(split_input) > 1:
+                        args = split_input[1]
+                    if cmd == "open":
+                        if args == "mailbox":
+                            if not leaflet:
+                                print("You open the mailbox, recieving a small leaflet.")
+                                leaflet = True
+                            else:
+                                print("That's already open.")
+                        else:
+                            print("That's not something you can open.")
+                    elif cmd == "read":
+                        if args == "leaflet":
+                            if leaflet:
+                                print("(first taking the small leaflet)")
+                                print(guide)
+                                msg = ("Please enter the hostname of the CTF " +
+                                       "server (default ctf.risciv.com):\n")
+                                address = prompt([("class:bold", msg)])
+                                address = address.strip()
+                                if address == "":
+                                    address = "ctf.risciv.com"
+                                session = self.Session()
+                                query = session.query(Setting)
+                                addr_set = query.filter_by(k="hostname").first()
+                                initialized = query.filter_by(
+                                        k="initialized").first()
+                                self.address = address
+                                addr_set.v = address
+                                initialized.v = str(1)
+                                self.initialized = True
+                                session.commit()
+                                session.close()
+                                self.session.completer = self._get_completer()
+                                done = True
+                            else:
+                                print("You can't see any such thing.")
+                        elif args == "mailbox":
+                            print("How can I read a mailbox?")
+                        else:
+                            print("You can't see any such thing.")
+                    elif cmd == "exit":
+                        exit(0)
+                    else:
+                        print("Sorry, I don't recognize that command.")
+
+    # CMDLOOP
+    # this is the main prompt loop used by the shell
+    def cmdloop(self):
+        print(self.intro)
+        if not self.initialized:
+            self._initloop()
+        while True:
+            try:
+                # get input
+                command = self.session.prompt(self.prompt_text)
+            except KeyboardInterrupt:
+                continue
+            except EOFError:
+                break
+            else:
+                # processing input
+                if not len(command.strip()) == 0:
+                    # separates the command and the args
+                    split_input = command.strip().split(" ", 1)
+                    cmd = "do_" + split_input[0]
+                    args = None
+                    if len(split_input) > 1:
+                        args = split_input[1]
+                    # catch special shorthand case
+                    if cmd == "do_?":
+                        self.do_help(args)
+                    # otherwise, see if cmd matches one in our list
+                    elif cmd in self.cmds:
+                        # execute cmd with provided arguments
+                        funcs = inspect.getmembers(
+                                self,
+                                predicate=inspect.ismethod)
+                        ret = None
+                        for fun in funcs:
+                            if fun[0] == cmd:
+                                ret = fun[1](args)
+                                break
+                        # NOTE
+                        # we exit the prompt cycle if return value is EXIT_CODE
+                        #
+                        # the usrcmd wrapper makes all "do_" functions
+                        # return NONE, and pipes their regular return value
+                        # into shell_return instead
+                        #
+                        # when the usrcmd wrapper detects "do_exit" is called,
+                        # it returns EXIT_CODE
+                        if ret == CTFShell.EXIT_CODE:
+                            exit(0)
+                    else:
+                        self.do_help(None)
+
+    # PARSE
+    # this function is available for cmds to use on their
+    # argument string to parse the raw input
+    def parse(self, args):
+        # if empty input, return an empty list
+        if args is None:
+            return []
+
+        # strip input of all nasties
+        text = args.strip(" \n\t\r")
+
+        arg_list = []
+        arg = ""
+        i = 0
+
+        # MIAN PARSING LOOP
+        while i < len(text):
+            # QUOTED INPUT
+            if text[i] == '"':
+                try:
+                    i = i + 1
+                    while text[i] != '"':
+                        arg = arg + text[i]
+                        i = i + 1
+                    i = i + 1
+                except IndexError:
+                    print("error: unclosed quotes")
+                    return None
+                try:
+                    if text[i] != " ":
+                        print("error: cannot concatinate quoted and raw text")
+                        return None
+                except IndexError:
+                    pass
+
+            # SEPERATION DETECTION
+            elif text[i] == " ":
+                if arg != "":
+                    arg_list.append(arg)
+                arg = ""
+                i = i + 1
+            # RAW INPUT
+            else:
+                try:
+                    while text[i] != " ":
+                        arg = arg + text[i]
+                        i = i + 1
+                except IndexError:
+                    pass
+
+        # catch last input that isn't separated by a space
+        if arg != "":
+            arg_list.append(arg)
+
+        return arg_list
+
+    @_usrcmd
+    def do_register(self, arg):
+        'create a username on the server: REGISTER username'
+
+        args = self.parse(arg)
+        if args is None:
+            return None
+        elif len(args) != 1:
+            print("error: provide only your username.\n")
+            return None
+
+        uname = args[0]
+
+        resp = None
+        try:
+            resp = requests.post(f"https://{self.address}/register",
+                                 uname,
+                                 verify=self.tls_verify,
+                                 timeout=5)
+        except TimeoutException:
+            print("Could not connect to CTF server, timed out.")
+            return None
+        except Exception as e:
+            print(f"Could not connect to CTF server.\n{e}\n")
+            return None
+
+        if resp.status_code == 400:
+            print(resp.text)
+            return None
+        elif resp.status_code != 200:
+            print(f"error: failed to register. response: {resp.text}\n")
+            return None
+
+        user_uuid = None
+        try:
+            user_uuid = str(uuid.UUID(resp.text))
+        except ValueError:
+            print(f"error: failed to register. response: {resp.text}\n")
+            return None
+
+        self.user_uuid = user_uuid
+        session = self.Session()
+        setting = session.query(Setting).filter_by(k="user_uuid").first()
+        if setting is None:
+            session.add(Setting("user_uuid", user_uuid))
+        else:
+            setting.v = user_uuid
+        session.commit()
+        session.close()
+
+        # update toolbar
+        self._update_stats()
+
+        print("success!")
+        print(f"user uuid: {user_uuid}")
+        print("saved.")
+        return 0
+
+    @_usrcmd
+    def do_submit(self, arg):
+        'submit and check an answer to a flag: SUBMIT flag_name answer'
+
+        args = self.parse(arg)
+        if args is None:
+            return None
+        elif len(args) != 2:
+            print("error: provide only the flag and your answer.\n")
+            return None
+
+        if self.user_uuid is None:
+            print("please register first!\n")
+            return None
+
+        if self.address is None:
+            print("please set hostname first!\n")
+            return None
+
+        flag_name = args[0]
+        answer = args[1]
+
+        resp = None
+        try:
+            resp = requests.post(f"https://{self.address}/submit" +
+                                 f"?uuid={self.user_uuid}",
+                                 answer,
+                                 verify=self.tls_verify,
+                                 timeout=5)
+            self.moves = self.moves + 1
+        except TimeoutException:
+            print("Could not connect to CTF server, timed out.")
+            return None
+        except Exception as e:
+            print(f"Could not connect to CTF server.\n{e}\n")
+            return None
+
+        if resp.status_code == 400:
+            print(resp.text)
+            return None
+        elif resp.status_code != 200:
+            print(f"error: failed to check submission. response: {resp.text}\n")
+            return None
+
+        subm_uuid = None
+        try:
+            subm_uuid = str(uuid.UUID(resp.text))
+        except ValueError:
+            print(f"error: failed to submit. response: {resp.text}\n")
+            return None
+
+        try:
+            resp = requests.get(f"https://{self.address}/check" +
+                                f"?uuid={subm_uuid}&flag={flag_name}",
+                                verify=self.tls_verify,
+                                timeout=5)
+        except TimeoutException:
+            print("Could not connect to CTF server, timed out.")
+            return None
+        except Exception as e:
+            print(f"Could not connect to CTF server.\n{e}\n")
+            return None
+
+        if resp.status_code == 400:
+            print(resp.text)
+            return None
+        elif resp.status_code != 200:
+            print(f"error: failed to check submission. response: {resp.text}\n")
+            return None
+
+        # update toolbar
+        self._update_stats()
+
+        print(resp.text)
+        return 0
+
+    @_usrcmd
+    def do_score(self, arg):
+        'see your current score: SCORE'
+
+        if self.user_uuid is None:
+            print("please register first!\n")
+            return None
+
+        if self.address is None:
+            print("please set hostname first!\n")
+            return None
+
+        resp = None
+        try:
+            resp = requests.get(f"https://{self.address}/user_stats" +
+                                f"?uuid={self.user_uuid}",
+                                verify=self.tls_verify,
+                                timeout=5)
+        except TimeoutException:
+            print("Could not connect to CTF server, timed out.")
+            return None
+        except Exception as e:
+            print(f"Could not connect to CTF server.\n{e}\n")
+            return None
+
+        if resp.status_code != 200:
+            print(f"error: failed to fetch score. response: {resp.text}\n")
+            return None
+
+        stats = json.loads(resp.text)
+        score = stats['total_points']
+        moves = stats['submissions']
+
+        # update toolbar
+        self.score = score
+        self.moves = moves
+
+        total = 0
+        try:
+            resp = requests.get(f"https://{self.address}/flag_points",
+                                verify=self.tls_verify,
+                                timeout=5)
+        except TimeoutException:
+            print("Could not connect to CTF server, timed out.")
+            return None
+        except Exception as e:
+            print(f"Could not connect to CTF server.\n{e}\n")
+            return None
+        if resp.status_code != 200:
+            print(f"error: failed to fetch flags. response: {resp.text}\n")
+            return None
+        else:
+            flags = json.loads(resp.text)
+            total = 0
+            for flag in flags:
+                total = total + flags[flag]
+        rank = CTFShell._getrank(total, score)
+        print(f"Your score is {score} (total of {score} points) in {moves} moves.")
+        print(f"This gives you the rank of {rank}.")
+
+        return 0
+
+    @_usrcmd
+    def do_hintbot(self, arg):
+        'chat with the hintbot: HINTBOT chat'
+
+        if self.user_uuid is None:
+            print("please register first!\n")
+            return None
+
+        if self.address is None:
+            print("please set hostname first!\n")
+            return None
+
+        if arg is None:
+            print("error: please provide a chat message.\n")
+            return None
+
+        chat = arg.strip().strip('"')
+
+        if chat == "":
+            print("error: please provide a chat message.\n")
+            return None
+
+        resp = None
+        try:
+            resp = requests.post(f"https://{self.address}/hints" +
+                                 f"?uuid={self.user_uuid}",
+                                 chat,
+                                 verify=self.tls_verify,
+                                 timeout=5)
+        except TimeoutException:
+            print("Could not connect to CTF server, timed out.")
+            return None
+        except Exception as e:
+            print(f"Could not connect to CTF server.\n{e}\n")
+            return None
+
+        if resp.status_code != 200:
+            print(f"error: failed to fetch stats. response: {resp.text}\n")
+            return None
+
+        print(resp.text)
+
+        return 0
+
+    @_usrcmd
+    def do_set_user(self, arg):
+        'manually provide an existing user uuid: SETUSER uuid'
+
+        args = self.parse(arg)
+        if args is None:
+            return None
+        elif len(args) != 1:
+            print("error: provide only the user uuid.\n")
+            return None
+            return None
+
+        in_uuid = args[0]
+
+        user_uuid = None
+        try:
+            user_uuid = str(uuid.UUID(in_uuid))
+        except ValueError:
+            print(f"error: not a valid uuid.\n")
+            return None
+
+        session = self.Session()
+        user = session.query(Setting).filter_by(k="user_uuid").first()
+        if user is None:
+            session.add(Setting(k="user_uuid", v=user_uuid))
+        else:
+            user.v = user_uuid
+
+        session.commit()
+        session.close()
+
+        self.user_uuid = user_uuid
+
+        # update toolbar
+        self._update_stats()
+
+        return 0
+
+    @_usrcmd
+    def do_set_hostname(self, arg):
+        'change the stored hostname of the CTF server: SET_HOSTNAME fqdn'
+
+        args = self.parse(arg)
+        if args is None:
+            return None
+        elif len(args) != 1:
+            print("error: provide only the new hostname.\n")
+            return None
+            return None
+
+        new_address = args[0]
+
+        session = self.Session()
+        old_address = session.query(Setting).filter_by(k="hostname").first()
+        old_address.v = new_address
+        session.commit()
+        session.close()
+
+        self.address = new_address
+
+        # update toolbar
+        self._update_stats()
+
+        return 0
+
+    @_usrcmd
+    def do_flags(self, arg):
+
+        resp = requests.get(f"https://{self.address}/text_flags",
+                            verify=self.tls_verify,
+                            timeout=5)
+
+        if resp.status_code != 200:
+            print(f"error: failed to register. response: {resp.text}\n")
+            return None
+
+        flags = json.loads(resp.text)
+
+        table = Texttable()
+        table.set_deco(Texttable.HEADER |
+                       Texttable.BORDER |
+                       Texttable.VLINES |
+                       Texttable.HLINES)
+        table.header(["name", "description", "points"])
+        table.add_rows(flags["flags"], header=False)
+
+        print(table.draw())
+
+        return 0
+
+    @_usrcmd
+    def do_leaderboard(self, arg):
+        resp = requests.get(f"https://{self.address}/text_leaderboard",
+                            verify=self.tls_verify,
+                            timeout=5)
+
+        if resp.status_code != 200:
+            print(f"error: failed to register. response: {resp.text}\n")
+            return None
+
+        lb = json.loads(resp.text)
+
+        table = Texttable()
+        table.set_deco(Texttable.HEADER |
+                       Texttable.BORDER |
+                       Texttable.VLINES)
+        table.header(["user", "points"])
+        table.add_rows(lb["leaderboard"], header=False)
+
+        print(table.draw())
+
+        return 0
+        pass
+
+    # HELP
+    # prints all available commands and will provide
+    # short help text (docstrings) for each command
+    @_usrcmd
+    def do_help(self, arg):
+        'view help for QM shell functions:  HELP [func name] '
+        # parse args
+        args = self.parse(arg)
+        if args is None:
+            return None
+        else:
+            # if no args, print commands
+            if len(args) == 0:
+                print("Documented commands (type help <topic>):")
+                print("========================================")
+                table = texttable.Texttable()
+                table.set_deco(texttable.Texttable.VLINES)
+                row = []
+                for index, func in enumerate(self.cmds):
+                    if index % 3 == 0 and index != 0:
+                        table.add_row(row)
+                        row = []
+                    row.append(func[3:])
+                if len(row) != 0:
+                    for i in range(3-len(row)):
+                        row.append("")
+                    table.add_row(row)
+                print(table.draw())
+                return 0
+            # if we have an arg, print the docstring for that cmd
+            elif len(args) == 1:
+                arg = args[0]
+                funcs = inspect.getmembers(
+                        self,
+                        predicate=inspect.ismethod)
+                try:
+                    index = list(map(lambda x: x[0], funcs)).index("do_" + arg)
+                    print(funcs[index][1].__doc__)
+                except ValueError:
+                    print(f"'{arg}' is not a function")
+                    return None
+                return 0
+            # fail if multiple args provided
+            else:
+                print("error: please provide only one topic")
+                return None
+
+    # EXIT
+    # quit the shell
+    @_usrcmd
+    def do_exit(self, arg):
+        'exit the shell:  EXIT'
+        print("exiting...")
+        # no need to return because the usrcmd wrapper
+        # detects the call
+
+
+def main():
+    args = parser.parse_args()
+
+    try:
+        # start the shell
+        CTFShell(args.database, args.no_verify).cmdloop()
+    except KeyboardInterrupt:
+        exit(1)
+
+
+if __name__ == '__main__':
+    main()
