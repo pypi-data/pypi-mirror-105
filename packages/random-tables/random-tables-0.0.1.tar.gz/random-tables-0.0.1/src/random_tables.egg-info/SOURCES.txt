@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+src/randomtables.py
+src/data/float_words.csv
+src/data/int_words.csv
+src/data/name_words.csv
+src/data/names.csv
+src/data/string_words.csv
+src/random_tables.egg-info/PKG-INFO
+src/random_tables.egg-info/SOURCES.txt
+src/random_tables.egg-info/dependency_links.txt
+src/random_tables.egg-info/requires.txt
+src/random_tables.egg-info/top_level.txt
