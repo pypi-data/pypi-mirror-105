@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: ntropy-sdk
+Version: 1.0.0
+Summary: SDK for the Ntropy API
+Home-page: https://github.com/ntropy-network/ntropy-sdk
+Author: David Buchmann
+Author-email: david@ntropy.network
+License: MIT license
+Keywords: ntropy_sdk
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Requires-Dist: requests
+Requires-Dist: tqdm
+Requires-Dist: typing
+
+==========
+Ntropy SDK
+==========
+
+SDK for the Ntropy API
+
+See example.py for usage
+
+* Free software: MIT license
+
+
+
+
