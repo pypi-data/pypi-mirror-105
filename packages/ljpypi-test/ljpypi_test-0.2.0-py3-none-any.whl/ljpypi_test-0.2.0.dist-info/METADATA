@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ljpypi-test
+Version: 0.2.0
+Summary: uploading python package
+Home-page: https://github.com/Leejung8763/ljpypi_test
+Author: LJ
+Author-email: lj.lee@nexr.com
+License: MIT
+Download-URL: https://github.com/Leejung8763/ljpypi_test/archive/refs/tags/0.2.0.tar.gz
+Keywords: pypi
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+
+# Example Package 
+This is a simple example for uploading python package to PyPI.
+
+email: lj.lee@nexr.com
+
