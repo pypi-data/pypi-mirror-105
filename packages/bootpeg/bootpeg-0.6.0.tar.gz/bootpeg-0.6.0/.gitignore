@@ -1,0 +1,7 @@
+.idea
+.mypy_cache
+venv
+__pycache__
+dist
+docs/_build
+bootpeg_examples
