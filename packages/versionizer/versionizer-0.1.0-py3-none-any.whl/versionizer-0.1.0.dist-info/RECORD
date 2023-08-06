@@ -1,0 +1,16 @@
+versionizer/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+versionizer/__main__.py,sha256=CQho-mDVjtg9zrB69vdMJqll4QGkhTftfE5TJxpMc9w,72
+versionizer/ast_differ.py,sha256=r_vHaS08FldlMyTrTZVVTvL9_4-CDpDW9E0CPcrIjHQ,899
+versionizer/ast_handler.py,sha256=DgwVy3f2qYouGQmpzGFYM5v72KdeFQZBYi0hznP5AWU,1329
+versionizer/automated_test_executor.py,sha256=8OiJCHvveKXMcapWDVwuU1zhzKrGKy8IDBmTqBo863Q,532
+versionizer/automated_test_generator.py,sha256=uS_zzKbHx0M6rznYhhVYlxec8A3ZWtX97XEeznta6FY,2569
+versionizer/cli.py,sha256=8DNoydCLxYSe98ua7RUUdAiQ92FBtSgTQeCa1P8NQNM,5169
+versionizer/function_node.py,sha256=TLRrOJEx87STj72PmZ8JLhO-3jvgAtAgmrXtlGMevLw,671
+versionizer/git_handler.py,sha256=c4S9uESElOa3fcOGqQoZr6XTqbYBBn--6vsprUq1Qdg,1592
+versionizer/parsed_ast_builder.py,sha256=YPc3jH8R3ilNHANbeIPWdE8eLayXKGiZkQYzoA4PYj4,1100
+versionizer/utils.py,sha256=kxhy1eSCMmNbTOxxbJjw0eG9V0ixPaUDejXzB025WUc,452
+versionizer/versionizer.py,sha256=gns0hnJTUVShIb5kII1qyOGlVjwLL-LI6Oq0adihyYw,97
+versionizer-0.1.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+versionizer-0.1.0.dist-info/WHEEL,sha256=VN2eEg4PHbTOniXb-cCYQPc6zUTS4dAcATjlgU3q-Lo,83
+versionizer-0.1.0.dist-info/METADATA,sha256=6BKm5JbcUYRNT0npOTcZ_kHDhexuDFJqCboWkLK4sFo,616
+versionizer-0.1.0.dist-info/RECORD,,
