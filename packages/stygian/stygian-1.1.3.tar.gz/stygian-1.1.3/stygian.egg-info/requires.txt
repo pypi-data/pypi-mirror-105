@@ -1,0 +1,8 @@
+asphodel
+boto3
+hyperborea
+numpy
+psutil
+PySide2
+requests
+setproctitle
