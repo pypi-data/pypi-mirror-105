@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: loggerithm
+Version: 1.1.1
+Summary: Logging module for the Python programming language
+Home-page: https://github.com/toto-bird/python-loggerithm/
+License: MIT
+Author: Totobird
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: coloured (>=0.1,<0.2)
+Requires-Dist: toml (>=0.10,<0.11)
+Project-URL: Repository, https://github.com/toto-bird/python-loggerithm/
+Description-Content-Type: text/markdown
+
+# Python Loggerithm
+Logging module for the Python programming language
+
+## Getting Started
+1. [Creating Loggers](https://github.com/toto-bird/python-loggerithm/blob/master/examples/creating_loggers.py)
+2. [Basic Logging](https://github.com/toto-bird/python-loggerithm/blob/master/examples/basic_logging.py)
+3. [Loading Loggers From Config](https://github.com/toto-bird/python-loggerithm/blob/master/examples/load_from_config.py)
+
