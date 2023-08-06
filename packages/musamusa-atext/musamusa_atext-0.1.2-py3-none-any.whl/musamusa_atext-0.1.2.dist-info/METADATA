@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: musamusa-atext
+Version: 0.1.2
+Summary: MusaMusa::AnnotatedText
+License: GPLv3
+Author: suizokukan
+Author-email: suizokukan@orange.fr
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: musamusa-errors (>=0.8.1,<0.9.0)
+Requires-Dist: musamusa-etr (>=0.1.6,<0.2.0)
+Requires-Dist: musamusa-textref (>=0.1.8,<0.2.0)
