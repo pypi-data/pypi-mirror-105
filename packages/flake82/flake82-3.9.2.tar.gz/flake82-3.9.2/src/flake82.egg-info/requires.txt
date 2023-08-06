@@ -1,0 +1,7 @@
+pyflakes<2.4.0,>=2.3.0
+pycodestyle<2.8.0,>=2.7.0
+mccabe<0.7.0,>=0.6.0
+toml
+
+[:python_version < "3.8"]
+importlib-metadata
