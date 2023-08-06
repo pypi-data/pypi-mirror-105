@@ -1,0 +1,9 @@
+efficient_det/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+efficient_det/train.py,sha256=g3bJOGYaMxtnXupAOC_MUyESN-8JRkgJxeQSRDTebV4,125
+efficient_det/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+efficient_det/utils/logs.py,sha256=ZojyhOM7N3v_WV0pGupPblNjzQviGwv1b1XZlVtaWWY,43
+my_test_pkg_tnfru-0.0.10.dist-info/LICENSE,sha256=jG2zQEdRNt88EgHUWPpXVWmOrOduUQRx7MnYV9YIPaw,11359
+my_test_pkg_tnfru-0.0.10.dist-info/METADATA,sha256=Sv41U-HpuFP3MDdZnY7nmONv-6l3MxX2YsamwtxhFr0,851
+my_test_pkg_tnfru-0.0.10.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+my_test_pkg_tnfru-0.0.10.dist-info/top_level.txt,sha256=zHi7Z84P_CkE29Rux_L6Gb_id0PwIQ_N-7zGx-BLm3o,14
+my_test_pkg_tnfru-0.0.10.dist-info/RECORD,,
