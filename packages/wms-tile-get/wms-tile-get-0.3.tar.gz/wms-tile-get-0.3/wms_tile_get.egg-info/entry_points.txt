@@ -1,0 +1,3 @@
+[console_scripts]
+wms-tile-get = scripts.wms_tile_get:main
+
