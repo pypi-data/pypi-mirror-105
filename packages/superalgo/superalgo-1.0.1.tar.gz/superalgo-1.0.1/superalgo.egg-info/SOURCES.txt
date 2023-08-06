@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+superalgo/__init__.py
+superalgo/search.py
+superalgo/sort.py
+superalgo.egg-info/PKG-INFO
+superalgo.egg-info/SOURCES.txt
+superalgo.egg-info/dependency_links.txt
+superalgo.egg-info/requires.txt
+superalgo.egg-info/top_level.txt
