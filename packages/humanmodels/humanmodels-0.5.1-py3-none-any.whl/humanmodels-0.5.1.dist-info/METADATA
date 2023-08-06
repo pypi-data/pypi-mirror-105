@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: humanmodels
+Version: 0.5.1
+Summary: Human-designed models for classification and regression
+Home-page: https://github.com/albertotonda/HumanModels/
+Author: Alberto Tonda
+Author-email: alberto.tonda@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/albertotonda/HumanModels/issues
+Project-URL: Documentation, https://humanmodels.readthedocs.io/en/latest/
+Project-URL: Source Code, https://github.com/albertotonda/HumanModels/
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst; charset=UTF-8
+
+UNKNOWN
+
+
