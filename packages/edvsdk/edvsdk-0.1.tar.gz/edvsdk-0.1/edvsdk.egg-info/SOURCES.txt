@@ -1,0 +1,7 @@
+setup.py
+edvsdk/__init__.py
+edvsdk/edv.py
+edvsdk.egg-info/PKG-INFO
+edvsdk.egg-info/SOURCES.txt
+edvsdk.egg-info/dependency_links.txt
+edvsdk.egg-info/top_level.txt
