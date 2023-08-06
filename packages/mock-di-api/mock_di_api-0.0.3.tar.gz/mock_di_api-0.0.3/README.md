@@ -1,0 +1,22 @@
+# Mock SAP Data Intelligence api
+
+This small package can be used to mock the api-package of SAP Data Intelligence in order to develop an operator locally. 
+It is assumed that the working directory has the SAP Data Intelligence vflow-structure (github-pull) and the 
+Python-operator has been created previously with the 'Create Operator'-wizzard of the modeler. For details a blog
+ will be published on SAP Community in May 2021. 
+ 
+To use the this add at the beginning of your script the following codelines: 
+
+```
+try:
+    api
+except NameError:
+    from utils.di_local_test import *
+```
+
+The following api attributes will be mocked: 
+
+* **config**: with the attributes read from the operators.json-file
+* **Message**: creating a Message with attributes and body as attributes
+* **send**: prints the content of the message that is send to the port. Only the message data types `string' and 'message' are 
+currently supported. 
