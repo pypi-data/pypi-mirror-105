@@ -1,0 +1,6 @@
+python-slimta[spf]~=4.2
+passlib
+PyYAML
+
+[optional]
+python-slimta[aws,disk,redis]
