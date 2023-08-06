@@ -1,0 +1,10 @@
+LICENCE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/mmath/__init__.py
+src/mmath.egg-info/PKG-INFO
+src/mmath.egg-info/SOURCES.txt
+src/mmath.egg-info/dependency_links.txt
+src/mmath.egg-info/top_level.txt
