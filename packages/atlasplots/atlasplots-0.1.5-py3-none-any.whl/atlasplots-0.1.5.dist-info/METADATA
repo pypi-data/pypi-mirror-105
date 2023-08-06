@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: atlasplots
+Version: 0.1.5
+Summary: ATLAS Plots for Humans
+Home-page: https://atlas-plots.readthedocs.io
+Author: Joey Carter
+Author-email: joey.carter@cern.ch
+License: MIT
+Project-URL: Documentation, https://atlas-plots.readthedocs.io/
+Project-URL: Source, https://github.com/joeycarter/atlas-plots/
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.6.*
+Requires-Dist: numpy (>=1.18)
+
+ATLAS Plots for Humans
+
+
