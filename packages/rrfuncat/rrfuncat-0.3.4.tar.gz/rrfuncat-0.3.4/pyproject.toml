@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "rrfuncat"
+version = "0.3.4"
+description = "rrFuncat 将同花顺、通达信、文华财经等的公式移植到了 Python 中"
+authors = ["romepeng <romepeng@outlook.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
