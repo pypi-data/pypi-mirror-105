@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# @Time    : 2021/5/10 16:54
+# @Author  : UJN.Wenbin
+# @FileName: setup.py
+# @Software: PyCharm
+import setuptools
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="CXCFmsMC-binbin6106",
+    version="0.0.1",
+    author="Wenbin",
+    author_email="zhangwenbin@mail.ujn.edu.cn",
+    description="A pkg to operate mitsubishi PLC by MCProtocol.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    # url="https://github.com/pypa/sampleproject",
+    packages=setuptools.find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+)

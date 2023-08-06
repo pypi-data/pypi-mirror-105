@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: CXCFmsMC-binbin6106
+Version: 0.0.1
+Summary: A pkg to operate mitsubishi PLC by MCProtocol.
+Home-page: UNKNOWN
+Author: Wenbin
+Author-email: zhangwenbin@mail.ujn.edu.cn
+License: UNKNOWN
+Description-Content-Type: text/markdown
+Description: ### test
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
