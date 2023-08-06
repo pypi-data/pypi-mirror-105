@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: extreme_beautify
+Version: 6.0.0
+Summary: simple tool for beautifying the appearance of the application in the terminal.
+Home-page: https://github.com/ExsoKamabay/terminal-banner
+Author: Exso Kamabay
+Author-email: <lexyong66@gmail.com>
+License: Apache License 2.0
+Description: # Extreme Beautify
+Keywords: python,color,text,font,beautifull,terminal
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
