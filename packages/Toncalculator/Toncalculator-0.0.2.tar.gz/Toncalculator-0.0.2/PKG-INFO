@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: Toncalculator
+Version: 0.0.2
+Summary: A basic calculator
+Home-page: UNKNOWN
+Author: Mahmudul Hahan Tonmoy
+Author-email: playerandgamertonmoy@gmail.com
+License: MIT
+Description: Toncalculator s a simple calulator for addition, subtraction, multiplication,division, squire, to the power, sqire root, log, factorial, sin, cos, tan, cot, sec, cosec, nCr etc.
+        There are many mathmatical conversions
+        
+        Change Log
+        ==========
+        
+        0.0.1 (10/05/2021)
+        -First Release
+Keywords: calculator,toncalculator,add,addison,subdivision,log,sin,cos,tan,coat,sce,cosec,a simple calculator,fine calculator,terminal calculator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
