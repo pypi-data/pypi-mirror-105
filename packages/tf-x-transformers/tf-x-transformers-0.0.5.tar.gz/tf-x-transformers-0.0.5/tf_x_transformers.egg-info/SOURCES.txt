@@ -1,0 +1,14 @@
+.gitignore
+README.md
+setup.py
+compare/Encoder_compare.ipynb
+compare/XTransformer_compare.ipynb
+tf_x_transformers/__init__.py
+tf_x_transformers/autoregressive_wrapper.py
+tf_x_transformers/tf_entmax.py
+tf_x_transformers/tf_x_transformers.py
+tf_x_transformers.egg-info/PKG-INFO
+tf_x_transformers.egg-info/SOURCES.txt
+tf_x_transformers.egg-info/dependency_links.txt
+tf_x_transformers.egg-info/requires.txt
+tf_x_transformers.egg-info/top_level.txt
