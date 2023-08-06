@@ -1,0 +1,7 @@
+setup.py
+SimpleVidde-V2/SnakeGame.py
+SimpleVidde-V2/__init__.py
+SimpleVidde_V2.egg-info/PKG-INFO
+SimpleVidde_V2.egg-info/SOURCES.txt
+SimpleVidde_V2.egg-info/dependency_links.txt
+SimpleVidde_V2.egg-info/top_level.txt
