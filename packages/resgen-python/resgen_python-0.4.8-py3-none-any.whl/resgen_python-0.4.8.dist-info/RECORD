@@ -1,0 +1,10 @@
+resgen/__init__.py,sha256=Vz8vWbaOkGurqMfSNxJFqkncl2mcDBEK6vGAUvfZB2A,30788
+resgen/aws.py,sha256=MhD5qr71WPle4zL2Vq8mAPclmPPLQ-6SgGcj2Mvb1uc,1914
+resgen/cli.py,sha256=lXE0TdFBg-84voUe70Kav3Sh_ASBASXwu_9TpYDFbxs,213
+resgen/sync/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+resgen/sync/commands.py,sha256=U9cU6TTHTWdPcswieGyLU1ff1CbIKZswIPm_tSDXakg,2089
+resgen_python-0.4.8.dist-info/METADATA,sha256=fB4d_pubnMTtOWbBDu6S4K8jXj4tqueMKeGPtREWR_o,1072
+resgen_python-0.4.8.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+resgen_python-0.4.8.dist-info/entry_points.txt,sha256=ZAWXkc2h49B56Xexs8bIoiso7y3IoXQjCpUCAVes2ao,43
+resgen_python-0.4.8.dist-info/top_level.txt,sha256=J9S_i_RsXw-rJSytL55r-3im5auz2IOW4DQXujZI9q4,7
+resgen_python-0.4.8.dist-info/RECORD,,
