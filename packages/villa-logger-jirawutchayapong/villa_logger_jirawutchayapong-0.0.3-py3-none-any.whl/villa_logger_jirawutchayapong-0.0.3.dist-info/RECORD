@@ -1,0 +1,12 @@
+log/__init__.py,sha256=M8WVop1ZFQjmclP51PezDj7qj1j5y-KvQHQ2yh9nXos,161
+log/__version__.py,sha256=0_f53dWqhPJwMBFMG8kBrU4dYjVWIhOz3Ow1QRhrzOQ,377
+log/entry_points.py,sha256=hHwFi_zM-I-x5956qFv1bNk6qsmQfSuMH4JuWRAoJjY,1418
+log/log.py,sha256=3V-YKV4ebSMSLcgy4phkOo--Mhszu1Hd71G2JcgBQtc,1120
+villa_logger_jirawutchayapong-0.0.3.dist-info/.ipynb_checkpoints/SOURCES-checkpoint.txt,sha256=Y0RaCtRrcU6HB4ashJdBRg0FMxuH9pOq42ihbvifqks,456
+villa_logger_jirawutchayapong-0.0.3.dist-info/.ipynb_checkpoints/requires-checkpoint.txt,sha256=T73VMazwlef8u5_3LFIuJ0qfqDJ9zv4LgV3K7xFs4tQ,15
+villa_logger_jirawutchayapong-0.0.3.dist-info/LICENSE,sha256=hcMzkligKst6Vz9pXbSQ5vr80xLKp2IGO-ILcvAPwFY,551
+villa_logger_jirawutchayapong-0.0.3.dist-info/METADATA,sha256=MRLyu3rf7sOIgEkR-IMTEITE26aiWqU6fT2neks3X78,13752
+villa_logger_jirawutchayapong-0.0.3.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+villa_logger_jirawutchayapong-0.0.3.dist-info/entry_points.txt,sha256=uo5gSv08zM03HbC8w5nHmK66Khdw773dA-znPoP7A00,66
+villa_logger_jirawutchayapong-0.0.3.dist-info/top_level.txt,sha256=m3UpD2pjWaKjRxAiy7pLck5FEFsxOuj2wQOi956CqFc,4
+villa_logger_jirawutchayapong-0.0.3.dist-info/RECORD,,
