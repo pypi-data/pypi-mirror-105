@@ -1,0 +1,12 @@
+pangeo_sphinx_book_theme/__init__.py,sha256=L9m0O7sYlM-WkUGKd8FoDBpfSpilWTauk3B8E_7zo7k,505
+pangeo_sphinx_book_theme/_version.py,sha256=5mSIYCY7Nz9aU-2Tp5ZRj3n-mh0nAvseHjcUfqGKAao,497
+pangeo_sphinx_book_theme/theme.conf,sha256=sSxMAOCjpKTjJM_Fnd4gNiXEWX9lF2NhQyoEbZkrM00,119
+pangeo_sphinx_book_theme/static/custom.css,sha256=fbo7D4Xyv1OgLJ7PmMfRVxSu-3dCTlE47Fju7JNPgcE,38004
+pangeo_sphinx_book_theme/static/panton.black-caps.otf,sha256=gEILwjYvfGH1cyIUOV23uFU36DbsnObJbLoX8s2SzYQ,66260
+pangeo_sphinx_book_theme/static/panton.light-caps.otf,sha256=FbMEot9GmE72T9zqUuumEbJ9NBeLMLxos_4qOKJsa-o,62424
+pangeo_sphinx_book_theme-0.1.1.dist-info/LICENSE,sha256=aNzX5hTxakVtVygowJGxQJPmkOO0By9C9RrhutF6DzE,1069
+pangeo_sphinx_book_theme-0.1.1.dist-info/METADATA,sha256=15n-ttofmzNxUcJa5fhc3cFF0uXaS9vF3bglUweAGsQ,1622
+pangeo_sphinx_book_theme-0.1.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+pangeo_sphinx_book_theme-0.1.1.dist-info/entry_points.txt,sha256=WaIk7VTCn49cqlaLVZY0_LUbMxXa3pCIf5KD8-sM-qA,74
+pangeo_sphinx_book_theme-0.1.1.dist-info/top_level.txt,sha256=5-47AE-MB4J1YX6A8n0WVpH7aiNNrWDkJ55eZTIe3J4,25
+pangeo_sphinx_book_theme-0.1.1.dist-info/RECORD,,
