@@ -1,0 +1,9 @@
+README.md
+setup.py
+involution_pytorch/__init__.py
+involution_pytorch/involution_pytorch.py
+involution_pytorch.egg-info/PKG-INFO
+involution_pytorch.egg-info/SOURCES.txt
+involution_pytorch.egg-info/dependency_links.txt
+involution_pytorch.egg-info/requires.txt
+involution_pytorch.egg-info/top_level.txt
