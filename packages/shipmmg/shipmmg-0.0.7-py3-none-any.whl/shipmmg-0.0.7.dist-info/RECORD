@@ -1,0 +1,9 @@
+shipmmg/__init__.py,sha256=R9xOYoYrWKcfO5zvTeGC3m_eDNOvxMd8CocQs2tLufo,22
+shipmmg/draw_obj.py,sha256=13OkfSa5l4FZED4Bs46sKPaSoVU5A1YvlNVLih3P_dU,6184
+shipmmg/kt.py,sha256=deAwLPgX5flDRMFN-aB9F6Si3P9199z0g5RCgUd774c,23133
+shipmmg/mmg_3dof.py,sha256=uDtRn_J6XvBBlw09i3VO2c9-LhX2G-aocoOcMETWGi4,55126
+shipmmg/ship_obj_3dof.py,sha256=Rg94C_vEPQLM6jzanrDuITUs0vpBwuYQExvC180Fedw,40753
+shipmmg-0.0.7.dist-info/LICENSE,sha256=QdyEhTfvFt8Z13l_dUge2R_jk_g_ub1jJT3-jtbTirg,1072
+shipmmg-0.0.7.dist-info/WHEEL,sha256=SrtnPGVTMeYWttls9xnWA01eUhCZ3ufFdJUYb1J3r-U,83
+shipmmg-0.0.7.dist-info/METADATA,sha256=6ZgpifYQRvblOB6IhXDxPvC6juUsHt5qWVDrD_oaObY,2423
+shipmmg-0.0.7.dist-info/RECORD,,
