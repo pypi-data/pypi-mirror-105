@@ -1,0 +1,6 @@
+toml
+python-levenshtein
+structlog
+pandas
+numpy
+cython

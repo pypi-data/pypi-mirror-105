@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: encoref
+Version: 0.0.2
+Summary: Entity coreference for small data
+Home-page: https://github.com/endremborza/encoref
+Author: Endre Márk Borza
+License: MIT
+Description: # encoref
+        
+        [![Documentation Status](https://readthedocs.org/projects/encoref/badge/?version=latest)](https://encoref.readthedocs.io/en/latest)
+        [![codeclimate](https://img.shields.io/codeclimate/maintainability/endremborza/encoref.svg)](https://codeclimate.com/github/endremborza/encoref)
+        [![codecov](https://img.shields.io/codecov/c/github/endremborza/encoref)](https://codecov.io/gh/endremborza/encoref)
+        [![pypi](https://img.shields.io/pypi/v/encoref.svg)](https://pypi.org/project/encoref/)
+        
+        add keywords to pyproject.toml
+        
+        to motif matching:
+        - "has coref elsewhere" into motif distance
+        - weighting of entity distances to be refined
+        - what if an entity type has no dataprops?
+        - utilize some information regarding overall graph structure
+Platform: any
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
