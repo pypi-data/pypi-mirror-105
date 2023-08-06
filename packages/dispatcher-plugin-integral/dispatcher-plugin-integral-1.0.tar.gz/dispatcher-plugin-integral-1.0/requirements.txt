@@ -1,0 +1,2 @@
+ddaclient
+oda-knowledge-base[rdf,cwl]
