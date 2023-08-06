@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: duco
+Version: 0.1.0
+Summary: A python package for the Duino Coin REST API
+Home-page: https://github.com/dansinclair25/duco-py
+Author: Dan Sinclair
+Author-email: dansinclair@me.com
+License: UNKNOWN
+Description: # duco-py
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
