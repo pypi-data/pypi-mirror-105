@@ -1,0 +1,14 @@
+# Add the folder containing all your gits here:
+#gits_folder: /absolute/path/to/your/gits/folder
+
+# You can also add individual gits here
+#individual_gits:
+#- /absolute/path/to/a/git/folder
+
+# The following aliases will be understood by gitstatus, you can add more:
+aliases:
+  gc: git commit -v
+  gca: git commit -a -v
+  ga: git add .
+  gpsh: git push
+  gpll: git pull
