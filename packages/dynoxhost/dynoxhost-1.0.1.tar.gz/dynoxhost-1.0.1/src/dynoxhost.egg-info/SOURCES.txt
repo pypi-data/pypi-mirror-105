@@ -1,0 +1,6 @@
+license.md
+setup.py
+src/dynoxhost.egg-info/PKG-INFO
+src/dynoxhost.egg-info/SOURCES.txt
+src/dynoxhost.egg-info/dependency_links.txt
+src/dynoxhost.egg-info/top_level.txt
