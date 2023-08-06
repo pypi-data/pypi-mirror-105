@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+queryeasy.py
+setup.py
+queryeasy.egg-info/PKG-INFO
+queryeasy.egg-info/SOURCES.txt
+queryeasy.egg-info/dependency_links.txt
+queryeasy.egg-info/entry_points.txt
+queryeasy.egg-info/requires.txt
+queryeasy.egg-info/top_level.txt
