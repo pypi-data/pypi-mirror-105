@@ -1,0 +1,8 @@
+MANIFEST.in
+README.md
+setup.py
+src/world_time/__init__.py
+src/world_time.egg-info/PKG-INFO
+src/world_time.egg-info/SOURCES.txt
+src/world_time.egg-info/dependency_links.txt
+src/world_time.egg-info/top_level.txt
