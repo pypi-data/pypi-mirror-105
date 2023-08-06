@@ -1,0 +1,114 @@
+Metadata-Version: 2.1
+Name: hypixelpy
+Version: 0.1.1
+Summary: A simple wrapper for Hypixel API
+Home-page: https://github.com/cinget/hypixelpy
+Author: cinget
+Author-email: evertonpassine@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/cinget/hypixelpy/issues
+Project-URL: Wiki, https://github.com/cinget/hypixelpy/wiki
+Description: # Hypixelpy
+        Simple wrapper for Hypixel API
+        
+        **WARNING:** This is a personal project, bugs and bad performance should be expected. Also, I didn't design this library to be used in large scale.
+        **THIS REPOSITORY IS UNDER CONSTRUCTION**
+        
+        ## Features
+        <details>
+            <summary>Click to see all features!</summary>
+        
+            API:
+              ✔️ API Key Information
+            Player:
+              ✔️ Player Data
+              ✔️ Player's Friends
+              ✔️ Recently Played Games
+              ✔️ Player's Status
+              ❌ Guild
+            Resources:
+              ✔️ Achievements
+              ✔️ Challenges
+              ✔️ Quests
+              ✔️ Guild Achievements
+              ✔️ Guild Permissions
+            Skyblock:
+              ✔️ Collections
+              ✔️ Skills
+              ✔️ News
+              ➖ Auctions by player, profile or UUID
+              ✔️ Active Auctions
+              ✔️ Recently Ended Auctions
+              ✔️ Bazaar
+              ✔️ Bazaar Item IDs
+              ✔️ Profile by UUID
+              ✔️ Player's Profiles
+            Other:
+              ✔️ Active Network Booster
+              ✔️ Current Player Counts
+              ✔️ Current Leaderboards
+              ✔️ Punishment Statistics
+            Game Types:
+              ✔️ IDs
+              ✔️ Type Names
+              ✔️ Database Names
+              ✔️ Clean Names
+        </details>
+        
+        ---
+        
+        ## How to install:
+        **Using pip command:** \
+        ``
+        pip install hypixelpy 
+        ``
+        
+        **From Source Code:** \
+        ``
+        pip install git+https://github.com/cinget/hypixelpy.git#egg=hypixelpy
+        ``
+        
+        ---
+        
+        ## How to use:
+        After installing it, run this simple code to see if everything is working:
+        ```python
+        from hypixelpy.hypixel import Hypixel # importing the library
+        
+        
+        test = Hypixel(key='PUT YOUR HYPIXEL KEY HERE') # The Hypixel class requires an API key to work
+        print(test.api.key_information()) # prints all the information from the given key
+        ```
+        
+        You should get an output like this:
+        ```json
+        {
+          "success": true,
+          "record": {
+            "key": "YOUR KEY",
+            "owner": "YOUR MINECRAFT UUID",
+            "limit": 120,
+            "queriesInPastMin": 1,
+            "totalQueries": 364
+          }
+        }
+        ```
+        
+        **Learn more:** \
+        [Introduction - How it works](https://github.com/cinget/hypixelpy/wiki/Introduction---Library-Structure#introduction) \
+        [How to get an API Key](https://github.com/cinget/hypixelpy/wiki/Authentication#authentication) \
+        [Check the wiki for more](https://github.com/cinget/hypixelpy/wiki)
+        
+        
+        ## How to contribute:
+        Here is some ways to contribute with the project:
+        1. Fork this repository
+        2. Star this repository
+        3. Check the ~~contributing page~~, if you want to help me to improve this library
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
