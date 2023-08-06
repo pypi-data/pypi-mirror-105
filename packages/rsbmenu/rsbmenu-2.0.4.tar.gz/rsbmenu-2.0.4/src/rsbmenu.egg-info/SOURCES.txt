@@ -1,0 +1,7 @@
+setup.py
+src/rsbmenu.py
+src/rsbmenu.egg-info/PKG-INFO
+src/rsbmenu.egg-info/SOURCES.txt
+src/rsbmenu.egg-info/dependency_links.txt
+src/rsbmenu.egg-info/requires.txt
+src/rsbmenu.egg-info/top_level.txt
