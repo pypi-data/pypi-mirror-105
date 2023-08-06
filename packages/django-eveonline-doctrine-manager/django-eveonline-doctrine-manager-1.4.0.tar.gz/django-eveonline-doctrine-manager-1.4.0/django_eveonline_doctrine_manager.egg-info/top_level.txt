@@ -1,0 +1,2 @@
+django_eveonline_doctrine_manager
+test
