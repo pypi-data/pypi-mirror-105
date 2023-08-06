@@ -1,0 +1,12 @@
+dcdf/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dcdf/cli.py,sha256=l_g655OTkk5NCunrEBKZP2tsaxhRs4E7Imxa5W1uaBQ,14044
+dcdf/data.py,sha256=BiATwOmzz9nGsaH7JkehLduuDh1nHzRyDjDUGwrJO_g,10841
+dcdf/measure.py,sha256=7HHqi7JaUH0RNGAVlTI0ULObn9-Qf--WH2kG_rr3RFE,6420
+dcdf/parallel-shared_memory.py,sha256=SdhwXx4fJOhBk8O4Ct6QSXe8bCY_jwnXlOlPY-cY1Bk,6436
+dcdf/parallel.py,sha256=eZTVYd6bg_QuMd5TK4PqVIplZZKulUQ3MORAoMe3k2c,5619
+dcdf-0.1.8.dist-info/LICENSE,sha256=1FGceSVrhXjkd3URfWf1RhdfBiVNIMn-JVdLk-WomWk,1069
+dcdf-0.1.8.dist-info/METADATA,sha256=ptJnk-pP6QcS6ATqNx12pbMGCB8ukrro129XTlF_Qmo,555
+dcdf-0.1.8.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+dcdf-0.1.8.dist-info/entry_points.txt,sha256=8ghWfsIULrCiorUyrmZE8qaByjCQt-g2s2Suhleunes,40
+dcdf-0.1.8.dist-info/top_level.txt,sha256=nWiExqak--F2-dFniL9MPiOUZpAISe4bdcFrmgSF89U,5
+dcdf-0.1.8.dist-info/RECORD,,
