@@ -1,0 +1,10 @@
+objprint/__init__.py,sha256=C1HpzX4HkQiiVs-pTIE3eBbTxnWQtUpHtzNW8JmMWX4,481
+objprint/color_util.py,sha256=PAFo1LxZMJfWevP1btGkgb7sv7vHRKx3KARjMwOk9Cg,451
+objprint/decorator.py,sha256=vJx5ZkVgrFY8kuyhqT30mXl7hWH5io19KAaSzFmvRxk,586
+objprint/objprint.py,sha256=Z-WpjqzGCuwd5_8afQXh6arlG-qBcKDU_Ve4EU1DFLk,6219
+objprint-0.0.4.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+objprint-0.0.4.dist-info/METADATA,sha256=OFZq2fpzv0bfyn6iPKQR3AP34MowygSr9HXFSI1Yqek,4995
+objprint-0.0.4.dist-info/NOTICE.txt,sha256=Nia11_L5XLJ2jt3cS-XBQ69y4QHAKwJlUjiQNb05uOs,549
+objprint-0.0.4.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+objprint-0.0.4.dist-info/top_level.txt,sha256=ei1Bfgupi93kJZLbNpKfhl9HiB8GwHK8DPo6WA7mYI4,9
+objprint-0.0.4.dist-info/RECORD,,
