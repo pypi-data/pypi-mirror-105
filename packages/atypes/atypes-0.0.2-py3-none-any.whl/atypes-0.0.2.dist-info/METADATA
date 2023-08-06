@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: atypes
+Version: 0.0.2
+Summary: Abstractions for signal machine learning.
+Home-page: https://github.com/otosense/atypes
+Author: OtoSense
+License: apache-2.0
+Platform: any
+Description-Content-Type: text/markdown
+
+
+# atypes
+Abstractions for signal machine learning.
+
+
+To install:	```pip install atypes```
+
+
