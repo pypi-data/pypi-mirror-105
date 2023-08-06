@@ -1,0 +1,8 @@
+LICENCE
+README.md
+setup.py
+krishto/__init__.py
+krishto.egg-info/PKG-INFO
+krishto.egg-info/SOURCES.txt
+krishto.egg-info/dependency_links.txt
+krishto.egg-info/top_level.txt
