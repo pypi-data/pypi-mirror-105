@@ -1,0 +1,8 @@
+setup.py
+vidshare/__init__.py
+vidshare/streamer.py
+vidshare.egg-info/PKG-INFO
+vidshare.egg-info/SOURCES.txt
+vidshare.egg-info/dependency_links.txt
+vidshare.egg-info/requires.txt
+vidshare.egg-info/top_level.txt
