@@ -1,0 +1,3 @@
+[console_scripts]
+package-list=package_list.main:app
+
