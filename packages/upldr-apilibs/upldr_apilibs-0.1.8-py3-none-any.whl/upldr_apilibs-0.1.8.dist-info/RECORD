@@ -1,0 +1,8 @@
+upldr_apilibs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+upldr_apilibs/http_app.py,sha256=uFcet5FVBrto7LPj78ZPSfVTFchNR44FZ5v5C_TQdyA,2606
+upldr_apilibs/http_utils.py,sha256=1mZI-_2Ug5UzY-6Sop0SoY96cRRc5BHSvkzGPqceyug,349
+upldr_apilibs/index_data.py,sha256=QNrSebO90_ohCtPF7_UVeLrqD2oHGcGY0jRUKnQdLlU,2961
+upldr_apilibs-0.1.8.dist-info/METADATA,sha256=cSDRdLadK9WW3TJdluCyU5p-d2F3vxqpmcwrQbwFxo0,486
+upldr_apilibs-0.1.8.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+upldr_apilibs-0.1.8.dist-info/top_level.txt,sha256=vbBRAGqbWytkNEB4oA5-luRxdLbcYKkV077AClCv5b8,14
+upldr_apilibs-0.1.8.dist-info/RECORD,,
