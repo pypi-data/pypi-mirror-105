@@ -1,0 +1,10 @@
+pytestTestreport/__init__.py,sha256=6oqRBWHuqJY8zHxHcgdrpax-93U0TuxsaQ4f3DwhD8M,166
+pytestTestreport/pytest_testreport.py,sha256=ynR_ZdgwAZd9Axts2Ljb3OmhTGoRsfMny1PZm6BNjiA,4513
+pytestTestreport/templates/__init__.py,sha256=lVobxkI1kU46GPtIfwVreM_Ja6cVWsrwvQp63qb8KDk,166
+pytestTestreport/templates/templates.html,sha256=09VpNrecGGcPZIdaX9z-1LKhd_y_z5l6Rd1fNB90Iyg,18413
+pytest_testreport-1.0.1.dist-info/LICENSE,sha256=p2kS5BHeT623eaKO29Bb2G-uXHCuRjnX7Vgh5oyoLKc,1100
+pytest_testreport-1.0.1.dist-info/METADATA,sha256=YPZwAAVeC5zsHH61pd06P1fb_RGsSbsAwuErfDQU9e8,1889
+pytest_testreport-1.0.1.dist-info/WHEEL,sha256=qB97nP5e4MrOsXW5bIU5cUn_KSVr10EV0l-GCHG9qNs,97
+pytest_testreport-1.0.1.dist-info/entry_points.txt,sha256=3938wjAuYj_2XdM5JjiAVeAnYho_jLt1R4EqSYwN4Xw,59
+pytest_testreport-1.0.1.dist-info/top_level.txt,sha256=3o6WAtHMw6hJ9X8C1A7tvSNQavVpzvbeKhlk5Acg7sg,17
+pytest_testreport-1.0.1.dist-info/RECORD,,
