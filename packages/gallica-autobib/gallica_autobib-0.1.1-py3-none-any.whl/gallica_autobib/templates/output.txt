@@ -1,0 +1,17 @@
+                                 Status Report
+                                 -------------
+{% for record in obj.records %}
+  =={{record.author}} {{ record.title }}==
+
+{{ obj.raw[loop.index0] }}
+
+  {% if obj.results[loop.index0] %}
+    Output:  {{ obj.results[loop.index0] }}
+    {% if not obj.clean %}
+    Original: {{ obj._outfs[loop.index0] }}
+    {% endif %}
+  {% else %}
+    Failed to match :(
+  {% endif %}
+
+{% endfor %}
