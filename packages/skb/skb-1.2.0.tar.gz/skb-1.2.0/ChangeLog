@@ -1,0 +1,46 @@
+CHANGES
+=======
+
+v1.2.0
+------
+
+* Bump version: 1.1.1 → 1.2.0
+* Changed input file from XML to plain text
+* Changed input file from XML to plain text
+* Changed input file from XML to plain text
+
+v1.1.2
+------
+
+* Changed input file from XML to plain text
+* Updated README.md
+* README typo fixes
+* Updated license file
+* Updated README.md
+* Updated README.md
+* Updated README.md
+
+v1.1.0
+------
+
+* Bump version: 1.0.2 → 1.1.0
+* Added some file error handling and version information
+* Bux fixes
+* Fixed broken install
+
+v1.0.7
+------
+
+* Fixed broken folder structure!
+* Fixed typo in package name
+* Corrected first release
+* Corrected first release
+* Minor changes
+* Bump version: 1.0.1 → 1.0.2
+* Parseargs error fixed
+* Fixed requirements.txt, V1.0.1
+* Fixed crazy requirements after cleaning up virtualenv
+* Fixed crazy requirements after cleaning up virtualenv
+* Initial commit
+* Initial commit
+* Initial commit
