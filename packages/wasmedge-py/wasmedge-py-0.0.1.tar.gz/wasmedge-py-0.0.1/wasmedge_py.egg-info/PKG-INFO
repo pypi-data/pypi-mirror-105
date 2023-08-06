@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: wasmedge-py
+Version: 0.0.1
+Summary: Wasm Edge
+Home-page: UNKNOWN
+Author: Wasmer Engineering
+Author-email: engineering@wasmer.io
+License: UNKNOWN
+Description: This is an empty package. We will publish new versions soon.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown

@@ -1,0 +1,8 @@
+README.md
+setup.cfg
+setup.py
+wasmedge/__init__.py
+wasmedge_py.egg-info/PKG-INFO
+wasmedge_py.egg-info/SOURCES.txt
+wasmedge_py.egg-info/dependency_links.txt
+wasmedge_py.egg-info/top_level.txt
