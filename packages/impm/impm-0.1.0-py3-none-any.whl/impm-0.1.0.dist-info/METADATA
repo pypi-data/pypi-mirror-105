@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: impm
+Version: 0.1.0
+Summary: Python utilities for improving interoperability between Minecraft data packs.
+Home-page: https://github.com/Arcensoth/impm
+License: MIT
+Keywords: minecraft,commands,library,utility,datapack,data
+Author: Arcensoth
+Author-email: arcensoth@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: colorlog (>=4.2.1,<5.0.0)
+Project-URL: Repository, https://github.com/Arcensoth/impm
+Description-Content-Type: text/markdown
+
+# impm
+
+Python utilities for improving interoperability between Minecraft data packs.
+
