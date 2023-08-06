@@ -1,0 +1,11 @@
+vpic/__init__.py,sha256=4_6whNjONsEyNZR32Dt3le3x-9lBEt0u5rxWWqTaUII,104
+vpic/client.py,sha256=SpOG4Dgxm9WiwvO7ujJu-Ow8KHlF4htIhF_1jFC3W6U,25207
+vpic/client_base.py,sha256=Ij1fgjYoKJFj9Njp_TSmvQI0hjJc3Xa5DoRiw51yxD4,3104
+vpic/exceptions.py,sha256=C-XnG1ytUi9ZaiWVmP1DGxyfCphLmRQqp9YqlWBWMVs,1316
+vpic/model.py,sha256=6gmrlpDitq8K2uJ5_zug7UnKiUw0igWwWuMrbp9jL08,6803
+vpic/session.py,sha256=m7OPMc5EF3W9P6pWUf_uqdcXg0rsENr085QRtmLJp9A,426
+vpic/typed_client.py,sha256=vTRBhmQovfkSpDEqm84H3vrR3-IxDOrM_qrDx7JK-cI,29137
+vpic_api-0.3.0.dist-info/LICENSE,sha256=YAuzgMvhdYsUvLdIluNoLfMoPzzYbjcWybrJDqPzywQ,1070
+vpic_api-0.3.0.dist-info/WHEEL,sha256=V7iVckP-GYreevsTDnv1eAinQt_aArwnAxmnP0gygBY,83
+vpic_api-0.3.0.dist-info/METADATA,sha256=XCtS7ZY96_vM6d1fHBvHT__xpAjOKs6uBmBQCEj63Jw,5890
+vpic_api-0.3.0.dist-info/RECORD,,
