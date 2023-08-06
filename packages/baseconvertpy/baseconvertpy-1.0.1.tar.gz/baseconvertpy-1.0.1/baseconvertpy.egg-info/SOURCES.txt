@@ -1,0 +1,8 @@
+README.md
+setup.py
+baseConvertPy/__init__.py
+baseConvertPy/base_change.py
+baseconvertpy.egg-info/PKG-INFO
+baseconvertpy.egg-info/SOURCES.txt
+baseconvertpy.egg-info/dependency_links.txt
+baseconvertpy.egg-info/top_level.txt
