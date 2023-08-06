@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: mfa-cli
+Version: 0.3.5
+Summary: CLI tool for generating one-time passwords.
+Home-page: https://github.com/thiagoalmeidasa/mfa-cli
+Author: Thiago Almeida
+Author-email: thiagoalmeidasa@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: click (==7.1)
+Requires-Dist: pyaescrypt (==5.0.0)
+Requires-Dist: pyotp (==2.6.0)
+Requires-Dist: pyperclip (==1.8.2)
+Requires-Dist: pyyaml (==5.4)
+
+# mfa-cli
+
+[![CI](https://github.com/thiagoalmeidasa/mfa-cli/actions/workflows/ci.yaml/badge.svg)](https://github.com/thiagoalmeidasa/mfa-cli/actions/workflows/ci.yaml)
+
+CLI tool for generating one-time passwords.
+
+## Instalation
+
+```bash
+pip install mfa-cli
+```
+
+## Usage
+
+```bash
+$ mfa-cli list-keys --keyfile codes.yml
+$ mfa-cli new-totp --keyfile codes.yml
+$ mfa-cli new-totp --keyfile codes.yml --keyname myservice
+```
+
+

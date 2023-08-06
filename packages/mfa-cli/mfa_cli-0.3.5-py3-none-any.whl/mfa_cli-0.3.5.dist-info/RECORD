@@ -1,0 +1,9 @@
+mfacli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mfacli/__main__.py,sha256=klTo3CYBzI29y4bHQvp16rDK2ywTl9SfCtTz9CVtflo,135
+mfacli/manage_totp.py,sha256=nfD0cOOD61owIos7JWMAevQZE4230QIwIQXzpgBzBhA,3085
+mfacli/mfa_cli.py,sha256=GZ_uyXjmV1pTI-WeFYY0D4e3ozIVY3C1ALQHJ2UVb7w,2385
+mfa_cli-0.3.5.dist-info/METADATA,sha256=IvI_0kZ12GrlN1xJC-Ynqis8Ko249STG2FlywfxF_N4,844
+mfa_cli-0.3.5.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+mfa_cli-0.3.5.dist-info/entry_points.txt,sha256=asgduGiyAb5DXiYyiTVALfL39rd7HfFDS2IgXwIhYs0,49
+mfa_cli-0.3.5.dist-info/top_level.txt,sha256=cOVlhDUlyksYSwM9wd7gy4x-3B8on-JzuxhlHpMZg5A,7
+mfa_cli-0.3.5.dist-info/RECORD,,
