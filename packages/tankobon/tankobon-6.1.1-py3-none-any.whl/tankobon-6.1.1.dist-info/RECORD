@@ -1,0 +1,17 @@
+tankobon/__init__.py,sha256=aSrFc7umpjTrv9609b3PCO3cD93akhRRvfc797gmj-A,115
+tankobon/__main__.py,sha256=Iu7QSPOJ99wY64lID5LY1J1H45Uk0N-ZbvD7L1h5yzE,72
+tankobon/__version__.py,sha256=CtryE-2y1M9KE31lCipGHf-cQkv9wKc2tAZukBMbYXE,38
+tankobon/cli.py,sha256=HfBXCloEfsPGQm4hSLx0e7YCue06Ao_QfDMwyt4_yb8,7281
+tankobon/core.py,sha256=HNH74z9Wz_8vKFe2zVyNIyX2gYXLsbCdmn0A8uk4vz4,13325
+tankobon/exceptions.py,sha256=uVMS_sSMjg2EwLkcmldYBoKeqt9pqGiDbNggmXJqXbk,252
+tankobon/gui.py,sha256=lteHY59dkzG_Y3LKFPtPJvZAU8wNw_syBzxaeRLeAKg,12192
+tankobon/resources.py,sha256=aE784Yyn1ehaxJsZqEC3x3v71B6EeL4UjAzvPatlg3M,711
+tankobon/utils.py,sha256=HVcKCKdrmfnUHVyOw_3l1UgCJTHaNq_o43CYLPzX3h4,3311
+tankobon/parsers/__init__.py,sha256=5ka0ZTwlW9L98PF0SgFrh4VUxgMWyIjvuR6dbsGyMxs,1611
+tankobon/parsers/catmanga.py,sha256=SFOWS9fHfiOqbVPm3M6kS2nW68X_IUP3OSJCf-BCjTA,1450
+tankobon/parsers/mangakakalot.py,sha256=kOMyrNZVzAu3Qm_7WjgaVJvFngoXy6oMIXyudmvsxMY,1771
+tankobon-6.1.1.dist-info/entry_points.txt,sha256=vSyqM_9I8_LPxSMyXgOuYg2-0ddEter5Qalke_ZOyJk,45
+tankobon-6.1.1.dist-info/LICENSE,sha256=nYyN3luJmjOOw23y-JKWokbiRtJtlPxNk6j-wH85kXA,1084
+tankobon-6.1.1.dist-info/WHEEL,sha256=o-Q2E8s7BKkCJ1EC2uQdaymZVVu2aUt1e8uTTFpzHVs,81
+tankobon-6.1.1.dist-info/METADATA,sha256=M4qT37lMmWaY2PJ79sJXTEByvb4X6U6FkcEXHKs9kCo,2472
+tankobon-6.1.1.dist-info/RECORD,,
