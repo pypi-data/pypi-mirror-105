@@ -1,0 +1,6 @@
+MiPaqueteriaOperaciones.py
+setup.py
+MiPaqueteriaDeny.egg-info/PKG-INFO
+MiPaqueteriaDeny.egg-info/SOURCES.txt
+MiPaqueteriaDeny.egg-info/dependency_links.txt
+MiPaqueteriaDeny.egg-info/top_level.txt
